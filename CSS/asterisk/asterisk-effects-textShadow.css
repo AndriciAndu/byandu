@@ -1,0 +1,29 @@
+
+
+/* Text - Shadow Effects */
+/* ------------------------------------------------- */
+
+	/* Glitch-1 */
+	/* ------------------------------------------------- */
+
+		.text-shadow-glitch-1 {
+			--shadow-color-1: blue;
+			--shadow-color-2: red;
+		}
+
+		.text-shadow-glitch-1:hover {
+			animation: text-shadow-glitch-1 .6s linear infinite;
+		}
+
+		@-webkit-keyframes text-shadow-glitch-1 { 
+			0%, 100%   { text-shadow: -.05em  .05em var(--shadow-color-1), -.05em -.05em var(--shadow-color-2); }
+			25%        { text-shadow: -.05em -.05em var(--shadow-color-1),  .05em  .05em var(--shadow-color-2); }
+			50%        { text-shadow:  .05em  .05em var(--shadow-color-1),  .05em -.05em var(--shadow-color-2); }
+			75%        { text-shadow:  .05em -.05em var(--shadow-color-1), -.05em  .05em var(--shadow-color-2); }
+		}
+                @keyframes text-shadow-glitch-1 {
+			0%, 100%   { text-shadow: -.05em  .05em var(--shadow-color-1), -.05em -.05em var(--shadow-color-2); }
+			25%        { text-shadow: -.05em -.05em var(--shadow-color-1),  .05em  .05em var(--shadow-color-2); }
+			50%        { text-shadow:  .05em  .05em var(--shadow-color-1),  .05em -.05em var(--shadow-color-2); }
+			75%        { text-shadow:  .05em -.05em var(--shadow-color-1), -.05em  .05em var(--shadow-color-2); }
+        }

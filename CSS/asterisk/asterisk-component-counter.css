@@ -1,0 +1,82 @@
+
+	/* Defs - Define gradients to use within SVG */
+	/* --------------------------------------- */
+
+		.defs-definitions {
+			position: fixed;
+			top: -100vh; left: -100vw;
+			width: 1px; height: 1px;
+			visibility: hidden;
+		}
+	
+	/* Text */
+	/* --------------------------------------- */
+
+		svg .counter-text { 
+			text-align: center;
+
+			/* font-size & color */
+			font-size: .6em; fill: white; 
+
+			/* the SVG itself is rotated -90deg [and] the .3em is to center text */
+			transform: rotate(90deg) translateY(.3em); 
+		}
+
+	/* Pie */
+	/* --------------------------------------- */
+
+		.pie {
+			background-color: red;
+
+			position: relative; border-radius: 50%;
+	        -webkit-transform: rotate(-90deg);
+	            -ms-transform: rotate(-90deg);
+	                transform: rotate(-90deg); 
+		}
+
+		.pie .outer {
+			stroke: url(#grad-01);
+			stroke-width: 50%;
+			fill: none;
+
+			-webkit-animation: svg-pie-animation 1s 1 forwards;
+					animation: svg-pie-animation 1s 1 forwards;
+        }
+
+		@-webkit-keyframes svg-pie-animation { 0% { stroke-dasharray: 0 100; } /* 100 = 100% */ }
+				@keyframes svg-pie-animation { 0% { stroke-dasharray: 0 100; } /* 100 = 100% */ }
+
+
+	/* Counter */
+	/* --------------------------------------- */
+
+		.counter {
+			color: #f06; 			/* inner color 		*/
+			background-color: red; 	/* underlay color 	*/
+			
+			position: relative; border-radius: 50%;
+	        -webkit-transform: rotate(-90deg);
+	            -ms-transform: rotate(-90deg);
+	                transform: rotate(-90deg); 
+		}
+
+		.counter .outer {
+			stroke: url(#grad-01);
+			stroke-width: 5;
+			stroke-linecap: round;
+
+			fill: none;
+
+			-webkit-animation: svg-counter-animation 1s 1 forwards;
+					animation: svg-counter-animation 1s 1 forwards;
+		}
+
+		.counter .inner {
+			stroke-width: 25;
+			stroke: currentColor;
+		}
+
+		@-webkit-keyframes svg-counter-animation { 0% { stroke-dasharray: 0 200; } /* 180 = 100% */ }
+				@keyframes svg-counter-animation { 0% { stroke-dasharray: 0 200; } /* 180 = 100% */ }
+
+

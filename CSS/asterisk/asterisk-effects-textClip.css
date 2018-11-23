@@ -1,0 +1,199 @@
+
+	/* Clip - gradient setup static */
+	/* ------------------------------------------------- */
+
+		.text-clip {
+			/*background: linear-gradient(to right, red , yellow, red);*/
+
+			-webkit-background-clip: text !important;
+			        background-clip: text !important;
+			-webkit-text-fill-color: transparent;
+			        text-fill-color: transparent;
+		}
+
+    /* Cutout text - over black|white background */
+	/* ------------------------------------------------- */
+
+		.text-clip-black {
+			position: relative;	display: inline-block;
+			padding: .3em .5em;
+
+			background: black; color: white;
+			mix-blend-mode: multiply;
+		}
+
+		.text-clip-white {
+			position: relative;	display: inline-block;
+			padding: .3em .5em;
+			background: white; color: black;
+			mix-blend-mode: screen;
+		}
+
+		/* full */
+		.text-clip-black-full {
+			position: relative;	display: inline-block;
+			padding: .3em .5em;
+			width: 100%; height: 100%;
+
+			display: flex;
+			justify-content: center; align-items: center;
+
+			background: black; color: white;
+			mix-blend-mode: multiply;
+		}
+
+		.text-clip-white-full {
+			position: relative;	display: inline-block;
+			padding: .3em .5em;
+			width: 100%; height: 100%;
+
+			display: flex;
+			justify-content: center; align-items: center;
+
+			background: white; color: black;
+			mix-blend-mode: screen;
+		}
+
+		.text-clip-white-border {
+			position: relative;	display: inline-block;
+			margin: .5em;
+			padding: .3em .5em;
+			width:  calc(100% - 1em);
+			height: calc(100% - 1em);
+
+			display: flex;
+			justify-content: center; align-items: center;
+
+			background: white; color: black;
+			mix-blend-mode: screen;
+			border-radius: inherit;
+		}
+
+		.text-clip-black-border {
+			position: relative;	display: inline-block;
+			margin: .5em;
+			padding: .3em .5em;
+			width:  calc(100% - 1em);
+			height: calc(100% - 1em);
+
+			display: flex;
+			justify-content: center; align-items: center;
+
+			background: black; color: white;
+			mix-blend-mode: multiply;
+			border-radius: inherit;
+		}
+
+	/* Clip-gradient - alternate */
+	/* ------------------------------------------------- */
+
+		.text-clip-gradient-alternate {
+			background: linear-gradient(to right, red , yellow, red);
+			background-size: 400% 100%;
+
+			-webkit-background-clip: text;
+					background-clip: text;
+			-webkit-text-fill-color: transparent;
+			        text-fill-color: transparent;
+
+		    -webkit-animation: text-clip-gradient-alternate 2s ease infinite;
+		            animation: text-clip-gradient-alternate 2s ease infinite;
+		}
+
+		@-webkit-keyframes text-clip-gradient-alternate { 
+			0% , 100% {background-position:   0% 50%; }
+		    50%       {background-position: 100% 50%; }
+		}
+                @keyframes text-clip-gradient-alternate {
+			0% , 100% {background-position:   0% 50%; }
+		    50%       {background-position: 100% 50%; }
+        }
+
+        /* ------------ slide to ulock iphone test----------- */
+        .text-clip-gradient-alternate-slow {
+        	background: linear-gradient(to white, black, white);
+			background-size: 400% 100%;
+
+			-webkit-background-clip: text;
+					background-clip: text;
+			-webkit-text-fill-color: transparent;
+			        text-fill-color: transparent;
+
+		    -webkit-animation: text-clip-gradient-alternate 2s ease infinite;
+		            animation: text-clip-gradient-alternate 2s ease infinite;
+		}
+
+		@-webkit-keyframes text-clip-gradient-alternate-slow { 
+			0%    {background-position:   0% 50%; }
+		    100%  {background-position: 100% 50%; }
+		}
+                @keyframes text-clip-gradient-alternate-slow {
+			0%    {background-position:   0% 50%; }
+		    100%  {background-position: 100% 50%; }
+        }
+        /* ------------ slide to ulock iphone test----------- */
+
+    /* text-shine */
+	/* ------------------------------------------------- */
+
+    	.text-shine {
+
+    		--text-shine-color: #000000;
+
+    		color: var(--text-shine-color, #000000);
+
+			background: linear-gradient(to right, var(--text-shine-color, #000000) 40%, yellow , var(--text-shine-color, #000000));
+			background-size: 600% 100%;
+
+			-webkit-background-clip: text;
+			        background-clip: text;
+			-webkit-text-fill-color: transparent;
+			        text-fill-color: transparent;
+    	}
+
+    	.text-shine:hover {
+		    -webkit-animation: text-shine 1s ease;
+		            animation: text-shine 1s ease;
+		}
+
+		@-webkit-keyframes text-shine { 
+			0%   {background-position:   0% 50%; }
+		    100% {background-position: 150% 50%; }
+		}
+                @keyframes text-shine {
+			0%   {background-position:   0% 50%; }
+		    100% {background-position: 150% 50%; }
+        }
+
+    /* text-shine-alternate */
+	/* ------------------------------------------------- */
+
+    	.text-shine-alternate {
+
+    		--text-shine-color: #000000;
+
+    		color: var(--text-shine-color, #000000);
+
+			background: linear-gradient(to right, var(--text-shine-color, #000000) 33%, yellow 66%, var(--text-shine-color, #000000));
+			background-size: 300% 100%;
+
+			-webkit-background-clip: text;
+			        background-clip: text;
+			-webkit-text-fill-color: transparent;
+			        text-fill-color: transparent;
+    	}
+
+    	.text-shine-alternate:hover {
+		    -webkit-animation: text-shine-alternate 1.5s ease;
+		            animation: text-shine-alternate 1.5s ease;
+		}
+
+		@-webkit-keyframes text-shine-alternate { 
+			0% , 100% {background-position:   0% 50%; }
+		    50%       {background-position: 150% 50%; }
+		}
+                @keyframes text-shine-alternate {
+			0% , 100% {background-position:   0% 50%; }
+		    50%       {background-position: 150% 50%; }
+        }
+

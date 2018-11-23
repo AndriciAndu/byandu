@@ -1,0 +1,442 @@
+
+	<!-- ===================== Route ================== -->
+	<script src="../../js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+	<style> 
+
+		.faSpinner-demoItem {
+			background-color: rgb(190, 12, 12);
+			border-radius: 3px;
+		}
+
+		.faSpinner-demoItemBtn-size  , 
+		.faSpinner-demoItemBtn-speed ,
+		.faSpinner-demoItemBtn-icon  {
+			padding: 8px 0;
+			text-align: center;
+			background-color: rgba(3,3,3,.1);
+			border-left:  1px solid rgba(3,3,3,.3);
+			border-right: 1px solid rgba(3,3,3,.3);
+		}
+
+		.faSpinner-demoItemBtn-size:first-of-type  , 
+		.faSpinner-demoItemBtn-speed:first-of-type ,
+		.faSpinner-demoItemBtn-icon:first-of-type  {
+			border-left: none;
+		}
+
+		.faSpinner-demoItemBtn-size:last-of-type  , 
+		.faSpinner-demoItemBtn-speed:last-of-type ,
+		.faSpinner-demoItemBtn-icon:last-of-type  {
+			border-right: none;
+		}
+
+		.faSpinner-demoItemBtn-size.active  , 
+		.faSpinner-demoItemBtn-speed.active ,
+		.faSpinner-demoItemBtn-icon.active  {
+			background-color: #613dcc;
+			color: #FFFFFF;
+		}
+
+		.faSpinner-demoItemBtn-icon {
+			height: 32px;
+		}
+
+		.faSpinner-demoItemBtnContainer {
+			border: 2px solid rgba(97,61,204, .5);
+			border-radius: 6px;
+			overflow: hidden;
+			padding: 0;
+		}
+
+		</style>
+	<!-- ============================================== -->
+
+	<article>
+
+		<header class="sr-only"> <h2> Component : faSpinner (FontAwesome Spinner) </h2> </header>
+
+		<div class="tabs article-mainTabs">
+
+			<div class="article-mainTabs-banner">
+				<div class="article-mainTabs-title"> Effects : faSpinner </div>
+
+				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
+					<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> Demo  </button>
+					<button class="tabs-btn" 				data-tabs-id="2"> Usage </button>
+					<button class="tabs-btn" 				data-tabs-id="3"> Code  </button>
+				</div>
+			</div>
+
+			<div class="tabs-contentGroup">
+
+				<!-- Demo Tab -->
+				<div class="tabs-content article-mainTabs-demoTab tab-expanded" data-tabs-id="1"> 
+					<div class="_route_mainView-generateDemos">
+						
+						<div class="col-12 sm-col-6 xs-o-mb-sm flex flex-cross-center"> 
+							<div class="col-2 p-0 text-bold"> Size </div>
+							<div class="col-10 row-equal faSpinner-demoItemBtnContainer">
+								<button class="faSpinner-demoItemBtn-size" data-value="faSpinner-xs">	xs	 	</button>
+								<button class="faSpinner-demoItemBtn-size" data-value="faSpinner-sm">	sm	 	</button>
+								<button class="faSpinner-demoItemBtn-size active" data-value="faSpinner-md">	md	 	</button>
+								<button class="faSpinner-demoItemBtn-size" data-value="faSpinner-lg">	lg	 	</button>
+								<button class="faSpinner-demoItemBtn-size" data-value="faSpinner-xl">	xl	 	</button>
+								<button class="faSpinner-demoItemBtn-size" data-value="faSpinner-xxl">  xxl		</button>
+							</div>
+						</div>
+
+						<div class="col-12 sm-col-6 flex flex-cross-center"> 
+							<div class="col-2 p-0 text-bold"> Speed </div>
+							<div class="col-10 row-equal faSpinner-demoItemBtnContainer">
+								<button class="faSpinner-demoItemBtn-speed" data-value="faSpinner-slow"> slow 	</button>
+								<button class="faSpinner-demoItemBtn-speed active" data-value="">				 normal	</button>
+								<button class="faSpinner-demoItemBtn-speed" data-value="faSpinner-fast"> fast 	</button>
+							</div>
+						</div>
+
+						<hr>
+
+						<div class="col-12 sm-col-6 xs-o-mb-sm flex flex-cross-center"> 
+							<div class="col-2 p-0 text-bold"> Size </div>
+							<div class="col-10 row-equal faSpinner-demoItemBtnContainer">
+								<button class="faSpinner-demoItemBtn-icon fa fa-refresh active" data-value="">		 			 </button>
+								<button class="faSpinner-demoItemBtn-icon fa fa-gear" 	 data-value="faSpinner-cog">	 </button>
+								<button class="faSpinner-demoItemBtn-icon fa fa-spinner" data-value="faSpinner-spinner"> </button>
+								<button class="faSpinner-demoItemBtn-icon fa fa-circle-o-notch" data-value="faSpinner-circle"> </button>
+							</div>
+						</div>
+
+						<div class="col-12 sm-col-6 flex flex-cross-center"> 
+							<div class="col-2 p-0 text-bold"> Speed </div>
+							<div class="col-10 row-equal faSpinner-demoItemBtnContainer">
+								<button class="faSpinner-demoItemBtn-speed" data-value="faSpinner-slow"> slow 	</button>
+								<button class="faSpinner-demoItemBtn-speed active" data-value="">				 normal	</button>
+								<button class="faSpinner-demoItemBtn-speed" data-value="faSpinner-fast"> fast 	</button>
+							</div>
+						</div>
+
+						<hr>
+
+						<div class="col-12 md-col-6 my-sm">
+							<div class="faSpinner-demoItem faSpinner" style="height: 280px"></div>
+						</div>
+
+						<div class="col-12 md-col-6 my-sm p-0">
+							<div class="col-4"> <div class="faSpinner-demoItem faSpinner" style="height: 150px"></div> </div>
+							<div class="col-8"> <div class="faSpinner-demoItem faSpinner" style="height: 150px"></div> </div>
+							<div class="col-12 mt-lg"> <div class="faSpinner-demoItem faSpinner" style="height: 100px"></div> </div>
+						</div>
+
+					</div>
+				</div>
+
+				<!-- Usage Tab -->
+				<div class="tabs-content article-mainTabs-usageTab" data-tabs-id="2"> 
+
+					<!-- I. Description -->
+
+						<section class="p-0" aria-label="general description">
+							<heading> <h2 class="section-title"> I. Description </h2> </heading>
+
+							<p> Collection of <button class="modal-btn" data-modal-id="utilityClasses">Utility Classes</button> used to apply a loading-effect overlay to the Element. </p>
+
+							<p class="m-0"> 
+								Effect is achieved by using the <span class="wrapper">FontAwesome</span> library and <span class="wrapper"> CSS pseudo-elements</span>.
+
+								<button class="spoiler-btn spoiler-btn-autoText title-spoilerBtn" data-spoiler-id="description-more"> More | </button>
+							</p>
+
+							<div class="spoiler" data-spoiler-id="description-more">
+								<div class="spoiler-content">
+									<p> The effect can be controlled by adding/removing the <span class="wrapper">faSpinner</span> <span class="wrapper">class</span> on the desired element. </p>
+									<p> Can be used for <span class="wrapper">search queries</span>, <span class="wrapper">fetch / GET / POST requests</span>, etc. </p>
+								</div>
+							</div>
+						</section>
+
+					<!-- II. Initialization -->
+
+						<section class="p-0" aria-label="initialization">
+							<heading> <h2 class="section-title"> II. Initialization </h2> </heading>
+
+							<p> <b>Step 1.</b> Refference the <a href="https://fontawesome.com/" target="_blank"><u><b>FontAwesome</b></u></a> Library. </p>
+							<div class="wrapper"> &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> </div>
+
+							<p class="mb-0"> 
+								<b>Step 2.</b> Download and refference the [ <b-p>asterisk-component-faSpinner.css</b-p> ] <span class="wrapper tooltip-before tooltip-top" data-tooltipText="* This will include all Styles / Features."></span> CSS file.
+								<button class="spoiler-btn spoiler-btn-autoText title-spoilerBtn" data-spoiler-id="init-more"> More | </button>
+							</p> 
+
+							<div class="wrapper"> 
+								<div class="col-12"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-component-faSpinner.css</b-p>" type="text/css" rel="stylesheet"> </div>
+							</div>
+
+							<div class="spoiler" data-spoiler-id="init-more">
+								<div class="spoiler-content">
+									<div class="col-12">
+
+										<p class="mt-sm"> 
+											<b>Alternatively</b>, a <span class="wrapper"><b-p>{*}</b-p><b-r>-spec</b-r><b-p>.css</b-p></span> file can be generated within the <b><span class="wrapper">[Code]</span> Tab</b> <span class="wrapper tooltip-before tooltip-right" data-tooltipText="Will include only the selected Styles/Features. &#13;&#10;───────────────────────────&#13;&#10; See button on the top-right of page."></span>
+										</p>
+										<div class="wrapper mt-0"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-component-faSpinner<b-r>-spec</b-r>.css</b-p>" type="text/css" rel="stylesheet"> </div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+					<!-- III. Usage -->
+
+						<section class="px-0" aria-label="usage">
+							<heading> <h2 class="section-title"> III. Usage </h2> </heading>
+
+							<p> The effect is <b>controlled</b> by adding/removing the <span class="wrapper">fa-spinner</span> class on the target <span class="wrapper">Element</span> .
+
+							<div class="accordion">
+								<div class="accordion-group px-md my-sm">
+									<button class="accordion-btn"> * Applying the effect to a <b>HTML Element</b> :   </button>
+									<div class="accordion-content">
+										<p> As the common use cases revolve around applying the effect while the <span class="wrapper"> HTML Element </span> is updating it's content, toggling the <span class="wrapper">faSpinner</span> <span class="wrapper">class</span> is ussualy included within a larger <span class="wrapper">function</span> (the function which actually loads the content). </p>
+
+										<div class="col-12"><hr></div>
+
+										<div class="col-12 p-0 md-flex md-flex-stretch-center">
+											<div class="col-12 md-col-6 pl-0"> 
+												<div class="wrapper"> 
+													<pre class="pre-removeTabSpaces">
+													    function <b>myFunctionToLoadContent()</b> { 
+													        <span class="wrapper">myElem</span>.classList.add('<b-p>faSpinner</b-p>');
+													        <i class="comment"> // add some code to load content to myElem </i>
+													        setTimeout(
+													            function(){
+													                <span class="wrapper">myElem</span>.classList.remove('<b-p>faSpinner</b-p>')
+													            }, 0);
+													    } 
+													</pre>
+												</div> 
+											</div>
+
+											<div class="col-12 md-col-6 p-0"> 
+												<div>
+													<p> The <span class="wrapper">setTimeout</span> is required in order to display the effect, which is done by using two different tasks: </p>
+													<p>
+														(1) on one task it adds the class, which renders the effect <br>
+														(2) on the next task it remove the class and the effect 
+													</p>
+													<p class="mt-0"> Without the <span class="wrapper">setTimeout</span>, the class would be added and removed on the same task, and the effect will not be visible. </p>
+
+													<hr>
+
+													<p> More on the Event Loop and Tasks : <a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ" target="_blank"> <b><u>Youtube link</u></b> </a> </p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="accordion-group px-md my-sm">
+									<button class="accordion-btn"> * Applying the effect as a <b>website loader</b> :   </button>
+									<div class="accordion-content">
+
+										<p> The <span class="wrapper">faSpinner</span> <span class="wrapper">class</span> should be statically applied on the <span class="wrapper">body</span>, and removed through a <span class="wrapper">function</span> after the document has loaded. </p>
+
+										<div class="wrapper"> &lt;body class="<b-p>faSpinner</b-p>"> ... &lt;/body> <i style="color: rgba(3,3,3,.5)">// placed  on the <span class="wrapper">body</span> - removed when document has loaded </i>
+										</div>
+
+										<div class="col-12 md-col-6 p-0 md-pr-md">
+											<div class="wrapper"> 
+												<line> <b-r>JQuery</b-r> </line>
+												<hr>
+												<pre class="pre-removeTabSpaces">
+												    $( document ).ready( 
+
+												        $('body').removeClass("<b-p>faSpinner</b-p>")
+
+												    );
+												</pre>
+											</div>
+										</div>
+
+										<div class="col-12 md-col-6 p-0 md-pl-md">
+											<div class="wrapper"> 
+												<line> <b-r>Javascript</b-r> </line>
+												<hr>
+												<pre class="pre-removeTabSpaces">
+												    document.onreadystatechange = function () { 
+												        if (document.readyState === "interactive") {
+												            document.body.classList.remove("<b-p>faSpinner</b-p>")
+												        }
+												    };
+												</pre>
+											</div>
+										</div>
+
+									</div>
+
+								</div>
+							</div>
+
+							<hr>
+
+							<div class="col-12 p-0 md-flex md-flex-cross-center">
+								<div class="col-12 md-col-6 p-0">
+									<p class="mb-0"> * The <span class="wrapper">HTML Element</span> to which the <span class="wrapper">faSpinner</span> class is applied to, <b>must not have additional rules set on the <span class="wrapper">:before</span> or <span class="wrapper">:after</span> CSS pseudo-elements</b> </p>
+									<p class="sub-heading mt-0"> * as these will interfere with the <span class="wrapper">faSpinner</span>'s position / style / animation. </p>
+
+									<p> If the <span class="wrapper">HTML Element</span> does require CSS pseudo-elements for other purposes, it is recommended to use a <button class="modal-btn" data-modal-id="dummyParents">'Utility' Parent</button> to hold the <span class="wrapper">faSpinner</span> class. </p>
+								</div>
+
+								<div class="col-12 md-col-6 p-0">
+
+									<div class="wrapper"> 
+										<line> &lt;div class="<b-p>faSpinner</b-p>"> </line>
+										<div class="col-12">
+											<line> &lt;div class="myElem"> ... &lt;/div> </line>
+										</div>
+										<line> &lt;/div> </line>
+									</div>
+								</div>
+							</div>
+
+							<hr>
+
+							<div class="col-12 p-0 md-flex md-flex-cross-center">
+								<div class="col-12 md-col-6 p-0">
+									<p class="mb-0"> The <span class="wrapper">spinner</span> is positioned <b>in the center</b> of the <span class="wrapper">HTML Element</span> to which the <span class="wrapper">faSpinner</span> class is applied to. While the <span class="wrapper">spinner</span> is animating, the <span class="wrapper">HTML Element</span> receives several styles - to not offset the display of the <span class="wrapper">spinner</span>. </p>
+
+									<p class="sub-heading mb-xs"> * these style have the <span class="wrapper"><b-r>!important</b-r></span> declaration, to override more-specific declarations, that might have been applied to the <span class="wrapper">HTML Element</span>. </p>
+
+									<p class="sub-heading mt-0"> <b>* these will not affect the <span class="wrapper">HTML Element</span> when it is not animating the <span class="wrapper">spinner</span> </b></p>
+								</div>
+
+								<div class="col-12 md-col-6 p-0">
+									<div class="wrapper"> 
+										<line> <b>.faSpinner {</b> </line>
+										<div class="col-12">
+											<line> position: relative; </line>
+											<line> padding: 0 <b-r>!important</b-r>; </line>
+											<line> max-width:  100vw <b-r>!important</b-r>; </line>
+											<line> max-height: 100vh <b-r>!important</b-r>; </line>
+											<line> overflow: hidden <b-r>!important</b-r>; </line>
+										</div>
+										<line> <b>}</b> </line>
+									</div>
+								</div>
+							</div>
+
+						</section>
+
+					<!-- IV. Styles -->
+
+						<section class="px-0" aria-label="Styles">
+							<heading> <h2 class="section-title"> IV. Styles </h2> </heading>
+
+							<p> The aditional classes <b>must be added <u>alongisde</u> the <span class="wrapper">faSpinner</span> class,</b> in order to modify specific styles. </p>
+
+							<div class="accordion">
+								<div class="accordion-group px-md my-sm">
+									<button class="accordion-btn"> * Size Classes : <b>faSpinner-{size}</b> :   </button>
+									<div class="accordion-content">
+
+										<table class="col-12 xs-visible">
+											<tbody>
+												<tr>
+													<td> <b>Prefix</b> </td>
+													<td> <b>Value</b> </td>
+												</tr>
+												<tr>
+													<td class="border-left"> *-<b-r>xs</b-r> </td>
+													<td class="border-left"> 12px </td>
+												</tr>
+												<tr>
+													<td class="border-left"> *-<b-r>sm</b-r> </td>
+													<td class="border-left"> 18px </td>
+												</tr>
+												<tr>
+													<td class="border-left"> *-<b-r>md</b-r> </td>
+													<td class="border-left"> 24px </td>
+												</tr>
+												<tr>
+													<td class="border-left"> *-<b-r>lg</b-r> </td>
+													<td class="border-left"> 36px </td>
+												</tr>
+												<tr>
+													<td class="border-left"> *-<b-r>xl</b-r> </td>
+													<td class="border-left"> 48px </td>
+												</tr>
+												<tr>
+													<td class="border-left"> *-<b-r>xxl</b-r> </td>
+													<td class="border-left"> 60px </td>
+												</tr>
+											</tbody>
+										</table>
+
+										<table class="col-12 xs-hidden">
+											<tbody>
+												<tr>
+													<td> <b>Size Prefix</b> </td>
+													<td class="border-left"> *-<b-r>xs</b-r> </td>
+													<td class="border-left"> *-<b-r>sm</b-r> </td>
+													<td class="border-left"> *-<b-r>md</b-r> </td>
+													<td class="border-left"> *-<b-r>lg</b-r> </td>
+													<td class="border-left"> *-<b-r>xl</b-r> </td>
+													<td class="border-left"> *-<b-r>xxl</b-r> </td>
+												</tr>
+												<tr>
+													<td> <b>Value Applied</b> </td>
+													<td class="border-left"> 12px </td>
+													<td class="border-left"> 18px </td>
+													<td class="border-left"> 24px </td>
+													<td class="border-left"> 36px </td>
+													<td class="border-left"> 48px </td>
+													<td class="border-left"> 60px </td>
+												</tr>
+											</tbody>
+										</table>
+
+										<div class="wrapper"> 
+											<div class="col-12 sm-col-7 xs-o-p-0 xs-o-mb-xs"> &lt;div class="<span class="wrapper"><b>faSpinner</b></span>"> &lt;/div> </div> 
+											<div class="col-12 sm-col-5 xs-o-p-0"> <i class="comment">// Icon Size : 24px <b>(default)</b></i> </div>
+										</div>
+										<div class="wrapper"> 
+											<div class="col-12 sm-col-7 xs-o-p-0 xs-o-mb-xs"> &lt;div class="<span class="wrapper"><b>faSpinner</b></span> <span class="wrapper"><b-p>faSpinner</b-p>-<b-r>sm</b-r></span>"> &lt;/div> </div>
+											<div class="col-12 sm-col-5 xs-o-p-0"> <i class="comment">// Icon Size : 18px</i> </div>
+										</div> 
+
+									</div>
+								</div>
+
+								<div class="accordion-group px-md my-sm">
+									<button class="accordion-btn"> * Speed Classes : <b>faSpinner-{speed}</b> :   </button>
+									<div class="accordion-content">
+
+										<div class="wrapper"> 
+											<div class="col-12 sm-col-7 xs-o-p-0 xs-o-mb-xs"> &lt;div class="<span class="wrapper"><b>faSpinner</b></span>"> &lt;/div> </div> 
+											<div class="col-12 sm-col-5 xs-o-p-0"> <i class="comment">// Animation duration : 1s <b>(default)</b> </i></div>
+										</div>
+										<div class="wrapper"> 
+											<div class="col-12 sm-col-7 xs-o-p-0 xs-o-mb-xs"> &lt;div class="<span class="wrapper"><b>faSpinner</b></span> <span class="wrapper"><b-p>faSpinner</b-p>-<b-r>fast</b-r></span>"> &lt;/div> </div>
+											<div class="col-12 sm-col-5 xs-o-p-0"> <i class="comment">// Animation duration : .5s</i> </div>
+										</div> 
+										<div class="wrapper"> 
+											<div class="col-12 sm-col-7 xs-o-p-0 xs-o-mb-xs"> &lt;div class="<span class="wrapper"><b>faSpinner</b></span> <span class="wrapper"><b-p>faSpinner</b-p>-<b-r>slow</b-r></span>"> &lt;/div> </div>
+											<div class="col-12 sm-col-5 xs-o-p-0"> <i class="comment">// Animation duration : 1.5s</i> </div>
+										 </div> 
+
+									</div>
+								</div>
+							</div>
+
+						</section>
+				</div>
+
+				<!-- Code Tab -->
+				<div class="tabs-content article-mainTabs-codeTab"  data-tabs-id="3"> </div>
+			</div>
+		</div>
+
+	</article>
+
+	<!-- ==================================================== -->
+	<div id="runScript" data-src="../../js/extra_scripts/effects/faSpinner.js"> </div>
+	<!-- ==================================================== -->

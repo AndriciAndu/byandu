@@ -1,0 +1,153 @@
+ 
+	<!-- ===================== Route ================== -->
+	<script src="../../js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+
+	<article>
+
+		<div class="article-title"> Functionality : Extra </div>
+
+		<header class="sr-only"> <h2> Undefined </h2> </header>
+
+		<!-- copyText()  -->
+		<!-- ============================================== -->
+
+			<div class="title">
+				<div class="col-12 sm-col-5"> <b-r>copyText()</b-r></div>
+				<div class="col-12 sm-col-5"> [ctrl + C] Element's innerText </div> 
+				<button class="col-12 sm-col-2 xs-o-my-sm spoiler-btn spoiler-btn-autoText" data-spoiler-id="copyText()"> </button>
+			</div>
+
+			<div class="spoiler" data-spoiler-id="copyText()">
+				<div class="spoiler-content px-md">
+					<div class="wrapper">
+						<div class="copyContext-btnContainer" data-copyContextId="copyText-1">
+							<button class="copyContext-btn copyContext-btn-copyText"> </button>
+							<button class="copyContext-btn copyContext-btn-showLightbox"> </button>
+						</div>
+						
+						<div class="copyContext" data-copyContextId="copyText-1">
+							<pre class="pre-removeTabSpaces">
+							    function <b-p>copyText</b-p> ( elem ) {
+
+							        if (document.selection) { 
+
+							            var range = document.body.createTextRange();
+							            range.moveToElementText(elem);
+							            range.select().createTextRange();
+
+							        } else if (window.getSelection) {
+
+							            var range = document.createRange();
+							            range.selectNode(elem);
+							            window.getSelection().addRange(range);
+
+							        };
+
+							        document.execCommand("copy"); 
+
+							        var current_selection = window.getSelection ? window.getSelection() : document.selection;
+
+							        if (current_selection) {
+							            if (current_selection.removeAllRanges) {
+							                current_selection.removeAllRanges()
+							            } else if (current_selection.empty) { 
+							                current_selection.empty()
+							            }
+							        }
+
+							    }; </pre>
+						</div>
+					</div>
+
+					<div class="wrapper">
+						<p class="title"> // Argument Types : </p>
+						<p> <span class="wrapper">[ elem ]</span> - must be <span class="wrapper">HTMLElement</span> </p>
+
+						<p class="title"> // Will result : </p>
+						<p> The user will have the Element's innerText copied (as if selected and ctrl+C), and can paste it further on. </p>
+
+						<p class="title"> // Usage Example : </p>
+						<p> <span class="wrapper"> <b-p>copyText</b-p><b>(myHTMLElement)</b>; </span> </p>
+					</div>
+
+					<hr>
+					<button class="col-12 spoiler-btn spoiler-btn-autoText" data-spoiler-id="copyText()"> </button>
+				</div>
+			</div>
+
+		<!-- createFile()  -->
+		<!-- ============================================== -->
+
+			<div class="title">
+				<div class="col-12 sm-col-5"> <b-r>createFile()</b-r></div>
+				<div class="col-12 sm-col-5"> create file and prompt download </div> 
+				<button class="col-12 sm-col-2 xs-o-my-sm spoiler-btn spoiler-btn-autoText" data-spoiler-id="createFile()"> </button>
+			</div>
+
+			<div class="spoiler" data-spoiler-id="createFile()">
+				<div class="spoiler-content px-md">
+					<div class="wrapper">
+						<div class="copyContext-btnContainer" data-copyContextId="createFile-1">
+							<button class="copyContext-btn copyContext-btn-copyText"> </button>
+							<button class="copyContext-btn copyContext-btn-showLightbox"> </button>
+						</div>
+						
+						<div class="copyContext" data-copyContextId="createFile-1">
+							<pre class="pre-removeTabSpaces">
+							    function <b-p>createFile</b-p> ( data , file_name ) {
+
+							        var a = document.createElement("a");
+							        var file = new Blob([data], {type: "application/octet-stream"});
+
+							        if (window.navigator.msSaveOrOpenBlob) { 
+
+							            window.navigator.msSaveOrOpenBlob(file, file_name) // IE10+
+
+							        } else { 
+
+							            var url = URL.createObjectURL(file);
+							            a.href = url;
+							            a.download = file_name;
+							            document.body.appendChild(a);
+							            a.click();
+
+							            setTimeout(function() {
+							                document.body.removeChild(a);
+							                window.URL.revokeObjectURL(url);  
+							            }, 0); 
+
+							        };
+							    }; </pre>
+						</div>
+					</div>
+
+					<div class="wrapper">
+						<p class="title"> // Argument Types : </p>
+						<p class="mt-0"> <span class="wrapper">data</span> - must be <span class="wrapper">String</span> </p>
+						<p class="mt-0"> <span class="wrapper">file_name</span> - must be <span class="wrapper">String</span> </p>
+
+						<p class="title"> // Will result : </p>
+						<p class="mt-0"> The <span class="wrapper">data</span> <span class="wrapper">string</span> will be written to a file with the provided <span class="wrapper">file_name</span>, and the download/saveFile window will prompt. </p>
+						<p class="mt-0"> The <span class="wrapper">data</span> <span class="wrapper">string</span> can be the <span class="wrapper">innerHTML</span> or <span class="wrapper">innerText</span> of a certain <span class="wrapper">HTML Element</span>. </p>
+						<p class="mt-0"> <b>The file type is not defined by default</b> - it can be defined by suffixing the <span class="wrapper"><b-r>file type/extension</b-r></span>, within the <span class="wrapper"><b>file_name</b></span> string. </p>
+
+						<p class="title"> // Usage Example : </p>
+						<p> <span class="wrapper"> var myData = /* some string of data */ ; </span> </p>
+						<p class="mt-0"> <span class="wrapper"> <b-p>createFile</b-p><b>(myData, 'myFileName<b-r>.myFileExtension</b-r>')</b>; </span> </p>
+
+						<p class="title"> // Usage Example : </p>
+						<p> <span class="wrapper"> var myData = document.getElementById('myID').innerHTML; </span> </p>
+						<p class="mt-0"> <span class="wrapper"> <b-p>createFile</b-p><b>(myData, 'myFileName<b-r>.html</b-r>')</b>; </span> </p>
+					</div>
+
+					<hr>
+					<button class="col-12 spoiler-btn spoiler-btn-autoText" data-spoiler-id="createFile()"> </button>
+				</div>
+			</div>
+
+	</article>
+
+	<!-- ==================================================== -->
+	<div id="runScript" data-src="../../js/extra_scripts/functionality/extra.js"> </div>
+	<!-- ==================================================== -->

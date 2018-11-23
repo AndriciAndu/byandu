@@ -1,0 +1,78 @@
+
+	<!-- ===================== Route ================== -->
+	<script src="../../js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+
+	<article>
+
+		<div class="article-title"> <span>Snippets : CSS</span> <span class="xs-visible">Resp.</span><span class="xs-hidden">Responsive</span> <span>Syntax</span> </div>
+
+		<div class="col-12">
+			<p> Baseline Syntax : set-up responsive utility-classes, across different viewports. </p>
+
+			<hr>
+
+			<p> <i class="fa fa-arrow-circle-right"></i> The <span class="wrapper">xs-</span> prefix is not included, as the <span class="wrapper">unprefixed</span> class applies the same effect. </p>
+			<p class="mt-0"> <i class="fa fa-arrow-circle-right"></i>  The <span class="wrapper">xl-o-</span> prefix is not included, as any declaration with <span class="wrapper">xl-</span> will apply to only <b>xl screens</b> by design.</p>
+
+			<div class="col-12"> <button class="modal-btn modal-btn-viewportTable" data-modal-id="viewportTable"> Show Viewport-Prefix Syntax Details </button> </div>
+
+			<div class="wrapper">
+				<div class="copyContext-btnContainer" data-copyContextId="cssRespUtilBase-1">
+					<button class="copyContext-btn copyContext-btn-copyText"> </button>
+				</div>
+
+				<div class="copyContext" data-copyContextId="cssRespUtilBase-1">
+					<pre class="m-0 py-md pre-removeTabSpaces">
+					    <i style="color: rgba(3,3,3,.5)">/* All viewports */</i>
+					        .myClass { }
+
+					    <i style="color: rgba(3,3,3,.5)">/* xs-only */</i>
+					    @media (max-width: 575.98px) {
+					        .<b>xs-o-</b>myClass { }
+					    }
+
+					    <i style="color: rgba(3,3,3,.5)">/* sm */</i>
+					    @media (min-width: 575.98px) {
+					        .<b>sm-</b>myClass { }
+					    }
+
+					    <i style="color: rgba(3,3,3,.5)">/* sm-only */</i>
+					    @media (min-width: 575.98px) and (max-width: 767.98px) {
+					        .<b>sm-o-</b>myClass { }
+					    }
+
+					    <i style="color: rgba(3,3,3,.5)">/* md */</i>
+					    @media (min-width: 767.98px) {
+					        .<b>md-</b>myClass { }
+					    }
+
+					    <i style="color: rgba(3,3,3,.5)">/* md-only */</i>
+					    @media (min-width: 767.98px) and (max-width: 991.98px) {
+					        .<b>md-o-</b>myClass { }
+					    }
+
+					    <i style="color: rgba(3,3,3,.5)">/* lg */</i>
+					    @media (min-width: 991.98px) {
+					        .<b>lg-</b>myClass { }
+					    }
+
+					    <i style="color: rgba(3,3,3,.5)">/* lg-only */</i>
+					    @media (min-width: 991.98px) and (max-width: 1199.98px) {
+					        .<b>lg-o-</b>myClass { }
+					    }
+
+					    <i style="color: rgba(3,3,3,.5)">/* xl  */</i>
+					    @media (min-width: 1199.98px) {
+					        .<b>xl-</b>myClass { }
+					    }
+					</pre>
+				</div>
+			</div>
+		</div>
+
+	</article>
+
+	<!-- ==================================================== -->
+	<div id="runScript" data-src="../../js/extra_scripts/snippets/cssResponsiveUtilityBaseline.js"> </div>
+	<!-- ==================================================== -->

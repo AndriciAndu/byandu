@@ -1,0 +1,232 @@
+
+	<!-- ===================== Route ================== -->
+	<script src="../../js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+	<style> 
+
+		.myButton {
+			padding: .5em 1em;
+			background-color: #613dcc; color: #FFF;
+			border-radius: 6px;
+			box-shadow: 2px 2px 2px rgba(3,3,3,.3);
+			margin: 10px 0;
+		}
+
+		.mySpoiler, .mySpoiler-3, .mySpoiler-4 {
+			overflow: hidden;
+			max-height: 0;
+			transition: max-height .3s, visibility 0s .3s;
+
+			background-color: rgba(3,3,3,.3);
+			line-height: 50px; padding: 0 15px;
+			color: white; font-weight: bold;
+			text-shadow: 1px 1px rgba(3,3,3,.3)
+		}
+
+		.mySpoiler.expanded {
+			max-height: 50px;
+		}
+
+		.mySpoiler-3 {
+			display: none;
+		}
+
+		.mySpoiler-4 {
+			visibility: hidden;
+		}
+
+		.mySpoiler-3.expanded {
+			max-height: 100px;
+			display: block;
+		}
+
+		.mySpoiler-4.expanded {
+			max-height: 100px;
+			visibility: visible;
+			transition: max-height .3s, visibility 0s 0s;
+		}
+
+		</style>
+	<!-- ============================================== -->
+
+	<article>
+
+		<heading> <h2 class="section-title"> Prevent children of 'collapsed' elements from receiving focus - with <span> visibility: hidden </span></h2> </heading>
+
+		<p> Fiddling with some components which toggle between a collpased/expanded status, I've come across this cute use-case. </p>
+
+		<heading> <h2 class="section-title"> Generic Setup : <span class="wrapper">max-height</span> and <span class="wrapper">overflow: hidden</span> </h2> </heading>
+
+		<p> In cases where the content must go through a transition (collapse/expand), we ussualy use a <span class="wrapper">max-width / max-height</span> value change, along with a <span class="wrapper">overflow: hidden</span> to hide the content. </p>
+
+		<div class="col-6">
+			<div class="wrapper">
+				<line> &lt;div class="mySpoiler"> </line>
+					<indent>
+					<line> Hello there </line>
+					</indent>
+				<line> &lt;/div> </line>
+				<hr>
+				<line> .mySpoiler { </line>
+					<indent>
+					<line> overflow: hidden; </line>
+					<line> <b>max-height: 0;</b> </line>
+					<line> transition: max-height .3s; </line>
+					</indent>
+				<line> } </line>
+				<line-space></line-space>
+				<line> .mySpoiler.expanded { </line>
+					<indent>
+					<line> <b>max-height: 50px;</b> </line>
+					</indent>
+				<line> } </line>
+			</div>
+		</div>
+
+		<div class="col-6">
+			<button class="myButton mySpoilerBtn-1"> Spoiler-button | Click me </button>
+			<div class="mySpoiler mySpoiler-1">
+				Hello there
+			</div>
+			<hr>
+			<p class="p-0"> When clicking the <span class="wrapper">spoiler-button</span>, we toggle the <span class="wrapper">expanded</span> class on <span class="wrapper">mySpoiler</span></p>
+		</div>
+
+		<heading> <h2 class="section-title"> The problem : <span class="wrapper"> Tab-keypress </span> focus </h2> </heading>
+
+		<p> <b>Simple, clean, awesome.</b> <b-r> But wait .. </b-r> What happens if the <span class="wrapper">spoiler</span> has a tab-focusable element within it? <span class="wrapper">ex: &lt;button> </span>. </p>
+
+		<div class="col-12">
+			<div class="wrapper flex flex-cross-center">
+				<div class="col-4">
+					<hr>
+					<line> &lt;div class="spoiler"> </line>
+						<indent>
+						<line> Hello there </line>
+						<line> <b>&lt;button> My button &lt;/button></b> </line>
+						</indent>
+					<line> &lt;/div> </line>
+					<hr>
+					<p class="p-0" style="line-height: 2"> Even if the element is collapsed (with the <span class="wrapper">max-height: 0;</span> property), the elements within it can still receive keyboard focus - which is a big problem. </p>
+				</div>
+				<div class="col-8">
+					<div class="col-12"> <b-r>Click here first (to set focus before our buttons)</b-r> </div>
+					<hr>
+					<button class="myButton mySpoilerBtn-2"> Spoiler Button </button>
+					<div class="mySpoiler mySpoiler-2">
+						Hello there
+						<button class="myButton"> Button Inside spoiler </button>
+					</div>
+					<button class="myButton"> Button Outside spoiler </button>
+					<hr>
+					<p> Click in the <span class="wrapper"> Click here first </span> portion  - and then use the <span class="wrapper">Tab</span> key to navigate. </p>
+					<p class="tabTest-1"> The 1st time you press <span class="wrapper">Tab</span> you will focus the <span class="wrapper">spoiler-btn</span>.</p>
+					<p class="tabTest-2"> The 2nd time you press <span class="wrapper">Tab</span> you will focus the <span class="wrapper">button</span> within the spoiler.</p>
+					<p class="tabTest-3"> The 3rd time you press <span class="wrapper">Tab</span> you will focus the <span class="wrapper">button</span> after the spoiler.</p>
+					<hr>
+					<p> Click the <span class="wrapper"> Spoiler Button </span> to expand the <span class="wrapper">Spoiler</span> and repeat the steps above. </p>
+				</div>
+			</div>
+		</div>
+
+		<heading> <h2 class="section-title"> Why not just <span class="wrapper">display: none</span> ? </h2> </heading>
+		<p> In most cases, such content which is hidden from the user, can be declared with a simple <span class="wrapper">display: none;</span> property.</p>
+
+		<div class="col-12">
+			<div class="wrapper flex flex-cross-center">
+				<div class="col-4">
+					<line> .mySpoiler { </line>
+						<indent>
+						<line> overflow: hidden; </line>
+						<line> max-height: 0; </line>
+						<line> <b>display: none;</b> </line>
+						<line> transition: max-height .3s; </line>
+						</indent>
+					<line> } </line>
+					<line-space></line-space>
+					<line> .mySpoiler.expanded { </line>
+						<indent>
+						<line> max-height: 5000px; </line>
+						<line> <b>display: block;</b> </line>
+						</indent>
+					<line> } </line>
+				</div>
+				<div class="col-8">
+					<button class="myButton mySpoilerBtn-3"> Spoiler Button | Click me </button>
+					<div class="mySpoiler mySpoiler-3">
+						Hello there
+					</div>
+					<hr>
+					<p> Yet in cases where the max-width/max-height trainsition must occur, simply toggling <span class="wrapper">display: none;</span> would cause part of the transition to not take effect. </p>
+					<p> The <span class="wrapper"> spoiler </span> in this example is identical to the previous ones, except for the <span class="wrapper">display: none;</span> toggle. As it can be observed, the transition is no longer working. </p>
+				</div>
+			</div>
+		</div>
+
+		<p> The transition no longer works, because using <span class="wrapper">display: none; </span> collapses the element within the DOM (it no longer occupies space), and so the max-height property is somewhat invalid. So, using/toggling <span class="wrapper">display: none;</span> is out of the question. </p>
+
+		<p class="text-bold text-underline"> So, as of now we need to: </p>
+		<p class="mt-0"> * keep the space ocupied (to assure the animation works as desired) </p>
+		<p class="mt-0"> * make the content not-focusable by any user event (including tab-focus) </p>
+
+		<heading> <h2 class="section-title"> The solution: <span class="wrapper"> visibility: hidden </span> </h2> </heading>
+
+		<p> Myself (and others whom I've asked) thought of <span class="wrapper">visibility: hidden;</span> as a combination of <span class="wrapper">opacity: 0;</span> and <span class="wrapper">pointer-events: none;</span>. But applying both <span class="wrapper">opacity: 0;</span> and <span class="wrapper">pointer-events: none;</span> does not prevent tab-focus, while using <span class="wrapper">visibility: hidden;</span> does. </p>
+
+		<p class="text-bold text-underline"> As taken from MDN : </p>
+		<p> <i> <span class="wrapper" class="ml-0">visibility: hidden</span> The element box is invisible (not drawn), but still affects layout as normal. Descendants of the element will be visible if they have visibility set to visible. The element cannot receive focus (such as when navigating through tab indexes). </i> </p>
+		
+		<hr>
+
+		<div class="col-12">
+			<div class="wrapper flex flex-cross-center">
+				<div class="col-5">
+					<hr>
+					<line> .mySpoiler { </line>
+						<indent>
+						<line> overflow: hidden; </line>
+						<line> max-height: 0; </line>
+						<line> <b>visibility: hidden;</b> </line>
+						<line> transition: max-height .3s, visibility 0s .3s; </line>
+						</indent>
+					<line> } </line>
+					<line-space></line-space>
+					<line> .mySpoiler.expanded { </line>
+						<indent>
+						<line> max-height: 5000px; </line>
+						<line> <b>visibility: visible;</b> </line>
+						<line> transition: max-height .3s, visibility 0s 0s; </line>
+						</indent>
+					<line> } </line>
+					<hr>
+					<p class="p-0" style="line-height: 2"> Using <span class="wrapper">visibility: hidden</span>, the children of the collapsed <span class="wrapper"> spoiler </span> are no longer focusable with the <span class="wrapper">Tab</span> key. </p>
+				</div>
+				<div class="col-7">
+					<div class="col-12"> <b-r>Click here first (to set focus before our buttons)</b-r> </div>
+					<hr>
+					<button class="myButton mySpoilerBtn-4"> Spoiler Button </button>
+					<div class="mySpoiler mySpoiler-4">
+						Hello there
+						<button class="myButton"> Button Inside spoiler </button>
+					</div>
+					<button class="myButton"> Button Outside spoiler </button>
+					<hr>
+					<p class="p-0"> Click in the <span class="wrapper"> Click here first </span> portion  - and then use <span class="wrapper">Tab</span> to navigate. </p>
+					<p class="p-0"> If the <span class="wrapper">Spoiler</span> is collapsed, navigating with the <span class="wrapper">Tab</span> key will no longer target the <span class="wrapper">button</span> within in. Try it out! </p>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<p> This might not seem like a big deal at first, but as there are a lot of users with dissabilities, alongside many users who alternatively use both the keyboard and the mouse for navigation, having their focus suddenly dissapear (as it goes within a collapsed menu) is a great no-no in terms of UX. The problem can be somewhat severe if there are multiple focusable elements within a collapsed container, in which case the user might spam the <span class="wrapper">Tab</span> key, without any visible result. </p>
+
+		<p> <b>Consider this simple workflow addition - add <span class="wrapper">visibility: hidden</span> to collapsed elements, to prevent this awful scenario.</b> </p>
+
+		<hr> 
+
+	</article>
+
+	<!-- ==================================================== -->
+	<div id="runScript" data-src="../../js/extra_scripts/articles/preventChildFocusWithinCollapsedParent.js"> </div>
+	<!-- ==================================================== -->

@@ -1,0 +1,340 @@
+
+	<!-- ===================== Route ================== -->
+	<script src="../../js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+
+	<article>
+
+		<header class="sr-only"> <h2> Utility Classes : Spacing </h2> </header>
+
+		<div class="tabs article-mainTabs">
+
+			<div class="article-mainTabs-banner">
+				<div class="article-mainTabs-title"> Utility : Spacing </div>
+
+				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
+					<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> Usage </button>
+					<button class="tabs-btn" 				data-tabs-id="2"> Code  </button>
+				</div>
+			</div>
+
+			<div class="tabs-contentGroup">
+
+				<!-- Usage Tab -->
+				<div class="tabs-content article-mainTabs-usageTab tab-expanded" data-tabs-id="1">
+
+					<!-- I. Description -->
+
+						<section class="p-0" aria-label="general description">
+							<heading> <h2 class="section-title"> I. Description </h2> </heading>
+
+							<p> Collection of <button class="modal-btn" data-modal-id="utilityClasses">Utility Classes</button>, used to define an element's <b>spacing</b>. </p>
+
+							<p class="mt-0"> <b><u>Structured on 3 pillars:</u></b> <span class="wrapper"><b>padding</b></span> | <span class="wrapper"><b>margin</b></span> | <span class="wrapper"><b>border</b></span> </p>
+						</section>
+
+					<!-- II. Initialization -->
+
+						<section class="p-0" aria-label="initialization">
+							<heading> <h2 class="section-title"> II. Initialization </h2> </heading>
+
+							<p class="mb-0"> Download and refference the [ <b-p>asterisk-utility-spacing.css</b-p> ] CSS file. </p>
+							<p class="sub-heading mt-0"> * Not required if already using the [ <b-p>asterisk-utility.css</b-p> ] main CSS file. </p> 
+
+							<div class="wrapper"> 
+								<div class="col-12"> <line> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-utility-spacing.css</b-p>" type="text/css" rel="stylesheet"> </line> </div>
+							</div>
+						</section>
+
+					<!-- III. Usage -->
+
+						<section class="p-0" aria-label="usage">
+							<heading> <h2 class="section-title"> III. Usage </h2> </heading>
+
+							<p> Add any of the provided classes to the Element. </p>
+							<div class="wrapper"> 
+								<div class="col-12"> <b> Format : </b> &lt;div class="<b-r>*propertyRefference*</b-r>-<b-p>*size*</b-p>"> &lt;/div> </div>
+								<hr>
+								<table class="col-12 table-plain"> 
+									<tbody>
+										<tr>
+											<td> <b> Example : </b> &lt;div class="<b-r>m</b-r>-<b-p>0</b-p>"> &lt;/div> </td>
+											<td> // sets <span class="wrapper">margin: 0</span> </td>
+										</tr>
+										<tr>
+											<td> <b> Example : </b> &lt;div class="<b-r>pl</b-r>-<b-p>0</b-p>"> &lt;/div>  </td>
+											<td> // sets <span class="wrapper">padding-left: 0</span> </td>
+										</tr>
+										<tr>
+											<td> <b> Example : </b> &lt;div class="<b-r>bt</b-r>-<b-p>0</b-p>"> &lt;/div>  </td>
+											<td> // sets <span class="wrapper">border-top: 0</span> </td>
+										</tr> 
+									</tbody>
+								</table>
+							</div>
+						</section>
+
+					<!-- IV. Class-name Syntax -->
+
+						<section class="p-0 mb-0" aria-label="Class-name Syntax">
+							<heading> <h2 class="section-title"> IV. Class-name Syntax </h2> </heading>
+
+							<p class="mb-sm"> Each className has 2 parts : <span class="wrapper"><b-r>propertyRefference</b-r></span> and <span class="wrapper"><b-p>size</b-p></span> . </p>
+
+							<div class="tabs">
+								<div class="tabs-btnGroup buttons-fill">
+									<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> [propertyRefference]-* values </button>
+									<button class="tabs-btn"                data-tabs-id="2"> *-[size] values  </button>
+								</div>
+
+								<div class="tabs-contentGroup">
+									<div class="tabs-content pb-0 tab-expanded" data-tabs-id="1">
+										<table class="col-12">
+											<thead class="text-bold">
+												<tr>
+													<td> Property </td>
+													<td> Effect </td>
+													<td> Property </td>
+													<td> Effect </td>
+													<td> Property </td>
+													<td> Effect </td>
+												</tr>
+											</thead>
+
+											<tbody>
+												<tr>
+													<td> <b-r>m-*</b-r> </td> <td> margin (all) 	</td>
+													<td class="border-left"> <b-r>p-*</b-r> </td> <td> padding (all) 	</td>
+													<td class="border-left"> <b-r>b-*</b-r> </td> <td> border (all) 	</td>
+												</tr>
+												<tr>
+													<td> <b-r>ml-*</b-r> </td> <td> margin-left 		</td>
+													<td class="border-left"> <b-r>pl-*</b-r> </td> <td> padding-left 	</td>
+													<td class="border-left"> <b-r>bl-*</b-r> </td> <td> border-left 		</td>
+												</tr>
+												<tr>
+													<td> <b-r>mr-*</b-r> </td> <td> margin-right 	</td>
+													<td class="border-left"> <b-r>pr-*</b-r> </td> <td> padding-right 	</td>
+													<td class="border-left"> <b-r>br-*</b-r> </td> <td> border-right 	</td>
+												</tr>
+												<tr>
+													<td> <b-r>mt-*</b-r> </td> <td> margin-top 		</td>
+													<td class="border-left"> <b-r>pt-*</b-r> </td> <td> padding-top 		</td>
+													<td class="border-left"> <b-r>bt-*</b-r> </td> <td> border-top 		</td>
+												</tr>
+												<tr>
+													<td> <b-r>mb-*</b-r> </td> <td> margin-bottom 	</td>
+													<td class="border-left"> <b-r>pb-*</b-r> </td> <td> padding-bottom 	</td>
+													<td class="border-left"> <b-r>bb-*</b-r> </td> <td> border-bottom 	</td>
+												</tr>
+												<tr>
+													<td> <b-r>mv-*</b-r> </td> <td> margin vertical <br> (top and bottom)	</td>
+													<td class="border-left"> <b-r>pv-*</b-r> </td> <td> padding vertical <br> (top and bottom) </td>
+													<td class="border-left"> <b-r>bv-*</b-r> </td> <td> border vertical <br> (top and bottom) 	</td>
+												</tr>
+												<tr>
+													<td> <b-r>mh-*</b-r> </td> <td> margin horizontal <br> (left and right) </td>
+													<td class="border-left"> <b-r>ph-*</b-r> </td> <td> padding horizontal <br> (left and right) </td>
+													<td class="border-left"> <b-r>bh-*</b-r> </td> <td> border horizontal <br> (left and right) </td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+									<div class="tabs-content pb-0" data-tabs-id="2">
+
+										<p class="text-center pt-xs"> <b><span class="wrapper"><b-r>b-*</b-r></span> (borders) can <u>only</u> use the <b-p>'clearing'</b-p> value.  <span class="wrapper"> <b-r>b</b-r>-<b-p>0</b-p> | <b-r>bl</b-r>-<b-p>0</b-p> | <b-r>br</b-r>-<b-p>0</b-p> | <b-p>etc</b-p> </span> </b-r></b> </p>
+
+										<table class="col-12">
+											<tbody>
+												<tr>
+													<td><b>Size</b></td>
+													<td class="border-left">*<b-p>-0</b-p></td>
+													<td class="border-left">*<b-p>-xs</b-p></td>
+													<td class="border-left">*<b-p>-sm</b-p></td>
+													<td class="border-left">*<b-p>-md</b-p></td>
+													<td class="border-left">*<b-p>-lg</b-p></td>
+													<td class="border-left">*<b-p>-xl</b-p></td>
+												</tr>
+												<tr>
+													<td><b>Value</b></td>
+													<td class="border-left">0</td>
+													<td class="border-left">10px</td>
+													<td class="border-left">15px</td>
+													<td class="border-left">20px</td>
+													<td class="border-left">30px</td>
+													<td class="border-left">50px</td>
+												</tr>
+											</tbody>
+										</table>
+
+										<!--<table class="col-12">
+											<thead class="text-bold">
+												<tr>
+													<td class="col-2"> Value </td>
+													<td class="col-7"> Description </td>
+													<td class="col-3"> Default Value </td>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="col-2"> <b-p>*-0</b-p> </td>
+													<td class="col-7"> Sets the value to 0 - clears the property </td>
+													<td class="col-3"> 0 <b-r>(don't modify)</b-r> </td>
+												</tr>
+												<tr>
+													<td class="col-2"> <b-p>*-xs</b-p> </td>
+													<td class="col-7"> Sets the value as the [--astx-util-sp-xs] CSS variable's value </td>
+													<td class="col-3"> 10px </td>
+												</tr>
+												<tr>
+													<td class="col-2"> <b-p>*-sm</b-p> </td>
+													<td class="col-7"> Sets the value as the [--astx-util-sp-sm] CSS variable's value </td>
+													<td class="col-3"> 15px </td>
+												</tr>
+												<tr>
+													<td class="col-2"> <b-p>*-md</b-p> </td>
+													<td class="col-7"> Sets the value as the [--astx-util-sp-md] CSS variable's value </td>
+													<td class="col-3"> 20px </td>
+												</tr>
+												<tr>
+													<td class="col-2"> <b-p>*-lg</b-p> </td>
+													<td class="col-7"> Sets the value as the [--astx-util-sp-lg] CSS variable's value </td>
+													<td class="col-3"> 30px </td>
+												</tr>
+												<tr>
+													<td class="col-2"> <b-p>*-xl</b-p> </td>
+													<td class="col-7"> Sets the value as the [--astx-util-sp-xl] CSS variable's value </td>
+													<td class="col-3"> 50px </td>
+												</tr>
+											</tbody>
+										</table>-->
+									</div>
+								</div>
+							</div>
+
+						</section>
+
+					<!-- V. Viewport-Prefixes -->
+
+						<section class="p-0" aria-label="Viewport-Prefixes">
+							<heading> <h2 class="section-title"> V. Responsive Utilities : Viewport-Prefixes </h2> </heading>
+
+							<p>
+								<span> To create different scenarios for specific viewports, any class can be prefixed with any <span class="wrapper"> *viewport*- </span> or <span class="wrapper"> *viewport*-o- </span> syntax. </span>
+								<button class="modal-btn float-right" data-modal-id="viewportTable"> Show Viewport-Prefix Syntax Details </button>
+							</p>
+
+							<div class="col-12">
+								<div class="wrapper"> 
+									<div class="col-12"> <b> Format : </b> &lt;div class="<b-r>*viewportPrefix*-</b-r><b-p>className</b-p>"> &lt;/div> </div>
+									<hr>
+									<table class="col-12 table-plain"> 
+										<tbody>
+											<tr>
+												<td> <b> Example : </b> &lt;div class="<b-p>m-0</b-p>"> &lt;/div> </td>
+												<td> <i>// sets <span class="wrapper">margin: 0</span> on <b>all</b> viewports </i></td>
+											</tr>
+											<tr>
+												<td> <b> Example : </b> &lt;div class="<b-r>sm-</b-r><b-p>m-0</b-p>"> &lt;/div> </td>
+												<td> <i>// sets <span class="wrapper">margin: 0</span> on <b>small(sm)</b> viewports <b>or larger</b> </i></td>
+											</tr>
+											<tr>
+												<td> <b> Example : </b> &lt;div class="<b-r>sm-o-</b-r><b-p>m-0</b-p>"> &lt;/div>  </td>
+												<td> <i>// sets <span class="wrapper">margin: 0</span> on <b>small(sm)</b> viewports <b>only</b> </i></td>
+											</tr>
+										</tbody>
+									</table> 
+								</div>
+
+							</div>
+						</section>
+
+					<!-- VI. Changing default sizes -->
+
+						<section class="p-0" aria-label="Changing default sizes">
+							<heading> <h2 class="section-title"> VI. Changing default sizes </h2> </heading>
+
+							<row class="flex flex-cross-center p-0">
+								<div class="col-6 p-0"> 
+									<p> <b> Each [size-value] follows the exemplified model: </b> </p>
+									<p> Each [size-value] inherits from the <span class="wrapper">--astx-util-sp-*sizeValue*</span> CSS variable, set on the <span class="wrapper">:root</span> pseudo-element. </p>
+									<p class="subtitle mt-0 text-right"> * abreviated from <span class="wrapper">asterisk-utility-spacing-*sizeValue*</span> </p>
+									<p> 
+										Each [size-value] is provided with fallbacks to a default value: <br>
+									 	* if CSS variables are not supported; <br>
+									 	* if the varible is not defined. 
+									 </p>
+								</div>
+
+								<div class="col-6"> 
+									<div class="wrapper"> 
+										<line> :root { </line>
+											<indent>
+											<line> --astx-util-sp-xs: 10px; </line>
+											</indent>
+										<line> } </line>
+										<line-space></line-space>
+										<line> .m-xs { </line>
+											<indent>
+											<line> margin: 10px !important; </line>
+											<line> margin: var(--astx-util-sp-xs, 10px) !important; </line>
+											</indent>
+										<line> } </line>
+									</div>
+								</div>
+							</row>
+
+							<hr class="mt-0 mb-xs">
+							
+							<row> <b>Any [size-value] can be modified :</b> </row>
+							<row class="mt-0"> 
+								<div class="col-2 p-0"> for all Elements </div>
+								<div class="col-10 pr-0 border-left"> by changing the value of the [ --astx-util-sp-*sizeValue* ] CSS variable, on the [body]. </div>
+							</row>
+							<row class="mt-0">
+								<div class="col-2 p-0"> for specific Elements </div>
+								<div class="col-10 pr-0 border-left"> by defining the [ --astx-util-sp-*sizeValue* ] CSS variable on a Parent, or on the Element itself. </div>
+							</row>
+
+							<div class="wrapper">
+								<table class="col-12 table-plain">
+									<tbody>
+										<tr>
+											<td> &lt;div class="myDiv-1 mv-xs"> &lt;/div> </td>
+											<td class="border-left"> body { --astx-util-sp-xs: 5px; } </td>
+											<td> // Will modify the value for both divs </td>
+										</tr>
+										<tr>
+											<td> &lt;div class="myDiv-2 mv-xs"> &lt;/div> </td>
+											<td class="border-left"> .myDiv-1 { --astx-util-sp-xs: 5px; } </td>
+											<td> // Will modify the value for .myDiv-1 only </td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+						</section>
+
+						<hr class="mv-xs">
+
+						<row> Under development: [*viewport*-mh-auto] class (left|right margin:auto, for centering block elements), following the same model. </row>
+
+						<hr class="mv-xs">
+				</div>
+
+				<!-- Code Tab -->
+				<div class="tabs-content article-mainTabs-codeTab" data-tabs-id="2"
+								data-generateCodeFor="['css']" 
+								data-setCopyContextId="utility-spacing" 
+								data-setFileName="asterisk-utility-spacing">
+				</div>
+				
+			</div>
+		</div>
+
+	</article>
+
+	<!-- ==================================================== -->
+	<div id="runScript" data-src="../../js/extra_scripts/utility/spacing.js"> </div>
+	<!-- ==================================================== -->

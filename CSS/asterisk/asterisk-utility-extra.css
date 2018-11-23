@@ -1,0 +1,242 @@
+
+	/* square */
+	/* --------------------------------------- */
+
+		.square {
+			position: relative;
+			background-color: red;
+			padding: 0 !important;
+		}
+
+		.square:after {
+			content: "";
+			display: block;
+			padding-bottom: 100%;
+		}
+
+	/* table */
+	/* --------------------------------------- */
+
+		/* all columns have equal width */
+
+			.table-equal {
+				table-layout: fixed;
+			}
+
+		/* collapse borders */
+
+			.table-noGutter {
+				border-collapse: collapse;
+			}
+
+		/* each 2nd row has a background-color */
+
+			.table-zebra tr:nth-of-type(2n) {
+				background-color: rgba(3,3,3,.1);
+			}
+
+		/* alternating cell-bgColor */
+
+			/* individual - start from 1st cell */
+
+				.table-checkers-1-1 tr:nth-of-type(odd) td:nth-of-type(2n-1) {
+					background: rgba(3,3,3,.1);
+				}
+
+				.table-checkers-1-1 tr:nth-of-type(even) td:nth-of-type(2n) {
+					background: rgba(3,3,3,.1);
+				}
+
+			/* individual - start from 2nd cell */
+
+				.table-checkers-1-2 tr:nth-of-type(even) td:nth-of-type(2n-1) {
+					background: rgba(3,3,3,.1);
+				}
+
+				.table-checkers-1-2 tr:nth-of-type(odd) td:nth-of-type(2n) {
+					background: rgba(3,3,3,.1);
+				}
+
+			/* groups of 2 cells - start from 1st group (1st and 2nd cell) */
+
+				.table-checkers-2-1 tr:nth-of-type(odd) td:nth-of-type(4n-3) ,
+				.table-checkers-2-1 tr:nth-of-type(odd) td:nth-of-type(4n-2) {
+					background: rgba(3,3,3,.1);
+				}
+
+				.table-checkers-2-1 tr:nth-of-type(even) td:nth-of-type(4n-1) ,
+				.table-checkers-2-1 tr:nth-of-type(even) td:nth-of-type(4n)   {
+					background: rgba(3,3,3,.1);
+				}
+
+			/* groups of 2 cells - start from 2nd group (3rd and 4th cell) */
+
+				.table-checkers-2-2 tr:nth-of-type(odd) td:nth-of-type(4n-1),
+				.table-checkers-2-2 tr:nth-of-type(odd) td:nth-of-type(4n) {
+					background: rgba(3,3,3,.1);
+				}
+
+				.table-checkers-2-2 tr:nth-of-type(even) td:nth-of-type(4n-3),
+				.table-checkers-2-2 tr:nth-of-type(even) td:nth-of-type(4n-2) {
+					background: rgba(3,3,3,.1);
+				}
+
+			/* groups of 3 cells - start from 1st group (1st, 2nd , 3rd cell) */
+
+				.table-checkers-3-1 tr:nth-of-type(odd) td:nth-of-type(6n-2),
+				.table-checkers-3-1 tr:nth-of-type(odd) td:nth-of-type(6n-1),
+				.table-checkers-3-1 tr:nth-of-type(odd) td:nth-of-type(6n) {
+					background: rgba(3,3,3,.1);
+				}
+
+				.table-checkers-3-1 tr:nth-of-type(even) td:nth-of-type(6n-5),
+				.table-checkers-3-1 tr:nth-of-type(even) td:nth-of-type(6n-4),
+				.table-checkers-3-1 tr:nth-of-type(even) td:nth-of-type(6n-3) {
+					background: rgba(3,3,3,.1);
+				}
+
+
+			/* groups of 3 cells - start from 2nd group (3rd and 4th cell) */
+
+				.table-checkers-3-2 tr:nth-of-type(odd) td:nth-of-type(6n-5),
+				.table-checkers-3-2 tr:nth-of-type(odd) td:nth-of-type(6n-4),
+				.table-checkers-3-2 tr:nth-of-type(odd) td:nth-of-type(6n-3) {
+					background: rgba(3,3,3,.1);
+				}
+
+				.table-checkers-3-2 tr:nth-of-type(even) td:nth-of-type(6n-2),
+				.table-checkers-3-2 tr:nth-of-type(even) td:nth-of-type(6n-1),
+				.table-checkers-3-2 tr:nth-of-type(even) td:nth-of-type(6n) {
+					background: rgba(3,3,3,.1);
+				}
+
+			/* groups of 4 cells - start from 1st group (1st and 2nd cell) */
+
+				.table-checkers-3-1 tr:nth-of-type(odd) td:nth-of-type(6n-2),
+				.table-checkers-3-1 tr:nth-of-type(odd) td:nth-of-type(6n-1),
+				.table-checkers-3-1 tr:nth-of-type(odd) td:nth-of-type(6n) {
+					background: rgba(3,3,3,.1);
+				}
+
+				.table-checkers-3-1 tr:nth-of-type(even) td:nth-of-type(6n-5),
+				.table-checkers-3-1 tr:nth-of-type(even) td:nth-of-type(6n-4),
+				.table-checkers-3-1 tr:nth-of-type(even) td:nth-of-type(6n-3) {
+					background: rgba(3,3,3,.1);
+				}
+
+
+			/* groups of 4 cells - start from 2nd group (3rd and 4th cell) */
+
+				.table-checkers-3-2 tr:nth-of-type(odd) td:nth-of-type(6n-5),
+				.table-checkers-3-2 tr:nth-of-type(odd) td:nth-of-type(6n-4),
+				.table-checkers-3-2 tr:nth-of-type(odd) td:nth-of-type(6n-3) {
+					background: rgba(3,3,3,.1);
+				}
+
+				.table-checkers-3-2 tr:nth-of-type(even) td:nth-of-type(6n-2),
+				.table-checkers-3-2 tr:nth-of-type(even) td:nth-of-type(6n-1),
+				.table-checkers-3-2 tr:nth-of-type(even) td:nth-of-type(6n) {
+					background: rgba(3,3,3,.1);
+				}
+
+	/* Overlay Class */
+	/* -------------------------------------------------------------------------------- */
+
+		.hasOverlay * {
+			pointer-events: none;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			   -moz-user-select: none;
+				-ms-user-select: none;
+					user-select: none;
+		}
+
+		.hasOverlay-before , 
+		.hasOverlay-after  { 
+			position: relative; 
+		}
+
+		.hasOverlay-before:before, 	.hasOverlay-after:after {
+			content: '';
+			position: absolute;
+			top: 0; left: 0; right: 0; bottom: 0;
+			z-index: 2;
+		}
+
+	/* Hover Class */
+	/* -------------------------------------------------------------------------------- */
+
+		.hasHover-hand:hover { cursor: pointer; cursor: hand; }
+
+	/* Clearfix */
+	/* -------------------------------------------------------------------------------- */
+
+		.clearfix:after {
+			content: '';
+			display: table;
+			clear: both;
+		}
+
+	/* Screen-Reader Class */
+	/* -------------------------------------------------------------------------------- */
+
+		.sr-only {
+			position: absolute;
+			width: 1px;			height: 1px;
+			padding: 0;			margin: -1px;
+			overflow: hidden;	border: 0;
+			clip: rect(0, 0, 0, 0);
+		}
+
+	/* re-sizable */
+	/* -------------------------------------------------------------------------------- */
+
+		.resize-ver, .resize-vertical 	{ resize: vertical 	 !important; }
+		.resize-hor, .resize-horizontal { resize: horizontal !important; }
+
+	/* vertical-align */
+
+		.align-vertical {
+			vertical-align: middle;
+		}
+
+	/* highlight row&column - https://www.youtube.com/watch?v=DQk9TqO5ets*/
+
+		.table-highlight-cross {
+			overflow: hidden;
+			transform: perspective(1px);
+		}
+
+		.table-highlight-cross td {
+			position: relative;
+		}
+
+		.table-highlight-cross tr:hover,
+		.table-highlight-cross td:hover::after {
+			background-color: rgba(255,255,51,.3);
+		}
+
+		.table-highlight-cross td:hover::after {
+			content: '';
+			position: absolute;
+			width: 100%; height: 10000px;
+			left: 0; top: -5000px;
+			z-index: -1;
+		}
+
+	/* fluid typography - https://www.youtube.com/watch?v=DQk9TqO5ets*/
+
+		.font-fluid {
+			font-size: calc(16px + (24 - 16)*(100vw - 400px)/(800-400));
+		}
+
+	/* expand beyond container without extra elements - close the tags and reopen new ones - https://www.youtube.com/watch?v=DQk9TqO5ets */
+
+		.break-container {
+			margin-left:  calc(-50vw + 50%);
+			margin-right: calc(-50vw + 50%);
+		}
+
+		/* also requires overflow-hidden on the html and body, to not show bottom scroll bar 
+			body, html { overflow: hidden; }
+			*/

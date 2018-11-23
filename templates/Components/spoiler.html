@@ -1,0 +1,564 @@
+	
+	<!-- ===================== Route ================== -->
+	<script src="../../js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+
+	<article>
+	
+		<header class="sr-only"> <h2> Component : Spoiler </h2> </header>
+
+		<div class="tabs article-mainTabs">
+
+			<div class="article-mainTabs-banner">
+				<div class="article-mainTabs-title"> Components : Spoiler </div>
+
+				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
+					<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> Demo  </button>
+					<button class="tabs-btn" 				data-tabs-id="2"> Usage </button>
+					<button class="tabs-btn" 				data-tabs-id="3"> Code  </button>
+				</div>
+			</div>
+
+			<div class="tabs-contentGroup">
+
+				<!-- Demo Tab -->
+				<div class="tabs-content article-mainTabs-demoTab tab-expanded" data-tabs-id="1"> 
+
+					<button class="col-6 col-offset-3 spoiler-btn spoiler-btn-autoText" data-spoiler-id="spoilerDemo-1" style="margin-top: 50px"> Well, hello there.. </button>
+
+					<div class="spoiler" data-spoiler-id="spoilerDemo-1">
+						<div class="spoiler-content">
+							<row> <img src="https://starwarsblog.starwars.com/wp-content/uploads/sites/6/2016/03/EPIII_Obi-wan_talking_Grievous.jpg"> </row>
+						</div>
+					</div>
+				</div>
+
+				<!-- Usage Tab -->
+				<div class="tabs-content article-mainTabs-usageTab" data-tabs-id="2"> 
+
+					<!-- I. Description -->
+
+						<section class="p-0" aria-label="general description">
+							<heading> <h2 class="section-title"> I. Description </h2> </heading>
+
+							<p> 
+								Baseline <span class="wrapper">Spoiler</span> component. 
+
+								<button class="spoiler-btn spoiler-btn-autoText title-spoilerBtn" data-spoiler-id="description-more"> More | </button>
+							</p>
+
+							<div class="spoiler" data-spoiler-id="description-more">
+								<div class="spoiler-content">
+									<p> * <span class="wrapper">Free placement</span> - All <span class="wrapper">Spoiler Buttons</span> and <span class="wrapper">Spoilers</span> do not have co-dependent proximity, and can be placed anywhere within the document. </p>
+									<p> * <span class="wrapper">Linked Buttons</span> - Multiple <span class="wrapper">Spoiler Buttons</span> can point to the same <span class="wrapper">Spoiler</span>, and have their state linked between each other. </p>
+									<p> * <span class="wrapper">Tab Navigation</span> -  within <span class="wrapper">Spoilers</span> in their <span class="wrapper">collapsed</span> state, are not focusable by keyboard navigation. </p>
+									<p> * <span class="wrapper">Precise Animation</span> - <span class="wrapper">max-height</span> is calculated based on actual content height and spacing. </p>
+									<p> * <span class="wrapper">Unobstructive Functionality</span> - Function will <span class="wrapper">fail silently</span> and <span class="wrapper">console.log</span> details, if no adequate <span class="wrapper">Spoiler</span> is found (no match for <span class="wrapper">data-spoiler-id</span> value). </p>
+									<p> * <span class="wrapper">Auto-adaptable for dynamic content</span> - Will automatically adjust it's height for Dynamic content (expanding/collapsing menus or adding/removing HTML Elements). </p>
+								</div>
+							</div>
+						</section>
+
+					<!-- II. Initialization -->
+
+						<section class="p-0" aria-label="initialization">
+							<heading> <h2 class="section-title"> II. Initialization </h2> </heading>
+
+							<p> <b>Step 1.</b> Download and refference the [ <b-p>asterisk-component-spoiler.css</b-p> ] CSS file. </p>
+							<div class="wrapper"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-component-spoiler.css</b-p>" type="text/css" rel="stylesheet"> </div>
+
+							<p> <b>Step 2.</b> Download and refference the [ <b-p>asterisk-component-spoiler.js</b-p> ] JS file. </p>
+							<div class="wrapper"> &lt;script src="<b-r>--myPath--</b-r><b-p>/asterisk-component-spoiler.js</b-p>" type="text/javascript">&lt;/script> </div>
+
+							<p> <b>Step 3.</b> Make the next function call : </p>
+
+							<div class="wrapper"> 
+								<div class="md-flex md-flex-cross-center"> 
+									<div class="col-12 md-col-10"> asteriskObj.components.spoiler.init() </div>
+									<button class="col-12 md-col-2 mt-sm md-mt-0 spoiler-btn spoiler-btn-autoText" data-spoiler-id="spoiler-init"> </button>
+								</div>
+
+								<div class="spoiler" data-spoiler-id="spoiler-init">
+									<div class="spoiler-content">
+										<p class="my-xs"> asteriskObj.components.spoiler.init(targetElem, delegateEventListener) </p>
+
+										<hr>
+
+										<p class="my-xs"> Case: <b-r>asteriskObj.components.spoiler.init()</b-r> </p>
+										<p class="my-xs"> All <span class="wrapper">spoiler-btn</span> Elements within the <span class="wrapper">document</span> will be initialized. </p>
+										<p class="mt-0 sub-heading"> * an <span class="wrapper">eventListener</span> will be added to each <span class="wrapper">spoiler-btn Element</span> </p>
+
+										<hr>
+
+										<p class="my-xs"> Case: <b-r>asteriskObj.components.spoiler.init(</b-r> <span class="wrapper"><b-p>spoiler-btn Element</b-p></span> <b-r>)</b-r> </p>
+										<p class="my-xs"> Only the provided <span class="wrapper">spoiler-btn</span> element will be initialized. </p>
+										<p class="mt-0 sub-heading"> * an <span class="wrapper">eventListener</span> will be added to the provided <span class="wrapper">spoiler-btn Element</span> </p>
+										<p class="mt-0 sub-heading"> * used for dinamically-added content </p>
+
+										<hr>
+
+										<p class="my-xs"> Case: <b-r>asteriskObj.components.spoiler.init(</b-r> <span class="wrapper"><b-p><u>NON</u>-spoiler-btn Element</b-p></span> <b-r>)</b-r> </p>
+										<p class="my-xs"> All <span class="wrapper">spoiler-btn</span> Elements within the provided <span class="wrapper"><b-p><u>NON</u>-spoiler-btn Element</b-p></span> will be initialized. </p>
+										<p class="mt-0 sub-heading"> * an <span class="wrapper">eventListener</span> will be added to each <span class="wrapper">spoiler-btn Element</span> </p>
+										<p class="mt-0 sub-heading"> * used to initialize <span class="wrapper">spoiler-btn</span> elements within a portion of the website </p>
+
+										<hr>
+
+										<p class="my-xs"> Case: <b-r>asteriskObj.components.spoiler.init(</b-r> <span class="wrapper"><b-p><u>NON</u>-spoiler-btn Element</b-p></span> , <span class="wrapper"><b-p>true</b-p></span> <b-r>)</b-r> </p>
+										<p class="my-xs"> The <span class="wrapper">spoiler-btn functionality </span> will be delegated to the <span class="wrapper"><b-p><u>NON</u>-spoiler-btn Element</b-p></span> provided, enabling any <span class="wrapper">spoiler-btn</span> children to function through <b>Event Delegation</b>. </p>
+										<p class="mt-0 sub-heading"> * the <span class="wrapper">eventListener</span> will be added to the <span class="wrapper"><b-p><u>NON</u>-spoiler-btn Element</b-p></span> </p>
+										<p class="mt-0 sub-heading"> * can be used on the <span class="wrapper">document.body</span> to enable any and all <span class="wrapper">spoiler-btn</span> Elements </p>
+									</div>
+								</div>
+							</div>
+						</section>
+
+					<!-- III. Usage -->
+
+						<section class="px-0" aria-label="usage">
+							<heading> <h2 class="section-title"> III. Usage </h2> </heading>
+
+							<div class="col-12 p-0 md-flex md-flex-cross-center">
+								<div class="col-12 md-col-6 p-0">
+									<p> <b>Step 1.</b> Add the Component's Markup to your Document : </p>
+
+									<p class="sub-heading mt-0"> * <span class="wrapper"><b>spoiler</b></span> elements and <span class="wrapper"><b>spoiler-btn</b></span> elements can be placed anywhere within the document, regardless of each other's position. </p>
+
+									<p> <b>Step 2.</b> Set a unique <span class="wrapper"><b-p>data-spoiler-id</b-p></span> value (for each <span class="wrapper">spoiler</span>). </p>
+
+									<p class="sub-heading mt-0"> * <span class="wrapper"><b>spoiler</b></span> elements and <span class="wrapper"><b>spoiler-btn</b></span> elements are synchronised with each other by having the same <span class="wrapper"><b-p>data-spoiler-id</b-p></span> value. </p>
+								</div>
+
+								<div class="col-12 md-col-6 p-0">
+									<div class="wrapper">
+										<pre class="pre-removeTabSpaces">
+										    &lt;button class="<b>spoiler-btn</b>" <b-p>data-spoiler-id</b-p>="mySpoilerId-1"> &lt;/button>
+
+										    &lt;div class="<b>spoiler</b>" <b-p>data-spoiler-id</b-p>="mySpoilerId-1">
+										        &lt;div class="<b>spoiler-content</b>">
+										        &lt;/div>
+										    &lt;/div>
+										</pre>
+									</div>
+								</div>
+							</div>
+						</section>
+
+					<!-- IV. Markup Roles -->
+
+						<section class="px-0" aria-label="Markup Roles">
+							<heading> <h2 class="section-title"> IV. Markup Roles </h2> </heading>
+
+							<div class="accordion">
+
+								<div class="accordion-group px-md my-sm">
+									<button class="accordion-btn"> The <b>spoiler</b> Element:  </button>
+									<div class="accordion-content">
+										<p> * acts as a <span class="wrapper"><b>wrapper</b></span> for the <span class="wrapper"><b>spoiler-content</b></span> Element, to prevent the <span class="wrapper"><b>spoiler-content</b></span> box-model styles from offsetting the <span class="wrapper"><b>collapse</b></span>. </p>
+										<p> * holds the expand/collapse <span class="wrapper">max-height</span> value change. </p>
+										<p> * <b>must <u>not</u> have margins / paddings / borders</b>. </p>
+									</div>
+								</div>
+
+								<div class="accordion-group px-md my-sm">
+									<button class="accordion-btn"> The <b>spoiler-content</b> Element:  </button>
+									<div class="accordion-content">
+										<p> * acts as the 'true' container for the <span class="wrapper"><b>spoiler</b></span>'s content. </p>
+										<p> * having all content enclosed within it, it allows to precisely calculate the <span class="wrapper">max-height</span> value to apply. </p>
+										<p> * <b>it <u>can</u> have margins / paddings / borders</b>, without affecting the 'collapse'. </p>
+									</div>
+								</div>
+
+								<div class="accordion-group px-md my-sm">
+									<button class="accordion-btn"> The <b>spoiler-btn</b> Element:  </button>
+									<div class="accordion-content">
+										<p> * is not affected by proximity or nodeList, so <b>it can be placed <u>anywhere</u> within the document</b>, while still targetting the adequate <span class="wrapper"><b>spoiler</b></span>, when triggered. </p>
+										<p> * multiple <span class="wrapper"><b>spoiler-btn</b></span> elements can point to the same <span class="wrapper"><b>spoiler</b></span> element, by having the same <span class="wrapper">data-spoiler-id</span> value. </p>
+										<p> * If multiple <span class="wrapper"><b>spoiler-btn</b></span> elements are pointing to the same <span class="wrapper"><b>spoiler</b></span> element, when any of the <span class="wrapper"><b>spoiler-btn</b></span> is triggered, all synchronised <span class="wrapper"><b>spoiler-btn</b></span> elements will be updated ( collapsed/expanded state ). </p>
+									</div>
+								</div>
+
+							</div>
+
+						</section>
+
+					<!-- V. Styles -->
+					
+						<section class="p-0" aria-label="styles">
+							<heading> <h2 class="section-title"> V. Styles </h2> </heading>
+
+							<p>
+								<span class="wrapper">spoiler-btn</span> elements can be given the <span class="wrapper">spoiler-btn-autoText</span> <span class="wrapper">class</span> which adds an <b>'Expand'</b> / <b>'Collapse'</b> string, after the innerText provided. 
+							</p>
+
+							<div class="wrapper">
+								<line> 
+									&lt;button class="spoiler-btn" data-spoiler-id=""> <b-p>My Text</b-p> &lt;/button> 
+									<div class="col-12 mt-sm md-mt-0 md-col-4 md-float-right"> <button class="col-12 spoiler-btn" data-spoiler-id="asdf-1"> My Text </button> </div>
+								</line>
+								<hr>
+								<line> 
+									&lt;button class="spoiler-btn <b-r>spoiler-btn-autoText</b-r>" data-spoiler-id=""> &lt;/button> 
+									<div class="col-12 mt-sm md-mt-0 md-col-4 md-float-right"> <button class="col-12 spoiler-btn spoiler-btn-autoText" data-spoiler-id="asdf-2"> </button> </div>
+								</line>
+								<hr>
+								<line> 
+									&lt;button class="spoiler-btn <b-r>spoiler-btn-autoText</b-r>" data-spoiler-id=""> <b-p>My Text</b-p> &lt;/button> 
+									<div class="col-12 mt-sm md-mt-0 md-col-4 md-float-right"> <button class="col-12 spoiler-btn spoiler-btn-autoText" data-spoiler-id="asdf-3"> My Text </button> </div>
+								</line>
+
+								<!--  just to not throw error -->
+								<div class="spoiler hidden" data-spoiler-id="asdf-1"><div class="spoiler-content"></div></div>
+								<div class="spoiler hidden" data-spoiler-id="asdf-2"><div class="spoiler-content"></div></div>
+								<div class="spoiler hidden" data-spoiler-id="asdf-3"><div class="spoiler-content"></div></div>
+							</div>
+
+						</section>
+				</div>
+
+				<!-- Code Tab -->
+				<div class="tabs-content article-mainTabs-codeTab"  data-tabs-id="3"> 
+					<div class="finalCode-container">
+						<div class="tabs">
+							<div class="tabs-btnGroup buttons-fill">
+								<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> HTML Markup </button>
+								<button class="tabs-btn" 				data-tabs-id="2"> CSS         </button>
+								<button class="tabs-btn" 				data-tabs-id="3"> JS          </button>
+							</div>
+
+							<div class="tabs-contentGroup">
+
+								<!-- HTML -->
+									<div class="tabs-content tab-expanded px-0" data-tabs-id="1"> 
+
+										<div class="copyContext-btnContainer" data-copyContextId="spoiler-html">
+											<button class="copyContext-btn copyContext-btn-copyText"> </button>
+										</div>
+
+										<div class="copyContext" data-copyContextId="spoiler-html">
+
+											<div class="finalCode-blockContainer">
+												<pre class="pre-removeTabSpaces">
+												    &lt;button class="spoiler-btn" data-spoiler-id="mySpoilerId-1"> &lt;/button>
+
+												    &lt;div class="spoiler"        data-spoiler-id="mySpoilerId-1">
+												        &lt;div class="spoiler-content">
+												            <!-- content goes here :) -->
+												        &lt;/div>
+												    &lt;/div>
+												</pre>
+											</div> <!-- finalCode-blockContainer -->
+										</div> <!-- copyContext -->
+									</div> <!-- tabs-content -->
+
+								<!-- CSS -->
+									<div class="tabs-content px-0" data-tabs-id="2"> 
+
+										<div class="copyContext-btnContainer" data-copyContextId="spoiler-css">
+											<button class="copyContext-btn copyContext-btn-copyText"> </button>
+											<button class="copyContext-btn copyContext-btn-saveFile" data-fileName="asterisk-component-spoiler-spec" 	data-fileType=".css"> </button>
+											<button class="copyContext-btn copyContext-btn-showLightbox"> </button>
+										</div>
+
+										<div class="copyContext" data-copyContextId="spoiler-css">
+
+											<div class="finalCode-blockContainer">
+												<pre class="pre-removeTabSpaces">
+												    /* Component - Spoiler */
+												    /* ----------------------------------------*/
+												    
+												        /* Colors */
+												        /* ----------------------------------------*/
+
+												            .spoiler-content {
+												                background-color: rgba(3,3,3,.1);
+												            }
+
+												            .spoiler-btn {
+												                color: #FFFFFF;
+												                background-color: #613dcc;
+												            }
+
+												            .spoiler-btn.active {
+												                color: #FFFFFF; 
+												                background-color: #c00c0c; 
+												            }
+
+												        /* General */
+												        /* ----------------------------------------*/
+
+												            .spoiler,
+												            .spoiler-content,
+												            .spoiler-btn {
+												                position: relative; 
+												            }
+
+												            .spoiler,
+												            .spoiler-btn {
+												                display: inline-block;
+												                float: left;
+												            }
+
+												            .spoiler  {
+												                width: 100%;
+												            }
+
+												            .spoiler:after,
+												            .spoiler-content:after { 
+												                content:''; 
+												                display: table; 
+												                clear: both; 
+												            }
+
+												            .spoiler {
+												                padding: 0 !important;
+												                margin:  0 !important;
+												                border:  0 !important;
+
+												                max-height: 0 ; overflow: hidden;
+
+												                -webkit-transition: max-height .3s;
+												                   -moz-transition: max-height .3s;
+												                     -o-transition: max-height .3s;
+												                        transition: max-height .3s;
+
+												                border-radius: 6px;
+												            }
+
+												            .spoiler-content {
+												                padding: 15px; margin: 7.5px 0;
+
+												                visibility: hidden;
+												                -webkit-transition: visibility 0s .3s;
+												                   -moz-transition: visibility 0s .3s;
+												                     -o-transition: visibility 0s .3s;
+												                        transition: visibility 0s .3s;
+												            }
+
+												            .spoiler-expand .spoiler-content {
+												                visibility: visible;
+												                -webkit-transition: visibility 0s 0s;
+												                   -moz-transition: visibility 0s 0s;
+												                     -o-transition: visibility 0s 0s;
+												                        transition: visibility 0s 0s;
+												            }
+
+												        /* spoiler-btn */
+												        /* ----------------------------------------*/
+
+												            .spoiler-btn {
+												                padding: .65em .85em;
+												                font-weight: bold;
+												                text-align: center;
+												                border-radius: 6px; 
+
+												                cursor: pointer; cursor: hand; 
+												                box-shadow: 2px 2px 2px rgba(3,3,3,.3);
+												            }
+
+												            .spoiler-btn.spoiler-btn-autoText:after         { content: 'Expand';    }
+												            .spoiler-btn.spoiler-btn-autoText.active:after  { content: 'Collapse';  }
+
+												            .spoiler-btn:before {
+												                content: '';
+												                position: absolute;
+												                width: 100%; height: 100%;
+												                top: 0; left: 0;
+												            }
+												</pre>
+											</div> <!-- finalCode-blockContainer -->
+										</div> <!-- copyContext -->
+									</div> <!-- tabs-content -->
+
+								<!-- JS -->
+									<div class="tabs-content px-0" data-tabs-id="3"> 
+
+										<div class="copyContext-btnContainer" data-copyContextId="spoiler-js">
+											<button class="copyContext-btn copyContext-btn-copyText"> </button>
+											<button class="copyContext-btn copyContext-btn-saveFile" data-fileName="asterisk-component-spoiler-spec" 	data-fileType=".js"> </button>
+											<button class="copyContext-btn copyContext-btn-showLightbox"> </button>
+										</div>
+
+										<div class="copyContext" data-copyContextId="spoiler-js">
+
+											<div class="finalCode-blockContainer">
+												<pre class="pre-removeTabSpaces">
+												    // [asteriskObj] init - if necessary
+												    // -----------------------------------------------------
+
+												        var asteriskObj = asteriskObj || {} ;
+												        asteriskObj.components = asteriskObj.components || {} ;
+
+												    // Asterisk Component - [Spoiler]
+												    // ------------------------------------------------------------------
+
+												        (function(){
+
+												            // Component.Object Setup 
+												            // -----------------------------------------------------
+
+												                asteriskObj.components.spoiler = {};
+												                var spoilerObj = asteriskObj.components.spoiler;
+
+												            // Dependencies (not required if using [asterisk-utility.js])
+												            // -----------------------------------------------------
+
+												                function hasClass( elem , klass ) {
+												                    return (" " + elem.className + " " ).indexOf( " " + klass + " " ) > -1
+												                }
+
+												            // Init
+												            // -----------------------------------------------------
+
+												                spoilerObj.init = function(current_target, delegateEventListener) {
+
+												                    if (current_target) { 
+
+												                        if (hasClass(current_target, 'spoiler-btn')) {
+
+												                            spoilerObj.activate(current_target) 
+
+												                        } else if (delegateEventListener === true) {
+
+												                            spoilerObj.delegate(current_target)
+
+												                        } else { 
+
+												                            var spoilerBtns = Array.from(current_target.getElementsByClassName('spoiler-btn')); 
+												                            spoilerBtns.map(spoilerBtn => spoilerObj.activate(spoilerBtn));
+
+												                        }
+
+												                    } else {
+
+												                        var allSpoilerBtns = Array.from(document.getElementsByClassName('spoiler-btn'));
+												                        allSpoilerBtns.map(spoilerBtn => spoilerObj.activate(spoilerBtn));
+
+												                    }
+
+												                };
+
+												            // Activate 
+												            // -----------------------------------------------------
+
+												                spoilerObj.activate = function(current_target) {
+
+												                    current_target.addEventListener('click', function() { 
+												                        spoilerObj.run(this) 
+												                    })
+
+												                };
+
+												            // Delegate
+												            // -----------------------------------------------------
+
+												                spoilerObj.delegate = function(current_target) {
+
+												                    current_target.addEventListener('click', function(e) {
+												                        if (hasClass(e.target, 'spoiler-btn')) { spoilerObj.run(e.target) }
+												                    })
+
+												                };
+												                    
+												            // Run
+												            // -----------------------------------------------------
+
+												                spoilerObj.run = function(current_spoilerBtn) {
+
+												                    if (!current_spoilerBtn.targetParameters) { 
+												                        spoilerObj.spoilerBtn_defineParameters(current_spoilerBtn)
+												                    };
+
+												                    var targetSpoiler = current_spoilerBtn.targetParameters.targetSpoiler;
+												                    var targetButtons = current_spoilerBtn.targetParameters.targetButtons;
+
+												                    if (targetSpoiler) {
+
+												                        if (hasClass(targetSpoiler , 'spoiler-expand')) {
+
+												                            setTimeout(function(){ targetSpoiler.style.maxHeight = 0 }, 0);
+												                            
+												                            targetSpoiler.classList.remove('spoiler-expand');
+												                            targetButtons.map((btn) => btn.classList.remove('active'));
+
+												                        } else {
+
+												                            var spoiler_content = targetSpoiler.getElementsByClassName('spoiler-content')[0];
+
+												                            var margin_top = parseInt(getComputedStyle(spoiler_content, null).getPropertyValue("margin-top"));
+												                            var margin_btm = parseInt(getComputedStyle(spoiler_content, null).getPropertyValue("margin-bottom"));
+												                            var content_height = spoiler_content.offsetHeight;
+
+												                            var maxHeight_toSet = content_height + margin_top + margin_btm;
+
+												                            setTimeout(function(){ targetSpoiler.style.maxHeight = maxHeight_toSet + 'px' }, 0);
+
+												                            targetSpoiler.classList.add('spoiler-expand');                  // update  spoiler  status
+												                            targetButtons.map((btn) => btn.classList.add('active'));        // update  button   status
+												                        }
+
+												                    } else {
+
+												                        console.log('No [spoiler] element with [data-spoiler-id="'+current_spoilerBtn.getAttribute('data-spoiler-id')+'"] found within document. Event triggered by [spoiler-btn] :');
+												                        console.log(current_spoilerBtn);
+
+												                    }
+
+												                };
+
+												            // Define Parameters
+												            // -----------------------------------------------------
+												            // Performance - skip checking document (for target-elements : spoiler | spoiler-btn) on each function call
+
+												                // Will set the target parameters for each [spoiler-btn]
+												                // will run automatically on first spoiler-btn click
+												                // will be more efficient for future calls there-after
+
+												                spoilerObj.spoilerBtn_defineParameters = function(current_spoilerBtn) {
+
+												                    if (!current_spoilerBtn.targetParameters) {
+
+												                        current_spoilerBtn.targetParameters = {};
+
+												                        var targetId = current_spoilerBtn.getAttribute('data-spoiler-id');
+
+												                        var spoilers = Array.from(document.getElementsByClassName('spoiler'));
+												                        current_spoilerBtn.targetParameters.targetSpoiler = spoilers.filter(spoiler => spoiler.getAttribute('data-spoiler-id') === targetId )[0];
+
+												                        var spoilerButtons = Array.from(document.getElementsByClassName('spoiler-btn'));
+												                        current_spoilerBtn.targetParameters.targetButtons = spoilerButtons.filter(spoilerBtn => spoilerBtn.getAttribute('data-spoiler-id') === targetId );
+												                
+												                    }
+
+												                };
+
+												            // Run initial parameter-definition (optional || not recommended if dynamically-generated content)
+												            // Best called as one of the final functions in the scripts 
+												            // -----------------------------------------------------
+
+												                spoilerObj.spoilerBtn_defineParameters_all = function() {
+
+												                    var spoilerButtons = Array.from(document.getElementsByClassName('spoiler-btn'));
+												                    spoilerButtons.map(btn => asteriskObj.components.spoiler.spoilerBtn_defineParameters(btn));
+
+												                };
+
+												        })();
+												</pre>
+											</div> <!-- finalCode-blockContainer -->
+										</div> <!-- copyContext -->
+									</div> <!-- tabs-content -->
+
+							</div> <!-- tabs-contentGroup -->
+						</div> <!-- tabs -->
+					</div> <!-- finalCode-container -->
+				</div> 
+
+			</div>
+		</div>
+
+	</article>
+
+    <!-- ==================================================== -->
+    <div id="runScript" data-src="../../js/extra_scripts/components/spoiler.js"> </div>
+    <!-- ==================================================== -->

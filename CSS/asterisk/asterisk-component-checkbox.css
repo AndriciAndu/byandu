@@ -1,0 +1,221 @@
+
+	/* Component - Checkbox */
+	/* ----------------------------------------*/
+
+		/* Colors */
+		/* ----------------------------------------*/
+
+			.checkbox-switch .checkbox-customBox 		{ background-color: rgb(17, 187, 26); } /* on  - circle is right */
+			.checkbox-switch .checkbox-customBox:before { background-color: rgb(190, 12, 12); } /* off - circle is left  */
+			.checkbox-switch .checkbox-customBox:after 	{ background-color: #613dcc; } /* circle */
+
+			/*
+				.checkbox-switch .checkbox-customBox 		{ background-color: #1461cc; #848484 } 
+				.checkbox-switch .checkbox-customBox:before { background-color: #7919FF; } 
+
+
+				cute bg colors 
+
+				rgb(96, 175, 21)
+				rgb(21, 139, 175)
+				rgb(175, 21, 129)
+			*/
+
+		/* Element */
+		/* ----------------------------------------*/
+
+			.checkbox {
+				position: relative;
+				display: inline-block;
+				vertical-align: middle;
+			}
+
+		/* Input/Checkbox */
+		/* ----------------------------------------*/
+		/* invisible & placed over the visible elements */
+
+			.checkbox-input {
+				position: absolute; z-index: 2;
+				width: 100%; height: 100%;
+				top: 0; left: 0;
+
+				cursor: pointer; cursor: hand;
+				opacity: 0;
+			}
+
+		/* Text */
+		/* ----------------------------------------*/
+
+			.checkbox-text {
+				display: inline-block;
+				vertical-align: middle;
+			}
+
+		/* Custom Box */
+		/* ----------------------------------------*/
+
+			/* Normal */
+			/* ----------------------------------------*/
+
+				.checkbox-customBox {
+					position: relative;
+					display: inline-block;
+					vertical-align: middle;
+
+					transform: translateY(-.1em);
+
+					width: 1.4em; height: 1.4em;
+				}
+
+				.checkbox-customBox:before {
+					content: '\f00d';
+					font-family: FontAwesome;
+
+					position: absolute;
+					width: 100%; height: 100%;
+					top: 0; left: 0;
+
+					font-size: .8em;
+					text-align: center;
+
+					border: .2em solid rgba(3,3,3,.5);
+				}
+
+				/* Transitions */
+				/* ----------------------------------------*/
+
+					.checkbox-input:checked ~ .checkbox-customBox:before {
+						content: '\f00c';
+					}
+
+			/* Checkbox-Switch */
+			/* ----------------------------------------*/
+
+				.checkbox-switch .checkbox-customBox {
+					height: 1.4em; width: 3em;
+					border-radius: 1em;
+
+					overflow: hidden;
+				}
+
+				.checkbox-switch .checkbox-customBox:before {
+					content: '' !important;
+					position: absolute;
+					left: -82.5%; top: 0;
+					width: 100%; height: 100%;
+
+					border: none;
+
+					-webkit-transition: transform .2s ease-in-out;
+					   -moz-transition: transform .2s ease-in-out;
+						 -o-transition: transform .2s ease-in-out;
+							transition: transform .2s ease-in-out; 
+				}
+
+				.checkbox-switch .checkbox-customBox:after {
+					content: '' !important;
+					position: absolute;
+					width: 46.7%; height: 100%;
+					top: 0; left: 0;
+
+					border-radius: 50%;
+
+					-webkit-transition: transform .2s ease-in-out;
+					   -moz-transition: transform .2s ease-in-out;
+						 -o-transition: transform .2s ease-in-out;
+							transition: transform .2s ease-in-out; 
+				}
+
+				/* Transitions */
+				/* ----------------------------------------*/
+
+					.checkbox-switch .checkbox-input:checked ~ .checkbox-customBox:before {
+						-webkit-transform: translateX(67.5%);
+							-ms-transform: translateX(67.5%);
+								transform: translateX(67.5%); 
+					}
+
+					.checkbox-switch .checkbox-input:checked ~ .checkbox-customBox:after {
+						-webkit-transform: translateX(120%);
+							-ms-transform: translateX(120%);
+								transform: translateX(120%); 
+					}
+
+
+
+		/* switch-slimmer */
+
+			.switch-slimmer .switch-slider:before {
+				display: none;
+			}
+
+			.switch-slimmer .switch-slider:after {
+				width: 33.7%; height: 70%;
+				left: 10%; top: 15%;
+			}
+
+			.switch-slimmer .switch-input:checked ~ .switch-slider:after {
+				-webkit-transform: translateX(140%);
+					-ms-transform: translateX(140%);
+						transform: translateX(140%); 
+			}
+
+
+	/* Component - Checkbox */
+	/* ----------------------------------------*/
+
+
+
+
+
+
+
+		
+
+
+
+		.checkbox.checkbox-circle .checkbox-customBox:before {
+			border-radius: 50%;
+		}
+
+		.checkbox.checkbox-rounded .checkbox-customBox:before {
+			border-radius: .2em;
+		}
+
+	/* */
+
+		.checkbox-shadow .checkbox-customBox {
+			margin-right: .35em;
+		}
+
+		.checkbox-shadow .checkbox-customBox:before {
+			box-shadow: 0 0 0 .35em rgba(190, 12, 12, .3);
+			border-color: rgb(190, 12, 12);
+			color: rgb(190, 12, 12);
+		}
+
+		.checkbox-shadow .checkbox-input:checked ~ .checkbox-customBox:before {
+			box-shadow: 0 0 0 .35em rgba(17, 187, 26, .3);
+			border-color: rgb(17, 187, 26);
+			color: rgb(17, 187, 26);
+		}
+
+
+
+		/* switch-lg */
+		/* ----------------------------------------*/
+		/* requires to be used along with the [switch] class itself : <div class="switch switch-lg"> */
+
+			.switch-lg { 
+				width: 4em; 
+			}
+
+			.switch-lg .switch-slider:after {
+				width: 35%;
+			}
+
+			.switch-lg .switch-input:checked ~ .switch-slider:after {
+				-webkit-transform: translateX(185%);
+					-ms-transform: translateX(185%);
+						transform: translateX(185%); 
+			}

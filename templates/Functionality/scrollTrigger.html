@@ -1,0 +1,513 @@
+ 
+	<!-- ===================== Route ================== -->
+	<script src="../../js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+	<style>
+	
+		.imgContainer {
+			width: 100%;
+			overflow: hidden 	!important;
+			padding: 0 			!important;
+		}
+
+		.imgContainer img {
+			width: 100%;
+		}
+
+		.lazyLoad:not(.lazyLoad-loaded) {
+			filter: blur(15px) 		!important;
+			transform: scale(1.15) 	!important;
+		}
+
+		.lazyLoad-dummyImg {
+			position: fixed;
+			top: -100vh; 	left: -100vh;
+			width: 1px; 	height: 1px;
+			opacity: 0;	pointer-events: none;
+		}
+
+		</style>
+	<!-- ============================================== -->
+	<article>
+
+		<header class="sr-only"> <h2> </h2> </header>
+
+		<div class="tabs article-mainTabs">
+
+			<div class="article-mainTabs-banner">
+				<div class="article-mainTabs-title"> Functionality : scrollTrigger </div>
+
+				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
+					<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> Usage </button>
+					<button class="tabs-btn" 				data-tabs-id="2"> Code  </button>
+				</div>
+			</div>
+
+			<div class="tabs-contentGroup">
+			
+				<!-- Usage Tab -->
+				<div class="tabs-content article-mainTabs-usageTab tab-expanded" data-tabs-id="1">
+
+					<!-- I. Description -->
+
+						<!--<row> <div style="height: 500px; background-color: red"> </div> </row>-->
+
+						<section class="p-0" aria-label="general description">
+							<heading> <h2 class="section-title"> I. Description </h2> </heading>
+
+							<p> Functionality which detects when specific Elements are scrolled into view (and triggers a function). </p>
+
+							<p> </p>
+
+							<!--
+							<div class="col-12 md-col-6">
+								<div class="wrapper">
+									<p> <b><u>This is</u> :</b> </p>
+									<p class="mt-0"> * uni-directional (<b>scroll-down</b>) </p> 
+									<p class="mt-0"> * targets (only) the <b>top</b> of the Element </p>
+									<p class="m-0">  * can affect each Element (only) <b>once</b> </p>
+									<p class="sub-heading mt-0"> (when it is <b>scrolled-into-view</b> for <u>the first time</u>) </p>
+
+									<div class="col-12"> <hr> </div>
+
+									<p> <b><u>Great for</u></b> : Initial scroll-into-view Functionalities </p> 
+									<p class="mt-0"> * element appear effects </p>
+									<p class="mt-0"> * lazy-loading - images/video </p>
+									<p class="mt-0"> * section-triggered modals/alerts </p>
+									<p class="m-0">  * initialization of performance-heavy Components </p>
+									<p class="sub-heading mt-0"> (autoplay sliders / canvases) </p>
+								</div>
+							</div>
+
+							<div class="col-12 md-col-6">
+								<div class="wrapper">
+									<p> <b><u>Alternatively, [xxx] is</u> :</b> </p>
+									<p class="mt-0"> * bi-directional (<b>scroll-down</b> and <b>scroll-up</b>) </p>
+									<p class="mt-0"> * can target (both) the <b>top</b> and <b>bottom</b> of the Element </p>
+									<p class="m-0">  * can affect each Element <b>multiple times</b> </p>
+									<p class="sub-heading mt-0"> (<u>each time</u> it is <b>scolled-into-view</b> / <b>scrolled-out-of-view</b>) </p>
+
+									<div class="col-12"> <hr> </div>
+
+									<p> <b><u>Great for</u></b> : Repeated scroll-into-view / scroll-out-of-view Functionalities </p> 
+									<p class="mt-0"> * element appear / disappear effects </p>
+									<p class="m-0">  * in-view enabling / out-of-view disabling of performance-heavy Components </p>
+									<p class="sub-heading mt-0"> (autoplay sliders / canvases) </p>
+								</div>
+							</div>
+							-->
+
+							<p> If the desired functionality involves only trigger points on the document/body/main-scrollable-element itself, </p>
+							<p> Navbar transitions </p>
+							<p> Bottom-of-page Element injection </p>
+
+
+							
+
+							<!--
+								<div class="imgContainer"> 
+									<img class="lazyLoad" src="../../images/test-1-thumb.jpg" 
+										data-lazy-srcset='{
+											"xs" : "../../images/test-1-xs.jpg" ,
+											"sm" : "../../images/test-1-sm.jpg" ,
+											"md" : "../../images/test-1-md.jpg" ,
+											"lg" : "../../images/test-1-lg.jpg" ,
+											"xl" : "../../images/test-1-xl.jpg" 
+										}'/> 
+								</div>
+
+								<div class="imgContainer"> 
+									<img class="lazyLoad" src="../../images/test-1-thumb.jpg" 
+										data-lazy-srcset='{
+											"xs" : "../../images/test-1-xs.jpg" ,
+											"sm" : "../../images/test-1-sm.jpg" ,
+											"lg" : "../../images/test-1-lg.jpg" ,
+											"xl" : "../../images/test-1-xl.jpg" 
+										}'/> 
+								</div>
+
+								<div class="imgContainer"> 
+									<img class="lazyLoad" src="../../images/test-1-thumb.jpg" 
+										data-lazy-srcset='{
+											"sm" : "../../images/test-1-sm.jpg" ,
+											"md" : "../../images/test-1-md.jpg" ,
+											"lg" : "../../images/test-1-lg.jpg" ,
+											"xl" : "../../images/test-1-xl.jpg" 
+										}'/> 
+								</div>
+							-->
+								
+						</section>
+
+					<!-- II. Initialization -->
+
+						<section class="p-0" aria-label="initialization">
+							<heading> <h2 class="section-title"> II. Initialization </h2> </heading>
+
+							<p> <b>Step 1.</b> Download and refference the [ <b-p>asterisk-functionality-scrollTrigger.js</b-p> ] JS file. </p>
+							<div class="wrapper"> <div class="col-12"> &lt;script src="<b-r>--myPath--</b-r><b-p>/asterisk-functionality-scrollTrigger.js</b-p>" type="text/javascript">&lt;/script> </div></div>
+
+							<p> 
+								<b>Step 2.</b> Define the content of the <span class="wrapper">triggerFunction</span>. 
+
+								<span class="wrapper tooltip-before tooltip-top" data-tooltipText="* This will run &#13;&#10; when the [Element] is scrolled into view. &#13;&#10;───────────────────────────&#13;&#10; * Must be defined before calling asteriskObj.functionality.scrollTrigger.init() &#13;&#10;───────────────────────────&#13;&#10; * Individual [Elements] can be configured to trigger [Custom Functions], instead. "></span>
+							</p>
+
+							<div class="wrapper"> 
+								<line> <b>asteriskObj.functionality.scrollTrigger.</b><b-p>triggerFunction</b-p> = function(<b-r>elem</b-r>) { </line>
+								<div class="col-12">
+									<line> <i class="comment"> // define what will happen when the <span class="wrapper">elem</span> is scrolled into view </i> </line>
+								</div>
+								<line> }; </line>
+							</div>
+
+							<p> 
+								<b>Step 3.</b> Make the next function call : 
+
+								<span class="wrapper tooltip-before tooltip-top" data-tooltipText="* The contents of asteriskObj.functionality.scrollTrigger.init() must be defined before calling this function &#13;&#10;───────────────────────────&#13;&#10; * If targeted [Elements] are loaded dynamically, the call must be made after said [Elements] have been loaded."></span>
+							</p>
+							<div class="wrapper"> <div class="col-12"> <b>asteriskObj.functionality.scrollTrigger.</b><b-p>init()</b-p>; </div> </div>
+
+						</section>
+
+					<!-- III. Usage -->
+
+						<section class="p-0" aria-label="usage">
+							<heading> <h2 class="section-title"> III. Usage </h2> </heading>						
+
+							<row class="p-0">
+								<div class="info-quote">
+									<p> 
+										<b>* <span class="wrapper">Elements</span> :</b> reffers to <span class="wrapper">HTML Elements</span> which have the <span class="wrapper"><b-p>scrollTrigger-target</b-p></span> <span class="wrapper">class</span>, and are to-be-affected by the <span class="wrapper"><b-p>triggerFunction()</b-p></span>. 
+									</p>
+									<p> 
+										<b>* <span class="wrapper"><b-r>{obj}</b-r></span> :</b> reffers to the <span class="wrapper"><b>asteriskObj.functionality.scrollTrigger</b></span> Object. 
+										<span class="wrapper tooltip-before tooltip-top" data-tooltipText="* So, [ {obj}.qwerty ]  reffers to &#13;&#10;asteriskObj.functionality.scrollTrigger.qwerty"></span>
+									</p>
+								</div>
+							</row>
+
+							<div class="accordion">
+
+								<div class="accordion-group px-md my-sm">
+									<button class="accordion-btn"> * Adding a scroll-trigger <span class="md-visible lg-visible xl-visible">to a <b>HTML Element</b></span> : </button>
+									<div class="accordion-content">
+
+										<div class="col-12 p-0 md-flex md-flex-stretch-center">
+
+											<div class="col-12 md-col-6 p-0">
+												<p> Just add the <span class="wrapper"><b-p>scrollTrigger-target</b-p></span> <span class="wrapper">class</span> on the desired <span class="wrapper">HTML Element</span> </p>
+											</div>
+
+											<div class="col-12 md-col-6 p-0">
+												<div class="wrapper">
+													<line> &lt;div class="<b-p>scrollTrigger-target</b-p>">&lt;/div> </line>
+												</div>
+											</div>
+										</div>
+
+										<hr>
+
+										<p class="sub-heading mt-0"> * When the <span class="wrapper">Element</span> is scrolled into view, the <span class="wrapper"><b-r>{obj}</b-r><b-p>.triggerFunction()</b-p></span> or the custom <span class="wrapper"><b>[Element]</b><b-p>.triggerFunction()</b-p></span> will run, with the <span class="wrapper">Element</span> passed as the function's parameter. </p>
+
+										
+									</div>
+								</div>
+
+								<div class="accordion-group px-md my-sm">
+									<button class="accordion-btn"> * Defining the <b>triggerFunction</b> : </button>
+									<div class="accordion-content">
+										
+										<p> The <span class="wrapper"><b-r>triggerFunction</b-r></span> will run when an <span class="wrapper">Element</span> is scolled-into-view, with the <span class="wrapper">Element</span> itself passed as the function's parameter. </p>
+										<div class="col-12"> <hr class="mt-0"> </div>
+
+										<div class="col-12 p-0 md-flex md-flex-stretch-center">
+
+											<div class="col-12 md-col-6 p-0">
+												<div class="col-12 p-0">
+													<p> * This will apply for each <span class="wrapper">Element</span> that has the <span class="wrapper"><b-p>scrollTrigger-target</b-p></span> <span class="wrapper">class</span>, when it is scrolled-into-view.</p>
+													<p> * The function's logic can be forked to accomodate multiple functionality scenarios, through a <span class="wrapper">conditional</span> statement. </p>
+													<p> * If certain <u>individual</u> <span class="wrapper">Elements</span> require separate functionality, a <b>custom <span class="wrapper">triggerFunction</span></b> can be defined, for the <span class="wrapper">HTML Elements</span> in question, without bloating the logic of the 'general' function. <i class="comment">(see below)</i> </p>
+												</div>
+											</div>
+
+											<div class="col-12 md-col-6 p-0">
+												<div class="wrapper">
+													<line> <b>asteriskObj.functionality.scrollTrigger.</b><b-p>triggerFunction</b-p> = function(<b-r>elem</b-r>) { </line>
+													<line> &nbsp; </line>
+													<div class="col-12">
+														<line> if (hasClass(elem , 'toShow')) { </line>
+														<div class="col-12">
+															<line> <i class="comment"> // logic to 'show' element </i> </line>
+														</div>
+														<line> } else if (hasClass(elem , 'toMakeBlue')) { </line>
+														<div class="col-12">
+															<line> <i class="comment"> // logic to 'make blue' element </i> </line>
+														</div>
+														<line> } else { </line>
+														<div class="col-12">
+															<line> <i class="comment"> // logic for other elements, who are not 'toShow' or 'toMakeBlue' </i> </line>
+														</div>
+														<line> }; </line>
+														<div class="col-12"> <hr> </div>
+														<line> function hasClass ( elem , klass ) { </line>
+													    <div class="col-12">
+													    	<line> return (" " + elem.className + " " ).indexOf( " " + klass + " " ) > -1 </line>
+													    </div>
+													    <line> }; </line>
+													</div>
+													<line> }; </line>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+
+								<div class="accordion-group px-md my-sm">
+									<button class="accordion-btn"> * Creating a custom <b>triggerFunction</b> <span class="md-visible lg-visible xl-visible">for a <b>HTML Element</b></span> : </button>
+									<div class="accordion-content">
+										
+										<div class="col-12 p-0 md-flex md-flex-stretch-center">
+
+											<div class="col-12 md-col-6 p-0">
+												<div class="col-12 p-0">
+													<p> Just define the <span class="wrapper"><b-r>triggerFunction</b-r></span> <span class="wrapper">Property</span> on the <span class="wrapper">HTML Element</span>. </p>
+
+													<div class="col-12"> <hr class="mt-0"> </div>
+
+													<p class="sub-heading"> * The <span class="wrapper"><b-r>triggerFunction</b-r></span> <span class="wrapper">Property</span> <b><u>must</u> be a <span class="wrapper">Function</span>.</b> </p>
+													<p class="sub-heading mt-0"> * The <span class="wrapper"><b-p>Element</b-p></span> itself <b><u>must</u> be passed as the function's <span class="wrapper">parameter</span>.</b> </p>
+													<div class="col-12"> <hr class="m-y-xs"> </div>
+													<p class="sub-heading"> * The custom <span class="wrapper"><b-r>triggerFunction</b-r></span> will take effect <b>for the specified <span class="wrapper">HTML Element</span> <u>only</u>.</b> </p>
+													<p class="sub-heading mt-0"> * The default <span class="wrapper">asteriskObj.functionality.scrollTrigger.<b-p>triggerFunction()</b-p></span> <b>will <u>not</u> run for the specified <span class="wrapper">HTML Element</span></b>. </p>
+												</div>
+											</div>
+
+											<div class="col-12 md-col-6 p-0">
+												<div class="wrapper">
+													<line> &lt;div id="myElem" class="scrollTrigger-target"> &lt;/div> </line>
+													<div class="col-12"> <hr> </div>
+													<line> var <b-p>myElem</b-p> = document.getElementById('myElem'); </line>
+													<line> <b-p>myElem</b-p><b-r>.triggerFunction</b-r> = function(<b-p>myElem</b-p>) { </line>
+													<div class="col-12">
+														<line> <i class="comment">// define what will happen when the <span class="wrapper">myElem</span> is scrolled into view </i> </line>
+													</div>
+													<line> } </line>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+
+								<div class="accordion-group px-md my-sm">
+									<button class="accordion-btn"> * Refreshing the <b>scrollTrigger-target</b> List : </button>
+									<div class="accordion-content">
+
+										<p> 
+											When running the <span class="wrapper"><b-r>{obj}</b-r><b-p>.init()</b-p></span> function, the to-be-afected <span class="wrapper"><b>Elements</b></span> are sorted and stored within the <span class="wrapper"><b-r>{obj}</b-r><b>.targetElements</b></span> Array. 
+
+											<button class="spoiler-btn spoiler-btn-autoText title-spoilerBtn" data-spoiler-id="targetElements-why"> More | </button>
+										</p>
+
+										<div class="spoiler" data-spoiler-id="targetElements-why">
+											<div class="spoiler-content">
+												<div class="col-12">
+
+													<p> Having the <span class="wrapper">Elements</span> stored, and in order, allows for a more-efficient execution for <span class="wrapper"><b-r>{obj}</b-r><b-p>.checkScroll()</b-p></span> / <span class="wrapper"><b-r>{obj}</b-r><b-p>.triggerPoints_check()</b-p></span>. </p>
+
+													<p class="mb-0"> The <span class="wrapper"><b-r>{obj}</b-r><b-p>.checkScroll()</b-p></span> function is set up as a recursion, debounced every 300ms, and so it avoids performance issues related to <span class="wrapper">onscroll Events</span>. </p>
+													<p class="mt-0"> 
+														<i class="sub-heading">* It automatically stops once all <span class="wrapper"><b>Elements</b></span> have been 'triggered'. </i>
+														<span class="wrapper tooltip-before tooltip-top" data-tooltipText="* The Elements are stored within &#13;&#10; the [ {obj}.targetElements ] Array, &#13;&#10; and are removed from the Array &#13;&#10; after they have been 'triggered'. &#13;&#10;───────────────────────────&#13;&#10; After all Elements have been triggered, &#13;&#10; the Array will remain empty, &#13;&#10; and the recursion will stop."></span>
+													</p>
+
+													<p class="mb-0"> Even with the debouncing in place, it would be inefficient to <span class="wrapper">call the DOM</span> and <span class="wrapper">check the possition</span> of each <span class="wrapper"><b>Element</b></span> on every cycle. </p>
+													<p class="sub-heading mt-0"> * As long as the content/layout is the same, the positions and order of each <span class="wrapper"><b>Element</b></span> will be constant. </p>
+
+													<p> Having the <span class="wrapper">Elements</span> stored, and in order, allows to check the position of only the first item in the Array, per cycle. </p>
+													<p class="sub-heading mt-0"> * If the first <span class="wrapper">Element</span> is not in view, neither will the next <span class="wrapper">Elements</span> be. </p>
+													<p class="sub-heading mt-0"> * If an <span class="wrapper">Elements</span> is in view, after the subsequent logic is executed, the <span class="wrapper"><b-r>{obj}</b-r><b-p>.triggerPoints_check()</b-p></span> function will be called again, to check the next item's position. </p>
+												</div>
+											</div>
+										</div>
+
+										<p> 
+											If any <span class="wrapper"><b>Elements</b></span> are added dynamically, after calling the <span class="wrapper"><b-r>{obj}</b-r><b-p>.init()</b-p></span> function, the <span class="wrapper"><b-r>{obj}</b-r><b>.targetElements</b></span> Array must be refreshed.
+
+											<button class="spoiler-btn spoiler-btn-autoText title-spoilerBtn" data-spoiler-id="targetElements-refresh"> More | </button>
+										</p>
+
+										<div class="spoiler" data-spoiler-id="targetElements-refresh">
+											<div class="spoiler-content">
+												<div class="col-12">
+													<p> <b><u>Case 1. All content is static</u></b> : </p>
+													<p> * All <span class="wrapper"><b>Elements</b></span> are already present within the Document, when calling the <span class="wrapper"><b-r>{obj}</b-r><b-p>.init()</b-p></span>. </p>
+													<p class="mb-0"> <i class="fa fa-arrow-circle-right"></i> The <span class="wrapper"><b-r>{obj}</b-r><b>.targetElements</b></span> Array <b>does not need to be refreshed</b>, as the Array already contains all the <span class="wrapper"><b>Elements</b></span> that are to-be-affected. </p>
+
+													<hr>
+
+													<p> <b><u>Case 2. Content is loaded dynamically</u></b> : </p>
+													<p class="mt-0"> <b>* Example : SPA (Single Page Applications)</b> - where the whole 'content' is refreshed through GET/fetch requests or other routing systems. </p>
+													<p class="mt-0"> <b>* Example : Infinite Scroll</b> - New Elements being added through bottom-of-page scrolling </p>
+
+													<p> <b><u>This will result in </u></b> : </p>
+													<p class="m-0"> * New <span class="wrapper"><b>Elements</b></span> are added after the <span class="wrapper"><b-r>{obj}</b-r><b-p>.init()</b-p></span> function is called; </p>
+													<p class="mt-0"> * Existing <span class="wrapper"><b>Elements</b></span> might be removed before they are <b>'triggered'</b>; </p>
+
+													<p class="mb-0"> <i class="fa fa-arrow-circle-right"></i> The <span class="wrapper"><b-r>{obj}</b-r><b>.targetElements</b></span> Array <b>must be refreshed</b> because : </p>
+													<p class="m-0"> * the Array does not contain all the <span class="wrapper"><b>Elements</b></span> thare are to-be-affected </p>
+													<p class="mt-0"> * or it may contain (removed) <span class="wrapper"><b>Elements</b></span> that can no longer be checked. </p>
+												</div>
+											</div>
+										</div>
+
+										<hr>
+
+										<p class="mt-0"> * This is done by <b>setting <span class="wrapper"><b-r>{obj}</b-r><b-p>.refreshTargetElements</b-p> = <b-p>true</b-p></span>, <u>after</u> the <span class="wrapper">Elements</span> have been added/removed.</b> </p>
+										<p class="sub-heading mt-0"> * This will call the <span class="wrapper"><b-r>{obj}</b-r><b-p>.triggerPoints_generateMap()</b-p></span> at the start of the next <span class="wrapper"><b-r>{obj}</b-r><b-p>.checkScroll()</b-p></span> cycle. </p>
+											
+
+										<!--
+										<p> The init() function has 2 effects : 
+
+											<b> First : </b>
+											generateRange 
+												- gets all <span class="wrapper">scrollTrigger-target</span> <span class="wrapper">HTML Elements</span>
+												- sorts them in order - by their position within the document elem.getBoundingClientRect().top
+												- places them in targetElements Array
+
+												
+
+
+											Having the values stored statically 
+
+												- Advantage : having them already stored in order, it's needed to only cross-check the position of the first-available item in the array - instead of getting the elements and checking each item's position with each itteration
+												- Disadvantage : if the layout changes , the generateRange() must be called again
+
+												===> add a check is 
+
+											checkScroll - wrapper function which calls checkRange
+												- calls the checkRange 
+												- if it is within view / passed the triggerPoint - run the function | remove it from the array | check the next - rinse and repeat
+
+										<p> The list is generated on init() and remains the same throughout the whole execution. </p>
+
+										<p> If certain elements are added/removed or certain elements change their position within the document (different viewports / grid changes) - this might require a refresh. </p>
+										-->
+
+									</div>
+								</div>
+							</div>
+
+						</section>
+
+					<!-- IV. Under the hood -->
+
+						<!--<section class="p-0" aria-label="usage">
+							<heading> <h2 class="section-title"> IV. Under the hood </h2> </heading>
+
+							<p> 1. The file follows the *generic-format*, with the path : <span class="wrapper">asteriskObj.functionality.scrollTrigger</span>.</p>
+
+							<p> 2. Calling the {obj}.init() function triggers: </p>
+							<p> {obj}.triggerPoints_generateMap() - stores the target </p>
+							<p> {obj}.checkScroll() </p>
+							<p> Adds 'resize' eventListener on window -> triggers {obj}.triggerPoints_generateMap() when resized </p>
+
+							<p> Main functions: </p>
+
+							<p> {obj}.triggerPoints_generateMap </p>
+							<p> Purpose : Storing the  </p>
+							<p> Functionality : </p>
+							<p> - gets all Elements within the document which have the -target class </p>
+							<p> - sorts them in order </p>
+							<p> - stores them within {obj}.targetElements </p>
+							<p> </p>
+							<p> Effects : </p>
+								- when running the actual scroll-check, only the (already-stored-in-memory) first element is verified. If it passes, after 
+
+								-->
+
+						<!--
+							When the file is added
+
+							When the init() is called
+
+
+
+
+							<p> 1. The  </p>
+
+							- if the file is added, an IIFE will run - creates the required parameters and stores them within the asterisk object
+							- the functions are available, but not active
+
+							- the functionaality will become available after calling init()
+
+							<p> 2. </p>
+
+							Generate Map 
+
+								- gets all Elements within the document which have the -target class
+								- sorts them in order
+								- when running checkScroll(), the elements are already stored in order
+
+							Every x miliseconds, the checkScroll() is called
+
+								- cheks if the map should be refreshed (page was resized / elements were expanded/collapsed)
+
+								- checks the scroll position 
+
+									- get first element in array
+
+									- if it is in view 
+										- run triggerFunction
+										- remove item from array
+										- run function again (now it will check the next element)
+
+									- else
+										- do nothing
+
+							-> triggerPoints_generateMap
+
+							-> checkScroll
+
+								-> should generate map again -> triggerPoints_generateMap
+
+								-> triggerPoints_check
+
+									-> get first element in 'map'
+									-> if element is in view
+
+										-> scrollTrigger_apply
+
+											-> if custom -> apply custom
+											-> else -> apply default
+
+										-> remove it from array
+
+										-> triggerPoints_check
+
+									-> else : nothing
+
+								-> if there are still untriggered elements -> checkScroll() after 300ms
+						-->
+						</section>
+
+				</div>
+
+				<!-- Code Tab -->
+				<div class="tabs-content article-mainTabs-codeTab" data-tabs-id="2"
+								data-generateCodeFor="['js']" 
+								data-setCopyContextId="functionality-scrollTrigger" 
+								data-setFileName="asterisk-functionality-scrollTrigger">
+				</div>
+				
+			</div>
+		</div>
+
+	</article>
+
+	<!-- ==================================================== -->
+	<div id="runScript" data-src="../../js/extra_scripts/functionality/scrollTrigger.js"> </div>
+	<!-- ==================================================== -->

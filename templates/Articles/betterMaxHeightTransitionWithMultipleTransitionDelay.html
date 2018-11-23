@@ -1,0 +1,82 @@
+	
+	<!-- ===================== Route ================== -->
+	<script src="../../js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+	<style> 
+		</style>
+	<!-- ============================================== -->
+
+	<article>
+
+		<heading> <h2 class="section-title"> Better <span class="wrapper">max-height</span> <span class="wrapper">transitions</span> with multiple <span class="wrapper"> transition-delay </span> </h2> </heading>
+
+		<p> The most common use-case for <b><u>collapsible</u> components</b>, such as <span class="wrapper">accordion</span> | <span class="wrapper">spoiler</span> | <span class="wrapper">navbar</span> | <span class="wrapper">etc</span> is to use a <span class="wrapper">max-height</span> transition, alongside <span class="wrapper">overflow: hidden</span>, to generate a collapse/expand animation, for the user to see. </p>
+
+		<div class="wrapper flex flex-cross-center">
+			<div class="col-6 p-0" style="line-height: 2">
+				<p> The issue is that setting <b><span class="wrapper">max-height: auto</span> is invalid</b>.</p>
+				<hr>
+				<p> And so we are obligated to set a default value of huge proportions (<span class="wrapper">max-height: 5000px</span> or <span class="wrapper">max-height: 10000px</span>), to make sure that the potential <u>height of the content</u> is lower than the <u>max-height provided</u>. </p>
+				<hr>
+				<p> The closer the max-height value to the actual height of the content, the better/smoother the transition effect will be, but we must always make sure that the max-height is larger. </p>
+			</div>
+			<div class="col-6">
+				<line> <b-p>.collapsibleElement</b-p> { </line>
+					<indent>
+					<line> overflow: hidden; </line>
+					<line> <b-r>max-height: 0;</b-r> </line>
+					<line> transition: max-height 500ms; </line>
+					</indent>
+				<line> } </line>
+				<hr>
+				<line> <b-p>.collapsibleElement</b-p><b>.expanded</b> { </line>
+					<indent>
+					<line> <b-r>max-height: auto; <i>/* invalid */</i></b-r> </line>
+					</indent>
+				<line> } </line>
+				<hr>
+				<line> <b-p>.collapsibleElement</b-p><b>.expanded</b> { </line>
+					<indent>
+					<line> <b-r>max-height: 5000px;</b-r>  </line>
+					</indent>
+				<line> } </line>
+			</div>
+		</div>
+
+		<p> This leads to scenarios where: </p>
+		<p class="mt-0"> * the content is <span class="wrapper">expanded</span> at a speed close to what is desired </p>
+		<p class="mt-0"> * yet the <span class="wrapper">collapse</span> seems to have a 'buffer', before the transition takes place. </p>
+
+		<p> Of course, this <b>'buffer'</b> happens because of the difference between the max-height value, and the height of the content itself. </p>
+
+		<div class="col-6">
+			It does not appear to have a 'buffer' when it is expanding because it starts from 0 and it immediately engulfs the actual height of the content.
+		</div>
+		<div class="col-6">
+			When it is collapsing, it starts from 5000px/10000px, and it takes a good portion of it's allocated time to get to the height of the actual content, before the effect is visible.
+		</div>
+
+		<div class="wrapper">
+			<line> Let's consider: </line>
+			<hr>
+			<line> Our max-height: 5000px ; </line>
+			<line> Our actual content height: 1000px ; </line>
+			<line> Our transition duration: 500ms ; </line>
+			<line> Result => our speed: 1000px/100ms; </line>
+			<hr>
+			<line> When expanding: </line>
+			<line> First 100ms: our whole content will show </line>
+			<line> Latter 400ms: apparently nothing is happening, as the height has already reached it's maximum - but actually the max-height is still 'growing' even though nothing is displayed. </line>
+			<line> Conclusion: we have a 100ms transition, with a 400ms 'after-effect' </line>
+			<hr>
+			<line> When collapsing: </line>
+			<line> First 400ms: apprently nothing is happening, but the max-height is slowly counting down </line>
+			<line> Latter 100ms: the max-height has reached the size of our actual height, and the transition begins, as it covers our content height. </line>
+			<line> Conclusion: we have a 400ms delay, with a 100ms transition </line>
+		</div>
+
+	</article>
+
+	<!-- ==================================================== -->
+	<div id="runScript" data-src="../../js/extra_scripts/articles/betterMaxHeightTransitionWithMultipleTransitionDelay.js"> </div>
+	<!-- ==================================================== -->

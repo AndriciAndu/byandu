@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+	<link rel="icon"          href="/images/favicon.ico" type="image/x-icon">
+
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title> byAndu </title>
+
+	<!-- Custom CSS -->
+
+	<!-- ================================  to be un-commented on deployment [Start]	-->
+		<!-- <link href="css/asterisk.css" 			type="text/css" rel="stylesheet"> 	-->
+		<!-- <link href="css/template-plain.css" 	type="text/css" rel="stylesheet"> 	-->
+	<!-- ================================  to be un-commented on deployment [End]	-->
+
+	<!-- ================================  to be removed on deployment [Start]	-->
+		<link href="css/asterisk/normalize.min.css" 						type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-effects-faSpinner.css" 			type="text/css" rel="stylesheet">
+		
+		<link href="css/asterisk/asterisk-component-tabs.css" 				type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-component-cssTabs.css" 			type="text/css" rel="stylesheet">
+
+		<link href="css/asterisk/asterisk-component-accordion.css" 			type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-component-checkbox.css" 			type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-component-copyContext.css" 		type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-component-counter.css" 			type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-component-loadingSpinner.css" 	type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-component-modal.css" 				type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-component-onboarding.css" 		type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-component-spoiler.css" 			type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-component-videoContainer.css" 	type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-component-wrapper.css" 			type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-component-sideNav.css" 			type="text/css" rel="stylesheet">
+		
+		<link href="css/asterisk/asterisk-utility-gridSystem-12col.css" 	type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-utility-gridSystem-row.css" 		type="text/css" rel="stylesheet">
+		<!--<link href="css/asterisk/asterisk-utility-gridSystem-5col.css" 	type="text/css" rel="stylesheet">-->
+		<link href="css/asterisk/asterisk-utility-spacing.css" 				type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-utility-spacing-row.css" 			type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-utility-flex.css" 				type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-utility-visibility.css" 			type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-utility-visibility-extra.css" 	type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-utility-typography-textStyle.css" type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-utility-position.css" 			type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-utility-float.css" 				type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-utility-extra.css" 				type="text/css" rel="stylesheet">
+		
+		<link href="css/asterisk/asterisk-effects-imgHover.css" 			type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-effects-filters.css" 				type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-effects-hover.css" 				type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-effects-appear.css" 				type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-effects-textClip.css" 			type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-effects-textShadow.css" 			type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-effects-title.css" 				type="text/css" rel="stylesheet">
+		<link href="css/asterisk/asterisk-effects-tooltip.css" 				type="text/css" rel="stylesheet">
+
+		<link href="css/asterisk/asterisk-utility.css" 						type="text/css" rel="stylesheet">
+	<!-- ================================  to be removed on deployment [End]	-->
+
+	<link href="css/stylesheet.css" type="text/css" rel="stylesheet">
+
+	<!-- Custom Font - Roboto || Font Awesome -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Space+Mono:400,700" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+  </head>
+
+<body class="faSpinner has-body-sideNav">
+
+	<input type="checkbox" name="body-sideNav-toggleDisplay-mobile" id="body-sideNav-toggleDisplay-mobile">
+	<label for="body-sideNav-toggleDisplay-mobile" id="body-sideNav-toggleDisplay-mobile-label"> </label>
+
+	<div id="byAndu-navbarSide" class="body-sideNav">
+
+		<!-- Utility -->
+		<div class="sideNav-btnGroup __route__category active" 	data-categoryName="utility"> 
+
+			<button class="sideNav-btnGroup-title">
+				<div class="sideNav-btnGroup-title-faIcon fa fa-sliders"></div>
+				<div class="sideNav-btnGroup-title-text"> Utility </div>
+			</button>
+
+			<div class="sideNav-btnGroup-btnContainer __route__articleGroup" data-categoryName="utility"		tabindex="-1" >
+
+				<!--<button class="__route__articleBtn" href="Templates/utility/utility-main.html"> 
+					Asterisk - Utility (Main) </button>-->
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="gridSystem-12col.html"> 
+					Grid System - 12 Col </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="gridSystem-row.html">	
+					Grid System - Row </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="flex.html"> 
+					Flex </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="spacing.html"> 
+					Spacing </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="spacing-row.html"> 
+					Spacing - Row </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="visibility.html"> 
+					Visibility </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="visibility-extra.html"> 
+					Visibility - Extra </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="typography-textStyle.html"> 
+					Text Style </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="position.html"> 
+					Position </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="float.html"> 
+					Float </a>
+			</div>
+		</div>
+
+		<!-- Functionality -->
+		<div class="sideNav-btnGroup __route__category" 		data-categoryName="functionality">
+
+			<button class="sideNav-btnGroup-title"> 
+				<div class="sideNav-btnGroup-title-faIcon fa fa-gears"></div>
+				<div class="sideNav-btnGroup-title-text"> Functionality </div>
+			</button>
+
+			<div class="sideNav-btnGroup-btnContainer __route__articleGroup" data-categoryName="functionality" 	tabindex="-1">
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="syntacticSugar.html"> 
+					Syntactic Sugar </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="extra.html"> 
+					Extra ~ </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="scrollTrigger.html"> 
+					Scroll Trigger </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="lazyLoad.html"> 
+					Lazy Load </a>
+			</div>
+		</div>
+
+		<!-- Effects -->
+		<div class="sideNav-btnGroup __route__category"			data-categoryName="effects"> 
+
+			<button class="sideNav-btnGroup-title">
+				<div class="sideNav-btnGroup-title-faIcon fa fa-magic"></div>
+				<div class="sideNav-btnGroup-title-text"> Effects </div>
+			</button>
+
+			<div class="sideNav-btnGroup-btnContainer __route__articleGroup" data-categoryName="effects" 		tabindex="-1">
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="appear.html"> 
+					Appear Effects </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="imgHover.html"> 
+					Image Hover Effects </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="faSpinner.html"> 
+					faSpinner </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="filters.html"> 
+					Filters </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="hover.html"> 
+					Hover Effects </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="textClip.html"> 
+					Text Clip Effects </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="title.html"> 
+					Title </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="tooltip.html"> 
+					Tooltip </a>
+			</div>
+		</div>
+
+		<!-- Components -->
+		<div class="sideNav-btnGroup __route__category"			data-categoryName="components"> 
+
+			<button class="sideNav-btnGroup-title">
+				<div class="sideNav-btnGroup-title-faIcon fa fa-puzzle-piece"></div>
+				<div class="sideNav-btnGroup-title-text"> Components </div>
+			</button>
+
+			<div class="sideNav-btnGroup-btnContainer __route__articleGroup" data-categoryName="components"		tabindex="-1">
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="loadingSpinner.html"> 
+					Loading Spinner </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="canvas.html"> 
+					Canvas </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="tabs.html"> 
+					Tabs </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="cssTabs.html"> 
+					CSS-Only Tabs </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="accordion.html"> 
+					Accordion </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="spoiler.html"> 
+					Spoiler </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="onboarding.html"> 
+					Onboarding </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="counter.html"> 
+					Counter </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="checkbox.html"> 
+					Checkbox </a>
+
+				<!--<button class="sideNav-btn __route__articleBtn" href="fontAwesomeSelector.html"> 
+					FontAwesome Selector </button>-->
+			</div>
+		</div>
+
+		<!-- Snippets -->
+		<div class="sideNav-btnGroup __route__category"			data-categoryName="snippets"> 
+
+			<button class="sideNav-btnGroup-title">
+				<div class="sideNav-btnGroup-title-faIcon fa fa-code"></div>
+				<div class="sideNav-btnGroup-title-text"> Snippets </div>
+			</button>
+
+			<div class="sideNav-btnGroup-btnContainer __route__articleGroup" data-categoryName="snippets"		tabindex="-1">
+
+				<row class="px-xs"> <b-r>CSS Snippets - Templates </b-r> </row>
+				<hr class="m-0" style="border-color: rgb(190, 12, 12)">
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="cssvendorPreffixes.html"> 
+					CSS Vendor Prefixes </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="cssVariablesFallbacks.html"> CSS Variables - Fallback Syntax </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="cssResponsiveUtilityBaseline.html"> CSS Responsive-Utility Baseline </a>
+
+				<row class="px-xs"> <b-r>CSS Snippets - Selectors </b-r> </row>
+				<hr class="m-0" style="border-color: rgb(190, 12, 12)">
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="cssSelector-startOfClassName.html"> 
+					* start-of-className </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="cssSelector-ifNSiblings.html"> 
+					* if-n-siblings </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="cssSelector-atLeastNSiblings.html"> 
+					* at-least-n-siblings </a>
+
+				<row class="px-xs"> <b-r>CSS Snippets - Elements </b-r> </row>
+				<hr class="m-0" style="border-color: rgb(190, 12, 12)">
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="table-checkersBackground.html"> 
+					Table-Cell - Checkers Background </a>
+
+				<row class="px-xs"> <b-r>JS Snippets </b-r> </row>
+				<hr class="m-0" style="border-color: rgb(190, 12, 12)">
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="whenDocReady.html"> 
+					whenDocReady() </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="usefulHacks.html"> 
+					Usefull 'Hacks' </a>
+			</div>
+		</div>
+
+		<!-- Tools -->
+		<div class="sideNav-btnGroup __route__category"			data-categoryName="tools"> 
+
+			<button class="sideNav-btnGroup-title">
+				<div class="sideNav-btnGroup-title-faIcon fa fa-tachometer"></div>
+				<div class="sideNav-btnGroup-title-text"> Tools </div>
+			</button>
+
+			<div class="sideNav-btnGroup-btnContainer __route__articleGroup" data-categoryName="tools"			tabindex="-1">
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="fontAwesomeIconList.html"> 
+					FontAwesome (4.7.0) Icon List </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="tooltipGenerator.html"> 
+					Tooltip Generator </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="tableCheckersBackgroundGenerator.html"> 
+					Table Cell - Checkers Background </a>
+			</div>
+		</div>
+
+		<!-- Articles -->
+		<div class="sideNav-btnGroup __route__category"			data-categoryName="articles"> 
+
+			<button class="sideNav-btnGroup-title">
+				<div class="sideNav-btnGroup-title-faIcon fa fa-file-code-o"></div>
+				<div class="sideNav-btnGroup-title-text"> Articles </div>
+			</button>
+
+			<div class="sideNav-btnGroup-btnContainer __route__articleGroup" data-categoryName="articles"		tabindex="-1">
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="preventChildFocusWithinCollapsedParent.html" title="Prevent Child Focus Within Collapsed Parent"> 
+					Prevent Child Focus Within Collapsed Parent </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="betterMaxHeightTransitionWithMultipleTransitionDelay.html" title="Better maxHeight Transition With Multiple transitionDelay"> 
+					Better maxHeight Transition With Multiple transitionDelay </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="BetterKeyboardNavigationForCollapsibleMenusAndInteractibleComponentsWithFocus-within.html" title="Better keyboard navigation for collapsible menus and interactible components with :focus-within"> 
+					Better keyboard navigation for collapsible menus and interactible components with :focus-within </a>
+			</div>
+		</div>
+	</div>
+
+	<div id="byAndu-main" class="body-main"> 
+		<div class="container py-0 xs-o-px-0 sm-o-px-0"> 
+			<main id="__route__mainView" role="main" tabindex="1"> </main>
+		</div>
+	</div>
+
+	<div id="byAndu-modalsContainer">
+
+		<!--  role="dialog" aria-modal="true" aria-hidden="true" tabindex="-1" -->
+		<div class="modal byAndu-info" data-modal-id="byAndu-info">
+
+			<div class="modal-underlay"> </div>
+
+			<div class="modal-content flex flex-cross-center text-center">
+				<div>
+					<div class="col-5 pl-0">
+						<div class="byAndu-info-imgContainer col-6 p-0 col-offset-3"> <img src="images/profile.png"/> </div>
+
+						<div class="byAndu-info-title col-12 mt-xs"> Andrici Andu </div>
+						<div class="byAndu-info-subtitle col-12"> <b-p>&nbsp;Front End Developer</b-p> </div>
+
+						<div class="col-8 p-0 col-offset-2"> <hr> </div>
+
+						<div class="byAndu-info-contact col-12"> 
+							<i class="fa fa-envelope"></i> 
+							&nbsp; andrici.andu@gmail.com &nbsp; | &nbsp; 
+							<a href="https://www.facebook.com/andu.andrici" target="_blank"> <i class="fa fa-facebook-square"></i> </a>
+							&nbsp;
+							<a href="https://www.linkedin.com/in/andrici-andu-719a404b/" target="_blank"> <i class="fa fa-linkedin-square"></i> </a>
+						</div>
+
+					</div>
+
+					<div class="col-7 pl-0 border-left">
+						<row>
+							I welcome you to my personal collection of <br>hand-crafted/curated utility-specific mini-libraries,<br> which can find their place in any project.
+						</row>
+
+						<row class="mt-lg"> <u><b>Feel free to:</b></u> </row>
+						<row class="m-0">  <b-r>*</b-r>&nbsp; download and use any snippet / file / etc&nbsp;</row>
+						<row class="m-0">  <b-r>*</b-r>&nbsp; raise awareness of any bugs / oversights  </row>
+						<row class="mt-0"> <b-r>*</b-r>&nbsp; provide any constructive feedback / fixes  </row>
+
+						<row class="mb-0 mt-lg"> As time permits it, more goodies will be added. </row>
+						<row> Logical, maintainable, modular, free. </row>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal" data-modal-id="byAndu-xxx">
+
+			<div class="modal-underlay"> </div>
+
+			<div class="modal-content">
+
+				<div>
+					<p class="mt-md"> 
+						Being a personal collection, I've worked on including snippets which have proved their usefulness within my own projects and workflow. 
+					</p>
+					<p>
+						They are far from perfect and can/will be tweeked along the way (with proper documentation added, when doing so).
+					</p>
+
+					<row> <h4 class="my-xs"> Utility trumps Flashy-ness </h4> </row>
+
+					<p>
+						Having an <b>utility-focused</b> approach, all items were constructed to be as simple as possible, to fully serve their <b>baseline purpose</b>. 
+					</p>
+					<p>
+						As such, they were designed to serve as easily-adaptable templates/utilities, and not as finished results. <br> Each item would <b>provide the <u>baseline</u></b> and would <b>be easy to <u>modify/style</u></b> further, to best suit each project's/workflow's needs.
+					</p>
+
+					<p class="m-0"> <h4 class="my-xs"> Plagiarism - no, thank you </h4> </p>
+
+					<p>
+						Certain items were inspired from popular libraries, while others were adapted to the format of such libraries (such as Bootstrap). When this is the case, I do my best to fully disclose the sources.
+					</p>
+
+					<p>
+
+
+					<p class="m-0"> <h4 class="my-xs"> 'Fork'-ing </h4> </p>
+
+					<p>
+						All code presented in this project is under no copyright agreement, and can be used freely, even without any mention whatsoever of my involvement. At the end of the day, it's simple logic alongside good practices - anyone could reach to the same result - better use that time generating value for the world.
+					</p>
+
+					<p class="m-0"> <h4 class="my-xs"> Motivation </h4> </p>
+
+					<p>
+						This is a personal project. It is unpayed, and it is free for all to use. My irrefutable goal is to provide an usefull asset to both myself and to anyone who might make use of it's contents, while clawing myself through the learning process ahead.
+					</p>
+
+					<p>
+						Going through projects, I've found myself ravenously wanting such a tool, where one could easily triage only the wanted effects / functionalities / components, without having to attach an entire library for a single-use item, or to be obligated to spend a good few hours curating the code to extract said item. (a nice case of performance ADHD)
+					</p>
+
+					<p>
+						If you found this usefull in any way, it's a win for both of us. Feel free to contact me with any feedback/issues/suggestions and also feel free to forward this to anyone who might make use of it. I sincerely thank you for your time and interest, and I honestly hope that future additions will prove themselves lucrative and productive as well.
+					</p>
+
+					<p>
+						<b>Warm wishes</b>, Andu.
+					</p>
+				</div>
+
+				<div>
+					<p> Different files </p>
+
+					<p> The 'main' (complete) files contain the code for all the available features/effects. This can be used during development, when things may change along the way. </p>
+					<p> *Spec files can be created within the <span class="wrapper">code</span> Tab, by selecting only the desired features. This is recommended for Deployment, to not include unused CSS in the finished product. (This is not required if already using an unused-CSS-removal tool) </p>
+					<p> Individual features/effects can also be used as direct code (copy-paste) or saved in individual files. It is often the case when you only need certain features or a very limited numbers of effects within your project - the code can be copy-pasted directly into your codebase or kept as a separate file for easier maintainability during Production. </p>
+
+					<hr>
+
+					<p> There are some differences though - the 'main' files have their code more grouped together, to avoid repetition and to save on file size. It makes groups of effects easier to understand as a whole, but might make tweeking individual values a bit more demanding. </p>
+
+					<p> *spec files have their code mostly grouped together in the same fashion as the 'main' files, yet there is more repetition involved, ~~~~~~~~~~~~~ as they need to function individualy. </p>
+
+					<p> Individual codeBlocks have all their logic contained within the generated code. </p>
+
+					<hr>
+
+					<p> Use the main files within the first phases of production - mostly until the design is definitive. </p>
+					<p> Use the spec files within the later phases of production - when the design is set, and the desired features are decided upon - changes can then be made to the files themselves. </p>
+					<p> Use the individual files/code snippets when only certain features/effects are used within the project - the most common scenario. </p>
+				</div>
+
+				<div>
+	            	<row>
+	            		The <b-p>Utility</b-p> category fosters utility-libraries, consisting of single-purpose utility classes.
+	            	</row>
+
+	            	<row>
+	            		<b-p>Utility classes</b-p> are <b>single-purpose blocks-of-logic</b>, which are mainly used for wireframing / visibility / basic styling. <br> Thus, they simplify the name-space clutter (created by extensive element-specific classnames) and increase the rate of DRY code.
+	            	</row>
+
+	            	<row>
+	            		All utilities have the option of including <b-p>responsive-prefix classes</b-p>, that take effect in accordance to the current viewport. <br> As these features might not be usefull for all projects, they can be ommited through the Code-selection tool, within their respective <span class="wrapper"><b>Code</b></span-b> Tab.
+	            	</row>
+	            	<row>
+	            		The <b-p>Functionality</b-p> category fosters utility-functions.
+	            	</row>
+
+	            	<row>
+	            		<b-p>Utility Functions</b-p> are single-purpose intermediary functions, mainly used as syntactic sugar.
+	            	</row>
+
+	            	<row>
+	            		All functions are declared globally
+	            	</row>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal" data-modal-id="viewportTable">
+			<div class="modal-underlay"></div>
+			<div class="modal-content">
+				<row class="px-md md-px-lg pb-lg m-0">
+
+					<div class="section-title"> Viewport-prefixes </div>
+
+					<table class="col-12 xs-visible">
+						<tbody>
+							<tr>
+								<td> <b><b-r>viewport-*</b-r> values</b> </td>
+								<td class="border-left"> <b><b-r>viewport-only-*</b-r> values</b> </td>
+							</tr>
+							<tr>
+								<td class="border-left"> --- </td>
+								<td class="border-left"> xs-o-* </td>
+							</tr>
+							<tr>
+								<td class="border-left"> sm-* </td>
+								<td class="border-left"> sm-o-* </td>
+							</tr>
+							<tr>
+								<td class="border-left"> md-* </td>
+								<td class="border-left"> md-o-* </td>
+							</tr>
+							<tr>
+								<td class="border-left"> lg-* </td>
+								<td class="border-left"> lg-o-* </td>
+							</tr>
+								<td class="border-left"> xl-* </td>
+								<td class="border-left"> --- </td>
+							</tr>
+						</tbody>
+					</table>
+
+					<table class="col-12 xs-hidden">
+						<tbody>
+							<tr>
+								<td> <b><b-r>viewport-*</b-r> values</b> </td>
+								<td class="border-left text-center"> --- </td>
+								<td class="border-left"> sm-* </td>
+								<td class="border-left"> md-* </td>
+								<td class="border-left"> lg-* </td>
+								<td class="border-left"> xl-* </td>
+							</tr>
+							<tr>
+								<td> <b><b-r>viewport-only-*</b-r> values</b> </td>
+								<td class="border-left"> xs-o-* </td>
+								<td class="border-left"> sm-o-* </td>
+								<td class="border-left"> md-o-* </td>
+								<td class="border-left"> lg-o-* </td>
+								<td class="border-left text-center"> --- </td>
+							</tr>
+						</tbody>
+					</table>
+
+					<div class="section-title"> Unprefixed Classes </div>
+
+					<div class="wrapper"> 
+						<div class="col-12 md-col-6 p-0 mb-sm md-mb-0">&lt;div <b>class="<b-p>className</b-p>"</b>> Used as non-prefixed class &lt;/div> </div>
+						<div class="col-12 md-col-6 p-0"> <i class="comment"> // Will take effect <b>on <u>all</u> viewports</b> (xs and higher)</i> </div>
+					</div> 
+
+					<table class="col-12 xs-visible">
+						<thead>
+							<tr class="text-center">
+								<td> <b>Viewport</b> / <b-r>Prefix</b-r>   </td>
+								<td> <b-r>unprefixed</b-r> </td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="border-left"> <b>xs</b> </td>
+								<td class="border-left willWork-true">  &nbsp; </td>
+							</tr>
+							<tr>
+								<td class="border-left"> <b>sm</b> </td>
+								<td class="border-left willWork-true">  &nbsp; </td>
+							</tr>
+							<tr>
+								<td class="border-left"> <b>md</b> </td>
+								<td class="border-left willWork-true">  &nbsp; </td>
+							</tr>
+							<tr>
+								<td class="border-left"> <b>lg</b> </td>
+								<td class="border-left willWork-true">  &nbsp; </td>
+							</tr>
+							<tr>
+								<td class="border-left"> <b>xl</b> </td>
+								<td class="border-left willWork-true">  &nbsp; </td>
+							</tr>
+						</tbody>
+					</table>
+
+					<table class="col-12 xs-hidden">
+						<thead>
+							<tr class="text-center">
+								<td> <b-r>Prefix</b-r> / <b>Viewport</b>  </td>
+								<td class="border-left"> <b>xs</b> </td>
+								<td class="border-left"> <b>sm</b> </td>
+								<td class="border-left"> <b>md</b> </td>
+								<td class="border-left"> <b>lg</b> </td>
+								<td class="border-left"> <b>xl</b> </td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td> <b-r>unprefixed</b-r> </td>
+								<td class="border-left willWork-true">  &nbsp; </td>
+								<td class="border-left willWork-true">  &nbsp; </td>
+								<td class="border-left willWork-true">  &nbsp; </td>
+								<td class="border-left willWork-true">  &nbsp; </td>
+								<td class="border-left willWork-true">  &nbsp; </td>
+							</tr>
+						</tbody>
+					</table>
+
+					<div class="section-title"> Viewport-prefixed Classes </div>
+
+					<div class="wrapper"> 
+						<div class="col-12 md-col-6 p-0 mb-sm md-mb-0">&lt;div <b>class="<b-r>sm-</b-r><b-p>className</b-p>"</b>> Used as viewport-class &lt;/div> </div>
+						<div class="col-12 md-col-6 p-0"> <i class="comment"> //Will take effect <b>on <u>specified</u> viewport (sm) <u>and higher</u></b> </i> </div>
+					</div> 
+
+					<table class="col-12">
+						<thead>
+							<tr class="text-center">
+								<td> <b-r>Prefix</b-r> / <b>Viewport</b>  </td>
+								<td class="border-left"> <b>xs</b> </td>
+								<td class="border-left"> <b>sm</b> </td>
+								<td class="border-left"> <b>md</b> </td>
+								<td class="border-left"> <b>lg</b> </td>
+								<td class="border-left"> <b>xl</b> </td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td> <b-r>.sm-*</b-r> </td>
+								<td class="border-left willWork-false"> &nbsp; </td>
+								<td class="border-left willWork-true">  &nbsp; </td>
+								<td class="border-left willWork-true">  &nbsp; </td>
+								<td class="border-left willWork-true">  &nbsp; </td>
+								<td class="border-left willWork-true">  &nbsp; </td>
+							</tr>
+							
+							<tr>
+								<td> <b-r>.md-*</b-r> </td>
+								<td class="border-left willWork-false"> &nbsp; </td>
+								<td class="border-left willWork-false"> &nbsp; </td>
+								<td class="border-left willWork-true">  &nbsp; </td>
+								<td class="border-left willWork-true">  &nbsp; </td>
+								<td class="border-left willWork-true">  &nbsp; </td>
+							</tr>
+							
+							<tr>
+								<td> <b-r>.lg-*</b-r> </td>
+								<td class="border-left willWork-false"> &nbsp; </td>
+								<td class="border-left willWork-false"> &nbsp; </td>
+								<td class="border-left willWork-false"> &nbsp; </td>
+								<td class="border-left willWork-true">  &nbsp; </td>
+								<td class="border-left willWork-true">  &nbsp; </td>
+							</tr>
+							
+							<tr>
+								<td> <b-r>.xl-*</b-r> </td>
+								<td class="border-left willWork-false"> &nbsp; </td>
+								<td class="border-left willWork-false"> &nbsp; </td>
+								<td class="border-left willWork-false"> &nbsp; </td>
+								<td class="border-left willWork-false"> &nbsp; </td>
+								<td class="border-left willWork-true">  &nbsp; </td>
+							</tr>
+						</tbody>
+					</table>
+
+					<div class="section-title"> Viewport-only-prefixed Classes </div>
+
+					<div class="wrapper"> 
+						<div class="col-12 md-col-6 p-0 mb-sm md-mb-0">&lt;div <b>class="<b-r>sm-o-</b-r><b-p>className</b-p>"</b>> Used as viewport-only-class &lt;/div> </div>
+						<div class="col-12 md-col-6 p-0"> <i class="comment"> //Will take effect <b>on <u>specified</u> viewport (sm) <u>only</u></b> </i> </div>
+					</div>
+
+					<table class="col-12">
+						<thead>
+							<tr class="text-center">
+								<td> <b-r>Prefix</b-r> / <b>Viewport</b>  </td>
+								<td class="border-left"> <b>xs</b> </td>
+								<td class="border-left"> <b>sm</b> </td>
+								<td class="border-left"> <b>md</b> </td>
+								<td class="border-left"> <b>lg</b> </td>
+								<td class="border-left"> <b>xl</b> </td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td> <b-r>.xs-o-*</b-r> </td>
+								<td class="border-left willWork-true">  &nbsp; </td>
+								<td class="border-left willWork-false"> &nbsp; </td>
+								<td class="border-left willWork-false"> &nbsp; </td>
+								<td class="border-left willWork-false"> &nbsp; </td>
+								<td class="border-left willWork-false"> &nbsp; </td>
+							</tr>
+							
+							<tr>
+								<td> <b-r>.sm-o-*</b-r> </td>
+								<td class="border-left willWork-false"> &nbsp; </td>
+								<td class="border-left willWork-true">  &nbsp; </td>
+								<td class="border-left willWork-false"> &nbsp; </td>
+								<td class="border-left willWork-false"> &nbsp; </td>
+								<td class="border-left willWork-false"> &nbsp; </td>
+							</tr>
+							
+							<tr>
+								<td> <b-r>.md-o-*</b-r> </td>
+								<td class="border-left willWork-false"> &nbsp; </td>
+								<td class="border-left willWork-false"> &nbsp; </td>
+								<td class="border-left willWork-true">  &nbsp; </td>
+								<td class="border-left willWork-false"> &nbsp; </td>
+								<td class="border-left willWork-false"> &nbsp; </td>
+							</tr>
+							
+							<tr>
+								<td> <b-r>.lg-o-*</b-r> </td>
+								<td class="border-left willWork-false"> &nbsp; </td>
+								<td class="border-left willWork-false"> &nbsp; </td>
+								<td class="border-left willWork-false"> &nbsp; </td>
+								<td class="border-left willWork-true">  &nbsp; </td>
+								<td class="border-left willWork-false"> &nbsp; </td>
+							</tr>
+						</tbody>
+					</table>
+				</row>
+			</div>
+		</div>
+
+		<div class="modal" data-modal-id="utilityClasses">
+
+			<div class="modal-underlay"></div>
+
+			<div class="modal-content">
+
+				<heading> <h2 class="section-title pl-lg"> Utility Classes </h2> </heading>
+
+				<p> Utility classes are 
+
+				<row>
+					<p> Utility classes are classes which have specific-purpose styles/effects. </p>
+					<p class="mt-0"> They have <u>self-describing semantical <b>names</b></u>, and <u>singular, well-defined <b>purpose</b></u> : <span class="wrapper">text-center</span> | <span class="wrapper">float-right</span> | <span class="wrapper">xs-hidden</span> | etc. </p>
+
+					<hr>
+					<p class="text-italic"> If you've ever used a Grid System (like in Bootstrap), then you have worked with utility classes <span class="wrapper">&lt;div class="col-6"> ... &lt;/div></span> - Congrats! </p>
+					<p class="text-italic mt-0"> Any other wireframing / effects / animations CSS libraries, which provide you with specific-purpose classes - all those, by definition, are utility-classes. </p>
+				</row>
+
+				<heading> <h2 class="section-title pl-lg"> Why utility classes? </h2> </heading>
+
+				<row>
+					<p> Utility classes <b>remove the need of generating new classNames</b>, in order to add simple styles/effects, <b>for elements that <u>do not hold specific semantics themselves</u></b>. </p>
+
+					<div class="col-12"> 
+						<div class="wrapper">
+							<div class="col-12 md-col-4">
+								<line> <b-r>Bad :</b-r> <b>Unnecessary-class</b> </line>
+								<hr>
+								<line> &lt;div class="<span class="wrapper">yetAnotherClassName</span>"></line>
+								<hr>
+								<line> <span class="wrapper">.yetAnotherClassName</span> { </line>
+								<div class="col-12">
+									<line> text-align: center; </line>
+								</div>
+								<line> } </line>
+							</div>
+
+							<div class="col-12 md-col-4">
+								<line> <b-r>Good : </b-r> <b>Utility-class</b> </line>
+								<hr>
+								<line> &lt;div class="<span class="wrapper">text-center</span>"> </line>
+								<hr>
+								<line> <span class="wrapper">.text-center</span> { </line>
+								<div class="col-12">
+									<line> text-align: center; </line>
+								</div>
+								<line> } </line>
+							</div>
+
+							<div class="col-12 md-col-4">
+								<line> <b-r>Good : </b-r> <b>Specific-class</b> </line>
+								<hr>
+								<line> &lt;div class="<span class="wrapper">card-description</span>"> </line>
+								<hr>
+								<line> <span class="wrapper">.card-description</span> { </line>
+								<div class="col-12">
+									<line> text-align: center; </line>
+								</div>
+								<line> } </line>
+							</div>
+						</div> 
+					</div>
+
+					<p> If used on <u>elements which don't hold specific semantics themselves</u>, they help the <span class="wrapper">separation of concerns</span>, and in <span class="wrapper">keeping the nameSpace clean</span>. </p>
+				</row>
+
+				<heading> <h2 class="section-title pl-lg"> Main Use Cases </h2> </heading>
+
+				<row>
+					<p> * They are extensively used to create <span class="wrapper">wireframes</span>, to manage <span class="wrapper">spacing</span> and to create <span class="wrapper">alignment</span> (<span class="wrapper">floats</span> | <span class="wrapper">text</span> | <span class="wrapper">flex</span>). </p>
+
+					<p class="mt-0"> * They also help in managing certain <span class="wrapper">states</span>, such as <span class="wrapper">hidden</span> , <span class="wrapper">invisible</span>.</p>
+
+					<p class="mt-0"> 
+						* Another use case is in <u>overriding certain styles/effects</u> within already-styled <span class="wrapper">Components</span>. This use-case should be applied with consideration.
+						<br>
+						&nbsp;&nbsp; Because of that, they are often used with the <span class="wrapper"><b-r>!important</b-r></span> declaration, to override more-specific rules. 
+					</p>
+				</row>
+
+				<heading> <h2 class="section-title pl-lg"> Ace up the sleeve : Responsive Utilities </h2> </heading>
+
+				<row>
+					<p> One of their most important features lies within their <span class="wrapper">Responsive Utilities</span>. </p>
+					<p> This extensively helps in reducing CSS media-query-declarations repetitiveness, and allowing to easily change specific styles on different viewports. </p>
+
+					<hr>
+
+					<p> However, <b>not all utility classes have use for their responsive utilities in every project.</b> </p>
+
+					<p> <b>* Example:</b> all <span class="wrapper">wireframing</span> classes are universally used, in almost every project : </p>
+					<div class="col-12"> <div class="wrapper"> &lt;div class="<span class="wrapper">col-12</span> <span class="wrapper">sm-col-6</span> <span class="wrapper">md-col-4</span>"></div> </div>
+
+					<p> <b>* Example:</b> certain <span class="wrapper">textStyle</span> classes might be changed on different viewports : </p>
+					<div class="col-12"> <div class="wrapper"> &lt;div class="<span class="wrapper">text-center</span> <span class="wrapper">md-text-left</span>"> </div> </div>
+
+					<p> <b>* Example:</b> certain <span class="wrapper">textStyle</span> classes might almost never be changed on different viewports : </p>
+					<div class="col-12"> <div class="wrapper"> &lt;div class="<span class="wrapper">text-italic</span> <span class="wrapper">md-text-fontStyle-normal</span>"> </div> </div>
+
+					<hr>
+
+					<p> This is the reason why you should always use a Task Runner (such as Grunt or Gulp) to eliminate unused CSS. </p>
+					<p> You can also create a personalized build of any <span class="wrapper">Asterisk Utilities</span>, within the <span class="wrapper">Code</span> <span class="wrapper">Tab</span>, selecting only the ones that would suit your project. </p>
+
+					<hr>
+
+					<p> Good practices recommend that they are used mainly on intermediary/container elements, which don't have a specific class themselves. </p>
+
+					<p> They can also be used on specific components, if the styling/effects would only slightly differ from the original. </p>
+					<p> If multiple rules are required for the change, or if the utility classes are replicated throughout the component, it would be better to simply add a class to the Element and include the styles within it. </p>
+
+				</row>
+			</div>
+		</div>
+
+		<div class="modal" data-modal-id="dummyParents">
+
+			<div class="modal-underlay"></div>
+
+			<div class="modal-content">
+
+				<heading> <h2 class="section-title pl-lg"> 'Dummy' Parents </h2> </heading>
+
+				<row>
+					<p> Might be named differently across the internet : <span class="wrapper">'Dummy' Parents</span> / <span class="wrapper">'Dummy' Containers</span> / <span class="wrapper">'Utility' Parents</span> / <span class="wrapper">'Utility' Containers</span> / etc </p>
+
+					<hr>
+
+					<div class="col-12 md-col-6">
+						<p class="p-0"> Regardless the name, a 'Dummy' Parent is a simple <span class="wrapper">div</span> which, by itself, holds no specific styles/functionality - it is a <b>generic</b> <span class="wrapper">div</span>. </p>
+
+						<p class="p-0 mt-0"> It is used to wrap a specific <span class="wrapper">HTML Element</span> and to hold certain styles/effects for the element in question. </p>
+					</div>
+
+					<div class="col-12 md-col-6">
+						<div class="wrapper">
+							<line> &lt;div> <i style="color: rgba(3,3,3,.5)"> &lt;-- this is a 'Dummy' Parent --> </i> </line>
+								<indent>
+								<line> &lt;div class="myElement"> ... &lt;/div> </line>
+								</indent>
+							<line> &lt;/div> </line>
+						</div>
+					</div>
+
+					<hr>
+
+					<p> This is used to <b>group elements</b> or to <b>separate concerns</b>, regardind : </p>
+
+					<div class="col-12 md-col-6">
+						<div class="wrapper">
+							<line> <b> Wireframing </b> </line>
+							<hr>
+							<line> &lt;div class="col-6"> <i style="color: rgba(3,3,3,.5)"> &lt;-- this is a 'Dummy' Parent --> </i> </line>
+								<indent>
+								<line> &lt;div class="myElem"> ... &lt;/div> </line>
+								</indent>
+							<line> &lt;/div> </line>
+						</div>
+					</div>
+
+					<div class="col-12 md-col-6">
+						<div class="wrapper">
+							<line> <b> Utiity Classes </b> </line>
+							<hr>
+							<line> &lt;div class="text-center"> <i style="color: rgba(3,3,3,.5)"> &lt;-- this is a 'Dummy' Parent --> </i> </line>
+								<indent>
+								<line> &lt;div class="myElem"> ... &lt;/div> </line>
+								</indent>
+							<line> &lt;/div> </line>
+						</div>
+					</div>
+
+					<div class="col-12 md-col-6">
+						<div class="wrapper">
+							<line> <b> Effects </b> </line>
+							<hr>
+							<line> &lt;div class="hvr-grow"> <i style="color: rgba(3,3,3,.5)"> &lt;-- this is a 'Dummy' Parent --> </i> </line>
+								<indent>
+								<line> &lt;div class="myElem"> ... &lt;/div> </line>
+								</indent>
+							<line> &lt;/div> </line>
+						</div>
+					</div>
+
+					<div class="col-12 md-col-6">
+						<div class="wrapper">
+							<line> <b> Overlays </b> </line>
+							<hr>
+							<line> &lt;div class="filter-glow"> <i style="color: rgba(3,3,3,.5)"> &lt;-- this is a 'Dummy' Parent --> </i> </line>
+								<indent>
+								<line> &lt;div class="myElem"> ... &lt;/div> </line>
+								</indent>
+							<line> &lt;/div> </line>
+						</div>
+					</div>
+
+					<p> They are also used to <b>apply certain effects, without creating conflicts</b> with existing styles : </p>
+
+					<div class="col-12 md-col-6">
+						<div class="wrapper">
+							<line> <b> pseudo-elements :  </b> </line>
+							<hr>
+							<line> apply an effect which uses pseudo-elements <br> on an element which already has pseudo-elements for something else </line>
+						</div>
+					</div>
+
+					<div class="col-12 md-col-6">
+						<div class="wrapper">
+							<line> <b> transforms :  </b> </line>
+							<hr>
+							<line> apply an effect which uses transforms <br> on an element which already has transforms for something else </line>
+						</div>
+					</div>
+
+					<hr>
+
+					<div class="col-12 md-col-6">
+						<p> The 'Dummy' Parent, as a generic <span class="wrapper">div</span>, does not affect the layout or styles of <span class="wrapper">myElement</span> in any way <b>- by itself, it's like it isn't even there.</b> </p>
+
+						<p> They are added to create cleaner markup and to avoid creating conflict between effects and component styles. </p>
+
+						<p> As certain scenarios require additional markup, to generate a specific effect/result, elements added to the markup just to hold 'intermediary' classes/styles/roles, are ussualy reffered to as <b>'Dummy'/'Utility'</b> Elements. </p>
+					</div>
+
+					<div class="col-12 md-col-6">
+						<p> But, in the end, 'Dummy' Parents are <span class="wrapper">divs</span> which are added to the markup - and they should be treated like any markup changes, as they can generate bugs if for example : </p>
+						<p> * there are <u>existing</u> child-specific CSS rules (.something <b-r>></b-r> .myElement) </p>
+						<p> * flex properties are used (which apply as child-specific CSS rules) </p>
+						<p> * <u>existing</u> scripts are refferencing <span class="wrapper">myElement.parentElement</span> directly </p>
+						<p> * etc - generic examples are generic </p>
+					</div>
+				</row>
+
+			</div>
+		</div>
+
+		<div class="modal" id="byAndu-codeSnippetModal">
+			<div class="modal-underlay"></div>
+
+			<div class="modal-content">
+				<div class="copyContext-btnContainer" data-copyContextId="byAndu-codeSnippetModal-code">
+					<button class="copyContext-btn copyContext-btn-copyText"> </button>
+				</div>
+
+				<div class="copyContext" data-copyContextId="byAndu-codeSnippetModal-code">
+					<pre id="byAndu-codeSnippetModal-code"></pre>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--
+	<button class="modal-btn fa fa-hand-spock-o" data-modal-id="byAndu-info"> </button>
+	<button class="modal-btn fa fa-info-circle"  data-modal-id="byAndu-xxx"> </button>
+	-->
+
+	
+
+	<!-- svg defs -->
+
+		<svg class="defs-definitions">
+			<defs>
+				<linearGradient id="grad-01">
+					<stop offset="10%" stop-color="#39F" />
+					<stop offset="90%" stop-color="#F3F" />
+				</linearGradient>
+			</defs>
+		</svg>
+
+	<!--
+		<img src="images/img-1.jpg" class="defer-DOMLoaded-item">
+		<img src="images/img-2.jpg" class="defer-DOMLoaded-item">
+	-->
+
+	<!-- =================== SCRIPTS =================== -->
+		<script type="text/javascript" src="js/asterisk/asterisk-utility.js"></script>
+
+		<script type="text/javascript" src="js/asterisk/asterisk-component-accordion.js"></script>
+		<script type="text/javascript" src="js/asterisk/asterisk-component-canvas.js"></script>
+		<script type="text/javascript" src="js/asterisk/asterisk-component-copycontext.js"></script>
+		<script type="text/javascript" src="js/asterisk/asterisk-component-modal.js"></script>
+		<script type="text/javascript" src="js/asterisk/asterisk-component-onboarding.js"></script>
+		<script type="text/javascript" src="js/asterisk/asterisk-component-spoiler.js"></script>
+		<script type="text/javascript" src="js/asterisk/asterisk-component-tabs.js"></script>
+		<script type="text/javascript" src="js/asterisk/asterisk-effects-appear.js"></script>
+		<script type="text/javascript" src="js/asterisk/asterisk-functionality-deferDOMLoaded.js"></script>
+		<script type="text/javascript" src="js/asterisk/asterisk-functionality-scrollTrigger.js"></script>
+		<script type="text/javascript" src="js/asterisk/asterisk-functionality-scrollTrigger-2.js"></script>
+		<script type="text/javascript" src="js/asterisk/asterisk-functionality-lazyLoad.js"></script>
+
+		<script type="text/javascript" src="js/script.js"></script>
+		<script type="text/javascript" src="js/asterisk-route.js"></script>
+
+</body>

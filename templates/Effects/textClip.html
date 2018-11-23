@@ -1,0 +1,386 @@
+
+	<!-- ===================== Route ================== -->
+	<script src="../../js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+	<style>
+
+		.demoItem-container {
+			margin: 10px 0;
+			text-align: center;
+		}
+
+		/* remove checkboxes */
+		.demoItem-container:before {
+			display: none;
+		}
+
+		.demoItem {
+			position: relative;
+			display: inline-block; vertical-align: middle;
+			width: 100%;
+
+			font-size: 30px; font-weight: bold;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+
+		.hasBgImg { 
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+
+		.demoItem-bgImg {
+			background: url('../../images/imgHvr-testImg-3.jpg') center/cover no-repeat ;
+		}
+
+		.demoItem-bgGrad {
+			background: linear-gradient(to right, red , yellow, blue, green);
+		}
+
+		.demoItem-bgGif {
+			background-image: url('../../images/animated_text_fill.png');
+			background-size: 400% 100%;
+			background-repeat: no-repeat;
+
+			animation: bgGif 5s linear infinite;
+		}
+
+		@keyframes bgGif {
+			0%   { background-position: 0 50% }
+			100% { background-position: 100% 50%  }
+		}
+
+		.demoItem-setHeight {
+			height: 200px;
+			
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		video {
+			display: none;
+			position: absolute;
+			top: 0; left: 0;
+			width: 100%;
+			z-index: 0;
+		}
+
+		.demoItem-bgVid video {
+			display: block;
+		}
+
+		.usageTab-demo1-radioContainer:after {
+			content: '';
+			position: absolute; z-index: 2;
+			width: 100%; height: 100%;
+			top: 0; left: 0;
+			cursor: pointer; cursor: hand;
+		}
+
+		.usageTab-demo1-radioContainer:hover {
+			color: orange;
+		}
+
+		</style>
+	<!-- ============================================== -->
+
+	<article>
+
+		<header class="sr-only"> <h2> Text-Clip Effects </h2> </header>
+
+		<div class="tabs article-mainTabs">
+
+			<div class="article-mainTabs-banner">
+				<div class="article-mainTabs-title"> Effects : Text-Clip </div>
+
+				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
+					<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> Demo  </button>
+					<button class="tabs-btn" 				data-tabs-id="2"> Usage </button>
+					<button class="tabs-btn" 				data-tabs-id="3"> Code  </button>
+				</div>
+			</div>
+
+			<div class="tabs-contentGroup">
+
+				<!-- Demo Tab -->
+				<div class="tabs-content article-mainTabs-demoTab tab-expanded" data-tabs-id="1">
+
+					<!-- <video autoplay muted loop> <source src="../../images/video-1.webm" type="video/webm"> </video> -->
+
+					<!-- auto -->
+
+						<!-- Black -->
+							<div class="col-6 pl-0">
+								<div class="demoItem-container">
+									<div class="demoItem demoItem-bgImg demoItem-setHeight p-0"> 
+										<video class="pls" autoplay muted loop> <source src="../../images/video-1.webm" type="video/webm"> </video>
+										<div class="text-clip-black"> text-clip-black </div>
+									</div>
+								</div>
+							</div>
+
+						<!-- White -->
+							<div class="col-6 pr-0">
+								<div class="demoItem-container">
+									<div class="demoItem demoItem-bgImg demoItem-setHeight p-0"> 
+										<video class="pls" autoplay muted loop> <source src="../../images/video-1.webm" type="video/webm"> </video>
+										<div class="text-clip-white"> text-clip-white </div>
+									</div>
+								</div>
+							</div>
+
+					<!-- full -->
+
+						<!-- Black -->
+							<div class="col-6 pl-0">
+								<div class="demoItem-container">
+									<div class="demoItem demoItem-bgImg"> 
+										<video class="pls" autoplay muted loop> <source src="../../images/video-1.webm" type="video/webm"> </video>
+										<div class="text-clip-black-full"> text-clip-black-full </div>
+									</div>
+								</div>
+							</div>
+
+						<!-- White -->
+							<div class="col-6 pr-0">
+								<div class="demoItem-container">
+									<div class="demoItem demoItem-bgImg"> 
+										<video class="pls" autoplay muted loop> <source src="../../images/video-1.webm" type="video/webm"> </video>
+										<div class="text-clip-white-full"> text-clip-white-full </div>
+									</div>
+								</div>
+							</div>
+
+					<!-- border -->
+
+						<!-- Black -->
+							<div class="col-6 pl-0">
+								<div class="demoItem-container">
+									<div class="demoItem demoItem-bgImg"> 
+										<video class="pls" autoplay muted loop> <source src="../../images/video-1.webm" type="video/webm"> </video>
+										<div class="text-clip-black-border"> text-clip-black-border </div>
+									</div>
+								</div>
+							</div>
+
+						<!-- White -->
+							<div class="col-6 pr-0">
+								<div class="demoItem-container">
+									<div class="demoItem demoItem-bgImg"> 
+										<video class="pls" autoplay muted loop> <source src="../../images/video-1.webm" type="video/webm"> </video>
+										<div class="text-clip-white-border"> text-clip-white-border </div>
+									</div>
+								</div>
+							</div>
+
+					<!-- simple -->
+
+						<!-- image -->
+							<div class="col-12 p-0">
+								<div class="demoItem-container">
+									<div class="demoItem demoItem-bgImg text-clip"> 
+										text-clip 
+									</div>
+								</div>
+							</div>
+
+					<hr>
+
+					<select class="demoItem-bgType">
+						<option value="demoItem-bgImg">  Image    </option>
+						<option value="demoItem-bgGrad"> Gradient </option>
+						<option value="demoItem-bgGif">  Animated </option>
+						<option value="demoItem-bgVid">  Video    </option>
+					</select>
+
+					<!-- ===== slide to ulock iphone test ===== -->
+					<div class="text-clip-gradient-alternate-slow"> Slide to unlock </div>
+					<!-- ===== slide to ulock iphone test ===== -->
+				</div>
+
+				<!-- Usage Tab -->
+				<div class="tabs-content article-mainTabs-usageTab" data-tabs-id="2">
+
+					<!-- I. Description -->
+
+						<section class="p-0" aria-label="general description">
+							<heading> <h2 class="section-title"> I. Description </h2> </heading>
+
+							<p> Collection of <button class="modal-btn" data-modal-id="utilityClasses">Utility Classes</button> which apply a <b>text-clip</b> effect. </p>
+							<p class="mt-0 sub-heading"> The effect results in clipping (cutting-out) the text and making it look as the first background available. </p>
+						</section>
+
+					<!-- II. Initialization -->
+
+						<section class="p-0" aria-label="initialization">
+							<heading> <h2 class="section-title"> II. Initialization </h2> </heading>
+
+							<p class="mb-0"> 
+								Download and refference the [ <b-p>asterisk-effects-textClip.css</b-p> ] <span class="wrapper tooltip-before tooltip-top" data-tooltipText="* This will include all Styles / Features."></span> CSS file.
+								<button class="spoiler-btn spoiler-btn-autoText float-right" style="padding: .4em .85em; transform: translateY(-.25em); margin-bottom: -.25em;" data-spoiler-id="init-more"> More | </button>
+							</p> 
+
+							<div class="wrapper"> 
+								<div class="col-12"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-effects-textClip.css</b-p>" type="text/css" rel="stylesheet"> </div>
+							</div>
+
+							<div class="spoiler" data-spoiler-id="init-more">
+								<div class="spoiler-content">
+									<div class="col-12">
+
+										<p class="mt-sm"> 
+											<b>Alternatively</b>, a <span class="wrapper"><b-p>{*}</b-p><b-r>-spec</b-r><b-p>.css</b-p></span> file can be generated within the <b><span class="wrapper">[Code]</span> Tab</b> <span class="wrapper tooltip-before tooltip-right" data-tooltipText="Will include only the selected Styles/Features. &#13;&#10;───────────────────────────&#13;&#10; See button on the top-right of page."></span>
+										</p>
+										<div class="wrapper mt-0"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-effects-textClip<b-r>-spec</b-r>.css</b-p>" type="text/css" rel="stylesheet"> </div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+					<!-- III. Usage -->
+
+						<section class="p-0" aria-label="usage">
+							<heading> <h2 class="section-title"> III. Usage </h2> </heading>
+
+							<p class="text-bold"> <b-r>The <span class="wrapper">text-clip</span> Class :</b-r> Will hide the background entirely, leaving only the inner text 'visible'.</p>
+
+							<p> <b>Step 1 :</b> add the <span class="wrapper">text-clip</span> on the <span class="wrapper"> HTML Element</span>. </p>
+							<p class="mt-0"> <b>Step 2 :</b> add a background (image/gradient) on the <span class="wrapper"> HTML Element</span>. </p>
+
+							<div class="col-12 p-0 wrapper flex flex-cross-stretch">
+								<div class="col-6">
+									<p class="m-0 mt-lg"> &lt;div class="<b>myDiv</b>"> Without 'clip-text' class &lt;/div> </p>
+									<p class="m-0 my-xs"> &lt;div class="<b>myDiv</b> <b-r>text-clip</b-r>"> With 'clip-text' class &lt;/div> </p>
+									<hr class="my-sm">
+									<p class="my-xs mt-0"> <b>.myDiv</b> { </p>
+										<p class="my-0 pl-lg"> background: url('demo-img.jpg') center/cover no-repeat; </p>
+									<p class="my-xs mt-0"> } </p>
+								</div>
+
+								<div class="col-6 flex flex-cross-center">
+									<div class="col-12 p-0">
+										<div class="col-12">
+											<div class="col-12 demoItem-bgImg" style="font-size: 30px; text-align: center; color: white;">
+												Without 'clip-text' class
+											</div>
+										</div>
+										<hr class="my-md">
+										<div class="col-12">
+											<div class="col-12 demoItem-bgImg text-clip" style="font-size: 30px; text-align: center;">
+												With 'clip-text' class
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<hr>
+
+							<p class="text-bold"> <b-r>The <span class="wrapper">text-clip-<b-p>{color}</b-p></span> Classes :</b-r> Will <u>not</u> hide the background, but only <span class="wrapper">black</span> / <span class="wrapper">white</span> are available as background-colors.</p>
+
+							<p> <b>Step 1 :</b> add the <span class="wrapper">text-clip-<b-p>{color}</b-p></span> on the <span class="wrapper"> HTML Element</span>. </p>
+							<p class="mt-0"> <b>Step 2 :</b> add a background (image/gradient) on the <span class="wrapper"> <b-r>Parent</b-r> Element</span>. </p>
+
+							<div class="wrapper px-0">
+								<div class="col-6">
+									<p class="my-xs"> &lt;div class="<b>myParent</b>"> </p>
+										<p class="my-xs mt-0 pl-lg"> &lt;div class="<b-r>text-clip-black</b-r>"> My Clipped Text &lt;/div> </p>
+									<p class="my-xs mt-0"> &lt;/div> </p>
+								</div>
+								
+								<div class="col-6 border-left">
+									<p class="my-xs mt-0"> <b>.myParent</b> { </p>
+										<p class="my-xs mt-0 pl-lg"> background: url('demo-img.jpg') center/cover no-repeat; </p>
+									<p class="my-xs mt-0"> } </p>
+								</div>
+							</div>
+
+							<div class="col-12 wrapper">
+								<div class="col-3 p-0">
+									<row class="text-bold"> Select Option : </row>
+									<div class="col-12"> <hr class="m-0"> </div>
+									<row class="usageTab-demo1-radioContainer"> <input class="usageTab-demo1-radio" type="radio" name="usageTab-demo1-radio" value="text-clip-black" checked="checked">        text-clip-black        </row>
+									<row class="usageTab-demo1-radioContainer"> <input class="usageTab-demo1-radio" type="radio" name="usageTab-demo1-radio" value="text-clip-white">        text-clip-white        </row>
+									<row class="usageTab-demo1-radioContainer"> <input class="usageTab-demo1-radio" type="radio" name="usageTab-demo1-radio" value="text-clip-black-full">   text-clip-black-full   </row>
+									<row class="usageTab-demo1-radioContainer"> <input class="usageTab-demo1-radio" type="radio" name="usageTab-demo1-radio" value="text-clip-white-full">   text-clip-white-full   </row>
+									<row class="usageTab-demo1-radioContainer"> <input class="usageTab-demo1-radio" type="radio" name="usageTab-demo1-radio" value="text-clip-black-border"> text-clip-black-border </row>
+									<row class="usageTab-demo1-radioContainer"> <input class="usageTab-demo1-radio" type="radio" name="usageTab-demo1-radio" value="text-clip-white-border"> text-clip-white-border </row>
+								</div>
+								<div class="col-9 p-0">
+									<div class="col-6 border-left"> 
+										<row class="text-bold text-underline text-center"> Parent with specific size (larger) </row>
+										<div class="col-12 p-0 flex flex-cross-center">
+											<div class="demoItem-bgImg" style="display: inline-block; width: 250px; height: 200px; font-size: 18px; font-weight: bold;">
+												<div class="usageTab-demo1-target text-clip-black"> My Clipped Text </div>
+											</div>
+										</div>
+									</div>
+									<div class="col-6">
+										<row class="text-bold text-underline text-center"> Parent with auto size </row>
+										<div class="col-12 p-0 flex flex-cross-center">
+											<div class="demoItem-bgImg" style="display: inline-block; font-size: 18px; font-weight: bold;">
+												<div class="usageTab-demo1-target text-clip-black"> My Clipped Text </div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<hr>
+
+							<div class="accordion">
+
+								<!-- flex-direction -->
+								<div class="accordion-group px-md my-sm">
+									<button class="accordion-btn"> Use Case : Image Overlay with [ text-clip-white ] [ text-clip-black ] </button>
+
+									<div class="accordion-content">
+
+										<div class="col-6 hasBgImg flex flex-center" style="background-image: url('../../images/img-1.jpg'); height: 300px">
+											<div class="text-clip-black" style="font-size: 48px; font-weight: bold; text-align: center; border-radius: 6px; top: -17px;"> SPARK MY INTEREST </div>
+										</div>
+										<div class="col-6 hasBgImg flex flex-center" style="background-image: url('../../images/img-2.jpg'); height: 300px">
+											<div class="text-clip-white" style="font-size: 60px; font-weight: bold; text-align: center; border-radius: 6px; top: 30px; padding: 0 15px; left: 105px;"> CITY </div>
+										</div>
+
+									</div>
+								</div>
+
+								<!-- flex-direction -->
+								<div class="accordion-group px-md my-sm">
+									<button class="accordion-btn"> Use Case : Buttons with [ text-clip-white-border ] [ text-clip-black-border ] </button>
+
+									<div class="accordion-content">
+										<row style="font-size: 18px; font-weight: bold; text-align: center;">
+											<div class="col-2 demoItem-bgImg p-0 mr-xs" style="border-radius: 6px;"> <div class="text-clip-white-border"> Home </div> </div>
+											<div class="col-2 demoItem-bgImg p-0 mr-xs" style="border-radius: 6px;"> <div class="text-clip-white-border"> About </div> </div>
+											<div class="col-2 demoItem-bgImg p-0 mr-xs" style="border-radius: 6px;"> <div class="text-clip-white-border"> Products </div> </div>
+											<div class="col-2 demoItem-bgImg p-0 mr-xs" style="border-radius: 6px;"> <div class="text-clip-white-border"> Contact </div> </div>
+										</row>
+										<row style="font-size: 18px; font-weight: bold; text-align: center;">
+											<div class="col-2 demoItem-bgGrad p-0 mr-xs" style="border-radius: 6px;"> <div class="text-clip-white-border"> Home </div> </div>
+											<div class="col-2 demoItem-bgGrad p-0 mr-xs" style="border-radius: 6px;"> <div class="text-clip-white-border"> About </div> </div>
+											<div class="col-2 demoItem-bgGrad p-0 mr-xs" style="border-radius: 6px;"> <div class="text-clip-white-border"> Products </div> </div>
+											<div class="col-2 demoItem-bgGrad p-0 mr-xs" style="border-radius: 6px;"> <div class="text-clip-white-border"> Contact </div> </div>
+										</row>
+									</div>
+								</div>
+							</div>
+						</section>
+
+				</div>
+					
+				<!-- Code Tab -->
+				<div class="tabs-content article-mainTabs-codeTab"  data-tabs-id="3">
+				</div>
+				
+			</div>
+		</div>
+
+	</article>
+
+	<!-- ==================================================== -->
+	<div id="runScript" data-src="../../js/extra_scripts/effects/textClip.js"> </div> 
+	<!-- ==================================================== -->

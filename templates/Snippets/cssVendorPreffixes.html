@@ -1,0 +1,200 @@
+
+	<!-- ===================== Route ================== -->
+	<script src="../../js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+	<style> 
+		</style>
+	<!-- ============================================== -->
+
+	<article>
+
+		<div class="article-title"> Snippets : Vendor Prefixes </div>
+
+		<!-- display: flex -->
+
+			<div class="accordion">	
+				<div class="accordion-group px-md my-sm">
+					<button class="accordion-btn"> display: flex</button>
+
+					<div class="accordion-content p-0">
+						<div class="wrapper">
+							<div class="copyContext-btnContainer float-right" data-copyContextId="flex">
+								<button class="copyContext-btn copyContext-btn-copyText"> </button>
+							</div>
+
+							<div class="copyContext" data-copyContextId="flex" style="width: auto">
+								<pre class="m-0 py-md pre-removeTabSpaces">
+								    display: -webkit-box;  display: -ms-flexbox; 
+								    display: -webkit-flex; display: flex; 
+								</pre>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		<!-- filter -->
+
+			<div class="accordion">	
+				<div class="accordion-group px-md my-sm">
+					<button class="accordion-btn"> filter </button>
+
+					<div class="accordion-content p-0">
+						<div class="wrapper">
+							<div class="copyContext-btnContainer float-right" data-copyContextId="filter">
+								<button class="copyContext-btn copyContext-btn-copyText"> </button>
+							</div>
+
+							<div class="copyContext" data-copyContextId="filter" style="width: auto">
+								<pre class="m-0 py-md pre-removeTabSpaces">
+								    -webkit-filter: <i style="color: rgba(3,3,3,.5)">**myFilter**</i> ;
+								            filter: <i style="color: rgba(3,3,3,.5)">**myFilter**</i> ; 
+								</pre>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		<!-- hyphens -->
+
+			<div class="accordion">	
+				<div class="accordion-group px-md my-sm">
+					<button class="accordion-btn"> hyphens </button>
+
+					<div class="accordion-content p-0">
+						<div class="wrapper">
+							<div class="copyContext-btnContainer float-right" data-copyContextId="hyphens">
+								<button class="copyContext-btn copyContext-btn-copyText"> </button>
+							</div>
+
+							<div class="copyContext" data-copyContextId="hyphens" style="width: auto">
+								<pre class="m-0 py-md pre-removeTabSpaces">
+								    -webkit-hyphens: <i style="color: rgba(3,3,3,.5)">none / manual / auto</i> ;
+								       -moz-hyphens: <i style="color: rgba(3,3,3,.5)">none / manual / auto</i> ;
+								        -ms-hyphens: <i style="color: rgba(3,3,3,.5)">none / manual / auto</i> ;
+								            hyphens: <i style="color: rgba(3,3,3,.5)">none / manual / auto</i> ;
+								</pre>
+							</div>
+						</div>
+
+						<hr>
+						<p> Note: To function properly, <span class="wrapper">hyphens</span> <b-r>require</b-r> the <span class="wrapper">lang</span> <span class="wrapper">attribute</span> to be declared, representing the language used within the hyphenated area. </p>
+						<hr>
+						<p> * This can be set on the <span class="wrapper">&lt;html></span> tag, if the language is the same throughout the whole document. </p>
+						<div class="col-12"><div class="wrapper"> &lt;html lang="en"> ... &lt;/html> </div></div>
+						<p> * This can also be set on any <span class="wrapper">HTML Element</span> within the document, if the language is different for its' contents.</p>
+						<div class="col-12"><div class="wrapper"> 
+							<div class="col-12 md-col-6"> Ex: &lt;div lang="en"> Content in English &lt;/div> </div>
+							<div class="col-12 md-col-6 border-left"> Ex: &lt;div lang="ro"> Continut in Romana &lt;/div> </div>
+						</div></div>
+					</div>
+				</div>
+			</div>
+
+		<!-- keyframes / animations -->
+
+			<div class="accordion">	
+				<div class="accordion-group px-md my-sm">
+					<button class="accordion-btn"> keyframes / animations </button>
+
+					<div class="accordion-content p-0">
+						<div class="wrapper">
+							<div class="copyContext-btnContainer float-right" data-copyContextId="animations">
+								<button class="copyContext-btn copyContext-btn-copyText"> </button>
+							</div>
+
+							<div class="copyContext" data-copyContextId="animations" style="width: auto">
+								<pre class="m-0 py-md pre-removeTabSpaces">
+								    @-webkit-keyframes <i style="color: rgba(3,3,3,.5)">**myAnimationName**</i> {}
+								            @keyframes <i style="color: rgba(3,3,3,.5)">**myAnimationName**</i> {}
+
+								    .myClassName {
+								        -webkit-animation: <i style="color: rgba(3,3,3,.5)">**myAnimationName**</i> 1s;
+								                animation: <i style="color: rgba(3,3,3,.5)">**myAnimationName**</i> 1s;
+								        } 
+								</pre>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		<!-- transform -->
+
+			<div class="accordion">	
+				<div class="accordion-group px-md my-sm">
+					<button class="accordion-btn"> transform </button>
+
+					<div class="accordion-content p-0">
+						<div class="wrapper">
+							<div class="copyContext-btnContainer float-right" data-copyContextId="transform">
+								<button class="copyContext-btn copyContext-btn-copyText"> </button>
+							</div>
+
+							<div class="copyContext" data-copyContextId="transform" style="width: auto">
+								<pre class="m-0 py-md pre-removeTabSpaces">
+								    -webkit-transform: <i style="color: rgba(3,3,3,.5)">**myTransform**</i> ;
+								        -ms-transform: <i style="color: rgba(3,3,3,.5)">**myTransform**</i> ;
+								            transform: <i style="color: rgba(3,3,3,.5)">**myTransform**</i> ; 
+								</pre>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		<!-- transform-origin -->
+
+			<div class="accordion">	
+				<div class="accordion-group px-md my-sm">
+					<button class="accordion-btn"> transform-origin </button>
+
+					<div class="accordion-content p-0">
+						<div class="wrapper">
+							<div class="copyContext-btnContainer float-right" data-copyContextId="transform-origin">
+								<button class="copyContext-btn copyContext-btn-copyText"> </button>
+							</div>
+
+							<div class="copyContext" data-copyContextId="transform-origin" style="width: auto">
+								<pre class="m-0 py-md pre-removeTabSpaces">
+								    -webkit-transform-origin: <i style="color: rgba(3,3,3,.5)">**myValues**</i> ;
+								        -ms-transform-origin: <i style="color: rgba(3,3,3,.5)">**myValues**</i> ;
+								            transform-origin: <i style="color: rgba(3,3,3,.5)">**myValues**</i> ; 
+								</pre>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		<!-- transition -->
+
+			<div class="accordion">	
+				<div class="accordion-group px-md my-sm">
+					<button class="accordion-btn"> transition </button>
+
+					<div class="accordion-content p-0">
+						<div class="wrapper">
+							<div class="copyContext-btnContainer float-right" data-copyContextId="transition">
+								<button class="copyContext-btn copyContext-btn-copyText"> </button>
+							</div>
+
+							<div class="copyContext" data-copyContextId="transition" style="width: auto">
+								<pre class="m-0 py-md pre-removeTabSpaces">
+								    -webkit-transition: <i style="color: rgba(3,3,3,.5)">**value**</i> ;
+								       -moz-transition: <i style="color: rgba(3,3,3,.5)">**value**</i> ;
+								         -o-transition: <i style="color: rgba(3,3,3,.5)">**value**</i> ;
+								            transition: <i style="color: rgba(3,3,3,.5)">**value**</i> ; 
+								</pre>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+	</article>
+
+	<!-- ==================================================== -->
+	<div id="runScript" data-src="../../js/extra_scripts/snippets/cssVendorPrefixes.js"> </div>
+	<!-- ==================================================== -->

@@ -1,0 +1,306 @@
+
+	/* Background */ 														/* R-done */
+	/* -------------------------------------------------------------------------------- */
+
+		/* All viewports */
+			.bg-cover {
+				background-size: cover 			!important;
+				background-position: center 	!important;
+				background-repeat: no-repeat 	!important;
+			}
+			.bg-contain {
+				background-size: contain 		!important;
+				background-position: center 	!important;
+				background-repeat: no-repeat 	!important;
+			}	
+
+			.bg-repeat   	{ background-repeat: repeat 	!important; }
+			.bg-repeatX  	{ background-repeat: repeat-x 	!important; }
+			.bg-repeatY  	{ background-repeat: repeat-y 	!important; }
+			.bg-noRepeat 	{ background-repeat: no-repeat 	!important; }
+
+			.bg-center 		{ background-position: center 			!important; }
+			.bg-center-top 	{ background-position: center 	top 	!important; }
+			.bg-center-btm 	{ background-position: center 	bottom 	!important; }
+			.bg-top 		{ background-position: top 				!important; }
+			.bg-btm 		{ background-position: bottom 			!important; }
+			.bg-left 		{ background-position: left 			!important; }
+			.bg-right 		{ background-position: right 			!important; }
+			.bg-top-left 	{ background-position: top 		left 	!important; }
+			.bg-btm-left 	{ background-position: bottom 	left 	!important; }
+			.bg-top-right  	{ background-position: top 		right 	!important; }
+			.bg-btm-right  	{ background-position: bottom 	right 	!important; }
+			
+			.bg-fixed { background-attachment: fixed !important; }
+
+		/* xs-only */
+		@media (max-width: 575.98px) {
+			.xs-o-bg-cover {
+				background-size: cover 			!important;
+				background-position: center 	!important;
+				background-repeat: no-repeat 	!important;
+			}
+
+			.xs-o-bg-contain {
+				background-size: contain 		!important;
+				background-position: center 	!important;
+				background-repeat: no-repeat 	!important;
+			}
+
+			.xs-o-bg-repeat  	{ background-repeat: repeat 	!important; }
+			.xs-o-bg-repeatX 	{ background-repeat: repeat-x 	!important; }
+			.xs-o-bg-repeatY 	{ background-repeat: repeat-y 	!important; }
+			.xs-o-bg-noRepeat 	{ background-repeat: no-repeat 	!important; }
+
+			.xs-o-bg-center 	{ background-position: center 			!important; }
+			.xs-o-bg-center-top { background-position: center 	top 	!important; }
+			.xs-o-bg-center-btm { background-position: center 	bottom 	!important; }
+			.xs-o-bg-top 		{ background-position: top 				!important; }
+			.xs-o-bg-btm 		{ background-position: bottom 			!important; }
+			.xs-o-bg-left 		{ background-position: left 			!important; }
+			.xs-o-bg-right 		{ background-position: right 			!important; }
+			.xs-o-bg-top-left 	{ background-position: top 		left 	!important; }
+			.xs-o-bg-btm-left 	{ background-position: bottom 	left 	!important; }
+			.xs-o-bg-top-right  { background-position: top 		right 	!important; }
+			.xs-o-bg-btm-right  { background-position: bottom 	right 	!important; }
+
+			.xs-o-bg-fixed { background-attachment: fixed !important; }
+		}
+
+		/* sm */
+		@media (min-width: 575.98px) {
+			.sm-bg-cover {
+				background-size: cover 			!important;
+				background-position: center 	!important;
+				background-repeat: no-repeat 	!important;
+			}
+
+			.sm-bg-contain {
+				background-size: contain 		!important;
+				background-position: center 	!important;
+				background-repeat: no-repeat 	!important;
+			}
+
+			.sm-bg-repeat  		{ background-repeat: repeat 	!important; }
+			.sm-bg-repeatX 		{ background-repeat: repeat-x 	!important; }
+			.sm-bg-repeatY 		{ background-repeat: repeat-y 	!important; }
+			.sm-bg-noRepeat 	{ background-repeat: no-repeat 	!important; }
+
+			.sm-bg-center 		{ background-position: center 			!important; }
+			.sm-bg-center-top 	{ background-position: center 	top 	!important; }
+			.sm-bg-center-btm 	{ background-position: center 	bottom 	!important; }
+			.sm-bg-top 			{ background-position: top 				!important; }
+			.sm-bg-btm 			{ background-position: bottom 			!important; }
+			.sm-bg-left 		{ background-position: left 			!important; }
+			.sm-bg-right 		{ background-position: right 			!important; }
+			.sm-bg-top-left 	{ background-position: top 		left 	!important; }
+			.sm-bg-btm-left 	{ background-position: bottom 	left 	!important; }
+			.sm-bg-top-right  	{ background-position: top 		right 	!important; }
+			.sm-bg-btm-right  	{ background-position: bottom 	right 	!important; }
+
+			.sm-bg-fixed { background-attachment: fixed !important; }
+		}
+
+		/* sm-only */
+		@media (min-width: 575.98px) and (max-width: 767.98px) {
+			.sm-o-bg-cover {
+				background-size: cover 			!important;
+				background-position: center 	!important;
+				background-repeat: no-repeat 	!important;
+			}
+
+			.sm-o-bg-contain {
+				background-size: contain 		!important;
+				background-position: center 	!important;
+				background-repeat: no-repeat 	!important;
+			}
+
+			.sm-o-bg-repeat  	{ background-repeat: repeat 	!important; }
+			.sm-o-bg-repeatX 	{ background-repeat: repeat-x 	!important; }
+			.sm-o-bg-repeatY 	{ background-repeat: repeat-y 	!important; }
+			.sm-o-bg-noRepeat 	{ background-repeat: no-repeat 	!important; }
+
+			.sm-o-bg-center 	{ background-position: center 			!important; }
+			.sm-o-bg-center-top { background-position: center 	top 	!important; }
+			.sm-o-bg-center-btm { background-position: center 	bottom 	!important; }
+			.sm-o-bg-top 		{ background-position: top 				!important; }
+			.sm-o-bg-btm 		{ background-position: bottom 			!important; }
+			.sm-o-bg-left 		{ background-position: left 			!important; }
+			.sm-o-bg-right 		{ background-position: right 			!important; }
+			.sm-o-bg-top-left 	{ background-position: top 		left 	!important; }
+			.sm-o-bg-btm-left 	{ background-position: bottom 	left 	!important; }
+			.sm-o-bg-top-right  { background-position: top 		right 	!important; }
+			.sm-o-bg-btm-right  { background-position: bottom 	right 	!important; }
+
+			.sm-o-bg-fixed { background-attachment: fixed !important; }
+		}
+
+		/* md */
+		@media (min-width: 767.98px) {
+			.md-bg-cover {
+				background-size: cover 			!important;
+				background-position: center 	!important;
+				background-repeat: no-repeat 	!important;
+			}
+
+			.md-bg-contain {
+				background-size: contain 		!important;
+				background-position: center 	!important;
+				background-repeat: no-repeat 	!important;
+			}
+
+			.md-bg-repeat  		{ background-repeat: repeat 	!important; }
+			.md-bg-repeatX 		{ background-repeat: repeat-x 	!important; }
+			.md-bg-repeatY 		{ background-repeat: repeat-y 	!important; }
+			.md-bg-noRepeat 	{ background-repeat: no-repeat 	!important; }
+
+			.md-bg-center 		{ background-position: center 			!important; }
+			.md-bg-center-top 	{ background-position: center 	top 	!important; }
+			.md-bg-center-btm 	{ background-position: center 	bottom 	!important; }
+			.md-bg-top 			{ background-position: top 				!important; }
+			.md-bg-btm 			{ background-position: bottom 			!important; }
+			.md-bg-left 		{ background-position: left 			!important; }
+			.md-bg-right 		{ background-position: right 			!important; }
+			.md-bg-top-left 	{ background-position: top 		left 	!important; }
+			.md-bg-btm-left 	{ background-position: bottom 	left 	!important; }
+			.md-bg-top-right  	{ background-position: top 		right 	!important; }
+			.md-bg-btm-right  	{ background-position: bottom 	right 	!important; }
+
+			.md-bg-fixed { background-attachment: fixed !important; }
+		}
+
+		/* md-only */
+		@media (min-width: 767.98px) and (max-width: 991.98px) {
+			.md-o-bg-cover {
+				background-size: cover 			!important;
+				background-position: center 	!important;
+				background-repeat: no-repeat 	!important;
+			}
+
+			.md-o-bg-contain {
+				background-size: contain 		!important;
+				background-position: center 	!important;
+				background-repeat: no-repeat 	!important;
+			}
+
+			.md-o-bg-repeat  	{ background-repeat: repeat 	!important; }
+			.md-o-bg-repeatX 	{ background-repeat: repeat-x 	!important; }
+			.md-o-bg-repeatY 	{ background-repeat: repeat-y 	!important; }
+			.md-o-bg-noRepeat 	{ background-repeat: no-repeat 	!important; }
+
+			.md-o-bg-center 	{ background-position: center 			!important; }
+			.md-o-bg-center-top { background-position: center 	top 	!important; }
+			.md-o-bg-center-btm { background-position: center 	bottom 	!important; }
+			.md-o-bg-top 		{ background-position: top 				!important; }
+			.md-o-bg-btm 		{ background-position: bottom 			!important; }
+			.md-o-bg-left 		{ background-position: left 			!important; }
+			.md-o-bg-right 		{ background-position: right 			!important; }
+			.md-o-bg-top-left 	{ background-position: top 		left 	!important; }
+			.md-o-bg-btm-left 	{ background-position: bottom 	left 	!important; }
+			.md-o-bg-top-right  { background-position: top 		right 	!important; }
+			.md-o-bg-btm-right  { background-position: bottom 	right 	!important; }
+
+			.md-o-bg-fixed { background-attachment: fixed !important; }
+		}
+
+		/* lg */
+		@media (min-width: 991.98px) {
+			.lg-bg-cover {
+				background-size: cover 			!important;
+				background-position: center 	!important;
+				background-repeat: no-repeat 	!important;
+			}
+
+			.lg-bg-contain {
+				background-size: contain 		!important;
+				background-position: center 	!important;
+				background-repeat: no-repeat 	!important;
+			}
+
+			.lg-bg-repeat  		{ background-repeat: repeat 	!important; }
+			.lg-bg-repeatX 		{ background-repeat: repeat-x 	!important; }
+			.lg-bg-repeatY 		{ background-repeat: repeat-y 	!important; }
+			.lg-bg-noRepeat 	{ background-repeat: no-repeat 	!important; }
+
+			.lg-bg-center 		{ background-position: center 			!important; }
+			.lg-bg-center-top 	{ background-position: center 	top 	!important; }
+			.lg-bg-center-btm 	{ background-position: center 	bottom 	!important; }
+			.lg-bg-top 			{ background-position: top 				!important; }
+			.lg-bg-btm 			{ background-position: bottom 			!important; }
+			.lg-bg-left 		{ background-position: left 			!important; }
+			.lg-bg-right 		{ background-position: right 			!important; }
+			.lg-bg-top-left 	{ background-position: top 		left 	!important; }
+			.lg-bg-btm-left 	{ background-position: bottom 	left 	!important; }
+			.lg-bg-top-right  	{ background-position: top 		right 	!important; }
+			.lg-bg-btm-right  	{ background-position: bottom 	right 	!important; }
+
+			.lg-bg-fixed { background-attachment: fixed !important; }
+		}
+
+		/* lg-only */
+		@media (min-width: 991.98px) and (max-width: 1199.98px) {
+			.lg-o-bg-cover {
+				background-size: cover 			!important;
+				background-position: center 	!important;
+				background-repeat: no-repeat 	!important;
+			}
+
+			.lg-o-bg-contain {
+				background-size: contain 		!important;
+				background-position: center 	!important;
+				background-repeat: no-repeat 	!important;
+			}
+
+			.lg-o-bg-repeat  	{ background-repeat: repeat 	!important; }
+			.lg-o-bg-repeatX 	{ background-repeat: repeat-x 	!important; }
+			.lg-o-bg-repeatY 	{ background-repeat: repeat-y 	!important; }
+			.lg-o-bg-noRepeat 	{ background-repeat: no-repeat 	!important; }
+
+			.lg-o-bg-center 	{ background-position: center 			!important; }
+			.lg-o-bg-center-top { background-position: center 	top 	!important; }
+			.lg-o-bg-center-btm { background-position: center 	bottom 	!important; }
+			.lg-o-bg-top 		{ background-position: top 				!important; }
+			.lg-o-bg-btm 		{ background-position: bottom 			!important; }
+			.lg-o-bg-left 		{ background-position: left 			!important; }
+			.lg-o-bg-right 		{ background-position: right 			!important; }
+			.lg-o-bg-top-left 	{ background-position: top 		left 	!important; }
+			.lg-o-bg-btm-left 	{ background-position: bottom 	left 	!important; }
+			.lg-o-bg-top-right  { background-position: top 		right 	!important; }
+			.lg-o-bg-btm-right  { background-position: bottom 	right 	!important; }
+
+			.lg-o-bg-fixed { background-attachment: fixed !important; }
+		}
+
+		/* xl */
+		@media (min-width: 1199.98px) {
+			.lg-bg-cover {
+				background-size: cover 			!important;
+				background-position: center 	!important;
+				background-repeat: no-repeat 	!important;
+			}
+			.lg-bg-contain {
+				background-size: contain 		!important;
+				background-position: center 	!important;
+				background-repeat: no-repeat 	!important;
+			}	
+
+			.lg-bg-repeat   	{ background-repeat: repeat 	!important; }
+			.lg-bg-repeatX  	{ background-repeat: repeat-x 	!important; }
+			.lg-bg-repeatY  	{ background-repeat: repeat-y 	!important; }
+			.lg-bg-noRepeat 	{ background-repeat: no-repeat 	!important; }
+
+			.lg-bg-center 		{ background-position: center 			!important; }
+			.lg-bg-center-top 	{ background-position: center 	top 	!important; }
+			.lg-bg-center-btm 	{ background-position: center 	bottom 	!important; }
+			.lg-bg-top 			{ background-position: top 				!important; }
+			.lg-bg-btm 			{ background-position: bottom 			!important; }
+			.lg-bg-left 		{ background-position: left 			!important; }
+			.lg-bg-right 		{ background-position: right 			!important; }
+			.lg-bg-top-left 	{ background-position: top 		left 	!important; }
+			.lg-bg-btm-left 	{ background-position: bottom 	left 	!important; }
+			.lg-bg-top-right  	{ background-position: top 		right 	!important; }
+			.lg-bg-btm-right  	{ background-position: bottom 	right 	!important; }
+			
+			.lg-bg-fixed { background-attachment: fixed !important; }
+		}
+

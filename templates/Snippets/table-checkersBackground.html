@@ -1,0 +1,366 @@
+
+	<!-- ===================== Route ================== -->
+	<script src="../../js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+
+	<style>
+		.checkers-demoItem {
+			padding: 15px;
+			cursor: pointer; cursor: hand;
+
+			border-radius: 6px;
+			overflow: hidden;
+			background-color: rgba(3,3,3,.1);
+		}
+
+		.checkers-demoItem:after {
+			content: '';
+			position: absolute;
+			top: 0; left: 0; right: 0; bottom: 0;
+			z-index: 2;
+		}
+
+		.checkers-demoItem:hover {
+			outline-width: 3px;
+		}
+
+		.table-demo {
+			table-layout: fixed;
+			border-collapse: collapse;
+			text-align: center;
+			color: rgba(3,3,3,.3);
+		}
+	</style>
+
+	<article>
+
+		<div class="article-title"> Snippets : Table - Checkers Background </div>
+
+		<p class="mt-md"> CSS Selector Syntax, which applies a <b>checkers</b> effect, by setting the background color to alternative cells/groups-of-n-cells. </p>
+
+		<div class="checkers-demoItem col-12 md-col-6">
+			<table class="col-12 table-demo table-plain table-checkers-1-1 table-highlight-cross">
+				<tbody>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="checkers-demoItem col-12 md-col-6">
+			<table class="col-12 table-demo table-plain table-checkers-1-2">
+				<tbody>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<hr>
+
+		<div class="checkers-demoItem col-12 md-col-6">
+			<table class="col-12 table-demo table-plain table-checkers-2-1">
+				<tbody>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="checkers-demoItem col-12 md-col-6">
+			<table class="col-12 table-demo table-plain table-checkers-2-2">
+				<tbody>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<hr>
+
+		<div class="checkers-demoItem col-12 md-col-6">
+			<table class="col-12 table-demo table-plain table-checkers-3-1">
+				<tbody>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="checkers-demoItem col-12 md-col-6">
+			<table class="col-12 table-demo table-plain table-checkers-3-2">
+				<tbody>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+					<tr> 
+						<td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> 
+						<td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> 
+						<td> 11 </td> <td> 12 </td> 
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<!-- -->
+			<p class="section-title"> Start at first cell group - Groups of 1 cell (individual) </p>
+
+			<div class="wrapper">
+				<div class="copyContext-btnContainer" data-copyContextId="table-checkers-1-1">
+					<button class="copyContext-btn copyContext-btn-copyText"> </button>
+				</div>
+
+				<div class="copyContext" data-copyContextId="table-checkers-1-1">
+					<pre class="pre-removeTabSpaces">
+					    .table-checkers tr:nth-of-type(odd) td:nth-of-type(2n-1) {
+					        background: rgba(3,3,3,.1);
+					    }
+
+					    .table-checkers tr:nth-of-type(even) td:nth-of-type(2n) {
+					        background: rgba(3,3,3,.1);
+					    }
+					</pre>
+				</div>
+			</div>
+
+		<!-- -->
+			<p class="section-title"> Start at second cell group - Groups of 1 cell (individual) </p>
+
+			<div class="wrapper">
+				<div class="copyContext-btnContainer" data-copyContextId="table-checkers-1-1">
+					<button class="copyContext-btn copyContext-btn-copyText"> </button>
+				</div>
+
+				<div class="copyContext" data-copyContextId="table-checkers-1-1">
+					<pre class="pre-removeTabSpaces">
+					    .table-checkers tr:nth-of-type(odd) td:nth-of-type(2n) {
+					        background: rgba(3,3,3,.1);
+					    }
+
+					    .table-checkers tr:nth-of-type(even) td:nth-of-type(2n-1) {
+					        background: rgba(3,3,3,.1);
+					    }
+					</pre>
+				</div>
+			</div>
+
+		<!-- -->
+			<p class="section-title"> Start at first cell group - Groups of 1 cell (individual) </p>
+
+			<div class="wrapper">
+				<div class="copyContext-btnContainer" data-copyContextId="table-checkers-1-1">
+					<button class="copyContext-btn copyContext-btn-copyText"> </button>
+				</div>
+
+				<div class="copyContext" data-copyContextId="table-checkers-1-1">
+					<pre class="pre-removeTabSpaces">
+					    .table-checkers tr:nth-of-type(odd) td:nth-of-type(4n-3) ,
+					    .table-checkers tr:nth-of-type(odd) td:nth-of-type(4n-2) {
+					        background: rgba(3,3,3,.1);
+					    }
+
+					    .table-checkers tr:nth-of-type(even) td:nth-of-type(4n-1) ,
+					    .table-checkers tr:nth-of-type(even) td:nth-of-type(4n)   {
+					        background: rgba(3,3,3,.1);
+					    }
+					</pre>
+				</div>
+			</div>
+
+	</article>
+
+	<!-- ==================================================== -->
+	<div id="runScript" data-src="../../js/extra_scripts/snippets/table-checkersBackground.js"> </div>
+	<!-- ==================================================== -->

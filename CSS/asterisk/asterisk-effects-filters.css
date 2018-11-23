@@ -1,0 +1,584 @@
+
+	/* Image Hover Effects - Instagram */
+	/* ------------------------------- */
+	/* https://picturepan2.github.io/instagram.css/ */
+
+		/* Shared */
+		/* ------------------------------- */
+
+			[class^="hasFilter-"]::before , [class*=" hasFilter-"]::before {
+				content: '';
+				position: absolute;  z-index: 2;
+				top: 0; left: 0; right: 0; bottom: 0;
+			}
+
+			[class^="hasFilter-hvr-"] , [class*=" hasFilter-hvr-"] {
+				-webkit-transition: filter  0.4s  ease-out;
+				   -moz-transition: filter  0.4s  ease-out;
+					 -o-transition: filter  0.4s  ease-out;
+						transition: filter  0.4s  ease-out;
+			}
+
+			.hasFilter-hvr-remove:hover {
+				-webkit-filter: none !important;
+						filter: none !important;
+			}
+
+			.hasFilter-hvr-remove:hover::before {
+				visibility: hidden !important;
+			}
+
+		/* Filter - 1977 */
+		/* ------------------------------- */
+
+			.hasFilter-1977            , 
+			.hasFilter-hvr-1977:hover  {
+				-webkit-filter: sepia(.5) hue-rotate(-30deg) saturate(1.4);
+						filter: sepia(.5) hue-rotate(-30deg) saturate(1.4);
+			}
+
+		/* Filter - aden */
+		/* ------------------------------- */
+
+			.hasFilter-aden            , 
+			.hasFilter-hvr-aden:hover  {
+				-webkit-filter: sepia(.2) brightness(1.15) saturate(1.4);
+						filter: sepia(.2) brightness(1.15) saturate(1.4);
+			}
+
+			.hasFilter-aden::before            , 
+			.hasFilter-hvr-aden:hover::before  {
+				background: rgba(125, 105, 24, .1);
+				mix-blend-mode: multiply;
+			}
+
+		/* Filter - amaro */
+		/* ------------------------------- */
+
+			.hasFilter-amaro            , 
+			.hasFilter-hvr-amaro:hover  {
+				-webkit-filter: sepia(.35) contrast(1.1) brightness(1.2) saturate(1.3);
+						filter: sepia(.35) contrast(1.1) brightness(1.2) saturate(1.3);
+			}
+
+			.hasFilter-amaro::before            , 
+			.hasFilter-hvr-amaro:hover::before  {
+				background: rgba(125, 105, 24, .2);
+				mix-blend-mode: overlay;
+			}
+
+		/* Filter - ashby */
+		/* ------------------------------- */
+
+			.hasFilter-ashby            , 
+			.hasFilter-hvr-ashby:hover  {
+				-webkit-filter: sepia(.5) contrast(1.2) saturate(1.8);
+						filter: sepia(.5) contrast(1.2) saturate(1.8);
+			}
+
+			.hasFilter-ashby::before            , 
+			.hasFilter-hvr-ashby:hover::before  {
+				background: rgba(125, 105, 24, .35);
+				mix-blend-mode: lighten;
+			}
+
+		/* Filter - brannan */
+		/* ------------------------------- */
+
+			.hasFilter-brannan            , 
+			.hasFilter-hvr-brannan:hover  {
+				-webkit-filter: sepia(.4) contrast(1.25) brightness(1.1) saturate(.9) hue-rotate(-2deg);
+						filter: sepia(.4) contrast(1.25) brightness(1.1) saturate(.9) hue-rotate(-2deg);
+			}
+
+		/* Filter - brooklyn */
+		/* ------------------------------- */
+
+			.hasFilter-brooklyn            , 
+			.hasFilter-hvr-brooklyn:hover  {
+				-webkit-filter: sepia(.25) contrast(1.25) brightness(1.25) hue-rotate(5deg);
+						filter: sepia(.25) contrast(1.25) brightness(1.25) hue-rotate(5deg);
+			}
+
+			.hasFilter-brooklyn::before            , 
+			.hasFilter-hvr-brooklyn:hover::before  {
+				background: rgba(127, 187, 227, .2);
+				mix-blend-mode: overlay;
+			}
+
+		/* Filter - charmes */
+		/* ------------------------------- */
+
+			.hasFilter-charmes            , 
+			.hasFilter-hvr-charmes:hover  {
+				-webkit-filter: sepia(.25) contrast(1.25) brightness(1.25) saturate(1.35) hue-rotate(-5deg);
+						filter: sepia(.25) contrast(1.25) brightness(1.25) saturate(1.35) hue-rotate(-5deg);
+			}
+
+			.hasFilter-charmes::before            , 
+			.hasFilter-hvr-charmes:hover::before  {
+				background: rgba(125, 105, 24, .25);
+				mix-blend-mode: darken;
+			}
+
+		/* Filter - clarendon */
+		/* ------------------------------- */
+
+			.hasFilter-clarendon            , 
+			.hasFilter-hvr-clarendon:hover  {
+				-webkit-filter: sepia(.15) contrast(1.25) brightness(1.25) hue-rotate(5deg);
+						filter: sepia(.15) contrast(1.25) brightness(1.25) hue-rotate(5deg);
+			}
+
+			.hasFilter-clarendon::before            , 
+			.hasFilter-hvr-clarendon:hover::before  {
+				background: rgba(127, 187, 227, .4);
+				mix-blend-mode: overlay;
+			}
+
+		/* Filter - crema */
+		/* ------------------------------- */
+
+			.hasFilter-crema            , 
+			.hasFilter-hvr-crema:hover  {
+				-webkit-filter: sepia(.5) contrast(1.25) brightness(1.15) saturate(.9) hue-rotate(-2deg);
+						filter: sepia(.5) contrast(1.25) brightness(1.15) saturate(.9) hue-rotate(-2deg);
+			}
+
+			.hasFilter-crema::before            , 
+			.hasFilter-hvr-crema:hover::before  {
+				background: rgba(125, 105, 24, .2);
+				mix-blend-mode: multiply;
+			}
+
+		/* Filter - dogpatch */
+		/* ------------------------------- */
+
+			.hasFilter-dogpatch            , 
+			.hasFilter-hvr-dogpatch:hover  {
+				-webkit-filter: sepia(.35) saturate(1.1) contrast(1.5);
+						filter: sepia(.35) saturate(1.1) contrast(1.5);
+			}
+
+		/* Filter - earlybird */
+		/* ------------------------------- */
+
+			.hasFilter-earlybird            , 
+			.hasFilter-hvr-earlybird:hover  {
+				-webkit-filter: sepia(.25) contrast(1.25) brightness(1.15) saturate(.9) hue-rotate(-5deg);
+						filter: sepia(.25) contrast(1.25) brightness(1.15) saturate(.9) hue-rotate(-5deg);
+			}
+
+			.hasFilter-earlybird::before            , 
+			.hasFilter-hvr-earlybird:hover::before  {
+				background: radial-gradient(circle closest-corner, transparent 0, rgba(125, 105, 24, .2) 100%);
+				mix-blend-mode: multiply;
+			}
+
+		/* Filter - gingham */
+		/* ------------------------------- */
+
+			.hasFilter-gingham            , 
+			.hasFilter-hvr-gingham:hover  {
+				-webkit-filter: contrast(1.1) brightness(1.1);
+						filter: contrast(1.1) brightness(1.1);
+			}
+
+			.hasFilter-gingham::before            , 
+			.hasFilter-hvr-gingham:hover::before  {
+				background: #e6e6e6;
+				mix-blend-mode: soft-light;
+			}
+
+		/* Filter - ginza */
+		/* ------------------------------- */
+
+			.hasFilter-ginza            , 
+			.hasFilter-hvr-ginza:hover  {
+				-webkit-filter: sepia(.25) contrast(1.15) brightness(1.2) saturate(1.35) hue-rotate(-5deg);
+						filter: sepia(.25) contrast(1.15) brightness(1.2) saturate(1.35) hue-rotate(-5deg);
+			}
+
+			.hasFilter-ginza::before            , 
+			.hasFilter-hvr-ginza:hover::before  {
+				background: rgba(125, 105, 24, .15);
+				mix-blend-mode: darken;
+			}
+
+		/* Filter - hefe */
+		/* ------------------------------- */
+
+			.hasFilter-hefe            , 
+			.hasFilter-hvr-hefe:hover  {
+				-webkit-filter: sepia(.4) contrast(1.5) brightness(1.2) saturate(1.4) hue-rotate(-10deg);
+						filter: sepia(.4) contrast(1.5) brightness(1.2) saturate(1.4) hue-rotate(-10deg);
+			}
+
+			.hasFilter-hefe::before            , 
+			.hasFilter-hvr-hefe:hover::before  {
+				background: radial-gradient(circle closest-corner, transparent 0, rgba(0, 0, 0, .25) 100%);
+				mix-blend-mode: multiply;
+			}
+
+		/* Filter - helena */
+		/* ------------------------------- */
+
+			.hasFilter-helena            , 
+			.hasFilter-hvr-helena:hover  {
+				-webkit-filter: sepia(.5) contrast(1.05) brightness(1.05) saturate(1.35);
+						filter: sepia(.5) contrast(1.05) brightness(1.05) saturate(1.35);
+			}
+
+			.hasFilter-helena::before            , 
+			.hasFilter-hvr-helena:hover::before  {
+				background: rgba(158, 175, 30, .25);
+				mix-blend-mode: overlay;
+			}
+
+		/* Filter - hudson */
+		/* ------------------------------- */
+
+			.hasFilter-hudson            , 
+			.hasFilter-hvr-hudson:hover  {
+				-webkit-filter: sepia(.25) contrast(1.2) brightness(1.2) saturate(1.05) hue-rotate(-15deg);
+						filter: sepia(.25) contrast(1.2) brightness(1.2) saturate(1.05) hue-rotate(-15deg);
+			}
+
+			.hasFilter-hudson::before            , 
+			.hasFilter-hvr-hudson:hover::before  {
+				background: radial-gradient(circle closest-corner, transparent 25%, rgba(25, 62, 167, .25) 100%);
+				mix-blend-mode: multiply;
+			}
+
+		/* Filter - inkwell */
+		/* ------------------------------- */
+
+			.hasFilter-inkwell            , 
+			.hasFilter-hvr-inkwell:hover  {
+				-webkit-filter: brightness(1.25) contrast(.85) grayscale(1);
+						filter: brightness(1.25) contrast(.85) grayscale(1);
+			}
+
+		/* Filter - juno */
+		/* ------------------------------- */
+
+			.hasFilter-juno            , 
+			.hasFilter-hvr-juno:hover  {
+				-webkit-filter: sepia(.35) contrast(1.15) brightness(1.15) saturate(1.8);
+						filter: sepia(.35) contrast(1.15) brightness(1.15) saturate(1.8);
+			}
+
+			.hasFilter-juno::before            , 
+			.hasFilter-hvr-juno:hover::before  {
+				background: rgba(127, 187, 227, .2);
+				mix-blend-mode: overlay;
+			}
+
+		/* Filter - kelvin */
+		/* ------------------------------- */
+
+			.hasFilter-kelvin            , 
+			.hasFilter-hvr-kelvin:hover  {
+				-webkit-filter: sepia(.15) contrast(1.5) brightness(1.1) hue-rotate(-10deg);
+						filter: sepia(.15) contrast(1.5) brightness(1.1) hue-rotate(-10deg);
+			}
+
+			.hasFilter-kelvin::before            , 
+			.hasFilter-hvr-kelvin:hover::before  {
+				background: radial-gradient(circle closest-corner, rgba(128, 78, 15, .25) 0, rgba(128, 78, 15, .5) 100%);
+				mix-blend-mode: overlay;
+			}
+
+		/* Filter - lark */
+		/* ------------------------------- */
+
+			.hasFilter-lark            , 
+			.hasFilter-hvr-lark:hover  {
+				-webkit-filter: sepia(.25) contrast(1.2) brightness(1.3) saturate(1.25);
+						filter: sepia(.25) contrast(1.2) brightness(1.3) saturate(1.25);
+			}
+
+		/* Filter - lofi */
+		/* ------------------------------- */
+
+			.hasFilter-lofi            , 
+			.hasFilter-hvr-lofi:hover  {
+				-webkit-filter: saturate(1.1) contrast(1.5);
+						filter: saturate(1.1) contrast(1.5);
+			}
+
+		/* Filter - ludwig */
+		/* ------------------------------- */
+
+			.hasFilter-ludwig            , 
+			.hasFilter-hvr-ludwig:hover  {
+				-webkit-filter: sepia(.25) contrast(1.05) brightness(1.05) saturate(2);
+						filter: sepia(.25) contrast(1.05) brightness(1.05) saturate(2);
+			}
+
+			.hasFilter-ludwig::before            , 
+			.hasFilter-hvr-ludwig:hover::before  {
+				background: rgba(125, 105, 24, .1);
+				mix-blend-mode: overlay;
+			}
+
+		/* Filter - maven */
+		/* ------------------------------- */
+
+			.hasFilter-maven            , 
+			.hasFilter-hvr-maven:hover  {
+				-webkit-filter: sepia(.35) contrast(1.05) brightness(1.05) saturate(1.75);
+						filter: sepia(.35) contrast(1.05) brightness(1.05) saturate(1.75);
+			}
+
+			.hasFilter-maven::before            , 
+			.hasFilter-hvr-maven:hover::before  {
+				background: rgba(158, 175, 30, .25);
+				mix-blend-mode: darken;
+			}
+
+		/* Filter - mayfair */
+		/* ------------------------------- */
+
+			.hasFilter-mayfair            , 
+			.hasFilter-hvr-mayfair:hover  {
+				-webkit-filter: contrast(1.1) brightness(1.15) saturate(1.1);
+						filter: contrast(1.1) brightness(1.15) saturate(1.1);
+			}
+
+			.hasFilter-mayfair::before            , 
+			.hasFilter-hvr-mayfair:hover::before  {
+				background: radial-gradient(circle closest-corner, transparent 0, rgba(175, 105, 24, .4) 100%);
+				mix-blend-mode: multiply;
+			}
+
+		/* Filter - moon */
+		/* ------------------------------- */
+
+			.hasFilter-moon            , 
+			.hasFilter-hvr-moon:hover  {
+				-webkit-filter: brightness(1.4) contrast(.95) saturate(0) sepia(.35);
+						filter: brightness(1.4) contrast(.95) saturate(0) sepia(.35);
+			}
+
+		/* Filter - nashville */
+		/* ------------------------------- */
+
+			.hasFilter-nashville            , 
+			.hasFilter-hvr-nashville:hover  {
+				-webkit-filter: sepia(.25) contrast(1.5) brightness(.9) hue-rotate(-15deg);
+						filter: sepia(.25) contrast(1.5) brightness(.9) hue-rotate(-15deg);
+			}
+
+			.hasFilter-nashville::before            , 
+			.hasFilter-hvr-nashville:hover::before  {
+				background: radial-gradient(circle closest-corner, rgba(128, 78, 15, .5) 0, rgba(128, 78, 15, .65) 100%);
+				mix-blend-mode: screen;
+			}
+
+		/* Filter - perpetua */
+		/* ------------------------------- */
+
+			.hasFilter-perpetua            , 
+			.hasFilter-hvr-perpetua:hover  {
+				-webkit-filter: contrast(1.1) brightness(1.25) saturate(1.1);
+						filter: contrast(1.1) brightness(1.25) saturate(1.1);
+			}
+
+			.hasFilter-perpetua::before            , 
+			.hasFilter-hvr-perpetua:hover::before  {
+				background: linear-gradient(to bottom, rgba(0, 91, 154, .25), rgba(230, 193, 61, .25));
+				mix-blend-mode: multiply;
+			}
+
+		/* Filter - poprocket */
+		/* ------------------------------- */
+
+			.hasFilter-poprocket            , 
+			.hasFilter-hvr-poprocket:hover  {
+				-webkit-filter: sepia(.15) brightness(1.2);
+						filter: sepia(.15) brightness(1.2);
+			}
+
+			.hasFilter-poprocket::before            , 
+			.hasFilter-hvr-poprocket:hover::before  {
+				background: radial-gradient(circle closest-corner, rgba(206, 39, 70, .75) 40%, black 80%);
+				mix-blend-mode: screen;
+			}
+
+		/* Filter - reyes */
+		/* ------------------------------- */
+
+			.hasFilter-reyes            , 
+			.hasFilter-hvr-reyes:hover  {
+				-webkit-filter: sepia(.75) contrast(.75) brightness(1.25) saturate(1.4);
+						filter: sepia(.75) contrast(.75) brightness(1.25) saturate(1.4);
+			}
+
+		/* Filter - rise */
+		/* ------------------------------- */
+
+			.hasFilter-rise            , 
+			.hasFilter-hvr-rise:hover  {
+				-webkit-filter: sepia(.25) contrast(1.25) brightness(1.2) saturate(.9);
+						filter: sepia(.25) contrast(1.25) brightness(1.2) saturate(.9);
+			}
+
+			.hasFilter-rise::before            , 
+			.hasFilter-hvr-rise:hover::before  {
+				background: radial-gradient(circle closest-corner, transparent 0, rgba(230, 193, 61, .25) 100%);
+				mix-blend-mode: lighten;
+			}
+
+		/* Filter - sierra */
+		/* ------------------------------- */
+
+			.hasFilter-sierra            , 
+			.hasFilter-hvr-sierra:hover  {
+				-webkit-filter: sepia(.25) contrast(1.5) brightness(.9) hue-rotate(-15deg);
+						filter: sepia(.25) contrast(1.5) brightness(.9) hue-rotate(-15deg);
+			}
+
+			.hasFilter-sierra::before            , 
+			.hasFilter-hvr-sierra:hover::before  {
+				background: radial-gradient(circle closest-corner, rgba(128, 78, 15, .5) 0, rgba(0, 0, 0, .65) 100%);
+				mix-blend-mode: screen;
+			}
+
+		/* Filter - skyline */
+		/* ------------------------------- */
+
+			.hasFilter-skyline            , 
+			.hasFilter-hvr-skyline:hover  {
+				-webkit-filter: sepia(.15) contrast(1.25) brightness(1.25) saturate(1.2);
+						filter: sepia(.15) contrast(1.25) brightness(1.25) saturate(1.2);
+			}
+
+		/* Filter - slumber */
+		/* ------------------------------- */
+
+			.hasFilter-slumber            , 
+			.hasFilter-hvr-slumber:hover  {
+				-webkit-filter: sepia(.35) contrast(1.25) saturate(1.25);
+						filter: sepia(.35) contrast(1.25) saturate(1.25);
+			}
+
+			.hasFilter-slumber::before            , 
+			.hasFilter-hvr-slumber:hover::before  {
+				background: rgba(125, 105, 24, .2);
+				mix-blend-mode: darken;
+			}
+
+		/* Filter - stinson */
+		/* ------------------------------- */
+
+			.hasFilter-stinson            , 
+			.hasFilter-hvr-stinson:hover  {
+				-webkit-filter: sepia(.35) contrast(1.25) brightness(1.1) saturate(1.25);
+						filter: sepia(.35) contrast(1.25) brightness(1.1) saturate(1.25);
+			}
+
+			.hasFilter-stinson::before            , 
+			.hasFilter-hvr-stinson:hover::before  {
+				background: rgba(125, 105, 24, .45);
+				mix-blend-mode: lighten;
+			}
+
+		/* Filter - sutro */
+		/* ------------------------------- */
+
+			.hasFilter-sutro            , 
+			.hasFilter-hvr-sutro:hover  {
+				-webkit-filter: sepia(.4) contrast(1.2) brightness(.9) saturate(1.4) hue-rotate(-10deg);
+						filter: sepia(.4) contrast(1.2) brightness(.9) saturate(1.4) hue-rotate(-10deg);
+			}
+
+			.hasFilter-sutro::before            , 
+			.hasFilter-hvr-sutro:hover::before  {
+				background: radial-gradient(circle closest-corner, transparent 50%, rgba(0, 0, 0, .5) 90%);
+				mix-blend-mode: darken;
+			}
+
+		/* Filter - toaster */
+		/* ------------------------------- */
+
+			.hasFilter-toaster            , 
+			.hasFilter-hvr-toaster:hover  {
+				-webkit-filter: sepia(.25) contrast(1.5) brightness(.95) hue-rotate(-15deg);
+						filter: sepia(.25) contrast(1.5) brightness(.95) hue-rotate(-15deg);
+			}
+
+			.hasFilter-toaster::before            , 
+			.hasFilter-hvr-toaster:hover::before  {
+				background: radial-gradient(circle, #804e0f, rgba(0, 0, 0, .25));
+				mix-blend-mode: screen;
+			}
+
+		/* Filter - valencia */
+		/* ------------------------------- */
+
+			.hasFilter-valencia            , 
+			.hasFilter-hvr-valencia:hover  {
+				-webkit-filter: sepia(.25) contrast(1.1) brightness(1.1);
+						filter: sepia(.25) contrast(1.1) brightness(1.1);
+			}
+
+			.hasFilter-valencia::before            , 
+			.hasFilter-hvr-valencia:hover::before  {
+				background: rgba(230, 193, 61, .1);
+				mix-blend-mode: lighten;
+			}
+
+		/* Filter - vesper */
+		/* ------------------------------- */
+
+			.hasFilter-vesper            , 
+			.hasFilter-hvr-vesper:hover  {
+				-webkit-filter: sepia(.35) contrast(1.15) brightness(1.2) saturate(1.3);
+						filter: sepia(.35) contrast(1.15) brightness(1.2) saturate(1.3);
+			}
+
+			.hasFilter-vesper::before            , 
+			.hasFilter-hvr-vesper:hover::before  {
+				background: rgba(125, 105, 24, .25);
+				mix-blend-mode: overlay;
+			}
+
+		/* Filter - walden */
+		/* ------------------------------- */
+
+			.hasFilter-walden            , 
+			.hasFilter-hvr-walden:hover  {
+				-webkit-filter: sepia(.35) contrast(.8) brightness(1.25) saturate(1.4);
+						filter: sepia(.35) contrast(.8) brightness(1.25) saturate(1.4);
+			}
+
+			.hasFilter-walden::before            , 
+			.hasFilter-hvr-walden:hover::before  {
+				background: rgba(229, 240, 128, .5);
+				mix-blend-mode: darken;
+			}
+
+		/* Filter - willow */
+		/* ------------------------------- */
+
+			.hasFilter-willow            , 
+			.hasFilter-hvr-willow:hover  {
+				-webkit-filter: brightness(1.2) contrast(.85) saturate(.05) sepia(.2);
+						filter: brightness(1.2) contrast(.85) saturate(.05) sepia(.2);
+			}
+
+		/* Filter - xpro-ii */
+		/* ------------------------------- */
+
+			.hasFilter-xpro-ii            , 
+			.hasFilter-hvr-xpro-ii:hover  {
+				-webkit-filter: sepia(.45) contrast(1.25) brightness(1.75) saturate(1.3) hue-rotate(-5deg);
+						filter: sepia(.45) contrast(1.25) brightness(1.75) saturate(1.3) hue-rotate(-5deg);
+			}
+
+			.hasFilter-xpro-ii::before            , 
+			.hasFilter-hvr-xpro-ii:hover::before  {
+				background: radial-gradient(circle closest-corner, rgba(0, 91, 154, .35) 0, rgba(0, 0, 0, .65) 100%);
+				mix-blend-mode: multiply;
+			}

@@ -1,0 +1,206 @@
+
+	<!-- ===================== Route ================== -->
+	<script src="../../js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+
+	<article>
+
+		<header class="sr-only"> <h2> Part-of-className CSS Selector </h2> </header>
+
+		<div class="tabs article-mainTabs">
+
+			<div class="article-mainTabs-banner noTextOverlay">
+				<div class="article-mainTabs-title"> Snippets : start-of-className Selector </div>
+
+				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
+					<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> Code  </button>
+					<button class="tabs-btn" 				data-tabs-id="2"> Logic </button>
+					<button class="tabs-btn" 				data-tabs-id="3"> Usage </button>
+				</div>
+			</div>
+
+			<div class="tabs-contentGroup">
+				<div class="tabs-content tab-expanded" data-tabs-id="1"> 
+
+					<p class="mt-md mb-0"> CSS Selector Syntax, which targets elements which have a <span class="wrapper">class</span> that <b-r>starts</b-r> with a specific <span class="wrapper">string</span>. </p>
+
+					<div class="wrapper">
+						<div class="copyContext-btnContainer" data-copyContextId="cssSelectors-startOfClass-1">
+							<button class="copyContext-btn copyContext-btn-copyText"> </button>
+						</div>
+
+						<div class="copyContext" data-copyContextId="cssSelectors-startOfClass-1">
+							<pre class="pre-removeTabSpaces">
+							    [class^="<b-r>classNameString</b-r>"] , [class*=" <b-r>classNameString</b-r>"] {
+							        /* do magic */
+							    }
+							</pre>
+						</div>
+					</div>
+
+					<p> Example - both scenarios achieve the same results : </p>
+
+					<div class="wrapper">
+						<pre class="pre-removeTabSpaces">
+						    <b>imgFilter-</b>1977  , <b>imgFilter-</b>aden    , <b>imgFilter-</b>amaro    ,
+						    <b>imgFilter-</b>ashby , <b>imgFilter-</b>brannan , <b>imgFilter-</b>brooklyn {
+						        /* do something */
+						    }
+							<hr>
+
+						    [class^="<b>imgFilter-</b>"] , [class*=" <b>imgFilter-</b>"] {
+						        /* do something */
+						    } 
+						</pre>
+					</div>
+
+				</div>
+
+				<div class="tabs-content" data-tabs-id="2"> 
+
+					<p class="mt-md"> All <span class="wrapper">HTML Attributes</span> have <span class="wrapper">String</span> values. </p>
+
+					<p> <span class="wrapper">CSS Attribute Selectors</span> are basically regex verifiers (check if a string contains a substring).</p>
+
+					<hr>
+
+					<p> The <span class="wrapper">class</span> Attribute is taken/checked as <b-r>a single String</b-r>, <b><u>not</u> as individual classes.</b> </p>
+
+					<div class="col-12">
+						<div class="wrapper">
+							<table class="col-12 table-plain">
+								<tbody>
+									<tr> 
+										<td> If we have a <span class="wrapper">div</span> like this :  </td> 
+										<td> &lt;div class=<b>"myClass &nbsp; myOtherClass &nbsp; not-myClass &nbsp; myClass-qwerty"</b>> &lt;/div> </td> 
+									</tr>
+									<tr> 
+										<td> Its' <span class="wrapper">class</span> Attribute is : </td> 
+										<td> <b>"myClass &nbsp; myOtherClass &nbsp; not-myClass &nbsp; myClass-qwerty"</b> </td> 
+									</tr>
+									<tr><td><hr></td><td><hr></td></tr>
+									<tr> 
+										<td> It contains <span class="wrapper">"myClass"</span> : </td> 
+										<td> <b>"<span class="wrapper" class="m-0 p-0">myClass</span> &nbsp; myOtherClass &nbsp; not-<span class="wrapper" class="m-0 p-0">myClass</span> &nbsp; <span class="wrapper" class="m-0 p-0">myClass</span>-qwerty"</b> </td> 
+									</tr>
+									<tr> 
+										<td> It also contains <span class="wrapper">"ass not-myCl"</span> : </td> 
+										<td> <b>"myClass &nbsp; myOtherCl<span class="wrapper" class="m-0 p-0">ass &nbsp; not-myCl</span>ass &nbsp; myClass-qwerty"</b> </td> 
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+					<p class="section-title"> <div class="wrapper"> <b-r>(1)</b-r> <span class="wrapper">[class<b-r>^</b-r>="myClass"]</span> <span class="float-right"> This selector checks if the <span class="wrapper">class Attribute</span> string <u>begins with</u> the given value </span> </div> </p>
+
+					<p class="text-italic"> <span class="wrapper">[attr^=value]</span> Represents elements with an attribute name of attr whose value is prefixed (preceded) by value - <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors">MDN</a> </p>
+
+					<div class="col-12">
+						<div class="wrapper">
+							<line> &lt;div class=<b>"<span class="wrapper" class="m-0 p-0">myClass</span> &nbsp; myOtherClass &nbsp; not-myClass &nbsp; myClass-qwerty"</b>> &lt;/div> - This will pass (at the very beginning of the String) </line>
+							<line> &lt;div class=<b>"myOtherClass &nbsp; myClass &nbsp; not-myClass &nbsp; myClass-qwerty"</b>> &lt;/div> - This will <u>not</u> pass (it has it, but not at the beginning) </line>
+						</div>
+					</div>
+
+					<!-- 2 -->
+					<p class="section-title"> <div class="wrapper"> <b-r>(2)</b-r> <span class="wrapper">[class<b-r>*</b-r>=" myClass"]</span> <span class="float-right"> This selector checks if the <span class="wrapper">class Attribute</span> string <u>contains</u> the given value </span> </div> </p>
+
+					<p class="text-italic"> <span class="wrapper">[attr*=value]</span> Represents elements with an attribute name of attr whose value contains at least one occurrence of value within the string - <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors">MDN</a> </p>
+
+					<p class="mb-0"> The syntax also includes a <span class="wrapper">space character</span> before the actual value - As all class names are separated by a <span class="wrapper">space</span>. </p>
+					<p class="mt-0 sub-heading"> <b-r>Important :</b-r> <span class="wrapper">[class<b-r>*</b-r>="myClass"]</span> (no space character) is <u>not</u> the same as <span class="wrapper">[class<b-r>*</b-r>=" myClass"]</span> (with space character) </p>
+
+					<div class="col-12">
+						<div class="wrapper">
+							<line> <span class="wrapper">[class<b-r>*</b-r>="myClass"]</span> &lt;div class=<b>"<span class="wrapper" class="m-0 p-0">myClass</span> &nbsp; myOtherClass &nbsp; not-<span class="wrapper" class="m-0 p-0">myClass</span> &nbsp; <span class="wrapper" class="m-0 p-0">myClass</span>-qwerty"</b>> &lt;/div> </line>
+
+							<hr>
+
+							<line> <span class="wrapper">[class<b-r>*</b-r>=" myClass"]</span> &lt;div class=<b>"myClass &nbsp; myOtherClass &nbsp; not-myClass<span class="wrapper" class="m-0 p-0">&nbsp; myClass</span>-qwerty"</b>> &lt;/div> </line>
+						</div>
+					</div>
+
+					<hr>
+
+					<p> As all classes are separated by a <span class="wrapper">space</span>, we use the <b-r>(2)</b-r> Syntax to target all classes which <u>begin</u> with the specified value. </p>
+
+					<div class="wrapper"> 
+						<line> <span class="wrapper">[class<b-r>*</b-r>=" myClass"]</span> <i class="fa fa-arrow-right"></i> &lt;div class="myClass<span class="wrapper" class="m-0 p-0">&nbsp; myClass</span>-2 not-myClass<span class="wrapper" class="m-0 p-0">&nbsp; myClass</span>-3"> &lt;/div> </line>
+					</div>
+
+					<p> As the first class in the String doesn't have a <span class="wrapper">space</span> preceeding it, we use the <b-r>(1)</b-r> Syntax to check the beginning of the String. </p>
+
+					<div class="wrapper"> 
+						<line> <span class="wrapper">[class<b-r>^</b-r>="myClass"]</span> <i class="fa fa-arrow-right"></i> &lt;div class="<span class="wrapper" class="m-0 p-0">myClass</span> myClass-2 not-myClass myClass-3"> &lt;/div> </line>
+					</div>
+
+					<p> Using both together : </p>
+
+					<div class="wrapper"> 
+						<line> <span class="wrapper">[class<b-r>^</b-r>="myClass"] , [class<b-r>*</b-r>=" myClass"]</span> <i class="fa fa-arrow-right"></i> &lt;div class="<span class="wrapper" class="m-0 p-0">myClass</span><span class="wrapper" class="m-0 p-0">&nbsp; myClass</span>-2 not-myClass<span class="wrapper" class="m-0 p-0">&nbsp; myClass</span>-3"> &lt;/div> </line>
+					</div>
+
+				</div>
+
+				<div class="tabs-content" data-tabs-id="3"> 
+
+					<row class="pl-0">
+						<div class="col-12">
+							This is especially usefull for large groups of classes or libraries, where there are a lot of classes involved, and where the collection could have items removed/added along the way.
+						</div>
+
+						<button class="col-3 spoiler-btn spoiler-btn-autoText" data-spoiler-id="ex-1"> Example | </button>
+					</row>
+
+					<div class="spoiler" data-spoiler-id="ex-1">
+						<div class="spoiler-content">
+
+							<div class="wrapper">
+								<pre class="pre-removeTabSpaces">
+								    We achieve the exact same result with any of the next 2 senarios :
+									<hr>
+
+
+								    <b><u>/* Scenario 1 - className Chain */</u></b>
+
+								    imgFilter-1977       ,     imgFilter-aden         ,     imgFilter-amaro         ,
+								    imgFilter-ashby      ,     imgFilter-brannan      ,     imgFilter-brooklyn      ,
+								    imgFilter-charmes    ,     imgFilter-clarendon    ,     imgFilter-crema         ,
+								    imgFilter-dogpatch   ,     imgFilter-earlybird    ,     imgFilter-gingham       ,
+								    imgFilter-ginza      ,     imgFilter-hefe         ,     imgFilter-helena        ,
+								    imgFilter-hudson     ,     imgFilter-inkwell      ,     imgFilter-juno          ,
+								    imgFilter-kelvin     ,     imgFilter-lark         ,     imgFilter-lofi          ,
+								    imgFilter-ludwig     ,     imgFilter-maven        ,     imgFilter-mayfair       ,
+								    imgFilter-moon       ,     imgFilter-nashville    ,     imgFilter-perpetua      ,
+								    imgFilter-poprocket  ,     imgFilter-reyes        ,     imgFilter-rise          ,
+								    imgFilter-sierra     ,     imgFilter-skyline      ,     imgFilter-slumber       ,
+								    imgFilter-stinson    ,     imgFilter-sutro        ,     imgFilter-toaster       ,
+								    imgFilter-valencia   ,     imgFilter-vesper       ,     imgFilter-walden        ,
+								    imgFilter-willow     ,     imgFilter-xpro-ii {
+								        /* do something */
+								    }
+
+								    <b><u>/* Scenario 2 - CSS Attribute Syntax */</u></b>
+
+								    [class^="imgFilter-"] , [class*=" imgFilter-"] {
+								        /* do something */
+								    } </pre>
+							</div>
+
+							<hr>
+
+							<button class="col-12 spoiler-btn spoiler-btn-autoText" data-spoiler-id="ex-1"> Example | </button>
+						</div>
+					</div>
+					
+				</div>
+
+			</div>
+		</div>
+
+	</article>
+
+	<!-- ==================================================== -->
+	<div id="runScript" data-src="../../js/extra_scripts/snippets/cssSelector-startOfClassName.js"> </div>
+	<!-- ==================================================== -->

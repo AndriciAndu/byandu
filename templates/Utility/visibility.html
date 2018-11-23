@@ -1,0 +1,278 @@
+
+	<!-- ===================== Route ================== -->
+	<script src="../../js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+
+	<article>
+
+		<header class="sr-only"> <h2> Utility Classes : Visibility </h2> </header>
+
+		<div class="tabs article-mainTabs">
+
+			<div class="article-mainTabs-banner">
+				<div class="article-mainTabs-title"> Utility : Visibility </div>
+
+				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
+					<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> Usage </button>
+					<button class="tabs-btn" 				data-tabs-id="2"> Code  </button>
+				</div>
+			</div>
+
+			<div class="tabs-contentGroup">
+
+				<!-- Usage Tab -->
+				<div class="tabs-content article-mainTabs-usageTab tab-expanded" data-tabs-id="1">
+
+					<!-- I. Description -->
+
+						<section class="p-0" aria-label="general description">
+							<heading> <h2 class="section-title"> I. Description </h2> </heading>
+
+							<p> Collection of <button class="modal-btn" data-modal-id="utilityClasses">Utility Classes</button>, used to <b>show / hide</b> an element on different viewports. </p>
+						</section>
+
+					<!-- II. Initialization -->
+
+						<section class="p-0" aria-label="initialization">
+							<heading> <h2 class="section-title"> II. Initialization </h2> </heading>
+
+							<p class="mb-0"> Download and refference the [ <b-p>asterisk-utility-visibility.css</b-p> ] CSS file. </p>
+
+							<div class="wrapper"> 
+								<div class="col-12"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-utility-visibility.css</b-p>" type="text/css" rel="stylesheet"> </div>
+							</div>
+						</section>
+
+					<!-- III. Usage -->
+
+						<section class="p-0" aria-label="usage">
+							<heading> <h2 class="section-title"> III. Usage </h2> </heading>
+
+							<p> Classes are <b>applied to</b> the <span class="wrapper">HTML Element</span> and <b>take effect on</b> the <span class="wrapper">HTML Element</span> itself. </p> 
+
+							<div class="wrapper"> 
+								<line> <b> Format : </b> <br class="xs-visible"> &lt;div class="<b-r>{viewport}</b-r>-<b-p>visible</b-p>"> &lt;/div> </line>
+								<line> <b> Format : </b> <br class="xs-visible"> &lt;div class="<b-r>{viewport}</b-r>-<b-p>hidden</b-p>"> &lt;/div> </line>
+
+								<hr>
+
+								<line> 
+									<div class="col-12 md-col-6 p-0">
+										<b> Example : </b> <br class="xs-visible"> &lt;div class="<b-r>xs</b-r>-<b-p>hidden</b-p>"> &lt;/div>
+									</div>
+									<div class="col-12 md-col-6 p-0">
+										<i class="comment"> // the example hides the element <b>on extra-small viewports only</b> </i>
+									</div>
+								</line>
+
+								<line> 
+									<div class="col-12 md-col-6 p-0">
+										<b> Example : </b> <br class="xs-visible"> &lt;div class="<b-r>xs</b-r>-<b-p>visible</b-p>"> &lt;/div>
+									</div>
+									<div class="col-12 md-col-6 p-0">
+										<i class="comment"> // the example hides the element <b>on all viewports <u>except</u> extra-small</b> </i>
+									</div>
+								</line>
+							</div>
+						</section>
+
+					<!-- IV. Viewport-Prefixes -->
+
+						<section class="p-0" aria-label="Viewport-Prefixes">
+							<heading> <h2 class="section-title"> IV. Viewport-Prefixes </h2> </heading>
+
+							<table class="col-12"> 
+								<tbody>
+									<tr>
+										<td> <b-r>{viewport}</b-r><b>-</b><b-p>hidden</b-p> </td>
+										<td class="border-left"> Will <b-p>hide</b-p> the Element on the specified viewport only </td>
+									</tr>
+									<tr>
+										<td> <b-r>{viewport}</b-r><b>-</b><b-p>visible</b-p> </td>
+										<td class="border-left"> Will <b-p>show</b-p> the Element on the specified viewport only </td>
+									</tr>
+								</tbody>
+							</table>
+
+							<table class="col-12">
+								<thead>
+									<tr class="text-center">
+										<td> <b-r>Prefixed Classes</b-r> / <b>Viewport</b> </td>
+										<td class="border-left"> <b>xs</b> </td>
+										<td class="border-left"> <b>sm</b> </td>
+										<td class="border-left"> <b>md</b> </td>
+										<td class="border-left"> <b>lg</b> </td>
+										<td class="border-left"> <b>xl</b> </td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td> <b-r>xs</b-r><b>-</b><b-p>hidden</b-p> </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+									</tr>
+									
+									<tr>
+										<td> <b-r>sm</b-r><b>-</b><b-p>hidden</b-p> </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+									</tr>
+									
+									<tr>
+										<td> <b-r>md</b-r><b>-</b><b-p>hidden</b-p> </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+									</tr>
+									
+									<tr>
+										<td> <b-r>lg</b-r><b>-</b><b-p>hidden</b-p> </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+									</tr>
+									
+									<tr>
+										<td> <b-r>xl</b-r><b>-</b><b-p>hidden</b-p> </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+									</tr>
+								</tbody>
+							</table>
+
+							<table class="col-12">
+								<thead>
+									<tr class="text-center">
+										<td> <b-r>Prefixed Classes</b-r> / <b>Viewport</b> </td>
+										<td class="border-left"> <b>xs</b> </td>
+										<td class="border-left"> <b>sm</b> </td>
+										<td class="border-left"> <b>md</b> </td>
+										<td class="border-left"> <b>lg</b> </td>
+										<td class="border-left"> <b>xl</b> </td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td> <b-r>xs</b-r><b>-</b><b-p>visible</b-p> </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+									</tr>
+									
+									<tr>
+										<td> <b-r>sm</b-r><b>-</b><b-p>visible</b-p> </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+									</tr>
+									
+									<tr>
+										<td> <b-r>md</b-r><b>-</b><b-p>visible</b-p> </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+									</tr>
+									
+									<tr>
+										<td> <b-r>lg</b-r><b>-</b><b-p>visible</b-p> </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+									</tr>
+									
+									<tr>
+										<td> <b-r>xl</b-r><b>-</b><b-p>visible</b-p> </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+									</tr>
+								</tbody>
+							</table>
+
+							<table class="col-12">
+								<thead>
+									<tr class="text-center">
+										<td> <b-r>Prefixed classes</b-r> / <b>Viewport</b> </td>
+										<td class="border-left"> <b>xs</b> </td>
+										<td class="border-left"> <b>sm</b> </td>
+										<td class="border-left"> <b>md</b> </td>
+										<td class="border-left"> <b>lg</b> </td>
+										<td class="border-left"> <b>xl</b> </td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td> <b>Multiple classes :</b> "<b-r>xs</b-r><b>-</b><b-p>hidden</b-p> <b-r>md</b-r><b>-</b><b-p>hidden</b-p> <b-r>xl</b-r><b>-</b><b-p>hidden</b-p>" </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+									</tr>
+
+									<tr>
+										<td> <b>Multiple classes :</b> "<b-r>xs</b-r><b>-</b><b-p>visible</b-p> <b-r>md</b-r><b>-</b><b-p>visible</b-p> <b-r>xl</b-r><b>-</b><b-p>visible</b-p>" </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+										<td class="border-left willShow-false"> &nbsp; </td>
+										<td class="border-left willShow-true">  &nbsp; </td>
+									</tr>
+								</tbody>
+							</table>
+						</section>
+
+					<!-- V. Development approach -->
+
+						<section class="p-0" aria-label="Development approach">
+							<heading> <h2 class="section-title"> V. Development approach </h2> </heading>
+
+							<p> The original Bootstrap <span class="wrapper">{viewport}-visible</span> classes, apply a default <span class="wrapper">display: none</span> property on all affected Elements, and would later override it with a <span class="wrapper">display: block</span> property, when the viewport-size is appropriate. This required a workaround for Elements which had a default <span class="wrapper">display</span> property other than <span class="wrapper">block</span>, usualy in the form of a <span class="wrapper">{vieport}-display-{value}</span> class. </p>
+
+							<p> The current <span class="wrapper">{viewport}-visible</span> classes surpass this issue, by <u>not</u> applying the <span class="wrapper">display: none</span> property as a default, but by adding it when the viewport-size is appropriate, and the Element does not have a <span class="wrapper">{viewport}-visible</span> class appropariate to that viewport. </p>
+
+							<p> 
+								* Using these, do not require additional fixes for elements which don't have <span class="wrapper">display: block</span> as default <br>
+								* These will not override the <span class="wrapper">hidden</span> class, even if the viewport is appropriate (with proper usage, should not be an issue). 
+							</p>
+						</section>
+				</div> 
+
+				<!-- Code Tab -->
+				<div class="tabs-content article-mainTabs-codeTab" data-tabs-id="2"
+								data-generateCodeFor="['css']" 
+								data-setCopyContextId="utility-visibility" 
+								data-setFileName="asterisk-utility-visibility">
+				</div>
+				
+			</div>
+		</div>
+
+	</article>
+
+	<!-- ==================================================== -->
+	<div id="runScript" data-src="../../js/extra_scripts/utility/visibility.js"> </div>
+	<!-- ==================================================== -->

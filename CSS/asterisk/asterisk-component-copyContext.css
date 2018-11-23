@@ -1,0 +1,120 @@
+
+	/* Asterisk Component - copyContext */
+	/* ----------------------------- */
+		
+		/* Colors */
+		/* ----------------------------------------*/
+
+			.copyContext-btn {
+				color: #FFFFFF; 	
+				background-color: #613dcc;
+			}
+
+		/* General */
+		/* ----------------------------------------*/
+
+			.copyContext {
+				display: inline-block;
+				float: left;
+				width: 100%;
+			}
+
+			.copyContext:after,
+			.copyContext-btnContainer:after {
+				content: '';
+				display: table;
+				clear: both;
+			}
+
+		/* Buttons */
+		/* ----------------------------- */
+
+			.copyContext-btnContainer {
+				position: relative;
+				display: inline-block;
+			}
+
+			.copyContext-btnContainer-topRight {
+				position: absolute; z-index: 2;
+				top: 10px; right: 25px;
+
+				cursor: pointer; cursor: hand;
+			}
+
+			.copyContext-btn {
+				position: relative;
+				float: left; margin-left: 10px;
+
+				height: 2.5em; 
+				overflow: hidden;	line-height: 1.5em;
+				padding: .5em 1em;	border-radius: 6px;
+
+				box-shadow: 2px 2px 2px rgba(3,3,3,.3);
+				cursor: pointer; cursor: hand;
+			}
+
+			.copyContext-btn:after {
+				float: right; 
+				max-width: 0; opacity: 0;
+				pointer-events: none;
+
+				-webkit-transition: all .3s ease-in-out;  
+				   -moz-transition: all .3s ease-in-out;  
+					 -o-transition: all .3s ease-in-out;  
+						transition: all .3s ease-in-out;
+			}
+			
+			.copyContext-btn:focus:after , .copyContext-btn:hover:after { 
+				max-width: 500px; 
+				margin-left: .5em;
+				opacity: 1;
+			}
+
+			.copyContext-btn-copyText:after 	 	{ content: "Copy Code"; }
+			.copyContext-btn-saveFile:after  		{ content: "Save File"; }
+			.copyContext-btn-showLightbox:after 	{ content: "View Code"; }
+
+			.copyContext-btn:before {
+				font-family: FontAwesome;
+			}
+
+			.copyContext-btn-copyText:before 	 	{ content: "\f0c5"; }
+			.copyContext-btn-saveFile:before  		{ content: "\f019"; }
+			.copyContext-btn-showLightbox:before 	{ content: "\f06e"; }
+			
+			.copyContext-btn-copyText.success,
+			.copyContext-btn-saveFile.success {
+				background-color: green;
+			}
+			.copyContext-btn-copyText.success:before,
+			.copyContext-btn-saveFile.success:before {
+				content: "\f00c";
+			}
+
+		/* Lightbox */
+		/* ----------------------------- */
+
+			.copyContext-lightbox {
+				position: fixed;
+				width: 100vw; height: 100vh;
+				top: 0; left: 0;
+				z-index: 99999;
+			}
+
+			.copyContext-lightbox-underlay {
+				width: 100%; height: 100%;
+				background-color: rgba(3,3,3,.9);
+				cursor: pointer; cursor: hand;
+			}
+
+			.copyContext-lightbox-textContainer {
+				position: absolute;
+				top: 2.5vh; 		left: 5vw;
+				height: 90vh; 	width: 90vw;
+				z-index: 2;		overflow: auto;
+
+				border-radius: 6px;
+				padding: 15px; font-size: 12px;
+				background-color: #293744; color: #FFFFFF;
+				box-shadow: 2px 2px 2px rgba(3,3,3,.3);
+			}

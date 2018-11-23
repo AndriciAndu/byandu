@@ -1,0 +1,328 @@
+
+	<!-- ===================== Route ================== -->
+	<script src="../../js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+
+	<article>
+
+		<header class="sr-only"> <h2> Utility Classes : Visibility - Extra Utilities </h2> </header>
+
+		<div class="tabs article-mainTabs">
+
+			<div class="article-mainTabs-banner">
+				<div class="article-mainTabs-title"> Utility : Visibility - Extra </div>
+
+				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
+					<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> Usage </button>
+					<button class="tabs-btn" 				data-tabs-id="2"> Code  </button>
+				</div>
+			</div>
+
+			<div class="tabs-contentGroup">
+
+				<!-- Usage Tab -->
+				<div class="tabs-content article-mainTabs-usageTab tab-expanded" data-tabs-id="1">
+
+					<!-- I. Description -->
+
+						<section class="p-0" aria-label="general description">
+							<heading> <h2 class="section-title"> I. Description </h2> </heading>
+
+							<p class="mb-0"> Collection of <button class="modal-btn" data-modal-id="utilityClasses">Utility Classes</button>, used to define an element's <b>visibility / interactivity</b>. </p>
+
+							<hr>
+
+							<p> <b><u>Structured on 6 pillars:</u></b> </p>
+							<p class="mt-0"> <span class="wrapper"><b>before-none</b></span> (hide :before pseudo-element) | <span class="wrapper"><b>after-none</b></span> (hide :after pseudo-element) </p>
+							<p class="mt-0">
+							<span class="wrapper"><b>invisible</b></span> (visibility) | <span class="wrapper"><b>transparent</b></span> (opacity) | <span class="wrapper"><b>unselectable</b></span> (user-select) | <span class="wrapper"><b>unclickable</b></span> (pointer-events)</p>
+
+						</section>
+
+					<!-- II. Initialization -->
+
+						<section class="p-0" aria-label="initialization">
+							<heading> <h2 class="section-title"> II. Initialization </h2> </heading>
+
+							<p class="mb-0"> 
+								Download and refference the [ <b-p>asterisk-utility-visibility-extra.css</b-p> ] <span class="wrapper tooltip-before tooltip-top" data-tooltipText="* This will include all Styles / Features."></span> CSS file.
+
+								<button class="spoiler-btn spoiler-btn-autoText title-spoilerBtn" data-spoiler-id="init-more"> More | </button>
+							</p> 
+
+							<div class="wrapper"> 
+								<div class="col-12"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-utility-visibility-extra.css</b-p>" type="text/css" rel="stylesheet"> </div>
+							</div>
+
+							<div class="spoiler" data-spoiler-id="init-more">
+								<div class="spoiler-content">
+									<div class="col-12">
+
+										<p class="mt-sm"> 
+											<b>Alternatively</b>, a <span class="wrapper"><b-p>{*}</b-p><b-r>-spec</b-r><b-p>.css</b-p></span> file can be generated within the <b><span class="wrapper">[Code]</span> Tab</b> <span class="wrapper tooltip-before tooltip-right" data-tooltipText="Will include only the selected Styles/Features. &#13;&#10;───────────────────────────&#13;&#10; See button on the top-right of page."></span>
+										</p>
+										<div class="wrapper mt-0"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-utility-visibility-extra<b-r>-spec</b-r>.css</b-p>" type="text/css" rel="stylesheet"> </div>
+
+										<p> * If only the <u>baseline, non-responsive classes</u> are desired, the following snippets can be copied to your CSS file. </p>
+
+										<div class="accordion">
+											<div class="accordion-group px-md my-sm">
+												<button class="accordion-btn"> Static Classes <span class="xs-hidden">(without responsive utilities)</span> </button>
+
+												<div class="accordion-content">
+													<div class="wrapper">
+														<div class="copyContext-btnContainer" data-copyContextId="useCase-1">
+															<button class="copyContext-btn copyContext-btn-copyText"> </button>
+														</div>
+														
+														<div class="copyContext" data-copyContentId="useCase-1">
+															<pre class="col-12 p-0 pre-removeTabSpaces">
+															    .invisible                  { visibility:     hidden !important; } 
+															    .transparent                { opacity:        0      !important; } 		
+															    .unselectable               { user-select:    none   !important; } 
+															    .unclickable, .pointer-none { pointer-events: none   !important; } </pre>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<p> * If only the <span class="wrapper">{psuedoElement}-none</span> classes are desired, the following snippets can be copied to your CSS file. </p>
+
+										<div class="accordion">
+											<div class="accordion-group px-md my-sm">
+												<button class="accordion-btn"> Disable [::before] / [::after] <span class="xs-hidden">on different viewports.</span> </button>
+
+												<div class="accordion-content">
+													<div class="wrapper">
+														<div class="copyContext-btnContainer" data-copyContextId="useCase-2">
+															<button class="copyContext-btn copyContext-btn-copyText"> </button>
+														</div>
+														
+														<div class="copyContext" data-copyContentId="useCase-2">
+															<pre class="col-12 p-0 pre-removeTabSpaces">
+															    .before-none:before , 
+															    .after-none:after   { display: none !important; }
+
+															    @media (max-width: 575.98px)                            { .xs-before-none:before , .xs-after:after { display: none !important; } }
+															    @media (min-width: 575.98px) and (max-width: 767.98px)  { .sm-before-none:before , .sm-after:after { display: none !important; } }
+															    @media (min-width: 767.98px) and (max-width: 991.98px)  { .md-before-none:before , .md-after:after { display: none !important; } }
+															    @media (min-width: 991.98px) and (max-width: 1199.98px) { .lg-before-none:before , .lg-after:after { display: none !important; } }
+															    @media (min-width: 1199.98px)                           { .xl-before-none:before , .xl-after:after { display: none !important; } }
+															</pre>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+
+								</div>
+							</div>
+						</section>
+
+					<!-- II. Initialization -->
+
+						<section class="p-0" aria-label="initialization">
+							<heading> <h2 class="section-title"> II. Initialization </h2> </heading>
+
+							<p class="mb-0"> Download and refference the [ <b-p>asterisk-utility-visibility-extra.css</b-p> ] CSS file. </p>
+
+							<div class="wrapper"> 
+								<div class="col-12"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-utility-visibility-extra.css</b-p>" type="text/css" rel="stylesheet"> </div>
+							</div>
+						</section>
+
+					<!-- III. Usage -->
+
+						<section class="p-0" aria-label="usage">
+							<heading> <h2 class="section-title"> III. Usage </h2> </heading>
+
+							<p> Classes are <b>applied to</b> the <span class="wrapper">HTML Element</span> and <b>take effect on</b> the <span class="wrapper">HTML Element</span> itself. </p> 
+
+							<div class="wrapper">
+
+								<line> 
+									<div class="col-12 md-col-6 p-0">
+										<b> Example : </b> <br class="xs-visible"> &lt;div class="<b-p>invisible</b-p>"> &lt;/div>
+									</div>
+									<div class="col-12 md-col-6 p-0">
+										<i class="comment"> // sets <span class="wrapper">visibility: hidden;</span> </i>
+									</div>
+								</line>
+
+								<line> 
+									<div class="col-12 md-col-6 p-0">
+										<b> Example : </b> <br class="xs-visible"> &lt;div class="<b-p>transparent</b-p>"> &lt;/div>
+									</div>
+									<div class="col-12 md-col-6 p-0">
+										<i class="comment"> // sets <span class="wrapper">opacity: 0;</span> </i>
+									</div>
+								</line>
+
+								<line> 
+									<div class="col-12 md-col-6 p-0">
+										<b> Example : </b> <br class="xs-visible"> &lt;div class="<b-p>unselectable</b-p>"> &lt;/div>
+									</div>
+									<div class="col-12 md-col-6 p-0">
+										<i class="comment"> // sets <span class="wrapper">user-select: none;</span> </i>
+									</div>
+								</line>
+
+								<line> 
+									<div class="col-12 md-col-6 p-0">
+										<b> Example : </b> <br class="xs-visible"> &lt;div class="<b-p>unclickable</b-p>"> &lt;/div>
+									</div>
+									<div class="col-12 md-col-6 p-0">
+										<i class="comment"> // sets <span class="wrapper">pointer-events: none;</span> </i>
+									</div>
+								</line>
+							</div>
+						</section>
+
+					<!-- IV. Viewport-Prefixes -->
+
+						<section class="p-0" aria-label="Viewport-Prefixes">
+							<heading> <h2 class="section-title"> IV. Responsive Utilities : Viewport-Prefixes </h2> </heading>
+
+							<p>
+								To create different scenarios for specific viewports, any class can be prefixed with any <span class="wrapper"> *viewport*- </span> syntax. 
+							</p>
+
+							<div class="wrapper"> 
+								<line> <b> Format : </b> &lt;div class="<b-r>{viewportPrefix}</b-r><b>-</b><b-p>{className}</b-p>"> &lt;/div> </line>
+
+								<hr>
+
+								<line> 
+									<div class="col-12 md-col-6 p-0">
+										<b> Example : </b> <br class="xs-visible"> &lt;div class="<b-p>transparent</b-p>"> &lt;/div>
+									</div>
+									<div class="col-12 md-col-6 p-0">
+										<i class="comment"> // sets <span class="wrapper">opacity: 0;</span> on <b>all</b> viewports </i>
+									</div>
+								</line>
+
+								<line class="xs-visible sm-visible"> <hr> </line>
+
+								<line> 
+									<div class="col-12 md-col-6 p-0">
+										<b> Example : </b> <br class="xs-visible"> &lt;div class="<b-r>sm-</b-r><b-p>transparent</b-p>"> &lt;/div>
+									</div>
+									<div class="col-12 md-col-6 p-0">
+										<i class="comment"> // sets <span class="wrapper">opacity: 0;</span> on <b>small(sm)</b> viewports <b>only</b> </i>
+									</div>
+								</line>
+
+								<line class="xs-visible sm-visible"> <hr> </line>
+
+								<line> 
+									<div class="col-12 md-col-6 p-0">
+										<b> Example : </b> <br class="xs-visible"> &lt;div class="<b-r>md-</b-r><b-p>transparent</b-p>"> &lt;/div> 
+									</div>
+									<div class="col-12 md-col-6 p-0">
+										<i class="comment"> // sets <span class="wrapper">opacity: 0;</span> on <b>medium(md)</b> viewports <b>only</b> </i>
+									</div>
+								</line>
+							</div>
+
+							<table class="col-12">
+								<thead>
+									<tr class="text-center">
+										<td> <b-r>Prefixed Classes</b-r> / <b>Viewport</b> </td>
+										<td class="border-left"> <b>xs</b> </td>
+										<td class="border-left"> <b>sm</b> </td>
+										<td class="border-left"> <b>md</b> </td>
+										<td class="border-left"> <b>lg</b> </td>
+										<td class="border-left"> <b>xl</b> </td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td> <b-r>xs</b-r><b>-</b><b-p>{className}</b-p> </td>
+										<td class="border-left willWork-true">   &nbsp; </td>
+										<td class="border-left willWork-false">  &nbsp; </td>
+										<td class="border-left willWork-false">  &nbsp; </td>
+										<td class="border-left willWork-false">  &nbsp; </td>
+										<td class="border-left willWork-false">  &nbsp; </td>
+									</tr>
+									
+									<tr>
+										<td> <b-r>sm</b-r><b>-</b><b-p>{className}</b-p> </td>
+										<td class="border-left willWork-false">  &nbsp; </td>
+										<td class="border-left willWork-true">   &nbsp; </td>
+										<td class="border-left willWork-false">  &nbsp; </td>
+										<td class="border-left willWork-false">  &nbsp; </td>
+										<td class="border-left willWork-false">  &nbsp; </td>
+									</tr>
+									
+									<tr>
+										<td> <b-r>md</b-r><b>-</b><b-p>{className}</b-p> </td>
+										<td class="border-left willWork-false">  &nbsp; </td>
+										<td class="border-left willWork-false">  &nbsp; </td>
+										<td class="border-left willWork-true">   &nbsp; </td>
+										<td class="border-left willWork-false">  &nbsp; </td>
+										<td class="border-left willWork-false">  &nbsp; </td>
+									</tr>
+									
+									<tr>
+										<td> <b-r>lg</b-r><b>-</b><b-p>{className}</b-p> </td>
+										<td class="border-left willWork-false">  &nbsp; </td>
+										<td class="border-left willWork-false">  &nbsp; </td>
+										<td class="border-left willWork-false">  &nbsp; </td>
+										<td class="border-left willWork-true">   &nbsp; </td>
+										<td class="border-left willWork-false">  &nbsp; </td>
+									</tr>
+									
+									<tr>
+										<td> <b-r>xl</b-r><b>-</b><b-p>{className}</b-p> </td>
+										<td class="border-left willWork-false">  &nbsp; </td>
+										<td class="border-left willWork-false">  &nbsp; </td>
+										<td class="border-left willWork-false">  &nbsp; </td>
+										<td class="border-left willWork-false">  &nbsp; </td>
+										<td class="border-left willWork-true">   &nbsp; </td>
+									</tr>
+								</tbody>
+							</table>
+
+							<table class="col-12">
+								<thead>
+									<tr class="text-center">
+										<td> <b-r>Prefixed classes</b-r> / <b>Viewport</b> </td>
+										<td class="border-left"> <b>xs</b> </td>
+										<td class="border-left"> <b>sm</b> </td>
+										<td class="border-left"> <b>md</b> </td>
+										<td class="border-left"> <b>lg</b> </td>
+										<td class="border-left"> <b>xl</b> </td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td> <b>Multiple classes :</b> "<b-r>xs</b-r><b>-</b><b-p>{className}</b-p> <b-r>md</b-r><b>-</b><b-p>{className}</b-p> <b-r>xl</b-r><b>-</b><b-p>{className}</b-p>" </td>
+										<td class="border-left willWork-true">   &nbsp; </td>
+										<td class="border-left willWork-false">  &nbsp; </td>
+										<td class="border-left willWork-true">   &nbsp; </td>
+										<td class="border-left willWork-false">  &nbsp; </td>
+										<td class="border-left willWork-true">   &nbsp; </td>
+									</tr>
+								</tbody>
+							</table>
+						</section>
+				</div>
+
+				<!-- Code Tab -->
+				<div class="tabs-content article-mainTabs-codeTab" data-tabs-id="2"
+								data-generateCodeFor="['css']" 
+								data-setCopyContextId="utility-visibility" 
+								data-setFileName="asterisk-utility-visibility">
+				</div>
+				
+			</div>
+		</div>
+
+	</article>
+
+	<!-- ==================================================== -->
+	<div id="runScript" data-src="../../js/extra_scripts/utility/visibility-extra.js"> </div>
+	<!-- ==================================================== -->

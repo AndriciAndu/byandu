@@ -1,0 +1,127 @@
+		
+body {
+	font-family: 'Roboto';
+}
+
+/* Tour Guide */
+/* ------------------------------------------------ */
+
+	.onboarding {
+		position: fixed; z-index: 9999;
+		width: 100vw; height: 100vh;
+		background-color: rgba(3,3,3,.4);
+	}
+
+	.onboarding-notification {
+		position: fixed;
+
+		min-width: 200px; max-width: 30vw;
+		
+		padding: 15px;
+		font-size: 14px; 
+
+		background-color: white; color: black;
+		border-color: white;
+
+		border-radius: 6px;
+		box-shadow: 2px 2px 2px rgba(3,3,3,.8);
+	}
+
+	.onboarding-notification:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+
+	/* NotificationBox - Bubble */
+
+		.bubble-left:before, 
+		.bubble-right:before, 
+		.bubble-top:before, 
+		.bubble-btm:before,
+		.bubble-bottom:before {
+			pointer-events: none;	content: '';
+			position: absolute;		/*z-index: -1;*/
+			border-style: solid;
+		}
+
+		.bubble-left:before {
+			border-top: 	10px solid transparent;
+			border-right-width: 10px; border-right-color: inherit;
+			border-bottom: 	10px solid transparent;
+			border-left: 	0 	 solid transparent;	
+			left: -10px;
+		}
+
+		.bubble-right:before {
+			border-top: 10px solid transparent;
+			border-right: 0 solid transparent;
+			border-bottom: 10px solid transparent;
+			border-left-width: 10px; border-left-color: inherit;
+			right: -10px;
+		}
+
+		.bubble-top:before {
+			border-top: 	0 	 solid transparent;
+			border-right: 	10px solid transparent;
+			border-bottom-width: 10px; border-bottom-color: inherit;
+			border-left: 	10px solid transparent;
+			top: -10px;
+		}
+
+		.bubble-btm:before,
+		.bubble-bottom:before {
+			border-top-width: 10px; border-top-color: inherit;
+			border-right: 	10px solid transparent;
+			border-bottom: 	0 	 solid transparent;
+			border-left: 	10px solid transparent;
+			bottom: -10px;
+		}
+
+		.bubble-left.bubble-start:before	,	.bubble-right.bubble-start:before	{ top: 10px;				}
+		.bubble-left.bubble-center:before	,	.bubble-right.bubble-center:before 	{ top: calc(50% - 10px);	}
+		.bubble-left.bubble-end:before		,	.bubble-right.bubble-end:before 	{ bottom: 10px;				}
+
+		.bubble-top.bubble-start:before		,	.bubble-btm.bubble-start:before		,	.bubble-bottom.bubble-start:before		{ left: 10px;				}
+		.bubble-top.bubble-center:before	,	.bubble-btm.bubble-center:before 	,	.bubble-bottom.bubble-center:before 	{ left: calc(50% - 10px);	}
+		.bubble-top.bubble-end:before		,	.bubble-btm.bubble-end:before 		,	.bubble-bottom.bubble-end:before 		{ right: 10px;				}
+
+	.onboarding-notification-btnContainer {
+		display: -webkit-box; display: -ms-flexbox;	
+		display: -webkit-flex; display: flex;
+		
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+	.onboarding-notification-btnContainer > div {
+		flex: 1;
+	}
+
+	.onboarding-nextBtn,
+	.onboarding-prevBtn,
+	.onboarding-finishBtn {
+		padding: 6px; text-align: center;
+		background-color: #cd171a; color: white;
+		border-radius: 6px;
+		box-shadow: 3px 3px 3px rgba(3,3,3,.3);
+
+		-webkit-transition: color .3s, background-color .3s;  
+		   -moz-transition: color .3s, background-color .3s;  
+			 -o-transition: color .3s, background-color .3s;  
+				transition: color .3s, background-color .3s;
+	}
+
+	.onboarding-nextBtn.disable,
+	.onboarding-prevBtn.disable {
+		background-color: rgba(3,3,3,.9);
+	}
+
+	.onboarding-finishBtn {
+		position: fixed; padding: 6px 12px;
+		right: 30px; bottom: 30px;
+	}
+
+	.onboarding-highlight {
+		box-shadow: inset 3px 3px 3px yellow, inset -3px -3px 3px yellow;
+	}
+

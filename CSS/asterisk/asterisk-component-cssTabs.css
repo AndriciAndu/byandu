@@ -1,0 +1,213 @@
+
+	/* Tabs */
+	/* ----------------------------------------*/
+
+		/* General */
+		/* ----------------------------------------*/
+
+			.cssTabs {
+				position: relative;
+				float: left;
+				width: 100%;
+			}
+
+		/* Buttons - Radio Checkbox + "Label" */
+		/* ----------------------------------------*/
+
+			.cssTabs-btn,
+			.cssTabs-btnLabel {
+				float: left;
+
+				height: 40px; padding: 0 10px;
+				background-color: rgba(3,3,3,.1);
+				border: 1px solid rgba(3,3,3,.1);
+
+				cursor: pointer; cursor: hand;
+			}
+
+			.cssTabs-btn {
+				opacity: 0;
+			}
+
+			.cssTabs-labelGroup {
+				position: absolute;
+				top: 0; left: 0; width: 100%;
+				pointer-events: none;
+			}
+
+			.cssTabs-btnLabel {
+				display: -webkit-box;   display: -ms-flexbox; 
+		        display: -webkit-flex; 	display: flex;
+				align-items: center; 	justify-content: center;
+
+		        -webkit-transition: background-color .3s, color .3s;
+		           -moz-transition: background-color .3s, color .3s;
+		             -o-transition: background-color .3s, color .3s;
+		                transition: background-color .3s, color .3s; 
+			}
+
+			.cssTabs-labelGroup.ellipsis > .cssTabs-btnLabel {
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+
+		/* Button - Hover Transition */
+		/* ----------------------------------------*/
+		/*
+			.cssTabs-btn[data-tabs-id="1"]:hover  ~ .cssTabs-labelGroup .cssTabs-btnLabel[data-tabs-id="1"],
+			.cssTabs-btn[data-tabs-id="2"]:hover  ~ .cssTabs-labelGroup .cssTabs-btnLabel[data-tabs-id="2"],
+			.cssTabs-btn[data-tabs-id="3"]:hover  ~ .cssTabs-labelGroup .cssTabs-btnLabel[data-tabs-id="3"],
+			.cssTabs-btn[data-tabs-id="4"]:hover  ~ .cssTabs-labelGroup .cssTabs-btnLabel[data-tabs-id="4"],
+			.cssTabs-btn[data-tabs-id="5"]:hover  ~ .cssTabs-labelGroup .cssTabs-btnLabel[data-tabs-id="5"],
+			.cssTabs-btn[data-tabs-id="6"]:hover  ~ .cssTabs-labelGroup .cssTabs-btnLabel[data-tabs-id="6"],
+			.cssTabs-btn[data-tabs-id="7"]:hover  ~ .cssTabs-labelGroup .cssTabs-btnLabel[data-tabs-id="7"],
+			.cssTabs-btn[data-tabs-id="8"]:hover  ~ .cssTabs-labelGroup .cssTabs-btnLabel[data-tabs-id="8"],
+			.cssTabs-btn[data-tabs-id="9"]:hover  ~ .cssTabs-labelGroup .cssTabs-btnLabel[data-tabs-id="9"],
+			.cssTabs-btn[data-tabs-id="10"]:hover ~ .cssTabs-labelGroup .cssTabs-btnLabel[data-tabs-id="10"] { 
+
+				background-color: red; 
+			}
+			*/
+
+		/* Button - Active State  */
+		/* ----------------------------------------*/
+
+			.cssTabs-btn[data-tabs-id="1"]:checked  ~ .cssTabs-labelGroup .cssTabs-btnLabel[data-tabs-id="1"],
+			.cssTabs-btn[data-tabs-id="2"]:checked  ~ .cssTabs-labelGroup .cssTabs-btnLabel[data-tabs-id="2"],
+			.cssTabs-btn[data-tabs-id="3"]:checked  ~ .cssTabs-labelGroup .cssTabs-btnLabel[data-tabs-id="3"],
+			.cssTabs-btn[data-tabs-id="4"]:checked  ~ .cssTabs-labelGroup .cssTabs-btnLabel[data-tabs-id="4"],
+			.cssTabs-btn[data-tabs-id="5"]:checked  ~ .cssTabs-labelGroup .cssTabs-btnLabel[data-tabs-id="5"],
+			.cssTabs-btn[data-tabs-id="6"]:checked  ~ .cssTabs-labelGroup .cssTabs-btnLabel[data-tabs-id="6"],
+			.cssTabs-btn[data-tabs-id="7"]:checked  ~ .cssTabs-labelGroup .cssTabs-btnLabel[data-tabs-id="7"],
+			.cssTabs-btn[data-tabs-id="8"]:checked  ~ .cssTabs-labelGroup .cssTabs-btnLabel[data-tabs-id="8"],
+			.cssTabs-btn[data-tabs-id="9"]:checked  ~ .cssTabs-labelGroup .cssTabs-btnLabel[data-tabs-id="9"],
+			.cssTabs-btn[data-tabs-id="10"]:checked ~ .cssTabs-labelGroup .cssTabs-btnLabel[data-tabs-id="10"] { 
+
+				background-color: #613dcc;
+				color: #FFFFFF;
+
+			}
+
+		/* Content (tabs-item) - Collapsed State */
+		/* ----------------------------------------*/
+
+			.cssTabs-btn[data-tabs-id="1"]:not(:checked)  ~ .cssTabs-contentGroup .cssTabs-content[data-tabs-id="1"],
+			.cssTabs-btn[data-tabs-id="2"]:not(:checked)  ~ .cssTabs-contentGroup .cssTabs-content[data-tabs-id="2"],
+			.cssTabs-btn[data-tabs-id="3"]:not(:checked)  ~ .cssTabs-contentGroup .cssTabs-content[data-tabs-id="3"],
+			.cssTabs-btn[data-tabs-id="4"]:not(:checked)  ~ .cssTabs-contentGroup .cssTabs-content[data-tabs-id="4"],
+			.cssTabs-btn[data-tabs-id="5"]:not(:checked)  ~ .cssTabs-contentGroup .cssTabs-content[data-tabs-id="5"],
+			.cssTabs-btn[data-tabs-id="6"]:not(:checked)  ~ .cssTabs-contentGroup .cssTabs-content[data-tabs-id="6"],
+			.cssTabs-btn[data-tabs-id="7"]:not(:checked)  ~ .cssTabs-contentGroup .cssTabs-content[data-tabs-id="7"],
+			.cssTabs-btn[data-tabs-id="8"]:not(:checked)  ~ .cssTabs-contentGroup .cssTabs-content[data-tabs-id="8"],
+			.cssTabs-btn[data-tabs-id="9"]:not(:checked)  ~ .cssTabs-contentGroup .cssTabs-content[data-tabs-id="9"],
+			.cssTabs-btn[data-tabs-id="10"]:not(:checked) ~ .cssTabs-contentGroup .cssTabs-content[data-tabs-id="10"] { 
+
+				display: block !important; /* removes [display: flex-child] */
+				width:   0 !important;  height:  0 !important;
+				padding: 0 !important;  margin:  0 !important;
+				overflow:   hidden !important;
+				visibility: hidden !important;
+
+			}
+
+
+		/* Content (tabs-item) - Expanded State */
+		/* ----------------------------------------*/
+
+			.cssTabs-btn[data-tabs-id="1"]:checked  ~ .cssTabs-contentGroup .cssTabs-content[data-tabs-id="1"],
+			.cssTabs-btn[data-tabs-id="2"]:checked  ~ .cssTabs-contentGroup .cssTabs-content[data-tabs-id="2"],
+			.cssTabs-btn[data-tabs-id="3"]:checked  ~ .cssTabs-contentGroup .cssTabs-content[data-tabs-id="3"],
+			.cssTabs-btn[data-tabs-id="4"]:checked  ~ .cssTabs-contentGroup .cssTabs-content[data-tabs-id="4"],
+			.cssTabs-btn[data-tabs-id="5"]:checked  ~ .cssTabs-contentGroup .cssTabs-content[data-tabs-id="5"],
+			.cssTabs-btn[data-tabs-id="6"]:checked  ~ .cssTabs-contentGroup .cssTabs-content[data-tabs-id="6"],
+			.cssTabs-btn[data-tabs-id="7"]:checked  ~ .cssTabs-contentGroup .cssTabs-content[data-tabs-id="7"],
+			.cssTabs-btn[data-tabs-id="8"]:checked  ~ .cssTabs-contentGroup .cssTabs-content[data-tabs-id="8"],
+			.cssTabs-btn[data-tabs-id="9"]:checked  ~ .cssTabs-contentGroup .cssTabs-content[data-tabs-id="9"],
+			.cssTabs-btn[data-tabs-id="10"]:checked ~ .cssTabs-contentGroup .cssTabs-content[data-tabs-id="10"] { 
+				
+				position: relative;
+				display: inline-block;
+				width: 100%; padding: 10px;
+
+			}
+
+		/* Extra - Test - Auto-equal-width buttons */
+		/* ----------------------------------------*/
+
+			/* 
+				Labels [cssTabs-btnLabel] are container within the labe-container parent Element [cssTabs-labelGroup] 
+					- we check their number directly 
+				
+				Buttons [cssTabs-btn] are directly within the tabs [cssTabs], alongside the [cssTabs-labelGroup] and the [cssTabs-contentGroup] elements
+					- we check their number by calculatin: nr of btns + 2;
+			*/
+
+			.cssTabs-btnLabel:only-child,
+			.cssTabs-btn:first-child:nth-last-child(3),
+			.cssTabs-btn:first-child:nth-last-child(3) ~ .cssTabs-btn {
+				width: 100%;
+			} 
+
+			.cssTabs-btnLabel:first-child:nth-last-child(2),
+			.cssTabs-btnLabel:first-child:nth-last-child(2) ~ .cssTabs-btnLabel ,
+			.cssTabs-btn:first-child:nth-last-child(4),
+			.cssTabs-btn:first-child:nth-last-child(4) ~ .cssTabs-btn {
+				width: 50%;
+			} 
+
+			.cssTabs-btnLabel:first-child:nth-last-child(3),
+			.cssTabs-btnLabel:first-child:nth-last-child(3) ~ .cssTabs-btnLabel ,
+			.cssTabs-btn:first-child:nth-last-child(5),
+			.cssTabs-btn:first-child:nth-last-child(5) ~ .cssTabs-btn {
+				width: 33.3%;
+			} 
+
+			.cssTabs-btnLabel:first-child:nth-last-child(4),
+			.cssTabs-btnLabel:first-child:nth-last-child(4) ~ .cssTabs-btnLabel ,
+			.cssTabs-btn:first-child:nth-last-child(6),
+			.cssTabs-btn:first-child:nth-last-child(6) ~ .cssTabs-btn {
+				width: 25%;
+			} 
+
+			.cssTabs-btnLabel:first-child:nth-last-child(5),
+			.cssTabs-btnLabel:first-child:nth-last-child(5) ~ .cssTabs-btnLabel ,
+			.cssTabs-btn:first-child:nth-last-child(7),
+			.cssTabs-btn:first-child:nth-last-child(7) ~ .cssTabs-btn {
+				width: 20%;
+			} 
+
+			.cssTabs-btnLabel:first-child:nth-last-child(6),
+			.cssTabs-btnLabel:first-child:nth-last-child(6) ~ .cssTabs-btnLabel ,
+			.cssTabs-btn:first-child:nth-last-child(8),
+			.cssTabs-btn:first-child:nth-last-child(8) ~ .cssTabs-btn {
+				width: 16.6%;
+			} 
+
+			.cssTabs-btnLabel:first-child:nth-last-child(7),
+			.cssTabs-btnLabel:first-child:nth-last-child(7) ~ .cssTabs-btnLabel ,
+			.cssTabs-btn:first-child:nth-last-child(9),
+			.cssTabs-btn:first-child:nth-last-child(9) ~ .cssTabs-btn {
+				width: 14.2857%;
+			} 
+
+			.cssTabs-btnLabel:first-child:nth-last-child(8),
+			.cssTabs-btnLabel:first-child:nth-last-child(8) ~ .cssTabs-btnLabel ,
+			.cssTabs-btn:first-child:nth-last-child(10),
+			.cssTabs-btn:first-child:nth-last-child(10) ~ .cssTabs-btn {
+				width: 12.5%;
+			} 
+
+			.cssTabs-btnLabel:first-child:nth-last-child(9),
+			.cssTabs-btnLabel:first-child:nth-last-child(9) ~ .cssTabs-btnLabel ,
+			.cssTabs-btn:first-child:nth-last-child(11),
+			.cssTabs-btn:first-child:nth-last-child(11) ~ .cssTabs-btn {
+				width: 11.1%;
+			} 
+
+			.cssTabs-btnLabel:first-child:nth-last-child(10),
+			.cssTabs-btnLabel:first-child:nth-last-child(10) ~ .cssTabs-btnLabel ,
+			.cssTabs-btn:first-child:nth-last-child(12),
+			.cssTabs-btn:first-child:nth-last-child(12) ~ .cssTabs-btn {
+				width: 10%;
+			} 

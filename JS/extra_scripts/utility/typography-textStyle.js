@@ -1,0 +1,570 @@
+	// Generate Demos
+	// --------------------------------
+
+		(function(){
+
+			var demoItemsArray = [ 
+				'font-style' 		, 'font-style-resp' 		, 
+				'font-weight' 		, 'font-weight-resp' 		, 
+				'text-align' 		, 'text-align-resp' 		, 
+				'text-transform'  	, 'text-transform-resp' 	, 
+				'text-decoration' 	, 'text-decoration-resp' 	];
+
+			// Generate HTML for Code-Tab(3)
+			// --------------------------------
+
+				byAndu_generateHTML_forCodeTab();
+				byAndu_finalCode_generateCheckboxes('css', demoItemsArray);
+				byAndu_finalCode_initCheckboxes();
+
+				/*var checkbox_containers = Array.from(document.getElementsByClassName('finalCode-checkbox-container-css')[0].getElementsByClassName('finalCode-checkbox-parent'));
+				checkbox_containers.map(function(item){
+					var current_innerText = item.textContent; console.log(current_innerText)
+					if (current_innerText.indexOf('-resp')) { item.textContent = current_innerText.replace('-resp', ' [Responsive Prefixes]') }
+					else 									{ item.textContent = current_innerText + ' [General]' 							}
+				});*/
+
+		})();
+
+// Generate codeBlocks innerHTML - CSS
+// --------------------------------
+
+	(function(){
+
+		var finalCode_codeBlocks_css = [
+
+			// 
+			    {
+			    name : null ,
+			    code :    
+			    `    /* Utility - Typography - Text Style */ 
+			    /* -------------------------------- */
+			    `
+			    },
+
+			// font-style
+				{
+				name : 'font-style' ,
+				code : 	
+				`        /* Font Style */
+			        /* -------------------------------- */
+
+			            /* All Viewports */
+			                .text-fontStyle-italic        , .text-italic        { font-style: italic    !important; }
+			                .text-fontStyle-oblique       , .text-oblique       { font-style: oblique   !important; }
+			                .text-fontStyle-normal                              { font-style: normal    !important; }
+			                .text-fontStyle-inherit                             { font-style: inherit   !important; }
+			                .text-fontStyle-initial                             { font-style: initial   !important; }
+			    `
+				},
+
+			// font-style-resp
+				{
+				name : 'font-style-resp' ,
+				code : 	
+				`        /* Font Style - Responsive Prefixes */
+			        /* -------------------------------- */
+
+			            /* xs-only */
+			            @media (max-width: 575.98px) {
+			                .xs-o-text-fontStyle-italic   , .xs-o-text-italic   { font-style: italic    !important; }
+			                .xs-o-text-fontStyle-oblique  , .xs-o-text-oblique  { font-style: oblique   !important; }
+			                .xs-o-text-fontStyle-normal                         { font-style: normal    !important; }
+			                .xs-o-text-fontStyle-inherit                        { font-style: inherit   !important; }
+			                .xs-o-text-fontStyle-initial                        { font-style: initial   !important; }
+			            }
+
+			            /* sm */
+			            @media (min-width: 575.98px) {
+			                .sm-text-fontStyle-italic     , .sm-text-italic     { font-style: italic    !important; }
+			                .sm-text-fontStyle-oblique    , .sm-text-oblique    { font-style: oblique   !important; }
+			                .sm-text-fontStyle-normal                           { font-style: normal    !important; }
+			                .sm-text-fontStyle-inherit                          { font-style: inherit   !important; }
+			                .sm-text-fontStyle-initial                          { font-style: initial   !important; }
+			            }
+
+			            /* sm-only */
+			            @media (min-width: 575.98px) and (max-width: 767.98px) {
+			                .sm-o-text-fontStyle-italic   , .sm-o-text-italic   { font-style: italic    !important; }
+			                .sm-o-text-fontStyle-oblique  , .sm-o-text-oblique  { font-style: oblique   !important; }
+			                .sm-o-text-fontStyle-normal                         { font-style: normal    !important; }
+			                .sm-o-text-fontStyle-inherit                        { font-style: inherit   !important; }
+			                .sm-o-text-fontStyle-initial                        { font-style: initial   !important; }
+			            }
+
+			            /* md */
+			            @media (min-width: 767.98px) {
+			                .md-text-fontStyle-italic     , .md-text-italic     { font-style: italic    !important; }
+			                .md-text-fontStyle-oblique    , .md-text-oblique    { font-style: oblique   !important; }
+			                .md-text-fontStyle-normal                           { font-style: normal    !important; }
+			                .md-text-fontStyle-inherit                          { font-style: inherit   !important; }
+			                .md-text-fontStyle-initial                          { font-style: initial   !important; }
+			            }
+
+			            /* md-only */
+			            @media (min-width: 767.98px) and (max-width: 991.98px) {
+			                .md-o-text-fontStyle-italic   , .md-o-text-italic   { font-style: italic    !important; }
+			                .md-o-text-fontStyle-oblique  , .md-o-text-oblique  { font-style: oblique   !important; }
+			                .md-o-text-fontStyle-normal                         { font-style: normal    !important; }
+			                .md-o-text-fontStyle-inherit                        { font-style: inherit   !important; }
+			                .md-o-text-fontStyle-initial                        { font-style: initial   !important; }
+			            }
+
+			            /* lg */
+			            @media (min-width: 991.98px) {
+			                .lg-text-fontStyle-italic     , .lg-text-italic     { font-style: italic    !important; }
+			                .lg-text-fontStyle-oblique    , .lg-text-oblique    { font-style: oblique   !important; }
+			                .lg-text-fontStyle-normal                           { font-style: normal    !important; }
+			                .lg-text-fontStyle-inherit                          { font-style: inherit   !important; }
+			                .lg-text-fontStyle-initial                          { font-style: initial   !important; }
+			            }
+
+			            /* lg-only */
+			            @media (min-width: 991.98px) and (max-width: 1199.98px) {
+			                .lg-o-text-fontStyle-italic   , .lg-o-text-italic   { font-style: italic    !important; }
+			                .lg-o-text-fontStyle-oblique  , .lg-o-text-oblique  { font-style: oblique   !important; }
+			                .lg-o-text-fontStyle-normal                         { font-style: normal    !important; }
+			                .lg-o-text-fontStyle-inherit                        { font-style: inherit   !important; }
+			                .lg-o-text-fontStyle-initial                        { font-style: initial   !important; }
+			            }
+
+			            /* xl */
+			            @media (min-width: 1199.98px) {
+			                .xl-text-fontStyle-italic     , .xl-text-italic     { font-style: italic    !important; }
+			                .xl-text-fontStyle-oblique    , .xl-text-oblique    { font-style: oblique   !important; }
+			                .xl-text-fontStyle-normal                           { font-style: normal    !important; }
+			                .xl-text-fontStyle-inherit                          { font-style: inherit   !important; }
+			                .xl-text-fontStyle-initial                          { font-style: initial   !important; }
+			            }
+			    `
+				},
+
+			// font-weight
+				{
+				name : 'font-weight' ,
+				code : 	
+				`        /* Font Weight */
+			        /* -------------------------------- */
+
+			            /* All Viewports */
+			                .text-fontWeight-bold          , .text-bold          { font-weight: bold     !important; }
+			                .text-fontWeight-bolder        , .text-bolder        { font-weight: bolder   !important; }
+			                .text-fontWeight-lighter       , .text-lighter       { font-weight: lighter  !important; }
+			                .text-fontWeight-normal                              { font-weight: normal   !important; }
+			                .text-fontWeight-inherit                             { font-weight: inherit  !important; }
+			                .text-fontWeight-initial                             { font-weight: initial  !important; }
+			    `
+				},
+
+			// font-weight-resp
+				{
+				name : 'font-weight-resp' ,
+				code : 	
+				`        /* Font Weight - Responsive Prefixes */
+			        /* -------------------------------- */
+
+			            /* xs-only */
+			            @media (max-width: 575.98px) {
+			                .xs-o-text-fontWeight-bold     , .xs-o-text-bold     { font-weight: bold     !important; }
+			                .xs-o-text-fontWeight-bolder   , .xs-o-text-bolder   { font-weight: bolder   !important; }
+			                .xs-o-text-fontWeight-lighter  , .xs-o-text-lighter  { font-weight: lighter  !important; }
+			                .xs-o-text-fontWeight-normal                         { font-weight: normal   !important; }
+			                .xs-o-text-fontWeight-inherit                        { font-weight: inherit  !important; }
+			                .xs-o-text-fontWeight-initial                        { font-weight: initial  !important; }
+			            }
+
+			            /* sm */
+			            @media (min-width: 575.98px) {
+			                .sm-text-fontWeight-bold       , .sm-text-bold       { font-weight: bold     !important; }
+			                .sm-text-fontWeight-bolder     , .sm-text-bolder     { font-weight: bolder   !important; }
+			                .sm-text-fontWeight-lighter    , .sm-text-lighter    { font-weight: lighter  !important; }
+			                .sm-text-fontWeight-normal                           { font-weight: normal   !important; }
+			                .sm-text-fontWeight-inherit                          { font-weight: inherit  !important; }
+			                .sm-text-fontWeight-initial                          { font-weight: initial  !important; }
+			            }
+
+			            /* sm-only */
+			            @media (min-width: 575.98px) and (max-width: 767.98px) {
+			                .sm-o-text-fontWeight-bold     , .sm-o-text-bold     { font-weight: bold     !important; }
+			                .sm-o-text-fontWeight-bolder   , .sm-o-text-bolder   { font-weight: bolder   !important; }
+			                .sm-o-text-fontWeight-lighter  , .sm-o-text-lighter  { font-weight: lighter  !important; }
+			                .sm-o-text-fontWeight-normal                         { font-weight: normal   !important; }
+			                .sm-o-text-fontWeight-inherit                        { font-weight: inherit  !important; }
+			                .sm-o-text-fontWeight-initial                        { font-weight: initial  !important; }
+			            }
+
+			            /* md */
+			            @media (min-width: 767.98px) {
+			                .md-text-fontWeight-bold       , .md-text-bold       { font-weight: bold     !important; }
+			                .md-text-fontWeight-bolder     , .md-text-bolder     { font-weight: bolder   !important; }
+			                .md-text-fontWeight-lighter    , .md-text-lighter    { font-weight: lighter  !important; }
+			                .md-text-fontWeight-normal                           { font-weight: normal   !important; }
+			                .md-text-fontWeight-inherit                          { font-weight: inherit  !important; }
+			                .md-text-fontWeight-initial                          { font-weight: initial  !important; }
+			            }
+
+			            /* md-only */
+			            @media (min-width: 767.98px) and (max-width: 991.98px) {
+			                .md-o-text-fontWeight-bold     , .md-o-text-bold     { font-weight: bold     !important; }
+			                .md-o-text-fontWeight-bolder   , .md-o-text-bolder   { font-weight: bolder   !important; }
+			                .md-o-text-fontWeight-lighter  , .md-o-text-lighter  { font-weight: lighter  !important; }
+			                .md-o-text-fontWeight-normal                         { font-weight: normal   !important; }
+			                .md-o-text-fontWeight-inherit                        { font-weight: inherit  !important; }
+			                .md-o-text-fontWeight-initial                        { font-weight: initial  !important; }
+			            }
+
+			            /* lg */
+			            @media (min-width: 991.98px) {
+			                .lg-text-fontWeight-bold       , .lg-text-bold       { font-weight: bold     !important; }
+			                .lg-text-fontWeight-bolder     , .lg-text-bolder     { font-weight: bolder   !important; }
+			                .lg-text-fontWeight-lighter    , .lg-text-lighter    { font-weight: lighter  !important; }
+			                .lg-text-fontWeight-normal                           { font-weight: normal   !important; }
+			                .lg-text-fontWeight-inherit                          { font-weight: inherit  !important; }
+			                .lg-text-fontWeight-initial                          { font-weight: initial  !important; }
+			            }
+
+			            /* lg-only */
+			            @media (min-width: 991.98px) and (max-width: 1199.98px) {
+			                .lg-o-text-fontWeight-bold     , .lg-o-text-bold     { font-weight: bold     !important; }
+			                .lg-o-text-fontWeight-bolder   , .lg-o-text-bolder   { font-weight: bolder   !important; }
+			                .lg-o-text-fontWeight-lighter  , .lg-o-text-lighter  { font-weight: lighter  !important; }
+			                .lg-o-text-fontWeight-normal                         { font-weight: normal   !important; }
+			                .lg-o-text-fontWeight-inherit                        { font-weight: inherit  !important; }
+			                .lg-o-text-fontWeight-initial                        { font-weight: initial  !important; }
+			            }
+
+			            /* xl */
+			            @media (min-width: 1199.98px) {
+			                .xl-text-fontWeight-bold       , .xl-text-bold       { font-weight: bold     !important; }
+			                .xl-text-fontWeight-bolder     , .xl-text-bolder     { font-weight: bolder   !important; }
+			                .xl-text-fontWeight-lighter    , .xl-text-lighter    { font-weight: lighter  !important; }
+			                .xl-text-fontWeight-normal                           { font-weight: normal   !important; }
+			                .xl-text-fontWeight-inherit                          { font-weight: inherit  !important; }
+			                .xl-text-fontWeight-initial                          { font-weight: initial  !important; }
+			            }
+			    `
+				},
+
+			// text-align
+				{
+				name : 'text-align' ,
+				code : 	
+				`        /* Text Align */
+			        /* -------------------------------- */
+
+			            /* All Viewports */
+			                .text-align-left           , .text-left         { text-align: left     !important; }
+			                .text-align-center         , .text-center       { text-align: center   !important; }
+			                .text-align-right          , .text-right        { text-align: right    !important; }
+			                .text-align-justify        , .text-justify      { text-align: justify  !important; }
+			                .text-align-inherit                             { text-align: inherit  !important; }
+			                .text-align-initial                             { text-align: initial  !important; }
+			    `
+				},
+
+			// text-align-resp
+				{
+				name : 'text-align-resp' ,
+				code : 	
+				`        /* Text Align - Responsive Prefixes */
+			        /* -------------------------------- */
+
+			            /* xs-only */
+			            @media (max-width: 575.98px) {
+			                .xs-o-text-align-left      , .xs-o-text-left    { text-align: left     !important; }
+			                .xs-o-text-align-center    , .xs-o-text-center  { text-align: center   !important; }
+			                .xs-o-text-align-right     , .xs-o-text-right   { text-align: right    !important; }
+			                .xs-o-text-align-justify   , .xs-o-text-justify { text-align: justify  !important; }
+			                .xs-o-text-align-inherit                        { text-align: inherit  !important; }
+			                .xs-o-text-align-initial                        { text-align: initial  !important; }
+			            }
+
+			            /* sm */
+			            @media (min-width: 575.98px) {
+			                .sm-text-align-left        , .sm-text-left      { text-align: left     !important; }
+			                .sm-text-align-center      , .sm-text-center    { text-align: center   !important; }
+			                .sm-text-align-right       , .sm-text-right     { text-align: right    !important; }
+			                .sm-text-align-justify     , .sm-text-justify   { text-align: justify  !important; }
+			                .sm-text-align-inherit                          { text-align: inherit  !important; }
+			                .sm-text-align-initial                          { text-align: initial  !important; }
+			            }
+
+			            /* sm-only */
+			            @media (min-width: 575.98px) and (max-width: 767.98px) {
+			                .sm-o-text-align-left      , .sm-o-text-left    { text-align: left     !important; }
+			                .sm-o-text-align-center    , .sm-o-text-center  { text-align: center   !important; }
+			                .sm-o-text-align-right     , .sm-o-text-right   { text-align: right    !important; }
+			                .sm-o-text-align-justify   , .sm-o-text-justify { text-align: justify  !important; }
+			                .sm-o-text-align-inherit                        { text-align: inherit  !important; }
+			                .sm-o-text-align-initial                        { text-align: initial  !important; }
+			            }
+
+			            /* md */
+			            @media (min-width: 767.98px) {
+			                .md-text-align-left        , .md-text-left      { text-align: left     !important; }
+			                .md-text-align-center      , .md-text-center    { text-align: center   !important; }
+			                .md-text-align-right       , .md-text-right     { text-align: right    !important; }
+			                .md-text-align-justify     , .md-text-justify   { text-align: justify  !important; }
+			                .md-text-align-inherit                          { text-align: inherit  !important; }
+			                .md-text-align-initial                          { text-align: initial  !important; }
+			            }
+
+			            /* md-only */
+			            @media (min-width: 767.98px) and (max-width: 991.98px) {
+			                .md-o-text-align-left      , .md-o-text-left    { text-align: left     !important; }
+			                .md-o-text-align-center    , .md-o-text-center  { text-align: center   !important; }
+			                .md-o-text-align-right     , .md-o-text-right   { text-align: right    !important; }
+			                .md-o-text-align-justify   , .md-o-text-justify { text-align: justify  !important; }
+			                .md-o-text-align-inherit                        { text-align: inherit  !important; }
+			                .md-o-text-align-initial                        { text-align: initial  !important; }
+			            }
+
+			            /* lg */
+			            @media (min-width: 991.98px) {
+			                .lg-text-align-left        , .lg-text-left      { text-align: left     !important; }
+			                .lg-text-align-center      , .lg-text-center    { text-align: center   !important; }
+			                .lg-text-align-right       , .lg-text-right     { text-align: right    !important; }
+			                .lg-text-align-justify     , .lg-text-justify   { text-align: justify  !important; }
+			                .lg-text-align-inherit                          { text-align: inherit  !important; }
+			                .lg-text-align-initial                          { text-align: initial  !important; }
+			            }
+
+			            /* lg-only */
+			            @media (min-width: 991.98px) and (max-width: 1199.98px) {
+			                .lg-o-text-align-left      , .lg-o-text-left    { text-align: left     !important; }
+			                .lg-o-text-align-center    , .lg-o-text-center  { text-align: center   !important; }
+			                .lg-o-text-align-right     , .lg-o-text-right   { text-align: right    !important; }
+			                .lg-o-text-align-justify   , .lg-o-text-justify { text-align: justify  !important; }
+			                .lg-o-text-align-inherit                        { text-align: inherit  !important; }
+			                .lg-o-text-align-initial                        { text-align: initial  !important; }
+			            }
+
+			            /* xl */
+			            @media (min-width: 1199.98px) {
+			                .xl-text-align-left        , .xl-text-left      { text-align: left     !important; }
+			                .xl-text-align-center      , .xl-text-center    { text-align: center   !important; }
+			                .xl-text-align-right       , .xl-text-right     { text-align: right    !important; }
+			                .xl-text-align-justify     , .xl-text-justify   { text-align: justify  !important; }
+			                .xl-text-align-inherit                          { text-align: inherit  !important; }
+			                .xl-text-align-initial                          { text-align: initial  !important; }
+			            }
+			    `
+				},
+
+			// text-transform
+				{
+				name : 'text-transform' ,
+				code : 	
+				`        /* Text Transform */
+			        /* -------------------------------- */
+
+			            /* All Viewports */
+			                .text-transform-lowercase       , .text-lowercase       { text-transform: lowercase   !important; }
+			                .text-transform-uppercase       , .text-uppercase       { text-transform: uppercase   !important; }
+			                .text-transform-capitalize      , .text-capitalize      { text-transform: capitalize  !important; }
+			                .text-transform-normal                                  { text-transform: normal      !important; }
+			                .text-transform-inherit                                 { text-transform: inherit     !important; }
+			                .text-transform-initial                                 { text-transform: initial     !important; }
+			    `
+				},
+
+			// text-transform-resp
+				{
+				name : 'text-transform-resp' ,
+				code : 	
+				`        /* Text Transform - Responsive Prefixes */
+			        /* -------------------------------- */
+
+			            /* xs-only */
+			            @media (max-width: 575.98px) {
+			                .xs-o-text-transform-lowercase  , .xs-o-text-lowercase  { text-transform: lowercase   !important; }
+			                .xs-o-text-transform-uppercase  , .xs-o-text-uppercase  { text-transform: uppercase   !important; }
+			                .xs-o-text-transform-capitalize , .xs-o-text-capitalize { text-transform: capitalize  !important; }
+			                .xs-o-text-transform-normal                             { text-transform: normal      !important; }
+			                .xs-o-text-transform-inherit                            { text-transform: inherit     !important; }
+			                .xs-o-text-transform-initial                            { text-transform: initial     !important; }
+			            }
+
+			            /* sm */
+			            @media (min-width: 575.98px) {
+			                .sm-text-transform-lowercase    , .sm-text-lowercase    { text-transform: lowercase   !important; }
+			                .sm-text-transform-uppercase    , .sm-text-uppercase    { text-transform: uppercase   !important; }
+			                .sm-text-transform-capitalize   , .sm-text-capitalize   { text-transform: capitalize  !important; }
+			                .sm-text-transform-normal                               { text-transform: normal      !important; }
+			                .sm-text-transform-inherit                              { text-transform: inherit     !important; }
+			                .sm-text-transform-initial                              { text-transform: initial     !important; }
+			            }
+
+			            /* sm-only */
+			            @media (min-width: 575.98px) and (max-width: 767.98px) {
+			                .sm-o-text-transform-lowercase  , .sm-o-text-lowercase  { text-transform: lowercase   !important; }
+			                .sm-o-text-transform-uppercase  , .sm-o-text-uppercase  { text-transform: uppercase   !important; }
+			                .sm-o-text-transform-capitalize , .sm-o-text-capitalize { text-transform: capitalize  !important; }
+			                .sm-o-text-transform-normal                             { text-transform: normal      !important; }
+			                .sm-o-text-transform-inherit                            { text-transform: inherit     !important; }
+			                .sm-o-text-transform-initial                            { text-transform: initial     !important; }
+			            }
+
+			            /* md */
+			            @media (min-width: 767.98px) {
+			                .md-text-transform-lowercase    , .md-text-lowercase    { text-transform: lowercase   !important; }
+			                .md-text-transform-uppercase    , .md-text-uppercase    { text-transform: uppercase   !important; }
+			                .md-text-transform-capitalize   , .md-text-capitalize   { text-transform: capitalize  !important; }
+			                .md-text-transform-normal                               { text-transform: normal      !important; }
+			                .md-text-transform-inherit                              { text-transform: inherit     !important; }
+			                .md-text-transform-initial                              { text-transform: initial     !important; }
+			            }
+
+			            /* md-only */
+			            @media (min-width: 767.98px) and (max-width: 991.98px) {
+			                .md-o-text-transform-lowercase  , .md-o-text-lowercase  { text-transform: lowercase   !important; }
+			                .md-o-text-transform-uppercase  , .md-o-text-uppercase  { text-transform: uppercase   !important; }
+			                .md-o-text-transform-capitalize , .md-o-text-capitalize { text-transform: capitalize  !important; }
+			                .md-o-text-transform-normal                             { text-transform: normal      !important; }
+			                .md-o-text-transform-inherit                            { text-transform: inherit     !important; }
+			                .md-o-text-transform-initial                            { text-transform: initial     !important; }
+			            }
+
+			            /* lg */
+			            @media (min-width: 991.98px) {
+			                .lg-text-transform-lowercase    , .lg-text-lowercase    { text-transform: lowercase   !important; }
+			                .lg-text-transform-uppercase    , .lg-text-uppercase    { text-transform: uppercase   !important; }
+			                .lg-text-transform-capitalize   , .lg-text-capitalize   { text-transform: capitalize  !important; }
+			                .lg-text-transform-normal                               { text-transform: normal      !important; }
+			                .lg-text-transform-inherit                              { text-transform: inherit     !important; }
+			                .lg-text-transform-initial                              { text-transform: initial     !important; }
+			            }
+
+			            /* lg-only */
+			            @media (min-width: 991.98px) and (max-width: 1199.98px) {
+			                .lg-o-text-transform-lowercase  , .lg-o-text-lowercase  { text-transform: lowercase   !important; }
+			                .lg-o-text-transform-uppercase  , .lg-o-text-uppercase  { text-transform: uppercase   !important; }
+			                .lg-o-text-transform-capitalize , .lg-o-text-capitalize { text-transform: capitalize  !important; }
+			                .lg-o-text-transform-normal                             { text-transform: normal      !important; }
+			                .lg-o-text-transform-inherit                            { text-transform: inherit     !important; }
+			                .lg-o-text-transform-initial                            { text-transform: initial     !important; }
+			            }
+
+			            /* xl */
+			            @media (min-width: 1199.98px) {
+			                .xl-text-transform-lowercase    , .xl-text-lowercase    { text-transform: lowercase   !important; }
+			                .xl-text-transform-uppercase    , .xl-text-uppercase    { text-transform: uppercase   !important; }
+			                .xl-text-transform-capitalize   , .xl-text-capitalize   { text-transform: capitalize  !important; }
+			                .xl-text-transform-normal                               { text-transform: normal      !important; }
+			                .xl-text-transform-inherit                              { text-transform: inherit     !important; }
+			                .xl-text-transform-initial                              { text-transform: initial     !important; }
+			            }
+			    `
+				},
+
+			// text-decoration
+				{
+				name : 'text-decoration' ,
+				code : 	
+				`        /* Text Decoration */
+			        /* -------------------------------- */
+
+			            /* All Viewports */
+			                .text-decoration-lineThrough             , .text-lineThrough             { text-decoration: line-through       !important; }
+			                .text-decoration-underline               , .text-underline               { text-decoration: underline          !important; }
+			                .text-decoration-overline                , .text-overline                { text-decoration: overline           !important; }
+			                .text-decoration-underline-overline      , .text-underline-overline      { text-decoration: underline overline !important; }
+			                .text-decoration-inherit                                                 { text-decoration: inherit            !important; }
+			                .text-decoration-initial                                                 { text-decoration: initial            !important; }
+			    `
+				},
+
+			// text-decoration-resp
+				{
+				name : 'text-decoration-resp' ,
+				code : 	
+				`        /* Text Decoration - Responsive Prefixes */
+			        /* -------------------------------- */
+
+			            /* xs-only */
+			            @media (max-width: 575.98px) {
+			                .xs-o-text-decoration-lineThrough        , .xs-o-text-lineThrough        { text-decoration: line-through       !important; }
+			                .xs-o-text-decoration-underline          , .xs-o-text-underline          { text-decoration: underline          !important; }
+			                .xs-o-text-decoration-overline           , .xs-o-text-overline           { text-decoration: overline           !important; }
+			                .xs-o-text-decoration-underline-overline , .xs-o-text-underline-overline { text-decoration: underline overline !important; }
+			                .xs-o-text-decoration-inherit                                            { text-decoration: inherit            !important; }
+			                .xs-o-text-decoration-initial                                            { text-decoration: initial            !important; }
+			            }
+
+			            /* sm */
+			            @media (min-width: 575.98px) {
+			                .sm-text-decoration-lineThrough          , .sm-text-lineThrough          { text-decoration: line-through       !important; }
+			                .sm-text-decoration-underline            , .sm-text-underline            { text-decoration: underline          !important; }
+			                .sm-text-decoration-overline             , .sm-text-overline             { text-decoration: overline           !important; }
+			                .sm-text-decoration-underline-overline   , .sm-text-underline-overline   { text-decoration: underline overline !important; }
+			                .sm-text-decoration-inherit                                              { text-decoration: inherit            !important; }
+			                .sm-text-decoration-initial                                              { text-decoration: initial            !important; }
+			            }
+
+			            /* sm-only */
+			            @media (min-width: 575.98px) and (max-width: 767.98px) {
+			                .sm-o-text-decoration-lineThrough        , .sm-o-text-lineThrough        { text-decoration: line-through       !important; }
+			                .sm-o-text-decoration-underline          , .sm-o-text-underline          { text-decoration: underline          !important; }
+			                .sm-o-text-decoration-overline           , .sm-o-text-overline           { text-decoration: overline           !important; }
+			                .sm-o-text-decoration-underline-overline , .sm-o-text-underline-overline { text-decoration: underline overline !important; }
+			                .sm-o-text-decoration-inherit                                            { text-decoration: inherit            !important; }
+			                .sm-o-text-decoration-initial                                            { text-decoration: initial            !important; }
+			            }
+
+			            /* md */
+			            @media (min-width: 767.98px) {
+			                .md-text-decoration-lineThrough          , .md-text-lineThrough          { text-decoration: line-through       !important; }
+			                .md-text-decoration-underline            , .md-text-underline            { text-decoration: underline          !important; }
+			                .md-text-decoration-overline             , .md-text-overline             { text-decoration: overline           !important; }
+			                .md-text-decoration-underline-overline   , .md-text-underline-overline   { text-decoration: underline overline !important; }
+			                .md-text-decoration-inherit                                              { text-decoration: inherit            !important; }
+			                .md-text-decoration-initial                                              { text-decoration: initial            !important; }
+			            }
+
+			            /* md-only */
+			            @media (min-width: 767.98px) and (max-width: 991.98px) {
+			                .md-o-text-decoration-lineThrough        , .md-o-text-lineThrough        { text-decoration: line-through       !important; }
+			                .md-o-text-decoration-underline          , .md-o-text-underline          { text-decoration: underline          !important; }
+			                .md-o-text-decoration-overline           , .md-o-text-overline           { text-decoration: overline           !important; }
+			                .md-o-text-decoration-underline-overline , .md-o-text-underline-overline { text-decoration: underline overline !important; }
+			                .md-o-text-decoration-inherit                                            { text-decoration: inherit            !important; }
+			                .md-o-text-decoration-initial                                            { text-decoration: initial            !important; }
+			            }
+
+			            /* lg */
+			            @media (min-width: 991.98px) {
+			                .lg-text-decoration-lineThrough          , .lg-text-lineThrough          { text-decoration: line-through       !important; }
+			                .lg-text-decoration-underline            , .lg-text-underline            { text-decoration: underline          !important; }
+			                .lg-text-decoration-overline             , .lg-text-overline             { text-decoration: overline           !important; }
+			                .lg-text-decoration-underline-overline   , .lg-text-underline-overline   { text-decoration: underline overline !important; }
+			                .lg-text-decoration-inherit                                              { text-decoration: inherit            !important; }
+			                .lg-text-decoration-initial                                              { text-decoration: initial            !important; }
+			            }
+
+			            /* lg-only */
+			            @media (min-width: 991.98px) and (max-width: 1199.98px) {
+			                .lg-o-text-decoration-lineThrough        , .lg-o-text-lineThrough        { text-decoration: line-through       !important; }
+			                .lg-o-text-decoration-underline          , .lg-o-text-underline          { text-decoration: underline          !important; }
+			                .lg-o-text-decoration-overline           , .lg-o-text-overline           { text-decoration: overline           !important; }
+			                .lg-o-text-decoration-underline-overline , .lg-o-text-underline-overline { text-decoration: underline overline !important; }
+			                .lg-o-text-decoration-inherit                                            { text-decoration: inherit            !important; }
+			                .lg-o-text-decoration-initial                                            { text-decoration: initial            !important; }
+			            }
+
+			            /* xl */
+			            @media (min-width: 1199.98px) {
+			                .xl-text-decoration-lineThrough          , .xl-text-lineThrough          { text-decoration: line-through       !important; }
+			                .xl-text-decoration-underline            , .xl-text-underline            { text-decoration: underline          !important; }
+			                .xl-text-decoration-overline             , .xl-text-overline             { text-decoration: overline           !important; }
+			                .xl-text-decoration-underline-overline   , .xl-text-underline-overline   { text-decoration: underline overline !important; }
+			                .xl-text-decoration-inherit                                              { text-decoration: inherit            !important; }
+			                .xl-text-decoration-initial                                              { text-decoration: initial            !important; }
+			            }
+			    `
+				}
+		];
+
+		finalCode_codeBlocks_css = byAndu_codeBlock_formatCodeString(finalCode_codeBlocks_css);
+		byAndu_codeBlock_generateInnerHTML(finalCode_codeBlocks_css , 'css');
+
+	})();

@@ -1,0 +1,927 @@
+
+	<!-- ===================== Route ================== -->
+	<script src="../../js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+
+		<!-- stroke-dasharray="4"			Dashes and gaps of the same size -->
+		<!-- stroke-dasharray="4 1"			Dashes and gaps of different sizes -->
+		<!-- stroke-dasharray="4 1 2"		Dashes and gaps of various sizes with an odd number of values -->
+		<!-- stroke-dasharray="4 1 2 3" 	Dashes and gaps of various sizes with an even number of values -->
+		<!-- https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-dasharray -->
+
+	<style>
+		.test:hover .test-path {
+			animation: testAnim 1s 1 linear forwards;
+		}
+
+		@keyframes testAnim {
+			50% , 100% { stroke-dashoffset: 0 }
+		}
+
+		.test:hover .test-path-2 {
+			animation: testAnim-2 1s 1 linear forwards;
+		}
+
+		@keyframes testAnim-2 {
+			0% , 50% 	{ transform: translateY(100%)  }
+			95% , 100% 	{ transform: translateY(0) }
+		}
+
+		.asdf:hover ~ col-6 > .x-fa-bat {
+			transform: translate(0,0) !important;
+		}
+
+		/* radio test */
+
+			.test-radio-1 .radio-lines > path {
+				transform-origin: 50% 50%; 
+				stroke-width: 5;
+				stroke: red;
+				stroke-dasharray: 30 41; stroke-dasharray: 0 30;
+				stroke-dashoffset: -32;
+
+				stroke-linecap: round;
+				transition: all 0;
+			}
+			.test-radio-1 .radio-lines > path:nth-of-type(2) { transform: rotate( 45deg); }
+			.test-radio-1 .radio-lines > path:nth-of-type(3) { transform: rotate( 90deg); }
+			.test-radio-1 .radio-lines > path:nth-of-type(4) { transform: rotate(135deg); }
+			.test-radio-1 .radio-lines > path:nth-of-type(5) { transform: rotate(180deg); }
+			.test-radio-1 .radio-lines > path:nth-of-type(6) { transform: rotate(225deg); }
+			.test-radio-1 .radio-lines > path:nth-of-type(7) { transform: rotate(270deg); }
+			.test-radio-1 .radio-lines > path:nth-of-type(8) { transform: rotate(315deg); }
+
+			.test-radio-1 .circle-inner {
+				transform-origin: 50% 50%;
+				transform: scale(0);
+				transition: all .2s;
+			}
+
+			.test-radio-1:hover .radio-lines > path {
+				stroke-dashoffset: -72; stroke-dasharray: 1 66;
+				transition: all .5s;
+			}
+
+			.test-radio-1:hover .circle-inner {
+				transform: scale(1);
+			}
+
+
+		.test-logo .logo-marker {
+			fill: url(#asdf-logo-gradient);
+		}
+
+		.test-logo .logoText {
+			fill: #FFFFFF;
+			font-size: 21px;
+		}
+
+	</style>
+
+	<article>
+		<div class="col-3">
+
+			<svg viewbox="0 0 50 100">
+
+				<defs>
+					<clipPath id="qweqwe">
+						<path d="
+							M 36 42 
+
+							l  5     0 
+							l  -14   -28
+							l   -4     0
+							l  -13.5  26
+							l  -10    -4.5
+
+							l    0   5
+
+							l   36.5   17
+							l -11   22.5
+							l  -11.5  -23
+							l -5 0
+							l 14.5  29
+							l 4 0
+							l 13.5 -26
+							l 10 4.5
+							l 0 -5.5
+							l -36.5 -16.5
+
+							l 11 -22
+							l 11 22
+							"/>
+					</clipPath>
+				</defs>
+
+				<g >
+					<path stroke="green" stroke-width=".2" d="M10 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M20 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M30 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M40 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M50 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M60 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M70 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M80 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M90 0 V100" />
+
+					<path stroke="green" stroke-width=".2" d="M0 10 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 20 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 30 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 40 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 50 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 60 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 70 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 80 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 90 H100" />
+				</g>
+
+				<g  clip-path="url(#qweqwe)">
+					<path
+						d=" 
+							M 40 45
+							l -15 -30
+							l -15 30
+
+							M -40 20
+							l 130 60
+
+							M 40 55
+							l -15 30
+							l -15 -30
+						"
+						stroke="#0E4341" stroke-width="5" fill="none"
+					/>
+
+					<!--<path
+						d="
+							M 36 42 
+
+							l  5     0 
+							l  -14   -28
+							l   -4     0
+							l  -13.5  26
+							l  -10    -4.5
+
+							l    0   5
+
+							l   36.5   17
+							l -11   22.5
+							l  -11.5  -23
+							l -5 0
+							l 14.5  29
+							l 4 0
+							l 13.5 -26
+							l 10 4.5
+							l 0 -5.5
+							l -36.5 -16.5
+
+							l 11 -22
+							l 11 22
+						"
+						stroke="red"
+						stroke-width=".5"
+						fill="none"
+					/>-->
+				</g>
+			</svg>
+
+		</div>
+
+		<div class="col-3">
+
+			<svg viewbox="0 0 50 100">
+
+				<g >
+					<path stroke="green" stroke-width=".2" d="M10 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M20 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M30 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M40 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M50 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M60 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M70 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M80 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M90 0 V100" />
+
+					<path stroke="green" stroke-width=".2" d="M0 10 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 20 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 30 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 40 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 50 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 60 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 70 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 80 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 90 H100" />
+				</g>
+
+				<g>
+					<path
+						d=" 
+							M 40 45
+							l -15 -30
+							l -15 30
+
+							M -40 20
+							l 130 60
+
+							M 40 55
+							l -15 30
+							l -15 -30
+						"
+						stroke="#0E4341" stroke-width="5" fill="none"
+					/>
+
+					<path
+						d="
+							M 36 42 
+
+							l  5     0 
+							l  -14   -28
+							l   -4     0
+							l  -13.5  26
+							l  -10    -4.5
+
+							l    0   5
+
+							l   36.5   17
+							l -11   22.5
+							l  -11.5  -23
+							l -5 0
+							l 14.5  29
+							l 4 0
+							l 13.5 -26
+							l 10 4.5
+							l 0 -5.5
+							l -36.5 -16.5
+
+							l 11 -22
+							l 11 22
+						"
+						stroke="red"
+						stroke-width=".5"
+						fill="none"
+					/>
+				</g>
+			</svg>
+
+		</div>
+
+		<hr>
+
+		<!--<div style="font-size: 100px; transform: rotate(90deg); letter-spacing: -12px"> &lt;/> </div>-->
+
+
+		<div class="col-6">
+
+			<svg viewbox="0 0 100 100" class="test-logo">
+
+				<g class="">
+					<path stroke="green" stroke-width=".2" d="M10 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M20 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M30 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M40 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M50 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M60 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M70 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M80 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M90 0 V100" />
+
+					<path stroke="green" stroke-width=".2" d="M0 10 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 20 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 30 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 40 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 50 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 60 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 70 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 80 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 90 H100" />
+				</g>
+
+				<defs>
+					<clipPath id="asdf-logo-clipPath-circlesBottom-1">
+						<path d="
+							M   50   95 
+							l   20  -50
+							l   30    0
+							l    0  100
+							l -100    0
+							l    0 -100
+							l   30    0
+							"/>
+					</clipPath>
+
+					<clipPath id="asdf-logo-clipPath-clock-1">
+						<path d="
+							M 45 50
+							a 1 1   0   0 0   10 0 
+							l 50 0
+							l 0 50
+							l -100 0
+							l 0 -50
+							M 55 50
+							a 1 1   0   0 0   -10 0
+							l -50 0
+							l 0 -50
+							l 100 0
+							l 0 50
+							"/>
+					</clipPath>
+
+					<linearGradient id="asdf-logo-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+						<stop offset="20%" stop-color="#613dcc" />
+						<stop offset="55%" stop-color="#0E4341" />
+					</linearGradient>
+
+					<radialGradient id="asdf-logo-gradient-line" cx="50" cy="85" r="150" fx="20" fy="30">
+						<stop offset="20%" stop-color="#613dcc" />
+						<stop offset="55%" stop-color="#0E4341" />
+					</radialGradient>
+				</defs>
+
+				<g clip-path="url(#asdf-logo-clipPath-circlesBottom-1)">
+					<ellipse cx="50" cy="90" rx="40"  ry="7.5" fill="none" stroke="#293744" stroke-width="2" />
+					<ellipse cx="50" cy="85" rx="150" ry="30"  fill="none" stroke="url(#asdf-logo-gradient-line)" stroke-width="1.5" />
+				</g>
+
+				<g clip-path="url(#asdf-logo-clipPath-clock-1)">
+					<path class="logo-marker" fill="none" stroke="black"
+						d=" M    50  90 
+
+							L 	 65  50 
+
+							L    65  42.5
+							L  62.5  35
+							L    60  42.5
+
+							L  60    30
+							L  62.5  27.5
+							L  62.5  22.5
+							L  60    20
+							L  57.5  22.5
+
+							L 57.5  10
+							L 42.5  10
+
+							L  42.5  22.5
+							L  40    20
+							L  37.5  22.5
+							L  37.5  27.5
+							L  40    30
+
+							L  40    42.5
+							L  37.5  35
+							L  35    42.5
+							L  35    50
+
+							L  50    90
+						"
+					/>
+				</g>
+			</svg>
+
+							L  37.5  35
+							L  35    42.5
+ 							L  35    50
+
+ 							L  50 90
+		</div>
+
+<!-- ver 3 -->
+<!--
+		<div class="col-6">
+
+			<svg viewbox="0 0 100 100" class="test-logo">
+
+				<g class="">
+					<path stroke="green" stroke-width=".2" d="M10 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M20 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M30 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M40 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M50 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M60 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M70 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M80 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M90 0 V100" />
+
+					<path stroke="green" stroke-width=".2" d="M0 10 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 20 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 30 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 40 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 50 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 60 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 70 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 80 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 90 H100" />
+				</g>
+
+				<defs>
+					<clipPath id="asdf-logo-clipPath-circlesBottom-1">
+						<path d="
+							M   50   95 
+							l   20  -50
+							l   30    0
+							l    0  100
+							l -100    0
+							l    0 -100
+							l   30    0
+							"/>
+					</clipPath>
+
+					<clipPath id="asdf-logo-clipPath-clock-1">
+						<path d="
+							M 45 50
+							a 1 1   0   0 0   10 0 
+							l 50 0
+							l 0 50
+							l -100 0
+							l 0 -50
+							M 55 50
+							a 1 1   0   0 0   -10 0
+							l -50 0
+							l 0 -50
+							l 100 0
+							l 0 50
+							"/>
+					</clipPath>
+
+					<linearGradient id="asdf-logo-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+						<stop offset="20%" stop-color="#613dcc" />
+						<stop offset="55%" stop-color="#0E4341" />
+					</linearGradient>
+
+					<radialGradient id="asdf-logo-gradient-line" cx="50" cy="85" r="150" fx="20" fy="30">
+						<stop offset="20%" stop-color="#613dcc" />
+						<stop offset="55%" stop-color="#0E4341" />
+					</radialGradient>
+				</defs>
+
+				<g clip-path="url(#asdf-logo-clipPath-circlesBottom-1)">
+					<ellipse cx="50" cy="90" rx="40"  ry="7.5" fill="none" stroke="#293744" stroke-width="2" />
+					<ellipse cx="50" cy="85" rx="150" ry="30"  fill="none" stroke="url(#asdf-logo-gradient-line)" stroke-width="1.5" />
+				</g>
+
+				<g clip-path="url(#asdf-logo-clipPath-clock-1)">
+					<path class="logo-marker"
+						d=" M    50   90 
+
+							l 	 15  -40 
+
+							l  0     -7.5
+							l  -2.5  -7.5
+							l  -2.5  7.5
+
+							l  -2.5  -17.5
+							l     0     -5
+							l  -2.5   -7.5
+							l  -2.5    7.5
+							l     0    2.5
+
+							l  -5  0
+
+							l     0    -2.5
+							l  -2.5  -7.5
+							l  -2.5   7.5
+							l     0     5
+							l  -2.5  17.5
+
+							l  -2.5  -7.5
+							l  -2.5  7.5
+							l  0     7.5
+
+							l 	 15  40 
+						"
+					/>
+				</g>
+			</svg>
+
+		</div>
+-->
+
+<!-- completed version -2 -->
+<!--	<div class="col-6">
+
+			<svg viewbox="0 0 100 100" class="test-logo">
+
+				<g class="hidden">
+					<path stroke="green" stroke-width=".2" d="M10 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M20 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M30 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M40 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M50 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M60 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M70 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M80 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M90 0 V100" />
+
+					<path stroke="green" stroke-width=".2" d="M0 10 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 20 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 30 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 40 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 50 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 60 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 70 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 80 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 90 H100" />
+				</g>
+
+				<defs>
+					<clipPath id="asdf-logo-clipPath-circlesBottom-1">
+						<path d="
+							M   50   95 
+							l   20  -50
+							l   30    0
+							l    0  100
+							l -100    0
+							l    0 -100
+							l   30    0
+							"/>
+					</clipPath>
+
+					<clipPath id="asdf-logo-clipPath-clock-1">
+						<path d="
+							M 45 50
+							a 1 1   0   0 0   10 0 
+							l 50 0
+							l 0 50
+							l -100 0
+							l 0 -50
+							M 55 50
+							a 1 1   0   0 0   -10 0
+							l -50 0
+							l 0 -50
+							l 100 0
+							l 0 50
+							"/>
+					</clipPath>
+
+					<linearGradient id="asdf-logo-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+						<stop offset="20%" stop-color="#613dcc" />
+						<stop offset="55%" stop-color="#0E4341" />
+					</linearGradient>
+
+					<radialGradient id="asdf-logo-gradient-line" cx="50" cy="85" r="150" fx="20" fy="30">
+						<stop offset="20%" stop-color="#613dcc" />
+						<stop offset="55%" stop-color="#0E4341" />
+					</radialGradient>
+				</defs>
+
+				<g clip-path="url(#asdf-logo-clipPath-circlesBottom-1)">
+					<ellipse cx="50" cy="90" rx="40"  ry="7.5" fill="none" stroke="#293744" stroke-width="2" />
+					<ellipse cx="50" cy="85" rx="150" ry="30"  fill="none" stroke="url(#asdf-logo-gradient-line)" stroke-width="1.5" />
+				</g>
+
+				<g clip-path="url(#asdf-logo-clipPath-clock-1)">
+					<path class="logo-marker"
+						d=" M    50   90 
+
+							l 	 15  -40 
+
+							l  0     -7.5
+							l  -2.5  -7.5
+							l  -2.5  7.5
+
+							l  -2.5  -32.5
+							l  -2.5  20
+
+							l  -10  0
+
+							l  -2.5  -20
+							l  -2.5  32.5
+
+							l  -2.5  -7.5
+							l  -2.5  7.5
+							l  0     7.5
+
+							l 	 15  40 
+						"
+					/>
+				</g>
+			</svg>
+
+		</div> -->
+
+<!-- completed version -1 --> 
+		<!--<div class="col-6">
+
+			<svg viewbox="0 0 100 100" class="test-logo">
+
+				<g class="hidden">
+					<path stroke="green" stroke-width=".2" d="M10 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M20 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M30 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M40 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M50 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M60 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M70 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M80 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M90 0 V100" />
+
+					<path stroke="green" stroke-width=".2" d="M0 10 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 20 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 30 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 40 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 50 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 60 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 70 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 80 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 90 H100" />
+				</g>
+
+				<defs>
+					<clipPath id="asdf-logo-clipPath-circlesBottom-1">
+						<path d="
+							M   50   95 
+							l   20  -50
+							l   30    0
+							l    0  100
+							l -100    0
+							l    0 -100
+							l   30    0
+							"/>
+					</clipPath>
+
+					<clipPath id="asdf-logo-clipPath-clock-1">
+						<path d="
+							M 45 50
+							a 1 1   0   0 0   10 0 
+							l 50 0
+							l 0 50
+							l -100 0
+							l 0 -50
+							M 55 50
+							a 1 1   0   0 0   -10 0
+							l -50 0
+							l 0 -50
+							l 100 0
+							l 0 50
+							"/>
+					</clipPath>
+
+					<linearGradient id="asdf-logo-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+						<stop offset="20%" stop-color="#613dcc" />
+						<stop offset="55%" stop-color="#0E4341" />
+					</linearGradient>
+
+					<radialGradient id="asdf-logo-gradient-line" cx="50" cy="85" r="150" fx="20" fy="30">
+						<stop offset="20%" stop-color="#613dcc" />
+						<stop offset="55%" stop-color="#0E4341" />
+					</radialGradient>
+				</defs>
+
+				<g clip-path="url(#asdf-logo-clipPath-circlesBottom-1)">
+					<ellipse cx="50" cy="90" rx="40"  ry="7.5" fill="none" stroke="#293744" stroke-width="2" />
+					<ellipse cx="50" cy="85" rx="150" ry="30"  fill="none" stroke="url(#asdf-logo-gradient-line)" stroke-width="1.5" />
+				</g>
+
+				<g clip-path="url(#asdf-logo-clipPath-clock-1)">
+					<path class="logo-marker"
+						d=" M    50   90 
+
+							l 	 15  -40 
+
+							l  -2.5  -15
+							l  -2.5  7.5
+
+							l  -2.5  -32.5
+							l  -2.5  10
+
+							l  -10  0
+
+							l  -2.5  -10
+							l  -2.5  32.5
+
+							l  -2.5  -7.5
+							l  -2.5  15
+
+							l 	 15  40 
+						"
+					/>
+				</g>
+			</svg>
+
+		</div> -->
+
+<!-- first version -->
+		<!-- <div class="col-6">
+
+			<svg viewbox="0 0 110 110" class="test-logo" style="border: 1px solid black">
+
+				<g class="hidden">
+					<path stroke="green" stroke-width=".2" d="M10 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M20 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M30 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M40 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M50 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M60 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M70 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M80 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M90 0 V100" />
+
+					<path stroke="green" stroke-width=".2" d="M0 10 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 20 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 30 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 40 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 50 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 60 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 70 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 80 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 90 H100" />
+				</g>
+
+				<defs>
+					<clipPath id="asdf-logo-clipPath-circlesBottom">
+						<path d="
+							M  50  100 
+							l -25  -50
+							l -25    0
+							l   0  100
+							l 100    0
+							l   0 -100
+							l -25    0
+							"/>
+					</clipPath>
+				</defs>
+
+				<g clip-path="url(#asdf-logo-clipPath-circlesBottom)">
+					<ellipse cx="50" cy="90" rx="40" ry="12.5" fill="none" stroke="black" stroke-width="2" />
+				</g>
+
+				<path class="line" 
+					d="
+						M  50    90 
+						l  20   -40 
+						l  -2.5 -15
+						l  -2.5  10
+						l  -5   -40
+						l  -2.5  10
+						l  -15   0
+						l  -2.5 -15
+						l  -5    45
+						l  -2.5 -10
+						l  -2.5  15
+						l  20    40
+					"/>
+
+				<circle class="circle-outer" cx="50" cy="50" r="7.5" fill="black"> </circle>
+
+			</svg>
+
+		</div>
+-->
+
+	<hr>
+
+		<div class="col-6">
+
+			<svg viewbox="0 0 100 100" class="test-radio-1" style="border: 1px solid black">
+
+			<g id="123">
+				<g>
+					<path stroke="green" stroke-width=".2" d="M10 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M20 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M30 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M40 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M50 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M60 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M70 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M80 0 V100" />
+					<path stroke="green" stroke-width=".2" d="M90 0 V100" />
+
+					<path stroke="green" stroke-width=".2" d="M0 10 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 20 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 30 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 40 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 50 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 60 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 70 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 80 H100" />
+					<path stroke="green" stroke-width=".2" d="M0 90 H100" />
+				</g>
+
+				<g class="radio-lines">
+					<path class="line" d="M50 50 l32.5 32.5"/>
+					<path class="line" d="M50 50 l32.5 32.5"/>
+					<path class="line" d="M50 50 l32.5 32.5"/>
+					<path class="line" d="M50 50 l32.5 32.5"/>
+					<path class="line" d="M50 50 l32.5 32.5"/>
+					<path class="line" d="M50 50 l32.5 32.5"/>
+					<path class="line" d="M50 50 l32.5 32.5"/>
+					<path class="line" d="M50 50 l32.5 32.5"/>
+				</g>
+
+				<circle class="circle-outer" cx="50" cy="50" r="30" fill="none" stroke-width="5" stroke="red"> </circle>
+				<circle class="circle-inner" cx="50" cy="50" r="20" fill="red"> </circle>
+			</g>
+
+			</svg>
+
+		</div>
+
+
+		<div class="col-6 asdf">
+			<svg viewbox="0 0 100 100" class="test-battery" style="border: 1px solid black">
+
+				<path stroke="green" stroke-width=".2" d="M10 0 V100" />
+				<path stroke="green" stroke-width=".2" d="M20 0 V100" />
+				<path stroke="green" stroke-width=".2" d="M30 0 V100" />
+				<path stroke="green" stroke-width=".2" d="M40 0 V100" />
+				<path stroke="green" stroke-width=".2" d="M50 0 V100" />
+				<path stroke="green" stroke-width=".2" d="M60 0 V100" />
+				<path stroke="green" stroke-width=".2" d="M70 0 V100" />
+				<path stroke="green" stroke-width=".2" d="M80 0 V100" />
+				<path stroke="green" stroke-width=".2" d="M90 0 V100" />
+
+				<path stroke="green" stroke-width=".2" d="M0 10 H100" />
+				<path stroke="green" stroke-width=".2" d="M0 20 H100" />
+				<path stroke="green" stroke-width=".2" d="M0 30 H100" />
+				<path stroke="green" stroke-width=".2" d="M0 40 H100" />
+				<path stroke="green" stroke-width=".2" d="M0 50 H100" />
+				<path stroke="green" stroke-width=".2" d="M0 60 H100" />
+				<path stroke="green" stroke-width=".2" d="M0 70 H100" />
+				<path stroke="green" stroke-width=".2" d="M0 80 H100" />
+				<path stroke="green" stroke-width=".2" d="M0 90 H100" />
+
+				<path class="test-battery-path" fill="none" stroke="red" stroke-width="4.5" d="M10 30 h70 a1,1 0 0 1 1,1 v8 a2.5,2.5 0 0 1 2.5,2.5 v14 a2.5,2.5 0 0 1 -2.5,2.5 v8 a1,1 0 0 1 -1,1 h-70 " />
+
+			</svg>
+		</div>
+
+		<div class="col-6">
+			<i class="fa fa-battery x-fa-bat" style="font-size: 247px; transform: translateX(-125%) translateY(76px);"></i>
+		</div>
+
+		<hr>
+		<div class="col-3">
+			<svg viewbox="0 0 100 100" class="test" style="border: 1px solid black">
+
+				<defs>
+					<clipPath id="clipPath-1">
+				        <path d="M25 10 h60 a5,5 0 0 1 5,5 v60 a5,5 0 0 1 -5,5 h-64 l-10 10 v-75 a5,5 0 0 1 5,-5 h10"/>
+					</clipPath>
+				</defs>
+
+				<g clip-path="url(#clipPath-1)">
+					<rect class="test-path-2" fill="green" x="10" y="10" width="80" height="80" transform="translate(0, 100)" />
+				</g>
+
+				<path stroke="green" stroke-width=".2" d="M10 0 V100" />
+				<path stroke="green" stroke-width=".2" d="M20 0 V100" />
+				<path stroke="green" stroke-width=".2" d="M30 0 V100" />
+				<path stroke="green" stroke-width=".2" d="M40 0 V100" />
+				<path stroke="green" stroke-width=".2" d="M50 0 V100" />
+				<path stroke="green" stroke-width=".2" d="M60 0 V100" />
+				<path stroke="green" stroke-width=".2" d="M70 0 V100" />
+				<path stroke="green" stroke-width=".2" d="M80 0 V100" />
+				<path stroke="green" stroke-width=".2" d="M90 0 V100" />
+
+				<path stroke="green" stroke-width=".2" d="M0 10 H100" />
+				<path stroke="green" stroke-width=".2" d="M0 20 H100" />
+				<path stroke="green" stroke-width=".2" d="M0 30 H100" />
+				<path stroke="green" stroke-width=".2" d="M0 40 H100" />
+				<path stroke="green" stroke-width=".2" d="M0 50 H100" />
+				<path stroke="green" stroke-width=".2" d="M0 60 H100" />
+				<path stroke="green" stroke-width=".2" d="M0 70 H100" />
+				<path stroke="green" stroke-width=".2" d="M0 80 H100" />
+				<path stroke="green" stroke-width=".2" d="M0 90 H100" />
+
+				<path class="test-path" stroke-dasharray="320" stroke-dashoffset="320" fill="none" stroke="red" stroke-width="2" d="M25 10 h60 a5,5 0 0 1 5,5 v60 a5,5 0 0 1 -5,5 h-64 l-10 10 v-75 a5,5 0 0 1 5,-5 h10" />
+
+			</svg>
+		</div>
+
+		<hr>
+
+		<div class="col-3 p-0">
+			<svg viewBox="0 0 64 64" class="counter">
+				<g>
+					<circle class="outer" r="45%" cx="50%" cy="50%" stroke-dasharray="135 200"> </circle>
+					<circle class="inner" r="20%" cx="50%" cy="50%"> </circle>
+					<text class="counter-text" x="50%" y="-50%" text-anchor="middle"> hello </text>
+				</g>
+			</svg>
+		</div>
+
+		<div class="col-2 p-0">
+			<svg viewBox="0 0 64 64" class="pie">
+				<g>
+					<circle class="outer" r="25%" cx="50%" cy="50%" stroke-dasharray="25 100";> </circle>
+					<text class="counter-text" x="50%" y="-50%" text-anchor="middle"> hello </text>
+				</g>
+			</svg>
+		</div>
+
+		<div class="col-1 p-0">
+			<svg viewBox="0 0 64 64" class="pie">
+				<g>
+					<circle class="outer" r="25%" cx="50%" cy="50%" stroke-dasharray="25 100";> </circle>
+					<text class="counter-text" x="50%" y="-50%" text-anchor="middle"> hello </text>
+				</g>
+			</svg>
+		</div>
+
+		<hr>
+
+	</article> 
+
+	<!-- ==================================================== -->
+	<div id="runScript" data-src="../../js/extra_scripts/components/counter.js"> </div>
+	<!-- ==================================================== -->

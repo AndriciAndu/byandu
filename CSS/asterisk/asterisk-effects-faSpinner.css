@@ -1,0 +1,138 @@
+
+	/* Font Awesome Spinner */
+	/* ------------------------------- */
+
+		.faSpinner {
+			position: relative;
+			padding: 0 !important;
+			max-width:  100vw !important;
+			max-height: 100vh !important;
+			overflow: hidden !important;
+		}
+
+		/* hide all content and not allow click events to take place */
+		.faSpinner * { 
+			visibility: hidden !important;
+			z-index: -1 !important;
+		}
+
+	/* background overlay */
+	/* ------------------------------- */
+
+		.faSpinner:after {
+			content: '';
+			position: absolute;
+			top: 0; right: 0; bottom: 0; left: 0;
+			background-color: inherit;
+			z-index: 2;
+		}
+
+	/* Spinner Icon */
+	/* ------------------------------- */
+
+		.faSpinner::before {
+			content: "\f021" !important;
+			font-family: FontAwesome !important;
+
+			position: absolute;
+			left: 50%; top: 50%;
+	        -webkit-transform: translate3d(-50%, -50%, 0) rotate(0deg);
+	            -ms-transform: translate3d(-50%, -50%, 0) rotate(0deg);
+	                transform: translate3d(-50%, -50%, 0) rotate(0deg); 
+			z-index: 3;
+
+            -webkit-animation: faSpinner 1s linear infinite;
+                    animation: faSpinner 1s linear infinite;
+
+			-webkit-filter: blur(0);
+			        filter: blur(0);
+
+			font-size: 24px; color: #000000;
+			line-height: .86 !important;
+			/*line-height: calc(100% - 1px);*/
+
+			-webkit-transform-origin: 50% 50%;
+    				transform-origin: 50% 50%;
+
+    		text-shadow: none     !important;
+    		font-weight: normal   !important; 
+    		text-decoration: none !important;
+		}
+
+        @-webkit-keyframes faSpinner {
+        	0% {
+        		-webkit-transform: translate3d(-50%, -50%, 0) rotate(0deg);
+	                -ms-transform: translate3d(-50%, -50%, 0) rotate(0deg);
+	                    transform: translate3d(-50%, -50%, 0) rotate(0deg);
+        	}
+        	100% {
+        		-webkit-transform: translate3d(-50%, -50%, 0) rotate(359deg);
+	                -ms-transform: translate3d(-50%, -50%, 0) rotate(359deg);
+	                    transform: translate3d(-50%, -50%, 0) rotate(359deg);
+        	}
+        }
+
+        @keyframes faSpinner {
+            0% {
+        		-webkit-transform: translate3d(-50%, -50%, 0) rotate(0deg);
+	                -ms-transform: translate3d(-50%, -50%, 0) rotate(0deg);
+	                    transform: translate3d(-50%, -50%, 0) rotate(0deg);
+        	}
+        	100% {
+        		-webkit-transform: translate3d(-50%, -50%, 0) rotate(359deg);
+	                -ms-transform: translate3d(-50%, -50%, 0) rotate(359deg);
+	                    transform: translate3d(-50%, -50%, 0) rotate(359deg);
+        	}
+        }
+
+
+	/* icon alternatives */
+	/* ------------------------------- */
+
+		.faSpinner.faSpinner-cog::before {
+			content: "\f013" !important;
+		}
+
+		.faSpinner.faSpinner-spinner::before {
+			content: "\f110" !important;
+		}
+
+		.faSpinner.faSpinner-circle::before {
+			content: "\f1ce" !important;
+		}
+
+	/* color */
+	/* ------------------------------- */
+
+		.faSpinner.faSpinner-white::before {
+			color: #FFFFFF;
+		}
+
+	/* Size */
+	/* ------------------------------- */
+
+		.faSpinner-xs::before   { font-size: 12px; }
+		.faSpinner-sm::before   { font-size: 18px; }
+		.faSpinner-md::before   { font-size: 24px; } /* default value */
+		.faSpinner-lg::before   { font-size: 36px; }
+		.faSpinner-xl::before   { font-size: 48px; }
+		.faSpinner-xxl::before  { font-size: 60px; }
+
+	/* Speed */
+	/* ------------------------------- */
+
+		.faSpinner.faSpinner-slow::before { -webkit-animation-duration: 1.5s; animation-duration: 1.5s; } 
+		.faSpinner.faSpinner-fast::before { -webkit-animation-duration:  .5s; animation-duration:  .5s; } 
+
+	/* For initial loading - placement on body */
+	/* ------------------------------- */
+
+		body.faSpinner:after {
+			position: fixed;
+			top: 0; left: 0;
+		}
+
+		body.faSpinner::before {
+			position: fixed;
+			left: 50vw; top: 50vh;
+		}

@@ -1,0 +1,112 @@
+
+	<!-- ===================== Route ================== -->
+	<script src="../../js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+	<style>
+		.demoItem::after {
+			content: '';
+			position: absolute;
+			top: 0; left: 0; right: 0; bottom: 0;
+			z-index: 2;
+		}
+		</style>
+	<!-- ============================================== -->
+
+	<article>
+
+		<header class="sr-only"> <h2> Image Hover Effects </h2> </header>
+
+		<div class="tabs article-mainTabs">
+
+			<div class="article-mainTabs-banner">
+				<div class="article-mainTabs-title"> Effects : Image Hover </div>
+
+				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
+					<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> Demo  </button>
+					<button class="tabs-btn" 				data-tabs-id="2"> Usage </button>
+					<button class="tabs-btn" 				data-tabs-id="3"> Code  </button>
+				</div>
+			</div>
+
+			<div class="tabs-contentGroup">
+
+				<!-- Demo Tab -->
+				<div class="tabs-content article-mainTabs-demoTab tab-expanded" data-tabs-id="1"> 
+					<div class="_route_mainView-generateDemos"> </div> 
+				</div>
+
+				<!-- Usage Tab -->
+				<div class="tabs-content article-mainTabs-usageTab" data-tabs-id="2"> 
+
+					<!-- I. Description -->
+
+						<section class="p-0" aria-label="general description">
+							<heading> <h2 class="section-title"> I. Description </h2> </heading>
+
+							<p> Collection of <button class="modal-btn" data-modal-id="utilityClasses">Utility Classes</button> which apply <b>hover effects</b> - tipically used for <span class="wrapper">image</span> elements. </p>
+						</section> 
+
+					<!-- II. Initialization -->
+
+						<section class="p-0" aria-label="initialization">
+							<heading> <h2 class="section-title"> II. Initialization </h2> </heading>
+
+							<p class="mb-0"> 
+								Download and refference the [ <b-p>asterisk-effects-imgHover.css</b-p> ] <span class="wrapper tooltip-before tooltip-top" data-tooltipText="* This will include all Styles / Features."></span> CSS file.
+
+								<button class="spoiler-btn spoiler-btn-autoText title-spoilerBtn" data-spoiler-id="init-more"> More | </button>
+							</p> 
+
+							<div class="wrapper"> 
+								<div class="col-12"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-effects-imgHover.css</b-p>" type="text/css" rel="stylesheet"> </div>
+							</div>
+
+							<div class="spoiler" data-spoiler-id="init-more">
+								<div class="spoiler-content">
+									<div class="col-12">
+
+										<p class="mt-sm"> 
+											<b>Alternatively</b>, a <span class="wrapper"><b-p>{*}</b-p><b-r>-spec</b-r><b-p>.css</b-p></span> file can be generated within the <b><span class="wrapper">[Code]</span> Tab</b> <span class="wrapper tooltip-before tooltip-right" data-tooltipText="Will include only the selected Styles/Features. &#13;&#10;───────────────────────────&#13;&#10; See button on the top-right of page."></span>
+										</p>
+										<div class="wrapper mt-0"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-effects-imgHover<b-r>-spec</b-r>.css</b-p>" type="text/css" rel="stylesheet"> </div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+					<!-- III. Usage -->
+
+						<section class="p-0" aria-label="usage">
+							<heading> <h2 class="section-title"> III. Usage </h2> </heading>
+
+							<div class="col-12 md-col-6 p-0">
+								<p> <b>Step 1.</b> Wrap the <span class="wrapper">image</span> in an <button class="modal-btn" data-modal-id="dummyParents">'Utility' Parent</button> </p>
+								<p> <b>Step 2.</b> Add one of the <span class="wrapper"><b>imgHvr</b>-<b-p>{effect}</b-p></span> on the <span class="wrapper">Parent</span>. </p>
+							</div>
+
+							<div class="col-12 md-col-6 p-0">
+								<div class="wrapper"> 
+									<p class="mt-xs mb-0"> &lt;div class="<b>imgHvr</b>-<b-p>zoomIn</b-p>"> <i class="comment xs-hidden">&lt;-- 'Utility' Parent --></i> </p>
+										<p class="mt-xs mb-0 pl-lg"> &lt;img src="insertImgSrc" /> <i class="comment xs-hidden">&lt;-- Image --></i> </p> 
+									<p class="my-xs"> &lt;/div> </p> 
+									</col-12>
+								</div>
+							</div>
+						</section>
+				</div>
+
+				<!-- Code Tab -->
+				<div class="tabs-content article-mainTabs-codeTab"  data-tabs-id="3"
+							data-generateCodeFor="['html', 'css']" 
+							data-setCopyContextId="imgHover" 
+							data-setFileName="asterisk-effects-imgHover">
+				</div>
+				
+			</div>
+		</div>
+	
+	</article>
+
+	<!-- ==================================================== -->
+	<div id="runScript" data-src="../../js/extra_scripts/effects/imgHover.js"> </div>
+	<!-- ==================================================== -->
