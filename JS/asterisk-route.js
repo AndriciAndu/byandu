@@ -150,17 +150,20 @@
 							.then(function(response) { return response.text() })
 								.then(function(text) {
 									eval(text);
+									routeObject.onPageLoad(); // default script that runs for all pages
 									setTimeout(function(){
 										routeObject.info.mainView.classList.remove('faSpinner', 'faSpinner-fast', 'faSpinner-lg')
 									}, 1)
 								})
 					} else {
+
+						routeObject.onPageLoad(); // default script that runs for all pages
+
 						setTimeout(function(){
 							routeObject.info.mainView.classList.remove('faSpinner', 'faSpinner-fast', 'faSpinner-lg')
 						}, 1)
 					};
 
-					routeObject.onPageLoad(); // default script that runs for all pages
 				};
 
 			// Load Page

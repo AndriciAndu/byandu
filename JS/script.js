@@ -1,30 +1,126 @@
-/*
-	// sideNav - 
-	(function(){ 
 
-		var categoriesItems = Array.from(document.getElementsByClassName('__route__categories-item'));
-		var articleGroups 	= Array.from(document.getElementsByClassName('__route__articles-itemGroup'));
+	var byAndu = {};
 
-		categoriesItems.map(function(categoryItem){
+	byAndu.pageConfigObj_resetObj = function() {
 
-			var identifier = categoryItem.getAttribute('data-category');
+		byAndu_pageConfigObj = {
 
-			// link the adequate [category-item] to it's [articleGroup]
-			articleGroups.map(function(item){
-				if (item.getAttribute('data-category') == identifier) { categoryItem.__route__targetArticleGroup = item }
+			html : {
+				generate_tab        : false , // boolean : [true] will generate the [code tab] 
+				generate_checkBoxes : false , // false || [array of strings]
+				generate_codeBlocks : false   // false || [array of objects]
+			} ,
+
+			css : {
+				generate_tab        : false ,
+				generate_checkBoxes : false ,
+				generate_codeBlocks : false 
+			} ,
+
+			css_singular : {
+				generate_tab        : false ,
+				generate_checkBoxes : false ,
+				generate_codeBlocks : false 
+			} ,
+
+			js : {
+				generate_tab        : false ,
+				generate_checkBoxes : false ,
+				generate_codeBlocks : false 
+			} ,
+
+			searchBox_removeString : '' , // string
+			demoItems_codeLink : null     // refference to [code block] array
+		}
+	};
+
+	/*
+		paramObj = {
+
+			checkBoxes : {
+				[scenario = css] : [refference array] (strings)
+				[scenario = js]  : [refference array] (strings)
+			} ,
+
+			codeBlocks : {
+				[scenario = css] : [refference array] (objects)
+				[scenario = js]  : [refference array] (objects)
+			} ,
+
+			removeString : 'string' , 
+			demoItems_codeLink : [refference array] (objects)
+		}
+		*/
+
+	// sets up the [byAndu_pageConfigObj] - will be later used to generate HTML and etc
+	byAndu.pageConfigObj_setupObj = function( paramObj ) {
+
+		byAndu.pageConfigObj_resetObj();
+
+		var codeTab = document.getElementsByClassName('article-mainTabs-codeTab')[0];
+		var codeOptions = codeTab.getAttribute('data-generateCodeFor');
+
+		if (codeOptions) {
+
+			codeOptions = JSON.parse(codeOptions.replace(/'/g, '"')); 
+			var pageConfigObj = byAndu_pageConfigObj;
+
+			// sets what items will be generated within [byAndu.codeTab_generateBaselineHTML()]
+			// kept separate from the other [check] - in case the code to be generated has not been added yet (article still in development)
+			codeOptions.map(function(item){
+				switch (item) {
+					case 'html' 		:  pageConfigObj.html         .generate_tab = true ; break;
+					case 'css' 			:  pageConfigObj.css          .generate_tab = true ; break;
+					case 'css-singular' :  pageConfigObj.css_singular .generate_tab = true ; break;
+					case 'js' 			:  pageConfigObj.js           .generate_tab = true ; break;
+					default : console.log('Invalid [data-generateCodeFor] param: ' + item)
+				}
 			});
 
-			// hover event listeners
-			categoryItem.addEventListener('mouseenter', function(){
-				articleGroups.map(item => item.classList.add('hidden'))
-				this.__route__targetArticleGroup.classList.remove('hidden')
-			});
+			if (paramObj) {
 
-		});
+				pageConfigObj.html         .generate_checkBoxes = paramObj.checkBoxes.html         || false ;
+				pageConfigObj.css          .generate_checkBoxes = paramObj.checkBoxes.css          || false ;
+				pageConfigObj.css_singular .generate_checkBoxes = paramObj.checkBoxes.css_singular || false ;
+				pageConfigObj.js           .generate_checkBoxes = paramObj.checkBoxes.js           || false ;
 
-	})();
-*/
-	function byAndu_generateHTML_forCodeTab() {
+				pageConfigObj.html         .generate_codeBlocks = paramObj.codeBlocks.html         || false ;
+				pageConfigObj.css          .generate_codeBlocks = paramObj.codeBlocks.css          || false ;
+				pageConfigObj.css_singular .generate_codeBlocks = paramObj.codeBlocks.css_singular || false ;
+				pageConfigObj.js           .generate_codeBlocks = paramObj.codeBlocks.js           || false ;
+
+				pageConfigObj.removeString       = paramObj.removeString       || ''   ;
+				pageConfigObj.demoItems_codeLink = paramObj.demoItems_codeLink || null ;
+			}
+		};
+	};
+
+	byAndu.pageConfigObj_runConfig = function() {
+
+		// generate basline HTML (markup scheleton - tabs)
+		byAndu.codeTab_generateBaselineHTML();
+
+		// if provided with [object] - create checkboxes
+		var pageConfigObj = byAndu_pageConfigObj;
+
+		var removeString = pageConfigObj.searchBox_removeString || '';
+
+		var cb_html  = pageConfigObj.html         .generate_checkBoxes ; if (cb_html)  { byAndu.codeTab_generateCheckboxes('html'         , cb_html  , removeString) };
+		var cb_css   = pageConfigObj.css          .generate_checkBoxes ; if (cb_css)   { byAndu.codeTab_generateCheckboxes('css'          , cb_css   , removeString) };
+		var cb_css_s = pageConfigObj.css_singular .generate_checkBoxes ; if (cb_css_s) { byAndu.codeTab_generateCheckboxes('css-singular' , cb_css_s , removeString) };
+		var cb_js    = pageConfigObj.js           .generate_checkBoxes ; if (cb_js)    { byAndu.codeTab_generateCheckboxes('js'           , cb_js    , removeString) };
+
+		// initialize checkboxes
+		byAndu.codeTab_initCheckboxes();
+
+		// generate codeBlocks
+		var xcb_html  = pageConfigObj.html         .generate_codeBlocks ; if (xcb_html)  { byAndu_codeBlock_generateInnerHTML(xcb_html  , 'html'        ) };
+		var xcb_css   = pageConfigObj.css          .generate_codeBlocks ; if (xcb_css)   { byAndu_codeBlock_generateInnerHTML(xcb_css   , 'css'         ) };
+		var xcb_css_s = pageConfigObj.css_singular .generate_codeBlocks ; if (xcb_css_s) { byAndu_codeBlock_generateInnerHTML(xcb_css_s , 'css-singular') };
+		var xcb_js    = pageConfigObj.js           .generate_codeBlocks ; if (xcb_js)    { byAndu_codeBlock_generateInnerHTML(xcb_js    , 'js'          ) };
+	};
+
+	byAndu.codeTab_generateBaselineHTML = function() {
 
 		var codeTab = document.getElementsByClassName('article-mainTabs-codeTab')[0];
 
@@ -42,98 +138,81 @@
 
 			var tabBtn_html 			= '<button class="tabs-btn" data-tabs-id="1"> HTML Template </button>'	;
 			var tabBtn_css  			= '<button class="tabs-btn" data-tabs-id="2"> CSS </button>'			;
-			var tabBtn_css_singular  	= '<button class="tabs-btn" data-tabs-id="3"> CSS - Singular </button>';
+			var tabBtn_css_singular  	= '<button class="tabs-btn" data-tabs-id="3"> CSS - Singular </button>' ;
 			var tabBtn_js   			= '<button class="tabs-btn" data-tabs-id="4"> JS  </button>' 			;
 
 			var tabContent_html = 
-				'<!-- HTML --> '																					+
-					'<div class="tabs-content tab-expanded pr-0 finalCode-container" data-tabs-id="1"> '			+
+				'<!-- HTML --> '																								+
+					'<div class="tabs-content tab-expanded pr-0 codeTab-wrapper codeTab-hasSearch" data-tabs-id="1"> '			+
 
-						'<div class="col-3 finalCode-radio-container finalCode-radio-container-html"></div> '		+
+						'<div class="codeTab-searchBox-wrapper" data-searchBox-code="html"></div> '	+
 
-						'<div class="col-9 p-0 border-left"> '														+
-
-							'<div class="copyContext-btnContainer" data-copyContextId="'+copyContextId+'-html"> '	+
-								'<button class="copyContext-btn copyContext-btn-copyText"> </button> '				+
-							'</div> '																				+
-
-							'<div class="copyContext" data-copyContextId="'+copyContextId+'-html"> '				+
-								'<div class="finalCode-blockContainer finalCode-blockContainer-html"></div> '		+
-							'</div> '																				+
-
-						'</div> '																					+
-
-					'</div> '																						;
+						'<div class="codeTab-codeSection-wrapper"> '															+
+							'<div class="copyContext-btnContainer" data-copyContextId="'+copyContextId+'-html"> '				+
+								'<button class="copyContext-btn copyContext-btn-copyText"> </button> '							+
+							'</div> '																							+
+							'<div class="copyContext" data-copyContextId="'+copyContextId+'-html"> '							+
+								'<div id="codeSection-html" class="codeTab-codeSection" data-code="html"></div> '										+
+							'</div> '																							+
+						'</div> '																								+
+					'</div> '																									;
 			
 			var tabContent_css  = 
-				'<!-- CSS --> '																						+
-					'<div class="tabs-content pr-0 finalCode-container" data-tabs-id="2"> '							+
+				'<!-- CSS --> '																									+
+					'<div class="tabs-content pr-0 codeTab-wrapper codeTab-hasSearch" data-tabs-id="2"> '						+
 
-						'<div class="col-3 finalCode-checkbox-container finalCode-checkbox-container-css"> </div> '	+
+						'<div class="codeTab-searchBox-wrapper" data-searchBox-code="css"> </div> '	+
 
-						'<div class="col-9 p-0 border-left"> '														+
-
-							'<div class="copyContext-btnContainer" data-copyContextId="'+copyContextId+'-css"> '	+
-								'<button class="copyContext-btn copyContext-btn-copyText"> </button> '				+
-								'<button class="copyContext-btn copyContext-btn-saveFile" ' 						+
-										'data-fileName="'+fileName+'-spec" data-fileType=".css"> </button> '		+
-								'<button class="copyContext-btn copyContext-btn-showLightbox"> </button> '			+
-							'</div> '																				+
-
-							'<div class="copyContext" data-copyContextId="'+copyContextId+'-css"> '					+
-								'<div class="finalCode-blockContainer finalCode-blockContainer-css"></div> '		+
-							'</div> '																				+
-
-						'</div> '																					+
-
-					'</div> '																						;
+						'<div class="codeTab-codeSection-wrapper"> '															+
+							'<div class="copyContext-btnContainer" data-copyContextId="'+copyContextId+'-css"> '				+
+								'<button class="copyContext-btn copyContext-btn-copyText"> </button> '							+
+								'<button class="copyContext-btn copyContext-btn-saveFile" ' 									+
+										'data-fileName="'+fileName+'-spec" data-fileType=".css"> </button> '					+
+								'<button class="copyContext-btn copyContext-btn-showLightbox"> </button> '						+
+							'</div> '																							+
+							'<div class="copyContext" data-copyContextId="'+copyContextId+'-css"> '								+
+								'<div id="codeSection-css" class="codeTab-codeSection" data-code="css"></div> '										+
+							'</div> '																							+
+						'</div> '																								+
+					'</div> '																									;
 
 			var tabContent_css_singular  = 
-				'<!-- CSS --> '																								+
-					'<div class="tabs-content pr-0 finalCode-container" data-tabs-id="3"> '									+
+				'<!-- CSS --> '																										+
+					'<div class="tabs-content pr-0 codeTab-wrapper codeTab-hasSearch" data-tabs-id="3"> '							+
 
-						'<div class="col-3 finalCode-radio-container finalCode-radio-container-css-singular"> </div> '		+
+						'<div class="codeTab-searchBox-wrapper" data-searchBox-code="css-singular"> </div> '						+
 
-						'<div class="col-9 p-0 border-left"> '																+
-
-							'<div class="copyContext-btnContainer" data-copyContextId="'+copyContextId+'-css-singular"> '	+
-								'<button class="copyContext-btn copyContext-btn-copyText"> </button> '						+
-								'<button class="copyContext-btn copyContext-btn-saveFile" ' 								+
-										'data-fileName="'+fileName+'-spec" data-fileType=".css"> </button> '				+
-								'<button class="copyContext-btn copyContext-btn-showLightbox"> </button> '					+
-							'</div> '																						+
-
-							'<div class="copyContext" data-copyContextId="'+copyContextId+'-css-singular"> '				+
-								'<div class="finalCode-blockContainer finalCode-blockContainer-css-singular"></div> '		+
-							'</div> '																						+
-
-						'</div> '																							+
-
-					'</div> '																								;
-
+						'<div class="codeTab-codeSection-wrapper"> '																+
+							'<div class="copyContext-btnContainer" data-copyContextId="'+copyContextId+'-css-singular"> '			+
+								'<button class="copyContext-btn copyContext-btn-copyText"> </button> '								+
+								'<button class="copyContext-btn copyContext-btn-saveFile" ' 										+
+										'data-fileName="'+fileName+'-spec" data-fileType=".css"> </button> '						+
+								'<button class="copyContext-btn copyContext-btn-showLightbox"> </button> '							+
+							'</div> '																								+
+							'<div class="copyContext" data-copyContextId="'+copyContextId+'-css-singular"> '						+
+								'<div id="codeSection-css-singular" class="codeTab-codeSection" data-code="css-singular"></div> '	+
+							'</div> '																								+
+						'</div> '																									+
+					'</div> '																										;
 
 			var tabContent_js   = 
-				'<!-- JS --> '																											+
-					'<div class="tabs-content pr-0 finalCode-container" data-tabs-id="4"> '												+
+				'<!-- JS --> '																									+
+					'<div class="tabs-content pr-0 codeTab-wrapper codeTab-hasSearch" data-tabs-id="4"> '						+
 
-						'<div class="col-3 finalCode-checkbox-container finalCode-checkbox-container-js" '+includeDepString+'> </div> '	+
+						'<div class="codeTab-searchBox-wrapper" data-searchBox-code="js" '+includeDepString+'> </div> '			+
 
-						'<div class="col-9 p-0 border-left"> '																			+
-
-							'<div class="copyContext-btnContainer" data-copyContextId="'+copyContextId+'-js"> '							+
-								'<button class="copyContext-btn copyContext-btn-copyText"> </button> '									+
-								'<button class="copyContext-btn copyContext-btn-saveFile" '												+
-										'data-fileName="'+fileName+'-spec" data-fileType=".js"> </button> '								+
-								'<button class="copyContext-btn copyContext-btn-showLightbox"> </button> '								+
-							'</div> '																									+
-
-							'<div class="copyContext" data-copyContextId="'+copyContextId+'-js"> '										+
-								'<div class="finalCode-blockContainer finalCode-blockContainer-js"></div> '								+
-							'</div> '																									+
-
-						'</div> '																										+
-
-					'</div> '																											;
+						'<div class="codeTab-codeSection-wrapper"> '															+
+							'<div class="copyContext-btnContainer" data-copyContextId="'+copyContextId+'-js"> '					+
+								'<button class="copyContext-btn copyContext-btn-copyText"> </button> '							+
+								'<button class="copyContext-btn copyContext-btn-saveFile" '										+
+										'data-fileName="'+fileName+'-spec" data-fileType=".js"> </button> '						+
+								'<button class="copyContext-btn copyContext-btn-showLightbox"> </button> '						+
+							'</div> '																							+
+							'<div class="copyContext" data-copyContextId="'+copyContextId+'-js"> '								+
+								'<div id="codeSection-js" class="codeTab-codeSection" data-code="js"></div> '					+
+							'</div> '																							+
+						'</div> '																								+
+					'</div> '																									;
 
 		// Generate innerHTML
 		// --------------------------------
@@ -148,178 +227,157 @@
 			var codeTab_tabs_btnGroup 	  = codeTab.getElementsByClassName('tabs-btnGroup')    [0];
 			var codeTab_tabs_contentGroup = codeTab.getElementsByClassName('tabs-contentGroup')[0];
 
-			var codeOptions = JSON.parse(codeTab.getAttribute('data-generateCodeFor').replace(/'/g, '"')); // create array from JSON-array string
+			if (byAndu_pageConfigObj.html.generate_tab) {
+				codeTab_tabs_btnGroup    .insertAdjacentHTML('beforeend', tabBtn_html);
+				codeTab_tabs_contentGroup.insertAdjacentHTML('beforeend', tabContent_html);
+			};
 
-			codeOptions.map(function(item){
-				switch (item) {
-					case 'html' : 
-						codeTab_tabs_btnGroup    .insertAdjacentHTML('beforeend', tabBtn_html);
-						codeTab_tabs_contentGroup.insertAdjacentHTML('beforeend', tabContent_html);
-						break;
-					case 'css' :  
-						codeTab_tabs_btnGroup    .insertAdjacentHTML('beforeend', tabBtn_css);
-						codeTab_tabs_contentGroup.insertAdjacentHTML('beforeend', tabContent_css);
-						break;
-					case 'css-singular' :  
-						codeTab_tabs_btnGroup    .insertAdjacentHTML('beforeend', tabBtn_css_singular);
-						codeTab_tabs_contentGroup.insertAdjacentHTML('beforeend', tabContent_css_singular);
-						break;
-					case 'js' :  
-						codeTab_tabs_btnGroup    .insertAdjacentHTML('beforeend', tabBtn_js);
-						codeTab_tabs_contentGroup.insertAdjacentHTML('beforeend', tabContent_js);
-						break;
-					default : console.log('Invalid [data-generateCodeFor] param: ' + item)
-				}
-			});
+			if (byAndu_pageConfigObj.css.generate_tab) {
+				codeTab_tabs_btnGroup    .insertAdjacentHTML('beforeend', tabBtn_css);
+				codeTab_tabs_contentGroup.insertAdjacentHTML('beforeend', tabContent_css);
+			};
 
-			codeTab.getElementsByClassName('tabs-btn')[0].classList.add('tabBtn-active');
-			codeTab.getElementsByClassName('tabs-content')[0].classList.add('tab-expanded');
+			if (byAndu_pageConfigObj.css_singular.generate_tab) {
+				codeTab_tabs_btnGroup    .insertAdjacentHTML('beforeend', tabBtn_css_singular);
+				codeTab_tabs_contentGroup.insertAdjacentHTML('beforeend', tabContent_css_singular);
+			};
 
-		// Intermediary htmlGenerators
-		// --------------------------------
+			if (byAndu_pageConfigObj.js.generate_tab) {
+				codeTab_tabs_btnGroup    .insertAdjacentHTML('beforeend', tabBtn_js);
+				codeTab_tabs_contentGroup.insertAdjacentHTML('beforeend', tabContent_js);
+			};
 
+			var firstTabBtn     = codeTab.getElementsByClassName('tabs-btn')    [0];
+			var firstTabContent = codeTab.getElementsByClassName('tabs-content')[0];
+			if (firstTabBtn)     { firstTabBtn    .classList.add('tabBtn-active') };
+			if (firstTabContent) { firstTabContent.classList.add('tab-expanded')  };
 	};
 
-	// Checkboxes 										- Kept separated cause they require the effectsArray as an param
+	// Checkboxes - Kept separated cause they require the itemsArray as an param
 	// --------------------------------
 
 		// Generate checkboxes + search + checkbox Buttons - goTo | highlight
 		// --------------------------------
 
-			function byAndu_finalCode_generateCheckboxes(areaIdentifier, effectsArray, effectsIdentifier) {
+			byAndu.codeTab_generateCheckboxes = function(areaIdentifier, itemsArray, effectsIdentifier) {
 
-				var targetArea;
-				if 		(areaIdentifier === 'css') { targetArea = document.getElementsByClassName('finalCode-checkbox-container-css')[0] }
-				else if (areaIdentifier === 'js' ) { targetArea = document.getElementsByClassName('finalCode-checkbox-container-js') [0] };
+				// get the adequate [code-tab] [searchBox-wrapper]
+				var searchBox_wrappers = Array.from(document.getElementsByClassName('codeTab-searchBox-wrapper'));
+				var targetArea = searchBox_wrappers.find(item => item.getAttribute('data-searchBox-code') == areaIdentifier);
 
-				targetArea.innerHTML = 
-				'<row class="finalCode-checkbox-globalSelect-container">' 																	+
-					'<span class="finalCode-checkbox-globalSelect-title"> Include: </span> ' 												+
-					'<div  class="finalCode-checkbox-globalSelect-btnContainer">'															+
-						'<button class="finalCode-checkbox-globalSelect-btn" data-selectItems="all">  All  </button> '						+
-						'<button class="finalCode-checkbox-globalSelect-btn" data-selectItems="none"> None </button> '						+
-					'</div> '																												+
-					'<div  class="finalCode-checkbox-searchBox"> '																			+
-						'<input  class="finalCode-checkbox-searchBox-input" type="text" placeholder="Search" data-category="checkbox"/> '	+
-						'<button class="finalCode-checkbox-searchBox-clearBtn fa fa-times"> </button> '										+
-					'</div> '																												+
-				'</row> '																													+
-				'<div class="finalCode-checkbox-innerContainer"> </div>' 																	;
+				// generate baseline html for [searchBox-wrapper]
+				var searchBox_type = null;
+				if 		(areaIdentifier == 'html' || areaIdentifier == 'css-singular') { searchBox_type = 'radio' }
+				else if (areaIdentifier == 'css'  || areaIdentifier == 'js')           { searchBox_type = 'check' };
 
-				targetArea = targetArea.getElementsByClassName('finalCode-checkbox-innerContainer')[0];
+				if (searchBox_type == 'check') {
+
+					targetArea.innerHTML = 
+						'<div class="col-12 p-0 searchBox-overallSelect-wrapper"> '													+
+							'<div class="searchBox-overallSelect-title"> Include: </div> '											+
+							'<div class="searchBox-overallSelect-btnGroup"> '														+
+								'<button class="searchBox-overallSelect-btn" data-selectItems="all">  All  </button> '				+
+								'<button class="searchBox-overallSelect-btn" data-selectItems="none"> None </button> '				+
+							'</div> '																								+
+						'</div> '																									+
+
+						'<div class="col-12 p-0 searchBox-search-wrapper"> '														+
+							'<input  class="searchBox-search-input" type="text" placeholder="Search" data-category="checkbox"/> '	+
+							'<button class="searchBox-search-clearBtn fa fa-times"> </button> '										+
+						'</div> '																									+
+
+						'<div class="col-12 p-0 searchBox-results-wrapper"> </div> '												;
+
+				} else if (searchBox_type == 'radio') {
+
+					targetArea.innerHTML = 
+						'<div class="col-12 searchBox-search-wrapper"> '															+
+							'<input class ="searchBox-search-input" type="text" placeholder="Search" data-category="radio"/> '		+
+							'<button class="searchBox-search-clearBtn fa fa-times"> </button> '										+
+						'</div> '																									+
+
+						'<div class="col-12 searchBox-results-wrapper"> </div> '													;
+				};
+
+				// generate actual checkboxes within [searchBox-wrapper] > [results-wrapper]
+				targetArea = targetArea.getElementsByClassName('searchBox-results-wrapper')[0];
 
 				if (targetArea.parentElement.getAttribute('data-includeDependencies')) { generate_innerHTML(targetArea, 'dependencies') };
 
-				if (effectsArray) {
+				if (itemsArray) {
 
-					effectsArray.map(function(effect) {
+					if (searchBox_type == 'check') {
 
-						if (effectsIdentifier) {
+						itemsArray.map(function(effect) {
 
-							if (effect.indexOf(effectsIdentifier) > -1) { 
+							if (effect != '~~line-break') {
 
-								generate_innerHTML(targetArea, effect) 
+								// Generate Titles
+								if (effect.indexOf('~~title: ') > -1) {
 
-							} else if (effect != '~~line-break') {
+									var newElem = document.createElement('row');
+									newElem.classList = 'p-0 text-bold mt-sm';
+									newElem.innerHTML = '// '+effect.replace('~~title: ','');
+									targetArea.appendChild(newElem);
 
-								var newElem = document.createElement('row');
-								newElem.classList = 'p-0 text-bold mt-sm';
-								newElem.innerHTML = '// '+effect;
+								// Generate Checkboxes
+								} else {
 
-								targetArea.appendChild(newElem);
+									var newElem = document.createElement('div');
+									newElem.classList = 'col-12 finalCode-checkbox-parent';
+									newElem.innerHTML = 
+										'<input class="finalCode-checkbox finalCode-checkbox-'+effect+'" type="checkbox" checked="checked" ' +
+												'data-finalCodeId="'+effect+'"> '+effect.replace(effectsIdentifier, '')+' ' 				 +
+										'<button class="finalCode_checkbox_btn_goto"> </button> ' 											 +
+										'<button class="finalCode_checkbox_btn_highlight"> </button> '										 ;
+									targetArea.appendChild(newElem);
+								}
 							}
+						});
 
-						} else {  generate_innerHTML(targetArea, effect) }
-					})
-				};
+					} else if (searchBox_type == 'radio') {
 
-				// Intermediary 
-				// --------------------------------
+						itemsArray.map(function(effect) {
 
-					function generate_innerHTML(targetArea, effect) {
+							if (effect != '~~line-break') {
 
-						var newElem = document.createElement('row');
+								// Generate Titles
+								if (effect.indexOf('~~title: ') > -1) {
 
-						newElem.classList = 'finalCode-checkbox-parent pl-0';
-						newElem.innerHTML = 
-							'<input class="finalCode-checkbox finalCode-checkbox-'+effect+'" type="checkbox" checked="checked" ' +
-									'data-finalCodeId="'+effect+'"> '+effect.replace(effectsIdentifier, '')+' ' 				 +
-							'<button class="finalCode_checkbox_btn_goto"> </button> ' 											 +
-							'<button class="finalCode_checkbox_btn_highlight"> </button> '										 ;
-						
-						targetArea.appendChild(newElem);
+									var newElem = document.createElement('row');
+									newElem.classList = 'p-0 text-bold mt-sm';
+									newElem.innerHTML = '// '+effect.replace('~~title: ','');
+									targetArea.appendChild(newElem);
 
+								// Generate Checkboxes
+								} else {
+
+									var newElem = document.createElement('row');
+									newElem.classList = 'finalCode-radio-parent pl-0';
+									newElem.innerHTML = 
+										'<input class="finalCode-radioSelect finalCode-radioSelect-'+effect+'" '						+
+										'type="radio" name="finalCode-radioSelect-'+areaIdentifier+'" data-finalCodeId="'+effect+'"> '	+
+											effect.replace(effectsIdentifier, '') + ' '													;
+									targetArea.appendChild(newElem);
+								}
+							}
+						});
+
+						targetArea.getElementsByClassName('finalCode-radioSelect')[0].checked = true;
 					};
-			};
-
-		// Generate radioButtons
-		// --------------------------------
-
-			function byAndu_finalCode_generateRadioSelects(areaIdentifier, effectsArray, effectsIdentifier) {
-
-				var targetArea;
-				if 		(areaIdentifier === 'html') 		 { targetArea = document.getElementsByClassName('finalCode-radio-container-html')[0] 			}
-				else if (areaIdentifier === 'css-singular' ) { targetArea = document.getElementsByClassName('finalCode-radio-container-css-singular') [0] 	};
-
-				targetArea.innerHTML = 
-					'<row class="finalCode-checkbox-globalSelect-container">' 											+
-						'<span class="finalCode-checkbox-globalSelect-title"> Generate: </span> ' 						+
-						'<div  class="finalCode-checkbox-searchBox"> '													+
-							'<input  class="finalCode-checkbox-searchBox-input" type="text" placeholder="Search" data-category="radio"/> '		+
-							'<button class="finalCode-checkbox-searchBox-clearBtn fa fa-times"> </button> '				+
-						'</div> '																						+
-					'</row> '																							+
-					'<div class="finalCode-checkbox-innerContainer"> </div>' 											;
-
-				targetArea = targetArea.getElementsByClassName('finalCode-checkbox-innerContainer')[0];
-
-				effectsArray.map(function(effect) {
-
-					if (effectsIdentifier) {
-
-						if (effect.indexOf(effectsIdentifier) > -1) { generate_innerHTML(targetArea, effect) } 
-
-						else if (effect != '~~line-break') {
-
-							var newElem = document.createElement('row');
-							newElem.classList = 'p-0 text-bold mt-sm';
-							newElem.innerHTML = '// '+effect;
-
-							targetArea.appendChild(newElem);
-						}
-
-					} else { generate_innerHTML(targetArea, effect) }
-
-				});
-
-				targetArea.getElementsByClassName('finalCode-radioSelect')[0].checked = true;
-
-				// Intermediary 
-				// --------------------------------
-
-					function generate_innerHTML(targetArea, effect) {
-
-						var newElem = document.createElement('row');
-
-						newElem.classList = 'finalCode-radio-parent pl-0';
-						newElem.innerHTML = 
-							'<input class="finalCode-radioSelect finalCode-radioSelect-'+effect+'" type="radio" name="finalCode-radioSelect-'+areaIdentifier+'" data-finalCodeId="'+effect+'"> '+effect.replace(effectsIdentifier, '')+' ';
-						
-						targetArea.appendChild(newElem);
-
-					}
+				};
 			};
 
 		// select/deselect all - functionality
 		// --------------------------------
 
-			function byAndu_finalCode_checkboxGlobalUpdate(currentBtn) {
+			byAndu.codeTab_checkbox_globalUpdate = function(currentBtn) {
 
-				var current_codeScope = getParent(currentBtn, '.finalCode-container'); 
+				var current_codeScope = getParent(currentBtn, '.codeTab-wrapper'); 
 				var checkboxes = Array.from(current_codeScope.getElementsByClassName('finalCode-checkbox'));
 				var codeBlocks = Array.from(current_codeScope.getElementsByClassName('finalCode-block'));
 
-				var codeBlocks_container = current_codeScope.getElementsByClassName('finalCode-blockContainer')[0];
+				var codeBlocks_container = current_codeScope.getElementsByClassName('codeTab-codeSection')[0];
 
 				switch (currentBtn.getAttribute('data-selectItems')) {
 					case 'all'  : 
@@ -333,19 +391,18 @@
 						codeBlocks_container.classList.add('hidden');
 						break;
 				}
-
 			};
 
 		// searchBox functionality
 		// --------------------------------
 
-			function byAndu_finalCode_searchBox_run(targetInput) {
+			byAndu.codeTab_searchBox_run = function(targetInput) {
 
 				var current_value 	= targetInput.value.toLowerCase();
 				var identifier 		= targetInput.getAttribute('data-category');
 				var container 		= getParent(targetInput, '.finalCode-'+identifier+'-container');
 
-				targetArea = container.getElementsByClassName('finalCode-checkbox-innerContainer')[0];
+				targetArea = container.getElementsByClassName('searchBox-results-wrapper')[0];
 				targetArea.classList.add('faSpinner', 'faSpinner-fast');
 
 				var targets 		= Array.from(container.getElementsByClassName('finalCode-'+identifier+'-parent'));
@@ -359,10 +416,9 @@
 				});
 
 				setTimeout(function(){ targetArea.classList.remove('faSpinner', 'faSpinner-fast')}, 0);
-
 			};
 
-			function byAndu_finalCode_searchBox_clear(targetBtn) {
+			byAndu.codeTab_searchBox_clear = function(targetBtn) {
 
 				var targetInput = targetBtn.parentElement.getElementsByClassName('finalCode-checkbox-searchBox-input')[0];
 				targetInput.value = '';
@@ -372,12 +428,13 @@
 				var targets 		= Array.from(container.getElementsByClassName('finalCode-'+identifier+'-parent'));
 
 				targets.map(item => item.classList.remove('hidden'));
-			}
+			};
 
 		// checkbox Functionality
 		// --------------------------------
 
-			function byAndu_finalCode_initCheckboxes() {
+			byAndu.codeTab_initCheckboxes = function() {
+
 				document.getElementsByClassName('article-mainTabs-codeTab')[0].addEventListener('change', function(e){
 
 					var target = e.target;
@@ -387,7 +444,7 @@
 						var identifier 	 	= target.getAttribute('data-finalCodeId');
 						var target_class 	= 'finalCode-block-' + identifier;
 
-						var current_codeScope 	= getParent(target, '.finalCode-container'); 
+						var current_codeScope 	= getParent(target, '.codeTab-wrapper'); 
 						var codeBlocks_target  	= current_codeScope.getElementsByClassName(target_class)[0];
 
 						if (target.checked) { 
@@ -408,7 +465,7 @@
 						if (codeSelects.length > 0) { codeSelects.map(function(item){ if (item.checked) { all_hidden = false } }) }
 						else { all_hidden = false }; // for the scenario where only the [dependencies] checkbox is present, with no other code show/hide options present
 
-						var codeBlocks_container = current_codeScope.getElementsByClassName('finalCode-blockContainer')[0];
+						var codeBlocks_container = current_codeScope.getElementsByClassName('codeTab-codeSection')[0];
 
 						if (all_hidden) { codeBlocks_container.classList.add   ('hidden') } 
 						else 			{ codeBlocks_container.classList.remove('hidden') }
@@ -421,30 +478,30 @@
 		// checkbox-Buttons Functionality - goTo | highlight
 		// --------------------------------
 
-			function byAndu_checkboxContainer_goTo_run(targetBtn) {
+			byAndu.checkboxBtn_goTo = function(targetBtn) {
 
 				if (!hasClass(targetBtn, 'disabled')) { 
 
 					var identifier 	 	= targetBtn.parentElement.getElementsByClassName('finalCode-checkbox')[0].getAttribute('data-finalCodeId');
 					var target_class 	= 'finalCode-block-' + identifier;
 
-					var current_codeScope 	= getParent(targetBtn, '.finalCode-container'); 
+					var current_codeScope 	= getParent(targetBtn, '.codeTab-wrapper'); 
 					var codeBlocks_targeted = Array.from(current_codeScope.getElementsByClassName(target_class));
 
 					codeBlocks_targeted.map(function(item){
-						scrollElementTo(getParent(item, '.finalCode-blockContainer'), item, 0)
+						scrollElementTo(getParent(item, '.codeTab-codeSection'), item, 0)
 					})
 				} 
 			};
 
-			function byAndu_checkboxContainer_highlight_run(targetBtn) {
+			byAndu.checkboxBtn_highlight = function(targetBtn) {
 
 				if (!hasClass(targetBtn, 'disabled')) {
 
 					var identifier 	 	= targetBtn.parentElement.getElementsByClassName('finalCode-checkbox')[0].getAttribute('data-finalCodeId');
 					var target_class 	= 'finalCode-block-' + identifier;
 
-					var current_codeScope 	= getParent(targetBtn, '.finalCode-container'); 
+					var current_codeScope 	= getParent(targetBtn, '.codeTab-wrapper'); 
 					var codeBlocks_all 		= Array.from(current_codeScope.getElementsByClassName('finalCode-block'));
 					var codeBlocks_targeted = Array.from(current_codeScope.getElementsByClassName(target_class));
 
@@ -456,46 +513,19 @@
 		// radioButtons Functionality
 		// --------------------------------
 
-			function byAndu_radioContainer_run(target) {
+			byAndu.radio_run = function(target) {
 
 				var current_radio = target.getElementsByClassName('finalCode-radioSelect')[0];
 
 				current_radio.click();
 
 				var identifier = current_radio.getAttribute('data-finalCodeId');
-				var current_codeScope 	= getParent(target, '.finalCode-container'); 
+				var current_codeScope 	= getParent(target, '.codeTab-wrapper'); 
 				var codeBlocks_all 		= Array.from(current_codeScope.getElementsByClassName('finalCode-block'));
 
 				codeBlocks_all.map(item => item.classList.add('hidden'));
 				current_codeScope.getElementsByClassName('finalCode-block-'+identifier)[0].classList.remove('hidden');
 			};
-
-
-// ShowFileCode Test
-
-/*	console.log(fetchHTML)
-
-	function byAndu_getFileCode(target) {
-
-		var lightbox = document.createElement('div');
-		lightbox.classList = 'copyContext-lightbox';
-		lightbox.innerHTML = 
-		'<div class="copyContext-lightbox-underlay"> </div> ' +
-		'<pre class="copyContext-lightbox-textContainer"></pre>';
-
-		document.body.appendChild(lightbox);
-
-		lightbox.getElementsByClassName('copyContext-lightbox-underlay')[0].addEventListener('click', function(){
-			this.parentElement.parentElement.removeChild(this.parentElement)
-		});
-
-		console.log(target.getAttribute('data-fileSrc'))
-
-		//var filePath = target.getAttribute('data-fileSrc');
-		//lightbox.innerHTML = fetchHTML(filePath).replace(/</g, '&lt;');
-	};*/
-
-	var byAndu_current_codeSnippets;
 
 	function byAndu_codeSnippetModal_generateCode(elem) {
 
@@ -504,7 +534,7 @@
 		if (hasClass(elem, 'demoItem-container')) 	{ targetValue = elem.getAttribute('data-finalCodeId') } 
 		else 										{ targetValue = getParent(elem , '.demoItem-container').getAttribute('data-finalCodeId') };
 
-		var targetObj = byAndu_current_codeSnippets.filter(item => item.name == targetValue)[0];
+		var targetObj = byAndu_pageConfigObj.demoItems_codeLink.filter(item => item.name == targetValue)[0];
 
 		if (targetObj) { 
 			document.getElementById('byAndu-codeSnippetModal-code').innerHTML = targetObj.code;
@@ -513,6 +543,42 @@
 
 		return false 
 	};
+
+	// Remove all tab-spaces from [code]
+	// required to properly indent [code] within [js file] and when displayed in [pre] to user
+	function byAndu_codeBlock_formatCodeString(codeObject) { 
+
+		codeObject.map(function(item){ item.code = item.code.replace(/\t/g, '') + '\n' });
+
+		return codeObject
+	};
+
+	function byAndu_codeBlock_generateInnerHTML(codeObject , codeType) {
+
+		var allCodeContainers = Array.from(document.getElementsByClassName('codeTab-codeSection'));
+		var targetContainer = allCodeContainers.find(item => item.getAttribute('data-code') == codeType);
+
+		var hiddenClass = '';
+		if (codeType.indexOf('singular') > -1) { hiddenClass = 'hidden' };
+
+		codeObject.map(function(item){
+
+	        var newElem = document.createElement('PRE');
+	        newElem.innerHTML = item.code;
+
+	        if (item.name !== null) {
+	            newElem.classList = 'finalCode-block ' + hiddenClass;
+	            newElem.classList.add('finalCode-block-'+item.name);
+	            newElem.setAttribute('data-finalCodeId', item.name);
+	        };
+
+	        targetContainer.appendChild(newElem);
+	    });
+
+	    targetContainer.getElementsByClassName('finalCode-block')[0].classList.remove('hidden');
+
+	};
+
 
 // Initialize Components
 // --------------------------------------------------
@@ -531,17 +597,17 @@
 		else if (hasClass(e.target, 'copyContext-btn-saveFile')) 		{ componentsObj.copyContext.run_saveFile(e.target) 		}
 		else if (hasClass(e.target, 'copyContext-btn-showLightbox')) 	{ componentsObj.copyContext.run_viewLightbox(e.target)	}
 
-		else if (hasClass(e.target, 'finalCode_checkbox_btn_goto')) 		{ byAndu_checkboxContainer_goTo_run(e.target)			}
-		else if (hasClass(e.target, 'finalCode_checkbox_btn_highlight')) 	{ byAndu_checkboxContainer_highlight_run(e.target)		}
+		else if (hasClass(e.target, 'finalCode_checkbox_btn_goto')) 		{ byAndu.checkboxBtn_goTo(e.target)			}
+		else if (hasClass(e.target, 'finalCode_checkbox_btn_highlight')) 	{ byAndu.checkboxBtn_highlight(e.target)		}
 
-		else if (hasClass(e.target, 'finalCode-radio-parent')) 				{ byAndu_radioContainer_run(e.target)		}
-		else if (hasClass(e.target, 'finalCode-checkbox-globalSelect-btn')) { byAndu_finalCode_checkboxGlobalUpdate(e.target) }
+		else if (hasClass(e.target, 'finalCode-radio-parent')) 				{ byAndu.radio_run(e.target)		}
+		else if (hasClass(e.target, 'finalCode-checkbox-globalSelect-btn')) { byAndu.codeTab_checkbox_globalUpdate(e.target) }
 
 		//else if (hasClass(e.target, 'byAndu-file')) { byAndu_getFileCode(e.target) }
 
 		//else if (hasClass(e.target, 'faSpinner')) { e.target.classList.remove('faSpinner') }
 
-		else if (hasClass(e.target, 'finalCode-checkbox-searchBox-clearBtn')) { byAndu_finalCode_searchBox_clear(e.target) }
+		else if (hasClass(e.target, 'finalCode-checkbox-searchBox-clearBtn')) { byAndu.codeTab_searchBox_clear(e.target) }
 
 		else if (hasClass(e.target, 'demoItem') 
 			|| hasClass(e.target, 'demoItem-container')) { 
@@ -561,7 +627,7 @@
 	// Code Checkboxes SearchBox
 	document.getElementById('__route__mainView').addEventListener('input', function(e){
 		if (hasClass(e.target, 'finalCode-checkbox-searchBox-input')) {
-			byAndu_finalCode_searchBox_run(e.target)
+			byAndu.codeTab_searchBox_run(e.target)
 		}
 	});
 
@@ -672,42 +738,70 @@
 	})();
 	*/
 
-
-	// Remove all tab-spaces from [code]
-	// required to properly indent [code] within [js file] and when displayed in [pre] to user
-	function byAndu_codeBlock_formatCodeString(codeObject) { 
-
-		codeObject.map(function(item){ item.code = item.code.replace(/\t/g, '') + '\n' });
-
-		return codeObject
-	};
-
-	function byAndu_codeBlock_generateInnerHTML(codeObject , targetContainer_classIdentifier) {
-
-		var targetContainer_classIdentifier = 'finalCode-blockContainer-' + targetContainer_classIdentifier;
-		var targetContainer = document.getElementById('__route__mainView').getElementsByClassName(targetContainer_classIdentifier)[0];
-
-		var hiddenClass = '';
-		if (targetContainer_classIdentifier.indexOf('singular') > -1) { hiddenClass = 'hidden' };
-
-		codeObject.map(function(item){
-
-	        var newElem = document.createElement('PRE');
-	        newElem.innerHTML = item.code;
-
-	        if (item.name !== null) {
-	            newElem.classList = 'finalCode-block ' + hiddenClass;
-	            newElem.classList.add('finalCode-block-'+item.name);
-	            newElem.setAttribute('data-finalCodeId', item.name);
-	        };
-
-	        targetContainer.appendChild(newElem);
-	    });
-
-	    targetContainer.getElementsByClassName('finalCode-block')[0].classList.remove('hidden');
-
-	};
-
 	/*document.getElementById('mobile-showNav-btn').addEventListener('click', function(){
 		document.getElementById('byAndu-navbarSide').classList.add('mobileViewports-showNav')
 	});*/
+
+
+// ShowFileCode Test
+
+/*	console.log(fetchHTML)
+
+	function byAndu_getFileCode(target) {
+
+		var lightbox = document.createElement('div');
+		lightbox.classList = 'copyContext-lightbox';
+		lightbox.innerHTML = 
+		'<div class="copyContext-lightbox-underlay"> </div> ' +
+		'<pre class="copyContext-lightbox-textContainer"></pre>';
+
+		document.body.appendChild(lightbox);
+
+		lightbox.getElementsByClassName('copyContext-lightbox-underlay')[0].addEventListener('click', function(){
+			this.parentElement.parentElement.removeChild(this.parentElement)
+		});
+
+		console.log(target.getAttribute('data-fileSrc'))
+
+		//var filePath = target.getAttribute('data-fileSrc');
+		//lightbox.innerHTML = fetchHTML(filePath).replace(/</g, '&lt;');
+	};*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				/*
+				var checkBoxes_html = paramObj.checkBoxes['html'];
+				if (checkBoxes_html) { pageConfigObj['html'].generate_checkBoxes = checkBoxes_html };
+
+				var checkBoxes_css = paramObj.checkBoxes['css'];
+				if (checkBoxes_css) { pageConfigObj['css'].generate_checkBoxes = checkBoxes_css };
+
+				var checkBoxes_css_singular = paramObj.checkBoxes['css_singular'];
+				if (checkBoxes_css_singular) { pageConfigObj['css_singular'].generate_checkBoxes = checkBoxes_css_singular };
+
+				var checkBoxes_js = paramObj.checkBoxes['js'];
+				if (checkBoxes_js) { pageConfigObj['js'].generate_checkBoxes = checkBoxes_js };
+
+				if (paramObj.template_html) 		{ pageConfigObj.template_html 			= paramObj.template_html 			};
+				if (paramObj.template_css) 			{ pageConfigObj.template_css 			= paramObj.template_css 			};
+				if (paramObj.template_css_singular) { pageConfigObj.template_css_singular 	= paramObj.template_css_singular 	};
+				if (paramObj.template_js) 			{ pageConfigObj.template_js 			= paramObj.template_js 				};
+				if (paramObj.searchBox_items) 		{ pageConfigObj.searchBox_items 		= paramObj.searchBox_items 			};
+				if (paramObj.searchBox_removeString){ pageConfigObj.searchBox_removeString 	= paramObj.searchBox_removeString 	};
+				*/

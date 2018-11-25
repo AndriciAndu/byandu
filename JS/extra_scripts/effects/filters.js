@@ -47,7 +47,7 @@
             // Generate codeBlocks innerHTML - HTML
             // --------------------------------
 
-                var htmlCodeContainer = document.getElementsByClassName('finalCode-blockContainer-html')[0];
+                var htmlCodeContainer = document.getElementById('codeSection-html');
 
                 demoItemsArray.map(function(effect){
 
