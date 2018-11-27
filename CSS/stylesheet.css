@@ -484,6 +484,11 @@
 		/* General - positioning */
 		/* -------------------------------------------- */
 
+		#__route__mainView {
+			width: calc(100% + 2px);
+			transform: translatex(-1px);
+		}
+
 			#__route__mainView:after ,
 			article::after {
 				content: '';
@@ -897,6 +902,7 @@
 
 		.codeTab pre {
 			margin: 0;
+			width: auto;
 		}
 
 		/*.codeTab::after {
@@ -926,6 +932,9 @@
 				top: 0; left: 0;
 				width: 70%;
 			}
+			.codeTab__main {
+				width: 100%;
+			}
 			.codeTab__main__codeSection {
 				position: relative;
 				width: 100%;
@@ -948,7 +957,7 @@
 				/*.codeTab-hasSearch*/ .codeTab__sideNav {
 					transform: translateX(calc(-100% + 15px));
 					transition: transform .3s ease-out;
-					z-index: 2;
+					z-index: 3;
 				}
 
 				/*.codeTab-hasSearch*/ .searchBox-top-sticky::after {
