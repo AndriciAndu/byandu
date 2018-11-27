@@ -938,13 +938,13 @@
 					height: calc(100vh - 128px);
 				}
 
-				.codeTab-hasSearch .codeTab__sideNav {
+				/*.codeTab-hasSearch*/ .codeTab__sideNav {
 					transform: translateX(calc(-100% + 15px));
 					transition: transform .3s ease-out;
 					z-index: 2;
 				}
 
-				.codeTab-hasSearch .searchBox-top-sticky::after {
+				/*.codeTab-hasSearch*/ .searchBox-top-sticky::after {
 					content :'';
 					position: absolute;
 					top: 0; right: 0;
