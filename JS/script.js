@@ -124,6 +124,14 @@
 
 	byAndu.codeTab_generateBaselineHTML = function() {
 
+		/*
+			.article-mainTabs-codeTab
+				.codeTab-wrapper
+					.codeTab__sideNav
+					.codeTab__main
+
+			*/
+
 		var codeTab = document.getElementsByClassName('article-mainTabs-codeTab')[0];
 
 		// Parameters check and setup
@@ -145,27 +153,27 @@
 
 			var tabContent_html = 
 				'<!-- HTML --> '																								+
-					'<div class="tabs-content tab-expanded pr-0 codeTab-wrapper codeTab-hasSearch" data-tabs-id="1"> '			+
+					'<div class="tabs-content tab-expanded codeTab codeTab-hasSearch" data-tabs-id="1"> '						+
 
-						'<div class="codeTab-searchBox-wrapper" data-searchBox-code="html"></div> '	+
+						'<div class="codeTab__sideNav" data-searchBox-codeType="html"></div> '									+
 
-						'<div class="codeTab-codeSection-wrapper"> '															+
+						'<div class="codeTab__main"> '																			+
 							'<div class="copyContext-btnContainer" data-copyContextId="'+copyContextId+'-html"> '				+
 								'<button class="copyContext-btn copyContext-btn-copyText"> </button> '							+
 							'</div> '																							+
 							'<div class="copyContext" data-copyContextId="'+copyContextId+'-html"> '							+
-								'<div id="codeSection-html" class="codeTab-codeSection" data-code="html"></div> '										+
+								'<div id="codeSection-html" class="codeTab__main__codeSection" data-code="html"></div> '		+
 							'</div> '																							+
 						'</div> '																								+
 					'</div> '																									;
 			
 			var tabContent_css  = 
 				'<!-- CSS --> '																									+
-					'<div class="tabs-content pr-0 codeTab-wrapper codeTab-hasSearch" data-tabs-id="2"> '						+
+					'<div class="tabs-content codeTab codeTab-hasSearch" data-tabs-id="2"> '									+
 
-						'<div class="codeTab-searchBox-wrapper" data-searchBox-code="css"> </div> '	+
+						'<div class="codeTab__sideNav" data-searchBox-codeType="css"> </div> '									+
 
-						'<div class="codeTab-codeSection-wrapper"> '															+
+						'<div class="codeTab__main"> '																			+
 							'<div class="copyContext-btnContainer" data-copyContextId="'+copyContextId+'-css"> '				+
 								'<button class="copyContext-btn copyContext-btn-copyText"> </button> '							+
 								'<button class="copyContext-btn copyContext-btn-saveFile" ' 									+
@@ -173,37 +181,37 @@
 								'<button class="copyContext-btn copyContext-btn-showLightbox"> </button> '						+
 							'</div> '																							+
 							'<div class="copyContext" data-copyContextId="'+copyContextId+'-css"> '								+
-								'<div id="codeSection-css" class="codeTab-codeSection" data-code="css"></div> '										+
+								'<div id="codeSection-css" class="codeTab__main__codeSection" data-code="css"></div> '			+
 							'</div> '																							+
 						'</div> '																								+
 					'</div> '																									;
 
 			var tabContent_css_singular  = 
-				'<!-- CSS --> '																										+
-					'<div class="tabs-content pr-0 codeTab-wrapper codeTab-hasSearch" data-tabs-id="3"> '							+
+				'<!-- CSS --> '																												+
+					'<div class="tabs-content codeTab codeTab-hasSearch" data-tabs-id="3"> '												+
 
-						'<div class="codeTab-searchBox-wrapper" data-searchBox-code="css-singular"> </div> '						+
+						'<div class="codeTab__sideNav" data-searchBox-codeType="css-singular"> </div> '										+
 
-						'<div class="codeTab-codeSection-wrapper"> '																+
-							'<div class="copyContext-btnContainer" data-copyContextId="'+copyContextId+'-css-singular"> '			+
-								'<button class="copyContext-btn copyContext-btn-copyText"> </button> '								+
-								'<button class="copyContext-btn copyContext-btn-saveFile" ' 										+
-										'data-fileName="'+fileName+'-spec" data-fileType=".css"> </button> '						+
-								'<button class="copyContext-btn copyContext-btn-showLightbox"> </button> '							+
-							'</div> '																								+
-							'<div class="copyContext" data-copyContextId="'+copyContextId+'-css-singular"> '						+
-								'<div id="codeSection-css-singular" class="codeTab-codeSection" data-code="css-singular"></div> '	+
-							'</div> '																								+
-						'</div> '																									+
-					'</div> '																										;
+						'<div class="codeTab__main"> '																						+
+							'<div class="copyContext-btnContainer" data-copyContextId="'+copyContextId+'-css-singular"> '					+
+								'<button class="copyContext-btn copyContext-btn-copyText"> </button> '										+
+								'<button class="copyContext-btn copyContext-btn-saveFile" ' 												+
+										'data-fileName="'+fileName+'-spec" data-fileType=".css"> </button> '								+
+								'<button class="copyContext-btn copyContext-btn-showLightbox"> </button> '									+
+							'</div> '																										+
+							'<div class="copyContext" data-copyContextId="'+copyContextId+'-css-singular"> '								+
+								'<div id="codeSection-css-singular" class="codeTab__main__codeSection" data-code="css-singular"></div> '	+
+							'</div> '																										+
+						'</div> '																											+
+					'</div> '																												;
 
 			var tabContent_js   = 
 				'<!-- JS --> '																									+
-					'<div class="tabs-content pr-0 codeTab-wrapper codeTab-hasSearch" data-tabs-id="4"> '						+
+					'<div class="tabs-content codeTab codeTab-hasSearch" data-tabs-id="4"> '									+
 
-						'<div class="codeTab-searchBox-wrapper" data-searchBox-code="js" '+includeDepString+'> </div> '			+
+						'<div class="codeTab__sideNav" data-searchBox-codeType="js" '+includeDepString+'> </div> '				+
 
-						'<div class="codeTab-codeSection-wrapper"> '															+
+						'<div class="codeTab__main"> '																			+
 							'<div class="copyContext-btnContainer" data-copyContextId="'+copyContextId+'-js"> '					+
 								'<button class="copyContext-btn copyContext-btn-copyText"> </button> '							+
 								'<button class="copyContext-btn copyContext-btn-saveFile" '										+
@@ -211,7 +219,7 @@
 								'<button class="copyContext-btn copyContext-btn-showLightbox"> </button> '						+
 							'</div> '																							+
 							'<div class="copyContext" data-copyContextId="'+copyContextId+'-js"> '								+
-								'<div id="codeSection-js" class="codeTab-codeSection" data-code="js"></div> '					+
+								'<div id="codeSection-js" class="codeTab__main__codeSection" data-code="js"></div> '			+
 							'</div> '																							+
 						'</div> '																								+
 					'</div> '																									;
@@ -266,8 +274,8 @@
 				// console.log({areaIdentifier, itemsArray, effectsIdentifier})
 
 				// get the adequate [code-tab] [searchBox-wrapper]
-				var searchBox_wrappers = Array.from(document.getElementsByClassName('codeTab-searchBox-wrapper'));
-				var targetArea = searchBox_wrappers.find(item => item.getAttribute('data-searchBox-code') == areaIdentifier);
+				var searchBox_wrappers = Array.from(document.getElementsByClassName('codeTab__sideNav'));
+				var targetArea = searchBox_wrappers.find(item => item.getAttribute('data-searchBox-codeType') == areaIdentifier);
 
 				// generate baseline html for [searchBox-wrapper]
 				var searchBox_type = null;
@@ -277,30 +285,32 @@
 				if (searchBox_type == 'check') {
 
 					targetArea.innerHTML = 
-						'<div class="col-12 p-0 searchBox-overallSelect-wrapper"> '													+
-							'<div class="searchBox-overallSelect-title"> Include: </div> '											+
-							'<div class="searchBox-overallSelect-btnGroup"> '														+
-								'<button class="searchBox-overallSelect-btn" data-selectItems="all">  All  </button> '				+
-								'<button class="searchBox-overallSelect-btn" data-selectItems="none"> None </button> '				+
-							'</div> '																								+
-						'</div> '																									+
+						'<div class="searchBox-top-sticky"> '																			+
+							'<div class="col-12 p-0 searchBox-overallSelect-wrapper"> '													+
+								'<div class="searchBox-overallSelect-title"> Include: </div> '											+
+								'<div class="searchBox-overallSelect-btnGroup"> '														+
+									'<button class="searchBox-overallSelect-btn" data-selectItems="all">  All  </button> '				+
+									'<button class="searchBox-overallSelect-btn" data-selectItems="none"> None </button> '				+
+								'</div> '																								+
+							'</div> '																									+
 
-						'<div class="col-12 p-0 searchBox-search-wrapper"> '														+
-							'<input  class="searchBox-search-input" type="text" placeholder="Search" data-category="checkbox"/> '	+
-							'<button class="searchBox-search-clearBtn fa fa-times"> </button> '										+
-						'</div> '																									+
-
-						'<div class="col-12 p-0 searchBox-results-wrapper"> </div> '												;
+							'<div class="col-12 p-0 searchBox-search-wrapper"> '														+
+								'<input  class="searchBox-search-input" type="text" placeholder="Search" data-category="checkbox"/> '	+
+								'<button class="searchBox-search-clearBtn fa fa-times"> </button> '										+
+							'</div> '																									+
+						'</div> '																										+
+						'<div class="col-12 searchBox-results-wrapper"> </div> '														;
 
 				} else if (searchBox_type == 'radio') {
 
 					targetArea.innerHTML = 
-						'<div class="col-12 searchBox-search-wrapper"> '															+
-							'<input class ="searchBox-search-input" type="text" placeholder="Search" data-category="radio"/> '		+
-							'<button class="searchBox-search-clearBtn fa fa-times"> </button> '										+
-						'</div> '																									+
-
-						'<div class="col-12 searchBox-results-wrapper"> </div> '													;
+						'<div class="searchBox-top-sticky"> '																			+
+							'<div class="col-12 p-0 searchBox-search-wrapper"> '														+
+								'<input class ="searchBox-search-input" type="text" placeholder="Search" data-category="radio"/> '		+
+								'<button class="searchBox-search-clearBtn fa fa-times"> </button> '										+
+							'</div> '																									+
+						'</div> '																										+
+						'<div class="col-12 searchBox-results-wrapper"> </div> '														;
 				};
 
 				// generate actual checkboxes within [searchBox-wrapper] > [results-wrapper]
@@ -377,11 +387,11 @@
 
 			byAndu.codeTab_checkbox_globalUpdate = function(currentBtn) {
 
-				var current_codeScope = getParent(currentBtn, '.codeTab-wrapper'); 
+				var current_codeScope = getParent(currentBtn, '.codeTab'); 
 				var checkboxes = Array.from(current_codeScope.getElementsByClassName('finalCode-checkbox'));
 				var codeBlocks = Array.from(current_codeScope.getElementsByClassName('finalCode-block'));
 
-				var codeBlocks_container = current_codeScope.getElementsByClassName('codeTab-codeSection')[0];
+				var codeBlocks_container = current_codeScope.getElementsByClassName('codeTab__main__codeSection')[0];
 
 				switch (currentBtn.getAttribute('data-selectItems')) {
 					case 'all'  : 
@@ -400,11 +410,11 @@
 		// searchBox functionality
 		// --------------------------------
 
-			byAndu.codeTab_searchBox_run = function(targetInput) {
+			byAndu.codeTab_searchBox_run = function(targetInput) { console.log('asd')
 
 				var current_value 	= targetInput.value.toLowerCase();
 				var identifier 		= targetInput.getAttribute('data-category');
-				var container 		= getParent(targetInput, '.finalCode-'+identifier+'-container');
+				var container 		= getParent(targetInput, '.codeTab__sideNav');
 
 				targetArea = container.getElementsByClassName('searchBox-results-wrapper')[0];
 				targetArea.classList.add('faSpinner', 'faSpinner-fast');
@@ -424,11 +434,11 @@
 
 			byAndu.codeTab_searchBox_clear = function(targetBtn) {
 
-				var targetInput = targetBtn.parentElement.getElementsByClassName('finalCode-checkbox-searchBox-input')[0];
+				var targetInput = targetBtn.parentElement.getElementsByClassName('searchBox-search-input')[0];
 				targetInput.value = '';
 
 				var identifier 		= targetInput.getAttribute('data-category');
-				var container 		= getParent(targetInput, '.finalCode-'+identifier+'-container');
+				var container 		= getParent(targetInput, '.codeTab__sideNav');
 				var targets 		= Array.from(container.getElementsByClassName('finalCode-'+identifier+'-parent'));
 
 				targets.map(item => item.classList.remove('hidden'));
@@ -448,7 +458,7 @@
 						var identifier 	 	= target.getAttribute('data-finalCodeId');
 						var target_class 	= 'finalCode-block-' + identifier;
 
-						var current_codeScope 	= getParent(target, '.codeTab-wrapper'); 
+						var current_codeScope 	= getParent(target, '.codeTab'); 
 						var codeBlocks_target  	= current_codeScope.getElementsByClassName(target_class)[0];
 
 						if (target.checked) { 
@@ -469,7 +479,7 @@
 						if (codeSelects.length > 0) { codeSelects.map(function(item){ if (item.checked) { all_hidden = false } }) }
 						else { all_hidden = false }; // for the scenario where only the [dependencies] checkbox is present, with no other code show/hide options present
 
-						var codeBlocks_container = current_codeScope.getElementsByClassName('codeTab-codeSection')[0];
+						var codeBlocks_container = current_codeScope.getElementsByClassName('codeTab__main__codeSection')[0];
 
 						if (all_hidden) { codeBlocks_container.classList.add   ('hidden') } 
 						else 			{ codeBlocks_container.classList.remove('hidden') }
@@ -489,11 +499,11 @@
 					var identifier 	 	= targetBtn.parentElement.getElementsByClassName('finalCode-checkbox')[0].getAttribute('data-finalCodeId');
 					var target_class 	= 'finalCode-block-' + identifier;
 
-					var current_codeScope 	= getParent(targetBtn, '.codeTab-wrapper'); 
+					var current_codeScope 	= getParent(targetBtn, '.codeTab'); 
 					var codeBlocks_targeted = Array.from(current_codeScope.getElementsByClassName(target_class));
 
 					codeBlocks_targeted.map(function(item){
-						scrollElementTo(getParent(item, '.codeTab-codeSection'), item, 0)
+						scrollElementTo(getParent(item, '.codeTab__main'), item, 0)
 					})
 				} 
 			};
@@ -505,7 +515,7 @@
 					var identifier 	 	= targetBtn.parentElement.getElementsByClassName('finalCode-checkbox')[0].getAttribute('data-finalCodeId');
 					var target_class 	= 'finalCode-block-' + identifier;
 
-					var current_codeScope 	= getParent(targetBtn, '.codeTab-wrapper'); 
+					var current_codeScope 	= getParent(targetBtn, '.codeTab'); 
 					var codeBlocks_all 		= Array.from(current_codeScope.getElementsByClassName('finalCode-block'));
 					var codeBlocks_targeted = Array.from(current_codeScope.getElementsByClassName(target_class));
 
@@ -529,7 +539,7 @@
 				current_radio.click();
 
 				var identifier = current_radio.getAttribute('data-finalCodeId');
-				var current_codeScope 	= getParent(target, '.codeTab-wrapper'); 
+				var current_codeScope 	= getParent(target, '.codeTab'); 
 				var codeBlocks_all 		= Array.from(current_codeScope.getElementsByClassName('finalCode-block'));
 
 				codeBlocks_all.map(item => item.classList.add('hidden'));
@@ -564,7 +574,7 @@
 
 	function byAndu_codeBlock_generateInnerHTML(codeObject , codeType) {
 
-		var allCodeContainers = Array.from(document.getElementsByClassName('codeTab-codeSection'));
+		var allCodeContainers = Array.from(document.getElementsByClassName('codeTab__main__codeSection'));
 		var targetContainer = allCodeContainers.find(item => item.getAttribute('data-code') == codeType);
 
 		var hiddenClass = '';
@@ -610,13 +620,13 @@
 		else if (hasClass(e.target, 'finalCode_checkbox_btn_highlight')) 	{ byAndu.checkboxBtn_highlight(e.target)		}
 
 		else if (hasClass(e.target, 'finalCode-radio-parent')) 				{ byAndu.radio_run(e.target)		}
-		else if (hasClass(e.target, 'finalCode-checkbox-globalSelect-btn')) { byAndu.codeTab_checkbox_globalUpdate(e.target) }
+		else if (hasClass(e.target, 'searchBox-overallSelect-btn')) { byAndu.codeTab_checkbox_globalUpdate(e.target) }
 
 		//else if (hasClass(e.target, 'byAndu-file')) { byAndu_getFileCode(e.target) }
 
 		//else if (hasClass(e.target, 'faSpinner')) { e.target.classList.remove('faSpinner') }
 
-		else if (hasClass(e.target, 'finalCode-checkbox-searchBox-clearBtn')) { byAndu.codeTab_searchBox_clear(e.target) }
+		else if (hasClass(e.target, 'searchBox-search-clearBtn')) { byAndu.codeTab_searchBox_clear(e.target) }
 
 		else if (hasClass(e.target, 'demoItem') 
 			|| hasClass(e.target, 'demoItem-container')) { 
@@ -635,7 +645,7 @@
 
 	// Code Checkboxes SearchBox
 	document.getElementById('__route__mainView').addEventListener('input', function(e){
-		if (hasClass(e.target, 'finalCode-checkbox-searchBox-input')) {
+		if (hasClass(e.target, 'searchBox-search-input')) {
 			byAndu.codeTab_searchBox_run(e.target)
 		}
 	});

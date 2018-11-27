@@ -2026,7 +2026,7 @@
 					css_singular : codeBlocks_css_singular
 				} ,
 
-				removeString       : 'hasFilter-' ,
+				//removeString       : 'hasFilter-' ,
 				demoItems_codeLink : codeBlocks_css_singular
 			};
 
