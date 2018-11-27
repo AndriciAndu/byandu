@@ -1,520 +1,526 @@
 
-	// Generate Demos
-	// --------------------------------
-
-		(function(){
-
-			var demoItemsArray = [ 'bgCanvas-bubbles' , 'bgCanvas-confetti' , 'bgCanvas-web' ];
-
-				var generateDemos_container = document.getElementsByClassName('_route_mainView-generateDemos')[0];
-
-				demoItemsArray.map(function(effect) {
-
-					var particleLimit;
-					switch (effect) {
-						case 'bgCanvas-bubbles' 	: particleLimit = 300; 	break;
-						case 'bgCanvas-confetti' 	: particleLimit = 200; 	break;
-						case 'bgCanvas-web' 		: particleLimit = 100; 	break;
-					};
-
-					var newElem = document.createElement('siv');
-					newElem.classList = 'section-title';
-					newElem.innerHTML = effect;
-					generateDemos_container.appendChild(newElem);
-
-					var newElem = document.createElement('div');
-					newElem.classList = 'col-12 p-0';
-					newElem.innerHTML = 
-						'<div class="demoItem-container demoItem-container-'+effect+'" data-finalCodeId="'+effect+'" style="height: 250px"> '	+
-							'<canvas class="demoItem bgCanvas '+effect+'" data-canvas-particleLimit="'+particleLimit+'"> </canvas> '			+
-						'</div>'																												;
-					generateDemos_container.appendChild(newElem);
-				});
-
-
-			// Generate HTML for Code-Tab(3)
-			// --------------------------------
-
-				byAndu_generateHTML_forCodeTab();
-				byAndu_finalCode_generateRadioSelects('html', demoItemsArray, 'bgCanvas-');
-				byAndu_finalCode_generateCheckboxes('js', demoItemsArray, 'bgCanvas-');
-				byAndu_finalCode_initCheckboxes();
-
-            // Generate codeBlocks innerHTML - HTML
-            // --------------------------------
-
-                var htmlCodeContainer = document.getElementsByClassName('finalCode-blockContainer-html')[0];
-
-                demoItemsArray.map(function(effect){
-
-                    var newElem = document.createElement('PRE');
-
-                    newElem.classList = 'finalCode-block hidden';
-                    newElem.classList.add('finalCode-block-'+effect);
-                    newElem.setAttribute('data-finalCodeId', effect);
-
-                    newElem.innerHTML = '    &lt;canvas class="bgCanvas '+effect+'"></canvas> ';
-
-                    htmlCodeContainer.appendChild(newElem);
-                });
-
-                htmlCodeContainer.getElementsByClassName('finalCode-block')[0].classList.remove('hidden');
-
-		})();
-
-// Generate codeBlocks innerHTML - JS
-// --------------------------------
-
 	(function(){
 
-		var finalCode_codeBlocks_js = [
+		var demoItemsArray = [ 'bgCanvas-bubbles' , 'bgCanvas-confetti' , 'bgCanvas-web' ];
 
-			// General Init
-				{
-				name : null ,
-				code : 	
-				`    // [asteriskObj] init - if necessary
-			    // -----------------------------------------------------
+		// Generate Demos
+		// --------------------------------
 
-			        var asteriskObj = asteriskObj || {} ;
-			        asteriskObj.components = asteriskObj.components || {} ;
+			var generateDemos_container = document.getElementsByClassName('_route_mainView-generateDemos')[0];
 
-			    // Asterisk Component - [Canvas]
-			    // -----------------------------------------------------
+			demoItemsArray.map(function(effect) {
 
-			        (function(){
+				var particleLimit;
+				switch (effect) {
+					case 'bgCanvas-bubbles' 	: particleLimit = 300; 	break;
+					case 'bgCanvas-confetti' 	: particleLimit = 200; 	break;
+					case 'bgCanvas-web' 		: particleLimit = 100; 	break;
+				};
 
-			            // Component.Object Setup 
-			            // -----------------------------------------------------
-			            
-			                asteriskObj.components.canvas = {};
-			                var canvasObj = asteriskObj.components.canvas;
-				`
-				},
+				var newElem = document.createElement('siv');
+				newElem.classList = 'section-title';
+				newElem.innerHTML = effect;
+				generateDemos_container.appendChild(newElem);
 
-			// Dependencies
-				{
-				name : 'dependencies' ,
-				code :
-				`            // Dependencies (not required if using [asterisk-utility.js])
-			            // -----------------------------------------------------
+				var newElem = document.createElement('div');
+				newElem.classList = 'col-12 p-0';
+				newElem.innerHTML = 
+					'<div class="demoItem-container demoItem-container-'+effect+'" data-finalCodeId="'+effect+'" style="height: 250px"> '	+
+						'<canvas class="demoItem bgCanvas '+effect+'" data-canvas-particleLimit="'+particleLimit+'"> </canvas> '			+
+					'</div>'																												;
+				generateDemos_container.appendChild(newElem);
+			});
 
-			                // getFirstClass()
-			                // -----------------------------------------------------
+		// Code Blocks
+		// --------------------------------
 
-			                    if (getFirstClass === undefined) {
+			var codeBlocks_js = [
 
-			                        function getFirstClass( elem, ...classes ) {
+				// General Init
+					{
+					name : null ,
+					code : 	
+					`    // [asteriskObj] init - if necessary
+				    // -----------------------------------------------------
 
-			                            // to accept both scenarios: array-of-classes || multiple class strings
-			                            if (Array.isArray(classes[0])) { classes = classes[0] };
+				        var asteriskObj = asteriskObj || {} ;
+				        asteriskObj.components = asteriskObj.components || {} ;
 
-			                            var result = classes.find( klass => (" " + elem.className + " " ).indexOf( " " + klass + " " ) > -1 );
+				    // Asterisk Component - [Canvas]
+				    // -----------------------------------------------------
 
-			                            if (result != undefined)    { return result }
-			                            else                        { return false  }
+				        (function(){
 
-			                        }
-			                    };
+				            // Component.Object Setup 
+				            // -----------------------------------------------------
+				            
+				                asteriskObj.components.canvas = {};
+				                var canvasObj = asteriskObj.components.canvas;
+					`
+					},
 
-			                // hex2rgb()
-			                // -----------------------------------------------------
+				// Dependencies
+					{
+					name : 'dependencies' ,
+					code :
+					`            // Dependencies (not required if using [asterisk-utility.js])
+				            // -----------------------------------------------------
 
-			                    if (hex2rgb === undefined) {
+				                // getFirstClass()
+				                // -----------------------------------------------------
 
-			                        function hex2rgb(hex, alpha) {
+				                    if (getFirstClass === undefined) {
 
-			                            var r = parseInt(hex.slice(1, 3), 16),
-			                                g = parseInt(hex.slice(3, 5), 16),
-			                                b = parseInt(hex.slice(5, 7), 16);
+				                        function getFirstClass( elem, ...classes ) {
 
-			                            if (alpha) {
-			                                return "rgba(" + r + ", " + g + ", " + b + ", " + alpha + ")";
-			                            } else {
-			                                return "rgb(" + r + ", " + g + ", " + b + ")";
-			                            }
-			                        }
-			                    };
-				`
-				},
+				                            // to accept both scenarios: array-of-classes || multiple class strings
+				                            if (Array.isArray(classes[0])) { classes = classes[0] };
 
-			// Shared
-				{
-				name : null ,
-				code : 
-				`            // Canvas Object - host for settings and main functions
-			            // -----------------------------------------------------
+				                            var result = classes.find( klass => (" " + elem.className + " " ).indexOf( " " + klass + " " ) > -1 );
 
-			                canvasObj.settings = {
+				                            if (result != undefined)    { return result }
+				                            else                        { return false  }
 
-			                    canvas_styles : [],
+				                        }
+				                    };
 
-			                    default_settings    : {
-			                        default_maxRadius       : 40,
-			                        default_colorArray      : [ '#2C3E50', '#E74C3C', '#ECF0F1', '#3498DB', '#2980B9' ],
-			                        default_particleLimit   : 200
-			                    },
+				                // hex2rgb()
+				                // -----------------------------------------------------
 
-			                    current_canvases : []
-			                };
+				                    if (hex2rgb === undefined) {
 
-			            // Init
-			            // -----------------------------------------------------
+				                        function hex2rgb(hex, alpha) {
 
-			                canvasObj.initAll = function() {
+				                            var r = parseInt(hex.slice(1, 3), 16),
+				                                g = parseInt(hex.slice(3, 5), 16),
+				                                b = parseInt(hex.slice(5, 7), 16);
 
-			                    // Disable any previous Canvases that are no longer on page (for elements removed without page reload)
-			                    canvasObj.disableUnavailableCanvases();
+				                            if (alpha) {
+				                                return "rgba(" + r + ", " + g + ", " + b + ", " + alpha + ")";
+				                            } else {
+				                                return "rgb(" + r + ", " + g + ", " + b + ")";
+				                            }
+				                        }
+				                    };
+					`
+					},
 
-			                    // Get all Canvases and initializeaza each of them
-			                    var canvasElements = Array.from(document.getElementsByClassName('bgCanvas'));
+				// Shared
+					{
+					name : null ,
+					code : 
+					`            // Canvas Object - host for settings and main functions
+				            // -----------------------------------------------------
 
-			                    canvasElements.map(canvas => canvasObj.init(canvas));
-			                };
+				                canvasObj.settings = {
 
-			                canvasObj.init = function(targetCanvas) {
+				                    canvas_styles : [],
 
-			                    canvasObj.settings.current_canvases.push(targetCanvas);
+				                    default_settings    : {
+				                        default_maxRadius       : 40,
+				                        default_colorArray      : [ '#2C3E50', '#E74C3C', '#ECF0F1', '#3498DB', '#2980B9' ],
+				                        default_particleLimit   : 200
+				                    },
 
-			                    // Set type of Canvas (animation style)
-			                    var current_class = getFirstClass(targetCanvas, canvasObj.settings.canvas_styles);
-			                    var current_type  = targetCanvas.canvasType = current_class.replace('bgCanvas-', '');
+				                    current_canvases : []
+				                };
 
-			                    // Set width and height (as CSS does not work for this) - so the elements do not look distorted
-			                    targetCanvas.setAttribute('width',  targetCanvas.parentElement.offsetWidth);
-			                    targetCanvas.setAttribute('height', targetCanvas.parentElement.offsetHeight);
+				            // Init
+				            // -----------------------------------------------------
 
-			                    // Set parameters
-			                    targetCanvas.maxRadius      = targetCanvas.getAttribute('data-canvas-maxRadius')     || canvasObj[current_type].default_maxRadius    || canvasObj.settings.default_settings.default_maxRadius   ;
-			                    targetCanvas.colorArray     = targetCanvas.getAttribute('data-canvas-colorArray')    || canvasObj[current_type].default_colorArray   || canvasObj.settings.default_settings.default_colorArray  ;   
-			                    targetCanvas.particleLimit  = targetCanvas.getAttribute('data-canvas-particleLimit') || canvasObj[current_type].default_particleLimit  || canvasObj.settings.default_settings.default_particleLimit ;
+				                canvasObj.initAll = function() {
 
-			                    // Create ParticlesArray
-			                    if (!targetCanvas.initializedCanvas) {
+				                    // Disable any previous Canvases that are no longer on page (for elements removed without page reload)
+				                    canvasObj.disableUnavailableCanvases();
 
-			                        targetCanvas.generate_particlesArray = canvasObj[current_type].generate_particlesArray;
-			                        targetCanvas.generate_particlesArray(targetCanvas); 
+				                    // Get all Canvases and initializeaza each of them
+				                    var canvasElements = Array.from(document.getElementsByClassName('bgCanvas'));
 
-			                        targetCanvas.initializedCanvas  = true;
-			                        targetCanvas.activeCanvas       = true;
-			                    };
+				                    canvasElements.map(canvas => canvasObj.init(canvas));
+				                };
 
-			                    // Function to animate the effect
-			                    targetCanvas.canvas_run = function() {
+				                canvasObj.init = function(targetCanvas) {
 
-			                        var context = this.getContext('2d');
-			                        context.clearRect(0, 0, innerWidth, innerHeight);
-			                        this.particlesArray.map(item => item.update());
+				                    canvasObj.settings.current_canvases.push(targetCanvas);
 
-			                        if (this.activeCanvas) { 
-			                            targetCanvas.reqAnimFrame = requestAnimationFrame(function(){ targetCanvas.canvas_run(targetCanvas) });
-			                        };
-			                    };
+				                    // Set type of Canvas (animation style)
+				                    var current_class = getFirstClass(targetCanvas, canvasObj.settings.canvas_styles);
+				                    var current_type  = targetCanvas.canvasType = current_class.replace('bgCanvas-', '');
 
-			                    // Function to pause
-			                    targetCanvas.canvas_pause = function() {
-			                        this.activeCanvas = false; 
-			                    };
+				                    // Set width and height (as CSS does not work for this) - so the elements do not look distorted
+				                    targetCanvas.setAttribute('width',  targetCanvas.parentElement.offsetWidth);
+				                    targetCanvas.setAttribute('height', targetCanvas.parentElement.offsetHeight);
 
-			                    targetCanvas.canvas_resume = function() {
-			                        this.activeCanvas = true; 
-			                        this.canvas_run();
-			                    };
+				                    // Set parameters
+				                    targetCanvas.maxRadius      = targetCanvas.getAttribute('data-canvas-maxRadius')     || canvasObj[current_type].default_maxRadius    || canvasObj.settings.default_settings.default_maxRadius   ;
+				                    targetCanvas.colorArray     = targetCanvas.getAttribute('data-canvas-colorArray')    || canvasObj[current_type].default_colorArray   || canvasObj.settings.default_settings.default_colorArray  ;   
+				                    targetCanvas.particleLimit  = targetCanvas.getAttribute('data-canvas-particleLimit') || canvasObj[current_type].default_particleLimit  || canvasObj.settings.default_settings.default_particleLimit ;
 
-			                    // Function to remove the animation
-			                    targetCanvas.canvas_disable = function() {
+				                    // Create ParticlesArray
+				                    if (!targetCanvas.initializedCanvas) {
 
-			                        // clear what was already displayed on canves on previous frame
-			                        var context = this.getContext('2d');
-			                        context.clearRect(0, 0, innerWidth, innerHeight);
+				                        targetCanvas.generate_particlesArray = canvasObj[current_type].generate_particlesArray;
+				                        targetCanvas.generate_particlesArray(targetCanvas); 
 
-			                        // cancel animation
-			                        this.activeCanvas = 'false'; 
-			                        cancelAnimationFrame(this.reqAnimFrame);
+				                        targetCanvas.initializedCanvas  = true;
+				                        targetCanvas.activeCanvas       = true;
+				                    };
 
-			                        // remove properties - prevent memory leaks 
-			                        // -- as elements removed from the DOM are not eliminated from memory if refferences are still present
-			                        for (var key in this) { if (this.hasOwnProperty(key)) { delete this[key] } }
-			                    };
+				                    // Function to animate the effect
+				                    targetCanvas.canvas_run = function() {
 
-			                    // Run Animation
-			                    targetCanvas.canvas_run();
-			                };
+				                        var context = this.getContext('2d');
+				                        context.clearRect(0, 0, innerWidth, innerHeight);
+				                        this.particlesArray.map(item => item.update());
 
-			                canvasObj.disableUnavailableCanvases = function() {
+				                        if (this.activeCanvas) { 
+				                            targetCanvas.reqAnimFrame = requestAnimationFrame(function(){ targetCanvas.canvas_run(targetCanvas) });
+				                        };
+				                    };
 
-			                    canvasObj.settings.current_canvases = canvasObj.settings.current_canvases.filter( function(canvas) {
-			                        if (!document.body.contains(canvas)) { 
-			                            canvas.canvas_disable();
-			                            return false 
-			                        }
-			                    })
+				                    // Function to pause
+				                    targetCanvas.canvas_pause = function() {
+				                        this.activeCanvas = false; 
+				                    };
 
-			                };
-				`
-				},
+				                    targetCanvas.canvas_resume = function() {
+				                        this.activeCanvas = true; 
+				                        this.canvas_run();
+				                    };
 
-			// Canvas Bubbles
-				{
-				name : 'bgCanvas-bubbles',
-				code : 
-				`            // Bubbles
-			            // -----------------------------------------------------
+				                    // Function to remove the animation
+				                    targetCanvas.canvas_disable = function() {
 
-			                canvasObj.settings.canvas_styles.push('bgCanvas-bubbles');
+				                        // clear what was already displayed on canves on previous frame
+				                        var context = this.getContext('2d');
+				                        context.clearRect(0, 0, innerWidth, innerHeight);
 
-			                canvasObj.bubbles = {};
+				                        // cancel animation
+				                        this.activeCanvas = 'false'; 
+				                        cancelAnimationFrame(this.reqAnimFrame);
 
-			                canvasObj.bubbles.generate_particlesArray = function(targetCanvas) {
+				                        // remove properties - prevent memory leaks 
+				                        // -- as elements removed from the DOM are not eliminated from memory if refferences are still present
+				                        for (var key in this) { if (this.hasOwnProperty(key)) { delete this[key] } }
+				                    };
 
-			                    if (!targetCanvas.initializedCanvas) {
+				                    // Run Animation
+				                    targetCanvas.canvas_run();
+				                };
 
-			                        var particleLimit = targetCanvas.particleLimit;
-			                        targetCanvas.particlesArray = [];
+				                canvasObj.disableUnavailableCanvases = function() {
 
-			                        for (var i=0; i<particleLimit; i++) {
-			                            var radius = Math.random() * 3 + 1;
-			                            var x  =  Math.random() * (targetCanvas.width  - radius * 2) + radius;  
-			                            var y  =  Math.random() * (targetCanvas.height - radius * 2) + radius;
-			                            var dx = (Math.random() - 0.5) * 2; 
-			                            var dy = (Math.random() - 0.5) * 2;
+				                    canvasObj.settings.current_canvases = canvasObj.settings.current_canvases.filter( function(canvas) {
+				                        if (!document.body.contains(canvas)) { 
+				                            canvas.canvas_disable();
+				                            return false 
+				                        }
+				                    })
 
-			                            targetCanvas.particlesArray.push(new Circle(x, y, dx, dy, radius));
-			                        };
-			                        
-			                        function Circle(x, y, dx, dy, radius) {
+				                };
+					`
+					},
 
-			                            var context = targetCanvas.getContext('2d');
+				// Canvas Bubbles
+					{
+					name : 'bgCanvas-bubbles',
+					code : 
+					`            // Bubbles
+				            // -----------------------------------------------------
 
-			                            this.x  = x;    this.y  = y;
-			                            this.dx = dx;   this.dy = dy;
-			                            this.radius     = radius;
-			                            this.minRadius  = radius;
-			                            this.color = targetCanvas.colorArray[Math.floor(Math.random() * targetCanvas.colorArray.length)];
+				                canvasObj.settings.canvas_styles.push('bgCanvas-bubbles');
 
-			                            var current_canvasWidth  = targetCanvas.width;
-			                            var current_canvasHeight = targetCanvas.height;
+				                canvasObj.bubbles = {};
 
-			                                this.draw = function() {
-			                                    context.beginPath();
-			                                    context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-			                                    context.fillStyle = this.color;
-			                                    context.fill();
-			                                };
+				                canvasObj.bubbles.generate_particlesArray = function(targetCanvas) {
 
-			                                this.update = function() {
+				                    if (!targetCanvas.initializedCanvas) {
 
-			                                    if (this.x + this.radius > current_canvasWidth  || this.x - this.radius < 0) { this.dx = -this.dx };
-			                                    if (this.y + this.radius > current_canvasHeight || this.y - this.radius < 0) { this.dy = -this.dy };
+				                        var particleLimit = targetCanvas.particleLimit;
+				                        targetCanvas.particlesArray = [];
 
-			                                    this.x += this.dx;
-			                                    this.y += this.dy;
+				                        for (var i=0; i<particleLimit; i++) {
+				                            var radius = Math.random() * 3 + 1;
+				                            var x  =  Math.random() * (targetCanvas.width  - radius * 2) + radius;  
+				                            var y  =  Math.random() * (targetCanvas.height - radius * 2) + radius;
+				                            var dx = (Math.random() - 0.5) * 2; 
+				                            var dy = (Math.random() - 0.5) * 2;
 
-			                                    this.draw();
-			                                };
-			                        };
+				                            targetCanvas.particlesArray.push(new Circle(x, y, dx, dy, radius));
+				                        };
+				                        
+				                        function Circle(x, y, dx, dy, radius) {
 
-			                        targetCanvas.initializedCanvas = true;
-			                    }
-			                };
-				`
-				},
+				                            var context = targetCanvas.getContext('2d');
 
-			// Canvas Confetti
-				{
-				name : 'bgCanvas-confetti' ,
-				code : 
-				`            // Confetti
-			            // -----------------------------------------------------
+				                            this.x  = x;    this.y  = y;
+				                            this.dx = dx;   this.dy = dy;
+				                            this.radius     = radius;
+				                            this.minRadius  = radius;
+				                            this.color = targetCanvas.colorArray[Math.floor(Math.random() * targetCanvas.colorArray.length)];
 
-			                canvasObj.settings.canvas_styles.push('bgCanvas-confetti');
+				                            var current_canvasWidth  = targetCanvas.width;
+				                            var current_canvasHeight = targetCanvas.height;
 
-			                canvasObj.confetti = {};
+				                                this.draw = function() {
+				                                    context.beginPath();
+				                                    context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+				                                    context.fillStyle = this.color;
+				                                    context.fill();
+				                                };
 
-			                canvasObj.confetti.generate_particlesArray = function(targetCanvas) {
+				                                this.update = function() {
 
-			                    if (!targetCanvas.initializedCanvas) {
+				                                    if (this.x + this.radius > current_canvasWidth  || this.x - this.radius < 0) { this.dx = -this.dx };
+				                                    if (this.y + this.radius > current_canvasHeight || this.y - this.radius < 0) { this.dy = -this.dy };
 
-			                        var particleLimit = targetCanvas.particleLimit;
-			                        targetCanvas.particlesArray = [];
+				                                    this.x += this.dx;
+				                                    this.y += this.dy;
 
-			                        for (var i=0; i<particleLimit; i++) {
-			                            var radius = Math.random() * 3 + 1;
-			                            var x  =  Math.random() * (targetCanvas.width  - radius * 2) + radius;  
-			                            var y  =  Math.random() * (targetCanvas.height - radius * 2) + radius;
-			                            var dx = (Math.random()) * 3;   
-			                            var dy = (Math.random()) * 3 + 2;
+				                                    this.draw();
+				                                };
+				                        };
 
-			                            targetCanvas.particlesArray.push(new Circle(x, y, dx, dy, radius));
-			                        };
+				                        targetCanvas.initializedCanvas = true;
+				                    }
+				                };
+					`
+					},
 
-			                        function Circle(x, y, dx, dy, radius) {
+				// Canvas Confetti
+					{
+					name : 'bgCanvas-confetti' ,
+					code : 
+					`            // Confetti
+				            // -----------------------------------------------------
 
-			                            var context = targetCanvas.getContext('2d');
+				                canvasObj.settings.canvas_styles.push('bgCanvas-confetti');
 
-			                            this.steps = 0;
-			                            this.x  = x;    this.y  = y;
-			                            this.dx = dx;   this.dy = dy;
-			                            this.radius = radius;
+				                canvasObj.confetti = {};
 
-			                            if (Math.random() < 0.5) { this.dx = -this.dx };
+				                canvasObj.confetti.generate_particlesArray = function(targetCanvas) {
 
-			                            this.maxSteps = (Math.random()) * 100 + 30;
-			                            this.opacity = 0.5;
+				                    if (!targetCanvas.initializedCanvas) {
 
-			                            this.HEXcolor = targetCanvas.colorArray[Math.floor(Math.random() * targetCanvas.colorArray.length)];
-			                            this.color    = hex2rgb(this.HEXcolor, this.opacity);
+				                        var particleLimit = targetCanvas.particleLimit;
+				                        targetCanvas.particlesArray = [];
 
-			                            var current_canvasWidth  = targetCanvas.width;
-			                            var current_canvasHeight = targetCanvas.height;
+				                        for (var i=0; i<particleLimit; i++) {
+				                            var radius = Math.random() * 3 + 1;
+				                            var x  =  Math.random() * (targetCanvas.width  - radius * 2) + radius;  
+				                            var y  =  Math.random() * (targetCanvas.height - radius * 2) + radius;
+				                            var dx = (Math.random()) * 3;   
+				                            var dy = (Math.random()) * 3 + 2;
 
-			                                this.draw = function() {
-			                                    context.beginPath();
-			                                    context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-			                                    context.fillStyle = this.color;
-			                                    context.fill();
-			                                };
+				                            targetCanvas.particlesArray.push(new Circle(x, y, dx, dy, radius));
+				                        };
 
-			                                this.update = function() {
+				                        function Circle(x, y, dx, dy, radius) {
 
-			                                    this.x += this.dx;
-			                                    this.y += this.dy;
+				                            var context = targetCanvas.getContext('2d');
 
-			                                    this.steps += 1;
+				                            this.steps = 0;
+				                            this.x  = x;    this.y  = y;
+				                            this.dx = dx;   this.dy = dy;
+				                            this.radius = radius;
 
-			                                    if (this.steps < 5)                     { this.opacity += 0.1; this.color = hex2rgb(this.HEXcolor, this.opacity) }
-			                                    if (this.steps > this.maxSteps - 10)    { this.opacity -= 0.1; this.color = hex2rgb(this.HEXcolor, this.opacity) };
+				                            if (Math.random() < 0.5) { this.dx = -this.dx };
 
-			                                    if (this.steps > this.maxSteps) { 
-			                                        this.x  = Math.random() * current_canvasWidth;
-			                                        this.y  = Math.random() * current_canvasHeight - 100 ;
-			                                        this.dx = Math.random() * 3;    if (Math.random() < 0.5) { this.dx = -this.dx };    
-			                                        this.dy = Math.random() * 3 + 2;
-			                                        this.steps   = 0;
-			                                        this.opacity = 0.5;
-			                                        this.color = hex2rgb(this.HEXcolor, this.opacity)
-			                                    };
+				                            this.maxSteps = (Math.random()) * 100 + 30;
+				                            this.opacity = 0.5;
 
-			                                    this.draw();
-			                                };
-			                        };
+				                            this.HEXcolor = targetCanvas.colorArray[Math.floor(Math.random() * targetCanvas.colorArray.length)];
+				                            this.color    = hex2rgb(this.HEXcolor, this.opacity);
 
-			                        targetCanvas.initializedCanvas = true;
-			                    }
-			                };
-				`
-				},
+				                            var current_canvasWidth  = targetCanvas.width;
+				                            var current_canvasHeight = targetCanvas.height;
 
-			// Canvas Web
-				{
-				name : 'bgCanvas-web',
-				code : 
-				`            // Web
-			            // -----------------------------------------------------
+				                                this.draw = function() {
+				                                    context.beginPath();
+				                                    context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+				                                    context.fillStyle = this.color;
+				                                    context.fill();
+				                                };
 
-			                canvasObj.settings.canvas_styles.push('bgCanvas-web');
+				                                this.update = function() {
 
-			                canvasObj.web = {};
+				                                    this.x += this.dx;
+				                                    this.y += this.dy;
 
-			                canvasObj.web.generate_particlesArray = function(targetCanvas) {
+				                                    this.steps += 1;
 
-			                    if (!targetCanvas.initializedCanvas) {
+				                                    if (this.steps < 5)                     { this.opacity += 0.1; this.color = hex2rgb(this.HEXcolor, this.opacity) }
+				                                    if (this.steps > this.maxSteps - 10)    { this.opacity -= 0.1; this.color = hex2rgb(this.HEXcolor, this.opacity) };
 
-			                        var particleLimit = targetCanvas.particleLimit;
-			                        targetCanvas.particlesArray = [];
+				                                    if (this.steps > this.maxSteps) { 
+				                                        this.x  = Math.random() * current_canvasWidth;
+				                                        this.y  = Math.random() * current_canvasHeight - 100 ;
+				                                        this.dx = Math.random() * 3;    if (Math.random() < 0.5) { this.dx = -this.dx };    
+				                                        this.dy = Math.random() * 3 + 2;
+				                                        this.steps   = 0;
+				                                        this.opacity = 0.5;
+				                                        this.color = hex2rgb(this.HEXcolor, this.opacity)
+				                                    };
 
-			                        for (var i=0; i<particleLimit; i++) {
-			                            var radius = Math.random() * 2 + 1;
-			                            var x  =  Math.random() * (targetCanvas.width  - radius * 2) + radius;  
-			                            var y  =  Math.random() * (targetCanvas.height - radius * 2) + radius;
-			                            var dx = (Math.random() - 0.5); 
-			                            var dy = (Math.random() - 0.5);
+				                                    this.draw();
+				                                };
+				                        };
 
-			                            targetCanvas.particlesArray.push(new Circle(x, y, dx, dy, radius));
-			                        };
+				                        targetCanvas.initializedCanvas = true;
+				                    }
+				                };
+					`
+					},
 
-			                        function Circle(x, y, dx, dy, radius) {
+				// Canvas Web
+					{
+					name : 'bgCanvas-web',
+					code : 
+					`            // Web
+				            // -----------------------------------------------------
 
-			                            var context = targetCanvas.getContext('2d');
+				                canvasObj.settings.canvas_styles.push('bgCanvas-web');
 
-			                            this.x  = x;    this.y  = y;
-			                            this.dx = dx;   this.dy = dy;
-			                            this.radius = radius;
+				                canvasObj.web = {};
 
-			                            this.opacity    = Math.round( Math.random() * 10 ) / 10;
-			                            this.HEXcolor   = targetCanvas.colorArray[Math.floor(Math.random() * targetCanvas.colorArray.length)];
-			                            this.color      = hex2rgb(this.HEXcolor, this.opacity) ;
+				                canvasObj.web.generate_particlesArray = function(targetCanvas) {
 
-			                            var current_canvasWidth  = targetCanvas.width;
-			                            var current_canvasHeight = targetCanvas.height;
+				                    if (!targetCanvas.initializedCanvas) {
 
-			                                this.draw = function() {
-			                                    context.beginPath();
-			                                    context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-			                                    context.fillStyle = this.color;
-			                                    context.fill();
-			                                };
+				                        var particleLimit = targetCanvas.particleLimit;
+				                        targetCanvas.particlesArray = [];
 
-			                                this.update = function() {
+				                        for (var i=0; i<particleLimit; i++) {
+				                            var radius = Math.random() * 2 + 1;
+				                            var x  =  Math.random() * (targetCanvas.width  - radius * 2) + radius;  
+				                            var y  =  Math.random() * (targetCanvas.height - radius * 2) + radius;
+				                            var dx = (Math.random() - 0.5); 
+				                            var dy = (Math.random() - 0.5);
 
-			                                    if (this.x + this.radius > targetCanvas.width  || this.x - this.radius < 0) { this.dx = -this.dx };
-			                                    if (this.y + this.radius > targetCanvas.height || this.y - this.radius < 0) { this.dy = -this.dy };
+				                            targetCanvas.particlesArray.push(new Circle(x, y, dx, dy, radius));
+				                        };
 
-			                                    var myParticles = targetCanvas.particlesArray;
+				                        function Circle(x, y, dx, dy, radius) {
 
-			                                    for (var i=0; i<myParticles.length; i++) {
+				                            var context = targetCanvas.getContext('2d');
 
-			                                        if (this != myParticles[i]) {
-			                                            if (getDistance(this.x, this.y, myParticles[i].x, myParticles[i].y) < 40 ) {
-			                                                context.beginPath();
-			                                                context.moveTo(this.x, this.y)
-			                                                context.lineTo(myParticles[i].x, myParticles[i].y);
-			                                                context.closePath();
-			                                                context.lineWidth = 1;
-			                                                var currentOpacity = Math.round( (this.opacity + myParticles[i].opacity) * 5) / 10;
-			                                                if (currentOpacity > 0.5) { currentOpacity -= 0.5 }; 
-			                                                context.strokeStyle = hex2rgb(this.HEXcolor, currentOpacity) ;
-			                                                context.stroke();
-			                                            }
-			                                        }
-			                                    };
+				                            this.x  = x;    this.y  = y;
+				                            this.dx = dx;   this.dy = dy;
+				                            this.radius = radius;
 
-			                                    this.x += this.dx;
-			                                    this.y += this.dy;
+				                            this.opacity    = Math.round( Math.random() * 10 ) / 10;
+				                            this.HEXcolor   = targetCanvas.colorArray[Math.floor(Math.random() * targetCanvas.colorArray.length)];
+				                            this.color      = hex2rgb(this.HEXcolor, this.opacity) ;
 
-			                                    this.draw();
-			                                };
+				                            var current_canvasWidth  = targetCanvas.width;
+				                            var current_canvasHeight = targetCanvas.height;
 
-			                                function getDistance(x1, y1, x2, y2) {
+				                                this.draw = function() {
+				                                    context.beginPath();
+				                                    context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+				                                    context.fillStyle = this.color;
+				                                    context.fill();
+				                                };
 
-			                                    var xDistance = x2 - x1;
-			                                    var yDistance = y2 - y1;
+				                                this.update = function() {
 
-			                                    return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
-			                                };
-			                        };
+				                                    if (this.x + this.radius > targetCanvas.width  || this.x - this.radius < 0) { this.dx = -this.dx };
+				                                    if (this.y + this.radius > targetCanvas.height || this.y - this.radius < 0) { this.dy = -this.dy };
 
-			                        targetCanvas.initializedCanvas = true;
-			                    }
-			                };
+				                                    var myParticles = targetCanvas.particlesArray;
 
-				`
-				},
+				                                    for (var i=0; i<myParticles.length; i++) {
 
-			// Closing Tags
-				{
-				name : null ,
-				code : 
-				`        })();`
-				}
-		];
+				                                        if (this != myParticles[i]) {
+				                                            if (getDistance(this.x, this.y, myParticles[i].x, myParticles[i].y) < 40 ) {
+				                                                context.beginPath();
+				                                                context.moveTo(this.x, this.y)
+				                                                context.lineTo(myParticles[i].x, myParticles[i].y);
+				                                                context.closePath();
+				                                                context.lineWidth = 1;
+				                                                var currentOpacity = Math.round( (this.opacity + myParticles[i].opacity) * 5) / 10;
+				                                                if (currentOpacity > 0.5) { currentOpacity -= 0.5 }; 
+				                                                context.strokeStyle = hex2rgb(this.HEXcolor, currentOpacity) ;
+				                                                context.stroke();
+				                                            }
+				                                        }
+				                                    };
 
-		finalCode_codeBlocks_js = byAndu_codeBlock_formatCodeString(finalCode_codeBlocks_js);
-		byAndu_codeBlock_generateInnerHTML(finalCode_codeBlocks_js , 'js');
+				                                    this.x += this.dx;
+				                                    this.y += this.dy;
+
+				                                    this.draw();
+				                                };
+
+				                                function getDistance(x1, y1, x2, y2) {
+
+				                                    var xDistance = x2 - x1;
+				                                    var yDistance = y2 - y1;
+
+				                                    return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
+				                                };
+				                        };
+
+				                        targetCanvas.initializedCanvas = true;
+				                    }
+				                };
+
+					`
+					},
+
+				// Closing Tags
+					{
+					name : null ,
+					code : 
+					`        })();`
+					}
+			];
+
+			codeBlocks_js = byAndu_codeBlock_formatCodeString(codeBlocks_js);
+
+		// Param Obj
+		// --------------------------------
+
+			var paramObj = {
+				checkBoxes : {
+					html : demoItemsArray ,
+					js   : demoItemsArray
+				} ,
+
+				codeBlocks : {
+					js   : codeBlocks_js
+				} ,
+
+				removeString : 'bgCanvas-'
+			};
+
+			byAndu.pageConfigObj_setupObj(paramObj);
+			byAndu.pageConfigObj_runConfig();
+
+        // Generate codeBlocks HTML
+        // --------------------------------
+
+            var htmlCodeContainer = document.getElementById('codeSection-html');
+
+            demoItemsArray.map(function(effect){
+
+                var newElem = document.createElement('PRE');
+
+                newElem.classList = 'finalCode-block hidden';
+                newElem.classList.add('finalCode-block-'+effect);
+                newElem.setAttribute('data-finalCodeId', effect);
+
+                newElem.innerHTML = '    &lt;canvas class="bgCanvas '+effect+'"></canvas> ';
+
+                htmlCodeContainer.appendChild(newElem);
+            });
+
+            htmlCodeContainer.getElementsByClassName('finalCode-block')[0].classList.remove('hidden');
+	
+
+		// Init Canvases
+		// ----------------------------------
+
+			asteriskObj.components.canvas.initAll();
 
 	})();
-
-	// Init Canvases
-	// ----------------------------------
-
-		asteriskObj.components.canvas.initAll();

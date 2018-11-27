@@ -882,6 +882,8 @@
 
 		function scrollElementTo(elementToBeScrolled, currentTarget, offsetValue) { 
 
+			// console.log({elementToBeScrolled, currentTarget, offsetValue})
+
 			var offset = offsetValue || 0;
 			var initial_distance = currentTarget.offsetTop - elementToBeScrolled.scrollTop - offset;
 			var finalPosition 	 = initial_distance + elementToBeScrolled.scrollTop;

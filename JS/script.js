@@ -55,6 +55,8 @@
 	// sets up the [byAndu_pageConfigObj] - will be later used to generate HTML and etc
 	byAndu.pageConfigObj_setupObj = function( paramObj ) {
 
+		// console.log( paramObj );
+
 		byAndu.pageConfigObj_resetObj();
 
 		var codeTab = document.getElementsByClassName('article-mainTabs-codeTab')[0];
@@ -103,7 +105,7 @@
 		// if provided with [object] - create checkboxes
 		var pageConfigObj = byAndu_pageConfigObj;
 
-		var removeString = pageConfigObj.searchBox_removeString || '';
+		var removeString = pageConfigObj.removeString || '';
 
 		var cb_html  = pageConfigObj.html         .generate_checkBoxes ; if (cb_html)  { byAndu.codeTab_generateCheckboxes('html'         , cb_html  , removeString) };
 		var cb_css   = pageConfigObj.css          .generate_checkBoxes ; if (cb_css)   { byAndu.codeTab_generateCheckboxes('css'          , cb_css   , removeString) };
@@ -261,6 +263,8 @@
 
 			byAndu.codeTab_generateCheckboxes = function(areaIdentifier, itemsArray, effectsIdentifier) {
 
+				// console.log({areaIdentifier, itemsArray, effectsIdentifier})
+
 				// get the adequate [code-tab] [searchBox-wrapper]
 				var searchBox_wrappers = Array.from(document.getElementsByClassName('codeTab-searchBox-wrapper'));
 				var targetArea = searchBox_wrappers.find(item => item.getAttribute('data-searchBox-code') == areaIdentifier);
@@ -302,7 +306,7 @@
 				// generate actual checkboxes within [searchBox-wrapper] > [results-wrapper]
 				targetArea = targetArea.getElementsByClassName('searchBox-results-wrapper')[0];
 
-				if (targetArea.parentElement.getAttribute('data-includeDependencies')) { generate_innerHTML(targetArea, 'dependencies') };
+				// if (targetArea.parentElement.getAttribute('data-includeDependencies')) { generate_innerHTML(targetArea, 'dependencies') };
 
 				if (itemsArray) {
 
@@ -515,7 +519,12 @@
 
 			byAndu.radio_run = function(target) {
 
-				var current_radio = target.getElementsByClassName('finalCode-radioSelect')[0];
+				var current_radio;
+				if (hasClass(target, 'finalCode-radioSelect')) { 
+					current_radio = target 
+				} else {
+					current_radio = target.getElementsByClassName('finalCode-radioSelect')[0];
+				};
 
 				current_radio.click();
 

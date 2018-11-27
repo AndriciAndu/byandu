@@ -782,7 +782,7 @@
 
 				codeBlocks : {
 					css : codeBlocks_css
-				}
+				} 
 			};
 
 			byAndu.pageConfigObj_setupObj(paramObj);
