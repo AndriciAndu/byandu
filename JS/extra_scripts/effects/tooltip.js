@@ -2,7 +2,7 @@
 	(function(){
 
 		var demoItemsArray = [
-			'tooltip-right' , 'tooltip-top' , 'tooltip-btm' , 'tooltip-left' 
+			'tooltip-right' , 'tooltip-btm' , 'tooltip-top' , 'tooltip-left' 
 		];
 
 		// Generate demos
@@ -12,10 +12,10 @@
 
 			demoItemsArray.map(function(effect) {
 				var newDemo = document.createElement('div');
-				newDemo.classList = 'col-3 p-sm';
+				newDemo.classList = 'col-6 md-col-3 p-sm';
 				newDemo.innerHTML = 
 					'<div class="demoItem-container demoItem-container-'+effect+'" data-finalCodeId='+effect+'> '	+
-						'<div class="xs-col-12 demoItem tooltip-before '+effect+'" data-tooltipText="'+effect+'"> '+effect+' </div> '	+
+						'<div class="col-12 demoItem tooltip-before '+effect+'" data-tooltipText="'+effect+'"> '+effect+' </div> '	+
 					'</div> ' 																						;
 				generateDemos_container.appendChild(newDemo);
 			});
