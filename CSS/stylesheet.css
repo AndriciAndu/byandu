@@ -1,7 +1,11 @@
 
-	/*.font-fix {
-		word-spacing: -.65em;
-	}*/
+	@media (min-width: 768px)  { .container { width: 724px; }}
+	@media (min-width: 836px)  { .container { width: 750px; }}
+	@media (min-width: 992px)  { .container { width: 930px; }}
+	@media (min-width: 1030px) { .container { width: 970px; }}
+	@media (min-width: 1200px) { .container { width: 1140px;}}
+	@media (min-width: 1300px) { .container { width: 1170px;}}
+
 
 	.fontFix-closeDiv   ,
 	.fontFix-closeInput	{ 
