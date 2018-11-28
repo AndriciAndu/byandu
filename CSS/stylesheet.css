@@ -884,6 +884,7 @@
 
 		.article-mainTabs-codeTab {
 			padding: 0;
+			z-index: 700;
 		}
 
 		.article-mainTabs-codeTab .tabs-contentGroup {
