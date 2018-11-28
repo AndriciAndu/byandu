@@ -153,7 +153,7 @@
 
 			var tabContent_html = 
 				'<!-- HTML --> '																								+
-					'<div class="tabs-content tab-expanded codeTab codeTab-hasSearch" data-tabs-id="1"> '						+
+					'<div class="tabs-content tab-expanded codeTab" data-tabs-id="1"> '						+
 
 						'<div class="codeTab__sideNav" data-searchBox-codeType="html"></div> '									+
 
@@ -169,7 +169,7 @@
 			
 			var tabContent_css  = 
 				'<!-- CSS --> '																									+
-					'<div class="tabs-content codeTab codeTab-hasSearch" data-tabs-id="2"> '									+
+					'<div class="tabs-content codeTab" data-tabs-id="2"> '									+
 
 						'<div class="codeTab__sideNav" data-searchBox-codeType="css"> </div> '									+
 
@@ -188,7 +188,7 @@
 
 			var tabContent_css_singular  = 
 				'<!-- CSS --> '																												+
-					'<div class="tabs-content codeTab codeTab-hasSearch" data-tabs-id="3"> '												+
+					'<div class="tabs-content codeTab" data-tabs-id="3"> '												+
 
 						'<div class="codeTab__sideNav" data-searchBox-codeType="css-singular"> </div> '										+
 
@@ -207,7 +207,7 @@
 
 			var tabContent_js   = 
 				'<!-- JS --> '																									+
-					'<div class="tabs-content codeTab codeTab-hasSearch" data-tabs-id="4"> '									+
+					'<div class="tabs-content codeTab" data-tabs-id="4"> '									+
 
 						'<div class="codeTab__sideNav" data-searchBox-codeType="js" '+includeDepString+'> </div> '				+
 
@@ -276,6 +276,8 @@
 				// get the adequate [code-tab] [searchBox-wrapper]
 				var searchBox_wrappers = Array.from(document.getElementsByClassName('codeTab__sideNav'));
 				var targetArea = searchBox_wrappers.find(item => item.getAttribute('data-searchBox-codeType') == areaIdentifier);
+
+				getParent(targetArea, '.codeTab').classList.add('codeTab-hasSearch');
 
 				// generate baseline html for [searchBox-wrapper]
 				var searchBox_type = null;
