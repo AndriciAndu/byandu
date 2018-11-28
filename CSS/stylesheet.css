@@ -1250,6 +1250,7 @@
 				}
 
 				@media (max-width: 767.98px) {
+					.copyContext-btnContainer { right: 15px; }
 					.copyContext-btn-copyText::after { content: 'Copy'; }
 					.copyContext-btn-saveFile::after { content: 'Save'; }
 					.copyContext-btn-showLightbox::after { content: 'View'; }
