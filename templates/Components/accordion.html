@@ -3,6 +3,76 @@
 	<script src="../../js/route_intermediary.js"> </script>
 	<!-- ============================================== -->
 	<style>
+
+		.codeGenerator-type__radio__wrapper, 
+		.codeGenerator-type__example-1 {
+			margin: 0 5px;
+			padding: 5px 10px;
+			border: 1px solid rgba(3,3,3,.1);
+		}
+
+		.codeGenerator-type__radio__wrapper {
+			font-weight: bold;
+		}
+
+		.codeGenerator-type__radio__wrapper span {
+			opacity: .5;
+		}
+
+		input.codeGenerator-type__radio:checked ~ span {
+			opacity: 1;
+		}
+
+		.codeGenerator-type__example-1::before {
+			content: '\f00c';
+			font-family: FontAwesome;
+			display: inline-block;
+			height: 100%; width: 25px;
+			text-align: center;
+			border-left:  1px solid rgba(0,133,0,.6);
+			border-right: 1px solid rgba(0,133,0,.6);
+			margin-right: 5px;
+
+			color: rgb(0,133,0);
+		}
+
+		.codeGenerator-type__example-1.disabled {
+			filter: grayscale(1);
+			opacity: .5;
+		}
+
+		.codeGenerator-type__example-1.disabled::before {
+			content: '\f00d';
+		}
+
+
+		.spacing-generateMarkup-item {
+			padding: 10px 0;
+			border-bottom: 1px solid rgba(3,3,3,.1);
+
+			display: flex;
+			justify-content: center;
+		}
+
+		.spacing-generateMarkup-nameInput ,
+		.spacing-generateMarkup-valueInput {
+			padding: 5px 10px;
+		}
+
+		.generateCode-btn {
+			padding: .65em .85em;
+			font-weight: bold;
+			text-align: center;
+			border-radius: 6px;
+			cursor: pointer;
+			cursor: hand;
+			box-shadow: 2px 2px 2px rgba(3,3,3,.3);
+		}
+
+		.spacing-generateMarkup-demoCode-line {
+			padding: 5px 0;
+		}
+
 		</style>
 	<!-- ============================================== -->
 
@@ -123,7 +193,120 @@
 				</div>
 
 				<!-- Usage Tab -->
-				<div class="tabs-content article-mainTabs-usageTab" data-tabs-id="2"> </div>
+				<div class="tabs-content article-mainTabs-usageTab" data-tabs-id="2"> 
+
+					<div class="col-12 p-0 codeGenerator">
+						<hr>
+						<div class="col-12"> Type </div>
+						<hr>
+
+						<div class="col-12 md-col-3">
+							<div class="codeGenerator-type__radio__wrapper">
+								<input class="codeGenerator-type__radio" name="codeGenerator-type__radio" type="radio" value="static"/>
+								<span> Static </span>
+							</div>
+							<div class="codeGenerator-type__radio__wrapper">
+								<input class="codeGenerator-type__radio" name="codeGenerator-type__radio" type="radio" value="resp"/>
+								<span> Resposive | Baseline </span>
+							</div>
+							<div class="codeGenerator-type__radio__wrapper">
+								<input class="codeGenerator-type__radio" name="codeGenerator-type__radio" type="radio" value="resp-ext" checked="checked"/>
+								<span> Resposive | Extended </span>
+							</div>
+						</div>
+
+						<div class="col-12 md-col-3">
+							<div id="codeGenerator-type__example-1-static" 		class="codeGenerator-type__example-1"> 
+								<b-p>{className}</b-p> (unprefixed) 
+							</div>
+							<div id="codeGenerator-type__example-1-resp" 		class="codeGenerator-type__example-1"> 
+								<b-r>{viewport}-</b-r><b-p>{className}</b-p> 
+							</div>
+							<div id="codeGenerator-type__example-1-resp-ext" 	class="codeGenerator-type__example-1"> 
+								<b-r>{viewport}-o-</b-r><b-p>{className}</b-p> 
+							</div>
+						</div>
+
+						<div class="col-12 md-col-6">
+							<div id="codeGenerator-type__example-2-static" class="col-12 p-0 codeGenerator-type__example-2 hidden">
+								<div class="wrapper md-m-0">
+									<p> This will generate the <span class="wrapper">unprefixed</span> classes only. </p>
+									<p class="mt-0"> The <span class="wrapper">viewport-prefixed</span> and <span class="wrapper">viewport-only-prefixed</span> classes will not be included. </p>
+								</div>
+							</div>
+							<div id="codeGenerator-type__example-2-resp" class="col-12 p-0 codeGenerator-type__example-2 hidden">
+								<div class="wrapper md-m-0">
+									<p> This will generate the <span class="wrapper">unprefixed</span> and the <span class="wrapper">viewport-prefixed</span> classes. </p>
+									<p class="mt-0"> The <span class="wrapper">viewport-only-prefixed</span> classes will not be included. </p>
+								</div>
+							</div>
+							<div id="codeGenerator-type__example-2-resp-ext" class="col-12 p-0 codeGenerator-type__example-2">
+								<div class="wrapper md-m-0">
+									<p> This will generate all <span class="wrapper">unprefixed</span>, <span class="wrapper">viewport-prefixed</span> and <span class="wrapper">viewport-only-prefixed</span> classes. </p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-12 p-0">
+						<div class="col-12 p-0">
+
+							<hr>
+							<div class="col-12"> Values </div>
+							<hr>
+
+							<div class="col-12 md-col-6 p-0">
+								<div class="col-12 spacing-generateMarkup-item">
+									<input class="col-1 sm-col-2 spacing-generateMarkup-checkbox"   type="checkbox" checked="checked" />
+									<input class="col-5 spacing-generateMarkup-nameInput"  type="text" placeholder="Name"  value="0">
+									<input class="col-5 spacing-generateMarkup-valueInput" type="text" placeholder="Value" value="0">
+								</div>
+								<div class="col-12 spacing-generateMarkup-item">
+									<input class="col-1 sm-col-2 spacing-generateMarkup-checkbox"   type="checkbox" checked="checked" />
+									<input class="col-5 spacing-generateMarkup-nameInput"  type="text" placeholder="Name"  value="xs">
+									<input class="col-5 spacing-generateMarkup-valueInput" type="text" placeholder="Value" value="7.5px">
+								</div>
+								<div class="col-12 spacing-generateMarkup-item">
+									<input class="col-1 sm-col-2 spacing-generateMarkup-checkbox"   type="checkbox" checked="checked" />
+									<input class="col-5 spacing-generateMarkup-nameInput"  type="text" placeholder="Name"  value="sm">
+									<input class="col-5 spacing-generateMarkup-valueInput" type="text" placeholder="Value" value="10px">
+								</div>
+								<div class="col-12 spacing-generateMarkup-item">
+									<input class="col-1 sm-col-2 spacing-generateMarkup-checkbox"   type="checkbox" checked="checked" />
+									<input class="col-5 spacing-generateMarkup-nameInput"  type="text" placeholder="Name"  value="md">
+									<input class="col-5 spacing-generateMarkup-valueInput" type="text" placeholder="Value" value="15px">
+								</div>
+								<div class="col-12 spacing-generateMarkup-item">
+									<input class="col-1 sm-col-2 spacing-generateMarkup-checkbox"   type="checkbox" checked="checked" />
+									<input class="col-5 spacing-generateMarkup-nameInput"  type="text" placeholder="Name"  value="lg">
+									<input class="col-5 spacing-generateMarkup-valueInput" type="text" placeholder="Value" value="30px">
+								</div>
+								<div class="col-12 spacing-generateMarkup-item">
+									<input class="col-1 sm-col-2 spacing-generateMarkup-checkbox"   type="checkbox" checked="checked" />
+									<input class="col-5 spacing-generateMarkup-nameInput"  type="text" placeholder="Name"  value="xl">
+									<input class="col-5 spacing-generateMarkup-valueInput" type="text" placeholder="Value" value="60px">
+								</div>
+							</div>
+
+							<div class="col-12 md-col-3">
+								<div class="wrapper">
+									<div class="col-12"> <b> Sample : </b> </div>
+									<hr>
+									<div class="col-12" id="sampleCode"></div>
+								</div>
+							</div>
+
+							<div class="col-12 md-col-3">
+								<button id="generateCode-btn-normal"   class="col-12 generateCode-btn"> Generate Code (normal)   </button>
+								<button id="generateCode-btn-minified" class="col-12 generateCode-btn"> Generate Code (minified) </button>
+							</div>
+
+						</div>
+					</div>
+
+					<p> Change margin/padding/border 'prefix/syntax' (m- | b- | p-) - text input </p>
+
+				</div>
 
 				<!-- Code Tab -->
 				<div class="tabs-content article-mainTabs-codeTab"  data-tabs-id="3"> </div>
@@ -132,3 +315,7 @@
 		</div>
 
 	</article>
+
+	<!-- ==================================================== -->
+	<div id="runScript" data-src="../../js/extra_scripts/components/accordion.js"> </div>
+	<!-- ==================================================== -->

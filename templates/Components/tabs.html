@@ -760,36 +760,38 @@
 							</div>
 
 							<div class="tabs-contentGroup">
-								<div class="tabs-content tab-expanded pr-0" data-tabs-id="1"> 
+								<div class="tabs-content tab-expanded codeTab" data-tabs-id="1"> 
 
 									<div class="copyContext-btnContainer" data-copyContextId="tabs-html">
 										<button class="copyContext-btn copyContext-btn-copyText"> </button>
+										<button class="copyContext-btn copyContext-btn-showLightbox"> </button>
 									</div>
 
 									<div class="copyContext" data-copyContextId="tabs-html">
+										<div id="codeSection-html" class="codeTab__main__codeSection" data-code="html">
+											<div class="finalCode-blockContainer">
+												<pre class="pre-removeTabSpaces">
+												    &lt;div class="tabs">
+												        &lt;div class="tabs-btnGroup">
+												            &lt;button class="tabs-btn tabBtn-active" data-tabs-id="1"> Button 1 &lt;/button>
+												            &lt;button class="tabs-btn"               data-tabs-id="2"> Button 2 &lt;/button>
+												            &lt;button class="tabs-btn"               data-tabs-id="3"> Button 3 &lt;/button>
+												        &lt;/div>
 
-										<div class="finalCode-blockContainer">
-											<pre class="pre-removeTabSpaces">
-											    &lt;div class="tabs">
-											        &lt;div class="tabs-btnGroup">
-											            &lt;button class="tabs-btn tabBtn-active" data-tabs-id="1"> Button 1 &lt;/button>
-											            &lt;button class="tabs-btn"               data-tabs-id="2"> Button 2 &lt;/button>
-											            &lt;button class="tabs-btn"               data-tabs-id="3"> Button 3 &lt;/button>
-											        &lt;/div>
+												        &lt;div class="tabs-contentGroup">
+												            &lt;div class="tabs-content tab-expanded" data-tabs-id="1"> Content 1&lt;/div>
+												            &lt;div class="tabs-content"              data-tabs-id="2"> Content 2 &lt;/div>
+												            &lt;div class="tabs-content"              data-tabs-id="3"> Content 3 &lt;/div>
+												        &lt;/div>
+												    &lt;/div> 
+												</pre>
 
-											        &lt;div class="tabs-contentGroup">
-											            &lt;div class="tabs-content tab-expanded" data-tabs-id="1"> Content 1&lt;/div>
-											            &lt;div class="tabs-content"              data-tabs-id="2"> Content 2 &lt;/div>
-											            &lt;div class="tabs-content"              data-tabs-id="3"> Content 3 &lt;/div>
-											        &lt;/div>
-											    &lt;/div> 
-											</pre>
-
-										</div> <!-- finalCode-blockContainer -->
-									</div> <!-- copyContext -->
+											</div> <!-- finalCode-blockContainer -->
+										</div>
+									</div>
 								</div> <!-- tabs-content (1) -->
 
-								<div class="tabs-content pr-0" data-tabs-id="2"> 
+								<div class="tabs-content codeTab" data-tabs-id="2"> 
 
 									<div class="copyContext-btnContainer" data-copyContextId="tabs-css">
 										<button class="copyContext-btn copyContext-btn-copyText"> </button>
@@ -797,107 +799,108 @@
 										<button class="copyContext-btn copyContext-btn-showLightbox"> </button>
 									</div>
 									
-									<div class="copyContext" data-copyContextId="tabs-css-normal">
+									<div class="copyContext" data-copyContextId="tabs-css">
+										<div id="codeSection-css" class="codeTab__main__codeSection" data-code="css">
+											<div class="finalCode-blockContainer">
+												<pre class="pre-removeTabSpaces">
+												    /* Tabs */
+												    /* ----------------------------------------*/
 
-										<div class="finalCode-blockContainer">
-											<pre class="pre-removeTabSpaces">
-											    /* Tabs */
-											    /* ----------------------------------------*/
+												        /* Colors */
+												        /* ----------------------------------------*/
 
-											        /* Colors */
-											        /* ----------------------------------------*/
+												            .tabs-btn {
+												                background-color: rgba(3,3,3,.1);
+												                border: 1px solid rgba(3,3,3,.1);
+												            }
+												            
+												            .tabs-btn.tabBtn-active { 
+												                background-color: #613dcc;
+												                color: #FFFFFF;
+												            }
 
-											            .tabs-btn {
-											                background-color: rgba(3,3,3,.1);
-											                border: 1px solid rgba(3,3,3,.1);
-											            }
-											            
-											            .tabs-btn.tabBtn-active { 
-											                background-color: #613dcc;
-											                color: #FFFFFF;
-											            }
+												        /* General */
+												        /* ----------------------------------------*/
 
-											        /* General */
-											        /* ----------------------------------------*/
+												            .tabs,
+												            .tabs-btnGroup,
+												            .tabs-contentGroup,
+												            .tabs-content {
+												                display: inline-block; float: left;
+												                position: relative;    width: 100%;
+												            }
 
-											            .tabs,
-											            .tabs-btnGroup,
-											            .tabs-contentGroup,
-											            .tabs-content {
-											                display: inline-block; float: left;
-											                position: relative;    width: 100%;
-											            }
+												            .tabs-btnGroup { 
+												                display: -webkit-box; 
+												                display: -ms-flexbox;   
+												                display: -webkit-flex; 
+												                display: flex;
+												            }
 
-											            .tabs-btnGroup { 
-											                display: -webkit-box; 
-											                display: -ms-flexbox;   
-											                display: -webkit-flex; 
-											                display: flex;
-											            }
+												        /* Clearfix */
+												        /* ----------------------------------------*/
 
-											        /* Clearfix */
-											        /* ----------------------------------------*/
+												            .tabs:after,
+												            .tabs-btnGroup:after,
+												            .tabs-contentGroup:after,
+												            .tabs-content:after {
+												                content: '';
+												                display: table;
+												                clear: both;
+												            }
 
-											            .tabs:after,
-											            .tabs-btnGroup:after,
-											            .tabs-contentGroup:after,
-											            .tabs-content:after {
-											                content: '';
-											                display: table;
-											                clear: both;
-											            }
+												        /* Buttons */
+												        /* ----------------------------------------*/
+												            
+												            .tabs-btn {
+												                position: relative; display: inline-block;
+												                padding: 10px;      text-align: center;
 
-											        /* Buttons */
-											        /* ----------------------------------------*/
-											            
-											            .tabs-btn {
-											                position: relative; display: inline-block;
-											                padding: 10px;      text-align: center;
+												                cursor: pointer;    cursor: hand;
+												                overflow: hidden;   text-overflow: ellipsis;
+												            }
 
-											                cursor: pointer;    cursor: hand;
-											                overflow: hidden;   text-overflow: ellipsis;
-											            }
+												            /* Overlay */
+												            .tabs-btn:after {
+												                content: '';    position: absolute;
+												                width: 100%;    height: 100%;
+												                top: 0;         left: 0;
+												            }
 
-											            /* Overlay */
-											            .tabs-btn:after {
-											                content: '';    position: absolute;
-											                width: 100%;    height: 100%;
-											                top: 0;         left: 0;
-											            }
+												            /* Button Alignment */
+												            .tabs-btnGroup.tabBtns-left     { justify-content: flex-start;  }
+												            .tabs-btnGroup.tabBtns-right    { justify-content: flex-end;    }
+												            .tabs-btnGroup.tabBtns-center   { justify-content: center;      }
+												            .tabs-btnGroup.buttons-fill .tabs-btn { flex: 1; }
 
-											            /* Button Alignment */
-											            .tabs-btnGroup.tabBtns-left     { justify-content: flex-start;  }
-											            .tabs-btnGroup.tabBtns-right    { justify-content: flex-end;    }
-											            .tabs-btnGroup.tabBtns-center   { justify-content: center;      }
-											            .tabs-btnGroup.buttons-fill .tabs-btn { flex: 1; }
+												            /* Text Align */
+												            .tabs-btnGroup.btnGroup-text-left   .tabs-btn { text-align: left  }
+												            .tabs-btnGroup.btnGroup-text-right  .tabs-btn { text-align: right }
 
-											            /* Text Align */
-											            .tabs-btnGroup.btnGroup-text-left   .tabs-btn { text-align: left  }
-											            .tabs-btnGroup.btnGroup-text-right  .tabs-btn { text-align: right }
+												        /* Content */
+												        /* ----------------------------------------*/
 
-											        /* Content */
-											        /* ----------------------------------------*/
+												            .tabs-contentGroup {
+												                border: 1px solid rgba(3,3,3,.1);
+												            }
 
-											            .tabs-contentGroup {
-											                border: 1px solid rgba(3,3,3,.1);
-											            }
+												            .tabs-content:not(.tab-expanded) { 
+												                width:   0 !important;  height:  0 !important;
+												                padding: 0 !important;  margin:  0 !important;
+												                overflow:   hidden !important;
+												                visibility: hidden !important;
+												            }
 
-											            .tabs-content:not(.tab-expanded) { 
-											                width:   0 !important;  height:  0 !important;
-											                padding: 0 !important;  margin:  0 !important;
-											                overflow:   hidden !important;
-											                visibility: hidden !important;
-											            }
-
-											            .tabs-content { 
-											                padding: 10px;
-											            }
-											</pre> 
-										</div> <!-- finalCode-blockContainer -->
+												            .tabs-content { 
+												                padding: 10px;
+												            }
+												</pre> 
+											</div> <!-- finalCode-blockContainer -->
+										</div>
 									</div> <!-- copyContext -->
 								</div> <!-- tabs-content (2) -->
 
-								<div class="tabs-content pr-0" data-tabs-id="3"> 
+								<div class="tabs-content  codeTab" data-tabs-id="3"> 
 
 									<div class="copyContext-btnContainer" data-copyContextId="tabs-js">
 										<button class="copyContext-btn copyContext-btn-copyText"> </button>
@@ -906,150 +909,151 @@
 									</div>
 									
 									<div class="copyContext" data-copyContextId="tabs-js">
+										<div id="codeSection-js" class="codeTab__main__codeSection" data-code="js">
+											<div class="finalCode-blockContainer">
+												<pre class="pre-removeTabSpaces">
+												    // [asteriskObj] init - if necessary
+												    // -----------------------------------------------------
 
-										<div class="finalCode-blockContainer">
-											<pre class="pre-removeTabSpaces">
-											    // [asteriskObj] init - if necessary
-											    // -----------------------------------------------------
+												        var asteriskObj = asteriskObj || {} ;
+												        asteriskObj.components = asteriskObj.components || {} ;
 
-											        var asteriskObj = asteriskObj || {} ;
-											        asteriskObj.components = asteriskObj.components || {} ;
+												    // Asterisk Component - [Tabs]
+												    // -----------------------------------------------------
 
-											    // Asterisk Component - [Tabs]
-											    // -----------------------------------------------------
+												        (function(){
 
-											        (function(){
+												            // Component.Object Setup 
+												            // -----------------------------------------------------
+												            
+												                asteriskObj.components.tabs = {};
+												                var tabsObj = asteriskObj.components.tabs;
 
-											            // Component.Object Setup 
-											            // -----------------------------------------------------
-											            
-											                asteriskObj.components.tabs = {};
-											                var tabsObj = asteriskObj.components.tabs;
+												            // Dependencies (not required if using [asterisk-utility.js])
+												            // -----------------------------------------------------
+												            
+												                // hasClass()
+												                // -----------------------------------------------------
 
-											            // Dependencies (not required if using [asterisk-utility.js])
-											            // -----------------------------------------------------
-											            
-											                // hasClass()
-											                // -----------------------------------------------------
+												                    if (hasClass === undefined) {
 
-											                    if (hasClass === undefined) {
+												                        function hasClass( elem , klass ) {
+												                            return (" " + elem.className + " " ).indexOf( " " + klass + " " ) > -1
+												                        }
 
-											                        function hasClass( elem , klass ) {
-											                            return (" " + elem.className + " " ).indexOf( " " + klass + " " ) > -1
-											                        }
+												                    };
+												                
+												                // getParent()
+												                // -----------------------------------------------------
 
-											                    };
-											                
-											                // getParent()
-											                // -----------------------------------------------------
+												                    if (getParent === undefined) {
+												                        
+												                        function getParent( elem, identifier ) {
 
-											                    if (getParent === undefined) {
-											                        
-											                        function getParent( elem, identifier ) {
+												                            elemParent = elem.parentElement;
 
-											                            elemParent = elem.parentElement;
+												                            if (elemParent) {
 
-											                            if (elemParent) {
+												                                var firstChar = identifier.charAt(0);
 
-											                                var firstChar = identifier.charAt(0);
+												                                if  (verify())  { return elemParent } 
+												                                else            { return getParent(elemParent, identifier) }
 
-											                                if  (verify())  { return elemParent } 
-											                                else            { return getParent(elemParent, identifier) }
+												                            } else { return null };
 
-											                            } else { return null };
+												                            // ---
+												                            function verify() {
 
-											                            // ---
-											                            function verify() {
+												                                var identif_substr = identifier.substring(1); // remove first char - for class/id cases
 
-											                                var identif_substr = identifier.substring(1); // remove first char - for class/id cases
+												                                if      (firstChar === '.') { return ( " " + elemParent.className + " " ).indexOf( " " + identif_substr + " " ) > -1 } 
+												                                else if (firstChar === '#') { return (elemParent.id      == identif_substr) } 
+												                                else                        { return (elemParent.tagName == identifier.toUpperCase()) }
+												                            }
+												                        }
 
-											                                if      (firstChar === '.') { return ( " " + elemParent.className + " " ).indexOf( " " + identif_substr + " " ) > -1 } 
-											                                else if (firstChar === '#') { return (elemParent.id      == identif_substr) } 
-											                                else                        { return (elemParent.tagName == identifier.toUpperCase()) }
-											                            }
-											                        }
+												                    };  
 
-											                    };  
+												            // Init
+												            // -----------------------------------------------------
 
-											            // Init
-											            // -----------------------------------------------------
+												                tabsObj.init = function(current_target, delegateEventListener) {
+												                    
+												                    if (current_target) {
 
-											                tabsObj.init = function(current_target, delegateEventListener) {
-											                    
-											                    if (current_target) {
+												                        if (hasClass(current_target, 'tabs')) {
 
-											                        if (hasClass(current_target, 'tabs')) {
+												                            tabsObj.activate(current_target)
 
-											                            tabsObj.activate(current_target)
+												                        } else if (delegateEventListener === true) {
 
-											                        } else if (delegateEventListener === true) {
+												                            tabsObj.delegate(current_target)
 
-											                            tabsObj.delegate(current_target)
+												                        } else { 
 
-											                        } else { 
+												                            var tabs = Array.from(current_target.getElementsByClassName('tabs'));   
+												                            tabs.map(tabs => tabsObj.activate(tabs));
 
-											                            var tabs = Array.from(current_target.getElementsByClassName('tabs'));   
-											                            tabs.map(tabs => tabsObj.activate(tabs));
+												                        }
 
-											                        }
+												                    } else {
 
-											                    } else {
+												                        var allTabs = Array.from(document.getElementsByClassName('tabs'));  
+												                        allTabs.map(tabs => tabsObj.activate(tabs));    
 
-											                        var allTabs = Array.from(document.getElementsByClassName('tabs'));  
-											                        allTabs.map(tabs => tabsObj.activate(tabs));    
+												                    }
 
-											                    }
+												                };
 
-											                };
+												            // Activate 
+												            // -----------------------------------------------------
 
-											            // Activate 
-											            // -----------------------------------------------------
+												                tabsObj.activate = function(current_target) {
 
-											                tabsObj.activate = function(current_target) {
+												                    current_target = current_target.getElementsByClassName('tabs-btnGroup')[0];
 
-											                    current_target = current_target.getElementsByClassName('tabs-btnGroup')[0];
+												                    current_target.addEventListener('click', function(e) {
+												                        if (hasClass(e.target, 'tabs-btn')) { tabsObj.run(e.target) }
+												                    })
+												                };
 
-											                    current_target.addEventListener('click', function(e) {
-											                        if (hasClass(e.target, 'tabs-btn')) { tabsObj.run(e.target) }
-											                    })
-											                };
+												            // Delegate
+												            // -----------------------------------------------------
 
-											            // Delegate
-											            // -----------------------------------------------------
+												                tabsObj.delegate = function(current_target) {
 
-											                tabsObj.delegate = function(current_target) {
+												                    current_target.addEventListener('click', function(e) {
+												                        if (hasClass(e.target, 'tabs-btn')) { tabsObj.run(e.target) }
+												                    })
+												                };
+												                    
+												            // Run
+												            // -----------------------------------------------------
 
-											                    current_target.addEventListener('click', function(e) {
-											                        if (hasClass(e.target, 'tabs-btn')) { tabsObj.run(e.target) }
-											                    })
-											                };
-											                    
-											            // Run
-											            // -----------------------------------------------------
+												                tabsObj.run = function(current_tabBtn) {
 
-											                tabsObj.run = function(current_tabBtn) {
+												                    // update 'active' status on Btn
+												                    var tabButtons = Array.from(current_tabBtn.parentElement.getElementsByClassName('tabs-btn'));
+												                    tabButtons.map(btn => btn.classList.remove('tabBtn-active'));
+												                    current_tabBtn.classList.add('tabBtn-active');
 
-											                    // update 'active' status on Btn
-											                    var tabButtons = Array.from(current_tabBtn.parentElement.getElementsByClassName('tabs-btn'));
-											                    tabButtons.map(btn => btn.classList.remove('tabBtn-active'));
-											                    current_tabBtn.classList.add('tabBtn-active');
+												                    // update 'expanded' status on content
+												                    var currentIndex = current_tabBtn.getAttribute('data-tabs-id');
+												                    var targetParent = getParent(current_tabBtn, '.tabs');
 
-											                    // update 'expanded' status on content
-											                    var currentIndex = current_tabBtn.getAttribute('data-tabs-id');
-											                    var targetParent = getParent(current_tabBtn, '.tabs');
+												                    var contentItems = Array.from(targetParent.getElementsByClassName('tabs-content'));
+												                    contentItems = contentItems.filter(item => getParent(item, '.tabs') === targetParent);
+												                    contentItems.map(function(item) { 
+												                        if (item.getAttribute('data-tabs-id') == currentIndex) { item.classList.add   ('tab-expanded') }
+												                        else                                                    { item.classList.remove('tab-expanded') }
+												                    })
 
-											                    var contentItems = Array.from(targetParent.getElementsByClassName('tabs-content'));
-											                    contentItems = contentItems.filter(item => getParent(item, '.tabs') === targetParent);
-											                    contentItems.map(function(item) { 
-											                        if (item.getAttribute('data-tabs-id') == currentIndex) { item.classList.add   ('tab-expanded') }
-											                        else                                                    { item.classList.remove('tab-expanded') }
-											                    })
-
-											                };
-											            
-											        })();
-											</pre> 
-										</div> <!-- finalCode-blockContainer -->
+												                };
+												            
+												        })();
+												</pre> 
+											</div> <!-- finalCode-blockContainer -->
+										</div>
 									</div> <!-- copyContext -->
 								</div> <!-- tabs-content (3) -->
 

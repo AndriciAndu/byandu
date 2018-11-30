@@ -12,7 +12,7 @@
 	/* Text */
 	/* --------------------------------------- */
 
-		svg .counter-text { 
+		.svgCounter__innerText { 
 			text-align: center;
 
 			/* font-size & color */
@@ -26,6 +26,7 @@
 	/* --------------------------------------- */
 
 		.pie {
+			color: #f06; 			/* inner color 		*/
 			background-color: red;
 
 			position: relative; border-radius: 50%;
@@ -34,18 +35,27 @@
 	                transform: rotate(-90deg); 
 		}
 
-		.pie .outer {
+		.pie .svgCounter__outer {
 			stroke: url(#grad-01);
 			stroke-width: 50%;
 			fill: none;
 
-			-webkit-animation: svg-pie-animation 1s 1 forwards;
-					animation: svg-pie-animation 1s 1 forwards;
+			/*-webkit-animation: svg-pie-animation 1s 1 forwards;
+					animation: svg-pie-animation 1s 1 forwards;*/
         }
 
 		@-webkit-keyframes svg-pie-animation { 0% { stroke-dasharray: 0 100; } /* 100 = 100% */ }
 				@keyframes svg-pie-animation { 0% { stroke-dasharray: 0 100; } /* 100 = 100% */ }
 
+		.pie .svgCounter__inner {
+			stroke-width: 25;
+			stroke: currentColor;
+		}
+
+		.pie:hover .svgCounter__outer {
+			-webkit-animation: svg-pie-animation 1s 1 forwards;
+					animation: svg-pie-animation 1s 1 forwards;
+		}
 
 	/* Counter */
 	/* --------------------------------------- */
@@ -60,7 +70,7 @@
 	                transform: rotate(-90deg); 
 		}
 
-		.counter .outer {
+		.counter .svgCounter__outer {
 			stroke: url(#grad-01);
 			stroke-width: 5;
 			stroke-linecap: round;
@@ -71,7 +81,7 @@
 					animation: svg-counter-animation 1s 1 forwards;
 		}
 
-		.counter .inner {
+		.counter .svgCounter__inner {
 			stroke-width: 25;
 			stroke: currentColor;
 		}
