@@ -11,37 +11,313 @@
 
 
 	<article>
+	
+		<header class="sr-only"> <h2> Component : Spoiler </h2> </header>
 
-		<div class="col-4">
-			<svg viewBox="0 0 64 64" class="svgCounter counter">
-				<g>
-					<circle class="svgCounter__outer" r="45%" cx="50%" cy="50%" stroke-dasharray="135 200"> </circle>
-					<circle class="svgCounter__inner" r="20%" cx="50%" cy="50%"> </circle>
-					<text class="svgCounter__innerText" x="50%" y="-50%" text-anchor="middle"> hello </text>
-				</g>
-			</svg>
+		<div class="tabs article-mainTabs">
+
+			<div class="article-mainTabs-banner">
+				<div class="article-mainTabs-title"> Components : Spoiler </div>
+
+				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
+					<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> Demo  </button>
+					<button class="tabs-btn" 				data-tabs-id="2"> Usage </button>
+					<button class="tabs-btn" 				data-tabs-id="3"> Code  </button>
+				</div>
+			</div>
+
+			<div class="tabs-contentGroup">
+
+				<!-- Demo Tab -->
+				<div class="tabs-content article-mainTabs-demoTab tab-expanded" data-tabs-id="1"> 
+
+					<div class="col-4">
+						<svg viewBox="0 0 64 64" class="svgCounter counter">
+							<g>
+								<circle class="svgCounter__outer" r="45%" cx="50%" cy="50%" stroke-dasharray="135 200"> </circle>
+								<circle class="svgCounter__inner" r="20%" cx="50%" cy="50%"> </circle>
+								<text class="svgCounter__innerText" x="50%" y="-50%" text-anchor="middle"> hello </text>
+							</g>
+						</svg>
+					</div>
+
+					<div class="col-4">
+						<svg viewBox="0 0 64 64" class="svgCounter pie">
+							<g>
+								<circle class="svgCounter__outer" r="25%" cx="50%" cy="50%" stroke-dasharray="25 100";> </circle>
+								<text class="svgCounter__innerText" x="50%" y="-50%" text-anchor="middle"> hello </text>
+							</g>
+						</svg>
+					</div>
+
+					<div class="col-4">
+						<svg viewBox="0 0 64 64" class="svgCounter pie">
+							<g>
+								<circle class="svgCounter__outer" r="25%" cx="50%" cy="50%" stroke-dasharray="90 100";> </circle>
+								<circle class="svgCounter__inner" r="20%" cx="50%" cy="50%"> </circle>
+								<text class="svgCounter__innerText" x="50%" y="-50%" text-anchor="middle"> hello </text>
+							</g>
+						</svg>
+					</div>
+
+				</div>
+
+				<!-- Usage Tab -->
+				<div class="tabs-content article-mainTabs-usageTab" data-tabs-id="2"> 
+
+					<!-- I. Description -->
+
+						<section class="p-0" aria-label="general description">
+							<heading> <h2 class="section-title"> I. Description </h2> </heading>
+
+							<p> 
+								Baseline <span class="wrapper">Counter</span> component. 
+
+								<button class="spoiler-btn spoiler-btn-autoText title-spoilerBtn" data-spoiler-id="description-more"> More | </button>
+							</p>
+
+							<div class="spoiler" data-spoiler-id="description-more">
+								<div class="spoiler-content">
+									<p> * <span class="wrapper">Free placement</span> - All <span class="wrapper">Spoiler Buttons</span> and <span class="wrapper">Spoilers</span> do not have co-dependent proximity, and can be placed anywhere within the document. </p>
+									<p> * <span class="wrapper">Linked Buttons</span> - Multiple <span class="wrapper">Spoiler Buttons</span> can point to the same <span class="wrapper">Spoiler</span>, and have their state linked between each other. </p>
+									<p> * <span class="wrapper">Tab Navigation</span> -  within <span class="wrapper">Spoilers</span> in their <span class="wrapper">collapsed</span> state, are not focusable by keyboard navigation. </p>
+									<p> * <span class="wrapper">Precise Animation</span> - <span class="wrapper">max-height</span> is calculated based on actual content height and spacing. </p>
+									<p> * <span class="wrapper">Unobstructive Functionality</span> - Function will <span class="wrapper">fail silently</span> and <span class="wrapper">console.log</span> details, if no adequate <span class="wrapper">Spoiler</span> is found (no match for <span class="wrapper">data-spoiler-id</span> value). </p>
+									<p> * <span class="wrapper">Auto-adaptable for dynamic content</span> - Will automatically adjust it's height for Dynamic content (expanding/collapsing menus or adding/removing HTML Elements). </p>
+								</div>
+							</div>
+						</section>
+
+					<!-- II. Initialization -->
+
+						<section class="p-0" aria-label="initialization">
+							<heading> <h2 class="section-title"> II. Initialization </h2> </heading>
+
+							<p> <b>Step 1.</b> Download and refference the [ <b-p>asterisk-component-spoiler.css</b-p> ] CSS file. </p>
+							<div class="wrapper"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-component-spoiler.css</b-p>" type="text/css" rel="stylesheet"> </div>
+
+							<p> <b>Step 2.</b> Download and refference the [ <b-p>asterisk-component-spoiler.js</b-p> ] JS file. </p>
+							<div class="wrapper"> &lt;script src="<b-r>--myPath--</b-r><b-p>/asterisk-component-spoiler.js</b-p>" type="text/javascript">&lt;/script> </div>
+
+							<p> <b>Step 3.</b> Make the next function call : </p>
+
+							<div class="wrapper"> 
+								<div class="md-flex md-flex-cross-center"> 
+									<div class="col-12 md-col-10"> asteriskObj.components.spoiler.init() </div>
+									<button class="col-12 md-col-2 mt-sm md-mt-0 spoiler-btn spoiler-btn-autoText" data-spoiler-id="spoiler-init"> </button>
+								</div>
+
+								<div class="spoiler" data-spoiler-id="spoiler-init">
+									<div class="spoiler-content">
+										<p class="my-xs"> asteriskObj.components.spoiler.init(targetElem, delegateEventListener) </p>
+
+										<hr>
+
+										<p class="my-xs"> Case: <b-r>asteriskObj.components.spoiler.init()</b-r> </p>
+										<p class="my-xs"> All <span class="wrapper">spoiler-btn</span> Elements within the <span class="wrapper">document</span> will be initialized. </p>
+										<p class="mt-0 sub-heading"> * an <span class="wrapper">eventListener</span> will be added to each <span class="wrapper">spoiler-btn Element</span> </p>
+
+										<hr>
+
+										<p class="my-xs"> Case: <b-r>asteriskObj.components.spoiler.init(</b-r> <span class="wrapper"><b-p>spoiler-btn Element</b-p></span> <b-r>)</b-r> </p>
+										<p class="my-xs"> Only the provided <span class="wrapper">spoiler-btn</span> element will be initialized. </p>
+										<p class="mt-0 sub-heading"> * an <span class="wrapper">eventListener</span> will be added to the provided <span class="wrapper">spoiler-btn Element</span> </p>
+										<p class="mt-0 sub-heading"> * used for dinamically-added content </p>
+
+										<hr>
+
+										<p class="my-xs"> Case: <b-r>asteriskObj.components.spoiler.init(</b-r> <span class="wrapper"><b-p><u>NON</u>-spoiler-btn Element</b-p></span> <b-r>)</b-r> </p>
+										<p class="my-xs"> All <span class="wrapper">spoiler-btn</span> Elements within the provided <span class="wrapper"><b-p><u>NON</u>-spoiler-btn Element</b-p></span> will be initialized. </p>
+										<p class="mt-0 sub-heading"> * an <span class="wrapper">eventListener</span> will be added to each <span class="wrapper">spoiler-btn Element</span> </p>
+										<p class="mt-0 sub-heading"> * used to initialize <span class="wrapper">spoiler-btn</span> elements within a portion of the website </p>
+
+										<hr>
+
+										<p class="my-xs"> Case: <b-r>asteriskObj.components.spoiler.init(</b-r> <span class="wrapper"><b-p><u>NON</u>-spoiler-btn Element</b-p></span> , <span class="wrapper"><b-p>true</b-p></span> <b-r>)</b-r> </p>
+										<p class="my-xs"> The <span class="wrapper">spoiler-btn functionality </span> will be delegated to the <span class="wrapper"><b-p><u>NON</u>-spoiler-btn Element</b-p></span> provided, enabling any <span class="wrapper">spoiler-btn</span> children to function through <b>Event Delegation</b>. </p>
+										<p class="mt-0 sub-heading"> * the <span class="wrapper">eventListener</span> will be added to the <span class="wrapper"><b-p><u>NON</u>-spoiler-btn Element</b-p></span> </p>
+										<p class="mt-0 sub-heading"> * can be used on the <span class="wrapper">document.body</span> to enable any and all <span class="wrapper">spoiler-btn</span> Elements </p>
+									</div>
+								</div>
+							</div>
+						</section>
+
+					<!-- III. Usage -->
+
+						<section class="px-0" aria-label="usage">
+							<heading> <h2 class="section-title"> III. Usage </h2> </heading>
+
+							<div class="col-12 p-0 md-flex md-flex-cross-center">
+								<div class="col-12 md-col-6 p-0">
+									<p> <b>Step 1.</b> Add the Component's Markup to your Document : </p>
+
+									<p class="sub-heading mt-0"> * <span class="wrapper"><b>spoiler</b></span> elements and <span class="wrapper"><b>spoiler-btn</b></span> elements can be placed anywhere within the document, regardless of each other's position. </p>
+
+									<p> <b>Step 2.</b> Set a unique <span class="wrapper"><b-p>data-spoiler-id</b-p></span> value (for each <span class="wrapper">spoiler</span>). </p>
+
+									<p class="sub-heading mt-0"> * <span class="wrapper"><b>spoiler</b></span> elements and <span class="wrapper"><b>spoiler-btn</b></span> elements are synchronised with each other by having the same <span class="wrapper"><b-p>data-spoiler-id</b-p></span> value. </p>
+								</div>
+
+								<div class="col-12 md-col-6 p-0">
+									<div class="wrapper">
+										<pre class="pre-removeTabSpaces">
+										    &lt;button class="<b>spoiler-btn</b>" <b-p>data-spoiler-id</b-p>="mySpoilerId-1"> &lt;/button>
+
+										    &lt;div class="<b>spoiler</b>" <b-p>data-spoiler-id</b-p>="mySpoilerId-1">
+										        &lt;div class="<b>spoiler-content</b>">
+										        &lt;/div>
+										    &lt;/div>
+										</pre>
+									</div>
+								</div>
+							</div>
+						</section>
+
+					<!-- IV. Markup Roles -->
+
+						<section class="px-0" aria-label="Markup Roles">
+							<heading> <h2 class="section-title"> IV. Markup Roles </h2> </heading>
+
+							<div class="accordion">
+
+								<div class="accordion-group px-md my-sm">
+									<button class="accordion-btn"> The <b>spoiler</b> Element:  </button>
+									<div class="accordion-content">
+										<p> * acts as a <span class="wrapper"><b>wrapper</b></span> for the <span class="wrapper"><b>spoiler-content</b></span> Element, to prevent the <span class="wrapper"><b>spoiler-content</b></span> box-model styles from offsetting the <span class="wrapper"><b>collapse</b></span>. </p>
+										<p> * holds the expand/collapse <span class="wrapper">max-height</span> value change. </p>
+										<p> * <b>must <u>not</u> have margins / paddings / borders</b>. </p>
+									</div>
+								</div>
+
+								<div class="accordion-group px-md my-sm">
+									<button class="accordion-btn"> The <b>spoiler-content</b> Element:  </button>
+									<div class="accordion-content">
+										<p> * acts as the 'true' container for the <span class="wrapper"><b>spoiler</b></span>'s content. </p>
+										<p> * having all content enclosed within it, it allows to precisely calculate the <span class="wrapper">max-height</span> value to apply. </p>
+										<p> * <b>it <u>can</u> have margins / paddings / borders</b>, without affecting the 'collapse'. </p>
+									</div>
+								</div>
+
+								<div class="accordion-group px-md my-sm">
+									<button class="accordion-btn"> The <b>spoiler-btn</b> Element:  </button>
+									<div class="accordion-content">
+										<p> * is not affected by proximity or nodeList, so <b>it can be placed <u>anywhere</u> within the document</b>, while still targetting the adequate <span class="wrapper"><b>spoiler</b></span>, when triggered. </p>
+										<p> * multiple <span class="wrapper"><b>spoiler-btn</b></span> elements can point to the same <span class="wrapper"><b>spoiler</b></span> element, by having the same <span class="wrapper">data-spoiler-id</span> value. </p>
+										<p> * If multiple <span class="wrapper"><b>spoiler-btn</b></span> elements are pointing to the same <span class="wrapper"><b>spoiler</b></span> element, when any of the <span class="wrapper"><b>spoiler-btn</b></span> is triggered, all synchronised <span class="wrapper"><b>spoiler-btn</b></span> elements will be updated ( collapsed/expanded state ). </p>
+									</div>
+								</div>
+
+							</div>
+
+						</section>
+
+					<!-- V. Styles -->
+					
+						<section class="p-0" aria-label="styles">
+							<heading> <h2 class="section-title"> V. Styles </h2> </heading>
+
+							<p>
+								<span class="wrapper">spoiler-btn</span> elements can be given the <span class="wrapper">spoiler-btn-autoText</span> <span class="wrapper">class</span> which adds an <b>'Expand'</b> / <b>'Collapse'</b> string, after the innerText provided. 
+							</p>
+
+							<div class="wrapper">
+								<line> 
+									&lt;button class="spoiler-btn" data-spoiler-id=""> <b-p>My Text</b-p> &lt;/button> 
+									<div class="col-12 mt-sm md-mt-0 md-col-4 md-float-right"> <button class="col-12 spoiler-btn" data-spoiler-id="asdf-1"> My Text </button> </div>
+								</line>
+								<hr>
+								<line> 
+									&lt;button class="spoiler-btn <b-r>spoiler-btn-autoText</b-r>" data-spoiler-id=""> &lt;/button> 
+									<div class="col-12 mt-sm md-mt-0 md-col-4 md-float-right"> <button class="col-12 spoiler-btn spoiler-btn-autoText" data-spoiler-id="asdf-2"> </button> </div>
+								</line>
+								<hr>
+								<line> 
+									&lt;button class="spoiler-btn <b-r>spoiler-btn-autoText</b-r>" data-spoiler-id=""> <b-p>My Text</b-p> &lt;/button> 
+									<div class="col-12 mt-sm md-mt-0 md-col-4 md-float-right"> <button class="col-12 spoiler-btn spoiler-btn-autoText" data-spoiler-id="asdf-3"> My Text </button> </div>
+								</line>
+
+								<!--  just to not throw error -->
+								<div class="spoiler hidden" data-spoiler-id="asdf-1"><div class="spoiler-content"></div></div>
+								<div class="spoiler hidden" data-spoiler-id="asdf-2"><div class="spoiler-content"></div></div>
+								<div class="spoiler hidden" data-spoiler-id="asdf-3"><div class="spoiler-content"></div></div>
+							</div>
+
+						</section>
+				</div>
+
+				<!-- Code Tab -->
+				<div class="tabs-content article-mainTabs-codeTab"  data-tabs-id="3"> 
+					<div class="finalCode-container">
+						<div class="tabs">
+							<div class="tabs-btnGroup buttons-fill">
+								<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> HTML Markup </button>
+								<button class="tabs-btn" 				data-tabs-id="2"> CSS         </button>
+								<button class="tabs-btn" 				data-tabs-id="3"> JS          </button>
+							</div>
+
+							<div class="tabs-contentGroup">
+
+								<!-- HTML -->
+									<div class="tabs-content tab-expanded px-0" data-tabs-id="1"> 
+
+										<div class="copyContext-btnContainer" data-copyContextId="spoiler-html">
+											<button class="copyContext-btn copyContext-btn-copyText"> </button>
+										</div>
+
+										<div class="copyContext" data-copyContextId="spoiler-html">
+
+											<div class="finalCode-blockContainer">
+												<pre class="pre-removeTabSpaces">
+												</pre>
+											</div>
+										</div>
+									</div>
+
+								<!-- CSS -->
+									<div class="tabs-content px-0" data-tabs-id="2"> 
+
+										<div class="copyContext-btnContainer" data-copyContextId="spoiler-css">
+											<button class="copyContext-btn copyContext-btn-copyText"> </button>
+											<button class="copyContext-btn copyContext-btn-saveFile" data-fileName="asterisk-component-spoiler-spec" 	data-fileType=".css"> </button>
+											<button class="copyContext-btn copyContext-btn-showLightbox"> </button>
+										</div>
+
+										<div class="copyContext" data-copyContextId="spoiler-css">
+
+											<div class="finalCode-blockContainer">
+												<pre class="pre-removeTabSpaces">
+												</pre>
+											</div>
+										</div>
+									</div>
+
+								<!-- JS -->
+									<div class="tabs-content px-0" data-tabs-id="3"> 
+
+										<div class="copyContext-btnContainer" data-copyContextId="spoiler-js">
+											<button class="copyContext-btn copyContext-btn-copyText"> </button>
+											<button class="copyContext-btn copyContext-btn-saveFile" data-fileName="asterisk-component-spoiler-spec" 	data-fileType=".js"> </button>
+											<button class="copyContext-btn copyContext-btn-showLightbox"> </button>
+										</div>
+
+										<div class="copyContext" data-copyContextId="spoiler-js">
+
+											<div class="finalCode-blockContainer">
+												<pre class="pre-removeTabSpaces">
+												</pre>
+											</div>
+										</div>
+									</div>
+
+							</div>
+						</div>
+					</div>
+				</div> 
+
+			</div>
 		</div>
 
-		<div class="col-4">
-			<svg viewBox="0 0 64 64" class="svgCounter pie">
-				<g>
-					<circle class="svgCounter__outer" r="25%" cx="50%" cy="50%" stroke-dasharray="25 100";> </circle>
-					<text class="svgCounter__innerText" x="50%" y="-50%" text-anchor="middle"> hello </text>
-				</g>
-			</svg>
-		</div>
-
-		<div class="col-4">
-			<svg viewBox="0 0 64 64" class="svgCounter pie">
-				<g>
-					<circle class="svgCounter__outer" r="25%" cx="50%" cy="50%" stroke-dasharray="90 100";> </circle>
-					<circle class="svgCounter__inner" r="20%" cx="50%" cy="50%"> </circle>
-					<text class="svgCounter__innerText" x="50%" y="-50%" text-anchor="middle"> hello </text>
-				</g>
-			</svg>
-		</div>
-
-	</article> 
+	</article>
 
 	<!-- ==================================================== -->
 	<div id="runScript" data-src="../../js/extra_scripts/components/counter.js"> </div>

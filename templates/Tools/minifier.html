@@ -1,0 +1,77 @@
+
+	<!-- ===================== Route ================== -->
+	<script src="../../js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+	<style>
+
+		.minifier-code {
+			width: 100%; height: 400px;
+			padding: 15px;
+			white-space: pre;
+
+			overflow: auto;
+
+			border-radius: 3px;
+			border: 1px solid rgba(3,3,3,.3);
+			box-shadow: 1px 1px 2px rgba(3,3,3,.7);
+
+			font-family: 'Space Mono';
+		}
+
+		#minifyBtn-css::before ,
+		#finalCode-css-copyBtn::before {
+			
+			font-family: FontAwesome;
+
+			display: inline-block;
+			margin-right: 5px;
+		}
+
+		#minifyBtn-css::before 			{ content: '\f066'; }
+		#finalCode-css-copyBtn::before 	{ content: '\f0c5'; }
+
+		#minifyBtn-css.active ,
+		#finalCode-css-copyBtn.active {
+			color: yellow;
+		}	
+
+		#minifyBtn-css.active::before ,
+		#finalCode-css-copyBtn.active::before {
+			content: '\f00c';
+			-webkit-animation: article-animateBtn .5s linear;
+					animation: article-animateBtn .5s linear;
+		}
+
+		@-webkit-keyframes article-animateBtn { 50% { transform: scale(1.2); } }
+				@keyframes article-animateBtn { 50% { transform: scale(1.2); } }
+
+		</style>
+	<!-- ============================================== -->
+
+	<article>
+
+		<header class="sr-only"> <h2> Code Minifier  </h2> </header>
+
+		<div class="article-title"> Code Minifier </div>
+
+		<div class="col-12 md-col-6">
+			<div class="col-12 p-0">
+				<textarea id="minifier-code-input"  class="minifier-code" spellcheck="false" placeholder="Input code"></textarea>
+			</div>
+			<hr>
+			<div id="minifyBtn-css" class="col-12 btn"> Minify CSS Code </div>
+		</div>
+		<div class="col-12 md-col-6">
+			<div class="col-12 p-0">
+				<textarea id="minifier-code-output" class="minifier-code" spellcheck="false" placeholder="Resulting Code will appear here"></textarea>
+			</div>
+			<hr>
+			<div class="col-6"> <div id="finalCode-css-copyBtn" class="col-12 btn"> Copy Code </div> </div>
+			<div class="col-6"> <div id="finalCode-css-saveBtn" class="col-12 btn"> Save File </div> </div>
+		</div>
+
+	</article>
+
+	<!-- ==================================================== -->
+	<div id="runScript" data-src="../../js/extra_scripts/tools/minifier.js"> </div>
+	<!-- ==================================================== -->

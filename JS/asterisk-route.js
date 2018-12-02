@@ -64,6 +64,7 @@
 					
 				infoObj.current_redirectUrl = infoObj.rootPage + infoObj.current_hrefIdentifier;
 				history.replaceState(null, null, infoObj.current_redirectUrl);
+				infoObj.currentPage = infoObj.current_redirectUrl;
 
 				/*
 					routeObject.info {
@@ -241,13 +242,27 @@
 
 			var href_initial = window.location.href.toLowerCase();
 
-			// get the href (or portion of the href) - to check which page we are on
-			var hrefString = href_initial;	
-			var templatePath = routeObject.info.templatePath
+			// working prototype - prevent popstate if internal anchor link
+			// ----------------------------------------------------------
+				// console.log(href_initial);
 
+				var asdf_id = '';
+				if (href_initial.indexOf('#') > -1) { 
+					href_initial = href_initial.slice(0, href_initial.indexOf('#'));
+					asdf_id = href_initial.slice(href_initial.indexOf('#'));
+				};
+
+				if (routeObject.info.current_redirectUrl == href_initial) { return }
+			// ----------------------------------------------------------
+
+			// get the href (or portion of the href) - to check which page we are on
+			var templatePath = routeObject.info.templatePath
+				
 			if (templatePath.length > 1) {
-				hrefString = href_initial.slice(href_initial.indexOf(templatePath) + templatePath.length)
-			};
+				var hrefString = href_initial.slice(href_initial.indexOf(templatePath) + templatePath.length);
+			} else {
+				var hrefString = href_initial;
+			}
 
 			// check which page we are on
 			var currentMatch = hrefString.match(/\/[a-zA-Z0-9-.]+[^\/]/g);							// get all occurances of /something/somethingElse/etc
@@ -271,7 +286,7 @@
 
 			var articleButtons = Array.from(document.getElementsByClassName('__route__articleBtn'));
 			
-			articleButtons.map(function(item) { 
+			articleButtons.map(function(item) {
 				item.addEventListener('click', function(e) { e.preventDefault(); routeObject.articleClick(this) })
 			});
 	})();

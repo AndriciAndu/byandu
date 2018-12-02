@@ -201,7 +201,14 @@
 
 			console.log(finalCodeStrings)
 
-		}
+		};
+
+		function testqqq() {
+			console.log(document.activeElement);
+			setTimeout(testqqq, 1000)
+		};
+
+		//testqqq();
 
 	})();
 

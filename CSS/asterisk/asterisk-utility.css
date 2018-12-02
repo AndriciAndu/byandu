@@ -69,6 +69,15 @@
 				color: inherit;
 			}
 
+			.btn {
+				padding: .65em .85em;
+				font-weight: bold;
+				text-align: center;
+				border-radius: 6px;
+				cursor: pointer; cursor: hand;
+				box-shadow: 2px 2px 2px rgba(3,3,3,.3);
+			}
+
 		/* Box sizing */
 		/* -------------------------------------------------------------------------------- */
 
