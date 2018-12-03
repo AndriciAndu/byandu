@@ -18,6 +18,12 @@
 			font-family: 'Space Mono';
 		}
 
+		@media (max-width: 575.98px) {
+			.minifier-code {
+				height: 300px;
+			}
+		}
+
 		#minifyBtn-css::before ,
 		#finalCode-css-copyBtn::before {
 			
@@ -50,9 +56,9 @@
 
 	<article>
 
-		<header class="sr-only"> <h2> Code Minifier  </h2> </header>
+		<header class="sr-only"> <h2> CSS - Code Minifier  </h2> </header>
 
-		<div class="article-title noTextOverlay"> Code Minifier </div>
+		<div class="article-title noTextOverlay"> CSS - Code Minifier </div>
 
 		<div class="col-12 md-col-6">
 			<div class="col-12 p-0">
@@ -67,8 +73,15 @@
 				<textarea id="minifier-code-output" class="minifier-code" spellcheck="false" placeholder="Resulting Code will appear here"></textarea>
 			</div>
 			<hr>
-			<div class="xs-hidden sm-hidden col-6"> <div id="finalCode-css-copyBtn" class="col-12 btn"> Copy Code </div> </div>
-			<div class="col-12 md-col-6"> <div id="finalCode-css-saveBtn" class="col-12 btn"> Save File </div> </div>
+			<div class="col-12 xs-visible sm-visible mb-sm"> 
+				<div id="finalCode-css-selectBtn" class="col-12 btn"> Select Code </div> 
+			</div>
+			<div class="col-6  xs-hidden  sm-hidden">  
+				<div id="finalCode-css-copyBtn"   class="col-12 btn"> Copy Code   </div> 
+			</div>
+			<div class="col-12 md-col-6">
+				<div id="finalCode-css-saveBtn"   class="col-12 btn"> Save File   </div> 
+			</div>
 			<hr class="xs-visible sm-visible">
 		</div>
 

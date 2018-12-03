@@ -60,6 +60,16 @@
 			}
 		});
 
+		document.getElementById('finalCode-css-selectBtn').addEventListener('click', function(){
+
+			if (!hasClass(this, 'active')) {
+				animateBtnIcon(this);
+				var outputTextarea = document.getElementById('minifier-code-output');
+				
+				outputTextarea.select();
+			}
+		});
+
 		function animateBtnIcon(targetBtn) {
 			targetBtn.classList.add('active');
 
