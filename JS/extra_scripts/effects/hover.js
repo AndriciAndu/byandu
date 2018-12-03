@@ -57,7 +57,7 @@
 
 				var newElem = document.createElement('div');
 
-				if (effect.indexOf('hvr-') > -1) {
+				if (effect.indexOf('~~') == -1) {
 
 					newElem.classList = 'col-6 sm-col-4 md-col-3 p-xs';
 					newElem.innerHTML = 
@@ -72,7 +72,7 @@
 				} else {
 
 					newElem.classList = 'col-12 demo-category-title';
-					newElem.innerHTML = effect;
+					newElem.innerHTML = effect.replace('~~title: ', '');
 
 				};
 
