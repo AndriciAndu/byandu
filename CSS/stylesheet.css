@@ -987,12 +987,13 @@
 				width: 100%;
 				padding-left: 15px;
 			}
-			.codeTab__main__codeSection::after {
+			/* removed - when present it would not allow scroll to happen */
+			/*.codeTab__main__codeSection::after {
 				content: '';
 				position: absolute;
 				top: 0; left: 0;
 				width: 100%; height: 100%;
-			}
+			}*/
 
 			.codeTab__sideNav {
 				padding: 0;
