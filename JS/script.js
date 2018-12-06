@@ -622,7 +622,7 @@
 		else if (hasClass(e.target, 'finalCode_checkbox_btn_highlight')) 	{ byAndu.checkboxBtn_highlight(e.target)		}
 
 		else if (hasClass(e.target, 'finalCode-radio-parent')) 				{ byAndu.radio_run(e.target)		}
-		else if (hasClass(e.target, 'searchBox-overallSelect-btn')) { byAndu.codeTab_checkbox_globalUpdate(e.target) }
+		else if (hasClass(e.target, 'searchBox-overallSelect-btn')) 		{ byAndu.codeTab_checkbox_globalUpdate(e.target) }
 
 		//else if (hasClass(e.target, 'byAndu-file')) { byAndu_getFileCode(e.target) }
 
@@ -642,8 +642,26 @@
 
 	// Modals
 	document.getElementById('byAndu-modalsContainer').addEventListener('click', function(e) {
-		if (hasClass(e.target, 'modal-underlay')) { e.target.parentElement.classList.remove('modal-show') }
+		if (hasClass(e.target, 'modal-underlay')) { asteriskObj.components.modal.closeModal(e.target.parentElement) }
 	});
+
+	document.getElementById('sideNav-byAndu-infoBtn').addEventListener('click', function(){
+		document.getElementById('byAndu-info').classList.add('modal-show')
+	});
+
+	//
+	if (!asteriskObj.components.modal.states.hasEvtListener_keypress_esc) {
+		asteriskObj.components.modal.states.hasEvtListener_keypress_esc = true;
+		document.addEventListener('keydown', function(e) {
+
+			var e = e || window.event; 
+
+			if (e.keyCode == 27 || e.key == 'Escape' || e.code == 'Escape') {
+				var openModal  = asteriskObj.components.modal.states.openModal;
+				if (openModal) { asteriskObj.components.modal.closeModal(openModal) }
+			};
+		});
+	};
 
 	// Code Checkboxes SearchBox
 	document.getElementById('__route__mainView').addEventListener('input', function(e){
@@ -651,6 +669,26 @@
 			byAndu.codeTab_searchBox_run(e.target)
 		}
 	});
+
+
+
+
+	function run123(klass) {
+		var items = Array.from(document.getElementsByClassName(klass));
+
+		items.map(function(item){
+			console.log(item);
+			console.log(document.body.contains(item))
+		})
+	}
+
+	// document.getElementById('byAndu-beta-welcome').classList.add('modal-show');
+
+	// function qweqweqweqw() {
+	// 	console.log(document.activeElement);
+	// 	setTimeout(qweqweqweqw , 1000)
+	// };
+	// qweqweqweqw();
 
 	/*document.getElementById('byAndu-infoBtn').addEventListener('click', function(){
 

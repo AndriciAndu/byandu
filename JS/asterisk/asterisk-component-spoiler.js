@@ -21,16 +21,16 @@
 			// Dependencies 
 			// -----------------------------------------------------
 
-				asteriskObj.dependencies = asteriskObj.dependencies || {} ;
+				asteriskObj.utility = asteriskObj.utility || {} ;
 
 				// hasClass()
 				// -----------------------------------------------------
 
-					asteriskObj.dependencies.hasClass = asteriskObj.dependencies.hasClass || function ( elem , klass ) {
+					asteriskObj.utility.hasClass = asteriskObj.utility.hasClass || function ( elem , klass ) {
 						return (" " + elem.className + " " ).indexOf( " " + klass + " " ) > -1
 					};
 
-					var hasClass = asteriskObj.dependencies.hasClass;
+					var hasClass = asteriskObj.utility.hasClass;
 
 			// Init
 			// -----------------------------------------------------

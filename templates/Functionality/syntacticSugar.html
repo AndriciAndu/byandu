@@ -635,6 +635,59 @@
 						<button class="col-12 spoiler-btn spoiler-btn-autoText" data-spoiler-id="getFirstClass()"> </button>
 					</div>
 				</div>
+
+			<!-- getFocusableChildren() -->
+			<!-- ============================================== -->
+
+				<div class="title-withSpoilerBtn">
+					<div class="col-12 sm-col-5"> <b-r>getFocusableChildren()</b-r></div>
+					<div class="col-12 sm-col-5"> Check descendants and Return which are focusable </div> 
+					<button class="col-12 sm-col-2 xs-o-my-sm spoiler-btn spoiler-btn-autoText" data-spoiler-id="getFocusableChildren()"> </button>
+				</div>
+
+				<div class="spoiler" data-spoiler-id="getFocusableChildren()">
+					<div class="spoiler-content px-md">
+						<div class="wrapper">
+							<div class="copyContext-btnContainer" data-copyContextId="getFocusableChildren-1">
+								<button class="copyContext-btn copyContext-btn-copyText"> </button>
+								<button class="copyContext-btn copyContext-btn-showLightbox"> </button>
+							</div>
+
+							<div class="copyContext" data-copyContextId="getFocusableChildren-1">
+								<pre class="pre-removeTabSpaces">
+								    function <b-p>getFocusableChildren</b-p> ( elem ) {
+
+								        var initial_activeElem = document.activeElement;
+
+								        var children_all = Array.from(elem.getElementsByTagName("*"));
+								        var children_focusable = children_all.filter(function(child){
+								            child.focus();
+								            return document.activeElement === child
+								        });
+
+								        initial_activeElem.focus();
+
+								        <b-r>return</b-r> children_focusable
+								    }; </pre>
+							</div>
+						</div>
+
+						<div class="wrapper">
+							<p class="title">  // Argument Types : </p>
+							<p class="mb-0"> <span class="wrapper">[ elem ]</span> - must be <span class="wrapper">HTMLElement</span> </p>
+
+							<p class="title">  // Will return : </p>
+							<p class="mb-0"> <span class="wrapper"> Array of HTML Elements </span> - the Descendant Elements that are focusable </p>
+							<p> <span class="wrapper"> null </span> - if no Element matches the query </p>
+
+							<p class="title"> // Usage Example : </p>
+							<p> <span class="wrapper"> var focusableChildren =  <b-p>getFocusableChildren</b-p><b>(myHTMLElement)</b>; </span> </p>
+						</div>
+
+						<hr>
+						<button class="col-12 spoiler-btn spoiler-btn-autoText" data-spoiler-id="getFirstClass()"> </button>
+					</div>
+				</div>
 		</section>	
 
 		<section class="p-0 m-0">

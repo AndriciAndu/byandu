@@ -17,19 +17,47 @@
 				asteriskObj.components.modal = {};
 				var modalObj = asteriskObj.components.modal;
 
+			// States
+			// -----------------------------------------------------
+
+				modalObj.states = {
+					hasEvtListener_keypress_esc : false ,
+					lastFocusedElem   : null ,
+					openModal         : null ,
+					fosusableChildren : null
+				};
+
 			// Dependencies 
 			// -----------------------------------------------------
 
-					asteriskObj.dependencies = asteriskObj.dependencies || {} ;
+					asteriskObj.utility = asteriskObj.utility || {} ;
 
 				// hasClass() 
 				// -----------------------------------------------------
 
-					asteriskObj.dependencies.hasClass = asteriskObj.dependencies.hasClass || function ( elem , klass ) {
+					asteriskObj.utility.hasClass = asteriskObj.utility.hasClass || function ( elem , klass ) {
 						return (" " + elem.className + " " ).indexOf( " " + klass + " " ) > -1
 					};
 
-					var hasClass = asteriskObj.dependencies.hasClass;
+					var hasClass = asteriskObj.utility.hasClass;
+
+				// getFocusableChildren() 
+				// -----------------------------------------------------
+
+					asteriskObj.utility.getFocusableChildren = asteriskObj.utility.getFocusableChildren || function ( elem ) {
+
+						var activeElem = document.activeElement;
+
+						var children_all = Array.from(elem.getElementsByTagName("*"));
+						var children_focusable = children_all.filter(function(child){
+							child.focus();
+							return document.activeElement === child
+						});
+
+						return children_focusable
+					};
+
+					var getFocusableChildren = asteriskObj.utility.getFocusableChildren;
 
 			// Init
 			// -----------------------------------------------------
@@ -58,7 +86,23 @@
 						var allmodalBtns = Array.from(document.getElementsByClassName('modal-btn'));
 						allModalBtns.map(modalBtn => modalObj.activate(modalBtn));
 
-					}
+					};	
+
+					if (!modalObj.states.hasEvtListener_keypress_esc) {
+
+						modalObj.states.hasEvtListener_keypress_esc = true;
+
+						document.addEventListener('keydown', function(e) {
+
+							var e = e || window.event; 
+
+							if (e.keyCode == 27 || e.key == 'Escape' || e.code == 'Escape') {
+								var openModal = modalObj.states.openModal;
+								if (openModal) { modalObj.closeModal(openModal); console.log('asd') }
+							};
+						});
+
+					};
 
 				};
 
@@ -94,9 +138,20 @@
 					};
 
 					var target_modal = current_modalBtn.targetElems.target_modal;
+
 					if (target_modal) {
 
-						target_modal.classList.add('modal-show')
+						modalObj.states.openModal = target_modal;
+
+						// store last-focused element - to restore focus when closing the modal
+						modalObj.states.lastFocusedElem = current_modalBtn; 
+
+						target_modal.classList.add('modal-show');
+						document.body.classList.add('hasOpenModal');
+
+						target_modal.getElementsByClassName('modal-content')[0].focus();
+						modalObj.states.fosusableChildren = getFocusableChildren(target_modal);
+						window.addEventListener('keydown', modalObj.onTabKeypress);
 
 					} else {
 
@@ -106,6 +161,40 @@
 
 					}
 
+				};
+
+			// Close
+			// -----------------------------------------------------
+
+				modalObj.closeModal = function(current_target) { console.log(current_target)
+					current_target.classList.remove('modal-show');
+					document.body.classList.remove('hasOpenModal');
+					modalObj.states.lastFocusedElem.focus();
+
+					modalObj.states.openModal         = null;
+					modalObj.states.lastFocusedElem   = null;
+					modalObj.states.fosusableChildren = null;
+
+					window.removeEventListener('keydown', modalObj.onTabKeypress);
+				};
+
+			// Close
+			// -----------------------------------------------------
+
+				modalObj.onTabKeypress = function(e) {
+
+					var e = e || window.event; 
+
+					if (e.key == 'Tab' || e.code == 'Tab') {
+
+						var activeElem = document.activeElement;
+						var focusableChildren = modalObj.states.fosusableChildren;
+
+						if (activeElem == focusableChildren[focusableChildren.length - 1]) {
+							e.preventDefault();
+							focusableChildren[0].focus();
+						};
+					}
 				};
 
 			// Define Parameters

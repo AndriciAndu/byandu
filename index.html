@@ -82,9 +82,18 @@
 
 <body class="faSpinner has-body-sideNav">
 
+	<!-- MOBILE - sideNav collapse/expand button --> 
 	<input type="checkbox" name="body-sideNav-toggleDisplay-mobile" id="body-sideNav-toggleDisplay-mobile">
 	<label for="body-sideNav-toggleDisplay-mobile" id="body-sideNav-toggleDisplay-mobile-label"> </label>
 
+	<!-- About -->
+	<button id="sideNav-byAndu-infoBtn">
+		<div id="sideNav-infoBtn-img-wrapper">
+			<img id="sideNav-infoBtn-img" src="images/profile.png"/>
+		</div>
+	</button>
+
+	<!-- sideNav -->
 	<div id="byAndu-navbarSide" class="body-sideNav">
 
 		<!-- Utility -->
@@ -317,38 +326,44 @@
 
 			<div class="sideNav-btnGroup-btnContainer __route__articleGroup" data-categoryName="articles"		tabindex="-1">
 
-				<a class="sideNav-btn __route__articleBtn" role="link" href="preventChildFocusWithinCollapsedParent.html" title="Prevent Child Focus Within Collapsed Parent"> 
+				<span> Coming Soon </span>
+
+				<!--<a class="sideNav-btn __route__articleBtn" role="link" href="preventChildFocusWithinCollapsedParent.html" title="Prevent Child Focus Within Collapsed Parent"> 
 					Prevent Child Focus Within Collapsed Parent </a>
 
 				<a class="sideNav-btn __route__articleBtn" role="link" href="betterMaxHeightTransitionWithMultipleTransitionDelay.html" title="Better maxHeight Transition With Multiple transitionDelay"> 
 					Better maxHeight Transition With Multiple transitionDelay </a>
 
 				<a class="sideNav-btn __route__articleBtn" role="link" href="BetterKeyboardNavigationForCollapsibleMenusAndInteractibleComponentsWithFocus-within.html" title="Better keyboard navigation for collapsible menus and interactible components with :focus-within"> 
-					Better keyboard navigation for collapsible menus and interactible components with :focus-within </a>
+					Better keyboard navigation for collapsible menus and interactible components with :focus-within </a>-->
 			</div>
 		</div>
 	</div>
 
+	<!-- main content -->
 	<div id="byAndu-main" class="body-main"> 
 		<div class="container py-0 xs-o-px-0 sm-o-px-0"> 
 			<main id="__route__mainView" role="main" tabindex="1"> </main>
 		</div>
 	</div>
 
+	<!-- modals -->
 	<div id="byAndu-modalsContainer">
 
 		<!--  role="dialog" aria-modal="true" aria-hidden="true" tabindex="-1" -->
-		<div class="modal byAndu-info" data-modal-id="byAndu-info">
+		<div class="modal" id="byAndu-info" data-modal-id="byAndu-info">
 
 			<div class="modal-underlay"> </div>
 
-			<div class="modal-content flex flex-cross-center text-center">
+			<div class="modal-content flex flex-cross-center text-center" tabindex="0">
 				<div>
-					<div class="col-5 pl-0">
-						<div class="byAndu-info-imgContainer col-6 p-0 col-offset-3"> <img src="images/profile.png"/> </div>
+					<div class="col-12 md-col-5 md-pl-0">
+						<div class="byAndu-info-imgContainer col-12 md-col-6 md-col-offset-3"> 
+							<img src="images/profile.png"/> 
+						</div>
 
 						<div class="byAndu-info-title col-12 mt-xs"> Andrici Andu </div>
-						<div class="byAndu-info-subtitle col-12"> <b-p>&nbsp;Front End Developer</b-p> </div>
+						<div class="byAndu-info-subtitle col-12"> <b-p>&nbsp;Front-End Web Developer</b-p> </div>
 
 						<div class="col-8 p-0 col-offset-2"> <hr> </div>
 
@@ -362,9 +377,9 @@
 
 					</div>
 
-					<div class="col-7 pl-0 border-left">
+					<div class="col-12 md-col-7 md-pl-0 border-left">
 						<row>
-							I welcome you to my personal collection of <br>hand-crafted/curated utility-specific mini-libraries,<br> which can find their place in any project.
+							I welcome you to my personal collection of <br>hand-crafted/curated utility-specific bundles-of-joy,<br> which can find their place in any project.
 						</row>
 
 						<row class="mt-lg"> <u><b>Feel free to:</b></u> </row>
@@ -372,18 +387,19 @@
 						<row class="m-0">  <b-r>*</b-r>&nbsp; raise awareness of any bugs / oversights  </row>
 						<row class="mt-0"> <b-r>*</b-r>&nbsp; provide any constructive feedback / fixes  </row>
 
-						<row class="mb-0 mt-lg"> As time permits it, more goodies will be added. </row>
+						<row class="mb-0 mt-lg"> Stay tooned, more goodies will be added. </row>
 						<row> Logical, maintainable, modular, free. </row>
+						<row> <a class="btn" href="https://www.facebook.com/byAndu-206462863587321/"> Keep close </a> </row>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="modal" data-modal-id="byAndu-xxx">
+		<div class="modal" 				data-modal-id="byAndu-xxx">
 
 			<div class="modal-underlay"> </div>
 
-			<div class="modal-content">
+			<div class="modal-content" tabindex="0">
 
 				<div>
 					<p class="mt-md"> 
@@ -485,9 +501,11 @@
 			</div>
 		</div>
 
-		<div class="modal" data-modal-id="viewportTable">
+		<div class="modal" 				data-modal-id="viewportTable">
+
 			<div class="modal-underlay"></div>
-			<div class="modal-content">
+
+			<div class="modal-content" tabindex="0">
 				<row class="px-md md-px-lg pb-lg m-0">
 
 					<div class="section-title"> Viewport-prefixes </div>
@@ -719,15 +737,13 @@
 			</div>
 		</div>
 
-		<div class="modal" data-modal-id="utilityClasses">
+		<div class="modal" 				data-modal-id="utilityClasses">
 
 			<div class="modal-underlay"></div>
 
-			<div class="modal-content">
+			<div class="modal-content" tabindex="0">
 
 				<heading> <h2 class="section-title pl-lg"> Utility Classes </h2> </heading>
-
-				<p> Utility classes are 
 
 				<row>
 					<p> Utility classes are classes which have specific-purpose styles/effects. </p>
@@ -835,11 +851,11 @@
 			</div>
 		</div>
 
-		<div class="modal" data-modal-id="dummyParents">
+		<div class="modal" 				data-modal-id="dummyParents">
 
 			<div class="modal-underlay"></div>
 
-			<div class="modal-content">
+			<div class="modal-content" tabindex="0">
 
 				<heading> <h2 class="section-title pl-lg"> 'Dummy' Parents </h2> </heading>
 
@@ -956,10 +972,115 @@
 			</div>
 		</div>
 
+		<div class="modal" 				data-modal-id="asterisk">
+
+			<div class="modal-underlay"></div>
+
+			<div class="modal-content" tabindex="0">
+
+				<div class="col-12 p-0 md-px-md">
+
+					<heading> <h2 class="section-title"> The [asterisk] object </h2> </heading>
+
+					<p class="md-mb-0"> The <span class="wrapper"><b-r>asterisk</b-r></span> <span class="wrapper">Object</span> is a simple Javascript Object. It is defined in the <span class="wrapper"><b>global</b> scope</span>. </p>
+					<p class="md-mt-0"> It holds all the <span class="wrapper">functions</span> / <span class="wrapper">methods</span> that are required for any <span class="wrapper">component</span> / <span class="wrapper">effect</span> to execute. </p>
+
+					<div class="col-12 my-md md-my-0">
+						<div class="accordion">
+							<div class="accordion-group">
+								<button class="accordion-btn"> Layout Example </button>
+								<div class="accordion-content" style="overflow-x: auto">
+									<pre class="pre-removeTabSpaces">
+										    <b>asterisk</b> {                <i class="comment xs-hidden sm-hidden"> // main wrapper <span class="wrapper">Object</span> </i>
+
+										        <b-p>components</b-p> {          <i class="comment xs-hidden sm-hidden"> // wrapper <span class="wrapper">Object</span> for all <span class="wrapper"><b-p>Components</b-p></span> </i>
+										            <b-r>tabs</b-r> {            <i class="comment xs-hidden sm-hidden"> // wrapper <span class="wrapper">Object</span> for all of <span class="wrapper"><b-r>Tabs</b-r> <b-p>Component</b-p></span> <span class="wrapper">Functions</span> </i>
+										                <b>run()</b> { ... } ,              <i class="comment xs-hidden sm-hidden"> // Example of a <span class="wrapper"><b-r>Tabs</b-r> <b-p>Component</b-p></span> <span class="wrapper">Function</span> </i>
+										                ...
+										            } ,
+										            <b-r>spoiler</b-r> {         <i class="comment xs-hidden sm-hidden"> // wrapper <span class="wrapper">Object</span> for all of <span class="wrapper"><b-r>Spoiler</b-r> <b-p>Component</b-p></span> <span class="wrapper">Functions</span> </i>
+										                <b>run()</b> { ... } ,              <i class="comment xs-hidden sm-hidden"> // Example of a <span class="wrapper"><b-r>Spoiler</b-r> <b-p>Component</b-p></span> <span class="wrapper">Function</span> </i>
+										                ...
+										            } ,
+										            ...
+										        } ,
+
+										        <b-p>effects</b-p> {            <i class="comment xs-hidden sm-hidden"> // wrapper <span class="wrapper">Object</span> for all <span class="wrapper"><b-p>Effects</b-p></span> </i>
+										            <b-r>appear</b-r> {         <i class="comment xs-hidden sm-hidden"> // wrapper <span class="wrapper">Object</span> for all of <span class="wrapper"><b-r>Appear</b-r> <b-p>Effect</b-p></span> <span class="wrapper">Functions</span> </i>
+										                <b>checkScroll()</b> { ... } ,    <i class="comment xs-hidden sm-hidden"> // Example of an <span class="wrapper"><b-r>Appear</b-r> <b-p>Effect</b-p></span> <span class="wrapper">Function</span> </i>
+										                ...
+										            } ,
+										            ...
+										        } ,
+
+										        <b-p>utility</b-p> {           <i class="comment xs-hidden sm-hidden"> // wrapper <span class="wrapper">Object</span> for all <span class="wrapper"><b-p>Utility Functions</b-p></span> </i>
+										            <b>hasClass()</b> { ... } ,        <i class="comment xs-hidden sm-hidden"> // Example of an <span class="wrapper"><b-p>Utility Function</b-p></span> </i>
+										            ...
+										        } ,
+
+										        <b-p>route</b-p> {              <i class="comment xs-hidden sm-hidden"> // wrapper <span class="wrapper">Object</span> for all <span class="wrapper"><b-p>Route-related Functions</b-p></span> </i>
+										            <b>fetchHTML()</b> { ... }         <i class="comment xs-hidden sm-hidden"> // Example of an <span class="wrapper"><b-p>Route-related Function</b-p></span> </i>
+										            ...
+										        } ,
+										        ...
+										    }
+									</pre>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<p> It acts as an wrapper, <b>preventing the polution of the global nameSpace</b>, while <b>making all functions/methods globally available</b>. </p>
+
+					<p class="md-mb-0"> It helps with avoiding <span class="wrapper">memory leaks</span>, by preventing the use of <span class="wrapper">annonymous Functions</span> as <span class="wrapper">eventHandlers</span> within <span class="wrapper">eventListeners</span>. </p> 
+					<p class="md-mt-0"> This allows for the option of removing said <span class="wrapper">eventListeners</span> from the elements they are attached to, if the elements are no longer used. </p>
+
+					<p> <i class="comment"> * It is not the most memory-efficient or highly-procutive pattern, yet it is more accessible for beginner-level vanilla-JS developers. </i> </p>
+
+					<div class="col-12"> <hr> </div>
+
+					<p> Main 'Chapters' </p>
+
+					<p> components </p>
+					<p> effects </p>
+					<p> utility </p>
+					<p> route </p>
+
+					<p> Components </p>
+
+					<p> Each component has it's available methods stored within <span class="wrapper"><b>asterisk</b><b-r>.components</b-r><b-p>[componentName]</b-p></span> and can be accessed by <span class="wrapper"><b>asterisk</b><b-r>.components</b-r><b-p>[componentName]</b-p><b-p>[methodName]</b-p></span> </p>
+
+					<div class="wrapper">
+						<line> <b>Format : </b> <b>asterisk</b><b-r>.components</b-r><b-p>[componentName]</b-p> </line>
+						<hr>
+						<line> <b>Example : </b> <b>asterisk</b><b-r>.components</b-r><b-p>.tabs</b-p> </line>
+						<line> <b>Example : </b> <b>asterisk</b><b-r>.components</b-r><b-p>['tabs']</b-p> </line>
+						<hr>
+						<line> <b>Example : </b> <b>asterisk</b><b-r>.components</b-r><b-p>.spoiler</b-p> </line>
+						<line> <b>Example : </b> <b>asterisk</b><b-r>.components</b-r><b-p>['spoiler']</b-p> </line>
+					</div>
+
+					<div class="wrapper">
+						<line> <b>Format : </b> <b>asterisk</b><b-r>.components</b-r><b-p>[componentName]</b-p><b-p>[methodName]</b-p> </line>
+						<hr>
+						<line> <b>Example : </b> <b>asterisk</b><b-r>.components</b-r><b-p>.tabs</b-p><b-p>.run()</b-p> </line>
+						<line> <b>Example : </b> <b>asterisk</b><b-r>.components</b-r><b-p>['tabs']</b-p><b-p>.run()</b-p> </line>
+						<hr>
+						<line> <b>Example : </b> <b>asterisk</b><b-r>.components</b-r><b-p>.spoiler</b-p><b-p>.run()</b-p> </line>
+						<line> <b>Example : </b> <b>asterisk</b><b-r>.components</b-r><b-p>['spoiler']</b-p><b-p>.run()</b-p> </line>
+					</div>
+
+					<hr>
+
+				</div>
+
+			</div>
+		</div>
+
 		<div class="modal" id="byAndu-codeSnippetModal">
 			<div class="modal-underlay"></div>
 
-			<div class="modal-content">
+			<div class="modal-content" tabindex="0">
 				<div class="copyContext-btnContainer" data-copyContextId="byAndu-codeSnippetModal-code">
 					<button class="copyContext-btn copyContext-btn-copyText"> </button>
 				</div>
@@ -969,6 +1090,38 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- <div class="modal" id="byAndu-beta-welcome">
+			<div class="modal-underlay"> </div>
+
+			<div class="modal-content text-center" tabindex="0" style="background-image: url('images/qwe.jpg'); background-position: center; background-size: cover; background-repeat: no-repeat;">
+
+				<div class="flex flex-center" style="height: 100%; background-color: rgba(3,3,3,.6);">
+					<div style="overflow-x: auto">
+						<p> Hey buddy, </p>
+
+						<p> Thanks guy for your interest in this project. </p>
+
+						<div class="col-8 col-offset-2"> <hr style="border-color: white"> </div>
+
+						<p> Feel free to browse, but as it is currently in Beta Testing, <br> I would not recommend using the files just yet. </p>
+
+						<p> Rest assured, this will change very soon, <br> and all this and more will be made available. </p>
+
+						<div class="col-8 col-offset-2"> <hr style="border-color: white"> </div>
+
+						<p> As long as you're here, how bout giving some feedback, eh? </p>
+
+						<div class="col-8 col-offset-2"> <hr style="border-color: white"> </div>
+
+						<p> Stay tooned and please don't blame Canada. </p>
+					</div>
+				</div>
+
+				<img src="images/guy.png"/>
+
+			</div>
+		</div> -->
 	</div>
 
 	<!--
@@ -976,18 +1129,15 @@
 	<button class="modal-btn fa fa-info-circle"  data-modal-id="byAndu-xxx"> </button>
 	-->
 
-	
-
 	<!-- svg defs -->
-
-		<svg class="defs-definitions">
-			<defs>
-				<linearGradient id="grad-01">
-					<stop offset="10%" stop-color="#39F" />
-					<stop offset="90%" stop-color="#F3F" />
-				</linearGradient>
-			</defs>
-		</svg>
+	<svg class="defs-definitions">
+		<defs>
+			<linearGradient id="grad-01">
+				<stop offset="10%" stop-color="#39F" />
+				<stop offset="90%" stop-color="#F3F" />
+			</linearGradient>
+		</defs>
+	</svg>
 
 	<!--
 		<img src="images/img-1.jpg" class="defer-DOMLoaded-item">

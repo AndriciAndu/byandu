@@ -21,21 +21,21 @@
 			// Dependencies 
 			// -----------------------------------------------------
 
-				asteriskObj.dependencies = asteriskObj.dependencies || {} ;
+				asteriskObj.utility = asteriskObj.utility || {} ;
 
 				// hasClass()
 				// -----------------------------------------------------
 
-					asteriskObj.dependencies.hasClass = asteriskObj.dependencies.hasClass || function ( elem , klass ) {
+					asteriskObj.utility.hasClass = asteriskObj.utility.hasClass || function ( elem , klass ) {
 						return (" " + elem.className + " " ).indexOf( " " + klass + " " ) > -1
 					};
 
-					var hasClass = asteriskObj.dependencies.hasClass ;
+					var hasClass = asteriskObj.utility.hasClass ;
 
 				// getParent()
 				// -----------------------------------------------------
 
-					asteriskObj.dependencies.getParent = asteriskObj.dependencies.getParent || function ( elem, identifier ) {
+					asteriskObj.utility.getParent = asteriskObj.utility.getParent || function ( elem, identifier ) {
 
 						elemParent = elem.parentElement;
 
@@ -59,7 +59,7 @@
 						}
 					};
 
-					var getParent = asteriskObj.dependencies.getParent ;
+					var getParent = asteriskObj.utility.getParent ;
 
 			// Init
 			// -----------------------------------------------------

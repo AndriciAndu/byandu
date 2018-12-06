@@ -22,12 +22,12 @@
 				// dependencies Obj Setup 
 				// -----------------------------------------------------
 
-					asteriskObj.dependencies = asteriskObj.dependencies || {} ;
+					asteriskObj.utility = asteriskObj.utility || {} ;
 
 				// getFirstClass()
 				// -----------------------------------------------------
 
-					asteriskObj.dependencies.getFirstClass = asteriskObj.dependencies.getFirstClass || function( elem , ...classes ) {
+					asteriskObj.utility.getFirstClass = asteriskObj.utility.getFirstClass || function( elem , ...classes ) {
 
 						// to accept both scenarios: array-of-classes || multiple class strings
 						if (Array.isArray(classes[0])) { classes = classes[0] };
@@ -38,12 +38,12 @@
 						else 						{ return false 	}
 					};
 
-					var getFirstClass = asteriskObj.dependencies.getFirstClass;
+					var getFirstClass = asteriskObj.utility.getFirstClass;
 
 				// hex2rgb()
 				// -----------------------------------------------------
 
-					asteriskObj.dependencies.hex2rgb = asteriskObj.dependencies.hex2rgb || function( hex , alpha ) {
+					asteriskObj.utility.hex2rgb = asteriskObj.utility.hex2rgb || function( hex , alpha ) {
 
 						var r = parseInt(hex.slice(1, 3), 16),
 					        g = parseInt(hex.slice(3, 5), 16),
@@ -56,7 +56,7 @@
 					    }
 					};
 
-					var hex2rgb = asteriskObj.dependencies.hex2rgb;
+					var hex2rgb = asteriskObj.utility.hex2rgb;
 
 			// Canvas Object - host for settings and main functions
 			// -----------------------------------------------------

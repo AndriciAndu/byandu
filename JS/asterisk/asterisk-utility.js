@@ -18,88 +18,88 @@
 		// hasClass()
 		// -----------------------------------------------------
 
-			/*function hasClass ( elem , klass ) {
+			function hasClass ( elem , klass ) {
 				return (" " + elem.className + " " ).indexOf( " " + klass + " " ) > -1
-			};*/
+			};
 
 			
-			function hasClass ( elem , klass ) {
+			// function hasClass ( elem , klass ) {
 
-				if ( !(elem instanceof HTMLElement) ) { 
+			// 	if ( !(elem instanceof HTMLElement) ) { 
 
-					var consoleStyles = {
-						'color-red'   : 'color: #be0c0c;' ,
-						'color-blue'  : 'color: #613dcc;' ,
-						'error-title' : 'color: #be0c0c; background: rgba(3,3,3,.1); padding: 0 5px; border-radius: 3px;' ,
-						'log-title'   : 'text-decoration: underline' ,
-						'wrap-span'   : 'color: #613dcc; background: rgba(3,3,3,.1); padding: 0 5px; border-radius: 3px; font-weight: bold' ,
-						'line'        : 'color: rgba(3,3,3,.2);'
-					};
+			// 		var consoleStyles = {
+			// 			'color-red'   : 'color: #be0c0c;' ,
+			// 			'color-blue'  : 'color: #613dcc;' ,
+			// 			'error-title' : 'color: #be0c0c; background: rgba(3,3,3,.1); padding: 0 5px; border-radius: 3px;' ,
+			// 			'log-title'   : 'text-decoration: underline' ,
+			// 			'wrap-span'   : 'color: #613dcc; background: rgba(3,3,3,.1); padding: 0 5px; border-radius: 3px; font-weight: bold' ,
+			// 			'line'        : 'color: rgba(3,3,3,.2);'
+			// 		};
 
-					console.groupCollapsed( '%cError : hasClass( elem , klass ) | Wrong argument [type]' , consoleStyles['error-title'] );
+			// 		console.groupCollapsed( '%cError : hasClass( elem , klass ) | Wrong argument [type]' , consoleStyles['error-title'] );
 
-						console.group('1. %cError Details' , consoleStyles['log-title']);
-							console.log(
-								'%c * Argument %celem%c is not a %c[HTML Element]%c :' ,
-								consoleStyles['color-red'] , consoleStyles['wrap-span'] , consoleStyles['color-red'] , consoleStyles['wrap-span'] , consoleStyles['color-red'] ,
-								elem);
-						console.groupEnd();
+			// 			console.group('1. %cError Details' , consoleStyles['log-title']);
+			// 				console.log(
+			// 					'%c * Argument %celem%c is not a %c[HTML Element]%c :' ,
+			// 					consoleStyles['color-red'] , consoleStyles['wrap-span'] , consoleStyles['color-red'] , consoleStyles['wrap-span'] , consoleStyles['color-red'] ,
+			// 					elem);
+			// 			console.groupEnd();
 
-						console.groupCollapsed('2. %cCall Path' , consoleStyles['log-title']);
-							console.trace();
-						console.groupEnd();
+			// 			console.groupCollapsed('2. %cCall Path' , consoleStyles['log-title']);
+			// 				console.trace();
+			// 			console.groupEnd();
 
-						console.log('%c─────────────────────' , consoleStyles['line']);
+			// 			console.log('%c─────────────────────' , consoleStyles['line']);
 
-					console.groupEnd();
+			// 		console.groupEnd();
 
-					try {
-					  throw new TypeError('Whoops!');
-					} catch (e) {
-					  console.log(e.name + ': ' + e.message);
-					}
+			// 		try {
+			// 		  throw new TypeError('Whoops!');
+			// 		} catch (e) {
+			// 		  console.log(e.name + ': ' + e.message);
+			// 		}
 
-				} else if ( !(typeof klass === 'string' || klass instanceof String) ) {
+			// 	} else if ( !(typeof klass === 'string' || klass instanceof String) ) {
 
-					var consoleStyles = {
-						'color-red'   : 'color: #be0c0c;' ,
-						'color-blue'  : 'color: #613dcc;' ,
-						'error-title' : 'color: #be0c0c; background: rgba(3,3,3,.1); padding: 0 5px; border-radius: 3px;' ,
-						'log-title'   : 'text-decoration: underline' ,
-						'wrap-span'   : 'color: #613dcc; background: rgba(3,3,3,.1); padding: 0 5px; border-radius: 3px; font-weight: bold' ,
-						'line'        : 'color: rgba(3,3,3,.2);'
-					};
+			// 		var consoleStyles = {
+			// 			'color-red'   : 'color: #be0c0c;' ,
+			// 			'color-blue'  : 'color: #613dcc;' ,
+			// 			'error-title' : 'color: #be0c0c; background: rgba(3,3,3,.1); padding: 0 5px; border-radius: 3px;' ,
+			// 			'log-title'   : 'text-decoration: underline' ,
+			// 			'wrap-span'   : 'color: #613dcc; background: rgba(3,3,3,.1); padding: 0 5px; border-radius: 3px; font-weight: bold' ,
+			// 			'line'        : 'color: rgba(3,3,3,.2);'
+			// 		};
 
-					console.groupCollapsed( '%cError : hasClass( elem , klass ) | Wrong argument [type]' , consoleStyles['error-title'] );
+			// 		console.groupCollapsed( '%cError : hasClass( elem , klass ) | Wrong argument [type]' , consoleStyles['error-title'] );
 
-						console.group('1. %cError Details' , consoleStyles['log-title']);
-							console.log(
-								'%c * Argument %cklass%c is not a %c[String]%c :' ,
-								consoleStyles['color-red'] , consoleStyles['wrap-span'] , consoleStyles['color-red'] , consoleStyles['wrap-span'] , consoleStyles['color-red'] ,
-								klass);
-						console.groupEnd();
+			// 			console.group('1. %cError Details' , consoleStyles['log-title']);
+			// 				console.log(
+			// 					'%c * Argument %cklass%c is not a %c[String]%c :' ,
+			// 					consoleStyles['color-red'] , consoleStyles['wrap-span'] , consoleStyles['color-red'] , consoleStyles['wrap-span'] , consoleStyles['color-red'] ,
+			// 					klass);
+			// 			console.groupEnd();
 
-						console.groupCollapsed('2. %cCall Path' , consoleStyles['log-title']);
-							console.trace();
-						console.groupEnd();
+			// 			console.groupCollapsed('2. %cCall Path' , consoleStyles['log-title']);
+			// 				console.trace();
+			// 			console.groupEnd();
 
-						console.log('%c─────────────────────' , consoleStyles['line']);
+			// 			console.log('%c─────────────────────' , consoleStyles['line']);
 
-					console.groupEnd();
+			// 		console.groupEnd();
 
-					try {
-					  throw new TypeError('Whoops!');
-					} catch (e) {
-					  console.log(e.name + ': ' + e.message);
-					}
+			// 		try {
+			// 		  throw new TypeError('Whoops!');
+			// 		} catch (e) {
+			// 		  console.log(e.name + ': ' + e.message);
+			// 		}
 
-				} else {
+			// 	} else {
 
-					return (" " + elem.className + " " ).indexOf( " " + klass + " " ) > -1
+			// 		return (" " + elem.className + " " ).indexOf( " " + klass + " " ) > -1
 
-				}
+			// 	}
 
-			};
+			// };
 
 			//hasClass ( 'asdf' , 'klass' );
 			//hasClass ( document.body , 24 );
@@ -268,18 +268,6 @@
 
 		};
 
-	// getElementsByClassOrTag()
-	// -----------------------------------------------------
-
-		function getElementsByClassOrTag(elem, identifier) {
-
-			var elements_byClass = Array.from(elem.getElementsByClassName(identifier));
-			var elements_byTag   = Array.from(elem.getElementsByTagName  (identifier));
-
-			return elements_byClass.concat(elements_byTag);
-
-		};
-
 	// getOwnedClasses()
 	// -----------------------------------------------------
 
@@ -327,6 +315,24 @@
 			var size = 0, key;
 			for (key in obj) { if (obj.hasOwnProperty(key)) { size++ } }
 			return size;
+		};
+
+	// getFocusableChildren()
+	// -----------------------------------------------------
+
+		function getFocusableChildren(elem) {
+
+			var initial_activeElem = document.activeElement;
+
+			var children_all = Array.from(elem.getElementsByTagName("*"));
+			var children_focusable = children_all.filter(function(child){
+				child.focus();
+				return document.activeElement === child
+			});
+
+			initial_activeElem.focus();
+
+			return children_focusable
 		};
 
 // Remove || remove*
