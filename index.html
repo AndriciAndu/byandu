@@ -980,9 +980,9 @@
 
 				<div class="col-12 p-0 md-px-md">
 
-					<heading> <h2 class="section-title"> The [asterisk] object </h2> </heading>
+					<heading> <h2 class="section-title"> The [ asteriskObj ] object </h2> </heading>
 
-					<p class="md-mb-0"> The <span class="wrapper"><b-r>asterisk</b-r></span> <span class="wrapper">Object</span> is a simple Javascript Object. It is defined in the <span class="wrapper"><b>global</b> scope</span>. </p>
+					<p class="md-mb-0"> The <span class="wrapper"><b-r>asteriskObj</b-r></span> is a basic Javascript Object. It is defined in the <span class="wrapper"><b>global</b> scope</span>. </p>
 					<p class="md-mt-0"> It holds all the <span class="wrapper">functions</span> / <span class="wrapper">methods</span> that are required for any <span class="wrapper">component</span> / <span class="wrapper">effect</span> to execute. </p>
 
 					<div class="col-12 my-md md-my-0">
@@ -991,7 +991,7 @@
 								<button class="accordion-btn"> Layout Example </button>
 								<div class="accordion-content" style="overflow-x: auto">
 									<pre class="pre-removeTabSpaces">
-										    <b>asterisk</b> {                <i class="comment xs-hidden sm-hidden"> // main wrapper <span class="wrapper">Object</span> </i>
+										    <b>asteriskObj</b> {                <i class="comment xs-hidden sm-hidden"> // main wrapper <span class="wrapper">Object</span> </i>
 
 										        <b-p>components</b-p> {          <i class="comment xs-hidden sm-hidden"> // wrapper <span class="wrapper">Object</span> for all <span class="wrapper"><b-p>Components</b-p></span> </i>
 										            <b-r>tabs</b-r> {            <i class="comment xs-hidden sm-hidden"> // wrapper <span class="wrapper">Object</span> for all of <span class="wrapper"><b-r>Tabs</b-r> <b-p>Component</b-p></span> <span class="wrapper">Functions</span> </i>
@@ -1035,39 +1035,73 @@
 					<p class="md-mb-0"> It helps with avoiding <span class="wrapper">memory leaks</span>, by preventing the use of <span class="wrapper">annonymous Functions</span> as <span class="wrapper">eventHandlers</span> within <span class="wrapper">eventListeners</span>. </p> 
 					<p class="md-mt-0"> This allows for the option of removing said <span class="wrapper">eventListeners</span> from the elements they are attached to, if the elements are no longer used. </p>
 
-					<p> <i class="comment"> * It is not the most memory-efficient or highly-procutive pattern, yet it is more accessible for beginner-level vanilla-JS developers. </i> </p>
+					<p class="sub-heading"> * It is not the most memory-efficient or highly-procutive pattern, yet it is more accessible for beginner-level vanilla-JS developers. </p>
 
-					<div class="col-12"> <hr> </div>
+					<heading> <h2 class="section-title"> Initialization </h2> </heading>
 
-					<p> Main 'Chapters' </p>
+					<p> The <span class="wrapper"><b-r>asteriskObj</b-r></span> <span class="wrapper">Object</span> is included in every associated <span class="wrapper">.js</span> file which requires using the object to store it's methods (component / effect / route / etc). </p>
 
-					<p> components </p>
-					<p> effects </p>
-					<p> utility </p>
-					<p> route </p>
+					<div class="col-12">
+						<div class="wrapper">
+							<pre class="pre-removeTabSpaces">
+							    var asteriskObj = asteriskObj || {} ; <i class="comment"> // refference or create the object </i>
+							</pre>
+						</div>
+					</div>
+
+					<p> This allows the files to be refferenced in any order, and still function normally. </p>
+
+					<heading> <h2 class="section-title"> Main 'Sections' </h2> </heading>
+
+					<p> The Main 'Sections' reffer to the object's 'first-level children' aka first-level properties, denoting the main 'wrapper' Objects. </p>
+
+					<div class="col-12">
+						<div class="wrapper">
+							<pre class="pre-removeTabSpaces">
+							    <b-r>asteriskObj</b-r> = {
+							        <b-p>components</b-p> : { ... } , 
+							        <b-p>effects</b-p> :    { ... } ,
+							        ...
+							    }
+							</pre>
+						</div>
+					</div>
+
+					<p> One step of initializing any Component / Effect / etc consists in refferencing their <span class="wrapper">.js</span> file. When one such file is refferenced, the wrapper Object is created. </p>
+
+					<div class="col-12">
+						<div class="wrapper">
+							<pre class="pre-removeTabSpaces">
+							    asteriskObj.components = asteriskObj.components || {} ; <i class="comment"> // refference or create the object </i>
+							    asteriskObj.components.tabs = {};
+							</pre>
+						</div>
+					</div>
+
+					<p class="sub-heading"> * If, for example, no components are used (no component <span class="wrapper">.js</span> files are refferenced), the asteriskObj.components Object will not be created. </p>
 
 					<p> Components </p>
 
-					<p> Each component has it's available methods stored within <span class="wrapper"><b>asterisk</b><b-r>.components</b-r><b-p>[componentName]</b-p></span> and can be accessed by <span class="wrapper"><b>asterisk</b><b-r>.components</b-r><b-p>[componentName]</b-p><b-p>[methodName]</b-p></span> </p>
+					<p> Each component has it's available methods stored within <span class="wrapper"><b>asteriskObj</b><b-r>.components</b-r><b-p>[componentName]</b-p></span> and can be accessed by <span class="wrapper"><b>asteriskObj</b><b-r>.components</b-r><b-p>[componentName]</b-p><b-p>[methodName]</b-p></span> </p>
 
 					<div class="wrapper">
-						<line> <b>Format : </b> <b>asterisk</b><b-r>.components</b-r><b-p>[componentName]</b-p> </line>
+						<line> <b>Format : </b> <b>asteriskObj</b><b-r>.components</b-r><b-p>[componentName]</b-p> </line>
 						<hr>
-						<line> <b>Example : </b> <b>asterisk</b><b-r>.components</b-r><b-p>.tabs</b-p> </line>
-						<line> <b>Example : </b> <b>asterisk</b><b-r>.components</b-r><b-p>['tabs']</b-p> </line>
+						<line> <b>Example : </b> <b>asteriskObj</b><b-r>.components</b-r><b-p>.tabs</b-p> </line>
+						<line> <b>Example : </b> <b>asteriskObj</b><b-r>.components</b-r><b-p>['tabs']</b-p> </line>
 						<hr>
-						<line> <b>Example : </b> <b>asterisk</b><b-r>.components</b-r><b-p>.spoiler</b-p> </line>
-						<line> <b>Example : </b> <b>asterisk</b><b-r>.components</b-r><b-p>['spoiler']</b-p> </line>
+						<line> <b>Example : </b> <b>asteriskObj</b><b-r>.components</b-r><b-p>.spoiler</b-p> </line>
+						<line> <b>Example : </b> <b>asteriskObj</b><b-r>.components</b-r><b-p>['spoiler']</b-p> </line>
 					</div>
 
 					<div class="wrapper">
-						<line> <b>Format : </b> <b>asterisk</b><b-r>.components</b-r><b-p>[componentName]</b-p><b-p>[methodName]</b-p> </line>
+						<line> <b>Format : </b> <b>asteriskObj</b><b-r>.components</b-r><b-p>[componentName]</b-p><b-p>[methodName]</b-p> </line>
 						<hr>
-						<line> <b>Example : </b> <b>asterisk</b><b-r>.components</b-r><b-p>.tabs</b-p><b-p>.run()</b-p> </line>
-						<line> <b>Example : </b> <b>asterisk</b><b-r>.components</b-r><b-p>['tabs']</b-p><b-p>.run()</b-p> </line>
+						<line> <b>Example : </b> <b>asteriskObj</b><b-r>.components</b-r><b-p>.tabs</b-p><b-p>.run()</b-p> </line>
+						<line> <b>Example : </b> <b>asteriskObj</b><b-r>.components</b-r><b-p>['tabs']</b-p><b-p>.run()</b-p> </line>
 						<hr>
-						<line> <b>Example : </b> <b>asterisk</b><b-r>.components</b-r><b-p>.spoiler</b-p><b-p>.run()</b-p> </line>
-						<line> <b>Example : </b> <b>asterisk</b><b-r>.components</b-r><b-p>['spoiler']</b-p><b-p>.run()</b-p> </line>
+						<line> <b>Example : </b> <b>asteriskObj</b><b-r>.components</b-r><b-p>.spoiler</b-p><b-p>.run()</b-p> </line>
+						<line> <b>Example : </b> <b>asteriskObj</b><b-r>.components</b-r><b-p>['spoiler']</b-p><b-p>.run()</b-p> </line>
 					</div>
 
 					<hr>
