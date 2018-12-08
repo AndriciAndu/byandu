@@ -14,12 +14,11 @@
 */
 
 
-	// ComponentsObject init - if necessary
-	// ------------------------------------------------------------------
+	// [asterisk] init - if necessary
+	// -----------------------------------------------------
 
-		var componentsObject = componentsObject || {} ;
-
-		componentsObject.onboarding = {};
+		var asterisk = asterisk || {} ;
+		asterisk.components = asterisk.components || {} ;
 
 	// Onboarding
 	// ------------------------------------------------------------------
@@ -29,30 +28,30 @@
 			// Dependencies
 			// ------------------------------------------------------------------
 
-					asteriskObj.utility = asteriskObj.utility || {} ;
+					asterisk.utility = asterisk.utility || {} ;
 
 				// hasClass()
 				// -----------------------------------------------------
 
-					asteriskObj.utility.hasClass = asteriskObj.utility.hasClass || function ( elem , klass ) {
+					asterisk.utility.hasClass = asterisk.utility.hasClass || function ( elem , klass ) {
 						return (" " + elem.className + " " ).indexOf( " " + klass + " " ) > -1
 					};
 
-					var hasClass = asteriskObj.utility.hasClass;
+					var hasClass = asterisk.utility.hasClass;
 
 				// isHTMLCollection()
 				// -----------------------------------------------------
 
-					asteriskObj.utility.isHTMLCollection = asteriskObj.utility.isHTMLCollection || function ( targetVar ) {
+					asterisk.utility.isHTMLCollection = asterisk.utility.isHTMLCollection || function ( targetVar ) {
 						return targetVar instanceof HTMLCollection
 					};
 
-					var isHTMLCollection = asteriskObj.utility.isHTMLCollection;
+					var isHTMLCollection = asterisk.utility.isHTMLCollection;
 
 				// getParent()
 				// -----------------------------------------------------
 
-					asteriskObj.utility.getParent = asteriskObj.utility.getParent || function ( elem, identifier ) {
+					asterisk.utility.getParent = asterisk.utility.getParent || function ( elem, identifier ) {
 
 						elemParent = elem.parentElement;
 
@@ -76,30 +75,36 @@
 						}
 					};
 
-					var getParent = asteriskObj.utility.getParent;
+					var getParent = asterisk.utility.getParent;
+
+			// Component.Object Setup 
+			// -----------------------------------------------------
+
+				asterisk.components.onboarding = {};
+				var onboardingObj = asterisk.components.onboarding;
 
 			// Onboarding - init
 			// ------------------------------------------------------------------
 
-				componentsObject.onboarding.init = function(current_target) {
+				onboardingObj.init = function(current_target) {
 
 					if (current_target) { 
 
 						if (hasClass(current_target, 'onboarding')) { 
 
-							componentsObject.onboarding.activate(current_target) 
+							onboardingObj.activate(current_target) 
 
 						} else {
 
 							var onboardingComponents = Array.from(current_target.getElementsByClassName('onboarding'));
-							onboardingComponents.map(comp => componentsObject.onboarding.activate(comp));
+							onboardingComponents.map(comp => onboardingObj.activate(comp));
 
 						} 
 
 					} else {
 
 						var allOnboardingComponents = Array.from(document.getElementsByClassName('onboarding'));
-						allOnboardingComponents.map(comp => componentsObject.onboarding.activate(comp));
+						allOnboardingComponents.map(comp => onboardingObj.activate(comp));
 
 					}
 
@@ -108,7 +113,7 @@
 			// Run
 			// ------------------------------------------------------------------
 
-				componentsObject.onboarding.run = function(current_onboarding) { 
+				onboardingObj.run = function(current_onboarding) { 
 
 					// Set used variables
 					// ------------------------------------------------------------------
@@ -121,7 +126,7 @@
 
 					// Remove previous highlights
 
-						Array.from(document.getElementsByClassName('onboarding-highlight')).map(x => componentsObject.onboarding.highlight_remove(x));
+						Array.from(document.getElementsByClassName('onboarding-highlight')).map(x => onboardingObj.highlight_remove(x));
 
 					// Check steps and apply actions
 					// ------------------------------------------------------------------
@@ -172,18 +177,18 @@
 									}
 								};
 
-								check_elementEvents(step['click']		, 	componentsObject.onboarding.clickElem);
-								check_elementEvents(step['highlight']	, 	componentsObject.onboarding.highlight);
+								check_elementEvents(step['click']		, 	onboardingObj.clickElem);
+								check_elementEvents(step['highlight']	, 	onboardingObj.highlight);
 
 								// if an array was provided as an argument for [scrollTo], take only the first element within it
 								if (step['scrollTo'] && Array.isArray(step['scrollTo'])) { step['scrollTo'] = step['scrollTo'][0] };
-								check_elementEvents(step['scrollTo']	, 	componentsObject.onboarding.scrollTo);
+								check_elementEvents(step['scrollTo']	, 	onboardingObj.scrollTo);
 
 							/* Check Scroll Event */
 							// ------------------------------------------------------------------
 
 								if (step['notifBox_setText']) {
-									componentsObject.onboarding.notifBox_setText(notifBox, step['notifBox_setText'])
+									onboardingObj.notifBox_setText(notifBox, step['notifBox_setText'])
 								};
 
 								if (step['notifBox_setPosition']) { 
@@ -191,15 +196,15 @@
 									var x = step['notifBox_setPosition'];
 
 									if (x == 'center-on-screen') {
-										componentsObject.onboarding.notifBox_setPosition(notifBox, current_onboarding, ['center', 0], ['center', 0])
+										onboardingObj.notifBox_setPosition(notifBox, current_onboarding, ['center', 0], ['center', 0])
 									} else {
-										componentsObject.onboarding.notifBox_setPosition(notifBox, target, x[0], x[1]) 
+										onboardingObj.notifBox_setPosition(notifBox, target, x[0], x[1]) 
 									}
 
 								};
 
 								if (step['notifBox_setBubble']) {
-									componentsObject.onboarding.notifBox_setBubble(notifBox, step['notifBox_setBubble']);
+									onboardingObj.notifBox_setBubble(notifBox, step['notifBox_setBubble']);
 								};
 						};
 
@@ -220,7 +225,7 @@
 			// Update Step Nr
 			// ------------------------------------------------------------------
 
-				componentsObject.onboarding.updateStepIndex = function(current_onboarding, changeValue) {
+				onboardingObj.updateStepIndex = function(current_onboarding, changeValue) {
 
 					var current_index = parseInt(current_onboarding.getAttribute('data-onboarding-currentStep'));
 					current_onboarding.setAttribute('data-onboarding-currentStep', current_index + changeValue);
@@ -230,19 +235,19 @@
 			// TargetElem Functions
 			// ------------------------------------------------------------------
 
-				componentsObject.onboarding.highlight = function(target) {
+				onboardingObj.highlight = function(target) {
 					target.classList.add('onboarding-highlight')
 				};
 
-				componentsObject.onboarding.highlight_remove = function(target) {
+				onboardingObj.highlight_remove = function(target) {
 					target.classList.remove('onboarding-highlight')
 				};
 
-				componentsObject.onboarding.scrollTo = function(target) {
+				onboardingObj.scrollTo = function(target) {
 					myScroll(target) // Test Example: myScroll(document.getElementById('r4'), 100)
 				};
 
-				componentsObject.onboarding.clickElem = function(target) {
+				onboardingObj.clickElem = function(target) {
 					target.click()
 				};
 
@@ -253,19 +258,19 @@
 				// ------------------------------------------------------------------
 
 					// must rethink min-width max-width
-					/*componentsObject.onboarding.notifBox_setSize = function(notifBox, widthParam, heightParam) {
+					/*onboardingObj.notifBox_setSize = function(notifBox, widthParam, heightParam) {
 						if (!isNaN(widthParam))  { notifBox.style.width  = widthParam  + 'px' };
 						if (!isNaN(heightParam)) { notifBox.style.height = heightParam + 'px' };
 					};*/
 
 						/* Test Example: 
-							componentsObject.onboarding.notifBox_setSize(document.getElementsByClassName('onboarding-notification')[0], 500, 50);
+							onboardingObj.notifBox_setSize(document.getElementsByClassName('onboarding-notification')[0], 500, 50);
 							*/
 
 				// NotifBox - setPosition 
 				// ------------------------------------------------------------------
 
-					componentsObject.onboarding.notifBox_setPosition = function(current_notifBox, targetElem, xAxisArray, yAxisArray) {
+					onboardingObj.notifBox_setPosition = function(current_notifBox, targetElem, xAxisArray, yAxisArray) {
 
 						var notifBox = current_notifBox;
 
@@ -346,39 +351,39 @@
 				// NotifBox - setBubble 
 				// ------------------------------------------------------------------
 
-					componentsObject.onboarding.notifBox_bubbleClasses = {
+					onboardingObj.notifBox_bubbleClasses = {
 						positions  : [	'bubble-left'  , 'bubble-right' , 'bubble-top' 	, 'bubble-btm' , 'bubble-bottom' ] ,
 						alignment  : [	'bubble-start' , 'bubble-center', 'bubble-end'	] ,
 						allClasses : [	'bubble-left'  , 'bubble-right' , 'bubble-top' 	, 'bubble-btm' , 'bubble-bottom' , 'bubble-start' , 'bubble-center', 'bubble-end' ]
 					};
 					
-					componentsObject.onboarding.notifBox_setBubble = function(notifBox, classString) {
-						notifBox.classList.remove(...componentsObject.onboarding.notifBox_bubbleClasses.allClasses);
+					onboardingObj.notifBox_setBubble = function(notifBox, classString) {
+						notifBox.classList.remove(...onboardingObj.notifBox_bubbleClasses.allClasses);
 						notifBox.className += ' ' + classString;
 					};
 				
 				// NotifBox - setText 
 				// ------------------------------------------------------------------
 
-					componentsObject.onboarding.notifBox_setText = function(notifBox, innerHTMLString) {
+					onboardingObj.notifBox_setText = function(notifBox, innerHTMLString) {
 						notifBox.getElementsByClassName('onboarding-notification-textBox')[0].innerHTML = innerHTMLString;
 					};
 
 				// NotifBox - show/hide 
 				// ------------------------------------------------------------------
 
-					componentsObject.onboarding.notifBox_show = function(notifBox) {
+					onboardingObj.notifBox_show = function(notifBox) {
 						notifBox.classList.remove('hidden')
 					};
 
-					componentsObject.onboarding.notifBox_hide = function(notifBox) {
+					onboardingObj.notifBox_hide = function(notifBox) {
 						notifBox.classList.add('hidden')
 					};
 
 				// NotifBox - Scroll EvtListener - reposition on scroll 
 				// ------------------------------------------------------------------
 
-						componentsObject.onboarding.notifBox_scrollRepositioning = function(notifBox) {
+						onboardingObj.notifBox_scrollRepositioning = function(notifBox) {
 
 							notifBox.scollRepositioningFunc = function() {
 								notifBox.style.top = notifBox.sticky_y - window.pageYOffset + 'px';
@@ -391,7 +396,7 @@
 			// Finish
 			// ------------------------------------------------------------------
 
-				componentsObject.onboarding.finish = function(current_onboarding) {
+				onboardingObj.finish = function(current_onboarding) {
 
 					var notifBox_scrollEvt = current_onboarding.getElementsByClassName('onboarding-notification')[0].scollRepositioningFunc;
 					window.removeEventListener('scroll', notifBox_scrollEvt);
@@ -402,7 +407,7 @@
 			// Activate 
 			// ------------------------------------------------------------------
 
-				componentsObject.onboarding.activate = function(current_target) {
+				onboardingObj.activate = function(current_target) {
 
 					if (!current_target.getAttribute('data-onboarding-currentStep')) {
 						 current_target.setAttribute('data-onboarding-currentStep', 0)
@@ -413,27 +418,27 @@
 						if (hasClass(e.target, 'onboarding-nextBtn')) 	 { 
 
 							if (parseInt(this.getAttribute('data-onboarding-currentStep')) < this.stepsObj.length - 1) { // run only if not last step
-								componentsObject.onboarding.updateStepIndex(current_target,  1); 
-								componentsObject.onboarding.run(current_target) 	
+								onboardingObj.updateStepIndex(current_target,  1); 
+								onboardingObj.run(current_target) 	
 							}
 
 						} else if (hasClass(e.target, 'onboarding-prevBtn')) { 
 
 							if (parseInt(this.getAttribute('data-onboarding-currentStep')) > 0) { // run only if not first step
-								componentsObject.onboarding.updateStepIndex(current_target, -1); 
-								componentsObject.onboarding.run(current_target)
+								onboardingObj.updateStepIndex(current_target, -1); 
+								onboardingObj.run(current_target)
 							} 
 
 						} else if (hasClass(e.target, 'onboarding-finishBtn')) { 
 
-							componentsObject.onboarding.finish(getParent(e.target, '.onboarding'))
+							onboardingObj.finish(getParent(e.target, '.onboarding'))
 
 						}
 
 					});
 
 					// activate scroll-based repositioning for notifBox
-					componentsObject.onboarding.notifBox_scrollRepositioning(current_target.getElementsByClassName('onboarding-notification')[0]);
+					onboardingObj.notifBox_scrollRepositioning(current_target.getElementsByClassName('onboarding-notification')[0]);
 
 					// set baseline stepsObj - if it was not defined previously
 					if (current_target.stepsObj == undefined) {
@@ -445,16 +450,16 @@
 								notifBox_setText : 
 									'<p> Onboarding Loaded! </p>' +
 									'<p> Add updated [stepsObj] information for this component,' + 
-									' before calling [componentsObject.onboarding.activate()] or [componentsObject.onboarding.init()], for it to take effect.'
+									' before calling [onboardingObj.activate()] or [onboardingObj.init()], for it to take effect.'
 							}
 						]
 					}
 
-					componentsObject.onboarding.run(current_target)
+					onboardingObj.run(current_target)
 
 				};
 
 				// Test init
-				//componentsObject.onboarding.activate(document.getElementsByClassName('onboarding')[0]);
+				//onboardingObj.activate(document.getElementsByClassName('onboarding')[0]);
 
 		})();
