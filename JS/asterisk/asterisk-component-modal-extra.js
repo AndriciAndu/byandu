@@ -1,9 +1,9 @@
 
-	// [asteriskObj] init - if necessary
+	// [asterisk] init - if necessary
 	// -----------------------------------------------------
 
-		var asteriskObj = asteriskObj || {} ;
-		asteriskObj.components = asteriskObj.components || {} ;
+		var asterisk = asterisk || {} ;
+		asterisk.components = asterisk.components || {} ;
 
 	// Asterisk Component - [Canvas]
 	// -----------------------------------------------------
@@ -13,12 +13,12 @@
 			// Component.Object Setup 
 			// -----------------------------------------------------
 			
-				asteriskObj.components.modal.states = {
+				asterisk.components.modal.states = {
 					modal_open    : false ,
 					current_modal : null  ,
 					last_focused  : null  
 				};
-				var modalObj = asteriskObj.components.modal;
+				var modalObj = asterisk.components.modal;
 
 				modalObj.openModal = function(targetModal) {
 					modalObj.states.modal_open    = true;

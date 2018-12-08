@@ -64,7 +64,7 @@
 
 							<div class="wrapper"> 
 								<div class="flex flex-cross-center"> 
-									<div class="col-10"> asteriskObj.components.canvas.initAll(); </div>
+									<div class="col-10"> asterisk.components.canvas.initAll(); </div>
 									<button class="col-2 spoiler-btn spoiler-btn-autoText" data-spoiler-id="spoiler-init"> </button>
 								</div>
 
@@ -125,7 +125,7 @@
 							<hr>
 
 							<p class="md-flex md-flex-cross-center md-flex-main-between"> 
-								<span class="col-auto p-0"> If any of these <span class="wrapper">HTML data-attributes</span> are ommited, the <span class="wrapper">canvas</span> will default to the values within <span class="wrapper">asteriskObj.components.canvas.<b>settings.default</b></span> Object. </span>
+								<span class="col-auto p-0"> If any of these <span class="wrapper">HTML data-attributes</span> are ommited, the <span class="wrapper">canvas</span> will default to the values within <span class="wrapper">asterisk.components.canvas.<b>settings.default</b></span> Object. </span>
 								<button class="spoiler-btn m-0" data-spoiler-id="canvas-defaut-obj"> Details </button>
 							</p>
 
@@ -210,7 +210,7 @@
 									<p> <span class="wrapper"><b-r>canvas_disable()</b-r></span> <u>removes</u> it's <span class="wrapper">requestAnimationFrame callback</span> </p>
 									<p class="sub-heading mt-0 pl-lg"> * it removes all the canvas' properties from memory. </p>
 									<p class="sub-heading mt-0 pl-lg"> * it will not display anything - clears the painted screen. </p>
-									<p class="sub-heading mt-0 pl-lg"> * in order for it to 'work' after calling <span class="wrapper">canvas_disable(<b-p>myCanvas</b-p>)</span>, it must be initialized again with <span class="wrapper">asteriskObj.components.canvas.init(<b-p>myCanvas</b-p>)</span>. </p>
+									<p class="sub-heading mt-0 pl-lg"> * in order for it to 'work' after calling <span class="wrapper">canvas_disable(<b-p>myCanvas</b-p>)</span>, it must be initialized again with <span class="wrapper">asterisk.components.canvas.init(<b-p>myCanvas</b-p>)</span>. </p>
 								</div>
 								<div class="col-12 md-col-6 p-0">
 									<div class="wrapper">
@@ -222,7 +222,7 @@
 										<line> <b-p>myCanvas</b-p><b-r>.canvas_resume()</b-r>; </line>
 										<hr class="my-xs">
 										<line> <b-p>myCanvas</b-p><b-r>.canvas_disable()</b-r>; </line>
-										<line> <b>asteriskObj.components.canvas.init(<b-p>myCanvas</b-p>)</b> </line>
+										<line> <b>asterisk.components.canvas.init(<b-p>myCanvas</b-p>)</b> </line>
 									</div>
 								</div>
 							</div>

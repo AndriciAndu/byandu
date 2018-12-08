@@ -1,9 +1,9 @@
 
-	// [asteriskObj] init - if necessary
+	// [asterisk] init - if necessary
 	// -----------------------------------------------------
 
-		var asteriskObj = asteriskObj || {} ;
-		asteriskObj.effects = asteriskObj.effects || {} ;
+		var asterisk = asterisk || {} ;
+		asterisk.effects = asterisk.effects || {} ;
 
 	// Asterisk Effects - [EnterExit]
 	// -----------------------------------------------------
@@ -13,24 +13,24 @@
 			// Effects.Object Setup 
 			// -----------------------------------------------------
 
-				asteriskObj.effects.appear = {};
-				var appearEffectsObj = asteriskObj.effects.appear;
+				asterisk.effects.appear = {};
+				var appearEffectsObj = asterisk.effects.appear;
 
 				appearEffectsObj.targetElements = [];
 
 			// Dependencies 
 			// -----------------------------------------------------
 
-				asteriskObj.utility = asteriskObj.utility || {} ;
+				asterisk.utility = asterisk.utility || {} ;
 
 				// hasClass()
 				// -----------------------------------------------------
 
-					asteriskObj.utility.hasClass = asteriskObj.utility.hasClass || function ( elem , klass ) {
+					asterisk.utility.hasClass = asterisk.utility.hasClass || function ( elem , klass ) {
 						return (" " + elem.className + " " ).indexOf( " " + klass + " " ) > -1; 
 					};
 
-					var hasClass = asteriskObj.utility.hasClass ;
+					var hasClass = asterisk.utility.hasClass ;
 
 			// Intermediary
 			// -----------------------------------------------------

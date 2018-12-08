@@ -1,9 +1,9 @@
 
-	// [asteriskObj] init - if necessary
+	// [asterisk] init - if necessary
 	// -----------------------------------------------------
 
-		var asteriskObj = asteriskObj || {} ;
-		asteriskObj.functionality = asteriskObj.functionality || {} ;
+		var asterisk = asterisk || {} ;
+		asterisk.functionality = asterisk.functionality || {} ;
 
 	// Asterisk Effects - [EnterExit]
 	// -----------------------------------------------------
@@ -13,11 +13,11 @@
 			// Effects.Object Setup 
 			// -----------------------------------------------------
 
-				asteriskObj.functionality.scrollTrigger_2 = {};
-				var scrollTriggerObj = asteriskObj.functionality.scrollTrigger_2;
+				asterisk.functionality.scrollTrigger_2 = {};
+				var scrollTriggerObj = asterisk.functionality.scrollTrigger_2;
 
-				scrollTriggerObj.targetElements_in = [];		// stores the [Elements] that are to-be-affected
-				scrollTriggerObj.targetElements_out = [];		// stores the [Elements] that are to-be-affected
+				scrollTriggerObj.targetElements_below = [];		// stores the [Elements] that are to-be-affected
+				scrollTriggerObj.targetElements_above = [];		// stores the [Elements] that are to-be-affected
 				scrollTriggerObj.debounceInterval  = 300;		// the interval at which the [checkScroll()] is called
 				scrollTriggerObj.isRunning = false;				// 
 				scrollTriggerObj.windowesized = false;			// when window is resized, run a [triggerPoints_generateMap()] before [triggerPoints_check()]
@@ -38,16 +38,16 @@
 							var targets_inOut = Array.from(document.getElementsByClassName('scrollTrigger-target-inOut'));
 							targets_inOut  =  targets_inOut.filter(item => !hasClass(item, 'scrollTrigger-target-inView'));
 
-							var targets = targets_in.concat(targets_inOut);
+							var targets_below = targets_in.concat(targets_inOut);
 
-							if (targets.length > 0) {
+							if (targets_below.length > 0) {
 
-								targets.sort(function(a, b) { 
+								targets_below.sort(function(a, b) { 
 									return parseFloat(a.getBoundingClientRect().top) - parseFloat(b.getBoundingClientRect().top) 
 								});
 							};
 
-							scrollTriggerObj.targetElements_in = targets;
+							scrollTriggerObj.targetElements_below = targets_below;
 
 						// bottom
 						// -----------------------------------------------------
@@ -159,7 +159,7 @@
 
 						// The default [function-to-trigger] is created, but it's actual content was not defined 
 						// You must define the function's content - or the [scrollTrigger] functionality will only display this cute little log :)
-						// asteriskObj.functionality.scrollTrigger.triggerFunction 
+						// asterisk.functionality.scrollTrigger.triggerFunction 
 
 					};
 

@@ -133,8 +133,10 @@
 
 							<p> <b>Step 3.</b> Make the next function call : </p>
 							<div class="wrapper"> 
-								asteriskObj.effects.appear.init() 
-								<span class="float-right text-italic">// if dynamic content - call after content has loaded </span> 
+								<div class="col-12">
+									asterisk.effects.appear.init() 
+									<span class="float-right text-italic">// if dynamic content - call after content has loaded </span> 
+								</div>
 							</div>
 						</section>
 
@@ -515,7 +517,7 @@
 											<div class="col-12"> <hr class="my-xs"> </div>
 
 											<!-- 2 -->
-											<p class="mb-0"> <b>Step 2.</b> Call the <span class="wrapper"><b>asteriskObj.effects.appear.<b-p>target_applyEffect</b-p>( targetElem )</b></span> function. </p>
+											<p class="mb-0"> <b>Step 2.</b> Call the <span class="wrapper"><b>asterisk.effects.appear.<b-p>target_applyEffect</b-p>( targetElem )</b></span> function. </p>
 											
 											<p class="mt-xs mb-0 pl-lg"> 
 												<b>* For <span class="wrapper">elements</span> :</b> the argument is the desired <span class="wrapper"><b>hasAppearEffect</b></span> <span class="wrapper">HTML Element</span> to trigger. 
@@ -535,12 +537,12 @@
 
 														<line> function myCustomFunction() { </line>
 															<line class="pl-lg"> <i style="color: rgba(3,3,3,.5)">// do something </i> </line>
-															<line class="pl-lg"> asteriskObj.effects.appear.<b-p>target_applyEffect</b-p>( <span class="wrapper">myElem</span> ) <i style="color: rgba(3,3,3,.5)">// this will make the <span class="wrapper">Element</span> visible</i> </line>
+															<line class="pl-lg"> asterisk.effects.appear.<b-p>target_applyEffect</b-p>( <span class="wrapper">myElem</span> ) <i style="color: rgba(3,3,3,.5)">// this will make the <span class="wrapper">Element</span> visible</i> </line>
 														<line> }; </line>
 
 														<hr>
 
-														<line> * For individual <span class="wrapper">HTML Elements</span>, the <span class="wrapper">asteriskObj.effects.appear.<b-p>target_applyEffect</b-p></span> function simply adds the <span class="wrapper">appearEffects-apply</span> class on the <span class="wrapper"><b>hasAppearEffect</b></span> <span class="wrapper">HTML Element</span> passed as the argument. </line>
+														<line> * For individual <span class="wrapper">HTML Elements</span>, the <span class="wrapper">asterisk.effects.appear.<b-p>target_applyEffect</b-p></span> function simply adds the <span class="wrapper">appearEffects-apply</span> class on the <span class="wrapper"><b>hasAppearEffect</b></span> <span class="wrapper">HTML Element</span> passed as the argument. </line>
 
 													</div>
 												</div>
@@ -580,12 +582,12 @@
 
 														<line> function myCustomFunction() { </line>
 															<line class="pl-lg"> <i style="color: rgba(3,3,3,.5)">// do something </i> </line>
-															<line class="pl-lg"> asteriskObj.effects.appear.<b-p>target_applyEffect</b-p>( <span class="wrapper">mySequence</span> ) <i style="color: rgba(3,3,3,.5)">// this will make the <span class="wrapper">Elements</span> in the <span class="wrapper">sequence</span> visible</i> </line>
+															<line class="pl-lg"> asterisk.effects.appear.<b-p>target_applyEffect</b-p>( <span class="wrapper">mySequence</span> ) <i style="color: rgba(3,3,3,.5)">// this will make the <span class="wrapper">Elements</span> in the <span class="wrapper">sequence</span> visible</i> </line>
 														<line> }; </line>
 
 														<hr>
 
-														<line> * For <span class="wrapper">sequences</span>, the <span class="wrapper">asteriskObj.effects.appear.<b-p>target_applyEffect</b-p></span> function : </line>
+														<line> * For <span class="wrapper">sequences</span>, the <span class="wrapper">asterisk.effects.appear.<b-p>target_applyEffect</b-p></span> function : </line>
 														<line class="pl-lg"> - itterates through all the <span class="wrapper"><b>hasAppearEffect</b></span> <span class="wrapper">HTML Elements</span> within the <span class="wrapper">sequence</span> that is passed as the argument </line>
 														<line class="pl-lg"> - adds the <span class="wrapper">appearEffects-apply</span> class on each <span class="wrapper">HTML Element</span> </line>
 														<line class="pl-lg"> - includes the functionality for the <span class="wrapper">delay</span> and <span class="wrapper">drandomOrder</span> scenarios. </line>
@@ -695,7 +697,7 @@
 
 													<p> If the <span class="wrapper"><b-p>data-appearEffects-delay</b-p></span> attribute is present : </p>
 													<p class="pl-lg mt-0"> 1. It will automatically be picked up by Javascript </p>
-													<p class="pl-lg mt-0"> 2. It will call the <span class="wrapper">asteriskObj.effects.appear.target_applyEffect()</span> for each <span class="wrapper">hasAppearEffect</span> <span class="wrapper">Element</span>, through a <span class="wrapper"><b>setTimeout</b></span> </p>
+													<p class="pl-lg mt-0"> 2. It will call the <span class="wrapper">asterisk.effects.appear.target_applyEffect()</span> for each <span class="wrapper">hasAppearEffect</span> <span class="wrapper">Element</span>, through a <span class="wrapper"><b>setTimeout</b></span> </p>
 													<p class="pl-lg mt-0"> 3. The <span class="wrapper"><b>setTimeout</b></span> value is incremented for each <span class="wrapper">Element</span> </p>
 
 													<hr>

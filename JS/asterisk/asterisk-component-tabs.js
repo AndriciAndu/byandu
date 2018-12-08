@@ -1,9 +1,9 @@
 
-	// [asteriskObj] init - if necessary
+	// [asterisk] init - if necessary
 	// -----------------------------------------------------
 
-			var asteriskObj = asteriskObj || {} ;
-			asteriskObj.components = asteriskObj.components || {} ;
+			var asterisk = asterisk || {} ;
+			asterisk.components = asterisk.components || {} ;
 
 		/*
 			class DomObject {
@@ -44,27 +44,27 @@
 			// Component.Object Setup 
 			// -----------------------------------------------------
 			
-				asteriskObj.components.tabs = {};
-				var tabsObj = asteriskObj.components.tabs;
+				asterisk.components.tabs = {};
+				var tabsObj = asterisk.components.tabs;
 
 			// Dependencies
 			// -----------------------------------------------------
 
-					asteriskObj.utility = asteriskObj.utility || {} ;
+					asterisk.utility = asterisk.utility || {} ;
 			
 				// hasClass()
 				// -----------------------------------------------------
 
-					asteriskObj.utility.hasClass = asteriskObj.utility.hasClass || function ( elem , klass ) {
+					asterisk.utility.hasClass = asterisk.utility.hasClass || function ( elem , klass ) {
 						return (" " + elem.className + " " ).indexOf( " " + klass + " " ) > -1
 					};
 
-					var hasClass = asteriskObj.utility.hasClass;
+					var hasClass = asterisk.utility.hasClass;
 				
 				// getParent()
 				// -----------------------------------------------------
 
-					asteriskObj.utility.getParent = asteriskObj.utility.getParent || function ( elem, identifier ) {
+					asterisk.utility.getParent = asterisk.utility.getParent || function ( elem, identifier ) {
 
 						elemParent = elem.parentElement;
 
@@ -88,7 +88,7 @@
 						}
 					};
 
-					var getParent = asteriskObj.utility.getParent;
+					var getParent = asterisk.utility.getParent;
 
 			// Init
 			// -----------------------------------------------------

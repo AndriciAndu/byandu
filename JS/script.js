@@ -606,7 +606,7 @@
 
 	document.body.addEventListener('click', function(e) {
 
-		var componentsObj = asteriskObj.components;
+		var componentsObj = asterisk.components;
 		// console.log(e.target);
 
 		if 		(hasClass(e.target, 'tabs-btn')) 						{ componentsObj.tabs.run(e.target) 						}
@@ -642,7 +642,7 @@
 
 	// Modals
 	document.getElementById('byAndu-modalsContainer').addEventListener('click', function(e) {
-		if (hasClass(e.target, 'modal-underlay')) { asteriskObj.components.modal.closeModal(e.target.parentElement) }
+		if (hasClass(e.target, 'modal-underlay')) { asterisk.components.modal.closeModal(e.target.parentElement) }
 	});
 
 	document.getElementById('sideNav-byAndu-infoBtn').addEventListener('click', function(){
@@ -650,15 +650,15 @@
 	});
 
 	//
-	if (!asteriskObj.components.modal.states.hasEvtListener_keypress_esc) {
-		asteriskObj.components.modal.states.hasEvtListener_keypress_esc = true;
+	if (!asterisk.components.modal.states.hasEvtListener_keypress_esc) {
+		asterisk.components.modal.states.hasEvtListener_keypress_esc = true;
 		document.addEventListener('keydown', function(e) {
 
 			var e = e || window.event; 
 
 			if (e.keyCode == 27 || e.key == 'Escape' || e.code == 'Escape') {
-				var openModal  = asteriskObj.components.modal.states.openModal;
-				if (openModal) { asteriskObj.components.modal.closeModal(openModal) }
+				var openModal  = asterisk.components.modal.states.openModal;
+				if (openModal) { asterisk.components.modal.closeModal(openModal) }
 			};
 		});
 	};
@@ -680,7 +680,7 @@
 			console.log(item);
 			console.log(document.body.contains(item))
 		})
-	}
+	};
 
 	// document.getElementById('byAndu-beta-welcome').classList.add('modal-show');
 

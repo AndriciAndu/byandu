@@ -1,8 +1,8 @@
 
-	// [asteriskObj] init - if necessary
+	// [asterisk] init - if necessary
 	// -----------------------------------------------------
 
-		var asteriskObj = asteriskObj || {} ;
+		var asterisk = asterisk || {} ;
 
 	// Asterisk - deferDOMReadyObj
 	// -----------------------------------------------------
@@ -12,8 +12,8 @@
 			// Object Setup 
 			// -----------------------------------------------------
 
-				asteriskObj.deferDOMReadyObj = {};
-				deferDOMReadyObj = asteriskObj.deferDOMReadyObj;
+				asterisk.deferDOMReadyObj = {};
+				deferDOMReadyObj = asterisk.deferDOMReadyObj;
 				
 				deferDOMReadyObj.defer_items = Array.from(document.getElementsByClassName('defer-DOMLoaded-item')) ;
 				deferDOMReadyObj.defer_limit = Array.from(document.getElementsByClassName('defer-DOMLoaded-item')).length ;
@@ -33,13 +33,13 @@
 
 						if (document.readyState === "interactive") {
 
-							setTimeout(asteriskObj.deferDOMReadyObj.runFunctions, 500)
+							setTimeout(asterisk.deferDOMReadyObj.runFunctions, 500)
 
 						} else {
 
 							document.onreadystatechange = function () {
 								if (document.readyState === "interactive") {
-									setTimeout(asteriskObj.deferDOMReadyObj.runFunctions, 500)
+									setTimeout(asterisk.deferDOMReadyObj.runFunctions, 500)
 								}
 							}; 
 
@@ -56,12 +56,12 @@
 
 						if (!item.complete) {
 
-							item.addEventListener('load', asteriskObj.deferDOMReadyObj.defer_items_update);
-							// item.addEventListener('error', asteriskObj.deferDOMReadyObj.defer_items_update);
+							item.addEventListener('load', asterisk.deferDOMReadyObj.defer_items_update);
+							// item.addEventListener('error', asterisk.deferDOMReadyObj.defer_items_update);
 
 						} else {
 
-							asteriskObj.deferDOMReadyObj.defer_items_update();
+							asterisk.deferDOMReadyObj.defer_items_update();
 
 						}
 						
@@ -71,19 +71,19 @@
 			// Set callback to run after all img are loaded
 			// -----------------------------------------------------
 
-				asteriskObj.deferDOMReadyObj.runFunctions = function() {
+				asterisk.deferDOMReadyObj.runFunctions = function() {
 					deferDOMReadyObj.functionsArray.map(function(item) { setTimeout(item[0], item[1]) }) 
 				};
 
 			// Set callback to run after all img are loaded
 			// -----------------------------------------------------
 
-				asteriskObj.deferDOMReadyObj.addFunction = function(newFunction , delay) {
+				asterisk.deferDOMReadyObj.addFunction = function(newFunction , delay) {
 					var setDelay = delay || 1 ;
 					deferDOMReadyObj.functionsArray.push( [newFunction , setDelay] );
 				};
 
 		})();
 
-		// asteriskObj.deferDOMReadyObj.addFunction( function() { console.log('DOM Loaded')   } );
-		// asteriskObj.deferDOMReadyObj.addFunction( function() { console.log('DOM Loaded-2') } , 2500  );
+		// asterisk.deferDOMReadyObj.addFunction( function() { console.log('DOM Loaded')   } );
+		// asterisk.deferDOMReadyObj.addFunction( function() { console.log('DOM Loaded-2') } , 2500  );

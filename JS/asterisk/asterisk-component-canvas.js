@@ -1,9 +1,9 @@
 
-	// [asteriskObj] init - if necessary
+	// [asterisk] init - if necessary
 	// -----------------------------------------------------
 
-		var asteriskObj = asteriskObj || {} ;
-		asteriskObj.components = asteriskObj.components || {} ;
+		var asterisk = asterisk || {} ;
+		asterisk.components = asterisk.components || {} ;
 
 	// Asterisk Component - [Canvas]
 	// -----------------------------------------------------
@@ -13,8 +13,8 @@
 			// Component.Object Setup 
 			// -----------------------------------------------------
 			
-				asteriskObj.components.canvas = {};
-				var canvasObj = asteriskObj.components.canvas;
+				asterisk.components.canvas = {};
+				var canvasObj = asterisk.components.canvas;
 
 			// Dependencies
 			// -----------------------------------------------------
@@ -22,12 +22,12 @@
 				// dependencies Obj Setup 
 				// -----------------------------------------------------
 
-					asteriskObj.utility = asteriskObj.utility || {} ;
+					asterisk.utility = asterisk.utility || {} ;
 
 				// getFirstClass()
 				// -----------------------------------------------------
 
-					asteriskObj.utility.getFirstClass = asteriskObj.utility.getFirstClass || function( elem , ...classes ) {
+					asterisk.utility.getFirstClass = asterisk.utility.getFirstClass || function( elem , ...classes ) {
 
 						// to accept both scenarios: array-of-classes || multiple class strings
 						if (Array.isArray(classes[0])) { classes = classes[0] };
@@ -38,12 +38,12 @@
 						else 						{ return false 	}
 					};
 
-					var getFirstClass = asteriskObj.utility.getFirstClass;
+					var getFirstClass = asterisk.utility.getFirstClass;
 
 				// hex2rgb()
 				// -----------------------------------------------------
 
-					asteriskObj.utility.hex2rgb = asteriskObj.utility.hex2rgb || function( hex , alpha ) {
+					asterisk.utility.hex2rgb = asterisk.utility.hex2rgb || function( hex , alpha ) {
 
 						var r = parseInt(hex.slice(1, 3), 16),
 					        g = parseInt(hex.slice(3, 5), 16),
@@ -56,7 +56,7 @@
 					    }
 					};
 
-					var hex2rgb = asteriskObj.utility.hex2rgb;
+					var hex2rgb = asterisk.utility.hex2rgb;
 
 			// Canvas Object - host for settings and main functions
 			// -----------------------------------------------------

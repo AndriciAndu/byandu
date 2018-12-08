@@ -1,9 +1,9 @@
 
-	// [asteriskObj] init - if necessary
+	// [asterisk] init - if necessary
 	// -----------------------------------------------------
 
-		var asteriskObj = asteriskObj || {} ;
-		asteriskObj.functionality = asteriskObj.functionality || {} ;
+		var asterisk = asterisk || {} ;
+		asterisk.functionality = asterisk.functionality || {} ;
 
 	// Asterisk Effects - [EnterExit]
 	// -----------------------------------------------------
@@ -13,8 +13,8 @@
 			// Effects.Object Setup 
 			// -----------------------------------------------------
 
-				asteriskObj.functionality.lazyLoad = {};
-				var lazyLoadObj = asteriskObj.functionality.lazyLoad;
+				asterisk.functionality.lazyLoad = {};
+				var lazyLoadObj = asterisk.functionality.lazyLoad;
 
 				// store parameteres for each media-type
 				lazyLoadObj.mediaItems = [ 
@@ -105,7 +105,7 @@
 					lazyLoadObj.onWindowResize = function() {
 
 						var windowWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-						var lazyLoadObj = asteriskObj.functionality.lazyLoad;
+						var lazyLoadObj = asterisk.functionality.lazyLoad;
 
 						if (lazyLoadObj.curr_mediaType['bp_end'] < windowWidth) {
 							lazyLoadObj.setBreakpoint();
@@ -127,5 +127,5 @@
 						window.addEventListener('resize', lazyLoadObj.onWindowResize)
 					};
 
-					//asteriskObj.functionality.lazyLoad.init();
+					//asterisk.functionality.lazyLoad.init();
 		})();

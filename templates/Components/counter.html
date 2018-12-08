@@ -103,37 +103,37 @@
 
 							<div class="wrapper"> 
 								<div class="md-flex md-flex-cross-center"> 
-									<div class="col-12 md-col-10"> asteriskObj.components.spoiler.init() </div>
+									<div class="col-12 md-col-10"> asterisk.components.spoiler.init() </div>
 									<button class="col-12 md-col-2 mt-sm md-mt-0 spoiler-btn spoiler-btn-autoText" data-spoiler-id="spoiler-init"> </button>
 								</div>
 
 								<div class="spoiler" data-spoiler-id="spoiler-init">
 									<div class="spoiler-content">
-										<p class="my-xs"> asteriskObj.components.spoiler.init(targetElem, delegateEventListener) </p>
+										<p class="my-xs"> asterisk.components.spoiler.init(targetElem, delegateEventListener) </p>
 
 										<hr>
 
-										<p class="my-xs"> Case: <b-r>asteriskObj.components.spoiler.init()</b-r> </p>
+										<p class="my-xs"> Case: <b-r>asterisk.components.spoiler.init()</b-r> </p>
 										<p class="my-xs"> All <span class="wrapper">spoiler-btn</span> Elements within the <span class="wrapper">document</span> will be initialized. </p>
 										<p class="mt-0 sub-heading"> * an <span class="wrapper">eventListener</span> will be added to each <span class="wrapper">spoiler-btn Element</span> </p>
 
 										<hr>
 
-										<p class="my-xs"> Case: <b-r>asteriskObj.components.spoiler.init(</b-r> <span class="wrapper"><b-p>spoiler-btn Element</b-p></span> <b-r>)</b-r> </p>
+										<p class="my-xs"> Case: <b-r>asterisk.components.spoiler.init(</b-r> <span class="wrapper"><b-p>spoiler-btn Element</b-p></span> <b-r>)</b-r> </p>
 										<p class="my-xs"> Only the provided <span class="wrapper">spoiler-btn</span> element will be initialized. </p>
 										<p class="mt-0 sub-heading"> * an <span class="wrapper">eventListener</span> will be added to the provided <span class="wrapper">spoiler-btn Element</span> </p>
 										<p class="mt-0 sub-heading"> * used for dinamically-added content </p>
 
 										<hr>
 
-										<p class="my-xs"> Case: <b-r>asteriskObj.components.spoiler.init(</b-r> <span class="wrapper"><b-p><u>NON</u>-spoiler-btn Element</b-p></span> <b-r>)</b-r> </p>
+										<p class="my-xs"> Case: <b-r>asterisk.components.spoiler.init(</b-r> <span class="wrapper"><b-p><u>NON</u>-spoiler-btn Element</b-p></span> <b-r>)</b-r> </p>
 										<p class="my-xs"> All <span class="wrapper">spoiler-btn</span> Elements within the provided <span class="wrapper"><b-p><u>NON</u>-spoiler-btn Element</b-p></span> will be initialized. </p>
 										<p class="mt-0 sub-heading"> * an <span class="wrapper">eventListener</span> will be added to each <span class="wrapper">spoiler-btn Element</span> </p>
 										<p class="mt-0 sub-heading"> * used to initialize <span class="wrapper">spoiler-btn</span> elements within a portion of the website </p>
 
 										<hr>
 
-										<p class="my-xs"> Case: <b-r>asteriskObj.components.spoiler.init(</b-r> <span class="wrapper"><b-p><u>NON</u>-spoiler-btn Element</b-p></span> , <span class="wrapper"><b-p>true</b-p></span> <b-r>)</b-r> </p>
+										<p class="my-xs"> Case: <b-r>asterisk.components.spoiler.init(</b-r> <span class="wrapper"><b-p><u>NON</u>-spoiler-btn Element</b-p></span> , <span class="wrapper"><b-p>true</b-p></span> <b-r>)</b-r> </p>
 										<p class="my-xs"> The <span class="wrapper">spoiler-btn functionality </span> will be delegated to the <span class="wrapper"><b-p><u>NON</u>-spoiler-btn Element</b-p></span> provided, enabling any <span class="wrapper">spoiler-btn</span> children to function through <b>Event Delegation</b>. </p>
 										<p class="mt-0 sub-heading"> * the <span class="wrapper">eventListener</span> will be added to the <span class="wrapper"><b-p><u>NON</u>-spoiler-btn Element</b-p></span> </p>
 										<p class="mt-0 sub-heading"> * can be used on the <span class="wrapper">document.body</span> to enable any and all <span class="wrapper">spoiler-btn</span> Elements </p>

@@ -1,10 +1,10 @@
 
 	
-	// [asteriskObj] init - if necessary
+	// [asterisk] init - if necessary
 	// -----------------------------------------------------
 
-		var asteriskObj = asteriskObj || {} ;
-		asteriskObj.components = asteriskObj.components || {} ;
+		var asterisk = asterisk || {} ;
+		asterisk.components = asterisk.components || {} ;
 
 	// Asterisk Component - [Spoiler]
 	// ------------------------------------------------------------------
@@ -14,8 +14,8 @@
 			// Component.Object Setup 
 			// -----------------------------------------------------
 
-				asteriskObj.components.modal = {};
-				var modalObj = asteriskObj.components.modal;
+				asterisk.components.modal = {};
+				var modalObj = asterisk.components.modal;
 
 			// States
 			// -----------------------------------------------------
@@ -30,21 +30,21 @@
 			// Dependencies 
 			// -----------------------------------------------------
 
-					asteriskObj.utility = asteriskObj.utility || {} ;
+					asterisk.utility = asterisk.utility || {} ;
 
 				// hasClass() 
 				// -----------------------------------------------------
 
-					asteriskObj.utility.hasClass = asteriskObj.utility.hasClass || function ( elem , klass ) {
+					asterisk.utility.hasClass = asterisk.utility.hasClass || function ( elem , klass ) {
 						return (" " + elem.className + " " ).indexOf( " " + klass + " " ) > -1
 					};
 
-					var hasClass = asteriskObj.utility.hasClass;
+					var hasClass = asterisk.utility.hasClass;
 
 				// getFocusableChildren() 
 				// -----------------------------------------------------
 
-					asteriskObj.utility.getFocusableChildren = asteriskObj.utility.getFocusableChildren || function ( elem ) {
+					asterisk.utility.getFocusableChildren = asterisk.utility.getFocusableChildren || function ( elem ) {
 
 						var activeElem = document.activeElement;
 
@@ -57,7 +57,7 @@
 						return children_focusable
 					};
 
-					var getFocusableChildren = asteriskObj.utility.getFocusableChildren;
+					var getFocusableChildren = asterisk.utility.getFocusableChildren;
 
 			// Init
 			// -----------------------------------------------------
@@ -226,7 +226,7 @@
 				/*modalObj.modalBtn_defineParameters_all = function() {
 
 					var modalButtons = Array.from(document.getElementsByClassName('modal-btn'));
-					modalButtons.map(btn => asteriskObj.components.modal.modalBtn_defineParameters(btn));
+					modalButtons.map(btn => asterisk.components.modal.modalBtn_defineParameters(btn));
 
 				};*/
 

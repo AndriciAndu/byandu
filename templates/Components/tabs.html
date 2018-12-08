@@ -201,38 +201,38 @@
 
 							<div class="wrapper"> 
 								<div class="md-flex md-flex-cross-center"> 
-									<div class="col-12 md-col-10"> asteriskObj.components.tabs.init() </div>
+									<div class="col-12 md-col-10"> asterisk.components.tabs.init() </div>
 
 									<button class="col-12 md-col-2 mt-sm md-mt-0 spoiler-btn spoiler-btn-autoText" data-spoiler-id="spoiler-init"> </button>
 								</div>
 
 								<div class="spoiler" data-spoiler-id="spoiler-init">
 									<div class="spoiler-content">
-										<p class="my-xs"> asteriskObj.components.tabs.init(targetElem, delegateEventListener) </p>
+										<p class="my-xs"> asterisk.components.tabs.init(targetElem, delegateEventListener) </p>
 
 										<hr>
 
-										<p class="my-xs"> Case: <b-r>asteriskObj.components.tabs.init()</b-r> </p>
+										<p class="my-xs"> Case: <b-r>asterisk.components.tabs.init()</b-r> </p>
 										<p class="my-xs"> All <span class="wrapper">tabs</span> Elements within the <span class="wrapper">document</span> will be initialized. </p>
 										<p class="mt-0 sub-heading"> * an <span class="wrapper">eventListener</span> will be added to each <span class="wrapper">tabs-btnContainer Element</span> </p>
 
 										<hr>
 
-										<p class="my-xs"> Case: <b-r>asteriskObj.components.tabs.init(</b-r> <span class="wrapper"><b-p>tabs Element</b-p></span> <b-r>)</b-r> </p>
+										<p class="my-xs"> Case: <b-r>asterisk.components.tabs.init(</b-r> <span class="wrapper"><b-p>tabs Element</b-p></span> <b-r>)</b-r> </p>
 										<p class="my-xs"> Only the provided <span class="wrapper">tabs</span> element will be initialized. </p>
 										<p class="mt-0 sub-heading"> * an <span class="wrapper">eventListener</span> will be added to the provided component's <span class="wrapper">tabs-btnGroup Element</span> </p>
 										<p class="mt-0 sub-heading"> * used for dinamically-added content </p>
 
 										<hr>
 
-										<p class="my-xs"> Case: <b-r>asteriskObj.components.tabs.init(</b-r> <span class="wrapper"><b-p><u>NON</u>-tabs Element</b-p></span> <b-r>)</b-r> </p>
+										<p class="my-xs"> Case: <b-r>asterisk.components.tabs.init(</b-r> <span class="wrapper"><b-p><u>NON</u>-tabs Element</b-p></span> <b-r>)</b-r> </p>
 										<p class="my-xs"> All <span class="wrapper">tabs</span> Elements within the provided <span class="wrapper"><b-p><u>NON</u>-tabs Element</b-p></span> will be initialized. </p>
 										<p class="mt-0 sub-heading"> * an <span class="wrapper">eventListener</span> will be added to each <span class="wrapper">tabs-btnGroup Element</span> </p>
 										<p class="mt-0 sub-heading"> * used to initialize <span class="wrapper">tabs</span> elements within a portion of the website </p>
 
 										<hr>
 
-										<p class="my-xs"> Case: <b-r>asteriskObj.components.tabs.init(</b-r> <span class="wrapper"><b-p><u>NON</u>-tabs Element</b-p></span> , <span class="wrapper"><b-p>true</b-p></span> <b-r>)</b-r> </p>
+										<p class="my-xs"> Case: <b-r>asterisk.components.tabs.init(</b-r> <span class="wrapper"><b-p><u>NON</u>-tabs Element</b-p></span> , <span class="wrapper"><b-p>true</b-p></span> <b-r>)</b-r> </p>
 										<p class="my-xs"> The <span class="wrapper">tabs-btn functionality </span> will be delegated to the <span class="wrapper"><b-p><u>NON</u>-tabs Element</b-p></span> provided, enabling any <span class="wrapper">tabs-btn</span> children to function through <b>Event Delegation</b>. </p>
 										<p class="mt-0 sub-heading"> * the <span class="wrapper">eventListener</span> will be added to the <span class="wrapper"><b-p><u>NON</u>-tabs Element</b-p></span> </p>
 										<p class="mt-0 sub-heading"> * can be used on the <span class="wrapper">document.body</span> to enable any and all <span class="wrapper">tabs-btn</span> Elements </p>
@@ -917,11 +917,11 @@
 										<div id="codeSection-js" class="codeTab__main__codeSection" data-code="js">
 											<div class="finalCode-blockContainer">
 												<pre class="pre-removeTabSpaces">
-												    // [asteriskObj] init - if necessary
+												    // [asterisk] init - if necessary
 												    // -----------------------------------------------------
 
-												        var asteriskObj = asteriskObj || {} ;
-												        asteriskObj.components = asteriskObj.components || {} ;
+												        var asterisk = asterisk || {} ;
+												        asterisk.components = asterisk.components || {} ;
 
 												    // Asterisk Component - [Tabs]
 												    // -----------------------------------------------------
@@ -931,8 +931,8 @@
 												            // Component.Object Setup 
 												            // -----------------------------------------------------
 												            
-												                asteriskObj.components.tabs = {};
-												                var tabsObj = asteriskObj.components.tabs;
+												                asterisk.components.tabs = {};
+												                var tabsObj = asterisk.components.tabs;
 
 												            // Dependencies (not required if using [asterisk-utility.js])
 												            // -----------------------------------------------------

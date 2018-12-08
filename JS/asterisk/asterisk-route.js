@@ -2,13 +2,13 @@
 // Updating Questions - by category - navbar-item click
 // --------------------------------------------------
 
-	// [asteriskObj] init - if necessary
+	// [asterisk] init - if necessary
 	// -----------------------------------------------------
 
-		var asteriskObj = asteriskObj || {} ;
+		var asterisk = asterisk || {} ;
 
-		asteriskObj.routeObject = {} ;
-		routeObject = asteriskObj.routeObject;
+		asterisk.routeObject = {} ;
+		routeObject = asterisk.routeObject;
 
 		// Intermediary Functions
 		// --------------------------------------------------
@@ -225,8 +225,8 @@
 
 			document.getElementById('__route__categories').addEventListener('click', function(e){
 				if (hasClass(e.target, '__route__categories-item')) { 
-					asteriskObj.routeObject.categoryItems_updateActiveStatus(e.target);
-					asteriskObj.routeObject.articleItems_updateArticleList(e.target.getAttribute('data-category')); 
+					asterisk.routeObject.categoryItems_updateActiveStatus(e.target);
+					asterisk.routeObject.articleItems_updateArticleList(e.target.getAttribute('data-category')); 
 				}
 			});
 
@@ -235,8 +235,8 @@
 
 			document.getElementById('__route__articles').addEventListener('click', function(e) {
 				if (hasClass(e.target, '__route__articles-item')) { 
-					asteriskObj.routeObject.articleItems_updateActiveStatus(e.target);
-					asteriskObj.routeObject.mainView_updateInnerHTML(e.target.getAttribute('data-url'));
+					asterisk.routeObject.articleItems_updateActiveStatus(e.target);
+					asterisk.routeObject.mainView_updateInnerHTML(e.target.getAttribute('data-url'));
 				};
 			});
 
