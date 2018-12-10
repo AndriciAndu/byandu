@@ -53,6 +53,8 @@
 			item.innerHTML = string_remove_tabSpaces(item.innerHTML)
 		});
 
+		//asterisk.components.spoiler.init(document.getElementById('byAndu-main'));
+
 	})();
 
 	

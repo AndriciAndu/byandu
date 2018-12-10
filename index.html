@@ -157,11 +157,11 @@
 				<a class="sideNav-btn __route__articleBtn" role="link" href="extra.html"> 
 					Extra ~ </a>
 
-				<a class="sideNav-btn __route__articleBtn" role="link" href="scrollTrigger.html"> 
+				<!-- <a class="sideNav-btn __route__articleBtn" role="link" href="scrollTrigger.html"> 
 					Scroll Trigger </a>
 
 				<a class="sideNav-btn __route__articleBtn" role="link" href="lazyLoad.html"> 
-					Lazy Load </a>
+					Lazy Load </a> -->
 			</div>
 		</div>
 
@@ -289,6 +289,9 @@
 
 				<a class="sideNav-btn __route__articleBtn" role="link" href="usefulHacks.html"> 
 					Usefull 'Hacks' </a>
+
+				<a class="sideNav-btn __route__articleBtn" role="link" href="valueObjects.html"> 
+					Value Objects </a>
 			</div>
 		</div>
 
@@ -753,7 +756,7 @@
 
 					<p> An <span class="wrapper">Utility Class</span> is a chunk-of-logic which is: </p>
 					<p class="mt-0"> * <span class="wrapper">reusable</span> : can be used across different elements </p>
-					<p class="mt-0"> * <span class="wrapper">specific</span> : all rules serve only the specific purpose and nothing else </p>
+					<p class="mt-0"> * <span class="wrapper">specific</span> : all styles are directly related to the intended style/effect </p>
 					<p class="mt-0"> * <span class="wrapper">pacifistic</span> : doesn't create undesirable conflicts with other applied styles </p>
 					<p class="mt-0"> * <span class="wrapper">encapsulated</span> : all logic is included / no external dependencies are required </p>
 
@@ -812,13 +815,15 @@
 					</div>
 				</section>
 
-				<heading> <h2 class="section-title pl-lg"> Why utility classes? </h2> </heading>
+				<heading> <h2 class="section-title pl-lg"> Purpose </h2> </heading>
 				<section>
 					<p> Utility classes <b>remove the need of generating new classNames</b>, in order to add simple styles/effects, <b>for elements that <u>do not hold specific semantics themselves</u></b>. </p>
 
+					<p> If an Element can be given 
+
 					<div class="col-12"> 
 						<div class="wrapper">
-							<div class="col-12 md-col-4">
+							<div class="col-12 md-col-6">
 								<line> <b-r>Bad :</b-r> <b>Unnecessary-class</b> </line>
 								<hr>
 								<line> &lt;div class="<span class="wrapper">yetAnotherClassName</span>"></line>
@@ -830,24 +835,12 @@
 								<line> } </line>
 							</div>
 
-							<div class="col-12 md-col-4">
+							<div class="col-12 md-col-6">
 								<line> <b-r>Good : </b-r> <b>Utility-class</b> </line>
 								<hr>
 								<line> &lt;div class="<span class="wrapper">text-center</span>"> </line>
 								<hr>
 								<line> <span class="wrapper">.text-center</span> { </line>
-								<div class="col-12">
-									<line> text-align: center; </line>
-								</div>
-								<line> } </line>
-							</div>
-
-							<div class="col-12 md-col-4">
-								<line> <b-r>Good : </b-r> <b>Specific-class</b> </line>
-								<hr>
-								<line> &lt;div class="<span class="wrapper">card-description</span>"> </line>
-								<hr>
-								<line> <span class="wrapper">.card-description</span> { </line>
 								<div class="col-12">
 									<line> text-align: center; </line>
 								</div>
@@ -1239,44 +1232,7 @@
 				</div>
 			</div>
 		</div>
-
-		<!-- <div class="modal" id="byAndu-beta-welcome">
-			<div class="modal-underlay"> </div>
-
-			<div class="modal-content text-center" tabindex="0" style="background-image: url('images/qwe.jpg'); background-position: center; background-size: cover; background-repeat: no-repeat;">
-
-				<div class="flex flex-center" style="height: 100%; background-color: rgba(3,3,3,.6);">
-					<div style="overflow-x: auto">
-						<p> Hey buddy, </p>
-
-						<p> Thanks guy for your interest in this project. </p>
-
-						<div class="col-8 col-offset-2"> <hr style="border-color: white"> </div>
-
-						<p> Feel free to browse, but as it is currently in Beta Testing, <br> I would not recommend using the files just yet. </p>
-
-						<p> Rest assured, this will change very soon, <br> and all this and more will be made available. </p>
-
-						<div class="col-8 col-offset-2"> <hr style="border-color: white"> </div>
-
-						<p> As long as you're here, how bout giving some feedback, eh? </p>
-
-						<div class="col-8 col-offset-2"> <hr style="border-color: white"> </div>
-
-						<p> Stay tooned and please don't blame Canada. </p>
-					</div>
-				</div>
-
-				<img src="images/guy.png"/>
-
-			</div>
-		</div> -->
 	</div>
-
-	<!--
-	<button class="modal-btn fa fa-hand-spock-o" data-modal-id="byAndu-info"> </button>
-	<button class="modal-btn fa fa-info-circle"  data-modal-id="byAndu-xxx"> </button>
-	-->
 
 	<!-- svg defs -->
 	<svg class="defs-definitions">
@@ -1288,11 +1244,6 @@
 		</defs>
 	</svg>
 
-	<!--
-		<img src="images/img-1.jpg" class="defer-DOMLoaded-item">
-		<img src="images/img-2.jpg" class="defer-DOMLoaded-item">
-	-->
-
 	<!-- =================== SCRIPTS =================== -->
 		<script type="text/javascript" src="js/asterisk/asterisk-utility.js"></script>
 
@@ -1302,6 +1253,7 @@
 		<script type="text/javascript" src="js/asterisk/asterisk-component-modal.js"></script>
 		<script type="text/javascript" src="js/asterisk/asterisk-component-onboarding.js"></script>
 		<script type="text/javascript" src="js/asterisk/asterisk-component-spoiler.js"></script>
+		<!-- <script type="text/javascript" src="js/asterisk/asterisk-component-spoiler-addon.js"></script> -->
 		<script type="text/javascript" src="js/asterisk/asterisk-component-tabs.js"></script>
 		<script type="text/javascript" src="js/asterisk/asterisk-effects-appear.js"></script>
 		<script type="text/javascript" src="js/asterisk/asterisk-functionality-deferDOMLoaded.js"></script>

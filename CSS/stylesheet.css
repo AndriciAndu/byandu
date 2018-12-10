@@ -1,4 +1,9 @@
 
+
+
+
+
+
 		#sideNav-byAndu-infoBtn {
 			position: fixed;
 			top: 0; left: 0;
@@ -1524,3 +1529,32 @@
 			100% { transform: translate3d(0,-30px,0) scale(1); opacity: 0; }
 		}
 		*/
+
+/*
+	.btnGroup {
+		display: inline-block;
+		position: relative;
+		float: left;
+	}
+
+	.btnGroup > button {
+
+		float: left;
+
+		border-color: red;
+		border-width: 2px;
+		border-top-style:    solid;
+		border-bottom-style: solid;
+	}
+
+	.btnGroup > button:first-of-type {
+		border-left-style:    solid;
+	}
+	.btnGroup > button:last-of-type {
+		border-right-style:    solid;
+	}
+
+	.btnGroup > button:focus {
+		background-color: blue;
+	}
+*/

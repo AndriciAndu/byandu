@@ -671,24 +671,14 @@
 	});
 
 
+	// -------------------------------------------------------------------
 
 
-	function run123(klass) {
-		var items = Array.from(document.getElementsByClassName(klass));
 
-		items.map(function(item){
-			console.log(item);
-			console.log(document.body.contains(item))
-		})
-	};
+	// -------------------------------------------------------------------
 
-	// document.getElementById('byAndu-beta-welcome').classList.add('modal-show');
 
-	// function qweqweqweqw() {
-	// 	console.log(document.activeElement);
-	// 	setTimeout(qweqweqweqw , 1000)
-	// };
-	// qweqweqweqw();
+
 
 	/*document.getElementById('byAndu-infoBtn').addEventListener('click', function(){
 
@@ -797,34 +787,6 @@
 	})();
 	*/
 
-	/*document.getElementById('mobile-showNav-btn').addEventListener('click', function(){
-		document.getElementById('byAndu-navbarSide').classList.add('mobileViewports-showNav')
-	});*/
-
-
-// ShowFileCode Test
-
-/*	console.log(fetchHTML)
-
-	function byAndu_getFileCode(target) {
-
-		var lightbox = document.createElement('div');
-		lightbox.classList = 'copyContext-lightbox';
-		lightbox.innerHTML = 
-		'<div class="copyContext-lightbox-underlay"> </div> ' +
-		'<pre class="copyContext-lightbox-textContainer"></pre>';
-
-		document.body.appendChild(lightbox);
-
-		lightbox.getElementsByClassName('copyContext-lightbox-underlay')[0].addEventListener('click', function(){
-			this.parentElement.parentElement.removeChild(this.parentElement)
-		});
-
-		console.log(target.getAttribute('data-fileSrc'))
-
-		//var filePath = target.getAttribute('data-fileSrc');
-		//lightbox.innerHTML = fetchHTML(filePath).replace(/</g, '&lt;');
-	};*/
 
 
 

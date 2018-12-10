@@ -1004,3 +1004,32 @@
 	function string_remove_tabSpaces(myString) {
 		return myString.replace(/\t/g, '')
 	};
+
+/* */
+	
+	function isInDOM( elem ) {
+		return document.contains(elem)
+	}
+
+	// var test121212 = function() {
+	// 	var newElem = document.createElement('div');
+	// 	newElem.id = "test123";
+	// 	console.log(document.contains(newElem));
+	// 	console.log(newElem.getBoundingClientRect());
+	// 	document.body.appendChild(newElem);
+	// 	console.log(document.contains(newElem));
+	// 	console.log(newElem.getBoundingClientRect());
+	// 	newElem.parentElement.removeChild(newElem);
+	// 	console.log(document.contains(newElem));
+	// 	console.log(newElem.getBoundingClientRect());
+	// 	console.log(newElem)
+	// }; test121212();
+
+	// function run123(klass) {
+	// 	var items = Array.from(document.getElementsByClassName(klass));
+
+	// 	items.map(function(item){
+	// 		console.log(item);
+	// 		console.log(document.body.contains(item))
+	// 	})
+	// };

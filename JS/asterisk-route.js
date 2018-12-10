@@ -94,8 +94,10 @@
 					targetedPreElements.map(function(item) {
 						item.innerHTML = string_remove_tabSpaces(item.innerHTML);
 					});
+
+					// asterisk.components.spoiler.checkDOM();
+					// asterisk.components.spoiler.init(document.getElementById('byAndu-main'), true);
 				};
-				//
 
 			// Categories - Active Status
 			// --------------------------------------------------
