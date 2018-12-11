@@ -817,7 +817,6 @@
 
 				<heading> <h2 class="section-title pl-lg"> Purpose </h2> </heading>
 				<section>
-
 					<row class="md-flex md-flex-cross-center p-0">
 						<div class="col-12 md-col-6 p-0">
 							<p style="font-size: 1.2em"> <b-r>1. Separation of Concerns</b-r> </p>
@@ -848,7 +847,7 @@
 
 							<p> <span class="wrapper">Utility Classes</span> <b>remove the need of generating new classNames</b>, in order to add simple styles/effects, for elements that <b>do not hold <u>specific semantics</u> themselves</b>. </p>
 
-							<p> In this case, using an <span class="wrapper">Utility Class</span>, the markup becomes more semantic (for the developer), and the nameSpace is not unnecessarily poluted. </p>
+							<p> In this case, using an <span class="wrapper">Utility Class</span>, the markup becomes more semantic (for the developer), and the nameSpace is not unnecessarily polluted. </p>
 						</div>
 
 						<div class="col-12 md-col-6"> 
@@ -873,22 +872,97 @@
 							</div>
 						</div> 
 					</row>
+
+					<hr>
+
+					<row class="md-flex md-flex-cross-center p-0">
+						<div class="col-12 md-col-6 p-0">
+							<p style="font-size: 1.2em"> <b-r>3. Overriding Styles</b-r> </p>
+							<hr>
+
+							<p> <span class="wrapper">Utility Classes</span> are used to <b>override specific styles</b> for already-defined Elements and Components, without creating new Classes that would not be widely reusable. </p>
+
+							<p> This also touches the subject of keeping the nameSpace cleaner, and having DRY-er stylesheets. </p>
+
+							<p class="sub-heading"> * This is why they are often used with the <span class="wrapper"><b-r>!important</b-r></span> declaration - to override rules that have a higher Selector specificity. </p>
+						</div>
+
+						<div class="col-12 md-col-6"> 
+							<div class="wrapper">
+								<line> &lt;div class="card <b>card-noBoxShadow</b>">&lt;/div> </line>
+								<line> &lt;div class="button <b>button-removeBoxShadow</b>">&lt;/div> </line>
+								<line> &lt;div class="row <b>row-withoutBoxShadow</b>">&lt;/div> </line>
+								<hr>
+								<line> &lt;div class="card <b>boxShadow-0</b>">&lt;/div> </line>
+								<line> &lt;div class="button <b>boxShadow-0</b>">&lt;/div> </line>
+								<line> &lt;div class="row <b>boxShadow-0</b>">&lt;/div> </line>
+							</div>
+						</div> 
+					</row>
+
+					<hr>
+
+					<row class="md-flex md-flex-cross-center p-0">
+						<div class="col-12 md-col-6 p-0">
+							<p style="font-size: 1.2em"> <b-r>4. Fast Protytiping</b-r> </p>
+							<hr>
+
+							<p> <span class="wrapper">Utility Classes</span> are also very usefull in rapidly 'hacking-together' Components. </p>
+							<p> Being able to make use of pre-defined styles/effects empowers the developer to prototype new Templates or Components. Further on, the rules can be easily copy-pasted within a separate Class. </p>
+						</div>
+
+						<div class="col-12 md-col-6"> 
+							<div class="wrapper">
+								<line> &lt;button class="<b>hvr-handCursor hasOverlay text-md border-rounded boxShadow-sm</b>">&lt;/button> </line>
+								<hr>
+								<line> &lt;div class="<b>card color-primary bgColor-secondary text-center flex flex-center p-md</b>">&lt;/div> </line>
+							</div>
+						</div> 
+					</row>
+
+					<hr>
+
+					<row class="md-flex md-flex-cross-center p-0">
+						<div class="col-12 md-col-6 p-0">
+							<p style="font-size: 1.2em"> <b-r>5. Pre-Processor Mixins</b-r> </p>
+							<hr>
+
+							<p> <span class="wrapper">Utility Classes</span> are widely used to encapsulate styles/effects within pre-processors <span class="wrapper">extends</span>, which in the end generate a clean and to-the-point stylesheet. </p>
+						</div>
+
+						<div class="col-12 md-col-6"> 
+							<div class="wrapper">
+								<line> <b>.hvr-handCursor</b> { </line>
+									<line class="pl-lg"> cursor: pointer; cursor: hand; </line>
+								<line> } </line>
+
+								<line> .myClass { </line>
+									<line class="pl-lg"> @extend <b>.hvr-handCursor;</b> </line>
+									<line class="pl-lg"> <i class="comment"> /* add more styles */ </i> </line>
+								<line> } </line>
+							</div>
+						</div> 
+					</row>
 				</section>
-
-					<!-- <p> The classes themselves : </p>
-					<p> * have clear specificity : </p> -->
-
-					<p class="mt-0"> 
-						* Another use case is in <u>overriding certain styles/effects</u> within already-styled <span class="wrapper">Components</span>. This use-case should be applied with consideration.
-						<br>
-						&nbsp;&nbsp; Because of that, they are often used with the <span class="wrapper"><b-r>!important</b-r></span> declaration, to override more-specific rules. 
-					</p>
 
 				<heading> <h2 class="section-title pl-lg"> Ace up the sleeve : Responsive Utilities </h2> </heading>
 
-				<row>
-					<p> One of their most important features lies within their <span class="wrapper">Responsive Utilities</span>. </p>
-					<p> This extensively helps in reducing CSS media-query-declarations repetitiveness, and allowing to easily change specific styles on different viewports. </p>
+				<section>
+
+					<row class="md-flex md-flex-cross-center p-0">
+						<div class="col-12 md-col-6 p-0">
+							<p> One of their most important features lies within their <span class="wrapper">Responsive Utilities</span>. </p>
+							<p> This extensively helps in <b>reducing CSS media-query-declarations repetitiveness</b>, and allowing to easily maintain specific styles on different viewports. </p>
+						</div>
+
+						<div class="col-12 md-col-6"> 
+							<div class="wrapper">
+								<line> &lt;div class="col-12 md-col-6 md-flex md-flex-center"> &lt;/div> </line>
+								<line> <i class="comment"> /* on medium devices - make element width:50%; set it's display: flex; and center it's content </i> </line> 
+							</div>
+						</div> 
+					</row>
+					
 
 					<hr>
 
@@ -902,20 +976,7 @@
 
 					<p> <b>* Example:</b> certain <span class="wrapper">textStyle</span> classes might almost never be changed on different viewports : </p>
 					<div class="col-12"> <div class="wrapper"> &lt;div class="<span class="wrapper">text-italic</span> <span class="wrapper">md-text-fontStyle-normal</span>"> </div> </div>
-
-					<hr>
-
-					<p> This is the reason why you should always use a Task Runner (such as Grunt or Gulp) to eliminate unused CSS. </p>
-					<p> You can also create a personalized build of any <span class="wrapper">Asterisk Utilities</span>, within the <span class="wrapper">Code</span> <span class="wrapper">Tab</span>, selecting only the ones that would suit your project. </p>
-
-					<hr>
-
-					<p> Good practices recommend that they are used mainly on intermediary/container elements, which don't have a specific class themselves. </p>
-
-					<p> They can also be used on specific components, if the styling/effects would only slightly differ from the original. </p>
-					<p> If multiple rules are required for the change, or if the utility classes are replicated throughout the component, it would be better to simply add a class to the Element and include the styles within it. </p>
-
-				</row>
+				</section>
 			</div>
 		</div>
 
