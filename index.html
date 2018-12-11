@@ -827,7 +827,7 @@
 						</div>
 
 						<div class="col-12 md-col-6"> 
-							<div class="wrapper">
+							<div class="wrapper" style="overflow-x: auto">
 								<line> &lt;div class="<b>mt-md</b>"> <i class="comment"> // sets <span class="wrapper">margin-top: 30px</span></i></line>
 								<div class="col-12">
 									<line> &lt;div class="<b>col-6</b>">&lt;/div> <i class="comment"> // sets <span class="wrapper">width: 50%</span></i></line>
@@ -1046,233 +1046,228 @@
 
 			<div class="modal-content" tabindex="0">
 
-				<div class="col-12 p-0 md-px-md">
+				<!-- The [ asterisk ] object -->
+					<heading> <h2 class="section-title pl-lg"> The [ asterisk ] object </h2> </heading>
+					<section>
+						<p class="md-mb-0"> The <span class="wrapper"><b-r>asterisk</b-r></span> is a basic Javascript Object. It is defined in the <span class="wrapper"><b>global</b> scope</span>. </p>
+						<p class="md-mt-0"> It holds all the <span class="wrapper">functions</span> / <span class="wrapper">methods</span> that are required for any <span class="wrapper">component</span> / <span class="wrapper">effect</span> to execute. </p>
 
-					<!-- The [ asterisk ] object -->
-						<heading> <h2 class="section-title"> The [ asterisk ] object </h2> </heading>
-						<section class="p-0">
-							<p class="md-mb-0"> The <span class="wrapper"><b-r>asterisk</b-r></span> is a basic Javascript Object. It is defined in the <span class="wrapper"><b>global</b> scope</span>. </p>
-							<p class="md-mt-0"> It holds all the <span class="wrapper">functions</span> / <span class="wrapper">methods</span> that are required for any <span class="wrapper">component</span> / <span class="wrapper">effect</span> to execute. </p>
+						<p class="sub-heading md-mt-0"> * It is not the most memory-efficient or highly-procutive pattern, yet it is more accessible for beginner-level vanilla-JS developers. </p>
 
-							<p class="sub-heading md-mt-0"> * It is not the most memory-efficient or highly-procutive pattern, yet it is more accessible for beginner-level vanilla-JS developers. </p>
+						<div class="col-12 my-md md-my-0">
+							<div class="accordion">
+								<div class="accordion-group">
+									<button class="accordion-btn"> Layout Example </button>
+									<div class="accordion-content" style="overflow-x: auto;">
+										<pre class="pre-removeTabSpaces" style=" font-size: .9em;">
+											    <b-r>asterisk</b-r> {             <i class="comment xs-hidden sm-hidden"> // main wrapper <span class="wrapper">Object</span> </i>
 
-							<div class="col-12 my-md md-my-0">
-								<div class="accordion">
-									<div class="accordion-group">
-										<button class="accordion-btn"> Layout Example </button>
-										<div class="accordion-content" style="overflow-x: auto;">
-											<pre class="pre-removeTabSpaces" style=" font-size: .9em;">
-												    <b-r>asterisk</b-r> {             <i class="comment xs-hidden sm-hidden"> // main wrapper <span class="wrapper">Object</span> </i>
+											        <b-p>components</b-p> {          <i class="comment xs-hidden sm-hidden"> // wrapper <span class="wrapper">Object</span> for all <span class="wrapper"><b-p>Components</b-p></span> </i>
+											            <b>tabs</b> {            <i class="comment xs-hidden sm-hidden"> // wrapper <span class="wrapper">Object</span> for all of <span class="wrapper"><b>Tabs</b> <b-p>Component</b-p></span> <span class="wrapper">Functions</span> </i>
+											                run() { ... } ,              <i class="comment xs-hidden sm-hidden"> // Example of a <span class="wrapper"><b>Tabs</b> <b-p>Component</b-p></span> <span class="wrapper">Function</span> </i>
+											                ...
+											            } ,
+											            <b>spoiler</b> {         <i class="comment xs-hidden sm-hidden"> // wrapper <span class="wrapper">Object</span> for all of <span class="wrapper"><b>Spoiler</b> <b-p>Component</b-p></span> <span class="wrapper">Functions</span> </i>
+											                run() { ... } ,              <i class="comment xs-hidden sm-hidden"> // Example of a <span class="wrapper"><b>Spoiler</b> <b-p>Component</b-p></span> <span class="wrapper">Function</span> </i>
+											                ...
+											            } ,
+											            ...
+											        } ,
 
-												        <b-p>components</b-p> {          <i class="comment xs-hidden sm-hidden"> // wrapper <span class="wrapper">Object</span> for all <span class="wrapper"><b-p>Components</b-p></span> </i>
-												            <b>tabs</b> {            <i class="comment xs-hidden sm-hidden"> // wrapper <span class="wrapper">Object</span> for all of <span class="wrapper"><b>Tabs</b> <b-p>Component</b-p></span> <span class="wrapper">Functions</span> </i>
-												                run() { ... } ,              <i class="comment xs-hidden sm-hidden"> // Example of a <span class="wrapper"><b>Tabs</b> <b-p>Component</b-p></span> <span class="wrapper">Function</span> </i>
-												                ...
-												            } ,
-												            <b>spoiler</b> {         <i class="comment xs-hidden sm-hidden"> // wrapper <span class="wrapper">Object</span> for all of <span class="wrapper"><b>Spoiler</b> <b-p>Component</b-p></span> <span class="wrapper">Functions</span> </i>
-												                run() { ... } ,              <i class="comment xs-hidden sm-hidden"> // Example of a <span class="wrapper"><b>Spoiler</b> <b-p>Component</b-p></span> <span class="wrapper">Function</span> </i>
-												                ...
-												            } ,
-												            ...
-												        } ,
+											        <b-p>effects</b-p> {            <i class="comment xs-hidden sm-hidden"> // wrapper <span class="wrapper">Object</span> for all <span class="wrapper"><b-p>Effects</b-p></span> </i>
+											            <b>appear</b> {         <i class="comment xs-hidden sm-hidden"> // wrapper <span class="wrapper">Object</span> for all <span class="wrapper"><b>Appear</b> <b-p>Effect</b-p></span> <span class="wrapper">Functions</span> </i>
+											                checkScroll() { ... } , <i class="comment xs-hidden sm-hidden"> // Example of an <span class="wrapper"><b>Appear</b> <b-p>Effect</b-p></span> <span class="wrapper">Function</span> </i>
+											                ...
+											            } ,
+											            ...
+											        } ,
 
-												        <b-p>effects</b-p> {            <i class="comment xs-hidden sm-hidden"> // wrapper <span class="wrapper">Object</span> for all <span class="wrapper"><b-p>Effects</b-p></span> </i>
-												            <b>appear</b> {         <i class="comment xs-hidden sm-hidden"> // wrapper <span class="wrapper">Object</span> for all <span class="wrapper"><b>Appear</b> <b-p>Effect</b-p></span> <span class="wrapper">Functions</span> </i>
-												                checkScroll() { ... } , <i class="comment xs-hidden sm-hidden"> // Example of an <span class="wrapper"><b>Appear</b> <b-p>Effect</b-p></span> <span class="wrapper">Function</span> </i>
-												                ...
-												            } ,
-												            ...
-												        } ,
-
-												        <b-p>utility</b-p> {           <i class="comment xs-hidden sm-hidden"> // wrapper <span class="wrapper">Object</span> for all <span class="wrapper"><b-p>Utility</b-p></span> <span class="wrapper">Functions</span> </i>
-												            hasClass() { ... } ,       <i class="comment xs-hidden sm-hidden"> // Example of an <span class="wrapper"><b-p>Utility</b-p></span> <span class="wrapper">Function</span> </i>
-												            ...
-												        } ,
-												        ...
-												    }
-											</pre>
-										</div>
+											        <b-p>utility</b-p> {           <i class="comment xs-hidden sm-hidden"> // wrapper <span class="wrapper">Object</span> for all <span class="wrapper"><b-p>Utility</b-p></span> <span class="wrapper">Functions</span> </i>
+											            hasClass() { ... } ,       <i class="comment xs-hidden sm-hidden"> // Example of an <span class="wrapper"><b-p>Utility</b-p></span> <span class="wrapper">Function</span> </i>
+											            ...
+											        } ,
+											        ...
+											    }
+										</pre>
 									</div>
 								</div>
 							</div>
+						</div>
 
-							<p> It acts as an wrapper, <b>preventing the polution of the global nameSpace</b>, while <b>making all functions globally-available</b>. </p>
+						<p> It acts as an wrapper, <b>preventing the polution of the global nameSpace</b>, while <b>making all functions globally-available</b>. </p>
 
-							<p class="md-mb-0"> It helps with avoiding <span class="wrapper">memory leaks</span>, by preventing the use of <span class="wrapper">annonymous Functions</span> as <span class="wrapper">eventHandlers</span> within <span class="wrapper">eventListeners</span>. </p> 
-							<p class="md-mt-0 sub-heading"> * It allows for the option of removing said <span class="wrapper">eventListeners</span> from the elements they are attached to, if the elements are no longer used. </p>
-						</section>
+						<p class="md-mb-0"> It helps with avoiding <span class="wrapper">memory leaks</span>, by preventing the use of <span class="wrapper">annonymous Functions</span> as <span class="wrapper">eventHandlers</span> within <span class="wrapper">eventListeners</span>. </p> 
+						<p class="md-mt-0 sub-heading"> * It allows for the option of removing said <span class="wrapper">eventListeners</span> from the elements they are attached to, if the elements are no longer used. </p>
+					</section>
 
-					<!-- Initialization -->
-						<heading> <h2 class="section-title"> Initialization </h2> </heading>
-						<section class="p-0">
-							<p> The <span class="wrapper"><b-r>asterisk</b-r></span> <span class="wrapper">Object</span> is included in every <span class="wrapper"><b>asterisk-</b><b-p>{*}</b-p>.js</span> file. It is created in the first-parsed file, and refferenced further on. </p>
-							<p class="sub-heading md-mt-0"> * This allows the files to be added in any order, and still function normally.</p>
+				<!-- Initialization -->
+					<heading> <h2 class="section-title pl-lg"> Initialization </h2> </heading>
+					<section>
+						<p> The <span class="wrapper"><b-r>asterisk</b-r></span> <span class="wrapper">Object</span> is included in every <span class="wrapper"><b>asterisk-</b><b-p>{*}</b-p>.js</span> file. It is created in the first-parsed file, and refferenced further on. </p>
+						<p class="sub-heading md-mt-0"> * This allows the files to be added in any order, and still function normally.</p>
 
-							<div class="col-12">
+						<div class="col-12">
+							<div class="wrapper py-0">
+								<pre class="pre-removeTabSpaces">
+								    var asterisk = asterisk || {} ; <i class="comment"> // refference or create the object </i>
+								</pre>
+							</div>
+						</div>
+					</section>
+
+				<!-- Primary 'Categories' -->
+					<heading> <h2 class="section-title pl-lg"> Primary 'Wrapper' Objects </h2> </heading>
+					<section>
+						<div class="col-12 p-0 md-flex md-flex-cross-center">
+							<div class="col-12 md-col-6 p-0">
+								<p> All functionality is stored within <b>cascading <span class="wrapper">'Wrapper' Objects</span></b>, for increased comprehensibility and intuitivity. </p>
+
+								<p> * All relevant <span class="wrapper">Methods / Functions</span> are stored within an <span class="wrapper"><b>Item</b></span> Object </p>
+								<p class="mt-0"> * All similar <span class="wrapper"><b>Items</b></span> are stored within a <span class="wrapper"><b-p>Category</b-p></span> Object </p>
+								<p class="mt-0"> * All <span class="wrapper"><b-p>Categories</b-p></span> are direct properties of the <span class="wrapper"><b-r>asterisk</b-r></span> Object. </p>
+								
+							</div>
+
+							<div class="col-12 md-col-6">
 								<div class="wrapper py-0">
 									<pre class="pre-removeTabSpaces">
-									    var asterisk = asterisk || {} ; <i class="comment"> // refference or create the object </i>
+									    <b-r>asterisk</b-r> = {
+									        <b-p>components</b-p> : { <i class="comment"> // This is a <span class="wrapper"><b-p>Category</b-p></span> </i>
+									            <b>tabs</b> : {   <i class="comment"> // This is an <span class="wrapper"><b>Item</b></span> </i>
+									                run()  <i class="comment"> // This is a <span class="wrapper">Method</span> </i>
+									            }
+									        } 
+									    }
 									</pre>
 								</div>
 							</div>
-						</section>
+						</div>
 
-					<!-- Primary 'Categories' -->
-						<heading> <h2 class="section-title"> Primary 'Wrapper' Objects </h2> </heading>
-						<section class="p-0">
-							<div class="col-12 p-0 md-flex md-flex-cross-center">
-								<div class="col-12 md-col-6 p-0">
-									<p> All functionality is stored within <b>cascading <span class="wrapper">'Wrapper' Objects</span></b>, for increased comprehensibility and intuitivity. </p>
+						<div class="col-12 my-md md-my-0">
+							<div class="accordion">
+								<div class="accordion-group">
+									<button class="accordion-btn"> How they are generated </button>
+									<div class="accordion-content" style="overflow-x: auto">
 
-									<p> * All relevant <span class="wrapper">Methods / Functions</span> are stored within an <span class="wrapper"><b>Item</b></span> Object </p>
-									<p class="mt-0"> * All similar <span class="wrapper"><b>Items</b></span> are stored within a <span class="wrapper"><b-p>Category</b-p></span> Object </p>
-									<p class="mt-0"> * All <span class="wrapper"><b-p>Categories</b-p></span> are direct properties of the <span class="wrapper"><b-r>asterisk</b-r></span> Object. </p>
-									
-								</div>
+										<p> The <span class="wrapper"><b-p>Categories</b-p></span> and <span class="wrapper"><b>Items</b></span> wrapper Objects are automatically created, when adding (refferencing and parsing) a <span class="wrapper">asterisk-<b-p>{*}</b-p>.js</span> file. </p>
 
-								<div class="col-12 md-col-6">
-									<div class="wrapper py-0">
-										<pre class="pre-removeTabSpaces">
-										    <b-r>asterisk</b-r> = {
-										        <b-p>components</b-p> : { <i class="comment"> // This is a <span class="wrapper"><b-p>Category</b-p></span> </i>
-										            <b>tabs</b> : {   <i class="comment"> // This is an <span class="wrapper"><b>Item</b></span> </i>
-										                run()  <i class="comment"> // This is a <span class="wrapper">Method</span> </i>
-										            }
-										        } 
-										    }
-										</pre>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-12 my-md md-my-0">
-								<div class="accordion">
-									<div class="accordion-group">
-										<button class="accordion-btn"> How they are generated </button>
-										<div class="accordion-content" style="overflow-x: auto">
-
-											<p> The <span class="wrapper"><b-p>Categories</b-p></span> and <span class="wrapper"><b>Items</b></span> wrapper Objects are automatically created, when adding (refferencing and parsing) a <span class="wrapper">asterisk-<b-p>{*}</b-p>.js</span> file. </p>
-
-											<hr>
-
-											<p class="mb-0"> <b>Example:</b> if using a <span class="wrapper"><b-p>Component</b-p></span> which has a <span class="wrapper">asterisk-component-<b-p>{*}</b-p><b>.js</b></span> file : </p>
-											<p class="my-0"> - it will generate the <span class="wrapper"><b-r>asterisk</b-r><b-p>.components</b-p></span> wrapper Object </p>
-											<p class="mt-0"> - it will generate the <span class="wrapper"><b-r>asterisk</b-r><b-p>.components</b-p><b>.{item}</b></span> wrapper Object. </p>
-											<p class="sub-heading"> <b>* Example :</b> if <u>no</u> components are used (no component <span class="wrapper">asterisk-component-<b-p>{*}</b-p><b>.js</b></span> files are refferenced), the <span class="wrapper"><b-r>asterisk</b-r><b-p>.components</b-p></span> wrapper Object will <u>not</u> be created. </p>
-
-											<div class="col-12">
-												<div class="wrapper py-0">
-													<pre class="pre-removeTabSpaces">
-													    <i class="comment">// Example for the <span class="wrapper">asterisk-components-tabs.js</span> file </i>
-													    <b-r>asterisk</b-r><b-p>.components</b-p> = asterisk.components || {} ; <i class="comment">    // refference or create <span class="wrapper"><b-r>asterisk</b-r><b-p>.components</b-p></span> wrapper Object </i>
-													    <b-r>asterisk</b-r><b-p>.components</b-p><b>.tabs</b> = {}; <i class="comment">                       // create the <span class="wrapper"><b-r>asterisk</b-r><b-p>.components</b-p>.<b>tabs</b></span> wrapper Object </i>
-													</pre>
-												</div>
-											</div>
-
-										</div>
-									</div>
-								</div>
-							</div>
-						</section>
-
-						<heading> <h2 class="section-title"> Available Methods </h2> </heading>
-						<section class="p-0">
-							<div class="col-12 p-0 md-flex md-flex-cross-center">
-								<div class="col-12 md-col-6 p-0">
-									<p> Each <span class="wrapper"><b>Item</b></span> has two types of <span class="wrapper">Methods / Functions</span> : </p>
-
-									<div class="col-12"> <hr class="mb-0"> </div>
-									<p> <b>(1)</b> <span class="wrapper">Methods</span> - used to directly manipulate the <span class="wrapper"><b>Item</b></span>'s functionality/state </p>
-									<div class="col-12"> <hr class="m-0"> </div>
-									<p class="mb-0 pl-lg"> * represent the main functionality of each <span class="wrapper"><b>Item</b></span> ( <span class="wrapper">run()</span> | <span class="wrapper">init()</span> | etc) </p>
-									<p class="my-0 pl-lg"> * are stored directly (first-level) within the <span class="wrapper"><b>Item</b></span> Object </p>
-									<p class="sub-heading mt-0 pl-lg"> * these are what the developer will actually use </p>
-
-									<div class="col-12"> <hr class="mb-0"> </div>
-									<p> <b>(2)</b> <span class="wrapper">Intermediary Functions</span> - used within the above-mentioned <span class="wrapper">Methods</span> </p>
-									<div class="col-12"> <hr class="m-0"> </div>
-									<p class="mb-0 pl-lg"> * used for abstractization , with no direct manipulation of the <span class="wrapper"><b>Item</b></span> </p>
-									<p class="my-0 pl-lg"> * are stored within the <span class="wrapper"><b>{item}.intermediary</b></span> Object </p>
-									<p class="sub-heading mt-0 pl-lg"> * these will usually not be used directly </p>
-								</div>
-
-								<div class="col-12 md-col-6">
-									<div class="wrapper">
-										<line> <i class="comment"> // path-to-method example </i> </line>
-										<line> <b>Format : </b> <b-r>asterisk</b-r><b-p>.{category}</b-p><b>.{item}</b>.method() </line>
 										<hr>
-										<line> <b>Example : </b> <b-r>asterisk</b-r><b-p>.components</b-p><b>.tabs</b>.run() </line>
-										<line> <b>Example : </b> <b-r>asterisk</b-r><b-p>.effects</b-p><b>.appear</b>.checkScroll()</b> </line>
-									</div>
-									<div class="wrapper">
-										<pre class="pre-removeTabSpaces">
-										    <b>*Item*</b> : {
-										        run() ,    <i class="comment"> // this is a <span class="wrapper">Method</span> </i>
-										        <b>intermediary</b> : { 
-										            asdf() <i class="comment"> // this is a <span class="wrapper">Intermediary Function</span> </i>
-										        }
-										    }
-										</pre>
+
+										<p class="md-mb-0"> <b>Example:</b> if using a <span class="wrapper"><b-p>Component</b-p></span> which has a <span class="wrapper">asterisk-component-<b-p>{*}</b-p><b>.js</b></span> file : </p>
+										<p class="md-my-0"> - it will generate the <span class="wrapper"><b-r>asterisk</b-r><b-p>.components</b-p></span> wrapper Object </p>
+										<p class="md-mt-0"> - it will generate the <span class="wrapper"><b-r>asterisk</b-r><b-p>.components</b-p><b>.{item}</b></span> wrapper Object. </p>
+										<p class="sub-heading"> <b>* Example :</b> if <u>no</u> components are used (no component <span class="wrapper">asterisk-component-<b-p>{*}</b-p><b>.js</b></span> files are refferenced), the <span class="wrapper"><b-r>asterisk</b-r><b-p>.components</b-p></span> wrapper Object will <u>not</u> be created. </p>
+
+										<div class="col-12">
+											<div class="wrapper py-0">
+												<pre class="pre-removeTabSpaces">
+												    <i class="comment">// Example for the <span class="wrapper">asterisk-components-tabs.js</span> file </i>
+												    <b-r>asterisk</b-r><b-p>.components</b-p> = asterisk.components || {} ; <i class="comment">    // refference or create <span class="wrapper"><b-r>asterisk</b-r><b-p>.components</b-p></span> wrapper Object </i>
+												    <b-r>asterisk</b-r><b-p>.components</b-p><b>.tabs</b> = {}; <i class="comment">                       // create the <span class="wrapper"><b-r>asterisk</b-r><b-p>.components</b-p>.<b>tabs</b></span> wrapper Object </i>
+												</pre>
+											</div>
+										</div>
+
 									</div>
 								</div>
 							</div>
-						</section>
+						</div>
+					</section>
 
-					<!-- Available Methods -->
-							<!-- <p> Each file contains a shortcut-refference, to improve readability (and slightly reduce files size). </p>
+					<heading> <h2 class="section-title pl-lg"> Available Methods </h2> </heading>
+					<section>
+						<div class="col-12 p-0 md-flex md-flex-cross-center">
+							<div class="col-12 md-col-6 p-0">
+								<p> Each <span class="wrapper"><b>Item</b></span> has two types of <span class="wrapper">Methods / Functions</span> : </p>
 
-							<div class="col-12">
+								<div class="col-12"> <hr class="mb-0"> </div>
+								<p> <b>(1)</b> <span class="wrapper">Methods</span> - used to directly manipulate the <span class="wrapper"><b>Item</b></span>'s functionality/state </p>
+								<div class="col-12"> <hr class="m-0"> </div>
+								<p class="md-mb-0 md-pl-lg"> <b>*</b> represent the main functionality of each <span class="wrapper"><b>Item</b></span> ( <span class="wrapper">run()</span> | <span class="wrapper">init()</span> | etc) </p>
+								<p class="md-my-0 md-pl-lg"> <b>*</b> are stored directly (first-level) within the <span class="wrapper"><b>Item</b></span> Object </p>
+								<p class="sub-heading md-mt-0 md-pl-lg"> * these are what the developer will actually use </p>
+
+								<div class="col-12"> <hr class="mb-0"> </div>
+								<p> <b>(2)</b> <span class="wrapper">Intermediary Functions</span> - used within the above-mentioned <span class="wrapper">Methods</span> </p>
+								<div class="col-12"> <hr class="m-0"> </div>
+								<p class="md-mb-0 md-pl-lg"> <b>*</b> used for abstractization , with no direct manipulation of the <span class="wrapper"><b>Item</b></span> </p>
+								<p class="md-my-0 md-pl-lg"> <b>*</b> are stored within the <span class="wrapper"><b>{item}.intermediary</b></span> Object </p>
+								<p class="sub-heading md-mt-0 md-pl-lg"> * these will usually not be used directly </p>
+							</div>
+
+							<div class="col-12 md-col-6">
+								<div class="wrapper">
+									<line> <i class="comment"> // path-to-method example </i> </line>
+									<line> <b>Format : </b> <b-r>asterisk</b-r><b-p>.{category}</b-p><b>.{item}</b>.method() </line>
+									<hr>
+									<line> <b>Example : </b> <b-r>asterisk</b-r><b-p>.components</b-p><b>.tabs</b>.run() </line>
+									<line> <b>Example : </b> <b-r>asterisk</b-r><b-p>.effects</b-p><b>.appear</b>.checkScroll()</b> </line>
+								</div>
 								<div class="wrapper">
 									<pre class="pre-removeTabSpaces">
-									    var <b>tabsObj</b> = <b-r>asterisk</b-r><b-p>.components</b-p><b>.tabs</b>; <i class="comment"> // shortcut-refference </i>
-									    ...
-									    <b>tabsObj</b>.run = function() { ... }
+									    <b>*Item*</b> : {
+									        run() ,    <i class="comment"> // this is a <span class="wrapper">Method</span> </i>
+									        <b>intermediary</b> : { 
+									            asdf() <i class="comment"> // this is a <span class="wrapper">Intermediary Function</span> </i>
+									        }
+									    }
 									</pre>
 								</div>
-							</div> -->
-						</section>
+							</div>
+						</div>
+					</section>
 
-					<!-- Dependencies -->
-						<heading> <h2 class="section-title"> Dependencies </h2> </heading>
-						<section class="p-0">
-							<div class="col-12 p-0 md-flex md-flex-cross-center">
-								<div class="col-12 md-col-4 p-0">
-									<p> Every Component/Effect/etc has it's entire logic encapsulated within it's <span class="wrapper">.js</span> file. </p>
+				<!-- Available Methods -->
+					<!-- <p> Each file contains a shortcut-refference, to improve readability (and slightly reduce files size). </p>
 
-									<p> If <span class="wrapper">Utility Functions</span> are required, they are defined at the start of the file, and  are stored within the <span class="wrapper"><b-r>asterisk</b-r><b-p>.utility</b-p></span> Object. </p>
-								</div>
+					<div class="col-12">
+						<div class="wrapper">
+							<pre class="pre-removeTabSpaces">
+							    var <b>tabsObj</b> = <b-r>asterisk</b-r><b-p>.components</b-p><b>.tabs</b>; <i class="comment"> // shortcut-refference </i>
+							    ...
+							    <b>tabsObj</b>.run = function() { ... }
+							</pre>
+						</div>
+					</div> -->
 
-								<div class="col-12 md-col-8">
-									<div class="wrapper">
-										<pre class="pre-removeTabSpaces">
-										    <b-r>asterisk</b-r><b-p>.utility</b-p><b>.myFunction</b> = <b-r>asterisk</b-r><b-p>.utility</b-p><b>.myFunction</b> || function() {
-										        <i class="comment"> // function logic </i>
-										    };
+				<!-- Dependencies -->
+					<heading> <h2 class="section-title pl-lg"> Dependencies </h2> </heading>
+					<section>
+						<div class="col-12 p-0 md-flex md-flex-cross-center">
+							<div class="col-12 md-col-4 p-0">
+								<p> Every Component/Effect/etc has it's entire logic encapsulated within it's <span class="wrapper">.js</span> file. </p>
 
-										    var <b>myFunction</b> = <b-r>asterisk</b-r><b-p>.utility</b-p><b>.myFunction</b>; <i class="comment"> // shortcut-refference </i>
-										</pre>
-									</div>
-								</div>
+								<p> If <span class="wrapper">Utility Functions</span> are required, they are defined at the start of the file, and  are stored within the <span class="wrapper"><b-r>asterisk</b-r><b-p>.utility</b-p></span> Object. </p>
 							</div>
 
-							<hr>
+							<div class="col-12 md-col-8">
+								<div class="wrapper">
+									<pre class="pre-removeTabSpaces">
+									    <b-r>asterisk</b-r><b-p>.utility</b-p><b>.myFunction</b> = <b-r>asterisk</b-r><b-p>.utility</b-p><b>.myFunction</b> || function() {
+									        <i class="comment"> // function logic </i>
+									    };
 
-							<p> <b><u>This encapsulation method has its' benefits</u> :</b> </p>
+									    var <b>myFunction</b> = <b-r>asterisk</b-r><b-p>.utility</b-p><b>.myFunction</b>; <i class="comment"> // shortcut-refference </i>
+									</pre>
+								</div>
+							</div>
+						</div>
 
-							<p class="md-mb-0"> <b>* Modularity :</b> each Component/Effect can be used independently and in any order. </p>
-							<p class="md-mt-0"> <b>* Memory Efficient :</b> Storing all <span class="wrapper">Utility Functions</span> within the <span class="wrapper">asterisk</span> Object, allows for the IIFE wrapper to be garbage-collected after the initial code runs. </p>
+						<hr>
 
-							<p> <b><u>But it is not without its' flaws</u> :</b> </p>
+						<p> <b><u>This encapsulation method has its' benefits</u> :</b> </p>
 
-							<p class="md-mb-0"> <b>* Repeating Code :</b> each <span class="wrapper">Utility Functions</span> required has it's body/definition included within in each file, even if it was previously defined within another file. </p>
+						<p class="md-mb-0"> <b>* Modularity :</b> each Component/Effect can be used independently and in any order. </p>
+						<p class="md-mt-0"> <b>* Memory Efficient :</b> Storing all <span class="wrapper">Utility Functions</span> within the <span class="wrapper">asterisk</span> Object, allows for the IIFE wrapper to be garbage-collected after the initial code runs. </p>
 
-							<p class="md-mt-0"> <b>* Mutability :</b> even though improbable, it is possible to disrupt the functionality if any of these function are defined differently, previous to their initialization. </p>
+						<p> <b><u>But it is not without its' flaws</u> :</b> </p>
 
-							<hr>
-						</section>
+						<p class="md-mb-0"> <b>* Repeating Code :</b> each <span class="wrapper">Utility Functions</span> required has it's body/definition included within in each file, even if it was previously defined within another file. </p>
 
-				</div>
+						<p class="md-mt-0"> <b>* Mutability :</b> even though improbable, it is possible to disrupt the functionality if any of these function are defined differently, previous to their initialization. </p>
+
+						<hr>
+					</section>
 
 			</div>
 		</div>
