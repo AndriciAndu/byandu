@@ -19,10 +19,19 @@
 			// Dependencies
 			// -----------------------------------------------------
 
-				// dependencies Obj Setup 
+				// [asterisk.utility] init 
 				// -----------------------------------------------------
 
 					asterisk.utility = asterisk.utility || {} ;
+
+				// hasClass()
+				// -----------------------------------------------------
+
+					asterisk.utility.hasClass = asterisk.utility.hasClass || function ( elem , klass ) {
+						return (" " + elem.className + " " ).indexOf( " " + klass + " " ) > -1
+					};
+
+					var hasClass = asterisk.utility.hasClass;
 
 				// getFirstClass()
 				// -----------------------------------------------------
@@ -63,7 +72,7 @@
 
 				canvasObj.settings = {
 
-					activeStyles : [],
+					activeStyles : [] , // generates content when each canvasType is parsed, at the end of the file
 
 					default	: {
 						particleMaxRadius 	: 40,
@@ -71,96 +80,119 @@
 						particleLimit 		: 200
 					},
 
-					activeCanvases : []
+					canvases_active : []
 				};
 
 			// Init
 			// -----------------------------------------------------
 
-				canvasObj.initAll = function() {
+				// canvasObj.disableUnavailableCanvases();
+				canvasObj.init = function(targetElem) {
 
-					// Disable any previous Canvases that are no longer on page (for elements removed without page reload)
-					canvasObj.disableUnavailableCanvases();
+					if (targetElem && (targetElem instanceof HTMLElement)) {
 
-					// Get all Canvases and initializeaza each of them
-					var canvasElements = Array.from(document.getElementsByClassName('bgCanvas'));
+						if (hasClass(targetElem, 'bgCanvas')) { // initialize given Canvas
 
-					canvasElements.map(canvas => canvasObj.init(canvas));
+							canvasObj.canvas_setParams(targetElem)
+
+						} else {								// initialize Canvases within targetElem
+
+							var canvases = Array.from(targetElem.getElementsByClassName('bgCanvas'));
+							canvases.map(canvas => canvasObj.canvas_setParams(canvas));
+						}
+
+					} else {									// initialize all document's Canvases
+
+						var allCanvases = Array.from(document.getElementsByClassName('bgCanvas'));
+						allCanvases.map(canvas => canvasObj.canvas_setParams(canvas));
+
+					}
 				};
 
-				canvasObj.init = function(targetCanvas) {
+				canvasObj.canvas_setParams = function(targetCanvas) {
 
-					canvasObj.settings.activeCanvases.push(targetCanvas);
+					if (!targetCanvas.getAttribute('data-canvas-isInitialized')) {
 
-					// Set type of Canvas (animation style)
-					var current_class = getFirstClass(targetCanvas, canvasObj.settings.activeStyles);
-					var current_type  = targetCanvas.canvasType = current_class.replace('bgCanvas-', '');
+						// Set type of Canvas (animation style)
+						var current_class = getFirstClass(targetCanvas, canvasObj.settings.activeStyles);
+						var current_type  = current_class.replace('bgCanvas-', '');
 
-					// Set width and height (as CSS does not work for this) - so the elements do not look distorted
-					targetCanvas.setAttribute('width',  targetCanvas.parentElement.offsetWidth);
-					targetCanvas.setAttribute('height', targetCanvas.parentElement.offsetHeight);
+						// Set width and height (as CSS does not work for this) - so the elements do not look distorted
+						targetCanvas.setAttribute('width',  targetCanvas.parentElement.offsetWidth);
+						targetCanvas.setAttribute('height', targetCanvas.parentElement.offsetHeight);
 
-					// Set parameters
-					targetCanvas.particleMaxRadius  = targetCanvas.getAttribute('data-canvas-particleMaxRadius') || canvasObj[current_type].particleMaxRadius 	|| canvasObj.settings.default.particleMaxRadius ;
-					targetCanvas.particleColors 	= targetCanvas.getAttribute('data-canvas-particleColors') 	 || canvasObj[current_type].particleColors	 	|| canvasObj.settings.default.particleColors	;	
-					targetCanvas.particleLimit 		= targetCanvas.getAttribute('data-canvas-particleLimit') 	 || canvasObj[current_type].particleLimit  		|| canvasObj.settings.default.particleLimit 	;
+						// Set parameters
+						var particleMaxRadius = targetCanvas.getAttribute('data-canvas-particleMaxRadius') || canvasObj[current_type].particleMaxRadius || canvasObj.settings.default.particleMaxRadius ;
+						var particleColors    = targetCanvas.getAttribute('data-canvas-particleColors')    || canvasObj[current_type].particleColors    || canvasObj.settings.default.particleColors    ;	
+						var particleLimit     = targetCanvas.getAttribute('data-canvas-particleLimit')     || canvasObj[current_type].particleLimit     || canvasObj.settings.default.particleLimit     ;
 
-					// Create ParticlesArray
-					if (!targetCanvas.initializedCanvas) {
+						// Create ParticlesArray 
+						var particlesArray = canvasObj[current_type].particles_generateArray(targetCanvas , particleMaxRadius, particleColors , particleLimit);	
 
-						targetCanvas.generate_particlesArray = canvasObj[current_type].generate_particlesArray;
-						targetCanvas.generate_particlesArray(targetCanvas);	
+						var initializedCanvas = true;
+						var activeCanvas      = true;
+						var ccObj = { targetCanvas, current_type, particlesArray, particleMaxRadius, particleColors , particleLimit , initializedCanvas , activeCanvas };
 
-						targetCanvas.initializedCanvas 	= true;
-						targetCanvas.activeCanvas 		= true;
+						canvasObj.settings.canvases_active.push(ccObj);
+
+						// Run Animation
+						canvasObj.canvas_run(ccObj);
+					}
+				};
+
+			// Run
+			// -----------------------------------------------------
+
+				canvasObj.canvas_run = function(ccObj) { // ccObj = canvas-configuration object
+
+					var context = ccObj.targetCanvas.getContext('2d');
+					context.clearRect(0, 0, innerWidth, innerHeight); 
+					ccObj.particlesArray.map(item => canvasObj[ccObj.current_type].particle_update(ccObj.targetCanvas , item , ccObj.particlesArray));
+
+					if (ccObj.activeCanvas) { 
+						ccObj.reqAnimFrame = requestAnimationFrame(function(){ canvasObj.canvas_run(ccObj) });
+					};
+				};
+
+				canvasObj.checkInput = function(canvasElem_or_ccObj) {
+					if (ccObj instanceof HTMLElement) {
+						ccObj = canvasObj.settings.canvases_active.filter(obj => obj.targetCanvas === ccObj)
 					};
 
-					// Function to animate the effect
-					targetCanvas.canvas_run = function() {
+					return ccObj
+				};
 
-						var context = this.getContext('2d');
-						context.clearRect(0, 0, innerWidth, innerHeight);
-						this.particlesArray.map(item => item.update());
+				// Function to pause
+				canvasObj.canvas_pause = function(targetElem) {
+					targetElem.activeCanvas = false; 
+				};
 
-						if (this.activeCanvas) { 
-							targetCanvas.reqAnimFrame = requestAnimationFrame(function(){ targetCanvas.canvas_run(targetCanvas) });
-						};
-					};
+				canvasObj.canvas_resume = function(targetElem) {
+					targetElem.activeCanvas = true; 
+					canvasObj.canvas_run(targetElem);
+				};
 
-					// Function to pause
-					targetCanvas.canvas_pause = function() {
-						this.activeCanvas = false; 
-					};
+				// Function to remove the animation
+				canvasObj.canvas_disable = function(targetElem) {
 
-					targetCanvas.canvas_resume = function() {
-						this.activeCanvas = true; 
-						this.canvas_run();
-					};
+					// clear what was already displayed on canves on previous frame
+					var context = targetElem.getContext('2d');
+					context.clearRect(0, 0, innerWidth, innerHeight);
 
-					// Function to remove the animation
-					targetCanvas.canvas_disable = function() {
+					// cancel animation
+					targetElem.activeCanvas = 'false'; 
+					cancelAnimationFrame(targetElem.reqAnimFrame);
 
-						// clear what was already displayed on canves on previous frame
-						var context = this.getContext('2d');
-						context.clearRect(0, 0, innerWidth, innerHeight);
-
-						// cancel animation
-						this.activeCanvas = 'false'; 
-						cancelAnimationFrame(this.reqAnimFrame);
-
-						// remove properties - prevent memory leaks 
-						// -- as elements removed from the DOM are not eliminated from memory if refferences are still present
-						for (var key in this) { if (this.hasOwnProperty(key)) { delete this[key] } }
-					};
-
-					// Run Animation
-					targetCanvas.canvas_run();
+					// remove properties - prevent memory leaks 
+					// -- as elements removed from the DOM are not eliminated from memory if refferences are still present
+					for (var key in targetElem) { if (targetElem.hasOwnProperty(key)) { delete targetElem[key] } }
 				};
 
 				canvasObj.disableUnavailableCanvases = function() {
 
-					canvasObj.settings.activeCanvases = canvasObj.settings.activeCanvases.filter( function(canvas) {
-						if (!document.body.contains(canvas)) { 
+					var canvases_active = canvasObj.settings.canvases_active;
+					canvases_active = canvases_active.filter( function(canvas) {
+						if (!document.contains(canvas)) { 
 							canvas.canvas_disable();
 							return false 
 						}
@@ -175,57 +207,60 @@
 
 				canvasObj.bubbles = {};
 
-				canvasObj.bubbles.generate_particlesArray = function(targetCanvas) {
+				canvasObj.bubbles.particles_generateArray = function(targetCanvas , particleMaxRadius, particleColors , particleLimit) {
 
-					if (!targetCanvas.initializedCanvas) {
+					var particlesArray = [];
 
-						var particleLimit = targetCanvas.particleLimit;
-						targetCanvas.particlesArray = [];
+					var nrOfColors = particleColors.length;
+					var cvs_width  = targetCanvas.width;
+					var cvs_height = targetCanvas.height;
 
-						for (var i=0; i<particleLimit; i++) {
-							var radius = Math.random() * 3 + 1;
-							var x  =  Math.random() * (targetCanvas.width  - radius * 2) + radius;	
-							var y  =  Math.random() * (targetCanvas.height - radius * 2) + radius;
-							var dx = (Math.random() - 0.5) * 2;	
-							var dy = (Math.random() - 0.5) * 2;
+					for (var i=0; i<particleLimit; i++) {
+						var r  =  Math.random() * 3 + 1;
+						var x  =  Math.random() * (cvs_width  - r * 2) + r;	
+						var y  =  Math.random() * (cvs_height - r * 2) + r;
+						var dx = (Math.random() - 0.5) * 2;	
+						var dy = (Math.random() - 0.5) * 2;
 
-							targetCanvas.particlesArray.push(new Circle(x, y, dx, dy, radius));
-						};
-						
-						function Circle(x, y, dx, dy, radius) {
+						particlesArray.push(canvasObj.bubbles.particle_generate(particleColors, nrOfColors, r, x, y, dx, dy)); 
+					};
 
-							var context = targetCanvas.getContext('2d');
+					return particlesArray
+				};
 
-							this.x  = x;	this.y  = y;
-							this.dx = dx;	this.dy = dy;
-							this.radius 	= radius;
-							this.minRadius 	= radius;
-							this.color = targetCanvas.particleColors[Math.floor(Math.random() * targetCanvas.particleColors.length)];
+				canvasObj.bubbles.particle_generate = function(particleColors, nrOfColors, r, x, y, dx, dy) {
 
-							var current_canvasWidth  = targetCanvas.width;
-							var current_canvasHeight = targetCanvas.height;
+					var p = {}; 
+					p.r = r ;
+					p.x = x ;
+					p.y = y ;
+					p.dx = dx ;
+					p.dy = dy ;
+					p.color = particleColors[Math.floor(Math.random() * nrOfColors)];
 
-								this.draw = function() {
-									context.beginPath();
-									context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-									context.fillStyle = this.color;
-									context.fill();
-								};
+					return p
+				};
 
-								this.update = function() {
+				canvasObj.bubbles.particle_draw = function(targetCanvas , p) {
+					var context = targetCanvas.getContext('2d');
+					context.beginPath();
+					context.arc(p.x, p.y, p.r, 0, Math.PI * 2, false);
+					context.fillStyle = p.color;
+					context.fill();
+				};
 
-									if (this.x + this.radius > current_canvasWidth  || this.x - this.radius < 0) { this.dx = -this.dx };
-									if (this.y + this.radius > current_canvasHeight || this.y - this.radius < 0) { this.dy = -this.dy };
+				canvasObj.bubbles.particle_update = function(targetCanvas , p) {
 
-									this.x += this.dx;
-									this.y += this.dy;
+					var cvs_width  = targetCanvas.width;
+					var cvs_height = targetCanvas.height;
 
-									this.draw();
-								};
-						};
+					if (p.x + p.r > cvs_width  || p.x - p.r < 0) { p.dx = -p.dx };
+					if (p.y + p.r > cvs_height || p.y - p.r < 0) { p.dy = -p.dy };
 
-						targetCanvas.initializedCanvas = true;
-					}
+					p.x += p.dx;
+					p.y += p.dy;
+
+					canvasObj.bubbles.particle_draw(targetCanvas , p);
 				};
 
 			// Confetti
@@ -235,76 +270,79 @@
 
 				canvasObj.confetti = {};
 
-				canvasObj.confetti.generate_particlesArray = function(targetCanvas) {
+				canvasObj.confetti.particles_generateArray = function(targetCanvas , particleMaxRadius, particleColors , particleLimit) {
 
-					if (!targetCanvas.initializedCanvas) {
+					var particlesArray = [];
 
-						var particleLimit = targetCanvas.particleLimit;
-						targetCanvas.particlesArray = [];
+					var nrOfColors = particleColors.length;
+					var cvs_width  = targetCanvas.width;
+					var cvs_height = targetCanvas.height;
 
-						for (var i=0; i<particleLimit; i++) {
-							var radius = Math.random() * 3 + 1;
-							var x  =  Math.random() * (targetCanvas.width  - radius * 2) + radius;	
-							var y  =  Math.random() * (targetCanvas.height - radius * 2) + radius;
-							var dx = (Math.random()) * 3;	
-							var dy = (Math.random()) * 3 + 2;
+					for (var i=0; i<particleLimit; i++) {
+						var r  =  Math.random()  * 3 + 1;
+						var x  =  Math.random()  * (cvs_width  - r * 2) + r;	
+						var y  =  Math.random()  * (cvs_height - r * 2) + r;
+						var dx = (Math.random()) * 3;	
+						var dy = (Math.random()) * 3 + 2;
 
-							targetCanvas.particlesArray.push(new Circle(x, y, dx, dy, radius));
-						};
+						particlesArray.push(canvasObj.confetti.particle_generate(particleColors, nrOfColors, r, x, y, dx, dy));
+					};
 
-						function Circle(x, y, dx, dy, radius) {
+					return particlesArray
+				};
 
-							var context = targetCanvas.getContext('2d');
+				canvasObj.confetti.particle_generate = function(particleColors, nrOfColors, r, x, y, dx, dy) {
 
-							this.steps = 0;
-							this.x  = x;	this.y  = y;
-							this.dx = dx;	this.dy = dy;
-							this.radius = radius;
+					var p = {}; 
+					p.r = r ;
+					p.x = x ;
+					p.y = y ;
+					p.dx = dx ;
+					p.dy = dy ;
 
-							if (Math.random() < 0.5) { this.dx = -this.dx };
+					if (Math.random() < 0.5) { p.dx = -p.dx };
 
-							this.maxSteps = (Math.random()) * 100 + 30;
-							this.opacity = 0.5;
+					p.steps = 0;
+					p.maxSteps = (Math.random()) * 100 + 30;
+					p.opacity  = 0.5;
+					p.HEXcolor = particleColors[Math.floor(Math.random() * nrOfColors)];
+					p.color    = hex2rgb(p.HEXcolor, p.opacity);
 
-							this.HEXcolor = targetCanvas.particleColors[Math.floor(Math.random() * targetCanvas.particleColors.length)];
-							this.color 	  = hex2rgb(this.HEXcolor, this.opacity);
+					return p
+				};
 
-							var current_canvasWidth  = targetCanvas.width;
-							var current_canvasHeight = targetCanvas.height;
+				canvasObj.confetti.particle_draw = function(targetCanvas , p) {
+					var context = targetCanvas.getContext('2d');
+					context.beginPath();
+					context.arc(p.x, p.y, p.r, 0, Math.PI * 2, false);
+					context.fillStyle = p.color;
+					context.fill(); 
+				};
 
-								this.draw = function() {
-									context.beginPath();
-									context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-									context.fillStyle = this.color;
-									context.fill();
-								};
+				canvasObj.confetti.particle_update = function(targetCanvas , p) {
 
-								this.update = function() {
+					var cvs_width  = targetCanvas.width;
+					var cvs_height = targetCanvas.height;
 
-									this.x += this.dx;
-									this.y += this.dy;
+					p.x += p.dx;
+					p.y += p.dy;
 
-									this.steps += 1;
+					p.steps += 1;
 
-									if (this.steps < 5) 					{ this.opacity += 0.1; this.color = hex2rgb(this.HEXcolor, this.opacity) }
-									if (this.steps > this.maxSteps - 10) 	{ this.opacity -= 0.1; this.color = hex2rgb(this.HEXcolor, this.opacity) };
+					if (p.steps < 5)               { p.opacity += 0.1; p.color = hex2rgb(p.HEXcolor, p.opacity) }
+					if (p.steps > p.maxSteps - 10) { p.opacity -= 0.1; p.color = hex2rgb(p.HEXcolor, p.opacity) };
 
-									if (this.steps > this.maxSteps) { 
-										this.x  = Math.random() * current_canvasWidth;
-										this.y  = Math.random() * current_canvasHeight - 100 ;
-										this.dx = Math.random() * 3;	if (Math.random() < 0.5) { this.dx = -this.dx };	
-										this.dy = Math.random() * 3 + 2;
-										this.steps 	 = 0;
-										this.opacity = 0.5;
-										this.color = hex2rgb(this.HEXcolor, this.opacity)
-									};
+					if (p.steps > p.maxSteps) { 
+						p.x  = Math.random() * cvs_width;
+						p.y  = Math.random() * cvs_height - 100 ;
+						p.dx = Math.random() * 3;	if (Math.random() < 0.5) { p.dx = -p.dx };	
+						p.dy = Math.random() * 3 + 2;
+						p.steps   = 0;
+						p.opacity = 0.5;
+						p.color   = hex2rgb(p.HEXcolor, p.opacity)
+					};
 
-									this.draw();
-								};
-						};
-
-						targetCanvas.initializedCanvas = true;
-					}
+					canvasObj.confetti.particle_draw(targetCanvas , p);
 				};
 
 			// Web
@@ -314,86 +352,81 @@
 
 				canvasObj.web = {};
 
-				canvasObj.web.generate_particlesArray = function(targetCanvas) {
+				canvasObj.web.particles_generateArray = function(targetCanvas , particleMaxRadius, particleColors , particleLimit) {
 
-					if (!targetCanvas.initializedCanvas) {
+					var particlesArray = [];
 
-						var particleLimit = targetCanvas.particleLimit;
-						targetCanvas.particlesArray = [];
+					var nrOfColors = particleColors.length;
+					var cvs_width  = targetCanvas.width;
+					var cvs_height = targetCanvas.height;
 
-						for (var i=0; i<particleLimit; i++) {
-							var radius = Math.random() * 2 + 1;
-							var x  =  Math.random() * (targetCanvas.width  - radius * 2) + radius;	
-							var y  =  Math.random() * (targetCanvas.height - radius * 2) + radius;
-							var dx = (Math.random() - 0.5);	
-							var dy = (Math.random() - 0.5);
+					for (var i=0; i<particleLimit; i++) {
+						var r  =  Math.random() * 2 + 1;
+						var x  =  Math.random() * (cvs_width  - r * 2) + r;	
+						var y  =  Math.random() * (cvs_height - r * 2) + r;
+						var dx = (Math.random() - 0.5);	
+						var dy = (Math.random() - 0.5);
 
-							targetCanvas.particlesArray.push(new Circle(x, y, dx, dy, radius));
-						};
+						particlesArray.push(canvasObj.web.particle_generate(particleColors, nrOfColors, r, x, y, dx, dy));
+					};
 
-						function Circle(x, y, dx, dy, radius) {
+					return particlesArray
+				};
 
-							var context = targetCanvas.getContext('2d');
+				canvasObj.web.particle_generate = function(particleColors, nrOfColors, r, x, y, dx, dy) {
 
-							this.x  = x;	this.y  = y;
-							this.dx = dx;	this.dy = dy;
-							this.radius = radius;
+					var p = {}; 
+					p.r  = r;
+					p.x  = x;	
+					p.y  = y;
+					p.dx = dx;	
+					p.dy = dy;
 
-							this.opacity 	= Math.round( Math.random() * 10 ) / 10;
-							this.HEXcolor 	= targetCanvas.particleColors[Math.floor(Math.random() * targetCanvas.particleColors.length)];
-							this.color 		= hex2rgb(this.HEXcolor, this.opacity) ;
+					p.opacityVal  = Math.round( Math.random() * 10 ) / 10;
+					p.HEXcolor = particleColors[Math.floor(Math.random() * nrOfColors)];
+					p.color    = hex2rgb(p.HEXcolor, p.opacityVal) ;
 
-							var current_canvasWidth  = targetCanvas.width;
-							var current_canvasHeight = targetCanvas.height;
+					return p
+				};
 
-								this.draw = function() {
-									context.beginPath();
-									context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-									context.fillStyle = this.color;
-									context.fill();
-								};
+				canvasObj.web.particle_draw = function(targetCanvas , p) {
+					var context = targetCanvas.getContext('2d');
+					context.beginPath();
+					context.arc(p.x, p.y, p.r, 0, Math.PI * 2, false);
+					context.fillStyle = p.color;
+					context.fill();
+				};
 
-								this.update = function() {
+				canvasObj.web.particle_update = function(targetCanvas , p , particlesArray) { 
+					if (p.x + p.r > targetCanvas.width  || p.x - p.r < 0) { p.dx = -p.dx };
+					if (p.y + p.r > targetCanvas.height || p.y - p.r < 0) { p.dy = -p.dy };
 
-									if (this.x + this.radius > targetCanvas.width  || this.x - this.radius < 0) { this.dx = -this.dx };
-									if (this.y + this.radius > targetCanvas.height || this.y - this.radius < 0) { this.dy = -this.dy };
+					var context = targetCanvas.getContext('2d');
+					var limit = particlesArray.length;
 
-									var myParticles = targetCanvas.particlesArray;
+					for (var i=0; i<limit; i++) {
 
-									for (var i=0; i<myParticles.length; i++) {
+						var alt_p = particlesArray[i];
 
-										if (this != myParticles[i]) {
-											if (getDistance(this.x, this.y, myParticles[i].x, myParticles[i].y) < 40 ) {
-												context.beginPath();
-												context.moveTo(this.x, this.y)
-												context.lineTo(myParticles[i].x, myParticles[i].y);
-												context.closePath();
-												context.lineWidth = 1;
-												var currentOpacity = Math.round( (this.opacity + myParticles[i].opacity) * 5) / 10;
-												if (currentOpacity > 0.5) { currentOpacity -= 0.5 }; 
-												context.strokeStyle = hex2rgb(this.HEXcolor, currentOpacity) ;
-												context.stroke();
-											}
-										}
-									};
+						if (p != alt_p) { 
+							if (Math.sqrt(Math.pow((alt_p.x-p.x), 2) + Math.pow((alt_p.y-p.y), 2)) < 40 ) {
+								context.beginPath();
+								context.moveTo(p.x, p.y)
+								context.lineTo(alt_p.x, alt_p.y);
+								context.closePath();
+								context.lineWidth = 1;
+								var opacity = Math.round( (p.opacity + alt_p.opacity) * 5) / 10;
+								if (opacity > 0.5) { opacity -= 0.5 }; 
+								context.strokeStyle = hex2rgb(p.HEXcolor, opacity) ;
+								context.stroke();
+							}
+						}
+					};
 
-									this.x += this.dx;
-									this.y += this.dy;
+					p.x += p.dx;
+					p.y += p.dy;
 
-									this.draw();
-								};
-
-								function getDistance(x1, y1, x2, y2) {
-
-									var xDistance = x2 - x1;
-									var yDistance = y2 - y1;
-
-									return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
-								};
-						};
-
-						targetCanvas.initializedCanvas = true;
-					}
+					canvasObj.web.particle_draw(targetCanvas , p);
 				};
 
 		})();

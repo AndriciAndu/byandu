@@ -521,6 +521,6 @@
 		// Init Canvases
 		// ----------------------------------
 
-			asteriskObj.components.canvas.initAll();
+			asterisk.components.canvas.init(document.getElementById('__route__mainView'));
 
 	})();

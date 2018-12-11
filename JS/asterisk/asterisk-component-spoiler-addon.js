@@ -41,7 +41,7 @@
 
 				spoilerObj.init = function(targetElem, delegateEvent__boolean) {
 
-					if ( targetElem && (targetElem instanceof HTMLElement) ) { 
+					if (targetElem && (targetElem instanceof HTMLElement)) { 
 
 						if (hasClass(targetElem, 'spoiler-btn')) {
 
@@ -103,7 +103,7 @@
 
 					var spoilerBtn = e.target ;
 
-					var targetParametersObj = spoilerBtn.targetParameters || spoilerObj.spoilerBtn_defineParameters(spoilerBtn , true);
+					var targetParametersObj = spoilerBtn.targetParameters || spoilerObj.intermediary.spoilerBtn_defineParameters(spoilerBtn , true);
 
 					var targetSpoiler = targetParametersObj.targetSpoiler;
 					var targetButtons = targetParametersObj.targetButtons;
@@ -113,13 +113,13 @@
 						// collapsing animation
 						if (hasClass(targetSpoiler , 'spoiler-expanded')) { 
 
-							spoilerObj.collapse(targetSpoiler);
+							spoilerObj.intermediary.collapse(targetSpoiler);
 							targetButtons.map((btn) => btn.classList.remove('active'));
 
 						// expanding animation
 						} else {
 
-							spoilerObj.expand(targetSpoiler);
+							spoilerObj.intermediary.expand(targetSpoiler);
 							targetButtons.map((btn) => btn.classList.add('active'));		// update  buttons  status
 
 						}
@@ -146,12 +146,12 @@
 				// Expand
 				// -----------------------------------------------------
 
-					spoilerObj.expand = function(targetSpoiler) {
+					spoilerObj.intermediary.expand = function(targetSpoiler) {
 
 						setTimeout(function(){ 
 
 							// set the maxHeight to transition to
-							targetSpoiler.style.maxHeight = spoilerObj.getMaxHeightValue(targetSpoiler);	
+							targetSpoiler.style.maxHeight = spoilerObj.intermediary.getMaxHeightValue(targetSpoiler);	
 
 							// after the transition has finished - remove/default the max-height
 							// this allows the expanded-spoiler to adapt to other expanding/collapsing children
@@ -169,10 +169,10 @@
 				// Collapse
 				// -----------------------------------------------------
 
-					spoilerObj.collapse = function(targetSpoiler) {
+					spoilerObj.intermediary.collapse = function(targetSpoiler) {
 
 						// set [maxHeight: 'it's actual height'] (as it defaults to 'none' after expand transition)
-						targetSpoiler.style.maxHeight = spoilerObj.getMaxHeightValue(targetSpoiler); 
+						targetSpoiler.style.maxHeight = spoilerObj.intermediary.getMaxHeightValue(targetSpoiler); 
 						targetSpoiler.style.overflow  = 'hidden';
 
 						// defer and set [maxHeight: 0] , for the transition to take place
@@ -186,7 +186,7 @@
 				// getMaxHeightValue
 				// -----------------------------------------------------
 
-					spoilerObj.getMaxHeightValue = function(targetSpoiler) {
+					spoilerObj.intermediary.getMaxHeightValue = function(targetSpoiler) {
 						var spoiler_content = targetSpoiler.getElementsByClassName('spoiler-content')[0];
 
 						var margin_top = parseInt(getComputedStyle(spoiler_content, null).getPropertyValue("margin-top"));
@@ -204,7 +204,7 @@
 					// will run automatically on first spoiler-btn click
 					// will be more efficient for future calls there-after
 
-					spoilerObj.spoilerBtn_defineParameters = function(current_spoilerBtn , willReturnTheObject__boolean) {
+					spoilerObj.intermediary.spoilerBtn_defineParameters = function(current_spoilerBtn , willReturnTheObject__boolean) {
 
 						if (!current_spoilerBtn.targetParameters) {
 
@@ -230,7 +230,7 @@
 				// Best called as one of the final functions in the scripts 
 				// -----------------------------------------------------
 
-					spoilerObj.spoilerBtn_defineParameters_all = function() {
+					spoilerObj.intermediary.spoilerBtn_defineParameters_all = function() {
 
 						var spoilerButtons = Array.from(document.getElementsByClassName('spoiler-btn'));
 						spoilerButtons.map(btn => asterisk.components.spoiler.spoilerBtn_defineParameters(btn));
