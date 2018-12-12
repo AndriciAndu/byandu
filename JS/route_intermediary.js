@@ -18,15 +18,21 @@
 
 			var href_initial = window.location.href.toLowerCase();
 
+				var artefact = '';
+				if (href_initial.indexOf('?') > -1) { 
+					href_initial = href_initial.slice(0, href_initial.indexOf('#'));
+					artefact = href_initial.slice(href_initial.indexOf('#'));
+				};
+
 			// working prototype - prevent popstate if internal anchor link
 			// ----------------------------------------------------------
 				// console.log(href_initial);
 
-				var asdf_id = '';
-				if (href_initial.indexOf('#') > -1) { 
-					href_initial = href_initial.slice(0, href_initial.indexOf('#'));
-					asdf_id = href_initial.slice(href_initial.indexOf('#'));
-				};
+				// var asdf_id = '';
+				// if (href_initial.indexOf('#') > -1) { 
+				// 	href_initial = href_initial.slice(0, href_initial.indexOf('#'));
+				// 	asdf_id = href_initial.slice(href_initial.indexOf('#'));
+				// };
 			// ----------------------------------------------------------
 
 			// get the href (or portion of the href) - to check which page we are on

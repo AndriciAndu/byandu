@@ -745,7 +745,6 @@
 					.sticky-title {
 						position: sticky;
 						top: 63px;
-						background-color: red;
 						z-index: 600;
 
 						font-size: 1.25em; font-weight: bold;

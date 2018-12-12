@@ -520,6 +520,15 @@
 				return newArray
 			};
 
+			// sort by property alphabetically
+			// var asdf = colorsMainObj_concat.slice(0);
+
+			// asdf.sort(function(a, b) {
+			//     var textA = a.name;
+			//     var textB = b.name;
+			//     return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+			// });
+
 
 	// Shuffle Array
 	// -----------------------------------------------------

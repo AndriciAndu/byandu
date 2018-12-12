@@ -1,4 +1,5 @@
 
+// --------------------------------------------------
 	var byAndu = {};
 
 	byAndu.pageConfigObj_resetObj = function() {
@@ -671,14 +672,29 @@
 	});
 
 
-	// -------------------------------------------------------------------
+// -------------------------------------------------------------------
+
+	var articleEvents = []; // { elem : [HTMLElement] , type : [string] ,  handler : [function] }
+
+	function article_addEvent(elem , type , handler) {
+
+		elem.addEventListener(type , handler);
+
+		var newObj = {};
+		newObj.elem = elem;
+		newObj.type = type;
+		newObj.handler = handler;
+		articleEvents.push(newObj);
+	};
+
+	function article_removeEvents() {
+		articleEvents.map(function(item){
+			item.elem.removeEventListener(item.type , item.handler)
+		})
+	};
 
 
-
-	// -------------------------------------------------------------------
-
-
-
+// -------------------------------------------------------------------
 
 	/*document.getElementById('byAndu-infoBtn').addEventListener('click', function(){
 
@@ -690,15 +706,7 @@
 		
 		current_modal.classList.add('expanded');
 
-	});
-
-	function byAndu_modal_open() {
-
-	};
-
-	function byAndu_model_close() {
-
-	};*/
+	});*/
 
 	/*
 	(function(){
