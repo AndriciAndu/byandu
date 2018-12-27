@@ -39,59 +39,68 @@
 				<div class="tabs-content article-mainTabs-usageTab" data-tabs-id="2"> 
 
 					<!-- I. Description -->
+						<section class="accordion  p-0        sectionAccordion">
+							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+								<button class="accordion-btn  sectionAccordion-btn"> I. Description </button>
+								<div class="accordion-content sectionAccordion-content">
 
-						<section class="p-0" aria-label="general description">
-							<heading> <h2 class="section-title"> I. Description </h2> </heading>
-
-							<p> Collection of <button class="modal-btn" data-modal-id="utilityClasses">Utility Classes</button> which apply <b>hover effects</b> - tipically used for <span class="wrapper">image</span> elements. </p>
+									<p> Collection of <button class="modal-btn" data-modal-id="utilityClasses">Utility Classes</button> which apply <b>hover effects</b> - tipically used for <span class="wrapper">image</span> elements. </p>
+								</div>
+							</div>
 						</section> 
 
 					<!-- II. Initialization -->
+						<section class="accordion  p-0        sectionAccordion">
+							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+								<button class="accordion-btn  sectionAccordion-btn"> II. Initialization </button>
+								<div class="accordion-content sectionAccordion-content">
 
-						<section class="p-0" aria-label="initialization">
-							<heading> <h2 class="section-title"> II. Initialization </h2> </heading>
+									<p class="mb-0"> 
+										Download and refference the 
+										<a class="downloadLink" href="../../css/asterisk/asterisk-effects-imgHover.css" download> asterisk-effects-imgHover.css </a> CSS file.
+										<span class="wrapper tooltip-before tooltip-top" data-tooltipText="* This will include all effects."></span> CSS file.
 
-							<p class="mb-0"> 
-								Download and refference the 
-								<a class="downloadLink" href="../../css/asterisk/asterisk-effects-imgHover.css" download> asterisk-effects-imgHover.css </a> CSS file.
-								<span class="wrapper tooltip-before tooltip-top" data-tooltipText="* This will include all effects."></span> CSS file.
+										<button class="spoiler-btn spoiler-btn-autoText title-spoilerBtn" data-spoiler-id="init-more"> More | </button>
+									</p> 
 
-								<button class="spoiler-btn spoiler-btn-autoText title-spoilerBtn" data-spoiler-id="init-more"> More | </button>
-							</p> 
+									<div class="wrapper"> 
+										<div class="col-12"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-effects-imgHover.css</b-p>" type="text/css" rel="stylesheet"> </div>
+									</div>
 
-							<div class="wrapper"> 
-								<div class="col-12"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-effects-imgHover.css</b-p>" type="text/css" rel="stylesheet"> </div>
-							</div>
+									<div class="spoiler" data-spoiler-id="init-more">
+										<div class="spoiler-content">
+											<div class="col-12">
 
-							<div class="spoiler" data-spoiler-id="init-more">
-								<div class="spoiler-content">
-									<div class="col-12">
-
-										<p class="mt-sm"> 
-											<b>Alternatively</b>, a <span class="wrapper"><b-p>{*}</b-p><b-r>-spec</b-r><b-p>.css</b-p></span> file can be generated within the <b><span class="wrapper">[Code]</span> Tab</b> <span class="wrapper tooltip-before tooltip-right" data-tooltipText="Will include only the selected Styles/Features. &#13;&#10;───────────────────────────&#13;&#10; See button on the top-right of page."></span>
-										</p>
-										<div class="wrapper mt-0"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-effects-imgHover<b-r>-spec</b-r>.css</b-p>" type="text/css" rel="stylesheet"> </div>
+												<p class="mt-sm"> 
+													<b>Alternatively</b>, a <span class="wrapper"><b-p>{*}</b-p><b-r>-spec</b-r><b-p>.css</b-p></span> file can be generated within the <b><span class="wrapper">[Code]</span> Tab</b> <span class="wrapper tooltip-before tooltip-right" data-tooltipText="Will include only the selected Styles/Features. &#13;&#10;───────────────────────────&#13;&#10; See button on the top-right of page."></span>
+												</p>
+												<div class="wrapper mt-0"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-effects-imgHover<b-r>-spec</b-r>.css</b-p>" type="text/css" rel="stylesheet"> </div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</section>
 
 					<!-- III. Usage -->
+						<section class="accordion  p-0        sectionAccordion">
+							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+								<button class="accordion-btn  sectionAccordion-btn"> III. Usage </button>
+								<div class="accordion-content sectionAccordion-content">
 
-						<section class="p-0" aria-label="usage">
-							<heading> <h2 class="section-title"> III. Usage </h2> </heading>
+									<div class="col-12 md-col-6 p-0">
+										<p> <b>Step 1.</b> Wrap the <span class="wrapper">image</span> in an <button class="modal-btn" data-modal-id="dummyParents">'Utility' Parent</button> </p>
+										<p> <b>Step 2.</b> Add one of the <span class="wrapper"><b>imgHvr</b>-<b-p>{effect}</b-p></span> on the <span class="wrapper">Parent</span>. </p>
+									</div>
 
-							<div class="col-12 md-col-6 p-0">
-								<p> <b>Step 1.</b> Wrap the <span class="wrapper">image</span> in an <button class="modal-btn" data-modal-id="dummyParents">'Utility' Parent</button> </p>
-								<p> <b>Step 2.</b> Add one of the <span class="wrapper"><b>imgHvr</b>-<b-p>{effect}</b-p></span> on the <span class="wrapper">Parent</span>. </p>
-							</div>
-
-							<div class="col-12 md-col-6 p-0">
-								<div class="wrapper"> 
-									<p class="mt-xs mb-0"> &lt;div class="<b>imgHvr</b>-<b-p>zoomIn</b-p>"> <i class="comment xs-hidden">&lt;-- 'Utility' Parent --></i> </p>
-										<p class="mt-xs mb-0 pl-lg"> &lt;img src="insertImgSrc" /> <i class="comment xs-hidden">&lt;-- Image --></i> </p> 
-									<p class="my-xs"> &lt;/div> </p> 
-									</col-12>
+									<div class="col-12 md-col-6 p-0">
+										<div class="wrapper"> 
+											<p class="mt-xs mb-0"> &lt;div class="<b>imgHvr</b>-<b-p>zoomIn</b-p>"> <i class="comment xs-hidden">&lt;-- 'Utility' Parent --></i> </p>
+												<p class="mt-xs mb-0 pl-lg"> &lt;img src="insertImgSrc" /> <i class="comment xs-hidden">&lt;-- Image --></i> </p> 
+											<p class="my-xs"> &lt;/div> </p> 
+											</col-12>
+										</div>
+									</div>
 								</div>
 							</div>
 						</section>

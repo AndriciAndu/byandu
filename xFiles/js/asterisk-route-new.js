@@ -501,7 +501,6 @@
 
 				// get template Object
 				var current_routeTemplate = asterisk.route.templates.find(item => item.filePath_html == urlIdentifier__string);
-				console.log(current_routeTemplate)
 
 				if (current_routeTemplate) {
 
@@ -532,6 +531,8 @@
 							} else if (historyState == 'push') {
 								history.pushState(null, null, htmlFile_url);
 							} // ignore if [null]
+
+							console.log('asd')
 						})
 
 						// 4. check if script
