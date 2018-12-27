@@ -48,7 +48,7 @@
 		// redirect to index page - (with route details included in the href)
 
 			var redirectUrl = url_indexPage + url_articleString + href_hash + href_search;
-			console.log({url_indexPage , url_articleString , href_hash , href_search});
+			console.log({redirectUrl , url_indexPage , url_articleString , href_hash , href_search});
 			location.assign(redirectUrl);
 
 
