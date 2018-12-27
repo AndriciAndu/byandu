@@ -615,24 +615,31 @@
 
 				var currentArticleUrl = asterisk.route.intermediary.getUrlParameter('load').toLowerCase();
 
-				if (currentArticleUrl && currentArticleUrl != '') {
+				if (currentArticleUrl) {
 
-					var current_routeTemplate = asterisk.route.templates.find(item => item.filePath_html.toLowerCase() == currentArticleUrl);
+					if (currentArticleUrl != '') {
 
-					console.log(current_routeTemplate);
+						var current_routeTemplate = asterisk.route.templates.find(item => item.filePath_html.toLowerCase() == currentArticleUrl);
+						console.log(current_routeTemplate);
 
-					if (current_routeTemplate) {
+						if (current_routeTemplate) {
 
-						asterisk.route.info.currentTemplate = current_routeTemplate;
-						asterisk.route.loadPage(current_routeTemplate.filePath_html , 'replace');
+							asterisk.route.info.currentTemplate = current_routeTemplate;
+							asterisk.route.loadPage(current_routeTemplate.filePath_html , 'replace');
 
-					} else {
+						} else {
 
-						asterisk.route.loadPage('/utility/gridSystem-12col.html' , 'replace'); // default page if incorrect params
+							asterisk.route.loadPage('/utility/gridSystem-12col.html' , 'replace'); // default page if incorrect params
 
+						};
 					};
 
-					document.body.classList.remove('faSpinner');
+				} else {
+
+					asterisk.route.loadPage('/utility/gridSystem-12col.html' , 'replace'); // default page if no params
+					
 				}
+
+				document.body.classList.remove('faSpinner');
 
 			})();
