@@ -550,10 +550,10 @@
 								var jsFile_url;
 								switch(window.location.protocol) {
 									case 'file:' :
-										htmlFile_url = asterisk.route.info.url_rootHost + filePath_js; break;
+										jsFile_url = asterisk.route.info.url_rootHost + filePath_js; break;
 									case 'http:' : 
 									case 'https:': 
-										htmlFile_url = filePath_js; break;
+										jsFile_url = filePath_js; break;
 								};
 
 								var newScript = document.createElement('SCRIPT');
