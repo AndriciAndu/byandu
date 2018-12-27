@@ -512,8 +512,15 @@
 
 					if (filePath_html && filePath_html != '') {
 
-						var htmlFile_url = asterisk.route.info.url_rootHost + filePath_html;
-						console.log(htmlFile_url)
+						var htmlFile_url;
+						switch(window.location.protocol) {
+							case 'file:' :
+								htmlFile_url = asterisk.route.info.url_rootHost + filePath_html; break;
+							case 'http:' : 
+							case 'https:': 
+								htmlFile_url = filePath_html; break;
+						};
+
 						// 1. get the html file
 						fetch(htmlFile_url)
 
