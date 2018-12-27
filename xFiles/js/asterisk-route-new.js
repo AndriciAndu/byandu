@@ -501,18 +501,19 @@
 
 				// get template Object
 				var current_routeTemplate = asterisk.route.templates.find(item => item.filePath_html == urlIdentifier__string);
-
+				console.log(current_routeTemplate);
 				if (current_routeTemplate) {
 
 					asterisk.route.intermediary.updateDOM(current_routeTemplate);
 
 					asterisk.route.info.currentTemplate = current_routeTemplate;
 					var filePath_html   = current_routeTemplate.filePath_html;
+					console.log(filePath_html)
 
 					if (filePath_html && filePath_html != '') {
 
 						var htmlFile_url = asterisk.route.info.url_rootHost + filePath_html;
-
+						console.log('htmlFile_url')
 						// 1. get the html file
 						fetch(htmlFile_url)
 
@@ -525,6 +526,8 @@
 						// 3. update the innerHTML
 						.then(function(text) {
 							mainView.innerHTML = text;
+
+							console.log(text)
 
 							if (historyState == 'replace') { 
 								history.replaceState(null, null, htmlFile_url);
