@@ -493,7 +493,6 @@
 
 			asterisk.route.loadPage = function(urlIdentifier__string , historyState__string) { // example: 'utility/flex'
 
-				console.log(urlIdentifier__string)
 				var historyState = historyState__string || 'push';
 				var mainView = asterisk.route.info.mainView;
 
@@ -502,6 +501,7 @@
 
 				// get template Object
 				var current_routeTemplate = asterisk.route.templates.find(item => item.filePath_html == urlIdentifier__string);
+				console.log(current_routeTemplate)
 
 				if (current_routeTemplate) {
 
@@ -637,7 +637,7 @@
 				} else {
 
 					asterisk.route.loadPage('/utility/gridSystem-12col.html' , 'replace'); // default page if no params
-					
+
 				}
 
 				document.body.classList.remove('faSpinner');
