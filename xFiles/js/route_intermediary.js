@@ -49,7 +49,7 @@
 
 			var redirectUrl = url_indexPage + url_articleString + href_hash + href_search;
 			console.log(redirectUrl);
-			location.href = redirectUrl;
+			window.location = redirectUrl;
 
 
 			// var newURL = window.location.protocol + "://" + window.location.host + "/" + window.location.pathname;
