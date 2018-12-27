@@ -603,7 +603,7 @@
 		// --------------------------------------------------
 
 			asterisk.route.intermediary.popstate = function() {
-				var urlIdentifier = window.location.href.replace(asterisk.route.info.url_rootHost , '');
+				var urlIdentifier = window.location.href.replace(asterisk.route.info.url_rootHost , '').replace(window.location.protocol + '//' , '');
 				asterisk.route.loadPage(urlIdentifier , 'replace');
 			};
 
