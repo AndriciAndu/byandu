@@ -493,28 +493,26 @@
 
 			asterisk.route.loadPage = function(urlIdentifier__string , historyState__string) { // example: 'utility/flex'
 
+				console.log(urlIdentifier__string)
 				var historyState = historyState__string || 'push';
-
-				var route    = asterisk.route;
-				var infoObj  = route.info;
-				var mainView = infoObj.mainView;
+				var mainView = asterisk.route.info.mainView;
 
 				// add loading spinner
-				route.intermediary.loadPage_onBegin();
+				asterisk.route.intermediary.loadPage_onBegin();
 
 				// get template Object
-				var current_routeTemplate = route.templates.find(item => item.filePath_html == urlIdentifier__string);
+				var current_routeTemplate = asterisk.route.templates.find(item => item.filePath_html == urlIdentifier__string);
 
 				if (current_routeTemplate) {
 
-					route.intermediary.updateDOM(current_routeTemplate);
+					asterisk.route.intermediary.updateDOM(current_routeTemplate);
 
-					infoObj.currentTemplate = current_routeTemplate;
+					asterisk.route.info.currentTemplate = current_routeTemplate;
 					var filePath_html   = current_routeTemplate.filePath_html;
 
 					if (filePath_html && filePath_html != '') {
 
-						var htmlFile_url = infoObj.url_rootHost + filePath_html;
+						var htmlFile_url = asterisk.route.info.url_rootHost + filePath_html;
 
 						// 1. get the html file
 						fetch(htmlFile_url)
@@ -543,13 +541,13 @@
 
 							if (filePath_js && filePath_js != '') {
 
-								var jsFile_url = infoObj.url_rootHost + filePath_js;
+								var jsFile_url = asterisk.route.info.url_rootHost + filePath_js;
 								var newScript = document.createElement('SCRIPT');
 								newScript.src = jsFile_url;
 
 								newScript.onload = function() {
-									route.intermediary.loadPage_runDefaultScript(); 
-									setTimeout(function(){ route.intermediary.loadPage_onEnd() }, 1);
+									asterisk.route.intermediary.loadPage_runDefaultScript(); 
+									setTimeout(function(){ asterisk.route.intermediary.loadPage_onEnd() }, 1);
 									newScript.onload = null;
 								};
 
@@ -557,8 +555,8 @@
 
 							} else {
 
-								route.intermediary.loadPage_runDefaultScript();
-								setTimeout(function(){ route.intermediary.loadPage_onEnd() }, 1)
+								asterisk.route.intermediary.loadPage_runDefaultScript();
+								setTimeout(function(){ asterisk.route.intermediary.loadPage_onEnd() }, 1)
 
 							}
 						})
@@ -615,13 +613,13 @@
 						break;
 				};
 
-				console.log('asd');
-
 				var currentArticleUrl = asterisk.route.intermediary.getUrlParameter('load').toLowerCase();
 
 				if (currentArticleUrl && currentArticleUrl != '') {
 
 					var current_routeTemplate = asterisk.route.templates.find(item => item.filePath_html.toLowerCase() == currentArticleUrl);
+
+					console.log(current_routeTemplate);
 
 					if (current_routeTemplate) {
 
