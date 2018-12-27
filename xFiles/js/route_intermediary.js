@@ -32,7 +32,7 @@
 				case 'http:' : 
 				case 'https:': 
 					url_rootHost  = window.location.host;
-					url_indexPage = window.location.host;
+					url_indexPage = window.location.protocol + window.location.host;
 					url_article   = window.location.pathname;
 					break;
 			};
