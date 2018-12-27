@@ -501,14 +501,13 @@
 
 				// get template Object
 				var current_routeTemplate = asterisk.route.templates.find(item => item.filePath_html == urlIdentifier__string);
-				console.log(current_routeTemplate);
+
 				if (current_routeTemplate) {
 
 					asterisk.route.intermediary.updateDOM(current_routeTemplate);
 
 					asterisk.route.info.currentTemplate = current_routeTemplate;
 					var filePath_html   = current_routeTemplate.filePath_html;
-					console.log(filePath_html)
 
 					if (filePath_html && filePath_html != '') {
 
@@ -534,15 +533,11 @@
 						.then(function(text) {
 							mainView.innerHTML = text;
 
-							console.log(text)
-
 							if (historyState == 'replace') { 
 								history.replaceState(null, null, htmlFile_url);
 							} else if (historyState == 'push') {
 								history.pushState(null, null, htmlFile_url);
 							} // ignore if [null]
-
-							console.log('asd')
 						})
 
 						// 4. check if script
@@ -552,7 +547,15 @@
 
 							if (filePath_js && filePath_js != '') {
 
-								var jsFile_url = asterisk.route.info.url_rootHost + filePath_js;
+								var jsFile_url;
+								switch(window.location.protocol) {
+									case 'file:' :
+										htmlFile_url = asterisk.route.info.url_rootHost + filePath_js; break;
+									case 'http:' : 
+									case 'https:': 
+										htmlFile_url = filePath_js; break;
+								};
+
 								var newScript = document.createElement('SCRIPT');
 								newScript.src = jsFile_url;
 
