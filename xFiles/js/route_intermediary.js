@@ -37,6 +37,7 @@
 					break;
 			};
 
+			console.log({url_article})
 			var url_articleString = '?load=' + url_article;
 
 			var url_hashString = '';
