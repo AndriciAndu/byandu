@@ -634,7 +634,6 @@
 					if (currentArticleUrl != '') {
 
 						var current_routeTemplate = asterisk.route.templates.find(item => item.filePath_html.toLowerCase() == currentArticleUrl);
-						console.log(current_routeTemplate);
 
 						if (current_routeTemplate) {
 
