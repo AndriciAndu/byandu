@@ -32,7 +32,7 @@
 				case 'http:' : 
 				case 'https:': 
 					url_rootHost  = window.location.host;
-					url_indexPage = window.location.protocol + window.location.host;
+					url_indexPage = window.location.protocol + '//' + window.location.host;
 					url_article   = window.location.pathname;
 					break;
 			};
@@ -48,7 +48,8 @@
 		// redirect to index page - (with route details included in the href)
 
 			var redirectUrl = url_indexPage + url_articleString + href_hash + href_search;
-			console.log(redirectUrl);
+			console.log({redirectUrl , url_indexPage , url_articleString , href_hash , href_search});
+
 			window.location = redirectUrl;
 
 
