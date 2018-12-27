@@ -1,0 +1,351 @@
+	
+	<!-- ===================== Route ================== -->
+	<script src="../xFiles/js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+	<style>
+
+		.codeGenerator-type__radio__wrapper, 
+		.codeGenerator-type__example-1 {
+			margin: 0 5px;
+			padding: 5px 10px;
+			border: 1px solid rgba(3,3,3,.1);
+		}
+
+		.codeGenerator-type__radio__wrapper {
+			font-weight: bold;
+		}
+
+		.codeGenerator-type__radio__wrapper span {
+			opacity: .5;
+		}
+
+		input.codeGenerator-type__radio:checked ~ span {
+			opacity: 1;
+		}
+
+		.codeGenerator-type__example-1::before {
+			content: '\f00c';
+			font-family: FontAwesome;
+			display: inline-block;
+			height: 100%; width: 25px;
+			text-align: center;
+			border-left:  1px solid rgba(0,133,0,.6);
+			border-right: 1px solid rgba(0,133,0,.6);
+			margin-right: 5px;
+
+			color: rgb(0,133,0);
+		}
+
+		.codeGenerator-type__example-1.disabled {
+			filter: grayscale(1);
+			opacity: .5;
+		}
+
+		.codeGenerator-type__example-1.disabled::before {
+			content: '\f00d';
+		}
+
+
+		.spacing-generateMarkup-item {
+			padding: 10px 0;
+			border-bottom: 1px solid rgba(3,3,3,.1);
+
+			display: flex;
+			justify-content: center;
+		}
+
+		.spacing-generateMarkup-nameInput ,
+		.spacing-generateMarkup-valueInput {
+			padding: 5px 10px;
+		}
+
+		.generateCode-btn {
+			padding: .65em .85em;
+			font-weight: bold;
+			text-align: center;
+			border-radius: 6px;
+			cursor: pointer;
+			cursor: hand;
+			box-shadow: 2px 2px 2px rgba(3,3,3,.3);
+		}
+
+		.spacing-generateMarkup-demoCode-line {
+			padding: 5px 0;
+		}
+
+		/* ----------- */
+
+		.cssSpoiler {
+			display: none;
+		}
+
+		.cssSpoiler:focus-within {
+			display: block;
+			background-color: red;
+		}
+
+		.cssSpoiler:target {
+			display: block;
+			background-color: yellow;
+		}
+
+		</style>
+	<!-- ============================================== -->
+
+	<article>
+	
+		<h2 class="sr-only"> The 'Accordeon' Component </h2>
+
+		<div class="tabs article-mainTabs">
+
+			<div class="article-mainTabs-banner">
+				<div class="article-mainTabs-title"> Components : Accordeon </div>
+
+				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
+					<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> Demo  </button>
+					<button class="tabs-btn" 				data-tabs-id="2"> Usage </button>
+					<button class="tabs-btn" 				data-tabs-id="3"> ---   </button>
+				</div>
+			</div>
+
+			<div class="tabs-contentGroup">
+
+				<!-- Demo Tab -->
+				<div class="tabs-content article-mainTabs-demoTab tab-expanded" data-tabs-id="1"> 
+
+					<div class="accordion" style="margin-top: 50px">
+
+						<div class="accordion-group">
+							<button class="accordion-btn"> 1. a </button>
+							<div class="accordion-content">
+
+								<div class="accordion-group">
+									<button class="accordion-btn"> 2. a </button>
+									<div class="accordion-content">
+										
+										<div class="accordion-group">
+											<button class="accordion-btn"> 3. a </button>
+											<div class="accordion-content">
+												Accordions use DOM Mutation Observers and delegated events to allow for easy compatibility with AJAX content, or content added after initialization.
+
+												If the DOM tree changes the module will automatically call module.refresh and update the selector cache. Because events are bound on the parent module using delegated events, events will automatically fire on content added after initialization.
+
+												If you change other attributes of the module without DOM insertion and need to update the cache you can do so by calling this module's refresh behavior.  
+											</div>
+										</div>
+
+										<div class="accordion-group">
+											<button class="accordion-btn"> 3. b </button>
+											<div class="accordion-content">
+												Accordions use DOM Mutation Observers and delegated events to allow for easy compatibility with AJAX content, or content added after initialization.
+
+												If the DOM tree changes the module will automatically call module.refresh and update the selector cache. Because events are bound on the parent module using delegated events, events will automatically fire on content added after initialization.
+
+												If you change other attributes of the module without DOM insertion and need to update the cache you can do so by calling this module's refresh behavior.  
+											</div>
+										</div>
+
+										<div class="accordion-group">
+											<button class="accordion-btn"> 3. c </button>
+											<div class="accordion-content">
+												Accordions use DOM Mutation Observers and delegated events to allow for easy compatibility with AJAX content, or content added after initialization.
+
+												If the DOM tree changes the module will automatically call module.refresh and update the selector cache. Because events are bound on the parent module using delegated events, events will automatically fire on content added after initialization.
+
+												If you change other attributes of the module without DOM insertion and need to update the cache you can do so by calling this module's refresh behavior.  
+											</div>
+										</div>
+
+									</div>
+								</div>
+
+								<div class="accordion-group">
+									<button class="accordion-btn"> 2. b </button>
+									<div class="accordion-content">
+										Accordions use DOM Mutation Observers and delegated events to allow for easy compatibility with AJAX content, or content added after initialization.
+
+										If the DOM tree changes the module will automatically call module.refresh and update the selector cache. Because events are bound on the parent module using delegated events, events will automatically fire on content added after initialization.
+
+										If you change other attributes of the module without DOM insertion and need to update the cache you can do so by calling this module's refresh behavior. 
+									</div>
+								</div>
+
+								<div class="accordion-group">
+									<button class="accordion-btn"> 2. c </button>
+									<div class="accordion-content">
+										Accordions use DOM Mutation Observers and delegated events to allow for easy compatibility with AJAX content, or content added after initialization.
+
+										If the DOM tree changes the module will automatically call module.refresh and update the selector cache. Because events are bound on the parent module using delegated events, events will automatically fire on content added after initialization.
+
+										If you change other attributes of the module without DOM insertion and need to update the cache you can do so by calling this module's refresh behavior. 
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="accordion-group">
+							<button class="accordion-btn"> 1. b </button>
+							<div class="accordion-content">
+								Accordions use DOM Mutation Observers and delegated events to allow for easy compatibility with AJAX content, or content added after initialization.
+
+								If the DOM tree changes the module will automatically call module.refresh and update the selector cache. Because events are bound on the parent module using delegated events, events will automatically fire on content added after initialization.
+
+								If you change other attributes of the module without DOM insertion and need to update the cache you can do so by calling this module's refresh behavior.
+							</div>
+						</div>
+
+						<div class="accordion-group">
+							<button class="accordion-btn"> 1. c </button>
+							<div class="accordion-content">
+								Accordions use DOM Mutation Observers and delegated events to allow for easy compatibility with AJAX content, or content added after initialization.
+
+								If the DOM tree changes the module will automatically call module.refresh and update the selector cache. Because events are bound on the parent module using delegated events, events will automatically fire on content added after initialization.
+
+								If you change other attributes of the module without DOM insertion and need to update the cache you can do so by calling this module's refresh behavior.
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Usage Tab -->
+				<div class="tabs-content article-mainTabs-usageTab" data-tabs-id="2"> 
+
+					<div class="col-12 p-0 codeGenerator">
+						<hr>
+						<div class="col-12"> Type </div>
+						<hr>
+
+						<div class="col-12 md-col-3">
+							<div class="codeGenerator-type__radio__wrapper">
+								<input class="codeGenerator-type__radio" name="codeGenerator-type__radio" type="radio" value="static"/>
+								<span> Static </span>
+							</div>
+							<div class="codeGenerator-type__radio__wrapper">
+								<input class="codeGenerator-type__radio" name="codeGenerator-type__radio" type="radio" value="resp"/>
+								<span> Resposive | Baseline </span>
+							</div>
+							<div class="codeGenerator-type__radio__wrapper">
+								<input class="codeGenerator-type__radio" name="codeGenerator-type__radio" type="radio" value="resp-ext" checked="checked"/>
+								<span> Resposive | Extended </span>
+							</div>
+						</div>
+
+						<div class="col-12 md-col-3">
+							<div id="codeGenerator-type__example-1-static" 		class="codeGenerator-type__example-1"> 
+								<b-p>{className}</b-p> (unprefixed) 
+							</div>
+							<div id="codeGenerator-type__example-1-resp" 		class="codeGenerator-type__example-1"> 
+								<b-r>{viewport}-</b-r><b-p>{className}</b-p> 
+							</div>
+							<div id="codeGenerator-type__example-1-resp-ext" 	class="codeGenerator-type__example-1"> 
+								<b-r>{viewport}-o-</b-r><b-p>{className}</b-p> 
+							</div>
+						</div>
+
+						<div class="col-12 md-col-6">
+							<div id="codeGenerator-type__example-2-static" class="col-12 p-0 codeGenerator-type__example-2 hidden">
+								<div class="wrapper md-m-0">
+									<p> This will generate the <span class="wrapper">unprefixed</span> classes only. </p>
+									<p class="mt-0"> The <span class="wrapper">viewport-prefixed</span> and <span class="wrapper">viewport-only-prefixed</span> classes will not be included. </p>
+								</div>
+							</div>
+							<div id="codeGenerator-type__example-2-resp" class="col-12 p-0 codeGenerator-type__example-2 hidden">
+								<div class="wrapper md-m-0">
+									<p> This will generate the <span class="wrapper">unprefixed</span> and the <span class="wrapper">viewport-prefixed</span> classes. </p>
+									<p class="mt-0"> The <span class="wrapper">viewport-only-prefixed</span> classes will not be included. </p>
+								</div>
+							</div>
+							<div id="codeGenerator-type__example-2-resp-ext" class="col-12 p-0 codeGenerator-type__example-2">
+								<div class="wrapper md-m-0">
+									<p> This will generate all <span class="wrapper">unprefixed</span>, <span class="wrapper">viewport-prefixed</span> and <span class="wrapper">viewport-only-prefixed</span> classes. </p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-12 p-0">
+						<div class="col-12 p-0">
+
+							<hr>
+							<div class="col-12"> Values </div>
+							<hr>
+
+							<div class="col-12 md-col-6 p-0">
+								<div class="col-12 spacing-generateMarkup-item">
+									<input class="col-1 sm-col-2 spacing-generateMarkup-checkbox"   type="checkbox" checked="checked" />
+									<input class="col-5 spacing-generateMarkup-nameInput"  type="text" placeholder="Name"  value="0">
+									<input class="col-5 spacing-generateMarkup-valueInput" type="text" placeholder="Value" value="0">
+								</div>
+								<div class="col-12 spacing-generateMarkup-item">
+									<input class="col-1 sm-col-2 spacing-generateMarkup-checkbox"   type="checkbox" checked="checked" />
+									<input class="col-5 spacing-generateMarkup-nameInput"  type="text" placeholder="Name"  value="xs">
+									<input class="col-5 spacing-generateMarkup-valueInput" type="text" placeholder="Value" value="7.5px">
+								</div>
+								<div class="col-12 spacing-generateMarkup-item">
+									<input class="col-1 sm-col-2 spacing-generateMarkup-checkbox"   type="checkbox" checked="checked" />
+									<input class="col-5 spacing-generateMarkup-nameInput"  type="text" placeholder="Name"  value="sm">
+									<input class="col-5 spacing-generateMarkup-valueInput" type="text" placeholder="Value" value="10px">
+								</div>
+								<div class="col-12 spacing-generateMarkup-item">
+									<input class="col-1 sm-col-2 spacing-generateMarkup-checkbox"   type="checkbox" checked="checked" />
+									<input class="col-5 spacing-generateMarkup-nameInput"  type="text" placeholder="Name"  value="md">
+									<input class="col-5 spacing-generateMarkup-valueInput" type="text" placeholder="Value" value="15px">
+								</div>
+								<div class="col-12 spacing-generateMarkup-item">
+									<input class="col-1 sm-col-2 spacing-generateMarkup-checkbox"   type="checkbox" checked="checked" />
+									<input class="col-5 spacing-generateMarkup-nameInput"  type="text" placeholder="Name"  value="lg">
+									<input class="col-5 spacing-generateMarkup-valueInput" type="text" placeholder="Value" value="30px">
+								</div>
+								<div class="col-12 spacing-generateMarkup-item">
+									<input class="col-1 sm-col-2 spacing-generateMarkup-checkbox"   type="checkbox" checked="checked" />
+									<input class="col-5 spacing-generateMarkup-nameInput"  type="text" placeholder="Name"  value="xl">
+									<input class="col-5 spacing-generateMarkup-valueInput" type="text" placeholder="Value" value="60px">
+								</div>
+							</div>
+
+							<div class="col-12 md-col-3">
+								<div class="wrapper">
+									<div class="col-12"> <b> Sample : </b> </div>
+									<hr>
+									<div class="col-12" id="sampleCode"></div>
+								</div>
+							</div>
+
+							<div class="col-12 md-col-3">
+								<button id="generateCode-btn-normal"   class="col-12 generateCode-btn"> Generate Code (normal)   </button>
+								<button id="generateCode-btn-minified" class="col-12 generateCode-btn"> Generate Code (minified) </button>
+							</div>
+
+						</div>
+					</div>
+
+					<p> Change margin/padding/border 'prefix/syntax' (m- | b- | p-) - text input </p>
+
+				</div>
+
+				<!-- Code Tab -->
+				<div class="tabs-content article-mainTabs-codeTab"  data-tabs-id="3">
+					
+					<a class="cssSpoiler-btn" href="#qwerty" onclick="setTimeout(function(){console.log(document.activeElement)}, 1000)" tabindex="1"> test </a>
+
+					<div id="qwerty" class="cssSpoiler" tabindex="1">
+						lvl 1
+
+						<a class="cssSpoiler-btn" href="#qwerty2" onclick="setTimeout(function(){console.log(document.activeElement)}, 1000)" tabindex="1"> test </a>
+						<div id="qwerty2" class="cssSpoiler" tabindex="1">
+							lvl 2
+
+							<a class="cssSpoiler-btn" href="#qwerty3" onclick="setTimeout(function(){console.log(document.activeElement)}, 1000)" tabindex="1"> test </a>
+							<div id="qwerty3" class="cssSpoiler" tabindex="1">
+								lvl 3
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+	</article>

@@ -1,0 +1,248 @@
+ 
+	<!-- ===================== Route ================== -->
+	<script src="../xFiles/js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+	<style>
+
+		</style>
+	<!-- ============================================== -->
+	<article>
+
+		<header class="sr-only"> <h2> </h2> </header>
+
+		<div class="tabs article-mainTabs">
+
+			<div class="article-mainTabs-banner">
+				<div class="article-mainTabs-title"> Functionality : Lazy Loading </div>
+
+				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
+					<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> Usage </button>
+					<button class="tabs-btn" 				data-tabs-id="2"> Code  </button>
+				</div>
+			</div>
+
+			<div class="tabs-contentGroup">
+			
+				<!-- Usage Tab -->
+				<div class="tabs-content article-mainTabs-usageTab tab-expanded" data-tabs-id="1">
+
+					<!-- I. Description -->
+
+						<section class="p-0" aria-label="general description">
+							<heading> <h2 class="section-title"> I. Description </h2> </heading>
+
+							<p> Functionality which loads different-sized images, depending on the user's screen size. </p>
+
+							<!--
+								<div class="imgContainer"> 
+									<img class="lazyLoad" src="../../images/test-1-thumb.jpg" 
+										data-lazy-srcset='{
+											"xs" : "../../images/test-1-xs.jpg" ,
+											"sm" : "../../images/test-1-sm.jpg" ,
+											"md" : "../../images/test-1-md.jpg" ,
+											"lg" : "../../images/test-1-lg.jpg" ,
+											"xl" : "../../images/test-1-xl.jpg" 
+										}'/> 
+								</div>
+
+								<div class="imgContainer"> 
+									<img class="lazyLoad" src="../../images/test-1-thumb.jpg" 
+										data-lazy-srcset='{
+											"xs" : "../../images/test-1-xs.jpg" ,
+											"sm" : "../../images/test-1-sm.jpg" ,
+											"lg" : "../../images/test-1-lg.jpg" ,
+											"xl" : "../../images/test-1-xl.jpg" 
+										}'/> 
+								</div>
+
+								<div class="imgContainer"> 
+									<img class="lazyLoad" src="../../images/test-1-thumb.jpg" 
+										data-lazy-srcset='{
+											"sm" : "../../images/test-1-sm.jpg" ,
+											"md" : "../../images/test-1-md.jpg" ,
+											"lg" : "../../images/test-1-lg.jpg" ,
+											"xl" : "../../images/test-1-xl.jpg" 
+										}'/> 
+								</div>
+								-->
+						</section>
+
+					<!-- II. Initialization -->
+
+						<section class="p-0" aria-label="initialization">
+							<heading> <h2 class="section-title"> II. Initialization </h2> </heading>
+
+							<p> <b>Step 1.</b> Download and refference the [ <b-p>asterisk-functionality-lazyLoad.js</b-p> ] JS file. </p>
+							<div class="wrapper"> <div class="col-12"> &lt;script src="<b-r>--myPath--</b-r><b-p>/asterisk-functionality-lazyLoad.js</b-p>" type="text/javascript">&lt;/script> </div></div>
+
+							<p> <b>Step 2.</b> Make the next function call : </p>
+							<div class="wrapper"> <div class="col-12"> <b>asterisk.functionality.lazyLoad.</b><b-p>init()</b-p>; </div> </div>
+						</section>
+
+					<!-- III. Usage -->
+
+						<section class="p-0" aria-label="usage">
+							<heading> <h2 class="section-title"> III. Usage </h2> </heading>
+
+							<div class="col-12 p-0 md-flex md-flex-stretch-center">
+								<div class="col-12 md-col-6 p-0">
+									<div>
+										<p class="mb-0"> <b>Step 1.</b> Add the <span class="wrapper"><b-p>lazy-load</b-p></span> <span class="wrapper"><b>class</b></span> on the <span class="wrapper">&lt;img></span> Element. </p>
+										<p class="sub-heading mt-0"> * Allows the <span class="wrapper">&lt;img></span> to be targeted through Javascript. </p>
+									</div>
+								</div>
+
+								<div class="col-12 md-col-6 p-0">
+									<div class="wrapper"> <line> &lt;img <b>class</b>="<b-p>lazy-load</b-p>"/> </line> </div>
+								</div>
+							</div>
+
+							<hr>
+
+							<div class="col-12 p-0 md-flex md-flex-stretch-center">
+								<div class="col-12 md-col-6 p-0">
+									<div>
+										<p class="mb-0"> <b>Step 2.</b> Define the <span class="wrapper"><b>src</b></span> <span class="wrapper"><b>attribute</b></span> on the <span class="wrapper">&lt;img></span> Element. </p>
+										<p class="sub-heading mt-0"> * This image will be loaded as default, before the <span class="wrapper">lazy-load</span> functionality takes effect. </p>
+									</div>
+								</div>
+							</div>
+
+								Having a src defined is required to allocate the element's space within the document, to not have the images collapsed and then have the document snap into place when the images actually load.
+
+								<p> 1. An universal placeholder image </p>
+
+								<p> Pros: </p>
+								<p> ------- * Fast allocation of space </p>
+								<p> * Only one HTTP Request required for each type of image (ratio / orientation) </p>
+								<p> * Only one template must be created for each type of image (ratio / orientation) </p>
+								<p> * An image-ratio / image-orietation parameters must be defined, to properly allocate the space for the<span class="wrapper">&lt;img></span> Element, within the Document. </p>
+
+								<p> Cons: </p>
+								<p> * It might offer a lesser user experience, until the actual image is loaded </p>
+
+								<p> 2. A thumbnail version of the image </p>
+
+								This represent a extremely small (pixelated) version of the actual image (ex: 120x90 px from 1200x900 px), with a <span class="wrapper">blur filter</span> applied to it.
+
+								This is recommended for large background images, ussualy above-the-fold or section backgrounds
+
+								<p> Pros: </p>
+								<p> * The image-ratio / image-orietation parameters are not required. </p>
+								<p> * Improved user experience in comparison to 
+
+								<p> Cons: </p>
+								<p> * Multiple HTTP Requests to load initial versions </p>
+
+								This requires multiple http requests (one for each image), yet the file size is very small
+
+								<p> 3. The xs media type version of the image </p>
+
+								<div class="col-12 md-col-6 p-0">
+									<div class="wrapper"> <line> &lt;img class="lazy-load" <b>src="myImg.jpg"</b>/> </line> </div>
+								</div>
+							</div>
+
+							<p> <b>Step 3.</b> Define the <span class="wrapper">data-lazy-srcset</span> <span class="wrapper">attribute</span>. </p>
+
+							<div class="accordion">
+
+								<div class="accordion-group px-md my-sm">
+									<button class="accordion-btn"> * Defining a <b>data-lazy-srcset</b> : </button>
+									<div class="accordion-content px-0">
+
+										<p> 
+											The <span class="wrapper">data-lazy-scrset</span> contains the <span class="wrapper">scr</span> values for the different <span class="wrapper">media-type</span> scenarios. 
+											<span class="wrapper tooltip-before tooltip-top" data-tooltipText="* Basically, which image will be loaded on a specific screen-size"></span>
+										</p>
+
+										<hr>
+
+										<div class="col-12 p-0 md-flex md-flex-stretch-center">
+
+											<div class="col-12 md-col-6 p-0">
+												<div>
+													<p> 
+														The <span class="wrapper">data-lazy-scrset</span> <span class="wrapper">attribute</span> must have the value as a <span class="wrapper">JSON-format Object</span>.
+
+														<span class="wrapper tooltip-before tooltip-top" data-tooltipText="* The value is an [Object], with each [property] and [value] defined within quotes, with each [name-value] pair separated by commas. "></span>
+													</p>
+
+													<p> 
+														The <span class="wrapper">data-lazy-scrset</span> value can be split across multiple lines, as all <span class="wrapper">line-breaks</span>, <span class="wrapper">tab-spaces</span> and <span class="wrapper">non-single-spaces</span> are removed, before parsing the JSON value. <i class="comment">(like in the example)</i>
+													</p>
+												</div>
+											</div>
+
+											<div class="col-12 md-col-6 p-0">
+												<div class="wrapper">
+													<line> &lt;img class="lazyLoad" src="../../images/myImage-thumb.jpg" </line>
+													<div class="col-12">
+														<line> data-lazy-srcset='{ </line>
+														<div class="col-12">
+															<line> "xs" &nbsp;&nbsp;: &nbsp;"../../images/myImage-xs.jpg" &nbsp; , </line>
+															<line> "sm" &nbsp;: &nbsp;"../../images/myImage-sm.jpg" &nbsp;, </line>
+															<line> "md" &nbsp;: &nbsp;"../../images/myImage-md.jpg" , </line>
+															<line> "lg" &nbsp; &nbsp;: &nbsp;"../../images/myImage-lg.jpg" &nbsp;&nbsp;, </line>
+															<line> "xl" &nbsp; &nbsp;: &nbsp;"../../images/myImage-xl.jpg" </line>
+														</div>
+														<line> }'/> </line>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="accordion-group px-md my-sm">
+									<button class="accordion-btn"> * Skipping certain <b>media-type</b> scenarios : </button>
+									<div class="accordion-content px-0">
+
+										<div class="col-12 p-0 md-flex md-flex-stretch-center">
+
+											<div class="col-12 md-col-6 p-0">
+												<div>
+													<p> If certain <span class="wrapper">media-type</span> scenarios are to-be-skipped </p>
+
+												</div>
+											</div>
+
+											<div class="col-12 md-col-6 p-0">
+												<div class="wrapper">
+													<line> &lt;img class="lazyLoad" src="../../images/myImage-thumb.jpg" </line>
+													<div class="col-12">
+														<line> data-lazy-srcset='{ </line>
+														<div class="col-12">
+															<line> "xs" &nbsp;&nbsp;: &nbsp;"../../images/myImage-xs.jpg" &nbsp; , </line>
+															<line> "sm" &nbsp;: &nbsp;"../../images/myImage-sm.jpg" &nbsp;, </line>
+															<line> "md" &nbsp;: &nbsp;"../../images/myImage-md.jpg" , </line>
+															<line> "lg" &nbsp; &nbsp;: &nbsp;"../../images/myImage-lg.jpg" &nbsp;&nbsp;, </line>
+															<line> "xl" &nbsp; &nbsp;: &nbsp;"../../images/myImage-xl.jpg" </line>
+														</div>
+														<line> }'/> </line>
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+
+							</div>
+
+							<p> <b>Step 4.</b> Define the <span class="wrapper">data-lazy-type</span> <span class="wrapper">attribute</span>. (optional) </p>
+						</section>
+
+				</div>
+
+				<!-- Code Tab -->
+				<div class="tabs-content article-mainTabs-codeTab" data-tabs-id="2"
+								data-generateCodeFor="['js']" 
+								data-setCopyContextId="functionality-scrollTrigger" 
+								data-setFileName="asterisk-functionality-scrollTrigger">
+				</div>
+				
+			</div>
+		</div>
+
+	</article>

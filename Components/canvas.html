@@ -1,0 +1,244 @@
+
+	<!-- ===================== Route ================== -->
+	<script src="../xFiles/js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+	<style>
+	</style>
+	<!-- ============================================== -->
+
+	<article>
+
+		<h2 class="sr-only"> The 'Canvas' Component </h2>
+
+		<div class="tabs article-mainTabs">
+
+			<div class="article-mainTabs-banner">
+				<div class="article-mainTabs-title"> Components : Canvas </div>
+
+				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
+					<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> Demo  </button>
+					<button class="tabs-btn" 				data-tabs-id="2"> Usage </button>
+					<button class="tabs-btn" 				data-tabs-id="3"> Code  </button>
+				</div>
+			</div>
+
+			<div class="tabs-contentGroup">
+
+				<!-- Demo Tab -->
+				<div class="tabs-content article-mainTabs-demoTab tab-expanded" data-tabs-id="1"> 
+					<div id="__route__mainView__generateDemos"> </div>
+				</div>
+
+				<!-- Usage Tab -->
+				<div class="tabs-content article-mainTabs-usageTab" data-tabs-id="2">
+
+					<!-- I. Description -->
+
+						<section class="p-0" aria-label="general description">
+							<heading> <h2 class="section-title"> I. Description </h2> </heading>
+
+							<p> 
+								Baseline <span class="wrapper">canvas</span> Component, used to create a animated background effect. 
+
+								<button class="spoiler-btn spoiler-btn-autoText title-spoilerBtn" data-spoiler-id="description-more"> More | </button>
+							</p>
+
+							<div class="spoiler" data-spoiler-id="description-more">
+								<div class="spoiler-content">
+									
+								</div>
+							</div>
+						</section>
+
+					<!-- II. Initialization -->
+
+						<section class="p-0" aria-label="initialization">
+							<heading> <h2 class="section-title"> II. Initialization </h2> </heading>
+
+							<p> 
+								<b>Step 1.</b> Download and refference the 
+								<a class="downloadLink" href="../../js/asterisk/asterisk-component-canvas.js" download> asterisk-component-canvas.js </a> JS file. 
+							</p>
+							<div class="wrapper"> <div class="col-12"> &lt;script src="<b-r>--myPath--</b-r><b-p>/asterisk-component-canvas.js</b-p>" type="text/javascript">&lt;/script> </div> </div>
+
+							<p> <b>Step 2.</b> Make the next function call : </p>
+
+							<div class="wrapper"> 
+								<div class="flex flex-cross-center"> 
+									<div class="col-10"> asterisk.components.canvas.initAll(); </div>
+									<button class="col-2 spoiler-btn spoiler-btn-autoText" data-spoiler-id="spoiler-init"> </button>
+								</div>
+
+								<div class="spoiler" data-spoiler-id="spoiler-init">
+									<div class="spoiler-content">
+									</div>
+								</div>
+							</div>
+						</section>
+
+					<!-- III. Usage -->
+
+						<section class="px-0" aria-label="usage">
+							<heading> <h2 class="section-title"> III. Usage </h2> </heading>
+
+							<div class="col-12 p-0 md-flex md-flex-cross-center">
+								<div class="col-12 md-col-6 p-0">
+									<p> <b>Step 1.</b> Add the Component's Markup to your Element : </p>
+									<p class="sub-heading mt-0"> * the markup should be placed as the first child, within your Element </p>
+
+									<p> <b>Step 2.</b> Change the <span class="wrapper"><b-p>bgCanvas-{type}</b-p></span> class to apply the desired animation. </p>
+									<p class="sub-heading mt-0"> * Available classes : <b-p>bgCanvas-bubbles</b-p> | <b-p>bgCanvas-confetti</b-p> | <b-p>bg-canvas-web</b-p> </p>
+								</div>
+
+								<div class="col-12 md-col-6 p-0">
+									<div class="wrapper">
+										<line> &lt;div> <i style="color: rgba(3,3,3,.5)"> &lt;-- my Element --></i> </line>
+											<line class="pl-lg"> &lt;<b-r>canvas</b-r> class="<b>bgCanvas</b> <b-p>bgCanvas-bubbles</b-p>"> &lt;/<b-r>canvas</b-r>> </line>
+											<line class="pl-lg"> <i style="color: rgba(3,3,3,.5)"> &lt;-- add other markup/children --></i> </line>
+										<line> &lt;/div> </line>
+									</div>
+								</div>
+							</div>
+
+							<hr>
+
+							<div class="col-12 p-0 md-flex md-flex-cross-center">
+								<div class="col-12 md-col-6 p-0">
+									<p> <b>Step 3.</b> To further customize, add any of the following <span class="wrapper">HTML data-attributes</span> : </b> </p>
+
+									<p> <span class="wrapper"><b-p>data-canvas-particleMaxRadius</b-p></span> = <span class="wrapper">number</span> - sets the particles' maximum size </p>
+
+									<p> <span class="wrapper"><b-p>data-canvas-particleColors</b-p></span> = <span class="wrapper">array</span> of <span class="wrapper">strings</span> - sets the available colors </p>
+
+									<p> <span class="wrapper"><b-p>data-canvas-particleLimit</b-p></span> = <span class="wrapper">number</span> - sets how many particles will be generated </p>
+								</div>
+
+								<div class="col-12 md-col-6 p-0">
+									<div class="wrapper">
+										<line> &lt;<b-r>canvas</b-r> class="<b>bgCanvas bgCanvas-bubbles</b>" </line>
+										<line class="pl-lg"> <b-p>data-canvas-particleMaxRadius</b-p>="40" </line>
+										<line class="pl-lg"> <b-p>data-canvas-particleColors</b-p>="[ '#2C3E50', '#E74C3C', '#ECF0F1' ]" </line>
+										<line class="pl-lg"> <b-p>data-canvas-particleLimit</b-p>="300"> &lt;/<b-r>canvas</b-r>> </line> 
+									</div>
+								</div>
+							</div>
+
+							<hr>
+
+							<p class="md-flex md-flex-cross-center md-flex-main-between"> 
+								<span class="col-auto p-0"> If any of these <span class="wrapper">HTML data-attributes</span> are ommited, the <span class="wrapper">canvas</span> will default to the values within <span class="wrapper">asterisk.components.canvas.<b>settings.default</b></span> Object. </span>
+								<button class="spoiler-btn m-0" data-spoiler-id="canvas-defaut-obj"> Details </button>
+							</p>
+
+							<div class="spoiler" data-spoiler-id="canvas-defaut-obj">
+								<div class="spoiler-content px-md ">
+									<div class="wrapper">
+										<line> var canvasObject = { </line>
+										<div class="col-12">
+											<line> ... </line>
+											<line> <i class="comment"> // these settings will affect all Canvases (if no more-specific values are assigned)</i> </line>
+											<line> default_settings	: { </line>
+											<div class="col-12">
+												<line> default_maxRadius 		: 40, </line>
+												<line> default_particleLimit 	: 200, </line>
+												<line> default_colorArray 		: [ '#2C3E50', '#E74C3C', ... ] </line>
+											</div>
+											<line> }, </line>
+
+											<line> <i class="comment"> // these settings will affect all bgCanvas-bubbles Canvases (if no inline data-attribute values are assigned) </i> </line>
+											<line> bubbles : { </line>
+											<div class="col-12">
+												<line> default_particleLimit 	: 300, </line>
+												<line> default_colorArray 		: [ '#3498DB', '#2980B9', ... ] </line>
+											</div>
+											<line> }, </line>
+
+											<line> <i class="comment"> // these settings will affect all bgCanvas-confetti Canvases (if no inline data-attribute values are assigned) </i> </line>
+											<line> confetti : { </line>
+											<div class="col-12">
+												<line> default_particleLimit 	: 200, </line>
+												<line> default_colorArray 		: [ '#55476A', '#AE3D63', ... ] </line>
+											</div>
+											<line> } </line>
+											<line> ... </line>
+										</div>
+										<line> }; </line>
+									</div>
+
+									<row class="p-0 flex flex-cross-center">
+										<row> 
+											<p> If the styling is set on multiple parameters, priority is set by the following specificity: /</p>
+											<hr> 
+											<p class="m-0"> <b>inline data-attributes</b> <b-r>></b-r> </p>
+											<p class="m-0"> <b>canvasObject.*type*.*attribute*</b> <b-r>></b-r> </p>
+											<p class="m-0"> <b>canvasObject.default_settings.*attribute*</b> </p>
+										</row>
+
+										<div class="wrapper">
+											<line> targetCanvas.maxRadius = </line>
+											<line> targetCanvas.getAttribute('data-canvas-maxRadius') </line>
+											<line> <b-r>||</b-r> canvasObject[current_type].default_maxRadius </line>
+											<line> <b-r>||</b-r> canvasObject.default_settings.default_maxRadius; </line>
+										</div>
+									</row>
+								</div>
+							</div>
+
+							<hr>
+
+							<p> <b-r>*Note :</b-r> <b>Each <span class="wrapper">canvas</span> has it's size set through Javascript</b>, to the full width/height of it's <span class="wrapper">Parent Element</span>. </p>
+							<p class="mt-0"> As such, <b>the <span class="wrapper">Parent Element</span> must have height</b> (either through child elements other than the canvas, or set directly). </p>
+
+						</section>
+
+					<!-- IV. Available Methods -->
+
+						<section class="px-0" aria-label="available methods">
+							<heading> <h2 class="section-title"> IV. Available Methods </h2> </heading>
+
+							<div class="col-12 p-0 md-flex md-flex-cross-center">
+								<div class="col-12 md-col-6 p-0">
+									<p> <span class="wrapper"><b-r>canvas_pause()</b-r></span> <u>stops</u> it's <span class="wrapper">requestAnimationFrame callback</span> </p>
+									<p class="sub-heading mt-0 pl-lg"> * it keeps the canvas' properties in memory. </p>
+									<p class="sub-heading mt-0 pl-lg"> * it will statically display the current painted screen. </p>
+
+									<div class="col-12"> <hr> </div>
+
+									<p> <span class="wrapper"><b-r>canvas_resume()</b-r></span> <u>restarts</u> the <span class="wrapper">requestAnimationFrame callback</span>. </p>
+
+									<div class="col-12"> <hr> </div>
+
+									<p> <span class="wrapper"><b-r>canvas_disable()</b-r></span> <u>removes</u> it's <span class="wrapper">requestAnimationFrame callback</span> </p>
+									<p class="sub-heading mt-0 pl-lg"> * it removes all the canvas' properties from memory. </p>
+									<p class="sub-heading mt-0 pl-lg"> * it will not display anything - clears the painted screen. </p>
+									<p class="sub-heading mt-0 pl-lg"> * in order for it to 'work' after calling <span class="wrapper">canvas_disable(<b-p>myCanvas</b-p>)</span>, it must be initialized again with <span class="wrapper">asterisk.components.canvas.init(<b-p>myCanvas</b-p>)</span>. </p>
+								</div>
+								<div class="col-12 md-col-6 p-0">
+									<div class="wrapper">
+										<line>  &lt;<b-r>canvas</b-r> id="<b>myCanvas</b>" class="bgCanvas bgCanvas-bubbles"> &lt;/<b-r>canvas</b-r>> </line>
+										<hr class="my-xs">
+										<line> var <b-p>myCanvas</b-p> = document.getElementById('<b>myCanvas</b>'); </line>
+										<hr class="my-xs">
+										<line> <b-p>myCanvas</b-p><b-r>.canvas_pause()</b-r>; </line>
+										<line> <b-p>myCanvas</b-p><b-r>.canvas_resume()</b-r>; </line>
+										<hr class="my-xs">
+										<line> <b-p>myCanvas</b-p><b-r>.canvas_disable()</b-r>; </line>
+										<line> <b>asterisk.components.canvas.init(<b-p>myCanvas</b-p>)</b> </line>
+									</div>
+								</div>
+							</div>
+
+						</section>
+				</div>
+
+				<!-- Code Tab -->
+				<div class="tabs-content article-mainTabs-codeTab"  data-tabs-id="3"
+							data-generateCodeFor="['html', 'js']" 
+							data-setCopyContextId="canvas" 
+							data-setFileName="asterisk-component-canvas"
+							data-includeJSDependencies="true">
+				</div>
+			</div>
+		</div>
+		
+	</article>

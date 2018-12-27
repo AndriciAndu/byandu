@@ -1,0 +1,268 @@
+	
+	<!-- ===================== Route ================== -->
+	<script src="../xFiles/js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+
+	<article>
+
+		<header class="sr-only"> <h2> Component : CSS-only Tabs </h2> </header>
+
+		<div class="tabs article-mainTabs">
+
+			<div class="article-mainTabs-banner">
+				<div class="article-mainTabs-title"> Components : CSS-Tabs </div>
+
+				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
+					<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> Demo  </button>
+					<button class="tabs-btn" 				data-tabs-id="2"> Usage </button>
+					<button class="tabs-btn" 				data-tabs-id="3"> Code  </button>
+				</div>
+			</div>
+
+			<div class="tabs-contentGroup">
+
+				<!-- Demo Tab -->
+				<div class="tabs-content article-mainTabs-demoTab tab-expanded" data-tabs-id="1"> 
+
+					<form class="cssTabs" style="margin-top: 30px">
+						<input class="cssTabs-btn" name="cssTabs-btn" type="radio" data-tabs-id="1" checked="checked" />
+						<input class="cssTabs-btn" name="cssTabs-btn" type="radio" data-tabs-id="2"/>
+						<input class="cssTabs-btn" name="cssTabs-btn" type="radio" data-tabs-id="3"/>
+
+						<div class="cssTabs-labelGroup">
+							<div class="cssTabs-btnLabel" data-tabs-id="1">Button 1</div>
+							<div class="cssTabs-btnLabel" data-tabs-id="2">Button 2</div>
+							<div class="cssTabs-btnLabel" data-tabs-id="3">Button 3</div>
+						</div>
+
+						<div class="cssTabs-contentGroup">
+							<div class="cssTabs-content" data-tabs-id="1"> Content 1 </div>
+							<div class="cssTabs-content" data-tabs-id="2"> Content 2 </div>
+							<div class="cssTabs-content" data-tabs-id="3"> Content 3 </div>
+						</div>
+					</form>
+				</div>
+
+				<!-- Usage Tab -->
+				<div class="tabs-content article-mainTabs-usageTab" data-tabs-id="2"> 
+				
+					<!-- I. Description -->
+
+						<section class="p-0" aria-label="general description">
+							<heading> <h2 class="section-title"> I. Description </h2> </heading>
+
+							<p> 
+								Baseline <span class="wrapper">Tabs</span> component, with CSS-only functionality (no JS required for it to work). 
+
+								<button class="spoiler-btn spoiler-btn-autoText title-spoilerBtn" data-spoiler-id="description-more"> More | </button>
+							</p>
+
+							<div class="spoiler" data-spoiler-id="description-more">
+								<div class="spoiler-content">
+									<p> * CSS-only - will function properly if the user has JS disabled. </p>
+									<hr>
+									<p> * No need for unique <span class="wrapper">name</span> values for each Component across the document. </p>
+									<p> * No need for unique <span class="wrapper">id</span> values for linking each <span class="wrapper">Button</span> and <span class="wrapper">Label</span>. </p>
+									<hr>
+									<p> * Can nest multiple <span class="wrapper">cssTabs</span> within each other, without any issue. </p> 
+								</div>
+							</div>
+						</section>
+
+					<!-- II. Initialization -->
+
+						<section class="p-0" aria-label="initialization">
+							<heading> <h2 class="section-title"> II. Initialization </h2> </heading>
+
+							<p class="mb-0"> 
+								Download and refference the 
+								<a class="downloadLink" href="../../css/asterisk/asterisk-component-cssTabs.css" download> asterisk-component-cssTabs.css </a> CSS file.
+							</p>
+
+							<div class="wrapper"> <div class="col-12"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-component-cssTabs.css</b-p>" type="text/css" rel="stylesheet"> </div> </div>
+						</section>
+
+					<!-- III. Usage -->
+
+						<section class="ph-0" aria-label="usage">
+							<heading> <h2 class="section-title"> III. Usage </h2> </heading>
+
+							<div class="col-12 p-0 lg-flex lg-flex-cross-center">
+								<div class="col-12 lg-col-5 p-0">
+									<p> <b>Just add the Component's Markup :</b> </p>
+
+									<div class="col-12"> <hr> </div>
+
+									<p class="sub-heading"> * <span class="wrapper"><b>cssTabs-btn</b></span>, <span class="wrapper"><b>cssTabs-btnLabel</b></span> & <span class="wrapper"><b>cssTabs-content</b></span> elements are synchronised with each other by having the same <span class="wrapper"><b-p>data-tabs-id</b-p></span> value. </p>
+
+									<p class="sub-heading mt-0"> * each synchronised <span class="wrapper"><b>cssTabs-btn</b></span>, <span class="wrapper"><b>cssTabs-btnLabel</b></span> and <span class="wrapper"><b>cssTabs-content</b></span>  elements require an unique <span class="wrapper"><b-p>data-tabs-id</b-p></span> value, within the <span class="wrapper">cssTabs</span>. </p>
+
+								</div>
+
+								<div class="col-12 lg-col-7 p-0">
+									<div class="wrapper">
+										<pre class="pre-removeTabSpaces">
+										    &lt;<b-r>form</b-r> class="<b>cssTabs</b>">
+										        &lt;<b-r>input</b-r> class="<b>cssTabs-btn</b>" name="cssTabs-btn" type="radio" <b-p>data-tabs-id</b-p>="1" checked="checked"/>
+										        &lt;<b-r>input</b-r> class="<b>cssTabs-btn</b>" name="cssTabs-btn" type="radio" <b-p>data-tabs-id</b-p>="2"/>
+
+										        &lt;div class="<b>cssTabs-labelGroup</b>">
+										            &lt;div class="<b>cssTabs-btnLabel</b>" <b-p>data-tabs-id</b-p>="1"> Btn-Text 1 &lt;/div>
+										            &lt;div class="<b>cssTabs-btnLabel</b>" <b-p>data-tabs-id</b-p>="2"> Btn-Text 2 &lt;/div>
+										        &lt;/div>
+
+										        &lt;div class="cssTabs-contentGroup">
+										            &lt;div class="<b>cssTabs-content</b>" <b-p>data-tabs-id</b-p>="1"> Content 1 &lt;/div>
+										            &lt;div class="<b>cssTabs-content</b>" <b-p>data-tabs-id</b-p>="2"> Content 2 &lt;/div>
+										        &lt;/div>
+										    &lt;/<b-r>form</b-r>>
+										</pre>
+									</div>
+								</div>
+							</div>
+
+							<hr>
+
+							<p> <b-r> Note : </b-r> <b>The Elements' <u>placement</u> and <u>order</u> are very important</b>, in order for the functionality to work properly : </p>
+
+							<div class="wrapper">
+								<p> <b>1st :</b> the <span class="wrapper"><b>cssTabs-btn</b></span> Elements </p>
+								<p> <b>2nd :</b> the <span class="wrapper"><b>cssTabs-labelGroup</b></span> Element, containing all <span class="wrapper"><b>cssTabs-btnLabel</b></span> Elements </p>
+								<p> <b>3rd :</b> the <span class="wrapper"><b>cssTabs-contentGroup</b></span> Element, containing all <span class="wrapper"><b>cssTabs-content</b></span> Elements </p>
+							</div>
+
+							<hr>
+
+							<div class="accordion">
+								<div class="accordion-group">
+									<button class="accordion-btn"> Adding extra tabs/sections : </button>
+									<div class="accordion-content">
+										<div class="col-12 p-0 lg-flex lg-flex-cross-center">
+											<div class="col-12 lg-col-5 p-0">
+
+												<p> <b>Adding extra tabs/sections :</b> </p>
+
+												<div class="col-12"> <hr> </div>
+
+												<p> <b>Step 1.</b> Add a new <span class="wrapper">input</span> (<span class="wrapper">type="radio"</span>) with the <span class="wrapper">cssTabs-btn</span> class, within the <span class="wrapper">cssTabs</span>  Element. </p>
+
+												<p> <b>Step 2.</b> Add a new <span class="wrapper">div</span> with the <span class="wrapper">cssTabs-btnLabel</span> class, within the <span class="wrapper">cssTabs-labelGroup</span> Element. </p>
+
+												<p> <b>Step 3.</b> Add a new <span class="wrapper">div</span> with the <span class="wrapper">cssTabs-content</span> class, within the <span class="wrapper">cssTabs-contentGroup</span> Element. </p>
+
+												<p> <b>Step 4.</b> Give the newly-added <span class="wrapper">cssTabs-btn</span>, <span class="wrapper">cssTabs-btnLabel</span> and <span class="wrapper">cssTabs-content</span> Elements the same <span class="wrapper">data-tabs-id</span> value. </p>
+												<p class="sub-heading mt-0"> * the <span class="wrapper">data-tabs-id</span> value must be unique within the current <span class="wrapper">cssTabs</span> Parent Element. </p>
+											</div>
+
+											<div class="col-12 lg-col-7 p-0">
+												<div class="wrapper">
+													<pre class="pre-removeTabSpaces">
+													    &lt;form class="<b>cssTabs</b>">
+													        &lt;input class="<b>cssTabs-btn</b>" name="cssTabs-btn" type="radio" <b-p>data-tabs-id</b-p>="1" checked="checked"/>
+													        &lt;input class="<b>cssTabs-btn</b>" name="cssTabs-btn" type="radio" <b-p>data-tabs-id</b-p>="2"/>
+													        <span class="wrapper" style="margin-left: calc(-1em); max-width: none"> &lt;input class="<b>cssTabs-btn</b>" name="cssTabs-btn" type="radio" <b-p>data-tabs-id</b-p>="<b-r>n</b-r>"/> </span>
+
+													        &lt;div class="<b>cssTabs-labelGroup</b>">
+													            &lt;div class="<b>cssTabs-btnLabel</b>" <b-p>data-tabs-id</b-p>="1"> Btn-Text 1 &lt;/div>
+													            &lt;div class="<b>cssTabs-btnLabel</b>" <b-p>data-tabs-id</b-p>="2"> Btn-Text 2 &lt;/div>
+													            <span class="wrapper" style="margin-left: calc(-1em); max-width: none"> &lt;div class="<b>cssTabs-btnLabel</b>" <b-p>data-tabs-id</b-p>="<b-r>n</b-r>"> Btn-Text n &lt;/div> </span>
+													        &lt;/div>
+
+													        &lt;div class="<b>cssTabs-contentGroup</b>">
+													            &lt;div class="<b>cssTabs-content</b>" <b-p>data-tabs-id</b-p>="1"> Content 1 &lt;/div>
+													            &lt;div class="<b>cssTabs-content</b>" <b-p>data-tabs-id</b-p>="2"> Content 2 &lt;/div>
+													            <span class="wrapper" style="margin-left: calc(-1em); max-width: none"> &lt;div class="<b>cssTabs-content</b>" <b-p>data-tabs-id</b-p>="<b-r>n</b-r>"> Content n &lt;/div> </span>
+													        &lt;/div>
+													    &lt;/form>
+													</pre>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</section>
+
+					<!-- IV. Markup Roles -->
+
+						<section class="ph-0" aria-label="Markup Roles">
+							<heading> <h2 class="section-title"> IV. Markup Roles </h2> </heading>
+								
+							<div class="accordion">
+
+								<div class="accordion-group ph-md my-sm">
+									<button class="accordion-btn"> The <b>cssTabs</b> Element:  </button>
+									<div class="accordion-content">
+										<p> Placing the markup within a <span class="wrapper"><b-r>&lt;form></b-r></span> Element, <b-r>scopes</b-r> the <span class="wrapper">radio checkboxes</span> (cssTabs-btn) <b-r>within the parent</b-r>. </p>
+										<p class="mt-0"> <i class="fa fa-arrow-circle-o-right"></i> doesn't require unique <span class="wrapper">name</span> values, for each individual <span class="wrapper">cssTabs</span> component. </p>
+										<hr>
+										<p> * can have margins / paddings / borders. </p>
+									</div>
+								</div>
+
+								<div class="accordion-group ph-md my-sm">
+									<button class="accordion-btn"> The <b>cssTabs-btn</b> & <b>cssTabs-label</b> Elements:  </button>
+									<div class="accordion-content">
+										<p> The <span class="wrapper">cssTabs-btn</span> is actually a <span class="wrapper">input</span> Element <span class="wrapper">radio-checkbox</span>, which can be interacted with, and changes it's <span class="wrapper">:checked</span> state when clicked. </p>
+										<p> It's also given a <span class="wrapper">data-tabs-id</span> attribute value, through which we 
+
+										<p> (1) In order for the Functionality to work, it is required that <span class="wrapper">cssTabs-btn</span> Buttons are siblings of <span class="wrapper">cssTabs-content</span> Elements. </p>
+										<p class="mt-0"> (2) The ideal scenario is to not require <span class="wrapper">global attributes/values</span>, which must be unique within the document. </p>
+
+										<div class="wrapper"> 
+											<line> <b><u>Case :</u></b> </line>
+											<line-space></line-space>
+											<line> &lt;input type="checkbox" name="checkbox" id="checkbox-id-1" value="value"> </line>
+											<line> &lt;label for="checkbox-id-1"> Text &lt;/label> </line>
+											<hr>
+											<line> * (1) <span class="wrapper">cssTabs-btn</span> elements are sibblings of <span class="wrapper">cssTabs-content</span> elements.  <i class="fa fa-check-circle"></i> </line>
+											<line> * (2) &nbsp; each checkbox and label require an ID to be linked together, which must be <b>unique</b> within the document <i class="fa fa-times-circle"></i> </line>
+										</div>
+
+										<div class="wrapper"> 
+											<line> <b><u>Case :</u></b> </line>
+											<line-space></line-space>
+											<line> &lt;label> &lt;input type="checkbox" name="checkbox" value="value"> Text &lt;/label> </line> 
+											<hr>
+											<line> * (2) &nbsp;removes the requirement for unique <span class="wrapper">id</span> attributes within the document. <i class="fa fa-check-circle"></i> </line>
+											<line> * (1) <span class="wrapper">cssTabs-btn</span> elements are not sibblings of <span class="wrapper">cssTabs-content</span> elements. <i class="fa fa-times-circle"></i> </line>
+										</div>
+									</div>
+								</div>
+
+								<div class="accordion-group ph-md my-sm">
+									<button class="accordion-btn"> ... </button>
+									<div class="accordion-content">
+
+									</div>
+								</div>
+							</div>
+
+						</section>
+
+					<!-- V. Styles -->
+					
+						<section class="p-0" aria-label="styles">
+							<heading> <h2 class="section-title"> V. Styles </h2> </heading>
+
+						</section>
+
+
+
+							- text must be single-line or must be contained within the height defined 
+							- multi-line buttons (wrap) do not work with the default auto-size - require separate classes
+								- individual classes on each btn (col-12)
+								- classes on parent to affect children (ch-col-12)
+
+
+								- unique data-id within the Component (the cssTabs parent element)
+				</div>
+
+				<!-- Code Tab -->
+				<div class="tabs-content article-mainTabs-codeTab"  data-tabs-id="3"> </div> 
+
+			</div>
+		</div>
+
+	</article>

@@ -1,0 +1,133 @@
+
+	<!-- ===================== Route ================== -->
+	<script src="../xFiles/js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+	<style>
+		</style>
+	<!-- ============================================== -->
+
+	<article>
+
+		<h2 class="sr-only"> The 'Heading' Component </h2>
+
+		<div class="tabs article-mainTabs">
+
+			<div class="article-mainTabs-banner">
+				<div class="article-mainTabs-title"> Components : Heading </div>
+
+				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
+					<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> Demo  </button>
+					<button class="tabs-btn" 				data-tabs-id="2"> Usage </button>
+					<button class="tabs-btn" 				data-tabs-id="3"> Code  </button>
+				</div>
+			</div>
+
+			<div class="tabs-contentGroup">
+
+				<!-- Demo Tab -->
+				<div class="tabs-content article-mainTabs-demoTab tab-expanded" data-tabs-id="1"> 
+
+					<hr style="margin-top: 80px">
+
+					<row class="flex flex-cross-center">
+						<div class="col-3 pl-0">
+							<select class="heading-selectType col-12 p-0">
+								<option value="title-line-both" selected> title-line-both </option>
+								<option value="title-line-before"> title-line-before </option>
+								<option value="title-line-after">  title-line-after  </option>
+							</select>
+						</div>
+						<div class="col-3 pl-0">
+							<select class="heading-selectStyle col-12 p-0">
+								<option value="" selected>  		Solid (default) </option>
+								<option value="title-line-double">  Double 			</option>
+							</select>
+						</div>
+						<div class="col-2 pr-0"> 
+							Font Size : 
+						</div>
+						<div class="col-4 p-0">
+							<input class="heading-selectFontSize col-12 p-0" type="range" step="1" value="14" min="12" max="96">
+						</div> 
+					</row>
+
+					<hr style="margin-bottom: 30px">
+
+					<div class="demoHeading title-line-both" contenteditable="true"> Demo Title Text - Editable </div>
+				</div>
+
+				<!-- Usage Tab -->
+				<div class="tabs-content article-mainTabs-usageTab" data-tabs-id="2"> 
+
+					<button class="spoiler-btn spoiler-btn-autoText col-12" data-spoiler-id="baseline-heading"> Baseline Code | </button>
+
+					<div class="spoiler" data-spoiler-id="baseline-heading">
+						<div class="spoiler-content">
+							<row>
+								To achieve this effect we simply make use of the <span class="wrapper">:before</span> and <span class="wrapper">:after</span> pseudo-elements, in combination with <span class="wrapper">display: flex</span>.
+							</row>
+
+							<row>
+								<div class="wrapper">
+									<div class="col-12"> <line> &lt;div class="myHeading"> lorem ipsum &lt;/div> </line> </div>
+									<hr>
+									<div class="col-5">
+										<line> .myHeading { </line>
+										<indent>
+											<line> display: flex; </line>
+											<line> align-items: center; </line>
+											<line> width: 100%; </line>
+										</indent>
+										<line> } </line>
+										<line-space></line-space>
+										<line> .myHeading:before , .myHeading:after { </line>
+										<indent>
+											<line> content: ''; </line>
+											<line> flex: 1; </line>
+											<line> border-top: .2em solid black; </line>
+										</indent>
+										<line> } </line>
+									</div>
+									<div class="col-7">
+										<line> &nbsp; </line>
+										<line> // make container 'flexible' (optional: add vendore prefixes) </line>
+										<line> // align items on the same horizontal axis </line>
+										<line> // make heading larger than it's text content </line>
+										<line> &nbsp; </line>
+										<line-space></line-space>
+										<line> &nbsp; </line>
+										<line> // all pseudo-elements require the 'content' declaration </line>
+										<line> // split all available space between the two pseudo-elements </line>
+										<line> // add any styling (default examples use border-top) </line>
+									</div>
+								</div>
+							</row>
+
+							<hr>
+
+							<row>
+								These CSS rules create a Heading which adapts to the text within it. <b>Demo: Edit the text below.</b>
+							</row>
+
+							<div class="col-12"> <div class="heading-solid" style="color: red; margin-top: 30px; margin-bottom: 30px; font-weight: bold;" contenteditable="true"> Change The Text </div> </div>
+
+							<hr>
+
+							<row>
+								The <span class="wrapper">border-top</span> style can be replaced with any <span class="wrapper">background</span> styling to create more specific/awesome effects.
+							</row>
+
+							<hr>
+
+							<button class="spoiler-btn spoiler-btn-autoText col-12" data-spoiler-id="baseline-heading"> Baseline Code | </button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Code Tab -->
+				<div class="tabs-content article-mainTabs-codeTab"  data-tabs-id="3">
+				</div>
+			</div>
+		</div>
+		
+	</article>

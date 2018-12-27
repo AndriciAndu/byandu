@@ -1,0 +1,137 @@
+
+	/* Component - Spoiler */
+	/* ----------------------------------------*/
+	
+		/* Colors */
+		/* ----------------------------------------*/
+
+			.accordion {
+				background-color: rgba(3,3,3,.1);
+			}
+
+			.accordion-btn {
+				background-color: #293744;
+				color: white;
+			}
+
+			.accordion-btn.active {
+				color: yellow;
+			}
+
+		/* General */
+		/* ----------------------------------------*/
+
+			.accordion,
+			.accordion-group,
+			.accordion-btn,
+			.accordion-content {
+				position: relative;
+				display: inline-block;
+				float: left; width: 100%;
+			}
+
+		/* Accordion - main wrapper element */
+		/* ----------------------------------------*/
+
+			.accordion {
+				padding: 0 !important;
+				overflow: hidden;
+			}
+
+		/* Accordion Group */
+		/* ----------------------------------------*/
+
+			.accordion-group {
+				padding: 0 !important;
+				margin:  0 !important;
+				border:  0 !important;
+
+				max-height: 0; 
+				overflow: hidden;
+
+				-webkit-transition: max-height .3s ease-in-out;
+				   -moz-transition: max-height .3s ease-in-out;
+					 -o-transition: max-height .3s ease-in-out;
+						transition: max-height .3s ease-in-out;
+
+				overflow: hidden;
+				max-height: 35px;
+			}
+
+			.accordion-group--expanded {
+				max-height: none;
+				overflow: visible;
+
+				-webkit-animation: asterisk--accordion--overrideMaxHeight .3s steps(1) forwards;
+						animation: asterisk--accordion--overrideMaxHeight .3s steps(1) forwards;
+			}
+
+			@-webkit-keyframes asterisk--accordion--overrideMaxHeight { 100% { max-height: none; } }
+					@keyframes asterisk--accordion--overrideMaxHeight { 100% { max-height: none; } }
+
+		/* Accordion Btn */
+		/* ----------------------------------------*/
+
+			.accordion-btn {
+				height: 35px; line-height: 35px;
+				padding-left: 15px;
+
+				cursor: pointer; cursor: hand;
+			}
+
+			/* Icon */
+			/* ----------------------------------------*/
+
+				.accordion-btn::before {
+					content:"\f107";
+					font-family: FontAwesome;
+
+					position: absolute;
+					top: 50%; right: 20px;
+
+					-webkit-transform: translateY(-50%) rotate(0);  
+						-ms-transform: translateY(-50%) rotate(0);  
+							transform: translateY(-50%) rotate(0);
+					-webkit-transition: transform .2s;
+					   -moz-transition: transform .2s;
+						 -o-transition: transform .2s;  
+							transition: transform .2s; 
+				}
+
+				.accordion-group--expanded > .accordion-btn::before {
+					-webkit-transform: translateY(-50%) rotate(180deg);  
+						-ms-transform: translateY(-50%) rotate(180deg);  
+							transform: translateY(-50%) rotate(180deg);
+				}
+
+			/* overlay */
+			/* ----------------------------------------*/
+
+				.accordion-btn::after {
+					content: '';
+					position: absolute;
+					top: 0; left: 0;
+					width: 100%; height: 100%;
+					z-index: 2;
+				}
+
+		/* Accordion Content */
+		/* ----------------------------------------*/
+
+			.accordion-content {
+				padding: 15px;
+
+				visibility: hidden;
+				-webkit-transition: visibility 0s .3s;
+				   -moz-transition: visibility 0s .3s;
+					 -o-transition: visibility 0s .3s;
+						transition: visibility 0s .3s;
+			}
+
+			.accordion-group--expanded .accordion-content {
+				visibility: visible;
+				-webkit-transition: visibility 0s 0s;
+				   -moz-transition: visibility 0s 0s;
+					 -o-transition: visibility 0s 0s;
+						transition: visibility 0s 0s;
+			}

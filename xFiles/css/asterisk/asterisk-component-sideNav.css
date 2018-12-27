@@ -1,0 +1,321 @@
+
+	/* body-sideNav */
+	/* -------------------------------------------- */
+
+		/* Colors */
+		/* -------------------------------------------- */
+
+			:root {
+				--body-sideNav-width: 12.5vh;
+			}
+
+			.body-sideNav {
+				color: rgb(235,235,235);
+				background-color: #293744;
+			}
+
+			.sideNav-btnGroup-btnContainer {
+				background-color: #354758;
+			}
+
+			#body-sideNav-toggleDisplay-mobile-label {
+				background-color: #be0c0c;
+				color: #FFFFFF;
+			}
+
+		/* General - positioning */
+		/* -------------------------------------------- */
+
+			.body-sideNav {
+				position: fixed;
+				top: 0; left: 0;
+				width: 12.5vh; width: var(--body-sideNav-width , 12.5vh); 
+				height: 100vh;
+
+				z-index: 1000;
+			}
+
+			.body-sideNav:before {
+				content: '';
+				position: absolute;
+				top: 0; left: 0;
+				width: 100%; height: 100%;
+
+				background-color: inherit;
+				border-right: 1px solid rgba(3,3,3,.3);
+			}
+
+			.body-main {
+				position: absolute;
+				top: 0; 
+				left: 12.5vh; 
+				left: var(--body-sideNav-width , 12.5vh);
+
+				width: calc(100vw - 12.5vh);
+				width: calc(100vw - var(--body-sideNav-width , 12.5vh));
+				z-index: 900;
+			}
+
+		/* Title (Category Btn) */
+		/* -------------------------------------------- */
+
+			.sideNav-btnGroup {
+				position: relative;
+				width: 100%; 
+				height: 12.5vh;
+				height: var(--body-sideNav-width , 12.5vh);
+			}
+
+			.sideNav-btnGroup-title {
+				position: relative;
+				width: 100%; height: 100%;
+				overflow: hidden;
+				z-index: 2;
+
+				border-bottom: 1px solid rgba(3,3,3,.1);
+			}
+
+			.sideNav-btnGroup-title::after {
+				content: '';
+				position: absolute;
+				top: 0; left: 0;
+				width: 100%; height: 100%;
+				z-index: 3;
+			}
+
+			.sideNav-btnGroup-title-faIcon ,
+			.sideNav-btnGroup-title-text {
+				position: relative;
+				display: flex !important;
+				align-items: center;
+				justify-content: center;
+
+				width: 100%;
+			}
+
+			.sideNav-btnGroup-title-faIcon {
+				height: 50%;
+				transform: translateY(50%);
+			}
+
+			.sideNav-btnGroup-title-text {
+				height: 50%;
+				font-size: 1.7vh;
+				transform: translateY(100%);
+			}
+
+			/* Category - Icon */
+			/* -------------------------------------------- */
+
+				.sideNav-btnGroup-title-faIcon::before {
+					font-size: 3.5vh;
+				}
+
+				.sideNav-btnGroup-title-faIcon.fa-puzzle-piece::before {
+				    -webkit-transform: translateX(.4vh);
+				        -ms-transform: translateX(.4vh);
+				            transform: translateX(.4vh);
+				}
+
+				.sideNav-btnGroup-title-text   ,
+				.sideNav-btnGroup-title-faIcon {
+					opacity: .1; 
+				    -webkit-transition: opacity .2s , transform .3s;
+				       -moz-transition: opacity .2s , transform .3s;
+				         -o-transition: opacity .2s , transform .3s;
+				            transition: opacity .2s , transform .3s;
+				}
+
+			/* STATE : Hover || Active */
+			/* -------------------------------------------- */
+
+				.sideNav-btnGroup:hover 		.sideNav-btnGroup-title-text   ,
+				.sideNav-btnGroup:hover 		.sideNav-btnGroup-title-faIcon ,
+				.sideNav-btnGroup:focus 		.sideNav-btnGroup-title-text   ,
+				.sideNav-btnGroup:focus 		.sideNav-btnGroup-title-faIcon ,
+				.sideNav-btnGroup:focus-within 	.sideNav-btnGroup-title-text   ,
+				.sideNav-btnGroup:focus-within 	.sideNav-btnGroup-title-faIcon {
+					opacity: 1;
+					transform: translateY(0);
+				}
+
+				.sideNav-btnGroup:hover 		.sideNav-btnGroup-title-text   ,
+				.sideNav-btnGroup:focus 		.sideNav-btnGroup-title-text   ,
+				.sideNav-btnGroup:focus-within 	.sideNav-btnGroup-title-text   {
+					transform: translateY(0);
+				}
+
+				.sideNav-btnGroup:hover 		.sideNav-btnGroup-title-faIcon ,
+				.sideNav-btnGroup:focus 		.sideNav-btnGroup-title-faIcon ,
+				.sideNav-btnGroup:focus-within 	.sideNav-btnGroup-title-faIcon {
+					transform: translateY(25%);
+				}
+
+				.sideNav-btnGroup.active .sideNav-btnGroup-title-text   ,
+				.sideNav-btnGroup.active .sideNav-btnGroup-title-faIcon {
+					opacity: 1;
+					color: yellow;
+				}
+
+		/* btnContainer */
+		/* -------------------------------------------- */
+
+			.sideNav-btnGroup-btnContainer {
+				position: fixed;
+				top: 0; left: 12.5vh;
+				width: calc(33.3333vw - 12.5vh); height: 100vh;
+
+				z-index: -3;
+
+				transform: translateX(-102%);
+				transition: transform .3s;
+
+				visibility: hidden;
+			}
+
+			.sideNav-btn ,
+			a.sideNav-btn {
+				display: inline-block;
+				width: 100%;
+				font-family: 'Roboto';
+
+				font-size: 12px;
+				padding-left: 15px;
+				line-height: calc(6.25vh - 1px);
+
+				cursor: pointer; cursor: hand;
+
+				background-color: inherit;
+				color: rgba(235,235,235, .75) !important;
+				border-bottom: 1px solid rgba(3,3,3,.2);
+
+				text-decoration: none !important;
+			}
+
+			.sideNav-btn.active,
+			.sideNav-btn:hover {
+				color: #FFFFFF !important;
+				background-color: #293744;
+			}
+
+			.sideNav-btn.active {
+				color: yellow !important;
+			}
+
+		@media (min-width: 767.98px) {
+
+			.body-sideNav:hover        .sideNav-btnGroup-btnContainer ,
+			.body-sideNav:focus-within .sideNav-btnGroup-btnContainer {
+				transform: translateX(0);
+			}
+
+			/* make .active btnGroup visible if hovering sideNav but not a category */
+			.sideNav-btnGroup.active 		.sideNav-btnGroup-btnContainer {
+				z-index: -2;
+				visibility: visible;
+			}
+
+			.sideNav-btnGroup:hover 		.sideNav-btnGroup-btnContainer ,
+			.sideNav-btnGroup:focus-within 	.sideNav-btnGroup-btnContainer ,
+			.sideNav-btnGroup-btnContainer:hover ,
+			.sideNav-btnGroup-btnContainer:focus-within {
+				z-index: -1;
+				visibility: visible;
+			}
+
+		}
+
+		@media (max-width: 767.98px) {
+			
+			.body-main {
+				left: 0;
+				width: 100vw;
+			}
+
+			.sideNav-btnGroup-btnContainer {
+				position: fixed;
+				top: 0; right: 0;
+				z-index: -3;
+
+				width: calc(100vw - 12.5vh);
+				width: calc(100vw - var(--body-sideNav-width , 12.5vh));
+			}
+
+			.body-sideNav, 
+			.sideNav-btnGroup-btnContainer {
+				transform: translateX(-125%);
+				transition: transform .3s;
+			}
+
+			.sideNav-btnGroup.active .sideNav-btnGroup-btnContainer {
+				z-index: -2;
+				visibility: visible;
+			}
+
+			.sideNav-btnGroup:focus        .sideNav-btnGroup-btnContainer ,
+			.sideNav-btnGroup:focus-within .sideNav-btnGroup-btnContainer {
+				z-index: -1;
+				visibility: visible;
+			}
+			
+			#body-sideNav-toggleDisplay-mobile:checked ~ .body-sideNav , 
+			#body-sideNav-toggleDisplay-mobile:checked ~ .body-sideNav .sideNav-btnGroup-btnContainer {
+				transform: translateX(0);
+			}
+
+		}
+
+		/* menu is closed */
+		/* -------------------------------------------- */
+
+			#body-sideNav-toggleDisplay-mobile ,
+			#body-sideNav-toggleDisplay-mobile-label {
+				position: fixed;
+				top: 0; right: 0;
+				width: 38px; height: 38px;
+				line-height: 38px; text-align: center;
+
+				z-index: 1001;
+
+				transform: translateY(0);
+				transition: transform .3s , top .3s , border-radius .3s;
+			}
+
+			#body-sideNav-toggleDisplay-mobile 		 { opacity: 0; }
+			#body-sideNav-toggleDisplay-mobile-label { pointer-events: none; }
+
+			#body-sideNav-toggleDisplay-mobile-label::after { 
+				content: '\f0c9'; 
+				font-family: FontAwesome;
+			}
+
+		/* menu is open */
+		/* -------------------------------------------- */
+
+			#body-sideNav-toggleDisplay-mobile:checked ,
+			#body-sideNav-toggleDisplay-mobile:checked ~ #body-sideNav-toggleDisplay-mobile-label {
+				transform: translateY(100vh);
+				top: -38px;
+
+				font-size: 1.1em;
+				border-top-left-radius: 3px;
+			}
+			#body-sideNav-toggleDisplay-mobile:checked ~ #body-sideNav-toggleDisplay-mobile-label::after { 
+				content: '\f00d'; 
+			}
+
+			#body-sideNav-toggleDisplay-mobile:checked ~ .body-main {
+				max-height: 100vh 		!important;
+				overflow: hidden 		!important;
+				pointer-events: none 	!important;
+			}
+
+		/* hide on sm or larger viewports */
+		/* -------------------------------------------- */
+
+			@media (min-width: 767.98px) {
+				#body-sideNav-toggleDisplay-mobile ,
+				#body-sideNav-toggleDisplay-mobile-label {
+					display: none;
+				}
+			}

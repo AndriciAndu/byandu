@@ -1,0 +1,206 @@
+
+	<!-- ===================== Route ================== -->
+	<script src="../xFiles/js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+
+	<article>
+
+		<header class="sr-only"> <h2> Utility Classes : Float </h2> </header>
+
+		<div class="tabs article-mainTabs">
+
+			<div class="article-mainTabs-banner">
+				<div class="article-mainTabs-title"> Utility : Float </div>
+
+				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
+					<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> Usage </button>
+					<button class="tabs-btn" 				data-tabs-id="2"> Code  </button>
+				</div>
+			</div>
+
+			<div class="tabs-contentGroup">
+
+				<!-- Usage Tab -->
+				<div class="tabs-content article-mainTabs-usageTab tab-expanded" data-tabs-id="1"> 
+
+					<!-- I. Description -->
+
+						<section class="p-0" aria-label="general description">
+							<heading> <h2 class="section-title"> I. Description </h2> </heading>
+
+							<p> Collection of <button class="modal-btn" data-modal-id="utilityClasses">Utility Classes</button> used to define an element's <b>float</b> and/or <b>clear</b> properties. </p>
+
+						</section>
+
+					<!-- II. Initialization -->
+
+						<section class="p-0" aria-label="initialization">
+							<heading> <h2 class="section-title"> II. Initialization </h2> </heading>
+
+							<p class="mb-0"> 
+								Download and refference the 
+								<a class="downloadLink" href="../../css/asterisk/asterisk-utility-float.css" download> asterisk-utility-float.css </a> 
+								<span class="wrapper tooltip-before tooltip-top" data-tooltipText="* This will include all Styles / Features."></span> CSS file.
+								
+								<button class="spoiler-btn spoiler-btn-autoText title-spoilerBtn" data-spoiler-id="init-more"> More | </button>
+							</p> 
+
+							<div class="wrapper"> 
+								<div class="col-12"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-utility-float.css</b-p>" type="text/css" rel="stylesheet"> </div>
+							</div>
+
+							<div class="spoiler" data-spoiler-id="init-more">
+								<div class="spoiler-content">
+									<div class="col-12">
+
+										<p class="mt-sm"> 
+											<b>Alternatively</b>, a <span class="wrapper"><b-p>{*}</b-p><b-r>-spec</b-r><b-p>.css</b-p></span> file can be generated within the <b><span class="wrapper">[Code]</span> Tab</b> <span class="wrapper tooltip-before tooltip-right" data-tooltipText="Will include only the selected Styles/Features. &#13;&#10;───────────────────────────&#13;&#10; See button on the top-right of page."></span>
+										</p>
+										<div class="wrapper mt-0"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-utility-float<b-r>-spec</b-r>.css</b-p>" type="text/css" rel="stylesheet"> </div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+					<!-- III. Usage -->
+
+						<section class="p-0" aria-label="usage">
+							<heading> <h2 class="section-title"> III. Usage </h2> </heading>
+
+							<p> Classes are <b>applied to</b> the <span class="wrapper">HTML Element</span> and <b>take effect on</b> the <span class="wrapper">HTML Element</span> itself. </p>
+
+							<div class="wrapper"> 
+								<line> <b> Format : </b> <br class="xs-visible"> &lt;div class="<b>float-</b><b-p>{value}</b-p>"> &lt;/div> </line>
+								<line> <b> Format : </b> <br class="xs-visible"> &lt;div class="<b>clear-</b><b-p>{value}</b-p>"> &lt;/div> </line>
+
+								<hr>
+
+								<line> 
+									<div class="col-12 md-col-6 p-0">
+										<b> Example : </b> <br class="xs-visible"> &lt;div class="<b>float</b>-<b-p>left</b-p>"> &lt;/div>
+									</div>
+									<div class="col-12 md-col-6 p-0">
+										<i class="comment"> // sets <span class="wrapper">float: left</span> </i>
+									</div>
+								</line>
+
+								<line> 
+									<div class="col-12 md-col-6 p-0">
+										<b> Example : </b> <br class="xs-visible"> &lt;div class="<b>clear</b>-<b-p>left</b-p>"> &lt;/div> 
+									</div>
+									<div class="col-12 md-col-6 p-0">
+										<i class="comment"> // sets <span class="wrapper">clear: left</span> </i>
+									</div>
+								</line>
+							</div>
+						</section>
+
+					<!-- IV. Class-name Syntax -->
+
+						<section class="p-0 mb-0" aria-label="Class-name Syntax">
+							<heading> <h2 class="section-title"> IV. Class-name Syntax </h2> </heading>
+
+							<p class="mb-0"> Each className follows the format : <span class="wrapper"><b>float</b></span>-<span class="wrapper"><b-p>{ value }</b-p></span> or <span class="wrapper"><b>clear</b></span>-<span class="wrapper"><b-p>{ value }</b-p></span>. </p>
+
+							<table class="col-12 table-equal">
+								<tbody>
+									<tr class="text-bold">
+										<td> Class </td>
+										<td> Effect </td>
+									</tr>
+									<tr>
+										<td> <b>float</b>-<b-p>left</b-p> </td>
+										<td class="border-left"> float: left </td>
+									</tr>
+									<tr>
+										<td> <b>float</b>-<b-p>right</b-p> </td>
+										<td class="border-left"> float: right </td>
+									</tr>
+									<tr>
+										<td> <b>float</b>-<b-p>none</b-p> </td>
+										<td class="border-left"> float: none </td>
+									</tr>
+									<tr>
+										<td> <b>clear</b>-<b-p>left</b-p> </td>
+										<td class="border-left"> clear: left </td>
+									</tr>
+									<tr>
+										<td> <b>clear</b>-<b-p>right</b-p> </td>
+										<td class="border-left"> clear: right </td>
+									</tr>
+									<tr>
+										<td> <b>clear</b>-<b-p>both</b-p> </td>
+										<td class="border-left"> clear: both </td>
+									</tr>
+									<tr>
+										<td> <b>float-clear</b> (extra class)</td>
+										<td class="border-left"> clear: both </td>
+									</tr>
+								</tbody>
+							</table>
+
+						</section>
+
+					<!-- V. Viewport-Prefixes -->
+
+						<section class="p-0" aria-label="Viewport-Prefixes">
+							<heading> <h2 class="section-title"> V. Responsive Utilities : Viewport-Prefixes </h2> </heading>
+
+							<p>
+								<span> To create different scenarios for specific viewports, any class can be prefixed with any <span class="wrapper"> *viewport*- </span> or <span class="wrapper"> *viewport*-o- </span> syntax. </span>
+								
+								<button class="modal-btn modal-btn-viewportTable" data-modal-id="viewportTable"> Show Viewport-Prefix Syntax Details </button>
+							</p>
+
+							<div class="col-12">
+								<div class="wrapper"> 
+									<div class="col-12"> <b> Format : </b> <br class="xs-visible"> &lt;div class="<b-r>{viewportPrefix}</b-r><b>-</b><b-p>{className}</b-p>"> &lt;/div> </div>
+
+									<hr>
+
+									<line> 
+										<div class="col-12 md-col-6 p-0">
+											<b> Example : </b> <br class="xs-visible"> &lt;div class="<b-p>float-left</b-p>"> &lt;/div> 
+										</div>
+										<div class="col-12 md-col-6 p-0">
+											<i class="comment"> // sets <span class="wrapper">float: left</span> on <b>all</b> viewports </i>
+										</div>
+									</line>
+
+									<line class="xs-visible sm-visible"> <hr> </line>
+
+									<line> 
+										<div class="col-12 md-col-6 p-0">
+											<b> Example : </b> <br class="xs-visible"> &lt;div class="<b-r>sm-</b-r><b-p>float-left</b-p>"> &lt;/div>
+										</div>
+										<div class="col-12 md-col-6 p-0">
+											<i class="comment"> // sets <span class="wrapper">float: left</span> on <b>small(sm)</b> viewports <b>or larger</b> </i>
+										</div>
+									</line>
+
+									<line class="xs-visible sm-visible"> <hr> </line>
+
+									<line> 
+										<div class="col-12 md-col-6 p-0">
+											<b> Example : </b> <br class="xs-visible"> &lt;div class="<b-r>sm-o-</b-r><b-p>float-left</b-p>"> &lt;/div> 
+										</div>
+										<div class="col-12 md-col-6 p-0">
+											<i class="comment"> // sets <span class="wrapper">float: left</span> on <b>small(sm)</b> viewports <b>only</b> </i>
+										</div>
+									</line>
+								</div>
+							</div>
+						</section>	
+				</div>
+
+				<!-- Code Tab -->
+				<div class="tabs-content article-mainTabs-codeTab" data-tabs-id="2"
+								data-generateCodeFor="['css']" 
+								data-setCopyContextId="gridSystem-12col" 
+								data-setFileName="asterisk-utility-float">
+				</div>
+				
+			</div>
+		</div>
+
+	</article>

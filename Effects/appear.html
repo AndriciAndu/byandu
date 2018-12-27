@@ -1,0 +1,790 @@
+
+	<!-- ===================== Route ================== -->
+	<script src="../xFiles/js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+		<style>
+
+			.demoItem { 
+				height: 150px;
+				text-align: center;
+				background-color: #354758; color: white;
+
+				border: 5px solid #613dcc;
+				border-radius: 3px;
+				text-shadow: 1px 1px 1px rgba(3,3,3,.3);
+
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				overflow: hidden;
+			}
+
+			/* V. 'Build-in' Effect sequence container */
+			.myTestContainer {
+				margin: 15px 0;
+			}
+			.myTestContainer, .myTestItem {
+				display: inline-block;
+				position: relative;
+				float: left;
+				width: 100%;
+			}
+			.myTestItem {
+				width: 33.3%;
+				height: 100px;
+				background-color: red;
+				border: 2px solid black;
+			}
+
+			.myTest-triggerBtn {
+				background-color: purple; color: white;
+				padding: 10px;
+				text-align: center;
+				border-radius: 6px;
+			}
+			.myTest-triggerBtn.active {
+				background-color: red;
+			}
+			.myTest-triggerBtn:after {
+				content: 'Run Effect';
+			}
+			.myTest-triggerBtn.active:after {
+				content: 'Reset';
+			}
+
+			</style>
+	<!-- ============================================== -->
+
+	<article>
+
+		<header class="sr-only"> <h2> Appear Effects </h2> </header>
+
+		<div class="tabs article-mainTabs">
+
+			<div class="article-mainTabs-banner">
+				<div class="article-mainTabs-title"> Effects : Appear </div>
+
+				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
+					<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> Demo  </button>
+					<button class="tabs-btn" 				data-tabs-id="2"> Usage </button>
+					<button class="tabs-btn" 				data-tabs-id="3"> Code  </button>
+				</div>
+			</div>
+
+			<div class="tabs-contentGroup">
+
+				<!-- Demo Tab -->
+				<div class="tabs-content article-mainTabs-demoTab tab-expanded" data-tabs-id="1"> 
+					<div id="__route__mainView__generateDemos"> </div> 
+				</div>
+
+				<!-- Usage Tab -->
+				<div class="tabs-content article-mainTabs-usageTab" data-tabs-id="2"> 
+				
+					<!-- I. Description -->
+
+						<section class="p-0" aria-label="general description">
+							<heading> <h2 class="section-title"> I. Description </h2> </heading>
+
+							<p> 
+								A collection of effects that trigger an 'appear' transition, when elements are scrolled into view. 
+
+                                <button class="spoiler-btn spoiler-btn-autoText title-spoilerBtn" data-spoiler-id="description-more"> More | </button>
+							</p>
+
+							<div class="spoiler" data-spoiler-id="description-more">
+                                <div class="spoiler-content">
+									<p> * Effects can be triggered/applied-to <span class="wrapper">individual elements</span> or they can be <span class="wrapper">sequenced</span> through a parent element. </p>
+									<p> * Effects / sequences can be: <span class="wrapper">auto-triggered</span> when scroll-into-view or they can be <span class="wrapper">triggered by custom functions</span>. </p>
+									<p> * Sequences can have: <span class="wrapper">normal</span> or <span class="wrapper">random</span> trigger-order defined </p>
+									<p> * Sequences can have: <span class="wrapper">normal</span> or <span class="wrapper">sequenced</span> trigger-delays defined </p>
+
+									<p> * Sequences can be used for: full-page image galleries || bottom-page image-loading effects. </p>
+								</div>
+							</div>
+						</section>
+
+					<!-- II. Initialization -->
+
+						<section class="p-0" aria-label="initialization">
+							<heading> <h2 class="section-title"> II. Initialization </h2> </heading>
+
+							<p> 
+								<b>Step 1.</b> Download and refference the 
+								<a class="downloadLink" href="../../css/asterisk/asterisk-effects-appear.css" download> asterisk-effects-appear.css </a> CSS file.
+
+								<button class="spoiler-btn spoiler-btn-autoText title-spoilerBtn" data-spoiler-id="init-more"> More | </button>
+							</p>
+							<div class="wrapper"> <div class="col-12"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-effects-appear.css</b-p>" type="text/css" rel="stylesheet"> </div> </div>
+
+							<div class="spoiler" data-spoiler-id="init-more">
+								<div class="spoiler-content">
+									<div class="col-12">
+
+										<p class="mt-sm"> 
+											<b>Alternatively</b>, a <span class="wrapper"><b-p>{*}</b-p><b-r>-spec</b-r><b-p>.css</b-p></span> file can be generated within the <b><span class="wrapper">[Code]</span> Tab</b> <span class="wrapper tooltip-before tooltip-right" data-tooltipText="Will include only the selected Effects. &#13;&#10;───────────────────────────&#13;&#10; See button on the top-right of page."></span>
+										</p>
+										<div class="wrapper mt-0"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-effects-appear<b-r>-spec</b-r>.css</b-p>" type="text/css" rel="stylesheet"> </div>
+									</div>
+								</div>
+							</div>
+
+							<p> 
+								<b>Step 2.</b> Download and refference the <a class="downloadLink" href="../../js/asterisk/asterisk-effects-appear.js" download> asterisk-effects-appear.js </a> JS file. 
+							</p>
+							<div class="wrapper"> <div class="col-12"> &lt;script src="<b-r>--myPath--</b-r><b-p>/asterisk-effects-appear.js</b-p>" type="text/javascript">&lt;/script> </div> </div>
+
+							<p> <b>Step 3.</b> Make the next function call : </p>
+							<div class="wrapper"> 
+								<div class="col-12">
+									asterisk.effects.appear.init() 
+									<span class="float-right text-italic">// if dynamic content - call after content has loaded </span> 
+								</div>
+							</div>
+						</section>
+
+					<!-- III. Usage -->
+
+						<section class="p-0" aria-label="usage">
+							<heading> <h2 class="section-title"> III. Usage </h2> </heading>
+
+							<!-- 1. Individual -->
+
+								<div class="accordion">
+									<div class="accordion-group px-md my-sm">
+										<button class="accordion-btn"> 1. Adding an <b>appear-{effect}</b> </button>
+										<div class="accordion-content px-0">
+
+											<button class="spoiler-btn spoiler-btn-autoText col-12" data-spoiler-id="appear-individual"> Details | </button>
+
+											<div class="spoiler mt-xs" data-spoiler-id="appear-individual">
+												<div class="spoiler-content">
+													<p class="text-bold text-underline"> Adding an appear-effect on a HTML Element will result in : </p>
+
+													<p class="mb-0 pl-lg"> <b>1.</b> The <span class="wrapper">Element</span> will be hidden from view, through the <span class="wrapper"><b>hasAppearEffect</b></span> class. </p>
+
+													<p class="mb-0 pl-lg"> <b>2.</b> The <span class="wrapper">Element</span> will be given a personal <span class="wrapper">trigger</span>, determined by it's position within the Document. </p>
+
+													<p class="mb-0 pl-lg"> <b>3.</b> When the page is scrolled, and the <span class="wrapper">Element</span> comes into view, it will be made visible through the <span class="wrapper"><b>appearEffects-apply</b></span> class. </p>
+													<p class="sub-heading mt-0 pl-lg"> The effect with which it will be made visible, is determined by the <span class="wrapper"><b-p>appear-{effect}</b-p></span> class assigned to it. </p>
+												</div>
+											</div>
+
+											<div class="col-12 p-0 md-flex md-flex-stretch-center">
+												<div class="col-12 md-col-6 p-0">
+													<div>
+														<p> <b>Step 1.</b> Add the static <span class="wrapper tooltip-before tooltip-top tooltip-wrap" data-tooltipText="Hides the Element, sets a baseline CSS styling and targets the Element through Javascript"><b>hasAppearEffect</b> </span> class on the <span class="wrapper">HTML Element</span> </p>
+
+														<p> <b>Step 2.</b> Add a <span class="wrapper tooltip-before tooltip-top tooltip-wrap" data-tooltipText="Sets the desired CSS transition/animation for the effect"><b-p>appear-{effect}</b-p> </span> class on the <span class="wrapper">HTML Element</span> </p>
+													</div>
+												</div>
+
+												<div class="col-12 md-col-6 p-0">
+													<div class="wrapper"> 
+														<p class="mb-0"> <b>ex :</b> &lt;div class="<span class="wrapper"><b>hasAppearEffect</b></span> <span class="wrapper"><b-p>appear-slideIn-left</b-p></span>"> &lt;/div> </p>
+														<p class="mb-0"> <b>ex :</b> &lt;div class="<span class="wrapper"><b>hasAppearEffect</b></span> <span class="wrapper"><b-p>appear-fadeIn-btm</b-p></span>"> &lt;/div> </p>
+														<p> <b>ex :</b> &lt;div class="<span class="wrapper"><b>hasAppearEffect</b></span> <span class="wrapper"><b-p>appear-scaleIn</b-p></span>"> &lt;/div> </p>
+													</div>
+												</div>
+											</div>
+
+											<hr>
+
+											<p class="mb-0"> 
+												<b>Step 3.</b> Certain <span class="wrapper tooltip-before tooltip-top tooltip-wrap" data-tooltipText="These effects [transform] the HTML Element within the 3D environment, and require a [transform: perspective()] value, on the Parent Element">Effects </span> <b>require</b> an <button class="modal-btn" data-modal-id="dummyParents">'Utility' Parent</button> with a <span class="wrapper"><b-r>effectsContainer-perspective</b-r></span> class. 
+											</p>
+
+											<div class="col-12 p-0 md-flex md-flex-stretch-center">
+
+												<div class="col-12 md-col-6 p-0">
+													<div class="col-12 p-0">
+														<p class="mb-0"> * <b>Required for : <span class="wrapper"><b-p>spinIn-{*}</b-p></span> , <span class="wrapper"><b-p>flyIn-{*}</b-p></span> , <span class="wrapper"><b-p>landIn-{*}</b-p></span> , <span class="wrapper"><b-p>fallIn-{*}</b-p></span> effects.</b></p>
+
+														<p class="sub-heading m-0"> * each such <span class="wrapper">Element</span> requires its' own <span class="wrapper"><b-r>effectsContainer-perspective</b-r></span> <span class="wrapper">Parent</span>. </p>
+
+														<row class="m-0"> <hr class="my-sm"> </row>
+
+														<div class="col-12 xs-hidden"> <button class="spoiler-btn col-12" data-spoiler-id="appear-perspective"> Visual example of [ perspective ] </button> </div>
+													</div>
+												</div>
+
+												<div class="col-12 md-col-6 p-0">
+													<div class="wrapper px-0"> 
+														<div class="col-12 p-0">
+															<line> &lt;div class="<span class="wrapper"><b-r>effectsContainer-perspective</b-r></span>"> </line>
+																<line class="pl-lg"> &lt;div class="<span class="wrapper"><b>hasAppearEffect</b></span> <span class="wrapper"><b-p>appear-flyIn-fwd-top</b-p></span>"> &lt;/div> </line>
+															<line> &lt;/div> </line>
+														</div>
+													</div>
+												</div>
+
+											</div>
+
+											<div class="col-12 p-0 xs-visible"> <button class="spoiler-btn col-12" data-spoiler-id="appear-perspective"> Visual example of [ perspective ] </button> </div>
+
+											<!-- example of perspective scenarios -->
+												<div class="spoiler" data-spoiler-id="appear-perspective">
+													<div class="spoiler-content">
+
+														<p> For best results, an <button class="modal-btn" data-modal-id="dummyParents">'Utility' Parent</button> should be created <b><u>for each</u> affected <span class="wrapper">HTML Element</span></b>, to hold the required <span class="wrapper"><b-r>effectsContainer-perspective</b-r></span> class. </p>
+
+														<hr>
+
+														<p> <b> <b-r><u>NOT</u> Recommended</b-r> : </b> multiple <span class="wrapper">elements</span> within the same <span class="wrapper"><b-r>effectsContainer-perspective</b-r></span> </p>
+
+														<div class="col-12 md-flex md-flex-cross-center">
+															<div class="col-12 md-col-6 md-p-0">
+																<div class="wrapper">
+																	<line> &lt;div class="<b-r>effectsContainer-perspective</b-r>"> </line>
+																	<div class="col-12">
+																		<line> <span class="wrapper px-xs"> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-fallIn-fwd-left</b-p>"> &lt;/div> </span> </line>
+																		<line> <span class="wrapper px-xs"> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-fallIn-fwd-left</b-p>"> &lt;/div> </span> </line>
+																		<line> <span class="wrapper px-xs"> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-fallIn-fwd-left</b-p>"> &lt;/div> </span> </line>
+																		<line> ... </line>
+																	</div>
+																	<line> &lt;/div> </line>
+																</div>
+															</div>
+
+															<div class="col-12 md-col-6 xxx">
+																<p class="text-center"> <span class="wrapper">Hover below to see effect</span> </p>
+																<div class="col-12 p-0 effectsContainer-perspective">
+																	<div class="col-6 md-col-4"> 
+																		<div class="col-12 hasAppearEffect appear-fallIn-fwd-left appearEffects-apply" style="height: 100px; background-color: red"> </div> 
+																	</div>
+
+																	<div class="col-6 md-col-4"> 
+																		<div class="col-12 hasAppearEffect appear-fallIn-fwd-left appearEffects-apply" style="height: 100px; background-color: red"> </div> 
+																	</div>
+
+																	<div class="col-6 md-col-4 xs-hidden sm-hidden"> 
+																		<div class="col-12 hasAppearEffect appear-fallIn-fwd-left appearEffects-apply" style="height: 100px; background-color: red"> </div> 
+																	</div>
+
+																	<hr class="transparent">
+
+																	<div class="col-6 md-col-4"> 
+																		<div class="col-12 hasAppearEffect appear-fallIn-fwd-left appearEffects-apply" style="height: 100px; background-color: red"> </div> 
+																	</div>
+
+																	<div class="col-6 md-col-4"> 
+																		<div class="col-12 hasAppearEffect appear-fallIn-fwd-left appearEffects-apply" style="height: 100px; background-color: red"> </div> 
+																	</div>
+
+																	<div class="col-6 md-col-4 xs-hidden sm-hidden"> 
+																		<div class="col-12 hasAppearEffect appear-fallIn-fwd-left appearEffects-apply" style="height: 100px; background-color: red"> </div> 
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<hr>
+
+														<p> <b> Recommended : </b> each <span class="wrapper">element</span> within it's own <span class="wrapper"><b-r>effectsContainer-perspective</b-r></span></p>
+
+														<div class="col-12 md-flex md-flex-cross-center">
+															<div class="col-12 md-col-6 md-p-0">
+																<span class="wrapper">
+																	<line> &lt;div class="<b-r>effectsContainer-perspective</b-r>"> </line>
+																		<line class="pl-lg"> <span class="wrapper">&lt;div class="<b>hasAppearEffect</b> <b-p>appear-fallIn-fwd-left</b-p>"> &lt;/div></span> </line>
+																	<line> &lt;/div> </line>
+																</span>
+																<span class="wrapper">
+																	<line> &lt;div class="<b-r>effectsContainer-perspective</b-r>"> </line>
+																		<line class="pl-lg"> <span class="wrapper">&lt;div class="<b>hasAppearEffect</b> <b-p>appear-fallIn-fwd-left</b-p>"> &lt;/div></span> </line>
+																	<line> &lt;/div> </line>
+																</span>
+																<span class="wrapper">
+																	<line> &lt;div class="<b-r>effectsContainer-perspective</b-r>"> </line>
+																		<line class="pl-lg"> <span class="wrapper">&lt;div class="<b>hasAppearEffect</b> <b-p>appear-fallIn-fwd-left</b-p>"> &lt;/div></span> </line>
+																	<line> &lt;/div> </line>
+																</span>
+																<line> ... </line>
+															</div>
+
+															<div class="col-12 md-col-6 xxx">
+																<p class="text-center"> <span class="wrapper">Hover below to see effect</span> </p>
+
+																<div class="col-6 md-col-4 effectsContainer-perspective"> 
+																	<div class="col-12 hasAppearEffect appear-fallIn-fwd-left appearEffects-apply" style="height: 100px; background-color: red"> </div> 
+																</div>
+
+																<div class="col-6 md-col-4 effectsContainer-perspective"> 
+																	<div class="col-12 hasAppearEffect appear-fallIn-fwd-left appearEffects-apply" style="height: 100px; background-color: red"> </div> 
+																</div>
+
+																<div class="col-6 md-col-4 effectsContainer-perspective xs-hidden sm-hidden"> 
+																	<div class="col-12 hasAppearEffect appear-fallIn-fwd-left appearEffects-apply" style="height: 100px; background-color: red"> </div> 
+																</div>
+
+																<hr class="transparent">
+
+																<div class="col-6 md-col-4 effectsContainer-perspective"> 
+																	<div class="col-12 hasAppearEffect appear-fallIn-fwd-left appearEffects-apply" style="height: 100px; background-color: red"> </div> 
+																</div>
+
+																<div class="col-6 md-col-4 effectsContainer-perspective"> 
+																	<div class="col-12 hasAppearEffect appear-fallIn-fwd-left appearEffects-apply" style="height: 100px; background-color: red"> </div> 
+																</div>
+
+																<div class="col-6 md-col-4 effectsContainer-perspective xs-hidden sm-hidden"> 
+																	<div class="col-12 hasAppearEffect appear-fallIn-fwd-left appearEffects-apply" style="height: 100px; background-color: red"> </div> 
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+
+										</div>
+									</div>
+								</div>
+
+							<!-- 2. Synchronization -->
+								
+								<div class="accordion">
+									<div class="accordion-group px-md my-sm">
+										<button class="accordion-btn"> 2. Synchronizing multiple <b>appear-{effect}</b> Elements </button>
+										<div class="accordion-content">
+
+											<button class="spoiler-btn spoiler-btn-autoText col-12" data-spoiler-id="appear-sequenced"> Details | </button>
+
+											<div class="spoiler mt-xs" data-spoiler-id="appear-sequenced">
+												<div class="spoiler-content">
+													<p class="text-bold text-underline"> Synchronizing multiple HTML Elements will result in : </p>
+
+													<p class="mb-0 pl-lg"> <b>1.</b> The <span class="wrapper">Elements</span> will (still) be hidden from view, through their <span class="wrapper"><b>hasAppearEffect</b></span> class. </p>
+
+													<p class="mb-0 pl-lg"> <b>2.</b> The <span class="wrapper">Elements</span> will <b><u>not</u></b> be given personal <span class="wrapper">triggers</span>. The <span class="wrapper">trigger</span> will be created for the <span class="wrapper"><b-r>effectsContainer-sequence</b-r></span> <span class="wrapper">Parent Element</span> and it's position within the Document. </p>
+
+													<p class="mb-0 pl-lg"> <b>3.</b> When the page is scrolled, and the <span class="wrapper"><b-r>effectsContainer-sequence</b-r></span> <span class="wrapper">Parent Element</span> comes into view, it will make all the <span class="wrapper">Elements</span> within the sequence visible, by applying the <span class="wrapper"><b>appearEffects-apply</b></span> class on each of them. </p>
+												</div>
+											</div>
+
+											<p class="mb-0"> 
+												<b>Creating a <span class="wrapper">sequence</span></b> requires placing the <span class="wrapper"><b>hasAppearEffect</b></span> <span class="wrapper">HTML Elements</span> within a <span class="wrapper"><b-r>effectsContainer-sequence</b-r></span> <span class="wrapper">Parent</span>. 
+												<button class="spoiler-btn float-right m-0 hvr-revealText" data-spoiler-id="appear-sequenced-markup" style="transform:translateY(-.3em); font-size: .9em;" data-hvr-revealText="Markup Example"><i class="fa fa-asterisk"></i></button>
+											</p>
+
+											<p class="sub-heading"> * Even if triggered through a <span class="wrapper"><b-r>sequence</b-r></span>, individual <span class="wrapper">Elements</span> can still have <b>different <span class="wrapper">appear-{effect}</span></b> and <b>individual <span class="wrapper">delay</span></b> values. </p>
+
+											<div class="col-12">
+												<div class="spoiler m-0" data-spoiler-id="appear-sequenced-markup">
+													<div class="spoiler-content">
+														<div class="col-12 p-0 md-flex md-flex-cross-center">
+															<div class="col-12 md-col-6"> 
+																<line> <b>Effects which <u>do not</u> require <span class="wrapper">effectsContainer-perspective</span> : </b> </line>
+																<hr>
+																<line> &lt;div class="<b-r>effectsContainer-sequence</b-r>"> </line>
+																	<line class="pl-lg"> <span class="wrapper"> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-slideIn-left</b-p>"> &lt;/div> </span> </line>
+																	<line class="pl-lg"> <span class="wrapper"> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-slideIn-top</b-p>"> &lt;/div> </span> </line>
+																	<line class="pl-lg"> <span class="wrapper"> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-slideIn-right</b-p>"> &lt;/div> </span> </line>
+																<line> &lt;/div> </line>
+															</div>
+
+															<div class="col-12 md-col-6"> 
+																<line> <b>Effects which <u>do</u> require <span class="wrapper">effectsContainer-perspective</span> : </b> </line>
+																<hr>
+																<line> &lt;div class="<b-r>effectsContainer-sequence</b-r>"> </line>
+																	<div class="col-12 pl-lg">
+																		<span class="wrapper">
+																			<line> &lt;div class="<b>effectsContainer-perspective</b>"> </line>
+																				<line class="pl-lg"> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-fallIn-fwd-left</b-p>"> &lt;/div> </line>
+																			<line> &lt;/div> </line>
+																			</span>
+
+																			<span class="wrapper">
+																			<line> &lt;div class="<b>effectsContainer-perspective</b>"> </line>
+																				<line class="pl-lg"> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-fallIn-fwd-top</b-p>"> &lt;/div> </line>
+																			<line> &lt;/div> </line>
+																			</span>
+
+																			<span class="wrapper">
+																			<line> &lt;div class="<b>effectsContainer-perspective</b>"> </line>
+																				<line class="pl-lg"> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-fallIn-fwd-right</b-p>"> &lt;/div> </line>
+																			<line> &lt;/div> </line>
+																		</span>
+																	</div>
+																<line> &lt;/div> </line>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>	
+
+							<!-- 3. Custom triggers -->
+
+								<div class="accordion">
+									<div class="accordion-group px-md my-sm">
+										<button class="accordion-btn"> 3. Creating custom <b>triggers</b> </button>
+										<div class="accordion-content">
+
+											<button class="spoiler-btn spoiler-btn-autoText col-12" data-spoiler-id="appear-triggers"> Details | </button>
+
+											<div class="spoiler mt-xs" data-spoiler-id="appear-triggers">
+												<div class="spoiler-content">
+													<p class="text-bold text-underline"> Creating a custom trigger will result in : </p>
+
+													<p class="mb-0 pl-lg"> <b>1.</b> The <span class="wrapper">Elements</span> will be hidden from view, through the <span class="wrapper"><b>hasAppearEffect</b></span> class. </p>
+
+													<p class="mb-0 pl-lg"> <b>2.</b> The <span class="wrapper">Element</span> / <span class="wrapper">sequence container-element</span> will <b><u>not</u></b> be given a personal <span class="wrapper">trigger</span>. </p>
+
+													<p class="mb-0 pl-lg"> <b>3.</b> The <span class="wrapper">Element</span> / <span class="wrapper">sequence container-element</span> will <b><u>not</u></b> be made visibile when it comes into view. </p>
+
+													<p class="mb-0 pl-lg"> <b>4.</b> The <span class="wrapper">Element</span> / <span class="wrapper">sequence container-element</span> can be made visible through a <span class="wrapper">custom function</span>, which adds the <span class="wrapper">appearEffects-apply</span> class. </p>
+												</div>
+											</div>
+
+											<!-- 1 -->
+											<p class="mb-0"> <b>Step 1.</b> Add an <span class="wrapper"><b-r>appear-customTrigger</b-r></span> class on <b>each</b> target. </p>
+
+											<p class="mt-xs mb-0 pl-lg"> 
+												<b>* For <span class="wrapper">elements</span> :</b> the class is added to the <span class="wrapper"><b>hasAppearEffect</b></span> <span class="wrapper">HTML Element</span> itself. 
+												<button class="spoiler-btn float-right hvr-revealText" data-spoiler-id="appear-triggers-individual" style="transform:translateY(-.3em); font-size: .9em" data-hvr-revealText="Markup Example"><i class="fa fa-asterisk"></i></button>
+											</p>
+
+											<!-- spoiler - individual -->
+											<div class="col-12">
+												<div class="spoiler mt-0" data-spoiler-id="appear-triggers-individual">
+													<div class="spoiler-content">
+
+														<line> &lt;div class="<span class="wrapper"><b>hasAppearEffect</b></span> <span class="wrapper"><b-p>appear-slideIn-left</b-p></span> <span class="wrapper"><b-r>appear-customTrigger</b-r></span>"> &lt;/div> </line>
+
+														<hr>
+
+														<line> &lt;div class="<span class="wrapper"><b>effectsContainer-perspective</b></span>"></line>
+															<line class="pl-lg"> &lt;div class="<span class="wrapper"><b>hasAppearEffect</b></span> <span class="wrapper"><b-p>appear-flyIn-fwd-top</b-p></span> <span class="wrapper"><b-r>appear-customTrigger</b-r></span>"> &lt;/div> </line>
+														<line> &lt;/div> </line>
+
+													</div>
+												</div>
+											</div>
+
+											<p class="my-xs pl-lg"> 
+												<span><b>* For <span class="wrapper"><b>sequences</b></span> :</b> the class is added to the <span class="wrapper"><b>effectsContainer-sequence</b></span> <span class="wrapper">Parent Element</span>. </span>
+												<button class="spoiler-btn float-right m-0 hvr-revealText" data-spoiler-id="appear-triggers-sequence" style="transform:translateY(-.3em); font-size: .9em" data-hvr-revealText="Markup Example"><i class="fa fa-asterisk"></i></button>
+											</p>
+
+											<!-- spoiler - sequence -->
+											<div class="col-12">
+												<div class="spoiler mt-0" data-spoiler-id="appear-triggers-sequence">
+													<div class="spoiler-content">
+														<div class="col-6">
+															<line> &lt;div class="<span class="wrapper"><b>effectsContainer-sequence</b></span> <span class="wrapper"><b-r>appear-customTrigger</b-r></span>"></line>
+																<div class="col-12 pl-lg">
+																	<span class="wrapper">
+																		<line> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-slideIn-left</b-p>"> &lt;/div> </line>
+																	</span>
+																</div>
+																<div class="col-12 pl-lg">
+																	<span class="wrapper">
+																		<line> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-slideIn-left</b-p>"> &lt;/div> </line>
+																	</span>
+																</div>
+																<div class="col-12 pl-lg">
+																	<span class="wrapper">
+																		<line> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-slideIn-left</b-p>"> &lt;/div> </line>
+																	</span>
+																</div>
+															<line> &lt;/div> </line>
+														</div>
+
+														<div class="col-6">
+															<line> &lt;div class="<span class="wrapper"><b>effectsContainer-sequence</b></span> <span class="wrapper"><b-r>appear-customTrigger</b-r></span>"></line>
+															<div class="col-12 pl-lg">
+																<span class="wrapper">
+																	<line> &lt;div class="<b>effectsContainer-perspective</b>"></line>
+																		<line class="pl-lg"> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-flyIn-fwd-top</b-p>"> &lt;/div> </line>
+																	<line> &lt;/div> </line>
+																</span>
+																<span class="wrapper">
+																	<line> &lt;div class="<b>effectsContainer-perspective</b>"></line>
+																		<line class="pl-lg"> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-flyIn-fwd-top</b-p>"> &lt;/div> </line>
+																	<line> &lt;/div> </line>
+																</span>
+																<span class="wrapper">
+																	<line> &lt;div class="<b>effectsContainer-perspective</b>"></line>
+																		<line class="pl-lg"> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-flyIn-fwd-top</b-p>"> &lt;/div> </line>
+																	<line> &lt;/div> </line>
+																</span>
+															</div>
+															<line> &lt;/div> </line>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="col-12"> <hr class="my-xs"> </div>
+
+											<!-- 2 -->
+											<p class="mb-0"> <b>Step 2.</b> Call the <span class="wrapper"><b>asterisk.effects.appear.<b-p>target_applyEffect</b-p>( targetElem )</b></span> function. </p>
+											
+											<p class="mt-xs mb-0 pl-lg"> 
+												<b>* For <span class="wrapper">elements</span> :</b> the argument is the desired <span class="wrapper"><b>hasAppearEffect</b></span> <span class="wrapper">HTML Element</span> to trigger. 
+												<button class="spoiler-btn float-right hvr-revealText" data-spoiler-id="appear-triggers-individual-2" style="transform:translateY(-.3em); font-size: .9em" data-hvr-revealText="Markup Example"><i class="fa fa-asterisk"></i></button>
+											</p>
+
+											<!-- spoiler - individual -->
+											<div class="col-12">
+												<div class="spoiler mt-0" data-spoiler-id="appear-triggers-individual-2">
+													<div class="spoiler-content">
+
+														<line> &lt;div id="<b>myElem</b>" class="<span class="wrapper"><b>hasAppearEffect</b></span> <span class="wrapper"><b-p>appear-slideIn-left</b-p></span> <span class="wrapper"><b-r>appear-customTrigger</b-r></span>"> &lt;/div> </line>
+
+														<hr>
+
+														<line> var <span class="wrapper">myElem</span> = document.getElementById('<b>myElem</b>'); </line>
+
+														<line> function myCustomFunction() { </line>
+															<line class="pl-lg"> <i style="color: rgba(3,3,3,.5)">// do something </i> </line>
+															<line class="pl-lg"> asterisk.effects.appear.<b-p>target_applyEffect</b-p>( <span class="wrapper">myElem</span> ) <i style="color: rgba(3,3,3,.5)">// this will make the <span class="wrapper">Element</span> visible</i> </line>
+														<line> }; </line>
+
+														<hr>
+
+														<line> * For individual <span class="wrapper">HTML Elements</span>, the <span class="wrapper">asterisk.effects.appear.<b-p>target_applyEffect</b-p></span> function simply adds the <span class="wrapper">appearEffects-apply</span> class on the <span class="wrapper"><b>hasAppearEffect</b></span> <span class="wrapper">HTML Element</span> passed as the argument. </line>
+
+													</div>
+												</div>
+											</div>
+
+											<p class="my-xs pl-lg"> 
+												<b>* For <span class="wrapper">sequences</span> :</b> the argument is the desired <span class="wrapper"><b>effectsContainer-sequence</b></span> <span class="wrapper">Parent Element</span> to trigger. 
+												<button class="spoiler-btn float-right hvr-revealText" data-spoiler-id="appear-triggers-sequence-2" style="transform:translateY(-.3em); font-size: .9em" data-hvr-revealText="Markup Example"><i class="fa fa-asterisk"></i></button>
+											</p>
+
+											<!-- spoiler - sequence -->
+											<div class="col-12">
+												<div class="spoiler mt-0" data-spoiler-id="appear-triggers-sequence-2">
+													<div class="spoiler-content">
+
+														<line> &lt;div id="mySequence" class="<span class="wrapper"><b>effectsContainer-sequence</b></span> <span class="wrapper"><b-r>appear-customTrigger</b-r></span>"></line>
+															<div class="col-12 pl-lg">
+																<span class="wrapper">
+																	<line> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-slideIn-left</b-p>"> &lt;/div> </line>
+																</span>
+															</div>
+															<div class="col-12 pl-lg">
+																<span class="wrapper">
+																	<line> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-slideIn-left</b-p>"> &lt;/div> </line>
+																</span>
+															</div>
+															<div class="col-12 pl-lg">
+																<span class="wrapper">
+																	<line> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-slideIn-left</b-p>"> &lt;/div> </line>
+																</span>
+															</div>
+														<line> &lt;/div> </line>
+
+														<hr>
+
+														<line> var <span class="wrapper">mySequence</span> = document.getElementById('<b>mySequence</b>'); </line>
+
+														<line> function myCustomFunction() { </line>
+															<line class="pl-lg"> <i style="color: rgba(3,3,3,.5)">// do something </i> </line>
+															<line class="pl-lg"> asterisk.effects.appear.<b-p>target_applyEffect</b-p>( <span class="wrapper">mySequence</span> ) <i style="color: rgba(3,3,3,.5)">// this will make the <span class="wrapper">Elements</span> in the <span class="wrapper">sequence</span> visible</i> </line>
+														<line> }; </line>
+
+														<hr>
+
+														<line> * For <span class="wrapper">sequences</span>, the <span class="wrapper">asterisk.effects.appear.<b-p>target_applyEffect</b-p></span> function : </line>
+														<line class="pl-lg"> - itterates through all the <span class="wrapper"><b>hasAppearEffect</b></span> <span class="wrapper">HTML Elements</span> within the <span class="wrapper">sequence</span> that is passed as the argument </line>
+														<line class="pl-lg"> - adds the <span class="wrapper">appearEffects-apply</span> class on each <span class="wrapper">HTML Element</span> </line>
+														<line class="pl-lg"> - includes the functionality for the <span class="wrapper">delay</span> and <span class="wrapper">drandomOrder</span> scenarios. </line>
+
+													</div>
+												</div>
+											</div></p>
+
+										</div>
+									</div>
+								</div>	
+								
+							<!-- 4. Delay -->
+
+								<div class="accordion">
+									<div class="accordion-group px-md my-sm">
+										<button class="accordion-btn"> 4. Adding <b>delay</b> </button>
+										<div class="accordion-content">
+
+											<button class="spoiler-btn spoiler-btn-autoText col-12" data-spoiler-id="appear-delay"> Details | </button>
+
+										<div class="spoiler mt-xs" data-spoiler-id="appear-delay">
+											<div class="spoiler-content">
+												<p class="text-bold text-underline"> Adding a delay will result in : </p>
+
+												<p class="mb-0 pl-lg"> When the <span class="wrapper">Element</span> / <span class="wrapper">sequence</span> reaches its' trigger point, the transition will be posponed for a period of time (the delay) before it takes effect. </p>
+											</div>
+										</div>
+
+										<p> <b>* For <span class="wrapper">Elements</span> : </b> </p>
+
+										<!-- option A -->
+										<p class="pl-lg"> 
+											<b>Option (a) :</b> Add a <span class="wrapper tooltip-before tooltip-top tooltip-wrap" data-tooltipText="This works because all effects are done with CSS transitions, by changing the [transform] and [opacity] values">transition-delay </span> <span class="wrapper">CSS attribute</span> on the <span class="wrapper"><b>hasAppearEffect</b></span> <span class="wrapper">HTML Element</span>. 
+
+											<button class="spoiler-btn float-right hvr-revealText" data-spoiler-id="appear-delay-elements-a" style="transform:translateY(-.3em); font-size: .9em" data-hvr-revealText="Markup Example"><i class="fa fa-asterisk"></i></button>
+										</p>
+
+										<!-- option A - spoiler -->
+										<div class="col-12">
+											<div class="spoiler mt-0" data-spoiler-id="appear-delay-elements-a">
+												<div class="spoiler-content">
+													<div class="wrapper">
+														<line> &lt;div id="<b>myElem</b>" class="<span class="wrapper"><b>hasAppearEffect</b></span> <span class="wrapper"><b-p>appear-slideIn-left</b-p></span>"> &lt;/div> </line>
+
+														<hr>
+
+														<line> <b>#myElem</b> { </line>
+															<line class="pl-lg">transition-delay: 200ms;</line>
+														<line> } </line>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- option B -->
+										<p class="pl-lg"> 
+											<b>Option (b) :</b> Add a <span class="wrapper tooltip-before tooltip-top tooltip-wrap" data-tooltipText="These classes apply a [transition-delay] value (in miliseconds) to the Element. They range from 'transition-delay-100' to 'transition-delay-5000', in increments of 100" >transition-delay-{number} </span> <span class="wrapper">class</span> on the <span class="wrapper"><b>hasAppearEffect</b></span> <span class="wrapper">HTML Element</span>. 
+
+											<button class="spoiler-btn float-right hvr-revealText" data-spoiler-id="appear-delay-elements-b" style="transform:translateY(-.3em); font-size: .9em" data-hvr-revealText="Markup Example"><i class="fa fa-asterisk"></i></button>
+										</p>
+
+										<!-- option B - spoiler -->
+										<div class="col-12">
+											<div class="spoiler mt-0" data-spoiler-id="appear-delay-elements-b">
+												<div class="spoiler-content">
+													<div class="wrapper">
+														<line> &lt;div class="<span class="wrapper"><b>hasAppearEffect</b></span> <span class="wrapper"><b-p>appear-slideIn-left</b-p></span> <span class="wrapper"><b>transition-delay-200</b></span>"> &lt;/div> </line>
+
+														<hr>
+
+														<line> <b>.transition-delay-200</b> { </line>
+															<line class="pl-lg">transition-delay: 200ms;</line>
+														<line> } </line>
+
+														<hr>
+
+														<line> * The <span class="wrapper"><b>transition-delay-{number}</b></span> classes are included in the <span class="wrapper">asterisk-effects-appear.css</span> file. </line>
+														<line> * The <span class="wrapper"><b>{number}</b></span> ranges from <span class="wrapper"><b>100</b></span> to <span class="wrapper"><b>5000</b></span>, in increments of <span class="wrapper"><b>100</b></span>. </line>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<p class="sub-heading pl-lg mt-0"> * Both options cannot be used together - as the <span class="wrapper">transition-delay</span> CSS declarations would override one or the other </p>
+
+										<div class="col-12"> <hr> </div>
+
+										<p> <b>* For <span class="wrapper">sequences</span> : </b> </p>
+
+										<!-- option A -->
+										<p class="pl-lg"> 
+											<b>Option (a) :</b> Add <b>individual <span class="wrapper">delays</span></b> on each desired <span class="wrapper"><b>hasAppearEffect</b></span> <span class="wrapper">HTML Element</span> (steps from above)
+										</p>
+
+										<!-- option B -->
+										<p class="pl-lg"> 
+											<b>Option (b) :</b> Add a <span class="wrapper"><b-p>data-appearEffects-delay</b-p></span> <span class="wrapper">attribute</span> on the <span class="wrapper"><b>effectsContainer-sequence</b></span> <span class="wrapper">Parent Element</span>.
+
+											<button class="spoiler-btn float-right hvr-revealText" data-spoiler-id="appear-delay-sequence" style="transform:translateY(-.3em); font-size: .9em" data-hvr-revealText="Markup Example"><i class="fa fa-asterisk"></i></button>
+										</p>
+
+										<!-- option B - spoiler -->
+										<div class="col-12">
+											<div class="spoiler mt-0" data-spoiler-id="appear-delay-sequence">
+												<div class="spoiler-content">
+
+													<p> If the <span class="wrapper"><b-p>data-appearEffects-delay</b-p></span> attribute is present : </p>
+													<p class="pl-lg mt-0"> 1. It will automatically be picked up by Javascript </p>
+													<p class="pl-lg mt-0"> 2. It will call the <span class="wrapper">asterisk.effects.appear.target_applyEffect()</span> for each <span class="wrapper">hasAppearEffect</span> <span class="wrapper">Element</span>, through a <span class="wrapper"><b>setTimeout</b></span> </p>
+													<p class="pl-lg mt-0"> 3. The <span class="wrapper"><b>setTimeout</b></span> value is incremented for each <span class="wrapper">Element</span> </p>
+
+													<hr>
+
+													<div class="wrapper">
+														<line> &lt;div class="<b>effectsContainer-sequence</b>" <b-p>data-appearEffects-delay</b-p>="<b-r>200</b-r>"> </line>
+															<line class="pl-lg"> &lt;div class="hasAppearEffect appear-slideIn-left"> &lt;/div> <i style="color: rgba(3,3,3,.5)">&lt;!-- will appear after 0ms --></i> </line>
+															<line class="pl-lg"> &lt;div class="hasAppearEffect appear-slideIn-left"> &lt;/div> <i style="color: rgba(3,3,3,.5)">&lt;!-- will appear after 200ms --></i>  </line>
+															<line class="pl-lg"> &lt;div class="hasAppearEffect appear-slideIn-left"> &lt;/div> <i style="color: rgba(3,3,3,.5)">&lt;!-- will appear after 400ms --></i>  </line>
+															<line class="pl-lg"> &lt;div class="hasAppearEffect appear-slideIn-left"> &lt;/div> <i style="color: rgba(3,3,3,.5)">&lt;!-- will appear after 600ms --></i>  </line>
+														<line> &lt;/div> </line>
+													</div>
+
+												</div>
+											</div>
+										</div>
+
+										<p class="sub-heading pl-lg mt-0"> * Both options cannot be used together - as the <span class="wrapper">transition-delay</span> CSS declarations and the <span class="wrapper">setTimeout</span> would both take effect </p>
+
+										</div>
+									</div>
+								</div>
+
+						</section>
+
+					<!-- VI. 'Build-in' Synchronization Effect (HTML)  -->
+					
+						<section class="p-0" aria-label="usage">
+							<heading> <h2 class="section-title"> VI. 'Build-in' Synchronization Effect (HTML)  </h2> </heading>
+
+							<p> Create random-order synchronised sections (usual use case: sections of images) </p>
+
+							<div class="col-12 md-col-6">
+								<div class="wrapper">
+									<line> &lt;div class="effectsContainer-sequence" </line>
+									<line> <b-r>data-appearEffects-delay</b-r>="<b-p><span class="myTestSpan-delay">100</span></b-p>" </line>
+									<line> <b-r>data-appearEffects-randomOrder</b-r>="<b-p>true</b-p>"> </line>
+									<div class="col-12 pl-lg pr-0 myTestContainer-innerHTML">
+										<span class="wrapper"><line> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-slideIn-left</b-p>">&lt;/div> </line></span>
+										<span class="wrapper"><line> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-slideIn-left</b-p>">&lt;/div> </line></span>
+										<span class="wrapper"><line> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-slideIn-left</b-p>">&lt;/div> </line></span>
+										<span class="wrapper"><line> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-slideIn-left</b-p>">&lt;/div> </line></span>
+										<span class="wrapper"><line> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-slideIn-left</b-p>">&lt;/div> </line></span>
+										<span class="wrapper"><line> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-slideIn-left</b-p>">&lt;/div> </line></span>
+										<span class="wrapper"><line> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-slideIn-left</b-p>">&lt;/div> </line></span>
+										<span class="wrapper"><line> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-slideIn-left</b-p>">&lt;/div> </line></span>
+										<span class="wrapper"><line> &lt;div class="<b>hasAppearEffect</b> <b-p>appear-slideIn-left</b-p>">&lt;/div> </line></span>
+									</div>
+									<line> &lt;/div> </line>
+								</div>
+							</div>
+							<div class="col-12 md-col-6">
+								<row class="p-0">
+									<div class="col-12 mb-xs md-mb-0 md-col-6"> <input class="col-12 p-0 myTest-input-delay" type="number" value="100"> </div>
+									<div class="col-12 md-col-6"> <select class="col-12 p-0 myTest-select-effect"> </select> </div>
+									<hr>
+									<div class="col-12"> <div class="myTest-triggerBtn"></div> </div>
+								</row>
+								<hr>
+								<div class="myTestContainer effectsContainer-sequence" data-appearEffects-delay="100" data-appearEffects-randomOrder="true">
+									<div class="myTestItem hasAppearEffect appear-slideIn-left"></div> 
+									<div class="myTestItem hasAppearEffect appear-slideIn-left"></div> 
+									<div class="myTestItem hasAppearEffect appear-slideIn-left"></div> 
+									<div class="myTestItem hasAppearEffect appear-slideIn-left"></div> 
+									<div class="myTestItem hasAppearEffect appear-slideIn-left"></div> 
+									<div class="myTestItem hasAppearEffect appear-slideIn-left"></div> 
+									<div class="myTestItem hasAppearEffect appear-slideIn-left"></div> 
+									<div class="myTestItem hasAppearEffect appear-slideIn-left"></div> 
+									<div class="myTestItem hasAppearEffect appear-slideIn-left"></div> 
+								</div>
+							</div>
+						</section>
+				</div>
+
+				<!-- Code Tab -->
+				<div class="tabs-content article-mainTabs-codeTab"  data-tabs-id="3"
+							data-generateCodeFor="['html', 'css', 'js']" 
+							data-setCopyContextId="enterExitEffects" 
+							data-setFileName="asterisk-effects-enterExit"
+							data-includeJSDependencies="true">
+				</div>
+				
+			</div>
+		</div>
+
+	</article>

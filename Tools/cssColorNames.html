@@ -1,0 +1,110 @@
+
+	<!-- ===================== Route ================== -->
+	<script src="../xFiles/js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+	<style>
+
+		#cssColorNames-main {
+			float: left;
+		}
+
+		.article-colorItemWrapper {
+			font-weight: bold;
+		}
+
+		.border-left {
+			border-color: rgba(3,3,3,.1);
+		}
+
+		.sticky-title {
+			top: 25px; z-index: 700;
+			margin: 10px 0;
+			font-size: 1.1em; font-weight: bold;
+			text-transform: capitalize;
+		}
+
+		@media (max-width: 767.98px) {
+			.border-left {
+				border-style: none;
+			}
+			.sticky-title {
+				top: 38px;
+			}
+			.article-colorItem__name {
+				color: #be0c0c;
+			}
+		}
+
+		.article-colorItemWrapper:nth-of-type(2n){
+			background-color: rgba(3,3,3,.1);
+		}
+
+		.article-colorItem__sample {
+			margin-top: 10px; margin-bottom: 10px;
+			border-radius: 3px;
+			box-shadow: 1px 1px 1px rgba(3,3,3,.7);
+		}
+
+		.article-colorItem__name ,
+		.article-colorItem__hex ,
+		.article-colorItem__rgb {
+			position: relative;
+			overflow: hidden;
+			padding-top: 10px; padding-bottom: 10px;
+
+			cursor: pointer; cursor: hand;
+
+		    -webkit-transition: color .2s;
+		       -moz-transition: color .2s;
+		         -o-transition: color .2s;
+		            transition: color .2s; 
+		}
+
+		.article-colorItem__name::after ,
+		.article-colorItem__hex::after ,
+		.article-colorItem__rgb::after {
+			content: 'Copied';
+			position: absolute;
+			top: 0; right: 0;
+			height: 100%;
+			padding: 10px 15px;
+
+			background-color: #613dcc;
+			color: #FFFFFF;
+
+		    -webkit-transform: translateX(110%) ;
+		        -ms-transform: translateX(110%) ;
+		            transform: translateX(110%) ;
+		    -webkit-transition: transform .3s;
+		       -moz-transition: transform .3s;
+		         -o-transition: transform .3s;
+		            transition: transform .3s; 
+		}
+
+		.article-colorItem__name:hover ,
+		.article-colorItem__hex:hover ,
+		.article-colorItem__rgb:hover {
+			color: #613dcc;
+			text-shadow: 1px 1px 1px rgba(3,3,3,.3);
+		}
+
+		.colorItem-clickTarget-active::after {
+			-webkit-transform: translateX(0) ;
+		        -ms-transform: translateX(0) ;
+		            transform: translateX(0) ;
+		}
+
+		</style>
+	<!-- ============================================== -->
+
+	<article>
+
+		<header class="sr-only"> <h2> CSS Color Names  </h2> </header>
+
+		<div class="article-title noTextOverlay"> CSS Color Names </div>
+
+		<div id="asdf"></div>
+
+		<div id="cssColorNames-main"></div>
+
+	</article>

@@ -1,0 +1,680 @@
+
+	<!-- ===================== Route ================== -->
+	<script src="../xFiles/js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+	<style> 
+
+		.notifBox_setPosition-testArea input,
+		.notifBox_setPosition-testArea select {
+			float: right; width: 50%;
+		}
+
+		.notifBox_setPosition-testArea-target {
+			position: relative;
+			width: 200px; height: 200px;
+			margin: 50px auto;
+			background-color: red;
+		}
+
+		.notifBox_setPosition-testArea-notifBox {
+			top: 75px; left: 75px;
+			position: absolute;
+			width: 50px; height: 50px;
+			background-color: green;
+		}
+
+		.notifBox_setBubble-testArea select { width: 100%; }
+
+		.notifBox_setBubble-testArea-target {
+			position: relative;
+			width: 200px; height: 200px;
+			margin: 20px auto;
+			border-color: red; background-color: red;
+			border-radius: 6px;
+		}
+
+		</style>
+	<!-- ============================================== -->
+
+	<article>
+
+		<h2 class="sr-only"> The 'Onboarding' Component </h2>
+
+		<div class="tabs article-mainTabs">
+
+			<div class="article-mainTabs-banner">
+				<div class="article-mainTabs-title"> Components : Onboarding </div>
+
+				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
+					<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> Demo  </button>
+					<button class="tabs-btn" 				data-tabs-id="2"> Usage </button>
+					<button class="tabs-btn" 				data-tabs-id="3"> ---   </button>
+				</div>
+			</div>
+
+			<div class="tabs-contentGroup">
+
+				<!-- Demo Tab -->
+				<div class="tabs-content article-mainTabs-demoTab tab-expanded" data-tabs-id="1"> </div>
+
+				<!-- Usage Tab -->
+				<div class="tabs-content article-mainTabs-usageTab" data-tabs-id="2"> 
+
+					<!-- -->
+						<q-title> I. Initialization </q-title>
+
+						<row> 
+							1. Add the following files: <br>
+								* [<b-p>asterisk-component-onboarding.css</b-p>], <br>
+								* [<b-p>asterisk-component-onboarding-stepsDefinitions.js</b-p>], <br>
+								* [<b-p>asterisk-component-onboarding.js</b-p>].
+						</row>
+
+						<row> <b-r>Required:</b-r> The [ <b-p>asterisk-component-<u>onboarding-stepsDefinitions</u>.js</b-p> ] file, must be placed before the [ <b-p>asterisk-component-onboarding.js</b-p> ] file. </row>
+				
+						<row class="mb-0"> 2. Make the next function call: </row>
+
+						<div class="wrapper"> 
+							<div class="flex flex-cross-center"> 
+								<div class="col-10"> componentsObject.onboarding.init() </div>
+								<button class="col-2 spoiler-btn spoiler-btn-autoText text-center m-0" data-spoiler-id="onboarding-init"> </button>
+							</div>
+
+							<div class="spoiler" data-spoiler-id="onboarding-init">
+								<div class="spoiler-content">
+
+									<line> componentsObject.onboarding.init(current_target) </line>
+									<hr>
+									<line> Case: <b-r>componentsObject.onboarding.init()</b-r> </line>
+									<line> All [onboarding] within the document will be initialized. </line>
+									<hr>
+									<line> Case: <b-r>componentsObject.onboarding.init(</b-r> <b-p>[onboarding Element]</b-p> <b-r>)</b-r> </line>
+									<line> That specific [onboarding] will be initialized. </line>
+									<hr>
+									<line> Case: <b-r>componentsObject.onboarding.init(</b-r> <b-p>[NON-onboarding Element]</b-p> <b-r>)</b-r> </line>
+									<line> All [onboarding] within that [NON-onboarding Element] Element will be initialized. </line>
+
+								</div>
+							</div>
+						</div>
+
+					<!-- -->
+						<q-title> II. Usage (HTML & JS) </q-title>
+
+						<row> <b-r>Required Markup :</b-r> </row>
+						<div class="wrapper">
+							<div class="col-6">
+								<line> &lt;div class="<b>onboarding</b>"> </line>
+									<indent>
+									<line-space></line-space>
+									<line> &lt;div class="<b>onboarding-notification</b>"> </line>
+										<indent>
+										<line-space></line-space>
+										<line> &lt;div class="<b>onboarding-notification-textBox</b>"> &lt;/div> </line>
+										<line-space></line-space>
+										<line> &lt;div class="<b>onboarding-notification-btnContainer</b>"> </line>
+											<indent>
+											<line> &lt;div class="<b>onboarding-prevBtn</b>"> Back &lt;/div> </line>
+											<line> &lt;div class="<b>onboarding-nextBtn</b>"> Next &lt;/div> </line>
+											</indent>
+										<line> &lt;/div> </line>
+										<line-space></line-space>
+										</indent>
+									<line> &lt;/div> </line>
+									<line-space></line-space>
+									<line> &lt;div class="<b>onboarding-finishBtn</b>"> Finish &lt;/div> </line>
+									</indent>
+								<line> &lt;/div> </line>
+							</div>
+
+							<div class="col-6 border-left">
+								<line> // Full-screen container element </line>
+									<indent>
+									<line-space></line-space>
+									<line> // Notification Box - shows current scenario </line>
+										<indent>
+										<line-space></line-space>
+										<line> // Text to be displayed within Notification Box </line>
+										<line-space></line-space>
+										<line> // Holds next/prev buttons and sets their size </line>
+											<indent>
+											<line> // Go to next step </line>
+											<line> // Go to prev step </line>
+											</indent>
+										<line> &nbsp; </line>
+										<line-space></line-space>
+										</indent>
+									<line> &nbsp; </line>
+									<line-space></line-space>
+									<line> // Finish (hide) [onboarding] </line>
+									</indent>
+								<line> &nbsp; </line>
+
+							</div>
+						</div>
+
+						<hr>
+
+						<row> <b-r>Steps Object :</b-r> </row>
+
+						<row class="flex flex-cross-center p-0"> 
+							<div class="col-10"> 
+								Each <b-r>[onboarding]</b-r> requires setting up a <b-p>[stepsObj]</b-p> property, in which we define the actions which should occur on each step. 
+								This is done within [<b-p>asterisk-component-onboarding-stepsDefinitions.js</b-p>].
+							</div>
+							<button class="col-2 spoiler-btn text-center m-0" data-spoiler-id="stepsObj-example1"> Example </button>
+						</row>
+
+						<div class="spoiler" data-spoiler-id="stepsObj-example1">
+							<div class="spoiler-content">
+
+								<div class="wrapper">
+									<line> <b-r>[onboarding]</b-r><b-p>.stepsObj</b-p> = [ </line>
+										<indent>
+										<line-space></line-space>
+										<line> <b-r>{</b-r> <i> // Step 1 - actions </i> </line>
+											<indent-red>
+											<line> <b-p>notifBox_setPosition</b-p> 	: 'center-on-screen'						, </line>
+											<line> <b-p>notifBox_setBubble</b-p> 	: ' '										, </line>
+											<line> <b-p>notifBox_setText</b-p> 		: '&lt;p> First Step &lt;/p>' 				  </line>
+											</indent-red>
+										<line> <b-r>}</b-r> , </line>
+										<line-space></line-space>
+										<line> <b-r>{</b-r> <i> // Step 2 - actions </i>  </line>
+											<indent-red>
+											<line> <b-p>step_defaultTarget</b-p> 		: document.getElementById('myId')					, </line>
+											<line> <b-p>highlight</b-p> 				: true 												, </line>
+											<line> <b-p>scrollTo</b-p> 					: true 												, </line>
+											<line> <b-p>notifBox_setPosition</b-p> 		: [['right-out', 10], ['center', 10]]				, </line>
+											<line> <b-p>notifBox_setBubble</b-p> 		: 'bubble-left bubble-center'						, </line>
+											<line> <b-p>notifBox_setText</b-p> 			: '&lt;p> Second Step &lt;/p>' 						  </line>
+											</indent-red>
+										<line> <b-r>}</b-r> , </line>
+										<line-space></line-space>
+										<line> ...  <i> // Add more objects like above, to define more steps </i> </line>
+										<line-space></line-space>
+										</indent>
+									<line> ]; </line>
+								</div>
+
+							</div>
+						</div>
+
+						<hr>
+
+						<row> The <b-r>[stepsObj]</b-r> property is <b-p>an [array] of [annonimous objects]</b-p>. </row>
+						<row class="mt-0"> Each <b-r>[annonimous object]</b-r>, represents a <b-p>[step]</b-p> which the [onboarding] execution will follow. </row>
+						<row class="mt-0"> Each <b-r>[step]</b-r> can receive any of the following <b-p>[properties]</b-p>, which will define what actions will occur : </row>
+
+						<div class="wrapper">
+							<div class="col-4">
+								<line> <b-r>[onboarding]</b-r><b-p>.stepsObj</b-p> = [ </line>
+									<indent>
+									<line-space></line-space>
+									<line> <b-r>{</b-r> </line>
+										<indent-red>
+										<line> <b-p>step_defaultTarget</b-p> 	: </line>
+										<line-space></line-space>
+										<line> <b-p>click</b-p> 				: </line>
+										<line> <b-p>highlight</b-p> 			: </line>
+										<line> <b-p>scrollTo</b-p> 				: </line>
+										<line-space></line-space>
+										<line> <b-p>notifBox_setPosition</b-p> 	: </line>
+										<line> <b-p>notifBox_setBubble</b-p> 	: </line>
+										<line> <b-p>notifBox_setText</b-p> 		: </line>
+										<line> <b-p>notifBox_show</b-p> 		: </line>
+										<line> <b-p>notifBox_hide</b-p> 		: </line>
+										</indent-red>
+									<line> <b-r>}</b-r> </line>
+									<line-space></line-space>
+									</indent>
+								<line> ]; </line>
+							</div>
+
+							<div class="col-8">
+								<line> &nbsp; </line>
+								<line-space></line-space>
+								<line> &nbsp; </line>
+								<line> Singular HTML Element - Default targetElement refference </line>
+								<line-space></line-space>
+								<line> Singular/Multiple HTML Elements - will be 'clicked' </line>
+								<line> Singular/Multiple HTML Elements - will be 'highlighted' </line>
+								<line> Singular HTML Element - page will scroll to it </line>
+								<line-space></line-space>
+								<line> Set the position of the notifBox in refference to the [step_defaultTarget] </line>
+								<line> Set the bubble-position of the notifBox </line>
+								<line> Set the innerHTML of the notifBox </line>
+								<line> Display the notifBox (if it was hidden previously) </line>
+								<line> Hide the notifBox </line>
+							</div>
+						</div>
+
+						<!-- step_defaultTarget -->
+
+							<hr class="m-0">
+
+							<row class="flex flex-cross-center p-0"> 
+								<div class="col-10"> 
+									<b-p>step_defaultTarget : </b-p>
+								</div>
+								<button class="col-2 spoiler-btn spoiler-btn-autoText text-center m-0" data-spoiler-id="step_defaultTarget-details"> </button>
+							</row>
+
+							<div class="spoiler" data-spoiler-id="step_defaultTarget-details">
+								<div class="spoiler-content">
+
+									<div class="wrapper"> 
+										<line> 
+											<b-r>
+											<div class="col-3"> Property </div>
+											<div class="col-3"> Value </div>
+											<div class="col-6"> Description </div>
+											</b-r>
+										</line>
+										<hr>
+										<line> 
+											<div class="col-3"> <b-p>step_defaultTarget</b-p> </div>
+											<div class="col-3"> * HTMLElement </div>
+											<div class="col-6"> element to refference by default, if actions are set without a provided target. </div>
+										</line>
+										<hr>
+										<div class="col-12">
+											<line> <b><u>Example:</u></b> </line>
+											<line-space></line-space>
+											<line> <b-p>step_defaultTarget</b-p> : document.getElementById('myId-1') </line>
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+						<!-- click -->
+
+							<hr class="m-0">
+
+							<row class="flex flex-cross-center p-0"> 
+								<div class="col-10"> 
+									<b-p>click : </b-p>
+								</div>
+								<button class="col-2 spoiler-btn spoiler-btn-autoText text-center m-0" data-spoiler-id="click-details"> </button>
+							</row>
+
+							<div class="spoiler" data-spoiler-id="click-details">
+								<div class="spoiler-content">
+
+									<div class="wrapper"> 
+										<line>
+											<b-r>
+											<div class="col-3"> Property </div>
+											<div class="col-3"> Value </div>
+											<div class="col-6"> Description </div>
+											</b-r>
+										</line>
+										<hr>
+										<line> 
+											<div class="col-3"> <b-p>click</b-p> </div>
+											<div class="col-3"> * <b-p>true</b-p> (boolean) <br> * HTMLElement <br> * array of HTMLElements </div>
+											<div class="col-6"> HTML Elements which will be click()-ed when this step runs. </div>
+										</line>
+										<hr>
+										<line> <div class="col-12"> <b><u>Example:</u></b> </div> </line>
+										<line-space></line-space>
+										<line> 
+											<div class="col-6"> <b-p>click</b-p> : true </div>
+											<div class="col-6"> // will click() the Element provided as [step_defaultTarget] </div>
+										</line>
+										<line-space></line-space>
+										<line> 
+											<div class="col-6"> <b-p>click</b-p> : document.getElementById('myId-1') </div>
+											<div class="col-6"> // will click() the Element provided </div>
+										</line>
+										<line-space></line-space>
+										<line> 
+											<div class="col-6"> <b-p>click</b-p> : [ <br>document.getElementById('myId-1'),<br> document.getElementById('myId-2') <br>] </div>
+											<div class="col-6"> // will click() each of the Elements provided </div>
+										</line>
+									</div>
+
+									<row class="p-0"> 
+										<div class="wrapper">
+										<line> <b-r> Note : Order is important. </b-r> </line>
+										<line> If multiple Elements were provided as arguments (array, HTMLCollection), they will be targeted for the click() event, in the order they were defined within the array/classCollection. 
+										If certain scenarios require the click() events to be triggered in a specific order, set the order of the arguments within the array/classCollection accordingly. </line>
+										</div>
+									</row>
+
+								</div>
+							</div>
+
+						<!-- highlight -->
+
+							<hr class="m-0">
+
+							<row class="flex flex-cross-center p-0"> 
+								<div class="col-10"> 
+									<b-p>highlight : </b-p>
+								</div>
+								<button class="col-2 spoiler-btn spoiler-btn-autoText text-center m-0" data-spoiler-id="highlight-details"> </button>
+							</row>
+
+							<div class="spoiler" data-spoiler-id="highlight-details">
+								<div class="spoiler-content">
+
+									<div class="wrapper"> 
+										<line>
+											<b-r>
+											<div class="col-3"> Property </div>
+											<div class="col-3"> Value </div>
+											<div class="col-6"> Description </div>
+											</b-r>
+										</line>
+										<hr>
+										<line> 
+											<div class="col-3"> <b-p>highlight</b-p> </div>
+											<div class="col-3"> * <b-p>true</b-p> (boolean) <br> * HTMLElement <br> * array of HTMLElements </div>
+											<div class="col-6"> HTML Elements which will be 'highlighted' (give the 'onboarding-highlight' class) when this step runs. </div>
+										</line>
+										<hr>
+										<line> <div class="col-12"> <b><u>Example:</u></b> </div> </line>
+										<line-space></line-space>
+										<line> 
+											<div class="col-6"> <b-p>highlight</b-p> : true </div>
+											<div class="col-6"> // will highlight the Element provided as [step_defaultTarget] </div>
+										</line>
+										<line-space></line-space>
+										<line> 
+											<div class="col-6"> <b-p>highlight</b-p> : document.getElementById('myId-1') </div>
+											<div class="col-6"> // will highlight the Element provided </div>
+										</line>
+										<line-space></line-space>
+										<line> 
+											<div class="col-6"> <b-p>highlight</b-p> : [ <br>document.getElementById('myId-1'),<br> document.getElementById('myId-2') <br>] </div>
+											<div class="col-6"> // will highlight each of the Elements provided </div>
+										</line>
+									</div>
+
+									<row class="p-0"> 
+										<div class="wrapper">
+										<b-r> Note : </b-r> On each step, all elements which are already 'highlighted', will have their highlight removed. <br>
+										To keep certain elements 'highlighted' throughout multiple steps, it is required to set the as targets for [highlight] in each step.
+										</div>
+									</row>
+
+								</div>
+							</div>
+
+						<!-- scrollTo -->
+
+							<hr class="m-0">
+
+							<row class="flex flex-cross-center p-0"> 
+								<div class="col-10"> 
+									<b-p> scrollTo : </b-p>
+								</div>
+								<button class="col-2 spoiler-btn spoiler-btn-autoText text-center m-0" data-spoiler-id="scrollTo-details"> </button>
+							</row>
+
+							<div class="spoiler" data-spoiler-id="scrollTo-details">
+								<div class="spoiler-content">
+
+									<div class="wrapper"> 
+										<line>
+											<b-r>
+											<div class="col-3"> Property </div>
+											<div class="col-3"> Value </div>
+											<div class="col-6"> Description </div>
+											</b-r>
+										</line>
+										<hr>
+										<line> 
+											<div class="col-3"> <b-p>scrollTo</b-p> </div>
+											<div class="col-3"> * <b-p>true</b-p> (boolean) <br> * HTMLElement </div>
+											<div class="col-6"> Element to which the page will scroll to (singular HTML Element). </div>
+										</line>
+										<hr>
+										<line> <div class="col-12"> <b><u>Example:</u></b> </div> </line>
+										<line-space></line-space>
+										<line> 
+											<div class="col-6"> <b-p>scrollTo</b-p> : true </div>
+											<div class="col-6"> // will scrollTo the Element provided as [step_defaultTarget] </div>
+										</line>
+										<line-space></line-space>
+										<line> 
+											<div class="col-6"> <b-p>scrollTo</b-p> : document.getElementById('myId-1') </div>
+											<div class="col-6"> // will scrollTo the Element provided </div>
+										</line>
+									</div>
+
+									<row class="p-0"> 
+										<div class="wrapper">
+										<line> <b-r> Note : </b-r> Only one Element can be defined as the target for scroll, as to not cause infinite looping, 
+										triggered by successively trying to reach multiple points throughout the Document. </line>
+
+										<line> If multiple Elements are provided as arguments (array, HTMLCollection), only the first Element will be taken into account. </line>
+										</div>
+									</row>
+
+								</div>
+							</div>
+
+						<!-- notifBox_setPosition -->
+
+							<hr class="m-0">
+
+							<row class="flex flex-cross-center p-0"> 
+								<div class="col-10"> 
+									<b-p> notifBox_setPosition : </b-p>
+								</div>
+								<button class="col-2 spoiler-btn spoiler-btn-autoText text-center m-0" data-spoiler-id="notifBox_setPosition-details"> </button>
+							</row>
+
+							<div class="spoiler" data-spoiler-id="notifBox_setPosition-details">
+								<div class="spoiler-content">
+
+									<div class="wrapper"> 
+										<line>
+											<b-r>
+											<div class="col-3"> Property </div>
+											<div class="col-3"> Value </div>
+											<div class="col-6"> Description </div>
+											</b-r>
+										</line>
+										<hr>
+										<line> 
+											<div class="col-3"> <b-p>notifBox_setPosition</b-p> </div>
+											<div class="col-3"> * 2D Array Construct <br> * 'center-on-screen' </div>
+											<div class="col-6"> Will define the position of the [onboarding-notification] box within the document - in refference to the [step_defaultTarget]. </div>
+										</line>
+										<hr>
+										<line> <div class="col-12"> <b-p>notifBox_setPosition</b-p> <b>: 'center-on-screen' </b> </div></line>
+										<line> <div class="col-12"> This scenario will center the [onboarding-notification] box, in relation to the [onboarding] component, and will appear as if fixed to the center of the viewport. </div></line>
+										<hr>
+										<line> <div class="col-12"> <b-p>notifBox_setPosition</b-p> <b>: [ [ x-axis-refference , x-axis-offset-value ] , [ y-axis-refference , y-axis-offset-value ] ]</b> </div></line>
+										<line> <div class="col-12"> 
+											This scenario will position the [onboarding-notification] box, in relation to the [step_defaultTarget] DOM Element, 
+											in accordance with the provided parameters within the 2D Array Construct. (See '<b-p>Code Generator & Demo</b-p>' below) 
+										</div></line>
+										<hr>
+										<line> 
+											<b-r>
+											<div class="col-3"> Parameter </div>
+											<div class="col-3"> Value Type </div>
+											<div class="col-6"> Accepted Values </div>
+											</b-r>
+										</line>
+										<line-space></line-space>
+										<line>
+											<div class="col-3"> x-axis-refference </div>
+											<div class="col-3"> string </div>
+											<div class="col-6"> 'left-out' | 'left-in' | 'center' | 'right-in' | 'right-out' </div>
+										</line>
+										<line>
+											<div class="col-3"> x-axis-offset </div>
+											<div class="col-3"> number </div>
+											<div class="col-6"> any positive/negative number </div>
+										</line>
+										<line>
+											<div class="col-3"> y-axis-refference </div>
+											<div class="col-3"> string </div>
+											<div class="col-6"> 'top-out' | 'top-in' | 'center' | 'btm-in' | 'btm-out' </div>
+										</line>
+										<line>
+											<div class="col-3"> y-axis-offset </div>
+											<div class="col-3"> number </div>
+											<div class="col-6"> any positive/negative number </div>
+										</line>
+									</div>
+
+									<button class="col-12 spoiler-btn spoiler-btn-autoText text-center m-0" data-spoiler-id="notifBox_setPosition-demo"> Code Generator & Demo | </button>
+
+									<div class="spoiler" data-spoiler-id="notifBox_setPosition-demo">
+										<div class="spoiler-content">
+
+											<row class="notifBox_setPosition-testArea p-0">
+
+												<row class="notifBox_setPosition-testArea-finalArray text-center"> <b-p>notifBox_setPosition</b-p> <b>: [ [ 'center' , 0 ], [ 'center' , 0 ] ]</b> </row>
+												<hr>
+
+												<row class="flex flex-cross-stretch p-0">
+													<div class="col-4 flex flex-cross-center">
+														<div>
+															<row>
+																X Refference : 
+																<select class="notifBox_setPosition-selectX float-right"> 
+																	<option value='left-out'> 						left-out 	</option>
+																	<option value='left-in'> 						left-in 	</option>
+																	<option value='center' selected="selected"> 	center 		</option>
+																	<option value='right-in'> 						right-in 	</option>
+																	<option value='right-out'> 						right-out 	</option>
+																</select>
+															</row>
+															<row> X Offset: <input class="notifBox_setPosition-inputX" type="number" min="-50" max="50" value="0"/> </row>
+															
+															<row>
+																Y Refference : 
+																<select class="notifBox_setPosition-selectY float-right"> 
+																	<option value='top-out'> 						top-out 	</option>
+																	<option value='top-in'> 						top-in 		</option>
+																	<option value='center' selected="selected"> 	center 		</option>
+																	<option value='btm-in'> 						btm-in 		</option>
+																	<option value='btm-out'> 						btm-out 	</option>
+																</select>
+															</row>
+															<row> Y Offset: <input class="notifBox_setPosition-inputY" type="number" min="-50" max="50" value="0"/> </row>
+														</div>
+													</div>
+
+													<div class="col-8 p-0 border-left">
+														<div class="notifBox_setPosition-testArea-target"> 
+															<div class="notifBox_setPosition-testArea-notifBox"> </div>
+														</div>
+													</div>
+												</row>
+
+											</row>
+
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+						<!-- notifBox_setBubble -->
+
+							<hr class="m-0">
+
+							<row class="flex flex-cross-center p-0"> 
+								<div class="col-10"> 
+									<b-p> notifBox_setBubble : </b-p>
+								</div>
+								<button class="col-2 spoiler-btn spoiler-btn-autoText text-center m-0" data-spoiler-id="notifBox_setBubble-details"> </button>
+							</row>
+
+							<div class="spoiler" data-spoiler-id="notifBox_setBubble-details">
+								<div class="spoiler-content">
+
+									<div class="wrapper"> 
+										<line>
+											<b-r>
+											<div class="col-3"> Property </div>
+											<div class="col-3"> Value </div>
+											<div class="col-6"> Description </div>
+											</b-r>
+										</line>
+										<hr>
+										<line> 
+											<div class="col-3"> <b-p>notifBox_setBubble</b-p> </div>
+											<div class="col-3"> string of values </div>
+											<div class="col-6"> Will define the position of the 'bubble'-arrow of the [onboarding-notification]. </div>
+										</line>
+										<hr>
+										<line> <div class="col-12"> String of values Construct : 'direction-refferenceClass position-refferenceClass' </div></line>
+										<hr>
+										<line>
+											<div class="col-3"> direction-refferenceClass </div>
+											<div class="col-3"> string </div>
+											<div class="col-6"> 'bubble-left' | 'bubble-right' | 'bubble-top' | 'bubble-btm' </div>
+										</line>
+											<div class="col-3"> position-refferenceClass </div>
+											<div class="col-3"> string </div>
+											<div class="col-6"> 'bubble-start' | 'bubble-center' | 'bubble-end' </div>
+										</line>
+									</div>
+
+									<button class="col-12 spoiler-btn spoiler-btn-autoText text-center m-0" data-spoiler-id="notifBox_setBubble-demo"> Code Generator & Demo | </button>
+
+									<div class="spoiler" data-spoiler-id="notifBox_setBubble-demo">
+										<div class="spoiler-content">
+
+											<row class="notifBox_setBubble-testArea p-0">
+
+												<row class="notifBox_setBubble-testArea-result text-center"> <b-p>notifBox_setBubble</b-p> <b>: 'bubble-left bubble-start' </b> </row>
+												<hr>
+
+												<row class="flex flex-cross-stretch p-0">
+													<div class="col-4 flex flex-cross-center">
+														<div>
+															<row>
+																Direction Refference : 
+																<select class="notifBox_setBubble-selectDir float-right"> 
+																	<option value='bubble-left' selected="selected"> 	bubble-left 	</option>
+																	<option value='bubble-right'> 						bubble-right 	</option>
+																	<option value='bubble-top'> 						bubble-top 		</option>
+																	<option value='bubble-btm'> 						bubble-btm 		</option>
+																	<option value=' '>									remove 			</option>
+																</select>
+															</row>
+															<row>
+																Position Refference : 
+																<select class="notifBox_setBubble-selectPos float-right"> 
+																	<option value='bubble-start' selected="selected"> 	bubble-start 	</option>
+																	<option value='bubble-center'> 						bubble-center 	</option>
+																	<option value='bubble-end'> 						bubble-end 		</option>
+																</select>
+															</row>
+														</div>
+													</div>
+
+													<div class="col-8 p-0 border-left">
+														<div class="notifBox_setBubble-testArea-target bubble-left bubble-start"> </div>
+													</div>
+												</row>
+
+											</row>
+
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+						- setText
+						- show/hide
+				</div>
+
+				<!-- Code Tab -->
+				<div class="tabs-content article-mainTabs-codeTab"  data-tabs-id="3"> </div>
+			</div>
+		</div>
+		
+	</article>

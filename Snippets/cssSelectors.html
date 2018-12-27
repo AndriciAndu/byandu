@@ -1,0 +1,123 @@
+
+	<!-- ===================== Route ================== -->
+	<script src="../xFiles/js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+	<style>
+		</style>
+	<!-- ============================================== -->
+
+	<article>
+
+		<div class="article-title"> CSS Selectors </div>
+
+		<section class="p-0 m-0">
+
+			<div class="accordion">
+				<div class="accordion-group px-md my-sm">
+					<button class="accordion-btn"> start-of-className </button>
+					<div class="accordion-content px-0">
+
+						<p> CSS Selector Syntax, which targets elements which have a <span class="wrapper">class</span> that <b-r>starts</b-r> with a specific <span class="wrapper">string</span>. </p>
+
+						<div class="col-12">
+							<div class="wrapper">
+								<div class="copyContext-btnContainer" data-copyContextId="cssSelectors-startOfClass-1">
+									<button class="copyContext-btn copyContext-btn-copyText"> </button>
+								</div>
+
+								<div class="copyContext" data-copyContextId="cssSelectors-startOfClass-1">
+									<pre class="pre-removeTabSpaces">
+									    [class^="<b-r>classNameString</b-r>"] , [class*=" <b-r>classNameString</b-r>"] {
+									        /* do magic */
+									    }
+									</pre>
+								</div>
+							</div>
+						</div>
+
+						<p> Example - both scenarios achieve the same results : </p>
+
+						<div class="col-12 md-col-6">
+							<div class="wrapper">
+								<pre class="pre-removeTabSpaces">
+								    <b>imgFilter-</b>1977  , <b>imgFilter-</b>aden    , <b>imgFilter-</b>amaro    ,
+								    <b>imgFilter-</b>ashby , <b>imgFilter-</b>brannan , <b>imgFilter-</b>brooklyn {
+								        /* do something */
+								    }
+								</pre>
+							</div>
+						</div>
+						<div class="col-12 md-col-6">
+							<div class="wrapper">
+								<pre class="pre-removeTabSpaces">
+								    [class^="<b>imgFilter-</b>"] , [class*=" <b>imgFilter-</b>"] {
+								        /* do something */
+								    } 
+
+								</pre>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="accordion">
+				<div class="accordion-group px-md my-sm">
+					<button class="accordion-btn"> if exactly (x) children </button>
+					<div class="accordion-content px-0">
+
+						<p class="mb-0"> CSS Selector Syntax, which targets elements where there are <b><u>exactly</u> <span class="wrapper"><b-r>x</b-r></span> children/siblings.</b> </p>
+
+						<p class="sub-heading mt-0"> From <a target="_blank" href="https://youtu.be/54wJkqG8jXE?t=23m13s">Lea Verou | CSS3 Secrets: 10 things you might not know about CSS3 | Fronteers 2011 </a>. </p> 
+
+						<div class="wrapper">
+							<div class="copyContext-btnContainer" data-copyContextId="cssSelectors-atLeastN-1">
+								<button class="copyContext-btn copyContext-btn-copyText"> </button>
+							</div>
+
+							<div class="copyContext" data-copyContextId="cssSelectors-atLeastN-1">
+								<pre class="pre-removeTabSpaces">
+								    <b>[mySelector]</b>:first-child:nth-last-child(<b-r>x</b-r>),
+								    <b>[mySelector]</b>:first-child:nth-last-child(<b-r>x</b-r>) ~ <b>[mySelector]</b> {
+								        /* do magic */
+								    } 
+								</pre>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="accordion">
+				<div class="accordion-group px-md my-sm">
+					<button class="accordion-btn"> if at-least (x) children </button>
+					<div class="accordion-content px-0">
+
+						<p class="mb-0"> CSS Selector Syntax, which targets elements where there are <b><u>at least</u> <span class="wrapper"><b-r>x</b-r></span> children/siblings.</b> </p>
+
+						<p class="sub-heading mt-0"> From <a target="_blank" href="https://youtu.be/54wJkqG8jXE?t=23m13s">Lea Verou | CSS3 Secrets: 10 things you might not know about CSS3 | Fronteers 2011 </a>. </p> 
+
+						<div class="wrapper">
+							<div class="copyContext-btnContainer" data-copyContextId="cssSelectors-atLeastN-1">
+								<button class="copyContext-btn copyContext-btn-copyText"> </button>
+							</div>
+
+							<div class="copyContext" data-copyContextId="cssSelectors-atLeastN-1">
+								<pre class="pre-removeTabSpaces">
+								    <b>[mySelector]</b>:first-child:nth-last-child(n+<b-r>x</b-r>),
+								    <b>[mySelector]</b>:first-child:nth-last-child(n+<b-r>x</b-r>) ~ <b>[mySelector]</b> {
+								        /* do magic */
+								    } 
+								</pre>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+	</article>
