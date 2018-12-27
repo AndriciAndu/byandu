@@ -602,36 +602,35 @@
 			
 			(function(){ 
 
-				var route   = asterisk.route;
-				var infoObj = route.info;
-
 				switch(window.location.protocol) {
 					case 'file:' :
-						infoObj.url_rootHost  = infoObj.predefined.localFile_rootFolder;
-						infoObj.url_indexPage = infoObj.predefined.localFile_rootFolder + '/' + infoObj.predefined.indexPageName;
+						asterisk.route.info.url_rootHost  = asterisk.route.info.predefined.localFile_rootFolder;
+						asterisk.route.info.url_indexPage = asterisk.route.info.predefined.localFile_rootFolder + '/' + asterisk.route.info.predefined.indexPageName;
 						break;
 
 					case 'http:' : 
 					case 'https:': 
-						infoObj.url_rootHost  = window.location.host;
-						infoObj.url_indexPage = window.location.host;
+						asterisk.route.info.url_rootHost  = window.location.host;
+						asterisk.route.info.url_indexPage = window.location.host;
 						break;
 				};
 
-				var currentArticleUrl = route.intermediary.getUrlParameter('load').toLowerCase();
+				console.log('asd');
+
+				var currentArticleUrl = asterisk.route.intermediary.getUrlParameter('load').toLowerCase();
 
 				if (currentArticleUrl && currentArticleUrl != '') {
 
-					var current_routeTemplate = route.templates.find(item => item.filePath_html.toLowerCase() == currentArticleUrl);
+					var current_routeTemplate = asterisk.route.templates.find(item => item.filePath_html.toLowerCase() == currentArticleUrl);
 
 					if (current_routeTemplate) {
 
-						infoObj.currentTemplate = current_routeTemplate;
-						route.loadPage(current_routeTemplate.filePath_html , 'replace');
+						asterisk.route.info.currentTemplate = current_routeTemplate;
+						asterisk.route.loadPage(current_routeTemplate.filePath_html , 'replace');
 
 					} else {
 
-						route.loadPage('/utility/gridSystem-12col.html' , 'replace'); // default page if incorrect params
+						asterisk.route.loadPage('/utility/gridSystem-12col.html' , 'replace'); // default page if incorrect params
 
 					};
 
