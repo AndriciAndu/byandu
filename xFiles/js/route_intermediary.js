@@ -48,8 +48,18 @@
 		// redirect to index page - (with route details included in the href)
 
 			var redirectUrl = url_indexPage + url_articleString + href_hash + href_search;
-			console.log({redirectUrl , url_indexPage , url_articleString , href_hash , href_search});
-			location.assign(redirectUrl);
+
+			switch(window.location.protocol) {
+				case 'file:' :
+					redirectUrl = url_indexPage + url_articleString + href_hash + href_search; break;
+
+				case 'http:' : 
+				case 'https:': 
+					redirectUrl = url_articleString + href_hash + href_search;
+					break;
+			};
+			console.log(redirectUrl);
+			location.replace(redirectUrl);
 
 
 			// var newURL = window.location.protocol + "://" + window.location.host + "/" + window.location.pathname;
