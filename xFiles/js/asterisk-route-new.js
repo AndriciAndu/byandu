@@ -518,7 +518,7 @@
 						fetch(htmlFile_url)
 
 						// 2. check the response
-						.then(function(response) { 
+						.then(function(response) { console.log(response)
 							if (!response.ok) { throw Error(response.statusText) }
 							return response.text() 
 						})
