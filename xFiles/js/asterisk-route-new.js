@@ -513,7 +513,7 @@
 					if (filePath_html && filePath_html != '') {
 
 						var htmlFile_url = asterisk.route.info.url_rootHost + filePath_html;
-						console.log('htmlFile_url')
+						console.log(htmlFile_url)
 						// 1. get the html file
 						fetch(htmlFile_url)
 
