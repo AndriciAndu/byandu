@@ -14,14 +14,30 @@
 			// -----------------------------------------------------
 
 				asterisk.components.spoiler = {};
-				var spoilerObj = asterisk.components.spoiler;
 
-				spoilerObj.transitionDuration = 300;
+			// Wrappers
+			// -----------------------------------------------------
+
+				asterisk.components.spoiler.intermediary     = {}; // holds intermediary [functions/methods]
+				asterisk.components.spoiler.storedParameters = {}; // holds [Elements] which have been altered (with [evtListener] or [on-elem parameters])
+
+			// store all Elements that have been given an EventListener
+			// -----------------------------------------------------
+
+				asterisk.components.spoiler.storedParameters.itemsWithEvents = [];
+
+			// store all [Spoiler-btn] Elements that have been given on-element Parameters
+			// -----------------------------------------------------
+
+				asterisk.components.spoiler.storedParameters.itemsWithParams = [];
 
 			// Dependencies 
 			// -----------------------------------------------------
 
-				asterisk.utility = asterisk.utility || {} ;
+				// [asterisk.utility] init 
+				// -----------------------------------------------------
+
+					asterisk.utility = asterisk.utility || {} ;
 
 				// hasClass()
 				// -----------------------------------------------------
@@ -32,191 +48,222 @@
 
 					var hasClass = asterisk.utility.hasClass;
 
-			// Init
-			// -----------------------------------------------------
-
-				spoilerObj.init = function(current_target, delegateEventListener) {
-
-					if (current_target) { 
-
-						if (hasClass(current_target, 'spoiler-btn')) {
-
-							spoilerObj.activate(current_target) 
-
-						} else if (delegateEventListener === true) {
-
-							spoilerObj.delegate(current_target)
-
-						} else { 
-
-							var spoilerBtns = Array.from(current_target.getElementsByClassName('spoiler-btn'));	
-							spoilerBtns.map(spoilerBtn => spoilerObj.activate(spoilerBtn));
-
-						}
-
-					} else {
-
-						var allSpoilerBtns = Array.from(document.getElementsByClassName('spoiler-btn'));
-						allSpoilerBtns.map(spoilerBtn => spoilerObj.activate(spoilerBtn));
-
-					}
-
-				};
-
-			// Activate 
-			// -----------------------------------------------------
-
-				spoilerObj.activate = function(current_target) {
-
-					current_target.addEventListener('click', function() { 
-						spoilerObj.run(this) 
-					})
-
-				};
-
-			// Delegate
-			// -----------------------------------------------------
-
-				spoilerObj.delegate = function(current_target) {
-
-					current_target.addEventListener('click', function(e) {
-						if (hasClass(e.target, 'spoiler-btn')) { spoilerObj.run(e.target) }
-					})
-
-				};
-					
-			// Run
-			// -----------------------------------------------------
-
-				spoilerObj.run = function(current_spoilerBtn) {
-
-					var targetParametersObj = current_spoilerBtn.targetParameters || spoilerObj.spoilerBtn_defineParameters(current_spoilerBtn , true);
-
-					var targetSpoiler = targetParametersObj.targetSpoiler;
-					var targetButtons = targetParametersObj.targetButtons;
-
-					if (targetSpoiler) {
-
-						// collapsing animation
-						if (hasClass(targetSpoiler , 'spoiler-expanded')) { 
-
-							spoilerObj.collapse(targetSpoiler);
-							targetButtons.map((btn) => btn.classList.remove('active'));
-
-						// expanding animation
-						} else {
-
-							spoilerObj.expand(targetSpoiler);
-							targetButtons.map((btn) => btn.classList.add('active'));		// update  buttons  status
-
-						}
-
-					} else {
-
-						console.log(
-							'No [spoiler] element with [data-spoiler-id="'+current_spoilerBtn.getAttribute('data-spoiler-id')+'"] found within document.' + 
-							' Event triggered by [spoiler-btn] : ' , current_spoilerBtn );
-
-					}
-				};
-
-				// Intermediary
+				// getHeight()
 				// -----------------------------------------------------
 
-					// Expand
+					asterisk.utility.getHeight = asterisk.utility.getHeight || function ( elem ) {
+						return (elem.offsetHeight +
+						parseInt(getComputedStyle(elem, null).getPropertyValue("margin-top")) +
+						parseInt(getComputedStyle(elem, null).getPropertyValue("margin-bottom")))
+					};
+
+					var getHeight = asterisk.utility.getHeight ;
+
+			// Main Functions
+			// -----------------------------------------------------
+
+				// Activate (adds eventListeners)
+				// -----------------------------------------------------
+
+					asterisk.components.spoiler.activate = function(targetElem, delegateEvent__boolean) {
+
+						var methods = asterisk.components.spoiler.intermediary;
+
+						if (targetElem && (targetElem instanceof HTMLElement)) { 
+
+							if (hasClass(targetElem, 'spoiler-btn')) {
+
+								methods.attachEvt(targetElem)
+
+							} else if (delegateEvent__boolean === true) {
+
+								methods.attachEvt(targetElem , 'delegate')
+
+							} else {
+
+								var spoilerBtns = Array.from(targetElem.getElementsByClassName('spoiler-btn'));	
+								spoilerBtns.map(spoilerBtn => methods.attachEvt(spoilerBtn));
+							}
+
+						} else if (delegateEvent__boolean === true) {
+
+							methods.attachEvt(document , 'delegate')
+
+						} else {
+
+							var allSpoilerBtns = Array.from(document.getElementsByClassName('spoiler-btn'));
+							allSpoilerBtns.map(spoilerBtn => methods.attachEvt(spoilerBtn));
+
+						}
+					};
+
+				// Terminate (removes eventListeners & on-element Parameters)
+				// -----------------------------------------------------
+
+					asterisk.components.spoiler.terminate = function(targetElem) {
+
+						var methods = asterisk.components.spoiler.intermediary;
+						var itemsWithParams = asterisk.components.spoiler.storedParameters.itemsWithParams;
+
+						if (targetElem && (targetElem instanceof HTMLElement)) { 
+
+							if (hasClass(targetElem, 'spoiler-btn')) {
+
+								methods.terminateTarget(targetElem)
+
+							} else {
+
+								methods.detachEvt(targetElem);
+								var spoilerBtns = Array.from(targetElem.getElementsByClassName('spoiler-btn'));	
+								spoilerBtns.map(spoilerBtn => methods.terminateTarget(spoilerBtn));
+							}
+
+						} else {
+
+							methods.detachEvt(document);
+							var allSpoilerBtns = Array.from(document.getElementsByClassName('spoiler-btn'));
+							allSpoilerBtns.map(spoilerBtn => methods.terminateTarget(spoilerBtn));
+
+						}
+					};
+
+					asterisk.components.spoiler.intermediary.terminateTarget = function(targetElem) {
+						asterisk.components.spoiler.intermediary.detachEvt(targetElem);
+						asterisk.components.spoiler.intermediary.spoilerBtn_removeParameters(targetElem);
+					};
+
+				// checkDOM
+				// -----------------------------------------------------
+
+					asterisk.components.spoiler.checkDOM = function() { console.log('checking DOM for spoiler');
+
+						// remove EventListeners from Elements that are no longer in the DOM
+						asterisk.components.spoiler.storedParameters.itemsWithEvents = asterisk.components.spoiler.storedParameters.itemsWithEvents.filter(function(item){
+
+							if ((item !== document) && (!document.contains(item)) ) {
+								asterisk.components.spoiler.intermediary.detachEvt(item);
+								console.log('Removed item : ', item)
+								return false
+							} else {
+								return true
+							}
+						});
+
+						// remove Eon-element Parameters from Elements that are no longer in the DOM
+						asterisk.components.spoiler.storedParameters.itemsWithParams = asterisk.components.spoiler.storedParameters.itemsWithParams.filter(function(item){
+
+							if ((item !== document) && (!document.contains(item)) ) {
+								item.targetParameters = null;
+								return false
+							} else {
+								return true
+							}
+						});
+					};
+
+			// Intermediary
+			// -----------------------------------------------------
+
+				// Add/Remove | Event Listeners
+				// -----------------------------------------------------
+
+					// attatchEvt
 					// -----------------------------------------------------
 
-						spoilerObj.expand = function(targetSpoiler) {
+						asterisk.components.spoiler.intermediary.attachEvt = function(targetElem , scenario__string) {
 
-							setTimeout(function(){ 
+							if (scenario__string == 'delegate') {
+								targetElem.addEventListener('click', asterisk.components.spoiler.intermediary.delegate);
+							} else {
+								targetElem.addEventListener('click', asterisk.components.spoiler.intermediary.run);
+							};
 
-								// set the maxHeight to transition to
-								targetSpoiler.style.maxHeight = spoilerObj.getMaxHeightValue(targetSpoiler);	
-
-								// after the transition has finished - remove/default the max-height
-								// this allows the expanded-spoiler to adapt to other expanding/collapsing children
-								setTimeout(function(){ 
-									if (hasClass(targetSpoiler , 'spoiler-expanded')) { // don't fire in case the spoiler was clicked rapidly => and is coapsing by the time this fires
-										targetSpoiler.style.maxHeight = 'none';
-										targetSpoiler.style.overflow  = 'visible';
-									}
-								}, spoilerObj.transitionDuration);
-							}, 0);
-
-							targetSpoiler.classList.add('spoiler-expanded');
+							asterisk.components.spoiler.storedParameters.itemsWithEvents.push(targetElem);
 						};
 
-					// Collapse
+					// Delegate (adds eventListeners)
 					// -----------------------------------------------------
 
-						spoilerObj.collapse = function(targetSpoiler) {
-
-							// set [maxHeight: 'it's actual height'] (as it defaults to 'none' after expand transition)
-							targetSpoiler.style.maxHeight = spoilerObj.getMaxHeightValue(targetSpoiler); 
-							targetSpoiler.style.overflow  = 'hidden';
-
-							// defer and set [maxHeight: 0] , for the transition to take place
-							setTimeout(function(){ 
-								targetSpoiler.style.maxHeight = 0 
-							}, 16);	
-							
-							targetSpoiler.classList.remove('spoiler-expanded');
+						asterisk.components.spoiler.intermediary.delegate = function(e) {
+							if (hasClass(e.target, 'spoiler-btn')) { asterisk.components.spoiler.intermediary.run(e) }
 						};
 
-					// getMaxHeightValue
+					// detachEvt
 					// -----------------------------------------------------
 
-						spoilerObj.getMaxHeightValue = function(targetSpoiler) {
+						asterisk.components.spoiler.intermediary.detachEvt = function(targetElem) {
+							targetElem.removeEventListener('click' , asterisk.components.spoiler.intermediary.run);
+							targetElem.removeEventListener('click' , asterisk.components.spoiler.intermediary.delegate);
+
+							asterisk.components.spoiler.storedParameters.itemsWithEvents = asterisk.components.spoiler.storedParameters.itemsWithEvents.filter(x => x != targetElem);
+						};
+
+				// Add/Remove | On-Element Parameters
+				// -----------------------------------------------------
+					
+					// Define Parameters
+					// -----------------------------------------------------
+
+						asterisk.components.spoiler.intermediary.spoilerBtn_defineParameters = function(current_spoilerBtn , willReturnTheObject__boolean) {
+
+							current_spoilerBtn.targetParameters = {};
+
+							var targetId = current_spoilerBtn.getAttribute('data-spoiler-id');
+
+							var spoilers = Array.from(document.getElementsByClassName('spoiler'));
+							current_spoilerBtn.targetParameters.targetSpoiler = spoilers.filter(spoiler => spoiler.getAttribute('data-spoiler-id') === targetId )[0];
+
+							var spoilerButtons = Array.from(document.getElementsByClassName('spoiler-btn'));
+							current_spoilerBtn.targetParameters.targetButtons = spoilerButtons.filter(spoilerBtn => spoilerBtn.getAttribute('data-spoiler-id') === targetId );
+
+							if (!asterisk.components.spoiler.storedParameters.itemsWithParams.includes(current_spoilerBtn)) {
+								 asterisk.components.spoiler.storedParameters.itemsWithParams.push(current_spoilerBtn)
+							};
+
+							// return the newly-created object - for use in asterisk.components.spoiler.intermediary.run()
+							if (willReturnTheObject__boolean === true) { return current_spoilerBtn.targetParameters }
+						};
+
+					// Remove Defined Parameters
+					// -----------------------------------------------------
+
+						asterisk.components.spoiler.intermediary.spoilerBtn_removeParameters = function(current_spoilerBtn) {
+							current_spoilerBtn.targetParameters = null;
+							var itemsWithParams = asterisk.components.spoiler.storedParameters.itemsWithParams;
+							itemsWithParams = itemsWithParams.filter(x => x != targetElem);
+						};
+
+				// Run 
+				// -----------------------------------------------------
+
+					asterisk.components.spoiler.intermediary.run = function(e) {
+
+						var targetParametersObj = e.target.targetParameters || asterisk.components.spoiler.intermediary.spoilerBtn_defineParameters(e.target , true);
+
+						var targetSpoiler = targetParametersObj.targetSpoiler;
+						var targetButtons = targetParametersObj.targetButtons;
+
+						if (targetSpoiler) {
+
 							var spoiler_content = targetSpoiler.getElementsByClassName('spoiler-content')[0];
+							targetSpoiler.style.maxHeight = getHeight(spoiler_content) + 'px';
 
-							var margin_top = parseInt(getComputedStyle(spoiler_content, null).getPropertyValue("margin-top"));
-							var margin_btm = parseInt(getComputedStyle(spoiler_content, null).getPropertyValue("margin-bottom"));
-							var content_height = spoiler_content.offsetHeight;
+							if (hasClass(targetSpoiler , 'spoiler--expanded')) { // collapsing animation
+								setTimeout(function(){ targetSpoiler.style.maxHeight = 0 }, 16);
+								targetButtons.map((btn) => btn.classList.remove('active'));
+							} else {
+								targetButtons.map((btn) => btn.classList.add('active'));
+							};
+								
+							targetSpoiler.classList.toggle('spoiler--expanded');
 
-							return (content_height + margin_top + margin_btm) + 'px';
+						} else {
+
+							console.log(
+								'No [spoiler] element with [data-spoiler-id="'+e.target.getAttribute('data-spoiler-id')+'"] found within document.' + 
+								' Event triggered by [spoiler-btn] : ' , e.target );
+
 						};
-
-				
-
-			// Define Parameters
-			// -----------------------------------------------------
-			// Performance - skip checking document (for target-elements : spoiler | spoiler-btn) on each function call
-
-				// Will set the target parameters for each [spoiler-btn]
-				// will run automatically on first spoiler-btn click
-				// will be more efficient for future calls there-after
-
-				spoilerObj.spoilerBtn_defineParameters = function(current_spoilerBtn , willReturnTheObject) {
-
-					if (!current_spoilerBtn.targetParameters) {
-
-						current_spoilerBtn.targetParameters = {};
-
-						var targetId = current_spoilerBtn.getAttribute('data-spoiler-id');
-
-						// targetSpoiler - which [spoiler] will be affected
-						var spoilers = Array.from(document.getElementsByClassName('spoiler'));
-						current_spoilerBtn.targetParameters.targetSpoiler = spoilers.filter(spoiler => spoiler.getAttribute('data-spoiler-id') === targetId )[0];
-
-						// targetButtons - which [spoiler buttons] point to the same [spoiler]
-						var spoilerButtons = Array.from(document.getElementsByClassName('spoiler-btn'));
-						current_spoilerBtn.targetParameters.targetButtons = spoilerButtons.filter(spoilerBtn => spoilerBtn.getAttribute('data-spoiler-id') === targetId );
-
-						// return the newly-created object - for use in spoilerObj.run()
-						if (willReturnTheObject === true) { return current_spoilerBtn.targetParameters }
-
-					}
-				};
-
-			// Run initial parameter-definition (optional || not recommended if dynamically-generated content)
-			// Best called as one of the final functions in the scripts 
-			// -----------------------------------------------------
-
-				spoilerObj.spoilerBtn_defineParameters_all = function() {
-
-					var spoilerButtons = Array.from(document.getElementsByClassName('spoiler-btn'));
-					spoilerButtons.map(btn => asterisk.components.spoiler.spoilerBtn_defineParameters(btn));
-
-				};
+					};
 
 		})();

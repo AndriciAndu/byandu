@@ -1,0 +1,158 @@
+
+	<!-- ===================== Route ================== -->
+	<script src="../xFiles/js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+
+	<article>
+
+		<header class="sr-only"> <h2> Client-Side Routing </h2> </header>
+
+		<div class="tabs article-mainTabs">
+
+			<div class="article-mainTabs-banner">
+				<div class="article-mainTabs-title"> Functionality : Route (Client Side) </div>
+
+				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
+					<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> Usage </button>
+					<button class="tabs-btn" 				data-tabs-id="2"> Code  </button>
+				</div>
+			</div>
+
+			<div class="tabs-contentGroup">
+
+				<!-- Usage Tab -->
+				<div class="tabs-content article-mainTabs-usageTab tab-expanded" data-tabs-id="1"> 
+
+					<!-- I. Description -->
+						<section class="accordion  p-0        sectionAccordion">
+							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+								<button class="accordion-btn  sectionAccordion-btn"> I. Description </button>
+								<div class="accordion-content sectionAccordion-content">
+
+									<p> Baseline <b>Client-Side Routing System</b>, for simulating <b>SPA / AJAX</b>-based functionality. </p>
+									<p class="sub-heading mt-0"> * Updates parts of an application, without triggering a page reload </p>
+									<p class="sub-heading mt-0"> * No hash routing required ( None of this : <b>myDomain<b-r>/#/</b-r>myPage.html</b> ) </p>
+									<p class="sub-heading mt-0"> * currently supports only static paths </p>
+
+									<!-- <hr>
+
+									<p> Allows for baseline functionality to remain active </p>
+
+									- faster initial load time than SPA applications (only relevant pageLoad files are loaded)
+									- slower individual page load time than SPA applications (each pageLoad requests files from the server)
+
+									- faster and more efficient than non-SPA applications
+										- baseline functionality remains active before a new page loads (the page is not refreshed)
+										- loading a new page requests only the page's specific files/scripts
+
+									- no unnecessary file downloads for unnavigated pages 
+
+									- covers direct-path link, page reload and popstate (back/forward) -->
+								</div>
+							</div>
+						</section>
+
+					<!-- II. Initialization -->
+						<!-- <section class="accordion  p-0        sectionAccordion">
+							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+								<button class="accordion-btn  sectionAccordion-btn"> II. Initialization </button>
+								<div class="accordion-content sectionAccordion-content">
+
+									<p> 
+										<b>Step 1.</b> Download and refference the <a class="downloadLink" href="../../js/asterisk/asterisk-route.js" download> asterisk-route.js </a> JS file - within the <b>index.html</b> File </p>
+									</p>
+									<div class="wrapper"> <div class="col-12"> &lt;script src="<b-r>--myPath--</b-r><b-p>/asterisk-route.js</b-p>" type="text/javascript">&lt;/script> </div> </div>
+
+									<p> 
+										<b>Step 2.</b> Download and refference the <a class="downloadLink" href="../../js/asterisk/asterisk-route-intermediary.js" download> asterisk-route-intermediary.js </a> JS file - within each individual <b>myPage.html</b> file. </p>
+									</p>
+									<div class="wrapper"> <div class="col-12"> &lt;script src="<b-r>--myPath--</b-r><b-p>/asterisk-route-intermediary.js</b-p>" type="text/javascript">&lt;/script> </div> </div>
+								</div>
+							</div>
+						</section> -->
+
+						<!-- <p> Initial Pathing </p>
+
+						<p> Initial pathing refferes to when a user tries to navigate to a specific path from the start, without going through the landing page (example mySite/someCategory/somePage.html) </p>
+
+						<p> Server-side scripting can cover this easily, by routing all such requests back to the landing page.
+
+						<p> Each <b>pageLoad</b> runs a <span class="wrapper">fetch request</span> for a <span class="wrapper">HTML file</span>, and updates the content of the <span class="wrapper">View</span> through <span class="wrapper"><b-r>{myView}</b-r>.innerHTML</span>. </p>
+						<p> As <span class="wrapper">{element}.innerHTML</span> does not execute <span class="wrapper">scripts</span>, the <span class="wrapper">asterisk-route-intermediary</span> script is ignored when </p> -->
+
+
+						<!-- Building it up -->
+
+					<p> Normal websites/applications run on a page-by-page format, consisting on multiple HTML files. Each individual HTML page has it's own content, stylesheets and scripts. When navigating from one HTML page to another, the existing HTML page is scrapped entirely, and is replaced with a new one. </p>
+
+					<p> Single-Page Applications run on the premise of having only a single HTML page, which is always-loaded - and within it we define <span class="wrapper">Views</span>, which have their content modified. Navigating from one HTML page to another keeps the page intact, while only modifying the content of each <span class="wrapper">View</span> </p>
+
+					<p> As for every project, we must first create the <span class="wrapper">Index Page</span>. </p>
+
+					<p> This is the foundation of the entire application, refferencing all universally-used <span class="wrapper">stylesheets/scripts</span>, and containing the markup for the application's <span class="wrapper">skeleton</span>. </p>
+
+					<p> The <span class="wrapper">skeleton</span> reffers to the part of the application that remains (mostly) constant/unchanged, regardless of what <span class="wrapper">page/article</span> is loaded. </p>
+
+					<p> Somewhere within the <span class="wrapper">skeleton</span>, we define a <span class="wrapper">div</span> with an <span class="wrapper">id="__route__mainView"</span>, which represents our <span class="wrapper">View</span> (where our page's content will actually load).</p>
+
+					<p class="sub-heading mt-0"> This can be compared to an iframe - we are loading a different <span class="wrapper">HTML file</span> (with extra stylesheets/scripts if desired) within our <span class="wrapper">View</span> </p>
+
+
+					<p> For example, in this website (byandu.netlify.com), the skeleton can be resumed to : </p>
+					<div class="wrapper">
+						<pre class="pre-removeTabSpaces">
+						    &lt;!DOCTYPE html>
+						    &lt;html>
+						      &lt;head>
+						          <i class="comment">// all the application's <span class="wrapper">Meta Tags</span> </i>
+						          <i class="comment">// all general-purpose <span class="wrapper">CSS files</span> </i>
+						      &lt;/head>
+						      &lt;body>
+						          &lt;div class="body-sideNav"> ... &lt;/div>         <i class="comment"> // with all the sideNav <span class="wrapper">buttons</span> and what-nots </i>
+						          &lt;div class="body-main"> 
+						              &lt;div class="container"> 
+						                  &lt;div id="__route__mainView"> &lt;/div>   <b><i class="comment"> // this is the <span class="wrapper">Main View</span>, where each <span class="wrapper">article/page</span> is loaded </i></b>
+						              &lt;/div>
+						          &lt;/div>
+						          &lt;div class="modalsContainer"> ... &lt;/div>      <i class="comment"> // all <span class="wrapper">modals</span> that are used across multiple articles </i>
+						          <i class="comment">// all general-purpose <span class="wrapper">JS files</span>, including <span class="wrapper">asterisk-route.js</span> </i>
+						      &lt;/body>
+						    &lt;/html>
+						</pre>
+					</div>
+
+					<p> An individual <span class="wrapper">page/article</span>'s <span class="wrapper">HTML file</span> is structured like so : </p>
+					<div class="wrapper">
+						<pre class="pre-removeTabSpaces">
+						    &lt;script src="<<b-r>--myPath--</b-r>/route_intermediary.js">&lt;/script>
+						    &lt;article> 
+						        <i class="comment"> &lt;!-- The Page's Content --> </i>
+						    &lt;/article>
+						</pre>
+					</div>
+
+					<p> When navigating directly to the <span class="wrapper">Root/Index Page</span> : (ex: byandu.netlify.com )</p>
+					<p> The 'scheleton' markup is parsed and generated </p>
+					<p> The general-use CSS/JS Files are parsed and memorized </p>
+					<p> The asterisk-route.js file is parsed and a 'default' page is generated within the <span class="wrapper">View</span> </p>
+					<p> From here, navigating to a new page will simply update the <span class="wrapper">View</span> with the coresponding data. </p>
+
+					<p> When navigating directly to <span class="wrapper">a specific Page</span> : (ex: byandu.netlify.com/effects/appear.html )</p>
+					<p> The 'scheleton' markup is not present within the <span class="wrapper">appear.html</span> File - as it contains only the HTML for the article itself </p>
+					<p> The general-use CSS/JS Files are not refferenced </p>
+					<p> The asterisk-route.js file is not refferenced and it's functionality cannot take effect. </p>
+					<p> By itself, navigating to a specific path (without going to the <span class="wrapper">Root/Index Page</span> first), would leave the user with a basic HTML file </p>
+
+				</div>
+
+				<!-- Code Tab -->
+				<!-- <div class="tabs-content article-mainTabs-codeTab" data-tabs-id="2"
+								data-generateCodeFor="['css']" 
+								data-setCopyContextId="gridSystem-12col" 
+								data-setFileName="asterisk-utility-position">
+				</div> -->
+				
+			</div>
+		</div>
+
+	</article>

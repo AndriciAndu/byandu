@@ -1,4 +1,105 @@
 
+
+	// Route - Dev-defined Functions
+	// --------------------------------------------------
+
+		// Run when a new page has started loading
+		// --------------------------------------------------
+
+			asterisk.route.intermediary.loadPage_onBegin = function() {
+				asterisk.route.info.mainView.classList.add('faSpinner', 'faSpinner-fast', 'faSpinner-lg');
+
+				var elements = Array.from(asterisk.route.info.mainView.querySelectorAll('*'));
+				//console.log(elements);
+				var newContainer = document.createElement('div');
+
+				elements.map(x => newContainer.appendChild(x));
+				elements.map(function(x) { 
+					x.parentElement.removeChild(x);
+					x.innerHTML = '';
+				});
+
+				newContainer.innerHTML = '';
+				// elements.map(function(elem){
+				// 	for (var key in elem) { console.log(elem); console.log(elem[key]); elem[key] = null }
+				// });
+
+				//console.log(elements);
+
+				// while (asterisk.route.info.mainView.firstChild) {
+				// 	console.log(asterisk.route.info.mainView.firstChild)
+				// 	asterisk.route.info.mainView.removeChild(asterisk.route.info.mainView.firstChild);
+				// }
+			};
+
+		// Run when a new page has finished loading
+		// --------------------------------------------------
+
+			asterisk.route.intermediary.loadPage_onEnd = function() {
+				asterisk.route.info.mainView.classList.remove('faSpinner', 'faSpinner-fast', 'faSpinner-lg');
+
+				asterisk.route.info.mainView.focus(); // set focus to article (also collapses navigation menu if not hovered)
+
+				setTimeout(function(){	// on mobile
+					document.getElementById('body-sideNav-toggleDisplay-mobile').checked = false;
+				}, 200);
+
+				for (var key in asterisk.components) {
+					if (asterisk.components.hasOwnProperty(key)) {
+
+						var asteriskComponent = asterisk.components[key];
+
+						if (asteriskComponent.checkDOM) {
+							asteriskComponent.checkDOM()
+						}
+
+					}
+				};
+			};
+
+		// Run for each page that is loaded
+		// --------------------------------------------------
+
+			asterisk.route.intermediary.loadPage_runDefaultScript = function() {
+				var targetedPreElements = Array.from(document.getElementsByClassName('pre-removeTabSpaces'));
+
+				targetedPreElements.map(function(item) {
+					item.innerHTML = string_remove_tabSpaces(item.innerHTML);
+				});
+			};
+
+		// Update Elements outside of the [__route__mainView]
+		// --------------------------------------------------
+
+			asterisk.route.intermediary.updateDOM = function(articleParams__obj) {
+
+				var myTargets_1 = Array.from(document.getElementsByClassName('__route__category'));
+				var identifierValue = articleParams__obj.articleParameters.category;
+
+				myTargets_1.map(function(elem) {
+					if (elem.getAttribute('data-categoryName') == identifierValue) { 
+						elem.classList.add('active') 
+					} else { 
+						elem.classList.remove('active') 
+					}
+				});
+
+				var myTargets_2 = Array.from(document.getElementsByClassName('__route__articleBtn'));
+				var identifierValue = articleParams__obj.filePath_html;
+
+				myTargets_2.map(function(elem) {
+					if (elem.pathname == identifierValue) { 
+						elem.classList.add   ('active') 
+					} else { 
+						elem.classList.remove('active') 
+					}
+				});
+
+			};
+
+		asterisk.route.intermediary.onInitialLoad();
+
+
 // --------------------------------------------------
 	var byAndu = {};
 
@@ -611,7 +712,7 @@
 		// console.log(e.target);
 
 		if 		(hasClass(e.target, 'tabs-btn')) 						{ componentsObj.tabs.run(e.target) 						}
-		else if (hasClass(e.target, 'spoiler-btn')) 					{ componentsObj.spoiler.run(e) 							}
+		else if (hasClass(e.target, 'spoiler-btn')) 					{ componentsObj.spoiler.intermediary.run(e) 			}
 		else if (hasClass(e.target, 'modal-btn')) 						{ componentsObj.modal.run(e.target) 					}
 		else if (hasClass(e.target, 'accordion-btn')) 					{ componentsObj.accordion.run(e.target) 				}
 

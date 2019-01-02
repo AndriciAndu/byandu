@@ -127,6 +127,17 @@
 						}
 					} ,
 
+				// route
+				// --------------------------------------------------
+				
+					{ 
+						filePath_html : '/functionality/route.html' , 
+						filePath_js   : null , 
+						articleParameters : {
+							category : 'functionality'
+						}
+					} ,
+
 			// Effects
 			// --------------------------------------------------
 
@@ -391,6 +402,7 @@
 			url_rootHost    : ''   ,
 			url_indexPage   : ''
 		};
+
 		asterisk.route.info.mainView = document.getElementById('__route__mainView');
 
 	// intermediary functions
@@ -414,79 +426,22 @@
 		// Run when a new page has started loading
 		// --------------------------------------------------
 
-			asterisk.route.intermediary.loadPage_onBegin = function() {
-				asterisk.route.info.mainView.classList.add('faSpinner', 'faSpinner-fast', 'faSpinner-lg');
-
-				// while (asterisk.route.info.mainView.firstChild) {
-				// 	console.log(asterisk.route.info.mainView.firstChild)
-				// 	asterisk.route.info.mainView.removeChild(asterisk.route.info.mainView.firstChild);
-				// }
-			};
+			asterisk.route.intermediary.loadPage_onBegin = function() {};
 
 		// Run when a new page has finished loading
 		// --------------------------------------------------
 
-			asterisk.route.intermediary.loadPage_onEnd = function() {
-				asterisk.route.info.mainView.classList.remove('faSpinner', 'faSpinner-fast', 'faSpinner-lg');
-
-				asterisk.route.info.mainView.focus(); // set focus to article (also collapses navigation menu if not hovered)
-
-				setTimeout(function(){	// on mobile
-					document.getElementById('body-sideNav-toggleDisplay-mobile').checked = false;
-				}, 200);
-
-				for (var key in asterisk.components) {
-					if (asterisk.components.hasOwnProperty(key)) {
-
-						var asteriskComponent = asterisk.components[key];
-
-						if (asteriskComponent.checkDOM) {
-							asteriskComponent.checkDOM()
-						}
-
-					}
-				};
-			};
+			asterisk.route.intermediary.loadPage_onEnd = function() {};
 
 		// Run for each page that is loaded
 		// --------------------------------------------------
 
-			asterisk.route.intermediary.loadPage_runDefaultScript = function() {
-				var targetedPreElements = Array.from(document.getElementsByClassName('pre-removeTabSpaces'));
-
-				targetedPreElements.map(function(item) {
-					item.innerHTML = string_remove_tabSpaces(item.innerHTML);
-				});
-			};
+			asterisk.route.intermediary.loadPage_runDefaultScript = function() {};
 
 		// Update Elements outside of the [__route__mainView]
 		// --------------------------------------------------
 
-			asterisk.route.intermediary.updateDOM = function(articleParams__obj) {
-
-				var myTargets_1 = Array.from(document.getElementsByClassName('__route__category'));
-				var identifierValue = articleParams__obj.articleParameters.category;
-
-				myTargets_1.map(function(elem) {
-					if (elem.getAttribute('data-categoryName') == identifierValue) { 
-						elem.classList.add('active') 
-					} else { 
-						elem.classList.remove('active') 
-					}
-				});
-
-				var myTargets_2 = Array.from(document.getElementsByClassName('__route__articleBtn'));
-				var identifierValue = articleParams__obj.filePath_html;
-
-				myTargets_2.map(function(elem) {
-					if (elem.pathname == identifierValue) { 
-						elem.classList.add   ('active') 
-					} else { 
-						elem.classList.remove('active') 
-					}
-				});
-
-			};
+			asterisk.route.intermediary.updateDOM = function(articleParams__obj) {};
 
 		// Loading a new Page
 		// --------------------------------------------------
@@ -612,7 +567,7 @@
 		// on initial loading of website
 		// -----------------------------------------------------
 			
-			(function(){ 
+			asterisk.route.intermediary.onInitialLoad = function() {
 
 				switch(window.location.protocol) {
 					case 'file:' :
@@ -655,4 +610,4 @@
 
 				document.body.classList.remove('faSpinner');
 
-			})();
+			};

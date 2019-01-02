@@ -15,9 +15,16 @@
 
 				asterisk.components.accordion = {};
 
-				// store all [Accordion-btn] Elements that have been given an EventListener
-				asterisk.components.accordion.itemsWithEvents = [];
+			// Wrappers
+			// -----------------------------------------------------
 
+				asterisk.components.accordion.intermediary     = {}; // holds intermediary [functions/methods]
+				asterisk.components.accordion.storedParameters = {}; // holds [Elements] which have been altered (with [evtListener] or [on-elem parameters])
+
+			// store all Elements that have been given an EventListener
+			// -----------------------------------------------------
+
+				asterisk.components.accordion.storedParameters.itemsWithEvents = [];
 
 			// Dependencies 
 			// -----------------------------------------------------
@@ -73,95 +80,122 @@
 
 					var getHeight = asterisk.utility.getHeight ;
 
-			// Init
+			// Main Functions
 			// -----------------------------------------------------
 
-				asterisk.components.accordion.initialize = function(targetElem, delegateEvent__boolean) {
+				// Activate (adds eventListeners)
+				// -----------------------------------------------------
 
-					if (targetElem && (targetElem instanceof HTMLElement)) { 
+					asterisk.components.accordion.activate = function(targetElem, delegateEvent__boolean) {
 
-						if (hasClass(targetElem, 'accordion-btn')) {
+						if (targetElem && (targetElem instanceof HTMLElement)) { 
 
-							asterisk.components.accordion.attachEvt(targetElem) 
+							if (hasClass(targetElem, 'accordion-btn')) {
+
+								asterisk.components.accordion.attachEvt(targetElem) 
+
+							} else if (delegateEvent__boolean === true) {
+
+								asterisk.components.accordion.attachEvt(targetElem , 'delegate')
+
+							} else { 
+
+								var accordionBtns = Array.from(targetElem.getElementsByClassName('accordion-btn'));	
+								accordionBtns.map(accordionBtn => asterisk.components.accordion.attachEvt(accordionBtn));
+
+							}
 
 						} else if (delegateEvent__boolean === true) {
 
-							asterisk.components.accordion.attachEvt(targetElem , 'delegate')
+							asterisk.components.accordion.attachEvt(document , 'delegate')
 
-						} else { 
-
-							var accordionBtns = Array.from(targetElem.getElementsByClassName('accordion-btn'));	
-							accordionBtns.map(accordionBtn => asterisk.components.accordion.attachEvt(accordionBtn));
-
-						}
-
-					} else if (delegateEvent__boolean === true) {
-
-						asterisk.components.accordion.attachEvt(document , 'delegate')
-
-					} else {
-
-						var allAccordionBtns = Array.from(document.getElementsByClassName('accordion-btn'));
-						allAccordionBtns.map(accordion => asterisk.components.accordion.attachEvt(accordionBtn));
-
-					}
-
-				};
-
-				asterisk.components.accordion.attachEvt = function(targetElem , scenario__string) {
-
-					if (scenario__string == 'delegate') {
-						targetElem.addEventListener('click', asterisk.components.accordion.delegate);
-					} else {
-						targetElem.addEventListener('click', asterisk.components.accordion.run);
-					};
-
-					asterisk.components.accordion.itemsWithEvents.push(targetElem);
-				};
-
-			// Delegate (adds eventListeners)
-			// -----------------------------------------------------
-
-				asterisk.components.accordion.delegate = function(e) {
-					if (hasClass(e.target, 'accordion-btn')) { asterisk.components.accordion.run(e) }
-				};
-
-			// Run
-			// -----------------------------------------------------
-
-				asterisk.components.accordion.run = function(accordionBtn) {
-
-					var parentAccordion = getParent(accordionBtn, '.accordion');
-					var targetGroup 	= accordionBtn.parentElement;
-					var targetContent 	= targetGroup.getElementsByClassName('accordion-content')[0];
-
-					targetGroup.style.maxHeight = getHeight(targetContent) + getHeight(accordionBtn) + 'px'; 
-
-					// collapsing animation
-					if (hasClass(targetGroup , 'accordion-group--expanded')) { 
-						setTimeout(function(){ targetGroup.style.maxHeight = getHeight(accordionBtn) + 'px' }, 16);		
-					};
-
-					targetGroup.classList.toggle('accordion-group--expanded');
-				};
-
-			// checkDOM
-			// -----------------------------------------------------
-
-				asterisk.components.accordion.checkDOM = function() { console.log('checking DOM for accordion');
-
-					// remove EventListeners from Elements that are no longer in the DOM
-					asterisk.components.accordion.itemsWithEvents = asterisk.components.accordion.itemsWithEvents.filter(function(item){
-
-						if ((item !== document) && (!document.contains(item)) ) {
-							asterisk.components.accordion.detachEvt(item);
-							console.log('Removed item : ', item)
-							return false
 						} else {
-							return true
+
+							var allAccordionBtns = Array.from(document.getElementsByClassName('accordion-btn'));
+							allAccordionBtns.map(accordion => asterisk.components.accordion.attachEvt(accordionBtn));
+
 						}
-					});
+					};
 
-				};
+				// Terminate (removes eventListeners & on-element Parameters)
+				// -----------------------------------------------------
 
+				// checkDOM
+				// -----------------------------------------------------
+
+					asterisk.components.accordion.checkDOM = function() { console.log('checking DOM for accordion');
+
+						// remove EventListeners from Elements that are no longer in the DOM
+						asterisk.components.accordion.storedParameters.itemsWithEvents = asterisk.components.accordion.storedParameters.itemsWithEvents.filter(function(item){
+
+							if ((item !== document) && (!document.contains(item)) ) {
+								asterisk.components.accordion.detachEvt(item);
+								console.log('Removed item : ', item)
+								return false
+							} else {
+								return true
+							}
+						});
+					};
+
+			// Intermediary
+			// -----------------------------------------------------
+
+				// Add/Remove | Event Listeners
+				// -----------------------------------------------------
+
+					// store all Elements that have been given an EventListener
+					// -----------------------------------------------------
+
+						asterisk.components.accordion.storedParameters.itemsWithEvents = [];
+
+					// attatchEvt
+					// -----------------------------------------------------
+
+						asterisk.components.accordion.attachEvt = function(targetElem , scenario__string) {
+
+							if (scenario__string == 'delegate') {
+								targetElem.addEventListener('click', asterisk.components.accordion.delegate);
+							} else {
+								targetElem.addEventListener('click', asterisk.components.accordion.run);
+							};
+
+							asterisk.components.accordion.storedParameters.itemsWithEvents.push(targetElem);
+						};
+
+					// Delegate (adds eventListeners)
+					// -----------------------------------------------------
+
+						asterisk.components.accordion.delegate = function(e) {
+							if (hasClass(e.target, 'accordion-btn')) { asterisk.components.accordion.run(e) }
+						};
+
+					// detachEvt
+					// -----------------------------------------------------
+
+						asterisk.components.accordion.intermediary.detachEvt = function(targetElem) {
+							targetElem.removeEventListener('click' , asterisk.components.accordion.intermediary.run);
+							targetElem.removeEventListener('click' , asterisk.components.accordion.intermediary.delegate);
+
+							asterisk.components.accordion.storedParameters.itemsWithEvents = asterisk.components.accordion.storedParameters.itemsWithEvents.filter(x => x != targetElem);
+						};
+
+				// Run
+				// -----------------------------------------------------
+
+					asterisk.components.accordion.run = function(accordionBtn) {
+
+						var parentAccordion = getParent(accordionBtn, '.accordion');
+						var targetGroup 	= accordionBtn.parentElement;
+						var targetContent 	= targetGroup.getElementsByClassName('accordion-content')[0];
+
+						targetGroup.style.maxHeight = getHeight(targetContent) + getHeight(accordionBtn) + 'px'; 
+
+						// collapsing animation
+						if (hasClass(targetGroup , 'accordion-group--expanded')) { 
+							setTimeout(function(){ targetGroup.style.maxHeight = getHeight(accordionBtn) + 'px' }, 16);		
+						};
+
+						targetGroup.classList.toggle('accordion-group--expanded');
+					};
 		})();
