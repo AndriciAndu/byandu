@@ -8,28 +8,6 @@
 
 			asterisk.route.intermediary.loadPage_onBegin = function() {
 				asterisk.route.info.mainView.classList.add('faSpinner', 'faSpinner-fast', 'faSpinner-lg');
-
-				var elements = Array.from(asterisk.route.info.mainView.querySelectorAll('*'));
-				//console.log(elements);
-				var newContainer = document.createElement('div');
-
-				elements.map(x => newContainer.appendChild(x));
-				elements.map(function(x) { 
-					x.parentElement.removeChild(x);
-					x.innerHTML = '';
-				});
-
-				newContainer.innerHTML = '';
-				// elements.map(function(elem){
-				// 	for (var key in elem) { console.log(elem); console.log(elem[key]); elem[key] = null }
-				// });
-
-				//console.log(elements);
-
-				// while (asterisk.route.info.mainView.firstChild) {
-				// 	console.log(asterisk.route.info.mainView.firstChild)
-				// 	asterisk.route.info.mainView.removeChild(asterisk.route.info.mainView.firstChild);
-				// }
 			};
 
 		// Run when a new page has finished loading
@@ -71,7 +49,7 @@
 		// Update Elements outside of the [__route__mainView]
 		// --------------------------------------------------
 
-			asterisk.route.intermediary.updateDOM = function(articleParams__obj) {
+			asterisk.route.intermediary.loadPage_updateDOM = function(articleParams__obj) {
 
 				var myTargets_1 = Array.from(document.getElementsByClassName('__route__category'));
 				var identifierValue = articleParams__obj.articleParameters.category;

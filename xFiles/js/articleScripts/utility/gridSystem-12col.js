@@ -770,7 +770,7 @@
 					}
 			];
 
-			finalCode_codeBlocks_css = byAndu_codeBlock_formatCodeString(codeBlocks_css);
+			codeBlocks_css = byAndu_codeBlock_formatCodeString(codeBlocks_css);
 
 		// Param Obj
 		// --------------------------------
@@ -785,8 +785,12 @@
 				} 
 			};
 
-			byAndu.pageConfigObj_setupObj(paramObj);
+			byAndu.pageConfigObj_setupObj(JSON.parse(JSON.stringify(paramObj))); 
 			byAndu.pageConfigObj_runConfig();
+
+			checkboxes_css = null;
+			codeBlocks_css = null;
+			paramObj = null;
 
 	})();
 

@@ -428,20 +428,37 @@
 
 			asterisk.route.intermediary.loadPage_onBegin = function() {};
 
-		// Run when a new page has finished loading
+		// Update Elements outside of the [__route__mainView]
 		// --------------------------------------------------
 
-			asterisk.route.intermediary.loadPage_onEnd = function() {};
-
+			asterisk.route.intermediary.loadPage_updateDOM = function() {};
+			
 		// Run for each page that is loaded
 		// --------------------------------------------------
 
 			asterisk.route.intermediary.loadPage_runDefaultScript = function() {};
 
-		// Update Elements outside of the [__route__mainView]
+		// Run when a new page has finished loading
 		// --------------------------------------------------
 
-			asterisk.route.intermediary.updateDOM = function(articleParams__obj) {};
+			asterisk.route.intermediary.loadPage_onEnd = function() {};
+
+
+
+
+			asterisk.route.intermediary.removeExistingElements = function(currentView__element) {
+
+				var curr_view = currentView__element || asterisk.route.info.mainView;
+
+				var elements = Array.from(curr_view.querySelectorAll('*'));
+				elements.map(x => curr_view.appendChild(x));
+				elements.map(function(x) { 
+					curr_view.removeChild(x);
+					x.innerHTML = '';
+					x = null;
+				});
+				curr_view.innerHTML = '';
+			};
 
 		// Loading a new Page
 		// --------------------------------------------------
@@ -453,6 +470,7 @@
 
 				// add loading spinner
 				asterisk.route.intermediary.loadPage_onBegin();
+				asterisk.route.intermediary.removeExistingElements();
 
 				// get template Object
 				var current_routeTemplate = asterisk.route.templates.find(item => item.filePath_html == urlIdentifier__string);

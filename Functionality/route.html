@@ -32,6 +32,7 @@
 									<p> Baseline <b>Client-Side Routing System</b>, for simulating <b>SPA / AJAX</b>-based functionality. </p>
 									<p class="sub-heading mt-0"> * Updates parts of an application, without triggering a page reload </p>
 									<p class="sub-heading mt-0"> * No hash routing required ( None of this : <b>myDomain<b-r>/#/</b-r>myPage.html</b> ) </p>
+									<p class="sub-heading mt-0"> * Supports navigating to a page directly ( ex : mySite/something/etc.html ) </p>
 									<p class="sub-heading mt-0"> * currently supports only static paths </p>
 
 									<!-- <hr>
@@ -83,9 +84,16 @@
 
 						<!-- Building it up -->
 
-					<p> Normal websites/applications run on a page-by-page format, consisting on multiple HTML files. Each individual HTML page has it's own content, stylesheets and scripts. When navigating from one HTML page to another, the existing HTML page is scrapped entirely, and is replaced with a new one. </p>
+					<!-- <p> Normal websites/applications run on a page-by-page format, created from having multiple HTML files. </p>
+					<p> Each individual HTML page has it's own content, stylesheets and scripts. </p>
+					<p> When navigating from one HTML page to another, the existing HTML page is scrapped entirely, and is replaced with a new one. </p>
 
-					<p> Single-Page Applications run on the premise of having only a single HTML page, which is always-loaded - and within it we define <span class="wrapper">Views</span>, which have their content modified. Navigating from one HTML page to another keeps the page intact, while only modifying the content of each <span class="wrapper">View</span> </p>
+
+
+					<p> Single-Page Applications run on the premise of having only a single (root) HTML page. </p>
+					<p> The root HTML page which holds the main stylesheets and scripts, along with the content that remains the same across different pages </p>
+					<p> Within it we define <span class="wrapper">Views</span>, which have their content modified, in representation of a new page loaded. </p>
+					<p> When navigating from one HTML page to another, the root page remains intact, while modifying only the content of each <span class="wrapper">View</span> </p>
 
 					<p> As for every project, we must first create the <span class="wrapper">Index Page</span>. </p>
 
@@ -95,7 +103,135 @@
 
 					<p> Somewhere within the <span class="wrapper">skeleton</span>, we define a <span class="wrapper">div</span> with an <span class="wrapper">id="__route__mainView"</span>, which represents our <span class="wrapper">View</span> (where our page's content will actually load).</p>
 
-					<p class="sub-heading mt-0"> This can be compared to an iframe - we are loading a different <span class="wrapper">HTML file</span> (with extra stylesheets/scripts if desired) within our <span class="wrapper">View</span> </p>
+					<p class="sub-heading mt-0"> This can be compared to an iframe - we are loading a different <span class="wrapper">HTML file</span> (with extra stylesheets/scripts if desired) within our <span class="wrapper">View</span> </p> -->
+
+					<hr>
+
+					<div class="col-12 md-col-6 md-pl-0">
+						<p> Within a <b>Tradition (multi-page) Website/Application</b>, each individual Page is 'self-sustained', having it's own DOCTYPE Declaration, Meta Tags, CSS/JS Files, HTML markup, etc. </p>
+						<p> <b>When navigating to different pages</b>, the browser discards the current page completely, requests new files from the server, and loads a completely new Document. </p>
+
+						<hr>
+
+						<p> Within a <b>Single-Page Application (SPA)</b> environment, there is a <span class="wrapper">Root Page</span> which is 'self-sustained' like any Page within a <b>Tradition (multi-page) Website/App</b>. </p>
+						<p class="sub-heading mt-0"> * The <span class="wrapper">Root Page</span> is ussualy the <span class="wrapper">index.html</span> Page. </p>
+
+						<p> <b>Navigating to different pages</b> happens by updating part of the <span class="wrapper">Root Page</span> (the part that is updated is called a <span class="wrapper">View</span>), and this happens <u>without actually navigating away</u> from the Application's <span class="wrapper">Root Page</span> <i class="sub-heading mt-0"> * Hence the name of 'single-page' </i> </p>
+					</div>
+
+					<div class="col-12 md-col-6 md-pr-0">
+						<img src="xFiles/images/articles/spa-example.png" style="border-radius: 6px"/>
+					</div>
+
+					<hr>
+
+					<div class="col-12 md-flex md-flex-cross-center p-0">
+						<div class="col-12 md-col-6 p-0">
+							<p> <b>1.</b> <span class="wrapper"><b>asterisk.route.intermediary</b><b-p>.loadPage_onBegin</b-p>()</span> </p>
+							<p class="mt-0"> * This runs immediately when a new Page starts loading. </p>
+							<p class="mb-0"> <b> Generic Example : </b>Can be used to display a loading animation on the <span class="wrapper">View</span>, while the content is updating. </p>
+							<p class="mt-0"> <b> Concrete Example : </b> In the current website (byandu.netlify.com) it is used to add a <span class="wrapper">faSpinner</span> to the <span class="wrapper">View</span>. </p>
+						</div>
+
+						<div class="col-12 md-col-6 p-0">
+							<div class="wrapper pb-0">
+								<pre class="pre-removeTabSpaces">
+								    <b>asterisk.route.intermediary</b><b-p>.loadPage_onBegin</b-p> = function() {
+								        asterisk.route.info.mainView.classList.add('faSpinner', 'faSpinner-fast', 'faSpinner-lg');
+								    };
+								</pre>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-12 md-flex md-flex-cross-center p-0">
+						<div class="col-12 md-col-6 p-0">
+							<p> <b>2.</b> <span class="wrapper"><b>asterisk.route.intermediary</b><b-p>.updateDOM</b-p>()</span> </p>
+							<p> This is used to bring changes to the Elements which are <b>outside</b> the <span class="wrapper">View</span>, when loading a new Page. </p>
+							<p class="mb-0"> <b> Generic Example : </b>Can be used to display a loading animation on the <span class="wrapper">View</span>, while the content is updating. </p>
+							<p class="mt-0"> <b> Concrete Example : </b> In the current website (byandu.netlify.com) it is used to update the <span class="wrapper">active</span> status on the <b>categories/articles buttons</b> within the <b>left side navbar</b>. </p>
+							<p class="sub-heading mt-0"> * In the example, the <span class="wrapper">articleParams__obj</span> reffers to the current template object, defined within <span class="wrapper">asterisk.route.templates</span>. </p>
+						</div>
+
+						<div class="col-12 md-col-6 p-0">
+							<div class="wrapper pb-0">
+								<pre class="pre-removeTabSpaces" style="max-height: 300px">
+								    <b>asterisk.route.intermediary</b><b-p>.updateDOM</b-p> = function(articleParams__obj) {
+
+								        var myTargets_1 = Array.from(document.getElementsByClassName('__route__category'));
+								        var identifierValue = articleParams__obj.articleParameters.category;
+
+								        myTargets_1.map(function(elem) {
+								            if (elem.getAttribute('data-categoryName') == identifierValue) { 
+								                elem.classList.add('active') 
+								            } else { 
+								                elem.classList.remove('active') 
+								            }
+								        });
+
+								        var myTargets_2 = Array.from(document.getElementsByClassName('__route__articleBtn'));
+								        var identifierValue = articleParams__obj.filePath_html;
+
+								        myTargets_2.map(function(elem) {
+								            if (elem.pathname == identifierValue) { 
+								                elem.classList.add   ('active') 
+								            } else { 
+								                elem.classList.remove('active') 
+								            }
+								        });
+								    };
+								</pre>
+							</div>
+						</div>
+					</div>
+
+					<p>  </p>
+					
+					<p>  </p>
+
+					<p> <span class="wrapper"> asterisk.route.intermediary.<b-p>updateDOM</b-p>()</span> </p>
+					<p> This is used to bring changes to the elements which are outside the <span class="wrapper">View</span>, when loading a new Page. </p>
+					<p> In the current website (byandu.netlify.com) it is used to update the active status on the categories / buttons within the left side navbar, to reflect the current article. </p>
+
+
+
+
+
+						<p> The Root Page is just like any other independent page of a non-SPA website / app. It follows the normal structure of a webpage, holds refferences to CSS/JS Files, has the DOCTYPE Declaration, meta tags, etc, along with it's own HTML. </p>
+
+						<hr>
+
+						<p> Within the Root Page, we define a <span class="wrapper">View</span> (basically a &lt;div>), in which the content will be updated, when we 'navigate' to a new Page. </p>
+
+						<p> This 'navigation' (as the quotes imply), does not actually happen - as, even though the url is changed, the browser does not navigate to a new/separate webpage. </p>
+						<p> We simply make changes to the existing Root Page, mainly by updating the content of the <span class="wrapper">View</span>. </p>
+
+						<p class="sub-heading mt-0"> This is why the correct way of reffering to this is <b>'<u>loading</u> a new page'</b>, instead of <b>'<u>navigating</u> to a new page'</b>. </p>
+
+					<!-- <p> The content within the <span class="wrapper">View</span> will change when loading a new page, and certain elements outside the <span class="wrapper">View</span> might be modified as well - but everything happens on the Root Page, without ever navigating away from it. </p> -->
+
+					<p> Creating the Root Page </p>
+
+					<p> Routing is used to create a SPA-like website. In a SPA, everything happens on 'one page'
+					<p> This is the page where everything happens </p>
+					<p> The application does not navigate away from this page, even when the url changes. </p>
+					
+
+					<p> As a result, the root page should hold all the relevant information for the entire application : </p>
+					<p class="m-0"> * The doctype declaration </p>
+					<p class="m-0"> * The Meta Tags </p>
+					<p class="m-0"> * The Title </p>
+					<p class="m-0"> * The Common CSS Files </p>
+					<p class="m-0"> * The HTML that is common throughout all Pages + The <span class="wrapper">View</span> </p>
+					<p class="m-0"> * The Common JS Files </p>
+					<p class="m-0"> * The <span class="Wrapper">asterisk-route.js</span> JS File </p>
+					<p class="sub-heading mt-0"> * And anything else a normal, independently-functioning page should have </p>
+
+					<p> 1. Create the <span class="wrapper">index.html</span> page </p>
+					<p> 2. Within it, add the <span class="wrapper">&lt;div id="__route__mainView">&lt;/div></span> </p>
+					<p> 3. Within it, refference the <span class="wrapper">asterisk-route.js</span> JS file (at the bottom of the page) </p>
+
+
 
 
 					<p> For example, in this website (byandu.netlify.com), the skeleton can be resumed to : </p>
