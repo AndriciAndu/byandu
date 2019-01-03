@@ -477,7 +477,7 @@
 
 				if (current_routeTemplate) {
 
-					asterisk.route.intermediary.updateDOM(current_routeTemplate);
+					asterisk.route.intermediary.loadPage_updateDOM(current_routeTemplate);
 
 					asterisk.route.info.currentTemplate = current_routeTemplate;
 					var filePath_html   = current_routeTemplate.filePath_html;
