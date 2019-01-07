@@ -105,6 +105,149 @@
 
 					<p class="sub-heading mt-0"> This can be compared to an iframe - we are loading a different <span class="wrapper">HTML file</span> (with extra stylesheets/scripts if desired) within our <span class="wrapper">View</span> </p> -->
 
+					<!-- II. Description -->
+						<section class="accordion  p-0        sectionAccordion">
+							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+								<button class="accordion-btn  sectionAccordion-btn"> II. Usage </button>
+								<div class="accordion-content sectionAccordion-content">
+
+									<section class="accordion  p-0        sectionAccordion">
+										<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+											<button class="accordion-btn  sectionAccordion-btn"> Part 1 || Creating the Root Page </button>
+											<div class="accordion-content sectionAccordion-content">
+
+												<div class="col-12 md-flex md-flex-cross-center p-0">
+													<div class="col-12 md-col-6 p-0">
+														<p> * The Root Page is basically the <span class="wrapper">index.html</span> Page. It is created like any (multi-page) website's Page, and has the structure of a generic stand-alone page. </p>
+
+														<div class="col-12"><hr></div>
+
+														<p> <b>Step 1.</b> Create a normal, stand-alone <span class="wrapper">index.html</span> File. </p>
+
+														<p class="mt-0"> <b>Step 2.</b> Within the Root Page, add the <span class="wrapper">&lt;div id="__route__mainView">&lt;/div></span> (representing the <span class="wrapper">View</span> - where each individual Page's content will be loaded) </p>
+
+														<p class="mt-0"> <b>Step 3.</b> At the bottom of the Root Page, just before the closing <span class="wrapper">&lt;/body></span> Tag, add the <span class="wrapper">asterisk-route.js</span> JS File. </p>
+													</div>
+
+													<div class="col-12 md-col-6 p-0">
+														<div class="wrapper">
+															<pre class="pre-removeTabSpaces">
+															    <i class="comment">// <span class="wrapper">Root Page</span> Example </i>
+
+															    &lt;!DOCTYPE html>
+															    &lt;html>
+															      &lt;head>
+															          <i class="comment">// all the application's <span class="wrapper">Meta Tags</span> </i>
+															          <i class="comment">// all general-purpose <span class="wrapper">CSS files</span> </i>
+															      &lt;/head>
+															      &lt;body>
+															          <i class="comment">// other HTML content </i>
+															          &lt;div id="__route__mainView"> &lt;/div>   <b><i class="comment"> // this is the <span class="wrapper">Main View</span>, where each <span class="wrapper">article/page</span> is loaded </i></b>
+															          <i class="comment">// other HTML content </i>
+															          <i class="comment">// all general-purpose <span class="wrapper">JS files</span></i>
+															          &lt;script src="<<b-r>--myPath--</b-r>/asterisk-route.js">&lt;/script>
+															      &lt;/body>
+															    &lt;/html>
+															</pre>
+														</div>
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</section>
+
+									<section class="accordion  p-0        sectionAccordion">
+										<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+											<button class="accordion-btn  sectionAccordion-btn"> Part 2 || Creating 'individual' Pages </button>
+											<div class="accordion-content sectionAccordion-content">
+
+												<div class="col-12 md-flex md-flex-cross-center p-0">
+													<div class="col-12 md-col-6 p-0">
+														<p> Each 'individual' Page consists of a <span class="wrapper">.html</span> File, the content of which will be placed within the <span class="wrapper">View</span>, whenever that Page is loaded. </p>
+
+														<div class="col-12"><hr></div>
+
+														<p> <b>Step 1.</b> Create the <span class="wrapper">myPage.html</span> HTML File. </p>
+														<p class="mt-0"> <b>Step 2.</b> Refference the <span class="wrapper">asterisk-route-intermediary.js</span> JS File, at the top of markup. </p>
+														<p class="mt-0"> <b>Step 3.</b> Create an entry within the <span class="wrapper">asterisk.route.templates</span> </p>
+													</div>
+
+													<div class="col-12 md-col-6 p-0">
+														<div class="wrapper">
+															<pre class="pre-removeTabSpaces">
+															    <i class="comment">// <span class="wrapper">'Individual' Page</span> Example </i>
+
+															    &lt;script src="<b-r>--myPath--</b-r>/route_intermediary.js">&lt;/script> <i class="comment">// <b>* Required</b> </i>
+															    &lt;style> <i class="comment">/* Add page-specific styles */</i> &lt;/style> <i class="comment">         // <b>* Optional</b></i>
+															    &lt;article>
+															        <i class="comment">// Place content here </i>
+															    &lt;/article>
+															</pre>
+														</div>
+													</div>
+												</div>
+
+												<p class="sub-heading mt-0"> * Each individual Page does not require refferencing to the CSS/JS Files which are already loaded on the Root Page. </p>
+
+												<p class="sub-heading mt-0"> * Specific <b>styles</b> can be loaded for the individual Page, within the <span class="wrapper">&lt;style>&lt;/style></span> Tag at the top of the HTML File. </p>
+
+												<p class="sub-heading mt-0"> * Specific <b>scripts</b> can be loaded for each individual Page, by creating a <span class="wrapper">myArticle.js</span> File and refferencing it within the <span class="wrapper">asterisk.route.templates</span>. </p>
+										
+												<!--<p> Adding specific meta-tags </p>-->
+
+											</div>
+										</div>
+									</section>
+
+									<section class="accordion  p-0        sectionAccordion">
+										<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+											<button class="accordion-btn  sectionAccordion-btn"> Part 3 || Creating Routing Templates </button>
+											<div class="accordion-content sectionAccordion-content">
+
+												<div class="col-12 md-flex md-flex-cross-center p-0">
+													<div class="col-12 md-col-6 p-0">
+														<p> <span class="wrapper">asterisk.route.templates</span> is a simple Array, which holds each <span class="wrapper">Template Object</span>. </p>
+														<p> Each <span class="wrapper">Template Object</span> is an unnamed Object, with 3 Properties : </p>
+														<p> <span class="wrapper">filePath_html</span> - <span clas="wrapper">* Required </span> - the exact path to the Page's <span class="wrapper">.html</span> File . </p>
+														<p> <span class="wrapper">filePath_js</span> - <span clas="wrapper">* Optional </span> - the exact path to the Page's <span class="wrapper">.js</span> File / <span class="wrapper">null</span> value if the Page doesn't have an individual js file </p>
+														<p> <span class="wrapper">articleParameters</span> - <span clas="wrapper">* Optional </span> - stores the parameters required to bring additional changes to the new Page </p>
+														<p class="sub-heading mt-0"> Within this website (byandu.netlify.com), each <span class="wrapper">Template Object</span> has a <span class="wrapper">category</span> property, which is used to update the Category Buttons within the left-side navigation menu. </p>
+													</div>
+
+													<div class="col-12 md-col-6 p-0">
+														<div class="wrapper">
+															<pre class="pre-removeTabSpaces">
+															    asterisk.route.templates = [
+															        { 
+															            filePath_html : '/myCategory/myArticle_1.html' , 
+															            filePath_js   : '/js/myCategory/myArticle_1.js' , 
+															            articleParameters : {
+															                category : 'myCategory'
+															            }
+															        } ,
+
+															        { 
+															            filePath_html : '/myOtherCategory/myArticle_2.html' , 
+															            filePath_js   : null , 
+															            articleParameters : {
+															                category : 'myOtherCategory'
+															            }
+															        } 
+															    ];
+															</pre>
+														</div>
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</section>
+
+								</div>
+							</div>
+						</section>
+
 					<hr>
 
 					<div class="col-12 md-col-6 md-pl-0">
@@ -128,9 +271,8 @@
 					<div class="col-12 md-flex md-flex-cross-center p-0">
 						<div class="col-12 md-col-6 p-0">
 							<p> <b>1.</b> <span class="wrapper"><b>asterisk.route.intermediary</b><b-p>.loadPage_onBegin</b-p>()</span> </p>
-							<p class="mt-0"> * This runs immediately when a new Page starts loading. </p>
-							<p class="mb-0"> <b> Generic Example : </b>Can be used to display a loading animation on the <span class="wrapper">View</span>, while the content is updating. </p>
-							<p class="mt-0"> <b> Concrete Example : </b> In the current website (byandu.netlify.com) it is used to add a <span class="wrapper">faSpinner</span> to the <span class="wrapper">View</span>. </p>
+							<p class="mt-0"> This runs immediately when a new Page starts loading. It can be used to add a loading animation on the <span class="wrapper">View</span>, while the content is updating. </p>
+							<p class="mt-0"> <b> Example : </b> In the current website (byandu.netlify.com) it is used to add a <span class="wrapper">faSpinner</span> loading animation, to the <span class="wrapper">View</span>. </p>
 						</div>
 
 						<div class="col-12 md-col-6 p-0">
@@ -146,10 +288,9 @@
 
 					<div class="col-12 md-flex md-flex-cross-center p-0">
 						<div class="col-12 md-col-6 p-0">
-							<p> <b>2.</b> <span class="wrapper"><b>asterisk.route.intermediary</b><b-p>.updateDOM</b-p>()</span> </p>
+							<p> <b>2.</b> <span class="wrapper"><b>asterisk.route.intermediary</b><b-p>.loadPage_updateDOM</b-p>()</span> </p>
 							<p> This is used to bring changes to the Elements which are <b>outside</b> the <span class="wrapper">View</span>, when loading a new Page. </p>
-							<p class="mb-0"> <b> Generic Example : </b>Can be used to display a loading animation on the <span class="wrapper">View</span>, while the content is updating. </p>
-							<p class="mt-0"> <b> Concrete Example : </b> In the current website (byandu.netlify.com) it is used to update the <span class="wrapper">active</span> status on the <b>categories/articles buttons</b> within the <b>left side navbar</b>. </p>
+							<p class="mt-0"> <b> Example : </b> In the current website (byandu.netlify.com) it is used to update the <span class="wrapper">active</span> status on the <b>categories/articles buttons</b> within the <b>left side navbar</b>. </p>
 							<p class="sub-heading mt-0"> * In the example, the <span class="wrapper">articleParams__obj</span> reffers to the current template object, defined within <span class="wrapper">asterisk.route.templates</span>. </p>
 						</div>
 
@@ -185,13 +326,52 @@
 						</div>
 					</div>
 
-					<p>  </p>
-					
-					<p>  </p>
+					<div class="col-12 md-flex md-flex-cross-center p-0">
+						<div class="col-12 md-col-6 p-0">
+							<p> <b>3.</b> <span class="wrapper"><b>asterisk.route.intermediary</b><b-p>.loadPage_runDefaultScript</b-p>()</span> </p>
+							<p class="mt-0"> This is used as a default script, for the content within the <span class="wrapper">View</span>, when a new Page is loaded. Checks/functions which should occur for every new Page, should be included here to avoid repeating them across each Page's <span class="wrapper">.js</span> File. </p>
+							<p class="mt-0"> <b> Example : </b> In the current website (byandu.netlify.com) it is used to do some formatting on the text within <span class="wrapper">&lt;pre></span> Elements. </p>
+						</div>
 
-					<p> <span class="wrapper"> asterisk.route.intermediary.<b-p>updateDOM</b-p>()</span> </p>
-					<p> This is used to bring changes to the elements which are outside the <span class="wrapper">View</span>, when loading a new Page. </p>
-					<p> In the current website (byandu.netlify.com) it is used to update the active status on the categories / buttons within the left side navbar, to reflect the current article. </p>
+						<div class="col-12 md-col-6 p-0">
+							<div class="wrapper pb-0">
+								<pre class="pre-removeTabSpaces">
+								    <b>asterisk.route.intermediary</b><b-p>.loadPage_runDefaultScript</b-p> = function() {
+								        var targetedPreElements = Array.from(document.getElementsByClassName('pre-removeTabSpaces'));
+
+								        targetedPreElements.map(function(item) {
+								            item.innerHTML = string_remove_tabSpaces(item.innerHTML);
+								        });
+								    };
+								</pre>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-12 md-flex md-flex-cross-center p-0">
+						<div class="col-12 md-col-6 p-0">
+							<p> <b>4.</b> <span class="wrapper"><b>asterisk.route.intermediary</b><b-p>.loadPage_onEnd</b-p>()</span> </p>
+							<p class="mt-0"> This is the last thing that runs when loading a new Page. It can be used to remove the loading animation on the <span class="wrapper">View</span>, to check which Elements were removed from the DOM (memory management), etc. </p>
+							<p class="mt-0"> <b> Example : </b> In the current website (byandu.netlify.com) it is used to remove the <span class="wrapper">faSpinner</span> loading animation. </p>
+						</div>
+
+						<div class="col-12 md-col-6 p-0">
+							<div class="wrapper pb-0">
+								<pre class="pre-removeTabSpaces">
+								    <b>asterisk.route.intermediary</b><b-p>.loadPage_onEnd</b-p> = function() {
+								        asterisk.route.info.mainView.classList.remove('faSpinner', 'faSpinner-fast', 'faSpinner-lg');
+								    };
+								</pre>
+							</div>
+						</div>
+					</div>
+
+					<p> Creating a new Routing Template </p>
+
+					<p> Routing Templates define which files to load, and what modifications to make to the DOM, when a new Page is loaded. </p>
+
+					<p> They are stored within the <span class="wrapper">asterisk.route.templates</span> Array. </p>
+					<p> Each Template is an unnamed Object. </p>
 
 
 

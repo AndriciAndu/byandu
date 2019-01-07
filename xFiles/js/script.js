@@ -21,18 +21,6 @@
 				setTimeout(function(){	// on mobile
 					document.getElementById('body-sideNav-toggleDisplay-mobile').checked = false;
 				}, 200);
-
-				for (var key in asterisk.components) {
-					if (asterisk.components.hasOwnProperty(key)) {
-
-						var asteriskComponent = asterisk.components[key];
-
-						if (asteriskComponent.checkDOM) {
-							asteriskComponent.checkDOM()
-						}
-
-					}
-				};
 			};
 
 		// Run for each page that is loaded

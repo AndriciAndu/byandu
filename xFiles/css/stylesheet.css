@@ -25,7 +25,7 @@
 		transition: color .5s;
 	}
 
-	.accordion-group--expanded .sectionAccordion-btn {
+	.accordion-group--expanded > .sectionAccordion-btn {
 		color: #be0c0c;
 	}
 

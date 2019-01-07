@@ -62,12 +62,15 @@
 				max-height: none;
 				overflow: visible;
 
-				-webkit-animation: asterisk--accordion--overrideMaxHeight .3s steps(1) forwards;
-						animation: asterisk--accordion--overrideMaxHeight .3s steps(1) forwards;
+				-webkit-animation:  asterisk--accordion--overrideMaxHeight .3s steps(1) forwards , 
+									asterisk--accordion--overrideOverflow  .3s steps(1) forwards ;
+						animation:  asterisk--accordion--overrideMaxHeight .3s steps(1) forwards , 
+									asterisk--accordion--overrideOverflow  .3s steps(1) forwards ;
 			}
-
 			@-webkit-keyframes asterisk--accordion--overrideMaxHeight { 100% { max-height: none; } }
 					@keyframes asterisk--accordion--overrideMaxHeight { 100% { max-height: none; } }
+			@-webkit-keyframes asterisk--accordion--overrideOverflow  { from { overflow: hidden; } }
+					@keyframes asterisk--accordion--overrideOverflow  { from { overflow: hidden; } }
 
 		/* Accordion Btn */
 		/* ----------------------------------------*/

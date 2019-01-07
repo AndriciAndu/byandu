@@ -458,6 +458,12 @@
 					x = null;
 				});
 				curr_view.innerHTML = '';
+
+				for (var key in asterisk.components) {
+					if (asterisk.components.hasOwnProperty(key)) {
+						if (asterisk.components[key].checkDOM) { asterisk.components[key].checkDOM() }
+					}
+				};
 			};
 
 		// Loading a new Page
@@ -553,7 +559,7 @@
 					}
 
 				} else {
-					console.log('No template found, with [urlIdentifier] : ', urlIdentifier__string)
+					console.log('No routing template found, with [urlIdentifier] : ', urlIdentifier__string)
 				}
 			};
 
