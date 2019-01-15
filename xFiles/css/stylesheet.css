@@ -1,4 +1,11 @@
 
+	:focus {
+		outline: none; 
+		-webkit-box-shadow: none;
+		   -moz-box-shadow: none;
+				box-shadow: none;
+	}
+
 	.sectionAccordion {
 		background-color: rgba(0,0,0,0);
 	}
