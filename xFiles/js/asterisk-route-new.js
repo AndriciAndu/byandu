@@ -9,7 +9,7 @@
 	// --------------------------------------------------
 	// ***REQUIRED*** to be set both [here] and in [asterisk-route.js]
 
-		asterisk.route.templates = [
+		asterisk.route.paths = [
 
 			// Utility
 			// --------------------------------------------------
@@ -479,7 +479,7 @@
 				asterisk.route.intermediary.removeExistingElements();
 
 				// get template Object
-				var current_routeTemplate = asterisk.route.templates.find(item => item.filePath_html == urlIdentifier__string);
+				var current_routeTemplate = asterisk.route.paths.find(item => item.filePath_html == urlIdentifier__string);
 
 				if (current_routeTemplate) {
 
@@ -612,7 +612,7 @@
 
 					if (currentArticleUrl != '') {
 
-						var current_routeTemplate = asterisk.route.templates.find(item => item.filePath_html.toLowerCase() == currentArticleUrl);
+						var current_routeTemplate = asterisk.route.paths.find(item => item.filePath_html.toLowerCase() == currentArticleUrl);
 
 						if (current_routeTemplate) {
 

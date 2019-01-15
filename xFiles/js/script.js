@@ -918,4 +918,4 @@
 				if (paramObj.template_js) 			{ pageConfigObj.template_js 			= paramObj.template_js 				};
 				if (paramObj.searchBox_items) 		{ pageConfigObj.searchBox_items 		= paramObj.searchBox_items 			};
 				if (paramObj.searchBox_removeString){ pageConfigObj.searchBox_removeString 	= paramObj.searchBox_removeString 	};
-				*/
+				*/ 
