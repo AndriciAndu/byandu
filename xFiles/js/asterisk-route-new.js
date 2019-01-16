@@ -449,15 +449,16 @@
 			asterisk.route.intermediary.removeExistingElements = function(currentView__element) {
 
 				var curr_view = currentView__element || asterisk.route.info.mainView;
+				var trashBin = document.createElement('DIV');
 
 				var elements = Array.from(curr_view.querySelectorAll('*'));
-				elements.map(x => curr_view.appendChild(x));
+				elements.map(x => trashBin.appendChild(x));
 				elements.map(function(x) { 
-					curr_view.removeChild(x);
+					trashBin.removeChild(x);
 					x.innerHTML = '';
 					x = null;
 				});
-				curr_view.innerHTML = '';
+				trashBin.innerHTML = '';
 
 				for (var key in asterisk.components) {
 					if (asterisk.components.hasOwnProperty(key)) {
@@ -474,16 +475,22 @@
 				var historyState = historyState__string || 'push';
 				var mainView = asterisk.route.info.mainView;
 
+				var loadPage_onBegin          = asterisk.route.intermediary.loadPage_onBegin;
+				var loadPage_updateDOM        = asterisk.route.intermediary.loadPage_updateDOM;
+				var loadPage_runDefaultScript = asterisk.route.intermediary.loadPage_runDefaultScript;
+				var loadPage_onEnd            = asterisk.route.intermediary.loadPage_onEnd;
+				var removeExistingElements    = asterisk.route.intermediary.removeExistingElements;
+
 				// add loading spinner
-				asterisk.route.intermediary.loadPage_onBegin();
-				asterisk.route.intermediary.removeExistingElements();
+				loadPage_onBegin();
+				removeExistingElements();
 
 				// get template Object
 				var current_routeTemplate = asterisk.route.paths.find(item => item.filePath_html == urlIdentifier__string);
 
 				if (current_routeTemplate) {
 
-					asterisk.route.intermediary.loadPage_updateDOM(current_routeTemplate);
+					loadPage_updateDOM(current_routeTemplate);
 
 					asterisk.route.info.currentTemplate = current_routeTemplate;
 					var filePath_html   = current_routeTemplate.filePath_html;
@@ -539,8 +546,8 @@
 								newScript.src = jsFile_url;
 
 								newScript.onload = function() {
-									asterisk.route.intermediary.loadPage_runDefaultScript(); 
-									setTimeout(function(){ asterisk.route.intermediary.loadPage_onEnd() }, 1);
+									loadPage_runDefaultScript(); 
+									setTimeout(function(){ loadPage_onEnd() }, 1);
 									newScript.onload = null;
 								};
 
@@ -548,8 +555,8 @@
 
 							} else {
 
-								asterisk.route.intermediary.loadPage_runDefaultScript();
-								setTimeout(function(){ asterisk.route.intermediary.loadPage_onEnd() }, 1)
+								loadPage_runDefaultScript();
+								setTimeout(function(){ loadPage_onEnd() }, 1)
 
 							}
 						})

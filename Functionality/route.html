@@ -2,6 +2,15 @@
 	<!-- ===================== Route ================== -->
 	<script src="../xFiles/js/route_intermediary.js"> </script>
 	<!-- ============================================== -->
+	<style>
+		.border-btm {
+			border-bottom: 1px solid rgba(3,3,3,.3);
+		}
+		.addBg {
+			background-color: rgba(3,3,3,.1);
+		}
+	</style>
+	<!-- ============================================== -->
 
 	<article>
 
@@ -59,74 +68,83 @@
 								<button class="accordion-btn  sectionAccordion-btn"> II. Routing and <span class="xs-hidden sm-hidden">&nbsp;Single-Page Applications</span> <span class="xs-visible sm-visible">&nbsp;SPA</span> </button>
 								<div class="accordion-content sectionAccordion-content">
 
-									<div class="col-12 md-col-6 md-pl-0">
-										<p> Within a <b>Tradition (multi-page) Website/Application</b>, each individual Page is 'self-sustained', having it's own DOCTYPE Declaration, Meta Tags, CSS/JS Files, HTML markup, etc. </p>
-										<p> <b>When navigating to different pages</b>, the browser discards the current page completely, requests new files from the server, and loads a completely new Document. </p>
+									<div class="accordion p-0 my-sm">
+										<div class="accordion-group my-sm px-md">
+											<button class="accordion-btn"> 1. What is a Single-Page Application ? </button>
+											<div class="accordion-content">
 
-										<hr>
+												<div class="col-12 md-col-6 xs-o-p-0 sm-o-p-0 md-pl-0">
+													<p> Within a <b>Tradition (multi-page) Website/Application</b>, each individual Page is 'self-sustained', having it's own DOCTYPE Declaration, Meta Tags, CSS/JS Files, HTML markup, etc. </p>
+													<p> <b>When navigating to different pages</b>, the browser discards the current page completely, requests new files from the server, and loads a completely new Document. </p>
 
-										<p> Within a <b>Single-Page Application (SPA)</b> environment, there is a <span class="wrapper">Root Page</span> which is 'self-sustained', just like any Page within a <b>Tradition (multi-page) Website/App</b>. </p>
-										<p class="sub-heading mt-0"> * The <span class="wrapper">Root Page</span> is ussualy the <span class="wrapper">index.html</span> Page. </p>
+													<hr>
 
-										<p> <b>Navigating to different pages</b> happens by updating part of the <span class="wrapper">Root Page</span> (the part that is updated is called a <span class="wrapper">View</span>), and this happens <u>without actually navigating away</u> from the Application's <span class="wrapper">Root Page</span> <i class="sub-heading mt-0"> * Hence the name of 'single-page' </i> </p>
+													<p> Within a <b>Single-Page Application (SPA)</b> environment, there is a <span class="wrapper">Root Page</span> which is 'self-sustained', just like any Page within a <b>Tradition (multi-page) Website/App</b>. </p>
+													<p class="sub-heading mt-0"> * The <span class="wrapper">Root Page</span> is ussualy the <span class="wrapper">index.html</span> Page. </p>
+
+													<p> <b>Navigating to different pages</b> happens by updating part of the <span class="wrapper">Root Page</span> (the part that is updated is called a <span class="wrapper">View</span>), and this happens <u>without actually navigating away</u> from the Application's <span class="wrapper">Root Page</span> <i class="sub-heading mt-0"> * Hence the name of 'single-page' </i> </p>
+												</div>
+
+												<div class="col-12 md-col-6 md-pr-0">
+													<img src="xFiles/images/articles/spa-example.png" style="border-radius: 6px"/>
+												</div>
+
+											</div>
+										</div>
+
+										<div class="accordion-group my-sm px-md">
+											<button class="accordion-btn"> SPA vs asterisk-route </button>
+											<div class="accordion-content">
+
+												<div class="col-12 md-col-6 p-0">
+													<h2 class="px-md my-xs"> Traditional Single-Page Applications </h2>
+													<div class="col-12"><hr></div>
+
+													<p> Normally, Single-Page Applications download all the files/data required for the entire application to run, at the very start.</p>
+
+													<p> From there on, loading new Pages happens extremely fast, as it removes the need to make requests to the server to get the required files (as the files are already downloaded). </p>
+
+													<p> This results to a bigger <b>initial load time</b>, as a lot of data is requested from the server. </p>
+													<p> Yet, usually, this <b>initial load time</b> is managed by caching the files to the user's device. Doing so, while the very first time the user accesses the application, the <b>initial load time</b> will be longer (getting all the files/data), from there on the <b>initial load time</b> will be short (as the files are cached). </p>
+												</div>
+
+												<div class="col-12 md-col-6 p-0">
+													<h2 class="px-md my-xs"> The asterisk-route approach </h2>
+													<div class="col-12"><hr></div>
+													
+													<p> With the <span class="wrapper">asterisk route</span> things are different. It mimics the functionality of a Single-Page Application, but it functions as a hybrid between a SPA and a multi-page application. </p>
+													<!-- <p> It allows to  -->
+													<p> All common CSS/JS Files (utility / components / effects / etc) are refferenced within the <span class="wrapper">Root Page</span>. When the <span class="wrapper">Root Page</span> loads, these common files are available for all 'individual' Pages that load further on - resulting in a faster load than a multi-page application. </p>
+													<p> Yet, it does make requests to the server to fetch each 'individual' page's <span class="wrapper">.html</span> and/or <span class="wrapper">.js</span> files, when a new page is loaded. This allows for the <b>initial load time</b> to be faster than a SPA approach, when <b>caching</b> is not used, although it has a slower load time for 'individual' Pages, than with a traditional SPA approach. </p>
+												</div>
+
+											</div>
+										</div>
 									</div>
 
-									<div class="col-12 md-col-6 md-pr-0">
-										<img src="xFiles/images/articles/spa-example.png" style="border-radius: 6px"/>
-									</div>
 								</div>
 							</div>
 						</section> 
 
-						<!-- <p> Initial Pathing </p>
-
-						<p> Initial pathing refferes to when a user tries to navigate to a specific path from the start, without going through the landing page (example mySite/someCategory/somePage.html) </p>
-
-						<p> Server-side scripting can cover this easily, by routing all such requests back to the landing page.
-
-						<p> Each <b>pageLoad</b> runs a <span class="wrapper">fetch request</span> for a <span class="wrapper">HTML file</span>, and updates the content of the <span class="wrapper">View</span> through <span class="wrapper"><b-r>{myView}</b-r>.innerHTML</span>. </p>
-						<p> As <span class="wrapper">{element}.innerHTML</span> does not execute <span class="wrapper">scripts</span>, the <span class="wrapper">asterisk-route-intermediary</span> script is ignored when </p> -->
-
-
-						<!-- Building it up -->
-
-					<!-- <p> Normal websites/applications run on a page-by-page format, created from having multiple HTML files. </p>
-					<p> Each individual HTML page has it's own content, stylesheets and scripts. </p>
-					<p> When navigating from one HTML page to another, the existing HTML page is scrapped entirely, and is replaced with a new one. </p>
-
-
-
-					<p> Single-Page Applications run on the premise of having only a single (root) HTML page. </p>
-					<p> The root HTML page which holds the main stylesheets and scripts, along with the content that remains the same across different pages </p>
-					<p> Within it we define <span class="wrapper">Views</span>, which have their content modified, in representation of a new page loaded. </p>
-					<p> When navigating from one HTML page to another, the root page remains intact, while modifying only the content of each <span class="wrapper">View</span> </p>
-
-					<p> As for every project, we must first create the <span class="wrapper">Index Page</span>. </p>
-
-					<p> This is the foundation of the entire application, refferencing all universally-used <span class="wrapper">stylesheets/scripts</span>, and containing the markup for the application's <span class="wrapper">skeleton</span>. </p>
-
-					<p> The <span class="wrapper">skeleton</span> reffers to the part of the application that remains (mostly) constant/unchanged, regardless of what <span class="wrapper">page/article</span> is loaded. </p>
-
-					<p> Somewhere within the <span class="wrapper">skeleton</span>, we define a <span class="wrapper">div</span> with an <span class="wrapper">id="__route__mainView"</span>, which represents our <span class="wrapper">View</span> (where our page's content will actually load).</p>
-
-					<p class="sub-heading mt-0"> This can be compared to an iframe - we are loading a different <span class="wrapper">HTML file</span> (with extra stylesheets/scripts if desired) within our <span class="wrapper">View</span> </p> -->
-
-					<!-- II. Description -->
+					<!-- III. Usage -->
 						<section class="accordion  p-0        sectionAccordion">
 							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
-								<button class="accordion-btn  sectionAccordion-btn"> II. Usage </button>
+								<button class="accordion-btn  sectionAccordion-btn"> III. Usage </button>
 								<div class="accordion-content sectionAccordion-content">
 
+									<div class="accordion p-0 my-sm">
 
-									<!-- Part 1 || Creating the Root Page -->
-									<section class="accordion  p-0        sectionAccordion">
-										<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
-											<button class="accordion-btn  sectionAccordion-btn"> <span class="xs-hidden">Part</span> 1 || Creating the Root Page </button>
-											<div class="accordion-content sectionAccordion-content">
+										<!-- Part 1 || Creating the Root Page -->
+										<div class="accordion-group my-sm px-md">
+											<button class="accordion-btn"> Part 1 || Creating the Root Page </button>
+											<div class="accordion-content">
 
 												<div class="col-12 md-flex md-flex-cross-center p-0">
 													<div class="col-12 md-col-6 p-0">
 														<p> * The <b>Root Page</b> is basically the <span class="wrapper">index.html</span> Page. It is created like any (multi-page) website's Page, and has the structure of a generic stand-alone page. </p>
+
+														<p class="sub-heading"> The users will never navigate away from the <b>Root Page</b> - when a new Page loads, it will simply trigger an Url change, and the content of the <span class="wrapper">View</span> Element (which is within it) will be updated. </p>
+														<p class="sub-heading"> Because of that, we need to add all the website's details (meta tags, titles, CSS/JS file refferences, etc) on the <b>Root Page</b>. They will also be available, by default, for every new Page that is loaded within the <span class="wrapper">View</span>.</p>
 
 														<div class="col-12"><hr></div>
 
@@ -138,8 +156,9 @@
 													</div>
 
 													<div class="col-12 md-col-6 p-0">
-														<div class="wrapper">
-															<pre class="pre-removeTabSpaces">
+														<div class="wrapper py-0">
+															<pre class="pre-removeTabSpaces mt-0">
+
 															    <i class="comment">// <span class="wrapper">Root Page</span> Example </i>
 
 															    &lt;!DOCTYPE html>
@@ -150,12 +169,13 @@
 															      &lt;/head>
 															      &lt;body>
 															          <i class="comment">// other HTML content </i>
-															          &lt;div id="__route__mainView"> &lt;/div>   <b><i class="comment"> // this is the <span class="wrapper">Main View</span>, where each <span class="wrapper">Page</span>'s content is loaded </i></b>
+															          <b>&lt;div id="__route__mainView"> &lt;/div></b>   <b><i class="comment"> // this is the <span class="wrapper">Main View</span>, where each <span class="wrapper">Page</span>'s content is loaded </i></b>
 															          <i class="comment">// other HTML content </i>
 															          <i class="comment">// all general-purpose <span class="wrapper">JS files</span></i>
-															          &lt;script src="<<b-r>--myPath--</b-r>/asterisk-route.js">&lt;/script>
+															          <b>&lt;script src="<b-r>--myPath--</b-r>/asterisk-route.js">&lt;/script></b>
 															      &lt;/body>
 															    &lt;/html>
+
 															</pre>
 														</div>
 													</div>
@@ -163,13 +183,11 @@
 
 											</div>
 										</div>
-									</section>
 
-									<!-- Part 2 || Creating 'individual' Pages -->
-									<section class="accordion  p-0        sectionAccordion">
-										<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
-											<button class="accordion-btn  sectionAccordion-btn"> <span class="xs-hidden">Part</span> 2 || Creating <span class="xs-hidden">'individual'</span> Pages </button>
-											<div class="accordion-content sectionAccordion-content">
+										<!-- Part 2 || Creating 'individual' Pages -->
+										<div class="accordion-group my-sm px-md">
+											<button class="accordion-btn"> Part 2 || Creating 'individual' Pages </button>
+											<div class="accordion-content">
 
 												<div class="col-12 md-flex md-flex-cross-center p-0">
 													<div class="col-12 md-col-6 p-0">
@@ -183,8 +201,9 @@
 													</div>
 
 													<div class="col-12 md-col-6 p-0">
-														<div class="wrapper">
-															<pre class="pre-removeTabSpaces">
+														<div class="wrapper py-0">
+															<pre class="pre-removeTabSpaces mt-0">
+
 															    <i class="comment">// <span class="wrapper">'Individual' Page</span> Example </i>
 
 															    &lt;script src="<b-r>--myPath--</b-r>/route_intermediary.js">&lt;/script> <i class="comment">// <b>* Required</b> </i>
@@ -192,28 +211,65 @@
 															    &lt;article>
 															        <i class="comment">// Place content here </i>
 															    &lt;/article>
+
 															</pre>
 														</div>
 													</div>
 												</div>
 
-												<p class="sub-heading mt-0"> * Each individual Page does not require refferencing to the CSS/JS Files which are already loaded on the Root Page. </p>
+												<hr>
 
-												<p class="sub-heading mt-0"> * Specific <b>styles</b> can be loaded for the individual Page, within the <span class="wrapper">&lt;style>&lt;/style></span> Tag at the top of the HTML File. </p>
+												<p class="mt-0"> * Each individual Page does not require refferencing to the CSS/JS Files which are already loaded on the Root Page. </p>
 
-												<p class="sub-heading mt-0"> * Specific <b>scripts</b> can be loaded for each individual Page, by creating a <span class="wrapper">myArticle.js</span> File and refferencing it within the <span class="wrapper">asterisk.route.paths</span>. </p>
-										
-												<!--<p> Adding specific meta-tags </p>-->
+												<p class="mt-0"> * Specific <b>styles</b> can be loaded for the individual Page, within the <span class="wrapper">&lt;style>&lt;/style></span> Tag at the top of the HTML File. </p>
+
+												<p class="mt-0"> * Specific <b>scripts</b> can be loaded for each individual Page, by creating a <span class="wrapper">myArticle.js</span> File and refferencing it within the <span class="wrapper">asterisk.route.paths</span>. </p>
+
+												<div class="accordion p-0 my-sm">
+													<div class="accordion-group my-sm px-md">
+														<button class="accordion-btn"> The <b>asterisk-route-intermediary.js</b> File </button>
+														<div class="accordion-content">
+
+															<p> <i> When using <b>Server-side Routing</b>, when a user follows a specific link (ex: http://mySite.com/something.html), it is easy to redirect to the <span class="wrapper">Root Page</span> (ex: http://mySite.com), by default.</i> </p>
+
+															<p> <i> With <b>Client-side Routing</b>, when a user follows a specific link (ex: http://mySite.com/something.html), the specific Page will load - this is a problem as 'individual' Pages have only the content which should update the <span clas="wrapper">View</span> of the <span class="wrapper">Root Page</span>, and not the <span class="wrapper">Root Page</span>'s markup, CSS/JS refferences and so on.</i> </p>
+
+															<hr>
+
+															<p> 1. The <span class="wrapper">asterisk-route-intermediary.js</span> file contains the code to simply <b>create a custom Url</b>, which contains the details about the Page which has loaded. </p>
+
+															<div class="col-12 sm-col-6">
+																<div class="wrapper">
+																	http://mySite.com/something.html <b><i class="comment float-right">// Initial Url</i></b>
+																</div>
+															</div>
+
+															<div class="col-12 sm-col-6">
+																<div class="wrapper">
+																	http://mySite.com/?load=/something.html <b><i class="comment float-right">// Modified Url</i></b>
+																</div>
+															</div>
+
+															<p> 2. With that custom Url, it <b>redirects to the</b> <span class="wrapper">Root Page</span>.</p>
+															<p class="mt-0"> 3. When the <span class="wrapper">Root Page</span> is loaded, it checks the url parameters we defined, and <b>loads the content of the Page on which the user initially loaded</b>, within the <span class="wrapper">View</span>. </p>
+
+															<hr>
+
+															<p> Refferencing the <span class="wrapper">asterisk-route-intermediary.js</span> JS File within each Page's HTML allows for : </p>
+															<p> <b>1. It will only execute if the user follows a specific link</b> (ex: http://mySite.com/something.html), <b>where the <span class="wrapper">Root Page</span> is not loaded yet</b>, without parsing the rest of the Page's HTML markup or refferenced Files. </p>
+															<p> <b>2. It will <u>not</u> execute if the <span class="wrapper">Root Page</span> is already loaded</b> - as adding a <span class="wrapper">&lt;script></span> through <span class="wrapper">innerHTML</span> will not execute it. </p>
+															
+														</div>
+													</div>
+												</div>
 
 											</div>
 										</div>
-									</section>
 
-									<!-- Part 3 || Creating Routing Paths -->
-									<section class="accordion  p-0        sectionAccordion">
-										<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
-											<button class="accordion-btn  sectionAccordion-btn"> <span class="xs-hidden">Part</span> 3 || Creating Routing Paths </button>
-											<div class="accordion-content sectionAccordion-content">
+										<!-- Part 3 || Creating Routing Paths -->
+										<div class="accordion-group my-sm px-md">
+											<button class="accordion-btn"> Part 3 || Creating Routing Paths </button>
+											<div class="accordion-content">
 
 												<p> As we never navigate away from the <b>Root Page</b> (even though the url changes), to load a new <b>'individual' Page</b> within the <b>View</b>, we need to define what files will be used in this process. </p>
 
@@ -221,7 +277,30 @@
 
 												<p class="mt-0"> Each <span class="wrapper">Path Object</span> is an unnamed Object, with 3 Properties : </p>
 
-												<div class="col-12">
+												<div class="col-12 xs-visible sm-visible">
+													<div class="col-12 pseudo-table">
+														<div class="col-12 p-0 border-btm">
+															<div class="col-6 p-xs"> <b>1.</b> <b-p>filePath_html</b-p> </div>
+															<div class="col-3 p-xs border-left"> <b-r>Required</b-r> </div>
+															<div class="col-3 p-xs border-left"> String </div>
+														</div>
+														<div class="col-12 p-xs border-btm"> The path to the <b>Page</b>'s <span class="wrapper">.html</span> File </div>
+														<div class="col-12 p-0 border-btm addBg">
+															<div class="col-6 p-xs"> <b>2.</b> <b-p>filePath_js</b-p> </div>
+															<div class="col-3 p-xs border-left"> Optional </div>
+															<div class="col-3 p-xs border-left"> String </div>
+														</div>
+														<div class="col-12 p-xs border-btm addBg"> The path to the <b>Page</b>'s <span class="wrapper">.js</span> File </div>
+														<div class="col-12 p-0 border-btm">
+															<div class="col-6 p-xs"> <b>3.</b> <b-p>filePath_html</b-p> </div>
+															<div class="col-3 p-xs border-left"> Optional </div>
+															<div class="col-3 p-xs border-left"> Object </div>
+														</div>
+														<div class="col-12 p-xs border-btm"> Stores any parameters required to bring additional changes to <b>Page / Application</b> </div>
+													</div>
+												</div>
+
+												<div class="col-12 xs-hidden sm-hidden">
 													<table class="col-12 p-0">
 														<tbody>
 															<tr>
@@ -255,8 +334,9 @@
 												<p class="sub-heading mt-0"> Within this website (byandu.netlify.com), each <span class="wrapper">Path Object</span> has a <span class="wrapper">category</span> property, which is used to update the Category Buttons within the left-side navigation menu. </p>
 
 												<div class="col-12">
-													<div class="wrapper">
-														<pre class="pre-removeTabSpaces">
+													<div class="wrapper py-0">
+														<pre class="pre-removeTabSpaces mt-0">
+
 														    asterisk.route.paths = [
 														        { 
 														            filePath_html : '/myCategory/myArticle_1.html' , 
@@ -274,156 +354,369 @@
 														            }
 														        } 
 														    ];
+
 														</pre>
 													</div>
 												</div>
 
 											</div>
 										</div>
-									</section>
 
-									<!-- Part 4 || Defining the Functions -->
-									<section class="accordion  p-0        sectionAccordion">
-										<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
-											<button class="accordion-btn  sectionAccordion-btn"> <span class="xs-hidden">Part</span> 4 || <span class="xs-hidden">Defining the</span> Intermediary Functions </button>
-											<div class="accordion-content sectionAccordion-content">
+										<!-- Part 4 || Defining the Functions -->
+										<div class="accordion-group my-sm px-md">
+											<button class="accordion-btn"> Part 4 || Defining the Intermediary Functions </button>
+											<div class="accordion-content">
 
 												<p> There are 4 <b>Intermediary Functions</b> that can be used to control what happens when a new <b>Page</b> is loaded. They are <b>optional</b>. </p>
 
 												<p class="sub-heading mt-0"> These are already defined as <u>empty</u> functions, within the <span class="wrapper">asterisk-route.js</span> JS File, to avoid Refference Errors. </p>
 
-												<hr>
-
-												<div class="col-12 md-flex md-flex-cross-center p-0">
+												<div class="col-12 p-0 md-flex md-flex-cross-center">
 													<div class="col-12 md-col-6 p-0">
-														<p> <b>1.</b> <span class="wrapper"><b>asterisk.route.intermediary</b><b-p>.loadPage_onBegin</b-p>()</span> </p>
-														<p class="mt-0"> This runs immediately when a new Page starts loading. It can be used to add a loading animation on the <span class="wrapper">View</span>, while the content is updating. </p>
-														<p class="mt-0"> <b> Example : </b> In the current website (byandu.netlify.com) it is used to add a <span class="wrapper">faSpinner</span> loading animation, to the <span class="wrapper">View</span>. </p>
+														<p> This can be done within the <span class="wrapper">asterisk-route.js</span> File, or within a <b>separate <span class="wrapper">.js</span> File</b> - as long as the <b>separate <span class="wrapper">.js</span> File</b> comes <b-r>after</b-r> the <span class="wrapper">asterisk-route.js</span> File. </p>
 													</div>
 
 													<div class="col-12 md-col-6 p-0">
-														<div class="wrapper pb-0">
+														<div class="wrapper py-0">
 															<pre class="pre-removeTabSpaces">
-															    <b>asterisk.route.intermediary</b><b-p>.loadPage_onBegin</b-p> = function() {
-															        asterisk.route.info.mainView.classList.add('faSpinner', 'faSpinner-fast', 'faSpinner-lg');
-															    };
+
+															    &lt;script type="text/javascript" src="<b-r>--myPath--</b-r>/asterisk-route.js">&lt;/script>
+															    &lt;script type="text/javascript" src="<b-r>--myPath--</b-r>/mySeparateFile.js">&lt;/script>
+
 															</pre>
 														</div>
 													</div>
 												</div>
 
-												<hr>
+												<div class="accordion p-0 my-sm">
+													<div class="accordion-group my-sm px-md">
+														<button class="accordion-btn"> <b>1. loadPage_onBegin()</b> </button>
+														<div class="accordion-content">
 
-												<div class="col-12 md-flex md-flex-cross-center p-0">
-													<div class="col-12 md-col-6 p-0">
-														<p> <b>2.</b> <span class="wrapper"><b>asterisk.route.intermediary</b><b-p>.loadPage_updateDOM</b-p>()</span> </p>
-														<p> This is used to bring changes to the Elements which are <b>outside</b> the <span class="wrapper">View</span>, when loading a new Page. </p>
-														<p class="mt-0"> <b> Example : </b> In the current website (byandu.netlify.com) it is used to update the <span class="wrapper">active</span> status on the <b>categories/articles buttons</b> within the <b>left side navbar</b>. </p>
-														<p class="sub-heading mt-0"> * In the example, the <span class="wrapper">articleParams__obj</span> reffers to the current Path Object, defined within <span class="wrapper">asterisk.route.paths</span>. </p>
+															<div class="col-12 md-flex md-flex-cross-center p-0">
+																<div class="col-12 md-col-6 p-0">
+																	<p> <b>1.</b> <span class="wrapper"><b>asterisk.route.intermediary</b><b-p>.loadPage_onBegin</b-p>()</span> </p>
+																	<p class="mt-0"> This runs immediately when a new Page starts loading. It can be used to add a loading animation on the <span class="wrapper">View</span>, while the content is updating. </p>
+																	<p class="mt-0"> <b> Example : </b> In the current website (byandu.netlify.com) it is used to add a <span class="wrapper">faSpinner</span> loading animation, to the <span class="wrapper">View</span>. </p>
+																</div>
+
+																<div class="col-12 md-col-6 p-0">
+																	<div class="wrapper py-0">
+																		<pre class="pre-removeTabSpaces mt-0">
+
+																		    <b>asterisk.route.intermediary</b><b-p>.loadPage_onBegin</b-p> = function() {
+																		        asterisk.route.info.mainView.classList.add('faSpinner', 'faSpinner-fast', 'faSpinner-lg');
+																		    };
+
+																		</pre>
+																	</div>
+																</div>
+															</div>
+
+														</div>
 													</div>
 
-													<div class="col-12 md-col-6 p-0">
-														<div class="wrapper pb-0">
-															<pre class="pre-removeTabSpaces" style="max-height: 300px">
-															    <b>asterisk.route.intermediary</b><b-p>.updateDOM</b-p> = function(articleParams__obj) {
+													<div class="accordion-group my-sm px-md">
+														<button class="accordion-btn"> <b>1. loadPage_updateDOM()</b> </button>
+														<div class="accordion-content">
 
-															        var myTargets_1 = Array.from(document.getElementsByClassName('__route__category'));
-															        var identifierValue = articleParams__obj.articleParameters.category;
+															<div class="col-12 md-flex md-flex-cross-center p-0">
+																<div class="col-12 md-col-6 p-0">
+																	<p> <b>2.</b> <span class="wrapper"><b>asterisk.route.intermediary</b><b-p>.loadPage_updateDOM</b-p>()</span> </p>
+																	<p> This is used to bring changes to the Elements which are <b>outside</b> the <span class="wrapper">View</span>, when loading a new Page. </p>
+																	<p class="mt-0"> <b> Example : </b> In the current website (byandu.netlify.com) it is used to update the <span class="wrapper">active</span> status on the <b>categories/articles buttons</b> within the <b>left side navbar</b>. </p>
+																	<p class="sub-heading mt-0"> * In the example, the <span class="wrapper">articleParams__obj</span> reffers to the current Path Object, defined within <span class="wrapper">asterisk.route.paths</span>. </p>
+																</div>
 
-															        myTargets_1.map(function(elem) {
-															            if (elem.getAttribute('data-categoryName') == identifierValue) { 
-															                elem.classList.add('active') 
-															            } else { 
-															                elem.classList.remove('active') 
-															            }
-															        });
+																<div class="col-12 md-col-6 p-0">
+																	<div class="wrapper py-0">
+																		<pre class="pre-removeTabSpaces mt-0" style="max-height: 300px">
 
-															        var myTargets_2 = Array.from(document.getElementsByClassName('__route__articleBtn'));
-															        var identifierValue = articleParams__obj.filePath_html;
+																		    <b>asterisk.route.intermediary</b><b-p>.updateDOM</b-p> = function(articleParams__obj) {
 
-															        myTargets_2.map(function(elem) {
-															            if (elem.pathname == identifierValue) { 
-															                elem.classList.add   ('active') 
-															            } else { 
-															                elem.classList.remove('active') 
-															            }
-															        });
-															    };
-															</pre>
+																		        var myTargets_1 = Array.from(document.getElementsByClassName('__route__category'));
+																		        var identifierValue = articleParams__obj.articleParameters.category;
+
+																		        myTargets_1.map(function(elem) {
+																		            if (elem.getAttribute('data-categoryName') == identifierValue) { 
+																		                elem.classList.add('active') 
+																		            } else { 
+																		                elem.classList.remove('active') 
+																		            }
+																		        });
+
+																		        var myTargets_2 = Array.from(document.getElementsByClassName('__route__articleBtn'));
+																		        var identifierValue = articleParams__obj.filePath_html;
+
+																		        myTargets_2.map(function(elem) {
+																		            if (elem.pathname == identifierValue) { 
+																		                elem.classList.add   ('active') 
+																		            } else { 
+																		                elem.classList.remove('active') 
+																		            }
+																		        });
+																		    };
+
+																		</pre>
+																	</div>
+																</div>
+															</div>
+
+														</div>
+													</div>
+
+													<div class="accordion-group my-sm px-md">
+														<button class="accordion-btn"> <b>1. loadPage_runDefaultScript()</b> </button>
+														<div class="accordion-content">
+
+															<div class="col-12 md-flex md-flex-cross-center p-0">
+																<div class="col-12 md-col-6 p-0">
+																	<p> <b>3.</b> <span class="wrapper"><b>asterisk.route.intermediary</b><b-p>.loadPage_runDefaultScript</b-p>()</span> </p>
+																	<p class="mt-0"> This is used as a default script, <b>for the content within the <span class="wrapper">View</span></b>, after a new Page has loaded. Checks/functions which should occur for every new Page load, should be included here to avoid repeating them across each Page's <span class="wrapper">.js</span> File. </p>
+																	<p class="mt-0"> <b> Example : </b> In the current website (byandu.netlify.com) it is used to do some formatting on the text within <span class="wrapper">&lt;pre></span> Elements. </p>
+																</div>
+
+																<div class="col-12 md-col-6 p-0">
+																	<div class="wrapper py-0">
+																		<pre class="pre-removeTabSpaces mt-0">
+
+																		    <b>asterisk.route.intermediary</b><b-p>.loadPage_runDefaultScript</b-p> = function() {
+																		        var targetedPreElements = Array.from(document.getElementsByClassName('pre-removeTabSpaces'));
+
+																		        targetedPreElements.map(function(item) {
+																		            item.innerHTML = string_remove_tabSpaces(item.innerHTML);
+																		        });
+																		    };
+
+																		</pre>
+																	</div>
+																</div>
+															</div>
+
+														</div>
+													</div>
+
+													<div class="accordion-group my-sm px-md">
+														<button class="accordion-btn"> <b>1. loadPage_onEnd()</b> </button>
+														<div class="accordion-content">
+
+															<div class="col-12 md-flex md-flex-cross-center p-0">
+																<div class="col-12 md-col-6 p-0">
+																	<p> <b>4.</b> <span class="wrapper"><b>asterisk.route.intermediary</b><b-p>.loadPage_onEnd</b-p>()</span> </p>
+																	<p class="mt-0"> This is the last thing that runs when loading a new Page (after the Page's content is generated, and the Page's Javascript has executed). It can be used to remove the loading animation on the <span class="wrapper">View</span>, to check which Elements were removed from the DOM (memory management), etc. </p>
+																	<p class="mt-0"> <b> Example : </b> In the current website (byandu.netlify.com) it is used to remove the <span class="wrapper">faSpinner</span> loading animation. </p>
+																</div>
+
+																<div class="col-12 md-col-6 p-0">
+																	<div class="wrapper py-0">
+																		<pre class="pre-removeTabSpaces mt-0">
+
+																		    <b>asterisk.route.intermediary</b><b-p>.loadPage_onEnd</b-p> = function() {
+																		        asterisk.route.info.mainView.classList.remove('faSpinner', 'faSpinner-fast', 'faSpinner-lg');
+																		    };
+
+																		</pre>
+																	</div>
+																</div>
+															</div>
+
 														</div>
 													</div>
 												</div>
 
-												<hr>
-
-												<div class="col-12 md-flex md-flex-cross-center p-0">
-													<div class="col-12 md-col-6 p-0">
-														<p> <b>3.</b> <span class="wrapper"><b>asterisk.route.intermediary</b><b-p>.loadPage_runDefaultScript</b-p>()</span> </p>
-														<p class="mt-0"> This is used as a default script, <b>for the content within the <span class="wrapper">View</span></b>, after a new Page has loaded. Checks/functions which should occur for every new Page load, should be included here to avoid repeating them across each Page's <span class="wrapper">.js</span> File. </p>
-														<p class="mt-0"> <b> Example : </b> In the current website (byandu.netlify.com) it is used to do some formatting on the text within <span class="wrapper">&lt;pre></span> Elements. </p>
-													</div>
-
-													<div class="col-12 md-col-6 p-0">
-														<div class="wrapper pb-0">
-															<pre class="pre-removeTabSpaces">
-															    <b>asterisk.route.intermediary</b><b-p>.loadPage_runDefaultScript</b-p> = function() {
-															        var targetedPreElements = Array.from(document.getElementsByClassName('pre-removeTabSpaces'));
-
-															        targetedPreElements.map(function(item) {
-															            item.innerHTML = string_remove_tabSpaces(item.innerHTML);
-															        });
-															    };
-															</pre>
-														</div>
-													</div>
-												</div>
-
-												<hr>
-
-												<div class="col-12 md-flex md-flex-cross-center p-0">
-													<div class="col-12 md-col-6 p-0">
-														<p> <b>4.</b> <span class="wrapper"><b>asterisk.route.intermediary</b><b-p>.loadPage_onEnd</b-p>()</span> </p>
-														<p class="mt-0"> This is the last thing that runs when loading a new Page (after the Page's content is generated, and the Page's Javascript has executed). It can be used to remove the loading animation on the <span class="wrapper">View</span>, to check which Elements were removed from the DOM (memory management), etc. </p>
-														<p class="mt-0"> <b> Example : </b> In the current website (byandu.netlify.com) it is used to remove the <span class="wrapper">faSpinner</span> loading animation. </p>
-													</div>
-
-													<div class="col-12 md-col-6 p-0">
-														<div class="wrapper pb-0">
-															<pre class="pre-removeTabSpaces">
-															    <b>asterisk.route.intermediary</b><b-p>.loadPage_onEnd</b-p> = function() {
-															        asterisk.route.info.mainView.classList.remove('faSpinner', 'faSpinner-fast', 'faSpinner-lg');
-															    };
-															</pre>
-														</div>
-													</div>
-												</div>
 											</div>
 										</div>
-									</section>
+
+										<!-- Part 5 || Defining Page Links -->
+										<div class="accordion-group my-sm px-md">
+											<button class="accordion-btn"> Part 5 || Defining Page Links </button>
+											<div class="accordion-content">
+
+												<div class="col-12 md-flex md-flex-cross-center p-0">
+													<div class="col-12 md-col-6 p-0">
+
+														<p> <b>Page Links</b> are used to load a new Pape within the <span class="wrapper">View</span>. </p>
+														<p> When a <b>Page Link</b> is triggered, the <span class="wrapper"><b>asterisk.route</b><b-p>.loadPage()</b-p></span> Function is called, the url is modified and the <span class="wrapper">View</span> is updated. </p>
+
+														<div class="col-12"> <hr> </div>
+
+														<p> <b>Step 1.</b> Create an <span class="wrapper">&lt;a></span> Element. </p>
+														<p> <b>Step 2.</b> Add the <span class="wrapper"><b>__route__articleBtn</b></span> class. </p>
+														<p> <b>Step 3.</b> Add the <b>exact path <u>from the</u> <span class="wrapper">Root Page</span> <u>to the</u> <span class="wrapper">.html</span> File</b>, as it's <span class="wrapper">href</span> value. </p>
+
+													</div>
+
+													<div class="col-12 md-col-6 p-0">
+														<div class="wrapper py-0">
+															<pre class="pre-removeTabSpaces">
+
+															    <i class="comment">// Generic example </i>
+															    &lt;a class="<b>__route__articleBtn</b>" href="<b-p>/myHTMLFile.html</b-p>"> My HTML File &lt;/a>
+
+															    <i class="comment">// Example from this website </i>
+															    &lt;a class="<b>__route__articleBtn</b>" href="<b-p>/utility/spacing.html</b-p>"> Spacing &lt;/a>
+															    &lt;a class="<b>__route__articleBtn</b>" href="<b-p>/components/spoiler.html</b-p>"> Spoiler &lt;/a>
+															    &lt;a class="<b>__route__articleBtn</b>" href="<b-p>/functionality/route.html</b-p>"> Route (Client Side) &lt;/a>
+
+
+															</pre>
+														</div>
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</div>
+
 								</div>
 							</div>
 						</section>
 
-					<p> When navigating directly to the <span class="wrapper">Root/Index Page</span> : (ex: byandu.netlify.com )</p>
-					<p> The 'scheleton' markup is parsed and generated </p>
-					<p> The general-use CSS/JS Files are parsed and memorized </p>
-					<p> The asterisk-route.js file is parsed and a 'default' page is generated within the <span class="wrapper">View</span> </p>
-					<p> From here, navigating to a new page will simply update the <span class="wrapper">View</span> with the coresponding data. </p>
+					<!-- IV. Memory Management -->
+						<section class="accordion  p-0        sectionAccordion">
+							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+								<button class="accordion-btn  sectionAccordion-btn"> IV. Memory Management </button>
+								<div class="accordion-content sectionAccordion-content">
 
-					<p> When navigating directly to <span class="wrapper">a specific Page</span> : (ex: byandu.netlify.com/effects/appear.html )</p>
-					<p> The 'scheleton' markup is not present within the <span class="wrapper">appear.html</span> File - as it contains only the HTML for the article itself </p>
-					<p> The general-use CSS/JS Files are not refferenced </p>
-					<p> The asterisk-route.js file is not refferenced and it's functionality cannot take effect. </p>
-					<p> By itself, navigating to a specific path (without going to the <span class="wrapper">Root/Index Page</span> first), would leave the user with a basic HTML file </p>
+									<div class="accordion p-0 my-sm">
+										<div class="accordion-group my-sm px-md">
+											<button class="accordion-btn"> Memory Management in SPA </button>
+											<div class="accordion-content">
 
+												<p> <b>One key point in every Single-Page Application is Memory Management.</b> </p>
+
+												<div clas="col-12">
+													<div class="col-12 p-0 border-left">
+														<p> Each time a HTML Element or a JS Object is created it is stored in memory. </p>
+														<p class="mt-0"> When they are no longer used (they have no further refferences), the Javascript Garbage Collection kicks-in and removes them from memory. </p>
+														<p class="mt-0"> But this happens only if the Elements/Objects satisfy certain conditions - mainly that they need to not be refferenced anywhere. </p>
+													</div>
+												</div>
+
+												<hr>
+
+												<div class="col-12 md-col-6 p-0">
+													<p> Within traditional <b>Multi-Page applications</b>, this is handled by the fact that when you navigate to a new Page, the Document is discarded completely, and a new Document is loaded. </p>
+													<p> This clears up all the memory alocated for the now-discarded Document. </p>
+												</div>
+
+												<div class="col-12 md-col-6 p-0">
+													<p> Within <b>Single-Page Applications</b>, we never navigate away from the <b>Root Page</b>, so this process never takes place. </p>
+													<p> This results in HTML Elements an JS Objects remaining in memory, even after they are no longer used, which slowly adds up and results in slowing down your app, or even crashing the browser. </p>
+												</div>
+
+											</div>
+										</div>
+									</div>
+
+									<div class="accordion p-0 my-sm">
+										<div class="accordion-group my-sm px-md">
+											<button class="accordion-btn"> 1. De-refferencing HTML Elements </button>
+											<div class="accordion-content">
+
+												<div class="col-12 p-0 md-flex md-flex-cross-center">
+													<div class="col-12 md-col-6 p-0">
+
+														<p> When a new Page is triggered to load, the <span class="wrapper"><b>asterisk.route</b><b-p>.loadPage()</b-p></span> Function fires. </p>
+
+														<p> Within it, before loading the new content, the <span class="wrapper"><b-p>removeExistingElements()</b-p></span> Function executes. This takes all existing HTML Elements from the <span class="wrapper">View</span> (from the Page which is unloaded), and removes all Parent/Child refferences from them. </p>
+														<p class="sub-heading mt-0">  * Otherwise they would never be Garbage Collected and a Memory Leak would occur. </p>
+
+														<div class="col-12"><hr></div>
+
+														<p> If among the de-refferenced Elements there are any <span class="wrapper">Asterisk Components</span>, which were activated through <span class="wrapper"><b>{*}</b><b-p>.initialize()</b-p></span>, these Event Listeners are also automatically removed through <span class="wrapper"><b>{*}</b><b-p>.checkDOM()</b-p></span>, making them elligible for Garbage Collection. </p>
+													</div>
+
+													<div class="col-12 md-col-6 p-0">
+														<div class="wrapper">
+															<pre class="pre-removeTabSpaces" style="max-height: 300px">
+															    asterisk.route.intermediary.removeExistingElements = function(currentView__element) {
+
+															        var curr_view = currentView__element || asterisk.route.info.mainView;
+
+															        var elements = Array.from(curr_view.querySelectorAll('*'));
+															        elements.map(x => curr_view.appendChild(x));
+															        elements.map(function(x) { 
+															            curr_view.removeChild(x);
+															            x.innerHTML = '';
+															            x = null;
+															        });
+															        curr_view.innerHTML = '';
+
+															        for (var key in asterisk.components) {
+															            if (asterisk.components.hasOwnProperty(key)) {
+															                if (asterisk.components[key].checkDOM) { asterisk.components[key].checkDOM() }
+															            }
+															        };
+															    };
+															</pre>
+														</div>
+													</div>
+												</div>
+
+											</div>
+										</div>
+
+										<div class="accordion-group my-sm px-md">
+											<button class="accordion-btn"> 2. Detaching Event Listeners </button>
+											<div class="accordion-content">
+
+												<div class="col-12 p-0 md-flex md-flex-cross-center">
+													<div class="col-12 md-col-6 p-0">
+														<p> An HTML Element which has any <span class="wrapper">Event Listeners</span> attached to it, is <u>not</u> suitable for <b>Garbage Collection</b>. In order to make it elligible for <b>Garbage Collection</b>, the <span class="wrapper">Event Listeners</span> on the Element must be removed. </p>
+
+														<div class="col-12"><hr class="my-xs"></div>
+
+														<p> But there is no available method that allows us to check if an Element has any Event Listeners attached, or which Event Listeners they might be. </p>
+
+														<div class="col-12"><hr class="my-xs"></div>
+
+														<p> This results in the developer needing to manually manage the detachment of Event Listeners. <b>To do so it is required that:</b> </p>
+														<p> <b>1.</b> The Event Listeners must be attached by <b>refferencing a <u>named</u> function</b>, as the Event Handler (in order for <b-r>removeEventListener()</b-r> to work) </p>
+														<p> <b>2.</b> The Event Listeners must be <b><u>specifically</u> removed</b> from the Element.</p>
+													</div>
+
+													<div class="col-12 md-col-6 p-0">
+														<div class="wrapper py-0">
+															<pre class="pre-removeTabSpaces">
+
+															    <i class="comment">// define the named function </i>
+															    var <b-p>myHandler</b-p> = function(e){ 
+															        var target = e.target;
+															        <i class="comment">// do something with the target</i>
+															    };
+
+															    <i class="comment">// add the Event Listener, using the named function as the Event Handler</i>
+															    <b>myElem</b><b-r>.addEventListener</b-r>('click', <b-p>myHandler</b-p>); 
+
+															    <i class="comment">// some other code</i>
+
+															    <i class="comment">// remove the Event Listener, by specifying the named function used as the Event Handler </i>
+															    <b>myElem</b><b-r>.removeEventListener</b-r>('click', <b-p>myHandler</b-p>); 
+
+															</pre>
+														</div>
+													</div>
+
+											</div>
+										</div>
+									</div>
+
+									
+
+									<p> 3. Removing unused Objects </p>
+
+								</div>
+							</div>
+						</section>
 				</div>
 
 				<!-- Code Tab -->
-				<!-- <div class="tabs-content article-mainTabs-codeTab" data-tabs-id="2"
-								data-generateCodeFor="['css']" 
-								data-setCopyContextId="gridSystem-12col" 
-								data-setFileName="asterisk-utility-position">
-				</div> -->
+				<div class="tabs-content article-mainTabs-codeTab" data-tabs-id="2"
+								data-generateCodeFor="['js']" 
+								data-setCopyContextId="asterisk-route" 
+								data-setFileName="asterisk-route">
+				</div>
 				
 			</div>
 		</div>
