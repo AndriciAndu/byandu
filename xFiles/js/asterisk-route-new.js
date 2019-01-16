@@ -9,6 +9,27 @@
 	// --------------------------------------------------
 	// ***REQUIRED*** to be set both [here] and in [asterisk-route.js]
 
+		var localFile_rootPage = 'index.html';
+		var localFile_rootPath = 'file:///d:/webfiles/testbuild' ;
+
+	// oute.info Object 
+	// --------------------------------------------------
+
+		asterisk.route.info = {
+			predefined : {
+				localFile_rootPage : '' ,
+				localFile_rootPath : ''
+			} ,
+			currentTemplate : null , 
+			url_rootHost    : ''   ,
+			url_indexPage   : ''
+		};
+		if (localFile_rootPage && localFile_rootPage != '') { asterisk.route.info.predefined.localFile_rootPage = localFile_rootPage ; localFile_rootPage = undefined };
+		if (localFile_rootPath && localFile_rootPath != '') { asterisk.route.info.predefined.localFile_rootPath = localFile_rootPath ; localFile_rootPath = undefined };
+
+	// Routing Paths
+	// --------------------------------------------------
+
 		asterisk.route.paths = [
 
 			// Utility
@@ -393,18 +414,6 @@
 					} 
 		];
 
-		asterisk.route.info = {
-			predefined : {
-				localFile_rootFolder : 'file:///d:/webfiles/testbuild' ,
-				indexPageName : 'index.html'
-			} ,
-			currentTemplate : null , 
-			url_rootHost    : ''   ,
-			url_indexPage   : ''
-		};
-
-		asterisk.route.info.mainView = document.getElementById('__route__mainView');
-
 	// intermediary functions
 	// --------------------------------------------------
 
@@ -423,32 +432,12 @@
 				return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
 			};
 
-		// Run when a new page has started loading
+		// removeEistingElements
 		// --------------------------------------------------
-
-			asterisk.route.intermediary.loadPage_onBegin = function() {};
-
-		// Update Elements outside of the [__route__mainView]
-		// --------------------------------------------------
-
-			asterisk.route.intermediary.loadPage_updateDOM = function() {};
-			
-		// Run for each page that is loaded
-		// --------------------------------------------------
-
-			asterisk.route.intermediary.loadPage_runDefaultScript = function() {};
-
-		// Run when a new page has finished loading
-		// --------------------------------------------------
-
-			asterisk.route.intermediary.loadPage_onEnd = function() {};
-
-
-
 
 			asterisk.route.intermediary.removeExistingElements = function(currentView__element) {
 
-				var curr_view = currentView__element || asterisk.route.info.mainView;
+				var curr_view = currentView__element || document.getElementById('__route__mainView');
 				var trashBin = document.createElement('DIV');
 
 				var elements = Array.from(curr_view.querySelectorAll('*'));
@@ -470,11 +459,12 @@
 		// Loading a new Page
 		// --------------------------------------------------
 
-			asterisk.route.loadPage = function(urlIdentifier__string , historyState__string) { // example: 'utility/flex'
+			asterisk.route.loadPage = function(urlIdentifier__string , historyState__string) {
 
 				var historyState = historyState__string || 'push';
-				var mainView = asterisk.route.info.mainView;
+				var mainView = document.getElementById('__route__mainView');
 
+				// Refferences
 				var loadPage_onBegin          = asterisk.route.intermediary.loadPage_onBegin;
 				var loadPage_updateDOM        = asterisk.route.intermediary.loadPage_updateDOM;
 				var loadPage_runDefaultScript = asterisk.route.intermediary.loadPage_runDefaultScript;
@@ -493,7 +483,8 @@
 					loadPage_updateDOM(current_routeTemplate);
 
 					asterisk.route.info.currentTemplate = current_routeTemplate;
-					var filePath_html   = current_routeTemplate.filePath_html;
+					var filePath_html = current_routeTemplate.filePath_html;
+					var filePath_js   = current_routeTemplate.filePath_js;
 
 					if (filePath_html && filePath_html != '') {
 
@@ -506,60 +497,47 @@
 								htmlFile_url = filePath_html; break;
 						};
 
-						// 1. get the html file
 						fetch(htmlFile_url)
 
-						// 2. check the response
-						.then(function(response) {
-							if (!response.ok) { throw Error(response.statusText) }
-							return response.text() 
-						})
+							.then(function(response) {
+								if (!response.ok) { throw Error(response.statusText) };
+								return response.text() 
+							})
 
-						// 3. update the innerHTML
-						.then(function(text) {
-							mainView.innerHTML = text;
+							.then(function(text) {
+								mainView.innerHTML = text;
+								if      (historyState == 'replace') { history.replaceState(null, null, htmlFile_url) } 
+								else if (historyState == 'push')    { history.pushState   (null, null, htmlFile_url) }
+							})
 
-							if (historyState == 'replace') { 
-								history.replaceState(null, null, htmlFile_url);
-							} else if (historyState == 'push') {
-								history.pushState(null, null, htmlFile_url);
-							} // ignore if [null]
-						})
+							.then(function() {
+								if (filePath_js && filePath_js != '') {
 
-						// 4. check if script
-						.then(function() {
+									var jsFile_url;
+									switch(window.location.protocol) {
+										case 'file:' :
+											jsFile_url = asterisk.route.info.url_rootHost + filePath_js; break;
+										case 'http:' : 
+										case 'https:': 
+											jsFile_url = filePath_js; break;
+									};
 
-							var filePath_js = current_routeTemplate.filePath_js;
+									var newScript = document.createElement('SCRIPT');
+									newScript.src = jsFile_url;
+									newScript.onload = function() {
+										loadPage_runDefaultScript(); 
+										setTimeout(function(){ loadPage_onEnd() }, 1);
+										newScript.onload = null;
+									};
+									mainView.appendChild(newScript);
 
-							if (filePath_js && filePath_js != '') {
+								} else {
 
-								var jsFile_url;
-								switch(window.location.protocol) {
-									case 'file:' :
-										jsFile_url = asterisk.route.info.url_rootHost + filePath_js; break;
-									case 'http:' : 
-									case 'https:': 
-										jsFile_url = filePath_js; break;
-								};
+									loadPage_runDefaultScript();
+									setTimeout(function(){ loadPage_onEnd() }, 1)
 
-								var newScript = document.createElement('SCRIPT');
-								newScript.src = jsFile_url;
-
-								newScript.onload = function() {
-									loadPage_runDefaultScript(); 
-									setTimeout(function(){ loadPage_onEnd() }, 1);
-									newScript.onload = null;
-								};
-
-								mainView.appendChild(newScript);
-
-							} else {
-
-								loadPage_runDefaultScript();
-								setTimeout(function(){ loadPage_onEnd() }, 1)
-
-							}
-						})
+								}
+							})
 
 					} else {
 						console.log('Current Template does not have a [filePath_html] : ', filePath_html)
@@ -577,13 +555,13 @@
 
 				var target = e.target; 
 
-				if ((" "+target.className+" ").indexOf(" __route__articleBtn ") > -1) {
+				if ((" "+target.className+" ").indexOf(" __route__pageLink ") > -1) {
 					e.preventDefault();
 					asterisk.route.loadPage(target.getAttribute('href'));
 				}
 			};
 
-			document.getElementById('byAndu-navbarSide').addEventListener('click', asterisk.route.articleClick);
+			document.addEventListener('click', asterisk.route.articleClick);
 
 		// PopState
 		// --------------------------------------------------
@@ -602,8 +580,8 @@
 
 				switch(window.location.protocol) {
 					case 'file:' :
-						asterisk.route.info.url_rootHost  = asterisk.route.info.predefined.localFile_rootFolder;
-						asterisk.route.info.url_indexPage = asterisk.route.info.predefined.localFile_rootFolder + '/' + asterisk.route.info.predefined.indexPageName;
+						asterisk.route.info.url_rootHost  = asterisk.route.info.predefined.localFile_rootPath;
+						asterisk.route.info.url_indexPage = asterisk.route.info.predefined.localFile_rootPath + '/' + asterisk.route.info.predefined.localFile_rootPage;
 						break;
 
 					case 'http:' : 
@@ -640,5 +618,24 @@
 				}
 
 				document.body.classList.remove('faSpinner');
-
 			};
+
+		// Run when a new page has started loading
+		// --------------------------------------------------
+
+			asterisk.route.intermediary.loadPage_onBegin = function() {};
+
+		// Update Elements outside of the [__route__mainView]
+		// --------------------------------------------------
+
+			asterisk.route.intermediary.loadPage_updateDOM = function() {};
+			
+		// Run for each page that is loaded
+		// --------------------------------------------------
+
+			asterisk.route.intermediary.loadPage_runDefaultScript = function() {};
+
+		// Run when a new page has finished loading
+		// --------------------------------------------------
+
+			asterisk.route.intermediary.loadPage_onEnd = function() {};

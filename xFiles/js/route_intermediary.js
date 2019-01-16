@@ -1,15 +1,12 @@
 
-	// this will *RUN* only if the [page] is loaded directly
-	// this will *NOT RUN* if loading the [index] page first
-
 	(function() {
 
 		// manually set parameters 
 		// --------------------------------------------------
 		// ***REQUIRED*** to be set both [here] and in [asterisk-route.js]
 
-			var indexPageName  = 'index.html';
-			var localFile_rootFolder = 'file:///d:/webfiles/testbuild';
+			var localFile_rootPage = 'index.html';
+			var localFile_rootPath = 'file:///d:/webfiles/testbuild';
 
 		// set parameters for generating the link to redirect to 
 		// --------------------------------------------------
@@ -19,13 +16,13 @@
 
 			var href_search = window.location.search;
 			var href_hash   = window.location.hash;
-			href_current = href_current.replace(href_search , '').replace(href_hash , '');
+			href_current    = href_current.replace(href_search , '').replace(href_hash , '');
 
 			var url_rootHost , url_indexPage , url_article;
 			switch(window.location.protocol) {
 				case 'file:' :
-					url_rootHost  = localFile_rootFolder;
-					url_indexPage = localFile_rootFolder + '/' + indexPageName;
+					url_rootHost  = localFile_rootPath;
+					url_indexPage = localFile_rootPath + '/' + localFile_rootPage;
 					url_article   = href_current.replace(url_rootHost , '');
 					break;
 
@@ -49,26 +46,6 @@
 
 			var redirectUrl = url_indexPage + url_articleString + href_hash + href_search;
 			window.location.replace(redirectUrl);
-
-
-			// var newURL = window.location.protocol + "://" + window.location.host + "/" + window.location.pathname;
-
-			// var xhref = window.location.href;
-			// var xprotocol = window.location.protocol;
-			// var xhost = window.location.host;
-			// var xsearch = window.location.search;
-			// var xhash = window.location.hash;
-			// //var xhostname = window.location.hostname;
-			// var xpathname = window.location.pathname;
-
-			// console.log({ xhref , xhost, /*xhostname ,*/ xpathname , xprotocol , xsearch , xhash });
-
-			// console.log(window.location.href);
-			// console.log(window.location.protocol);
-			// console.log(window.location.host);
-			// console.log(window.location.search);
-			// console.log(window.location.hash);
-			// console.log(window.location.pathname);
 
 			// working prototype - prevent popstate if internal anchor link
 			// ----------------------------------------------------------

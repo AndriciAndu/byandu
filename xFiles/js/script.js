@@ -7,16 +7,15 @@
 		// --------------------------------------------------
 
 			asterisk.route.intermediary.loadPage_onBegin = function() {
-				asterisk.route.info.mainView.classList.add('faSpinner', 'faSpinner-fast', 'faSpinner-lg');
+				document.getElementById('__route__mainView').classList.add('faSpinner', 'faSpinner-fast', 'faSpinner-lg');
 			};
 
 		// Run when a new page has finished loading
 		// --------------------------------------------------
 
 			asterisk.route.intermediary.loadPage_onEnd = function() {
-				asterisk.route.info.mainView.classList.remove('faSpinner', 'faSpinner-fast', 'faSpinner-lg');
-
-				asterisk.route.info.mainView.focus(); // set focus to article (also collapses navigation menu if not hovered)
+				document.getElementById('__route__mainView').classList.remove('faSpinner', 'faSpinner-fast', 'faSpinner-lg');
+				document.getElementById('__route__mainView').focus(); // set focus to article (also collapses navigation menu if not hovered)
 
 				setTimeout(function(){	// on mobile
 					document.getElementById('body-sideNav-toggleDisplay-mobile').checked = false;
@@ -50,7 +49,7 @@
 					}
 				});
 
-				var myTargets_2 = Array.from(document.getElementsByClassName('__route__articleBtn'));
+				var myTargets_2 = Array.from(document.getElementsByClassName('__route__pageLink'));
 				var identifierValue = articleParams__obj.filePath_html;
 
 				myTargets_2.map(function(elem) {

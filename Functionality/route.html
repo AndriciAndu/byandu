@@ -367,13 +367,15 @@
 											<button class="accordion-btn"> Part 4 || Defining the Intermediary Functions </button>
 											<div class="accordion-content">
 
-												<p> There are 4 <b>Intermediary Functions</b> that can be used to control what happens when a new <b>Page</b> is loaded. They are <b>optional</b>. </p>
+												<p> There are 4 <b>Intermediary Functions</b> that can be used to control what happens when a new <b>Page</b> is loaded. <b>They are </b><b-r>optional</b-r>. </p>
 
 												<p class="sub-heading mt-0"> These are already defined as <u>empty</u> functions, within the <span class="wrapper">asterisk-route.js</span> JS File, to avoid Refference Errors. </p>
 
 												<div class="col-12 p-0 md-flex md-flex-cross-center">
 													<div class="col-12 md-col-6 p-0">
 														<p> This can be done within the <span class="wrapper">asterisk-route.js</span> File, or within a <b>separate <span class="wrapper">.js</span> File</b> - as long as the <b>separate <span class="wrapper">.js</span> File</b> comes <b-r>after</b-r> the <span class="wrapper">asterisk-route.js</span> File. </p>
+
+														<p> <b>These functions can be found <u>at the bottom</u> of the <span class="wrapper">asterisk-route.js</span> File.</b> </p>
 													</div>
 
 													<div class="col-12 md-col-6 p-0">
@@ -390,7 +392,7 @@
 
 												<div class="accordion p-0 my-sm">
 													<div class="accordion-group my-sm px-md">
-														<button class="accordion-btn"> <b>1. loadPage_onBegin()</b> </button>
+														<button class="accordion-btn"> <b>1. {*}.loadPage_onBegin()</b> </button>
 														<div class="accordion-content">
 
 															<div class="col-12 md-flex md-flex-cross-center p-0">
@@ -417,7 +419,7 @@
 													</div>
 
 													<div class="accordion-group my-sm px-md">
-														<button class="accordion-btn"> <b>1. loadPage_updateDOM()</b> </button>
+														<button class="accordion-btn"> <b>2. {*}.loadPage_updateDOM()</b> </button>
 														<div class="accordion-content">
 
 															<div class="col-12 md-flex md-flex-cross-center p-0">
@@ -445,7 +447,7 @@
 																		            }
 																		        });
 
-																		        var myTargets_2 = Array.from(document.getElementsByClassName('__route__articleBtn'));
+																		        var myTargets_2 = Array.from(document.getElementsByClassName('__route__pageLink'));
 																		        var identifierValue = articleParams__obj.filePath_html;
 
 																		        myTargets_2.map(function(elem) {
@@ -466,7 +468,7 @@
 													</div>
 
 													<div class="accordion-group my-sm px-md">
-														<button class="accordion-btn"> <b>1. loadPage_runDefaultScript()</b> </button>
+														<button class="accordion-btn"> <b>3. {*}.loadPage_runDefaultScript()</b> </button>
 														<div class="accordion-content">
 
 															<div class="col-12 md-flex md-flex-cross-center p-0">
@@ -497,13 +499,13 @@
 													</div>
 
 													<div class="accordion-group my-sm px-md">
-														<button class="accordion-btn"> <b>1. loadPage_onEnd()</b> </button>
+														<button class="accordion-btn"> <b>4. {*}.loadPage_onEnd()</b> </button>
 														<div class="accordion-content">
 
 															<div class="col-12 md-flex md-flex-cross-center p-0">
 																<div class="col-12 md-col-6 p-0">
 																	<p> <b>4.</b> <span class="wrapper"><b>asterisk.route.intermediary</b><b-p>.loadPage_onEnd</b-p>()</span> </p>
-																	<p class="mt-0"> This is the last thing that runs when loading a new Page (after the Page's content is generated, and the Page's Javascript has executed). It can be used to remove the loading animation on the <span class="wrapper">View</span>, to check which Elements were removed from the DOM (memory management), etc. </p>
+																	<p class="mt-0"> This is the last thing that runs when loading a new Page (after the Page's content is generated, and the Page's Javascript has executed). </p>
 																	<p class="mt-0"> <b> Example : </b> In the current website (byandu.netlify.com) it is used to remove the <span class="wrapper">faSpinner</span> loading animation. </p>
 																</div>
 
@@ -541,7 +543,7 @@
 														<div class="col-12"> <hr> </div>
 
 														<p> <b>Step 1.</b> Create an <span class="wrapper">&lt;a></span> Element. </p>
-														<p> <b>Step 2.</b> Add the <span class="wrapper"><b>__route__articleBtn</b></span> class. </p>
+														<p> <b>Step 2.</b> Add the <span class="wrapper"><b>__route__pageLink</b></span> class. </p>
 														<p> <b>Step 3.</b> Add the <b>exact path <u>from the</u> <span class="wrapper">Root Page</span> <u>to the</u> <span class="wrapper">.html</span> File</b>, as it's <span class="wrapper">href</span> value. </p>
 
 													</div>
@@ -551,12 +553,12 @@
 															<pre class="pre-removeTabSpaces">
 
 															    <i class="comment">// Generic example </i>
-															    &lt;a class="<b>__route__articleBtn</b>" href="<b-p>/myHTMLFile.html</b-p>"> My HTML File &lt;/a>
+															    &lt;a class="<b>__route__pageLink</b>" href="<b-p>/myHTMLFile.html</b-p>"> My HTML File &lt;/a>
 
 															    <i class="comment">// Example from this website </i>
-															    &lt;a class="<b>__route__articleBtn</b>" href="<b-p>/utility/spacing.html</b-p>"> Spacing &lt;/a>
-															    &lt;a class="<b>__route__articleBtn</b>" href="<b-p>/components/spoiler.html</b-p>"> Spoiler &lt;/a>
-															    &lt;a class="<b>__route__articleBtn</b>" href="<b-p>/functionality/route.html</b-p>"> Route (Client Side) &lt;/a>
+															    &lt;a class="<b>__route__pageLink</b>" href="<b-p>/utility/spacing.html</b-p>"> Spacing &lt;/a>
+															    &lt;a class="<b>__route__pageLink</b>" href="<b-p>/components/spoiler.html</b-p>"> Spoiler &lt;/a>
+															    &lt;a class="<b>__route__pageLink</b>" href="<b-p>/functionality/route.html</b-p>"> Route (Client Side) &lt;/a>
 
 
 															</pre>
@@ -564,8 +566,41 @@
 													</div>
 												</div>
 
+												<div class="col-12"> <hr> </div>
+
+												<p> An <b>Event Listener</b> is added on the <span class="wrapper">document</span>, when the <span class="wrapper">asterisk-route.js</span> JS File is parsed, which delegate the functionality for all <b>Page Links</b> across the App. </p>
+
 											</div>
 										</div>
+
+										<!-- Part 6 || Using asterisk-route locally -->
+										<div class="accordion-group my-sm px-md">
+											<button class="accordion-btn"> Part 6 || Using asterisk-route locally </button>
+											<div class="accordion-content">
+												<p> In order to use the <span class="wrapper">Asterisk Route</span> locally (not on an online server), we need to define the value of the <span class="wrapper">localFile_rootPage</span> and the <span class="wrapper">localFile_rootPath</span> variables. </p>
+												<p class="mt-0"> <b-r><i class="fa fa-warning"></i></b-r> This must be done within <u>both</u> the <span class="wrapper">asterisk-route.js</span> and the <span class="wrapper">asterisk-route-intermediary.js</span> Files. <b>The variables can be found at the top of each File.</b> </p>
+
+												<div class="col-12 p-0 md-flex md-flex-cross-center">
+													<div class="col-12 md-col-6 p-0">
+														<p> 1. <span class="wrapper">localFile_rootPage</span> : <span class="wrapper">String</span> - <b>the <u>file name</u> of the Root Page</b> </p>
+														<p class="mt-0"> 2. <span class="wrapper">localFile_rootPath</span> : <span class="wrapper">String</span> - <b>the <u>local path</u> to the App Folder</b> </p>
+														<p class="sub-heading mt-0"> * The <b>Root Page</b> must be directly within the App Folder, as a first-level child </p>
+													</div>
+													<div class="col-12 md-col-6 p-0">
+														<div class="wrapper py-0">
+															<pre class="pre-removeTabSpaces">
+
+															    <i class="comment">// Example :</i>
+															    var <b>localFile_rootPage</b> = 'index.html';
+															    var <b>localFile_rootPath</b> = 'file:///c:/myWebsite/' ;
+
+															</pre>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
 									</div>
 
 								</div>
@@ -619,7 +654,7 @@
 
 														<p> When a new Page is triggered to load, the <span class="wrapper"><b>asterisk.route</b><b-p>.loadPage()</b-p></span> Function fires. </p>
 
-														<p> Within it, before loading the new content, the <span class="wrapper"><b-p>removeExistingElements()</b-p></span> Function executes. This takes all existing HTML Elements from the <span class="wrapper">View</span> (from the Page which is unloaded), and removes all Parent/Child refferences from them. </p>
+														<p> Within it, before loading the new content, the <span class="wrapper"><b-p>removeExistingElements()</b-p></span> Function executes. This takes all existing HTML Elements from the <span class="wrapper">View</span> (from the Page which is unloaded), and removes all Parent/Child refferences. </p>
 														<p class="sub-heading mt-0">  * Otherwise they would never be Garbage Collected and a Memory Leak would occur. </p>
 
 														<div class="col-12"><hr></div>
@@ -630,18 +665,19 @@
 													<div class="col-12 md-col-6 p-0">
 														<div class="wrapper">
 															<pre class="pre-removeTabSpaces" style="max-height: 300px">
-															    asterisk.route.intermediary.removeExistingElements = function(currentView__element) {
+															    <v>asterisk.route.intermediary</v><b-p>.removeExistingElements</b-p> = function(currentView__element) {
 
-															        var curr_view = currentView__element || asterisk.route.info.mainView;
+															        var curr_view = currentView__element || document.getElementById('__route__mainView');
+															        var trashBin = document.createElement('DIV');
 
 															        var elements = Array.from(curr_view.querySelectorAll('*'));
-															        elements.map(x => curr_view.appendChild(x));
+															        elements.map(x => trashBin.appendChild(x));
 															        elements.map(function(x) { 
-															            curr_view.removeChild(x);
+															            trashBin.removeChild(x);
 															            x.innerHTML = '';
 															            x = null;
 															        });
-															        curr_view.innerHTML = '';
+															        trashBin.innerHTML = '';
 
 															        for (var key in asterisk.components) {
 															            if (asterisk.components.hasOwnProperty(key)) {
