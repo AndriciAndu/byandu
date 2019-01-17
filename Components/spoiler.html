@@ -205,33 +205,34 @@
 								<button class="accordion-btn  sectionAccordion-btn"> IV. Component States </button>
 								<div class="accordion-content sectionAccordion-content">
 
-									<p class="mb-0"> The Component has two <span class="wrapper"><b>States</b></span> : <span class="wrapper"><b-p>collapsed</b-p></span> and <span class="wrapper"><b-p>expanded</b-p></span> </p>
-									<p class="mt-0"> * with an additional <span class="wrapper"><b-p>in-transition</b-p></span> <span class="wrapper"><b>pseudo-state</b></span>, which takes place during the collapsing/expanding animation. </p>
+									<div class="col-12 p-0 md-flex md-flex-cross-center">
+										<div class="col-12 md-col-6 p-0">
+											<p class="mb-0"> The Component has two <span class="wrapper"><b>States</b></span> : <span class="wrapper"><b-p>collapsed</b-p></span> and <span class="wrapper"><b-p>expanded</b-p></span> </p>
 
-									<p class="mb-0"> The <span class="wrapper"><b>State</b></span> is changed when the user clicks a <span class="wrapper"><b>spoiler-btn</b></span> element. </p>
-									<p class="sub-heading mt-0"> * the <span class="wrapper"><b>spoiler-btn</b></span> click triggers the <span class="wrapper"><b-r>asterisk</b-r><b-p>.components</b-p><b>.spoiler</b>.run()</span> function, with the <span class="wrapper"><b>spoiler-btn</b></span> as the argument parameter. </p>
+											<div class="col-12"> <hr> </div>
 
-									<hr>
+											<p class="mb-0"> The <span class="wrapper"><b>State</b></span> is changed when the user clicks a <span class="wrapper"><b>spoiler-btn</b></span> element. </p>
+											<p class="sub-heading mt-0"> * clicking a <span class="wrapper"><b>spoiler-btn</b></span> triggers the <span class="wrapper"><b-r>asterisk</b-r><b-p>.components</b-p><b>.spoiler</b>.run()</span> function, with the <span class="wrapper"><b>spoiler-btn</b></span> as the argument parameter. </p>
 
-									<p> Each <span class="wrapper"><b>State</b></span> is primarily reflected by the presence/absence of a specific <span class="wrapper"><b-r>class</b-r></span> on the <span class="wrapper"><b>spoiler</b></span> and <span class="wrapper"><b>spoiler-btn</b></span> Elements. </p>
-
-									<div class="col-12 md-col-6 md-pl-0">
-										<div class="wrapper py-0">
-											<pre class="pre-removeTabSpaces">
-											    <i class="comment"><b>// Collapsed</b> </i>
-											    &lt;div class="<b>spoiler-btn</b>"> My Button &lt;/div>
-											    &lt;div class="<b>spoiler</b>"> ... &lt;/div>
-											</pre>
+											<p> Each <span class="wrapper"><b>State</b></span> is primarily reflected by the presence/absence of a specific <span class="wrapper"><b-r>class</b-r></span> on the <span class="wrapper"><b>spoiler</b></span> and <span class="wrapper"><b>spoiler-btn</b></span> Elements. </p>
 										</div>
-									</div>
 
-									<div class="col-12 md-col-6 md-pr-0">
-										<div class="wrapper py-0">
-											<pre class="pre-removeTabSpaces">
-											    <i class="comment"><b>// Expanded</b> </i>
-											    &lt;div class="<b>spoiler-btn</b> <b-r>active</b-r>"> My Button &lt;/div>
-											    &lt;div class="<b>spoiler</b> <b-r>spoiler-expanded</b-r>"> ... &lt;/div>
-											</pre>
+										<div class="col-12 md-col-6">
+											<div class="wrapper py-0">
+												<pre class="pre-removeTabSpaces">
+												    <i class="comment"><b>// Collapsed</b> </i>
+												    &lt;div class="<b>spoiler-btn</b>"> My Button &lt;/div>
+												    &lt;div class="<b>spoiler</b>"> ... &lt;/div>
+												</pre>
+											</div>
+
+											<div class="wrapper py-0">
+												<pre class="pre-removeTabSpaces">
+												    <i class="comment"><b>// Expanded</b> </i>
+												    &lt;div class="<b>spoiler-btn</b> <b-r>active</b-r>"> My Button &lt;/div>
+												    &lt;div class="<b>spoiler</b> <b-r>spoiler-expanded</b-r>"> ... &lt;/div>
+												</pre>
+											</div>
 										</div>
 									</div>
 
@@ -240,7 +241,6 @@
 									<div class="col-12 p-0 md-flex md-flex-cross-center">
 										<div class="col-12 md-col-6 p-0">
 											<p> In each of the 3 <span class="wrapper"><b>States</b></span>, the <span class="wrapper">Spoiler</span> Element's <span class="wrapper">max-height</span>, <span class="wrapper">visibility</span> and <span class="wrapper">overflow</span> properties are changed to different values. </p>
-											<p class="sub-heading mt-0"> * This is done through Javascript, to apply each value at the accurate timing. </p>
 										</div>
 
 										<div class="col-12 md-col-6 p-0">
@@ -470,30 +470,39 @@
 								<button class="accordion-btn  sectionAccordion-btn"> VI. Style Classes </button>
 								<div class="accordion-content sectionAccordion-content">
 
-									<p>
-										<span class="wrapper">spoiler-btn</span> elements can be given the <span class="wrapper">spoiler-btn-autoText</span> <span class="wrapper">class</span> which adds an <b>'Expand'</b> / <b>'Collapse'</b> string, after the innerText provided. 
-									</p>
+									<div class="accordion">
+										<div class="accordion-group px-md my-sm">
+											<button class="accordion-btn"> spoiler-btn-autoText  </button>
+											<div class="accordion-content">
 
-									<div class="wrapper">
-										<line> 
-											&lt;button class="spoiler-btn" data-spoiler-id=""> <b-p>My Text</b-p> &lt;/button> 
-											<div class="col-12 mt-sm md-mt-0 md-col-4 md-float-right"> <button class="col-12 spoiler-btn" data-spoiler-id="asdf-1"> My Text </button> </div>
-										</line>
-										<hr>
-										<line> 
-											&lt;button class="spoiler-btn <b-r>spoiler-btn-autoText</b-r>" data-spoiler-id=""> &lt;/button> 
-											<div class="col-12 mt-sm md-mt-0 md-col-4 md-float-right"> <button class="col-12 spoiler-btn spoiler-btn-autoText" data-spoiler-id="asdf-2"> </button> </div>
-										</line>
-										<hr>
-										<line> 
-											&lt;button class="spoiler-btn <b-r>spoiler-btn-autoText</b-r>" data-spoiler-id=""> <b-p>My Text</b-p> &lt;/button> 
-											<div class="col-12 mt-sm md-mt-0 md-col-4 md-float-right"> <button class="col-12 spoiler-btn spoiler-btn-autoText" data-spoiler-id="asdf-3"> My Text </button> </div>
-										</line>
+												<p>
+													<span class="wrapper">spoiler-btn</span> elements can be given the <span class="wrapper">spoiler-btn-autoText</span> <span class="wrapper">class</span> which adds an <b>'Expand'</b> / <b>'Collapse'</b> string, after the innerText provided. 
+												</p>
 
-										<!--  just to not throw error -->
-										<div class="spoiler hidden" data-spoiler-id="asdf-1"><div class="spoiler-content"></div></div>
-										<div class="spoiler hidden" data-spoiler-id="asdf-2"><div class="spoiler-content"></div></div>
-										<div class="spoiler hidden" data-spoiler-id="asdf-3"><div class="spoiler-content"></div></div>
+												<div class="wrapper">
+													<line> 
+														&lt;button class="spoiler-btn" data-spoiler-id=""> <b-p>My Text</b-p> &lt;/button> 
+														<div class="col-12 mt-sm md-mt-0 md-col-4 md-float-right"> <button class="col-12 spoiler-btn" data-spoiler-id="asdf-1"> My Text </button> </div>
+													</line>
+													<hr>
+													<line> 
+														&lt;button class="spoiler-btn <b-r>spoiler-btn-autoText</b-r>" data-spoiler-id=""> &lt;/button> 
+														<div class="col-12 mt-sm md-mt-0 md-col-4 md-float-right"> <button class="col-12 spoiler-btn spoiler-btn-autoText" data-spoiler-id="asdf-2"> </button> </div>
+													</line>
+													<hr>
+													<line> 
+														&lt;button class="spoiler-btn <b-r>spoiler-btn-autoText</b-r>" data-spoiler-id=""> <b-p>My Text</b-p> &lt;/button> 
+														<div class="col-12 mt-sm md-mt-0 md-col-4 md-float-right"> <button class="col-12 spoiler-btn spoiler-btn-autoText" data-spoiler-id="asdf-3"> My Text </button> </div>
+													</line>
+
+													<!--  just to not throw error -->
+													<div class="spoiler hidden" data-spoiler-id="asdf-1"><div class="spoiler-content"></div></div>
+													<div class="spoiler hidden" data-spoiler-id="asdf-2"><div class="spoiler-content"></div></div>
+													<div class="spoiler hidden" data-spoiler-id="asdf-3"><div class="spoiler-content"></div></div>
+												</div>
+
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -509,8 +518,8 @@
 										<div class="col-12 md-col-6 p-0">
 
 											<p> The <span class="wrapper">spoiler</span> Component follows the same <button class="modal-btn" data-modal-id="asterisk">encapsulation pattern</button> as all components within the <span class="wrapper">asterisk</span> library. </p>
-											<p> All its' necessary Functions are stored within the <span class="wrapper"><b-r>asterisk</b-r><b-p>.components</b-p></span> Object. </p>
-											<p> Each of these can be accessed globally, through <span class="wrapper"><b-r>asterisk</b-r><b-p>.components</b-p><b>.spoiler</b>.{functionName}()</span>. </p>
+											<p> All the Functions are stored within the <span class="wrapper"><b-r>asterisk</b-r><b-p>.components</b-p><b>.spoiler</b></span> Object. </p>
+											<p> All can be accessed globally, through <span class="wrapper"><b-r>asterisk</b-r><b-p>.components</b-p><b>.spoiler</b>.{function}()</span>. </p>
 											
 										</div>
 
@@ -523,22 +532,75 @@
 												                run()   <i class="comment"> // Example of a <span class="wrapper">spoiler</span> Function</i>
 												            }
 												        } 
-												    }
+												    };
+
+												    <b-r>asterisk</b-r><b-p>.components</b-p><b>.spoiler</b>.run()
 												</pre>
 											</div>
 										</div>
 									</div>
 
-									<p> It has 3 types of functions : </p>
-									<p> <span class="wrapper">'Direct' Functions</span> : functions which directly manipulate the Component (the ones a developer would actually use) </p>
-									<p> {*}.initialize() - applies the functionality to a specific Component </p>
-									<p> {*}.terminate() - removes the functionality from a specific Component </p>
-									<!-- <p> checkDOM() - removes the functionality from a Components which are no longer in the DOM </p> -->
-
 									<hr>
 
-									<p> <span class="wrapper">'Intermediary' Functions</span> : functions which abstract parts of the Direct Functions (they are not used directly, to manippulate the component). </p>
-									<p> <span class="wrapper">'Utility' functions</span> : used within the other functions for specific purposes (hasClass - to check if the Element has a specific class). </p>
+									<p> <b>It has 3 types of functions :</b> </p>
+
+									<div class="accordion p-0 my-sm">
+										<div class="accordion-group my-sm px-md">
+											<button class="accordion-btn"> 'Direct' Functions </button>
+											<div class="accordion-content">
+
+												<p> <b>Functions which directly manipulate the Component - the ones a developer would actually use.</b> </p>
+												<p class="sub-heading mt-0"> Here, {*} reffers to the <span class="wrapper"><b-r>asterisk</b-r><b-p>.components</b-p><b>.spoiler</b></span> Object </p>
+
+												<div class="col-12"> <hr> </div>
+
+												<p> <span class="wrapper">{*}<b>.initialize()</b></span> - applies the functionality to a specific Component </p>
+												<p> <span class="wrapper">{*}<b>.terminate()</b></span>  - removes the functionality from a specific Component </p>
+												<p> <span class="wrapper">{*}<b>.checkDOM()</b></span> - checks the DOM, and removes the functionality from a Components which are no longer in the DOM </p>
+
+											</div>
+										</div>
+
+										<div class="accordion-group my-sm px-md">
+											<button class="accordion-btn"> 'Intermediary' Functions </button>
+											<div class="accordion-content">
+
+												<p> <b>Functions which abstract parts of the Direct Functions - they are not used directly by the developer, to manippulate the component.</b> </p>
+												<p class="sub-heading mt-0"> Here, {*} reffers to the <span class="wrapper"><b-r>asterisk</b-r><b-p>.components</b-p><b>.spoiler</b>.intermediary</span> Object </p>
+
+												<div class="col-12"> <hr> </div>
+
+												<p> <span class="wrapper">{*}<b>.attachEvt()</b></span> - attaches an EventListener on the target, which works for the Element itself </p>
+												<p> <span class="wrapper">{*}<b>.delegate()</b></span>  - attaches an EventListener on the target, which works for the Element's children </p>
+												<p> <span class="wrapper">{*}<b>.detachEvt()</b></span> - removes any EventListener on the target, which was added with <span class="wrapper">{*}<b>.attachEvt()</b></span> or <span class="wrapper">{*}<b>.delegate()</b></span> </p>
+
+												<div class="col-12"> <hr> </div>
+
+												<p> <span class="wrapper">{*}<b>.spoilerBtn_defineParameters()</b></span> - defines which HTML Elements will be affected when the <span class="wrapper">spoiler-btn</span> is clicked, as a property on the target. </p>
+												<p> <span class="wrapper">{*}<b>.spoilerBtn_removeParameters()</b></span> - removes the properties defined through <span class="wrapper">{*}<b>.spoilerBtn_defineParameters()</b></span> </p>
+
+												<div class="col-12"> <hr> </div>
+
+												<p> <span class="wrapper">{*}<b>.run()</b></span> - runs the actual functionality of the <span class="wrapper">spoiler</span> Component </p>
+
+											</div>
+										</div>
+
+										<div class="accordion-group my-sm px-md">
+											<button class="accordion-btn"> 'Utility' functions </button>
+											<div class="accordion-content">
+
+												<p> <b>Functions which are used within the other functions, for specific purposes.</b> </p>
+												<p class="sub-heading mt-0"> Here, {*} reffers to the <span class="wrapper"><b-r>asterisk</b-r><b-p>.utility</b-p></span> Object </p>
+
+												<div class="col-12"> <hr> </div>
+
+												<p> <span class="wrapper">{*}<b>.hasClass()</b></span> - checks if an HTML Element has a specific <b>Class</b> </p>
+												<p> <span class="wrapper">{*}<b>.getHeight()</b></span> - gets the <b>height</b> of an HTML Element (offsetHeight + top/bottom margins) </p>
+
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</section>
