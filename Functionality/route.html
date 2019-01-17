@@ -38,11 +38,35 @@
 								<button class="accordion-btn  sectionAccordion-btn"> I. Description </button>
 								<div class="accordion-content sectionAccordion-content">
 
-									<p> Baseline <b>Client-Side Routing System</b>, for simulating <b>SPA / AJAX</b>-based functionality. </p>
-									<p class="sub-heading mt-0"> * Updates parts of an application, without triggering a page reload </p>
-									<p class="sub-heading mt-0"> * No hash routing required ( None of this : <b>myDomain<b-r>/#/</b-r>myPage.html</b> ) </p>
-									<p class="sub-heading mt-0"> * Supports navigating to a page directly ( ex : mySite/something/etc.html ) </p>
-									<p class="sub-heading mt-0"> * currently supports only static paths </p>
+									<p> 
+										Working Prototype of a <b>Client-Side Routing System</b>, for <u>simulating</u> <b>SPA / AJAX</b>-based functionality. 
+
+										<button class="spoiler-btn spoiler-btn-autoText title-spoilerBtn" data-spoiler-id="description-more"> More | </button>
+									</p>
+
+									<div class="spoiler" data-spoiler-id="description-more">
+										<div class="spoiler-content px-md">
+											<p class="mt-0"> * Updates parts of an application (the <span class="wrapper">View</span>), without triggering a page reload, simulating a Single-PAge Application functionality </p>
+											<p class="mt-0"> * No <span class="wrapper">Hash Routing</span> required ( None of this : <b>myDomain<b-r>/#/</b-r>myPage.html</b> ) </p>
+											<p class="mt-0"> * Supports <b>direct navigating to a subsequent Page</b>, without server-side Routing ( ex : mySite/something/etc.html ) </p>
+											<p class="mt-0"> * Customizable <b>Intermediary Functions</b>, to control what happens during each Page load. </p>
+											<p class="mt-0"> * Includes a certain degree of automatic <span class="wrapper">Memory Management</span> </p>
+											<p class="sub-heading mt-0 pl-lg"> - automatic de-refferencing of discarded HTML Elements </p>
+											<p class="sub-heading mt-0 pl-lg"> - automatic removal of <span class="wrapper">Asterisk Components</span>' Event Listeners
+
+											<div class="col-12"> <hr> </div>
+
+											<p> More efficient <b>Page Load Time</b> than traditional Multi-Page Applications, by having most CSS/JS already parsed before each Page Load. </p>
+											<p class="sub-heading mt-0"> * Slower than traditional SPAs, as individual Page HTML/JS files are still reuested from the server. </p>
+
+											<p> Faster <b>'First-Load' Time</b> as only the used files are downloaded. </p>
+											<p class="sub-heading mt-0"> * Slower than traditional SPAs, when caching is involved. </p>
+
+											<div class="col-12"> <hr> </div>
+
+											<p> * currently supports only static paths </p>
+										</div>
+									</div>
 
 									<!-- <hr>
 
