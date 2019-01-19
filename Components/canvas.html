@@ -92,7 +92,7 @@
 											<p> <b>Step 1.</b> Add the Component's Markup to your Element : </p>
 											<p class="sub-heading mt-0"> * the markup should be placed as the first child, within your Element </p>
 
-											<p> <b>Step 2.</b> Change the <span class="wrapper"><b-p>bgCanvas-{type}</b-p></span> class to apply the desired animation. </p>
+											<p> <b>Step 2.</b> Change the <span class="wrapper"><b-p>bgCanvas-{type}</b-p></span> Class, to apply the desired animation. </p>
 											<p class="sub-heading mt-0"> * Available classes : <b-p>bgCanvas-bubbles</b-p> | <b-p>bgCanvas-confetti</b-p> | <b-p>bg-canvas-web</b-p> </p>
 										</div>
 
@@ -106,11 +106,20 @@
 										</div>
 									</div>
 
-									<hr>
+								</div>
+							</div>
+						</section>
+
+					<!-- IV. Usage -->
+						<section class="accordion  p-0        sectionAccordion">
+							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+								<button class="accordion-btn  sectionAccordion-btn"> IV. Customization </button>
+								<div class="accordion-content sectionAccordion-content">
+
+									<p> The <span class="wrapper">canvas</span> can be customized by applying the following <span class="wrapper">data-attributes</span> on the HTML Element : </p>
 
 									<div class="col-12 p-0 md-flex md-flex-cross-center">
 										<div class="col-12 md-col-6 p-0">
-											<p> <b>Step 3.</b> To further customize, add any of the following <span class="wrapper">HTML data-attributes</span> : </b> </p>
 
 											<p> <span class="wrapper"><b-p>data-canvas-particleMaxRadius</b-p></span> = <span class="wrapper">number</span> - sets the particles' maximum size </p>
 
@@ -139,36 +148,30 @@
 									<div class="spoiler" data-spoiler-id="canvas-defaut-obj">
 										<div class="spoiler-content px-md ">
 											<div class="wrapper">
-												<line> var canvasObject = { </line>
-												<div class="col-12">
-													<line> ... </line>
-													<line> <i class="comment"> // these settings will affect all Canvases (if no more-specific values are assigned)</i> </line>
-													<line> default_settings	: { </line>
-													<div class="col-12">
-														<line> default_maxRadius 		: 40, </line>
-														<line> default_particleLimit 	: 200, </line>
-														<line> default_colorArray 		: [ '#2C3E50', '#E74C3C', ... ] </line>
-													</div>
-													<line> }, </line>
+												<pre class="pre-removeTabSpaces">
+												    asterisk.components.canvas.settings = {
+												    
+														<i class="comment"> // these settings will affect all Canvases (if no more-specific values are assigned)</i>
+														defaultSettings	: {
+															particleMaxRadius 	: 40,
+															particleColors 		: [ '#2C3E50', '#E74C3C', '#ECF0F1', '#3498DB', '#2980B9' ],
+															particleLimit 		: 200
+														}
 
-													<line> <i class="comment"> // these settings will affect all bgCanvas-bubbles Canvases (if no inline data-attribute values are assigned) </i> </line>
-													<line> bubbles : { </line>
-													<div class="col-12">
-														<line> default_particleLimit 	: 300, </line>
-														<line> default_colorArray 		: [ '#3498DB', '#2980B9', ... ] </line>
-													</div>
-													<line> }, </line>
+														<i class="comment"> // these settings will affect all bgCanvas-bubbles Canvases (if no inline data-attribute values are assigned) </i>
+														bubbles : {
+															default_particleLimit 	: 300,
+															default_colorArray 		: [ '#3498DB', '#2980B9', ... ]
+														},
 
-													<line> <i class="comment"> // these settings will affect all bgCanvas-confetti Canvases (if no inline data-attribute values are assigned) </i> </line>
-													<line> confetti : { </line>
-													<div class="col-12">
-														<line> default_particleLimit 	: 200, </line>
-														<line> default_colorArray 		: [ '#55476A', '#AE3D63', ... ] </line>
-													</div>
-													<line> } </line>
-													<line> ... </line>
-												</div>
-												<line> }; </line>
+														<i class="comment"> // these settings will affect all bgCanvas-confetti Canvases (if no inline data-attribute values are assigned) </i>
+														confetti : {
+															default_particleLimit 	: 200,
+															default_colorArray 		: [ '#55476A', '#AE3D63', ... ]
+														}
+														...
+													};
+												</pre>
 											</div>
 
 											<row class="p-0 flex flex-cross-center">

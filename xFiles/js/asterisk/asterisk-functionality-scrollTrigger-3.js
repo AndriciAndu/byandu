@@ -20,17 +20,14 @@
 				scrollTriggerObj.targetElements_inView    = [];	// stores the [Elements] that are currently within view
 				scrollTriggerObj.targetElements_belowView = [];	// stores the [Elements] that are bellow the current view/scroll and have not come into view yet
 
-				scrollTriggerObj.furthestScroll = 0;
 				scrollTriggerObj.lastScroll = 0;
 
 				scrollTriggerObj.triggerPoint_btm = window.innerHeight * 0.8 + window.pageYOffset;
 				scrollTriggerObj.triggerPoint_top = window.innerHeight * 0.2 + window.pageYOffset;
 
-				scrollTriggerObj.debounceInterval  = 300;		// the interval at which the [checkScroll()] is called
+				scrollTriggerObj.debounceInterval  = 10000;		// the interval at which the [checkScroll()] is called
 				scrollTriggerObj.isRunning = false;				// 
 				scrollTriggerObj.windowResized = false;			// when window is resized, run a [triggerPoints_generateMap()] before [triggerPoints_check()]
-
-				scrollTriggerObj.type = null;
 
 			// Functionality
 			// -----------------------------------------------------
@@ -42,32 +39,16 @@
 					scrollTriggerObj.triggerPoints_generateMap = function( targetArea__element ) {
 
 						var targetElements  = []; 
-						scrollTriggerObj.type = null;
 
 						var targetArea      = targetArea__element || document;
 						var targets_static  = Array.from(targetArea.getElementsByClassName('scrollTrigger-static'));
 						var targets_dynamic = Array.from(targetArea.getElementsByClassName('scrollTrigger-dynamic'));
 
 						// Set Targets within the [targetElements] Array [&&] define the [scrollTriggerObj] [type]
-
-							// If dynamic Elements present
 							if (targets_dynamic.length > 0) {
-
 								targetElements = targets_static.concat(targets_dynamic).sort(function(a, b) { 
 									return parseFloat(a.getBoundingClientRect().top) - parseFloat(b.getBoundingClientRect().top) 
-								});
-
-								scrollTriggerObj.type = 'dynamic';
-
-							// If only static Elements present
-							} else if (targets_static.length > 0) {
-
-								targetElements = targets_static.sort(function(a, b) { 
-									return parseFloat(a.getBoundingClientRect().top) - parseFloat(b.getBoundingClientRect().top) 
-								});
-
-								scrollTriggerObj.type = 'static';
-
+								})
 							};
 
 						// Checks the Targets' Position in comparison to the View
@@ -76,82 +57,47 @@
 							var trigger_btm = scrollTriggerObj.triggerPoint_btm;
 							var trigger_top = scrollTriggerObj.triggerPoint_top;
 
-							if (targetElements.length > 0) {
+							if (limit > 0) {
 								
 								scrollTriggerObj.targetElements_aboveView = []; // will be used for 'dynamic' targets only
 								scrollTriggerObj.targetElements_inView    = []; // will be used for 'dynamic' targets only
 								scrollTriggerObj.targetElements_belowView = []; // will be used for 'static' && 'dynamic' targets
 
-								if (scrollTriggerObj.type == 'dynamic') {
+								for (var i=0; i<limit; i++) {
 
-									for (var i=0; i<limit; i++) {
+									var targetElem = targetElements[i];
 
-										var targetElem = targetElements[i];
+									if (hasClass(targetElem, 'scrollTrigger-dynamic')) { 	// If [dynamic] target
+										if (targetElem.getBoundingClientRect().top <= trigger_btm) { 
+											if (targetElem.getBoundingClientRect().bottom <= trigger_top) { scrollTriggerObj.targetElements_aboveView.push(targetElem) } 
+											else                                                          { scrollTriggerObj.targetElements_inView   .push(targetElem) }
+										} else                                                            { scrollTriggerObj.targetElements_belowView.push(targetElem) }
+									} else { 												// If [static] target
+										if (targetElem.getBoundingClientRect().top <= trigger_btm)        { scrollTriggerObj.targetElements_inView   .push(targetElem) } 
+										else                                                              { scrollTriggerObj.targetElements_belowView.push(targetElem) }
+									}
+								};
 
-										// If [dynamic] target
-										if (hasClass(targetElem, 'scrollTrigger-dynamic')) {
-
-											if (targetElem.getBoundingClientRect().top <= trigger_btm) { 				// in view or above
-												
-												if (targetElem.getBoundingClientRect().bottom <= trigger_top) { 		// above the view [^]
-													scrollTriggerObj.targetElements_aboveView.push(targetElem)
-												} else { 																// in view [>]
-													scrollTriggerObj.scrollTrigger_apply(targetElem , 'enterView');
-												}
-											
-											} else {																	// below the view [v]
-												scrollTriggerObj.targetElements_belowView.push(targetElem);
-											}
-
-										// If [static] target
-										} else {
-
-											if (targetElem.getBoundingClientRect().top <= trigger_btm) {
-												scrollTriggerObj.scrollTrigger_apply(targetElem , 'enterView') // will remove the [scrollTrigger-static] class from the Element
-											} else {
-												scrollTriggerObj.targetElements_belowView.push(targetElem);
-											}
-										}
-									};
-
+								// Sort Arrays
 									if (scrollTriggerObj.targetElements_aboveView.length > 1) {
 										scrollTriggerObj.targetElements_aboveView = scrollTriggerObj.targetElements_aboveView.sort(function(a, b) { 
 											return parseFloat(a.getBoundingClientRect().top) - parseFloat(b.getBoundingClientRect().top) 
 										});
 									};
-
 									if (scrollTriggerObj.targetElements_inView.length > 1) {
 										scrollTriggerObj.targetElements_inView = scrollTriggerObj.targetElements_inView.sort(function(a, b) { 
 											return parseFloat(a.getBoundingClientRect().top) - parseFloat(b.getBoundingClientRect().top) 
 										});
 									};
-
 									if (scrollTriggerObj.targetElements_belowView.length > 1) {
 										scrollTriggerObj.targetElements_belowView = scrollTriggerObj.targetElements_belowView.sort(function(a, b) { 
 											return parseFloat(a.getBoundingClientRect().bottom) - parseFloat(b.getBoundingClientRect().bottom) 
 										});
 									};
 
-									console.log('above : ', scrollTriggerObj.targetElements_aboveView);
-									console.log('in : ',scrollTriggerObj.targetElements_inView);
-									console.log('below : ',scrollTriggerObj.targetElements_belowView);
-
-								} else if (scrollTriggerObj.type == 'static') {
-
-									for (var i=0; i<limit; i++) {
-										if (targetElements[i].getBoundingClientRect().top <= trigger_btm) {
-											scrollTriggerObj.scrollTrigger_apply(targetElements[i] , 'enterView') // will remove the [scrollTrigger-static] class from the Element
-										} else {
-											break
-										}
-									};
-
-									scrollTriggerObj.targetElements_belowView = Array.from(targetArea.getElementsByClassName('scrollTrigger-static'));
-									scrollTriggerObj.targetElements_belowView = scrollTriggerObj.targetElements_belowView.sort(function(a, b) { 
-										return parseFloat(a.getBoundingClientRect().top) - parseFloat(b.getBoundingClientRect().top) 
-									});
-
-								}
+								// console.log('above : ', scrollTriggerObj.targetElements_aboveView);
+								// console.log('in : ',scrollTriggerObj.targetElements_inView);
+								// console.log('below : ',scrollTriggerObj.targetElements_belowView);
 
 							}
 					};
@@ -162,62 +108,94 @@
 
 					scrollTriggerObj.triggerPoints_check = function() {
 
-						if (scrollTriggerObj.type == 'dynamic') {
+						if (scrollTriggerObj.lastScroll > pageYOffset) { // scroll down
 
-							if      (scrollTriggerObj.lastScroll > pageYOffset) { checkTP('scroll-down') } 
-							else if (scrollTriggerObj.lastScroll < pageYOffset) { checkTP('scroll-up')   }
+							// check below items - that would enter view
+							var addedToView_fromBelow = [];
+							var belowItems = scrollTriggerObj.targetElements_belowView;
+							var belowItems_index = 0;
 
-						} else if (scrollTriggerObj.type == 'static') {
+							for (var i=0; i<belowItems.length; i++) {
+								if (belowItems[i] && belowItems[i].getBoundingClientRect().top <= scrollTriggerObj.triggerPoint_btm) {
+									addedToView_fromBelow.push(inViewItems[i]);
+									belowItems_index++
+								} else { break }
+							};
+							scrollTriggerObj.targetElements_belowView = scrollTriggerObj.targetElements_belowView.slice(belowItems_index);
 
-							// When static scenario - run check only if scrolled further than than the last-recorder-furthest scroll
-							if (scrollTriggerObj.furthestScroll < pageYOffset) {
+							// check inView items - that would be removed from view
+							var removedFromView = [];
+							var inViewItems = scrollTriggerObj.targetElements_inView;
+							var inViewItems_index = 0;
 
-								var target = scrollTriggerObj.targetElements_belowView[0];
+							for (var i=0; i<inViewItems.length; i++) {
+								if (inViewItems[i] && inViewItems[i].getBoundingClientRect().bottom <= scrollTriggerObj.triggerPoint_top) {
+									removedFromView.push(inViewItems[i]);
+									inViewItems_index++
+								} else { break }
+							};
+							scrollTriggerObj.targetElements_inView = scrollTriggerObj.targetElements_inView.slice(belowItems_index);
 
-								if (target) {
+							removedFromView      .map(x => scrollTriggerObj.targetElements_aboveView.push(x));
+							addedToView_fromBelow.map(x => scrollTriggerObj.targetElements_inView   .push(x));
 
-									if (target.getBoundingClientRect().top <= scrollTriggerObj.triggerPoint_btm) {
+						} else if (scrollTriggerObj.lastScroll < pageYOffset) { // scroll up
 
-										scrollTriggerObj.scrollTrigger_apply(target , 'enterView');
+							// check above items - that would enter view
+							var addedToView_fromAbove = [];
+							var aboveItems = scrollTriggerObj.targetElements_aboveView;
+							var aboveItems_index = 0;
 
-									}
-								}
-							}
+							for (var i=aboveItems.length-1; i>-1; i--) {
+								if (aboveItems[i] && aboveItems[i].getBoundingClientRect().bottom <= scrollTriggerObj.triggerPoint_top) {
+									addedToView_fromAbove.push(aboveItems[i]);
+									aboveItems_index++
+								} else { break }
+							};
+							scrollTriggerObj.targetElements_aboveView = scrollTriggerObj.targetElements_aboveView.slice(0, -aboveItems_index);
+
+							// check inView items - that would be removed from view
+							var removedFromView = [];
+							var inViewItems = scrollTriggerObj.targetElements_inView;
+							var inViewItems_index = 0;
+
+							for (var i=inViewItems.length-1; i>-1; i--) {
+								if (inViewItems[i] && inViewItems[i].getBoundingClientRect().top <= scrollTriggerObj.triggerPoint_btm) {
+									removedFromView.push(inViewItems[i]);
+									inViewItems_index++
+								} else { break }
+							};
+							scrollTriggerObj.targetElements_inView = scrollTriggerObj.targetElements_inView.slice(0, -belowItems_index);
+
+							removedFromView      .map(x => scrollTriggerObj.targetElements_aboveView.push(x));
+							addedToView_fromAbove.map(x => scrollTriggerObj.targetElements_inView   .push(x));
 
 						};
+
+						console.log('above : ', scrollTriggerObj.targetElements_aboveView);
+						console.log('inView : ', scrollTriggerObj.targetElements_inView);
+						console.log('below : ', scrollTriggerObj.targetElements_belowView);
+
 					};
 
-					function checkTP(scenario) {
+					function xasd(elem) {
 
-						var target_below  = scrollTriggerObj.targetElements_belowView[0];
-						var target_inView = scrollTriggerObj.targetElements_inView[0];
-						var target_above  = scrollTriggerObj.targetElements_aboveView[0];
+						if (checkTop) {
 
-						// if scroll down
-						if (scenario == 'scroll-down') {
+							// if in-view Elem has left view - scrolled down passed it
+							if (elem && elem.getBoundingClientRect().bottom <= scrollTriggerObj.triggerPoint_top) {
 
-							if (target_below && target_below.getBoundingClientRect().top <= scrollTriggerObj.triggerPoint_btm) {
+								scrollTriggerObj.targetElements_inView.shift(); // remove first item from array
+								// run function for 'exit'
+								if (scrollTriggerObj.targetElements_inView[0]) { xasd(scrollTriggerObj.targetElements_inView[0]) }
 
-								scrollTriggerObj.scrollTrigger_apply(target_below , 'enterView');
+							} else if (target_below && target_below.getBoundingClientRect().top <= scrollTriggerObj.triggerPoint_btm) {
 
-							} else if (target_inView && target_inView.getBoundingClientRect().bottom <= scrollTriggerObj.triggerPoint_top) {
 
-								scrollTriggerObj.scrollTrigger_apply(target_inView , 'exitView');
 
 							}
 
-						// if scroll up
-						} else if (scenario == 'scroll-up') {
-
-							if (target_above && target_above.getBoundingClientRect().bottom <= scrollTriggerObj.triggerPoint_top) {
-
-								scrollTriggerObj.scrollTrigger_apply(target_above , 'enterView');
-
-							} else if (target_inView && target_inView.getBoundingClientRect().top <= scrollTriggerObj.triggerPoint_btm) {
-
-								scrollTriggerObj.scrollTrigger_apply(target_inView , 'exitView');
-
-							}
+						} else if (checkBtm) {
 
 						}
 

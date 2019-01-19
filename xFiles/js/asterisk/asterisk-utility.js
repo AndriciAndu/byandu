@@ -13,6 +13,9 @@
 		return JSON.parse(JSON.stringify(myObject));
 	};
 
+	function isObject ( item ) {
+		return (typeof item === "object" && !Array.isArray(item) && item !== null);
+	};
 
 // Checks || has* is*
 // -----------------------------------------------------
@@ -199,11 +202,26 @@
 		// isJSON()
 		// -----------------------------------------------------
 
-			function isJSON(current_input) {
-				try 		{ JSON.parse(current_input) } 
-				catch (e) 	{ return false 				};
+			function isJSON(data__string) {
 
-				return true
+				if (typeof data__string === 'string' || data__string instanceof String) {
+
+					try 		{ JSON.parse(data__string)  } 
+					catch (e) 	{ return false 				};
+
+					return true
+					
+				} else {
+
+					console.log('Invalid input for', isJSON, ' : The argument [data__string] must be a [String]');
+					console.log('Provided [data__string] value is : ', data__string)
+					console.trace();
+					console.log('----------------------');
+
+					return false
+
+				}
+
 			};
 
 

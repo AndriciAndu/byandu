@@ -27,7 +27,7 @@
 				newDemo.innerHTML = 
 					'<div class="demoItem-container demoItem-container-'+effect+'" data-finalCodeId="'+effect+'" data-hvr-showText="'+effect+'"> '	+
 						'<div class="demoItem p-0"> '																								+
-							'<img class="'+effect+' "src="../../images/imgHvr-testImg-2.jpg"/> '													+
+							'<img class="'+effect+' " src="../xFiles/images/imgHvr-testImg-2.jpg"/> '													+
 						'<div> ' 																													+
 					'</div> '																														;
 				generateDemos_container.appendChild(newDemo);

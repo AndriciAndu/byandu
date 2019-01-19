@@ -12,9 +12,9 @@
 
 				var particleLimit;
 				switch (effect) {
-					case 'bgCanvas-bubbles' 	: particleLimit = 300; 	break;
-					case 'bgCanvas-confetti' 	: particleLimit = 200; 	break;
-					case 'bgCanvas-web' 		: particleLimit = 100; 	break;
+					case 'bgCanvas-bubbles' 	: particleLimit = "{'xs' : '100' , 'lg' : '200' }"; 	break;
+					case 'bgCanvas-confetti' 	: particleLimit = "{'xs' : '100' , 'lg' : '200' }"; 	break;
+					case 'bgCanvas-web' 		: particleLimit = "{'xs' : '100' , 'lg' : '200' }"; 	break;
 				};
 
 				var newElem = document.createElement('siv');
@@ -26,8 +26,9 @@
 				newElem.classList = 'col-12 p-0';
 				newElem.innerHTML = 
 					'<div class="demoItem-container demoItem-container-'+effect+'" data-finalCodeId="'+effect+'" style="height: 250px"> '	+
-						'<canvas class="demoItem bgCanvas '+effect+'" data-canvas-particleLimit="'+particleLimit+'"> </canvas> '			+
+						'<canvas class="demoItem bgCanvas '+effect+'"> </canvas> '			+
 					'</div>'																												;
+				newElem.getElementsByClassName('bgCanvas')[0].setAttribute('data-canvas-particleLimit', particleLimit);
 				generateDemos_container.appendChild(newElem);
 			});
 

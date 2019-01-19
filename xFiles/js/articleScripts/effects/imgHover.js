@@ -18,7 +18,7 @@
 				newElem.classList = 'col-12 sm-col-6 md-col-3 p-sm';
 				newElem.innerHTML = 
 				'<div class="demoItem-container demoItem-container-'+effect+'" data-finalCodeId="'+effect+'" data-hvr-hideText="'+effect+'"> '	+
-					'<div class="demoItem '+effect+'"> <img src="../../images/imgHvr-testImg-1.jpg"/> <div>' 									+
+					'<div class="demoItem '+effect+'"> <img src="../xFiles/images/imgHvr-testImg-1.jpg"/> <div>' 									+
 				'</div> '																														;
 				generateDemos_container.appendChild(newElem);
 			});

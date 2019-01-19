@@ -68,20 +68,6 @@
 										</div>
 									</div>
 
-									<!-- <hr>
-
-									<p> Allows for baseline functionality to remain active </p>
-
-									- faster initial load time than SPA applications (only relevant pageLoad files are loaded)
-									- slower individual page load time than SPA applications (each pageLoad requests files from the server)
-
-									- faster and more efficient than non-SPA applications
-										- baseline functionality remains active before a new page loads (the page is not refreshed)
-										- loading a new page requests only the page's specific files/scripts
-
-									- no unnecessary file downloads for unnavigated pages 
-
-									- covers direct-path link, page reload and popstate (back/forward) -->
 								</div>
 							</div>
 						</section>
@@ -110,7 +96,7 @@
 												</div>
 
 												<div class="col-12 md-col-6 md-pr-0">
-													<img src="xFiles/images/articles/spa-example.png" style="border-radius: 6px"/>
+													<img src="../xFiles/images/articles/spa-example.png" style="border-radius: 6px"/>
 												</div>
 
 											</div>
@@ -594,6 +580,9 @@
 
 												<p> An <b>Event Listener</b> is added on the <span class="wrapper">document</span>, when the <span class="wrapper">asterisk-route.js</span> JS File is parsed, which delegate the functionality for all <b>Page Links</b> across the App. </p>
 
+												<p class="sub-heading mt-0"> * It is <b>important for SEO</b> (crawlers) <b>and accessibility</b> (default functionality and accessibility information) to use <span class="wrapper">&lt;a></span> Elements as the <b>Page Links</b>. </p>
+												<p class="sub-heading mt-0"> * The <b>Event Listener</b>'s <b>Event Handler</b> Function uses <span class="wrapper">event.preventDefault()</span>, to prevent navigating away from the <b>Root Page</b>.</p>
+
 											</div>
 										</div>
 
@@ -752,6 +741,7 @@
 															    <i class="comment">// some other code</i>
 
 															    <i class="comment">// remove the Event Listener, by specifying the named function used as the Event Handler </i>
+															    <i class="comment"><b>// This must be done manually</b> </i>
 															    <b>myElem</b><b-r>.removeEventListener</b-r>('click', <b-p>myHandler</b-p>); 
 
 															</pre>

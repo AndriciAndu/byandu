@@ -127,14 +127,14 @@
 												<hr>
 
 												<p class="my-xs"> Case: <b-r>asterisk.components.spoiler.init()</b-r> | <span class="wrapper">no arguments</span> </p>
-												<p class="my-xs"> All <span class="wrapper">spoiler-btn</span> Elements within the <span class="wrapper">document</span> will be initialized. </p>
+												<p class="my-xs"> All <span class="wrapper">spoiler-btn</span> Elements within the <span class="wrapper">document</span> will be initialized, by adding an EventListener on each individual Element which is present within the Document, at the time of the function call. </p>
 												<p class="mt-0 sub-heading"> * an <span class="wrapper">eventListener</span> will be added to each <span class="wrapper">spoiler-btn</span> Element, which is present in the DOM </p>
 												<p class="mt-0 sub-heading"> * this will not affect <span class="wrapper">spoiler-btn</span> Elements which are added afterwards </p>
 
 												<hr>
 
 												<p class="my-xs"> Case: <b-r>asterisk.components.spoiler.init(<span class="wrapper"><b-p>true</b-p></span>)</b-r> | <span class="wrapper">delegateEvent__boolean</span> is <span class="wrapper">true</span> </p>
-												<p class="my-xs"> All <span class="wrapper">spoiler-btn</span> Elements within the <span class="wrapper">document</span> will be initialized. </p>
+												<p class="my-xs"> All <span class="wrapper">spoiler-btn</span> Elements within the <span class="wrapper">document</span> will be initialized, by adding an EventListener on the <span class="wrapper">document</span> which delegates the functionality for all <span class="Wrapper">spoiler-btn</span> Elements within it. </p>
 												<p class="mt-0 sub-heading"> * an <span class="wrapper">eventListener</span> will be added to the <span class="wrapper">document.body</span>, which will delegate the functionality for <span class="wrapper">spoiler-btn</span> Element </p>
 												<p class="mt-0 sub-heading"> * this will affect even <span class="wrapper">spoiler-btn</span> Elements which are added afterwards (as the event is delegated) </p>
 
@@ -517,7 +517,7 @@
 									<div class="col-12 p-0 md-flex md-flex-cross-center">
 										<div class="col-12 md-col-6 p-0">
 
-											<p> The <span class="wrapper">spoiler</span> Component follows the same <button class="modal-btn" data-modal-id="asterisk">encapsulation pattern</button> as all components within the <span class="wrapper">asterisk</span> library. </p>
+											<p> The <span class="wrapper">spoiler</span> Component follows the same <button class="modal-btn" data-modal-id="asterisk">Encapsulation Pattern</button> as all components within the <span class="wrapper">asterisk</span> library. </p>
 											<p> All the Functions are stored within the <span class="wrapper"><b-r>asterisk</b-r><b-p>.components</b-p><b>.spoiler</b></span> Object. </p>
 											<p> All can be accessed globally, through <span class="wrapper"><b-r>asterisk</b-r><b-p>.components</b-p><b>.spoiler</b>.{function}()</span>. </p>
 											
@@ -570,8 +570,8 @@
 
 												<div class="col-12"> <hr> </div>
 
-												<p> <span class="wrapper">{*}<b>.attachEvt()</b></span> - attaches an EventListener on the target, which works for the Element itself </p>
-												<p> <span class="wrapper">{*}<b>.delegate()</b></span>  - attaches an EventListener on the target, which works for the Element's children </p>
+												<p> <span class="wrapper">{*}<b>.attachEvt()</b></span> - attaches an EventListener on the target, which works for the Element itself (attached on <span class="wrapper">spoiler-btn</span>) </p>
+												<p> <span class="wrapper">{*}<b>.delegateEvt()</b></span>  - attaches an EventListener on the target, which works for the Element's children (attached on <b>any Element</b>) </p>
 												<p> <span class="wrapper">{*}<b>.detachEvt()</b></span> - removes any EventListener on the target, which was added with <span class="wrapper">{*}<b>.attachEvt()</b></span> or <span class="wrapper">{*}<b>.delegate()</b></span> </p>
 
 												<div class="col-12"> <hr> </div>

@@ -173,7 +173,7 @@
 						asterisk.components.spoiler.intermediary.attachEvt = function(targetElem , scenario__string) {
 
 							if (scenario__string == 'delegate') {
-								targetElem.addEventListener('click', asterisk.components.spoiler.intermediary.delegate);
+								targetElem.addEventListener('click', asterisk.components.spoiler.intermediary.delegateEvt);
 							} else {
 								targetElem.addEventListener('click', asterisk.components.spoiler.intermediary.run);
 							};
@@ -184,7 +184,7 @@
 					// Delegate (adds eventListeners)
 					// -----------------------------------------------------
 
-						asterisk.components.spoiler.intermediary.delegate = function(e) {
+						asterisk.components.spoiler.intermediary.delegateEvt = function(e) {
 							if (hasClass(e.target, 'spoiler-btn')) { asterisk.components.spoiler.intermediary.run(e) }
 						};
 
@@ -193,7 +193,7 @@
 
 						asterisk.components.spoiler.intermediary.detachEvt = function(targetElem) {
 							targetElem.removeEventListener('click' , asterisk.components.spoiler.intermediary.run);
-							targetElem.removeEventListener('click' , asterisk.components.spoiler.intermediary.delegate);
+							targetElem.removeEventListener('click' , asterisk.components.spoiler.intermediary.delegateEvt);
 
 							asterisk.components.spoiler.storedParameters.itemsWithEvents = asterisk.components.spoiler.storedParameters.itemsWithEvents.filter(x => x != targetElem);
 						};

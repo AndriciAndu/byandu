@@ -35,7 +35,7 @@
 				// getFirstClass()
 				// -----------------------------------------------------
 
-					asterisk.utility.getFirstClass = asterisk.utility.getFirstClass || function( elem , ...classes ) {
+					asterisk.utility.getFirstClass = asterisk.utility.getFirstClass || function ( elem , ...classes ) {
 
 						// to accept both scenarios: array-of-classes || multiple class strings
 						if (Array.isArray(classes[0])) { classes = classes[0] };
@@ -47,6 +47,32 @@
 					};
 
 					var getFirstClass = asterisk.utility.getFirstClass;
+
+				// isJSON()
+				// -----------------------------------------------------
+
+					asterisk.utility.isJSON = asterisk.utility.isJSON || function ( data__string ) {
+
+						if (typeof data__string === 'string' || data__string instanceof String) {
+
+							try 		{ JSON.parse(data__string)  } 
+							catch (e) 	{ return false 				};
+
+							return true
+							
+						} else {
+
+							console.log('Invalid input for', isJSON, ' : The argument [data__string] must be a [String]');
+							console.log('Provided [data__string] value is : ', data__string)
+							console.trace();
+							console.log('----------------------');
+
+							return false
+
+						}
+					};
+
+					var isJSON = asterisk.utility.isJSON;
 
 				// hex2rgb()
 				// -----------------------------------------------------
@@ -71,14 +97,24 @@
 
 				asterisk.components.canvas.settings = {
 
-					activeStyles : [] , // generates content when each canvasType is parsed, at the end of the file
-
-					default	: {
-						particleMaxRadius 	: 40,
-						particleColors 		: [ '#2C3E50', '#E74C3C', '#ECF0F1', '#3498DB', '#2980B9' ],
-						particleLimit 		: 200
+					defaultSettings	: { // if no 
+						particleMaxRadius 	: 40  ,
+						particleLimit 		: 200 ,
+						particleColors 		: [ '#2C3E50', '#E74C3C', '#ECF0F1', '#3498DB', '#2980B9' ]
 					},
 
+					viewportSpec_defaultSettings : {
+						xs : {
+							particleMaxRadius 	: 30,
+							particleLimit 		: 100
+						} , 
+
+						xl : {
+							particleLimit 		: 300
+						}
+					},
+
+					activeStyles    : [] , // generates content when each canvasType is parsed, at the end of the file
 					canvases_active : []
 				};
 
@@ -120,9 +156,10 @@
 						targetCanvas.setAttribute('height', targetCanvas.parentElement.offsetHeight);
 
 						// Set parameters
-						var particleMaxRadius = targetCanvas.getAttribute('data-canvas-particleMaxRadius') || asterisk.components.canvas[current_type].particleMaxRadius || asterisk.components.canvas.settings.default.particleMaxRadius ;
-						var particleColors    = targetCanvas.getAttribute('data-canvas-particleColors')    || asterisk.components.canvas[current_type].particleColors    || asterisk.components.canvas.settings.default.particleColors    ;	
-						var particleLimit     = targetCanvas.getAttribute('data-canvas-particleLimit')     || asterisk.components.canvas[current_type].particleLimit     || asterisk.components.canvas.settings.default.particleLimit     ;
+						var getParams = asterisk.components.canvas.intermediary.getParams;
+						var particleMaxRadius = getParams(targetCanvas , current_type , 'particleMaxRadius');
+						var particleColors    = getParams(targetCanvas , current_type , 'particleColors');
+						var particleLimit     = getParams(targetCanvas , current_type , 'particleLimit');
 
 						// Create ParticlesArray 
 						var particlesArray = asterisk.components.canvas[current_type].particles_generateArray(targetCanvas , particleMaxRadius, particleColors , particleLimit);	
@@ -136,6 +173,61 @@
 						// Run Animation
 						asterisk.components.canvas.canvas_run(ccObj);
 					}
+				};
+
+				asterisk.components.canvas.intermediary = {};
+
+				asterisk.components.canvas.intermediary.getParams = function(targetCanvas__element , canvasType__string , targetParam__string) {
+
+					var myCanvas = targetCanvas__element;
+					var type     = canvasType__string;
+					var param    = targetParam__string;
+
+					var result = null;
+					var dataAttr = myCanvas.getAttribute('data-canvas-' + param.toLowerCase());
+
+					if (dataAttr) {
+
+						dataAttr = dataAttr.replace(/'/g, '"');
+
+						if (isJSON(dataAttr)) { result = setBreakpoint(dataAttr) } 
+						else                  { result = dataAttr                }
+
+					//} else if (asterisk.components.canvas.settings.viewportSpec_defaultSettings) {
+
+					} else if (asterisk.components.canvas.settings.defaultSettings[param]) {
+
+						result = asterisk.components.canvas.settings.defaultSettings[param]
+
+					};
+
+					return result
+				};
+
+				function setBreakpoint(data__object) {
+
+					var data__object = JSON.parse(data__object);
+
+					var mediaItems = [ 
+						{ mediaType : 'xs' , index : 4 , bp_start :    0, bp_end :   576 } ,
+						{ mediaType : 'sm' , index : 3 , bp_start :  576, bp_end :   768 } ,
+						{ mediaType : 'md' , index : 2 , bp_start :  768, bp_end :   992 } ,
+						{ mediaType : 'lg' , index : 1 , bp_start :  992, bp_end :  1200 } ,
+						{ mediaType : 'xl' , index : 0 , bp_start : 1200, bp_end : 99999 }
+					];
+
+					var windowWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+					var curr_mediaType = mediaItems.find(x => x.bp_start < windowWidth && windowWidth < x.bp_end);
+					mediaItems_toCheck = ['xl' , 'lg' , 'md' , 'sm' , 'xs' , 'sm' , 'md' , 'lg' , 'xl'].slice(curr_mediaType['index']);
+
+					var result; 
+					for (var i=0; i<mediaItems_toCheck.length; i++) {
+						var current = data__object[mediaItems_toCheck[i]];
+						if (current && current != '') { result = current; break }
+					};
+
+					return result || null
+
 				};
 
 			// Run
