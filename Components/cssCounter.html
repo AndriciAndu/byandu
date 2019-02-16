@@ -1,0 +1,695 @@
+ 
+	<!-- ===================== Route ================== -->
+	<script src="../xFiles/js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+	<style>
+		.cssCounter {
+			/* required */
+			display: inline-block;
+			overflow: hidden;
+
+			/* unrelated styling */
+			font-size: 24px;
+			outline: 2px solid black;
+		}
+
+		.cssCounter,
+		.cssCounter-item {
+			height: 30px; 
+		}
+
+		.cssCounter-container {
+			counter-reset: cssCounter;
+		}
+
+		.cssCounter-item {
+			padding: 0 .1em;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+
+			text-align: right;
+		}
+		.cssCounter-item::after {
+			counter-increment: cssCounter;
+			content: counter(cssCounter);
+		}
+
+		/* Slide */
+		.cssCounter-slide-12 .cssCounter-container {
+			-webkit-animation: cssCounter-slide 2s forwards;
+					animation: cssCounter-slide 2s forwards;
+		}
+		@-webkit-keyframes cssCounter-slide { 100% { transform: translateY(-91.666%); } }
+				@keyframes cssCounter-slide { 100% { transform: translateY(-91.666%); } }
+
+		/* Steps */
+		.cssCounter-steps-12 .cssCounter-container {
+			-webkit-animation: cssCounter-steps steps(11) 2s forwards;
+					animation: cssCounter-steps steps(11) 2s forwards;
+		}
+		@-webkit-keyframes cssCounter-steps { 100% { transform: translateY(-91.666%); } }
+				@keyframes cssCounter-steps { 100% { transform: translateY(-91.666%); } }
+
+
+
+
+		.cssCounter-codeGenerator-counterCountTo__input {
+			padding-left: 15px; padding-right: 5px;
+			line-height: 24px; font-size: 18px;
+		}
+
+		.cssCounter-codeGenerator-counterType__label {
+			cursor: pointer; cursor: hand;
+		}
+
+		.cssCounter-codeGenerator b {
+			font-size: 16px;
+		}
+
+		.cssCounter-generatedCode {
+			border: 1px solid rgba(3,3,3,.3);
+			margin-top: 15px;
+		}
+
+		.cssCounter-generatedCode-item {
+			height: calc(50vh - 100px);
+			overflow: auto;
+		}
+
+		.x-label {
+			display: inline-block;
+			position: relative;
+			float: left;
+
+			overflow: hidden;
+		}
+
+		.x-label input {
+			width: 100%;
+			padding: 0 2.5em;
+
+			font-size: 1em;
+			line-height: 2;
+
+			border-radius: inherit;
+
+			background-color: rgba(0,0,0,0);
+			border: 1px solid rgba(3,3,3,.3);
+		}
+
+		.x-label .field__icon ,
+		.x-label .field__validation {
+			position: absolute;
+			top: 0;
+			width: 2.15em; height: 100%;
+			font-size: 1em;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.x-label .field__icon { left: 0; }
+		.x-label .field__validation { right: 0; }
+
+		.x-label .field__icon::before ,
+		.x-label .field__validation::before {
+			content: '';
+			font-family: FontAwesome;
+		}
+		.x-label .field__icon::before { content: '\f00d' }
+		.x-label .field__validation::before { content: '\f00c'; }
+
+
+		.x-label .field__icon::before ,
+		.x-label .field__validation::before {
+			color: red
+		}
+		.field__icon.hasBgColor {
+			background-color: red;
+		}
+		.field__icon.hasBgColor::before {
+			color: white;
+		}
+
+
+
+		</style>
+	<!-- ============================================== -->
+	<article>
+
+		<header class="sr-only"> <h2> </h2> </header>
+
+		<div class="tabs article-mainTabs">
+
+			<div class="article-mainTabs-banner">
+				<div class="article-mainTabs-title"> Component : cssCounter </div>
+
+				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
+					<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> Demo  </button>
+					<button class="tabs-btn" 				data-tabs-id="2"> Usage </button>
+					<button class="tabs-btn" 				data-tabs-id="3"> Code  </button>
+				</div>
+			</div>
+
+			<div class="tabs-contentGroup">
+
+					<div class="mt-lg"></div>
+
+						<label class="x-label">
+							<div class="field__icon"></div>
+							<input/>
+							<div class="field__validation"></div>
+						</label>
+					<hr>
+						<label class="x-label border--rounded">
+							<div class="field__icon"></div>
+							<input/>
+							<div class="field__validation"></div>
+						</label>
+					<hr>
+						<label class="x-label border--round">
+							<div class="field__icon"></div>
+							<input/>
+							<div class="field__validation"></div>
+						</label>
+
+					<hr>
+
+						<label class="x-label">
+							<div class="field__icon hasBgColor"></div>
+							<input/>
+							<div class="field__validation"></div>
+						</label>
+					<hr>
+						<label class="x-label border--rounded">
+							<div class="field__icon hasBgColor"></div>
+							<input/>
+							<div class="field__validation"></div>
+						</label>
+						<hr>
+							<label class="x-label border--round">
+								<div class="field__icon hasBgColor"></div>
+								<input/>
+								<div class="field__validation"></div>
+							</label>
+					<hr>
+						<label class="x-label border--round">
+							<div class="field__icon hasBgColor border--round"></div>
+							<input/>
+							<div class="field__validation"></div>
+						</label>
+
+					<hr>
+
+					<div class="col-12 mb-xs"> <input class="input" placeholder=""/> </div>
+					<div class="col-12 mb-xs"> <input class="input border--rounded" placeholder=""/> </div>
+					<div class="col-12 mb-xs"> <input class="input border--round" placeholder=""/> </div>
+					
+					<div class="col-12 mb-xs"> <input class="input" placeholder="placeholder"/> </div>
+					<div class="col-12 mb-xs"> <input class="input border--rounded" placeholder="placeholder"/> </div>
+					<div class="col-12 mb-xs"> <input class="input border--round" placeholder="placeholder"/> </div>
+					
+					<div class="col-12 mb-xs"> 
+						<label class="label">
+							<div class="label-text col-6"> label text </div>
+							<input class="input col-6" placeholder="placeholder"/> 
+						</label>
+					</div>
+					<div class="col-12 mb-xs"> <input class="input border--rounded" placeholder="placeholder"/> </div>
+					<div class="col-12 mb-xs"> <input class="input border--round" placeholder="placeholder"/> </div>
+
+					<hr>
+
+					<div class="col-6"> &lt;input class="input--btm"> </div>
+					<div class="col-6"> <input class="input input--btm" placeholder=""/> </div>
+					<hr>
+					<div class="col-6"> &lt;input class="input--btm" placeholder="asdf"> </div>
+					<div class="col-6"> <input class="input input--btm" placeholder="asdf"/> </div>
+
+					<hr>
+					<hr>
+					<hr>
+
+					<div class="col-6"> 
+						&lt;label class="label--underline"> &lt;input class="input--btm"> 
+					</div>
+					<div class="col-6">
+						<label class="label label--underline">
+							<input class="input input--btm" placeholder=""/> 
+						</label>
+					</div>
+					<hr>
+					<div class="col-6"> 
+						&lt;label class="label--underline"> &lt;input class="input--btm" placeholder="asdf"> 
+					</div>
+					<div class="col-6">
+						<label class="label label--underline">
+							<input class="input input--btm" placeholder="asdf"/> 
+						</label>
+					</div>
+
+					<hr>
+					<hr>
+					<hr style="border-color: red">
+
+					<div class="col-6"> 
+						&lt;label class="label--underline"> &lt;input class="input--btm"> 
+					</div>
+					<div class="col-6">
+						<label class="label label--underline">
+							<input class="input input--btm" placeholder=""/> 
+							<div class="label__validation"></div>
+						</label>
+					</div>
+					<hr>
+					<div class="col-6"> 
+						&lt;label class="label--underline"> &lt;input class="input--btm" placeholder="asdf"> 
+					</div>
+					<div class="col-6">
+						<label class="label label--underline">
+							<input class="input input--btm" type="number" placeholder="asdf"/> 
+							<div class="label__validation"></div>
+						</label>
+					</div>
+
+					<hr>
+					<hr>
+					<hr>
+
+					<div class="col-6"> 
+						&lt;label> &lt;input class="input--btm" placeholder=""> &lt;div class="label__floatText"> float text &lt;/div>
+					</div>
+					<div class="col-6">
+						<label class="label">
+							<input class="input input--btm" placeholder=""/> 
+							<div class="label__floatText"> float text </div>
+						</label>
+					</div>
+					<hr>
+					<div class="col-6"> 
+							&lt;label class="label--underline"> &lt;input class="input--btm" placeholder=""> &lt;div class="label__floatText"> float text &lt;/div>
+					</div>
+					<div class="col-6">
+						<label class="label label--underline">
+							<input class="input input--btm" placeholder=""/> 
+							<div class="label__floatText"> float text </div>
+						</label>
+					</div>
+
+					<hr>
+					<hr>
+					<hr>
+
+					<div class="col-4 p-0 inputWithIcon">
+						<div class="input-icon"> <i class="fa fa-arrow-circle-right"></i> </div>
+						<label class="label label--underline">
+							<input class="input input--btm" placeholder=""/> 
+							<div class="label__floatText"> float text + icon </div>
+						</label>
+					</div>
+					
+					<div class="col-4 p-0 inputWithIcon">
+						<div class="input-icon" aria-hidden="true"> <!-- add icon here --> </div>
+						<label class="label label--underline">
+							<input class="input input--btm" placeholder=""/> 
+							<div class="label__floatText" aria-hidden="true"> float text + icon </div>
+						</label>
+					</div>
+
+					<hr>
+
+					<div class="col-4">
+						<label class="label label-checkbox">
+							<input class="input checkbox" type="checkbox">
+							<div class="checkbox-iconBox"></div>
+							asdf
+						</label>
+					</div>
+
+					<div class="col-4">
+						<label class="label label-checkbox rounded">
+							<input class="input checkbox" type="checkbox">
+							<div class="checkbox-iconBox"></div>
+							asdf
+						</label>
+					</div>
+
+					<div class="col-4">
+						<label class="label label-checkbox round">
+							<input class="checkbox" type="checkbox">
+							<div class="checkbox-iconBox"></div>
+							asdf
+						</label>
+					</div>
+
+					<hr>
+
+					<div class="col-4">
+						<label class="label label-checkbox rounded">
+							<input class="checkbox" type="radio" name="X">
+							<div class="checkbox-iconBox"></div>
+							asdf
+						</label>
+						<label class="label label-checkbox rounded">
+							<input class="checkbox" type="radio" name="X">
+							<div class="checkbox-iconBox"></div>
+							asdf
+						</label>
+						<label class="label label-checkbox rounded">
+							<input class="checkbox" type="radio" name="X">
+							<div class="checkbox-iconBox"></div>
+							asdf
+						</label>
+					</div>
+
+					<div class="col-4">
+						<label class="label label-checkbox">
+							<input class="checkbox" type="radio" name="X">
+							<div class="checkbox-iconBox"></div>
+							asdf
+						</label>
+						<label class="label label-checkbox">
+							<input class="checkbox" type="radio" name="X">
+							<div class="checkbox-iconBox"></div>
+							asdf
+						</label>
+						<label class="label label-checkbox">
+							<input class="checkbox" type="radio" name="X">
+							<div class="checkbox-iconBox"></div>
+							asdf
+						</label>
+					</div>
+
+					<div class="col-4">
+						<label class="label label-checkbox round">
+							<input class="checkbox" type="radio" name="X">
+							<div class="checkbox-iconBox"></div>
+							asdf
+						</label>
+						<label class="label label-checkbox round">
+							<input class="checkbox" type="radio" name="X">
+							<div class="checkbox-iconBox"></div>
+							asdf
+						</label>
+						<label class="label label-checkbox round">
+							<input class="checkbox" type="radio" name="X">
+							<div class="checkbox-iconBox"></div>
+							asdf
+						</label>
+					</div>
+
+					<hr>
+
+					<div class="col-4">
+						<label class="label label-checkbox round label-checkbox-circle">
+							<input class="checkbox" type="radio" name="X">
+							<div class="checkbox-iconBox"></div>
+							asdf
+						</label>
+						<label class="label label-checkbox round label-checkbox-circle">
+							<input class="checkbox" type="radio" name="X">
+							<div class="checkbox-iconBox"></div>
+							asdf
+						</label>
+						<label class="label label-checkbox round label-checkbox-circle">
+							<input class="checkbox" type="radio" name="X">
+							<div class="checkbox-iconBox"></div>
+							asdf
+						</label>
+
+						<label class="label label-checkbox rounded label-checkbox-circle">
+							<input class="checkbox" type="radio" name="X">
+							<div class="checkbox-iconBox"></div>
+							asdf
+						</label>
+						<label class="label label-checkbox rounded label-checkbox-circle">
+							<input class="checkbox" type="radio" name="X">
+							<div class="checkbox-iconBox"></div>
+							asdf
+						</label>
+						<label class="label label-checkbox rounded label-checkbox-circle">
+							<input class="checkbox" type="radio" name="X">
+							<div class="checkbox-iconBox"></div>
+							asdf
+						</label>
+
+						<label class="label label-checkbox label-checkbox-circle">
+							<input class="checkbox" type="radio" name="X">
+							<div class="checkbox-iconBox"></div>
+							asdf
+						</label>
+						<label class="label label-checkbox label-checkbox-circle">
+							<input class="checkbox" type="radio" name="X">
+							<div class="checkbox-iconBox"></div>
+							asdf
+						</label>
+						<label class="label label-checkbox label-checkbox-circle">
+							<input class="checkbox" type="radio" name="X">
+							<div class="checkbox-iconBox"></div>
+							asdf
+						</label>
+					</div>
+					
+					<!-- wont stay elevated after blur -->
+					<!-- <div class="col-4 p-0 inputWithIcon xxx">
+						<label class="label" data-labelText="asdf">
+							<input class="input" required/> 
+						</label>
+					</div> -->
+
+					<label class="label label-switch">
+						<input class="checkbox-switch" type="checkbox">
+						<div class="checkbox-switch-iconBox"></div>
+						asdf
+					</label>
+			
+					<!-- Demo Tab -->
+					<!-- <div class="tabs-content article-mainTabs-demoTab tab-expanded" data-tabs-id="1">
+						<div class="cssCounter cssCounter-slide-12">
+							<div class="cssCounter-container">
+								<div class="cssCounter-item"></div>
+								<div class="cssCounter-item"></div>
+								<div class="cssCounter-item"></div>
+								<div class="cssCounter-item"></div>
+								<div class="cssCounter-item"></div>
+								<div class="cssCounter-item"></div>
+								<div class="cssCounter-item"></div>
+								<div class="cssCounter-item"></div>
+								<div class="cssCounter-item"></div>
+								<div class="cssCounter-item"></div>
+								<div class="cssCounter-item"></div>
+								<div class="cssCounter-item"></div>
+							</div>
+						</div>
+	
+						<div class="cssCounter cssCounter-steps-12">
+							<div class="cssCounter-container">
+								<div class="cssCounter-item"></div>
+								<div class="cssCounter-item"></div>
+								<div class="cssCounter-item"></div>
+								<div class="cssCounter-item"></div>
+								<div class="cssCounter-item"></div>
+								<div class="cssCounter-item"></div>
+								<div class="cssCounter-item"></div>
+								<div class="cssCounter-item"></div>
+								<div class="cssCounter-item"></div>
+								<div class="cssCounter-item"></div>
+								<div class="cssCounter-item"></div>
+								<div class="cssCounter-item"></div>
+							</div>
+						</div>
+	
+	
+						<hr>
+	
+						<button class="btn"> text asdf text </button>
+						<button class="btn btn-rounded"> text asdf text </button>
+						<button class="btn btn-round"> text asdf text </button>
+	
+						<hr>
+	
+						<button class="btn btn-ghost"> text asdf text </button>
+						<button class="btn btn-ghost btn-rounded"> text asdf text </button>
+						<button class="btn btn-ghost btn-round"> text asdf text </button>
+	
+						<hr>
+	
+						<button class="btn btn-social btn-twitter"></button>
+						<button class="btn btn-rounded btn-social btn-twitter"></button>
+						<button class="btn btn-round btn-social btn-twitter"></button>
+	
+						<hr>
+	
+						<button class="btn btn-ghost btn-social btn-twitter"></button>
+						<button class="btn btn-ghost btn-rounded btn-social btn-twitter"></button>
+						<button class="btn btn-ghost btn-round btn-social btn-twitter"></button>
+						<hr> -->
+
+				</div>
+
+
+
+				<!-- Usage Tab -->
+				<div class="tabs-content article-mainTabs-usageTab" data-tabs-id="2">
+
+					<!-- I. Description -->
+
+						<section class="p-0" aria-label="general description">
+							<heading> <h2 class="section-title"> I. Description </h2> </heading>
+
+							<p> A simple CSS-only Animated Counter. (CSS animation, Javascript animation trigger) </p>
+
+							<p class="sub-heading mt-0"> This is a simple, ongoing exercise, because the internet refused to provide a decent solution for this topic, or it mentioned <b-r>the blasphemy</b-r> <b>that it can't be done.</b> </p>
+
+							<p> <b>Just because you could, doesn't mean you should use this approach.</b> </p>
+							<p class="sub-heading m-0"> * It is still a <b>markup-heavy</b> and <b>static</b> implementation</p>
+							<p class="sub-heading mt-0"> * It would be much more dynamic and efficient, to simply use Javascript. </p>
+
+						</section>
+
+					<!-- II. Initialization -->
+
+						<section class="p-0" aria-label="Initialization">
+							<heading> <h2 class="section-title"> II. Initialization </h2> </heading>
+
+							<p> 
+								Download and refference the 
+								<a class="downloadLink" href="../../css/asterisk/asterisk-component-cssCounter.css" download> asterisk-component-cssCounter.css </a> CSS file.
+							</p>
+							<div class="wrapper"> <div class="col-12"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-component-cssCounter.css</b-p>" type="text/css" rel="stylesheet"> </div> </div>
+
+							<p> This contains <b>only</b> the <b>baseline styles</b> for the CSS Counter, <b>without the <span class="wrapper">animations</span> themselves</b>, as each case requires different <span class="wrapper">HTML Markup</span> and <span class="wrapper">animation</span>  properties. </p>
+
+						</section>
+
+					<!-- II. Usage -->
+
+						<section class="p-0" aria-label="Usage">
+							<heading> <h2 class="section-title"> II. Usage </h2> </heading>
+
+							<p class="mt-0"> To <b-r>generate</b-r> the <span class="wrapper">cssCounter</span> Element's <b>HTML Markup</b> and the <b>CSS animation code</b>, use the <span class="wrapper">Code Generator</span> within the <span class="wrapper"><b-r>Code</b-r></span> <b>Tab</b></p>
+							<p class="sub-heading mt-0"><b> * The top-screen menu, right button</b>. </p>
+
+							<p> <b>Step 1.</b> Add the <u>generated</u> HTML to your Document - defining the <span class="wrapper">cssCounter-run</span> Element. </p>
+							<p class="mt-0"> <b>Step 2.</b> Add the <u>generated</u> CSS  to your Document - defining the <span class="wrapper">cssCounter-run</span> Element's <span class="wrapper">animation</span>. </p>
+							<p class="mt-0"> <b>Step 3.</b> Add the <span class="wrapper">cssCounter-run</span> class <b>on the <span class="wrapper">cssCounter</span> Element</b>, when the animation should take effect. </p>
+
+						</section>
+
+					<!-- III. Markup Roles -->
+
+						<section class="p-0" aria-label="markup roles">
+							<heading> <h2 class="section-title"> III. Markup Roles </h2> </heading>
+
+							<div class="accordion">
+
+								<div class="[ accordion-group ] [ px-md my-sm ]">
+									<button class="accordion-btn"> The <b>cssCounter</b> Element:  </button>
+									<div class="accordion-content">
+
+										<p> The <span class="wrapper">cssCounter</span> Element acts as the Component's visible interface. For this, it requires to have : </p>
+										<p> 1. <span class="wrapper">width: auto</span> and <span class="wrapper">display: inline-block</span> </p>
+										<p class="mt-0"> 2. a set <span class="wrapper">height</span> value, equal to an <span class="wrapper">cssCounter-item</span>'s <span class="wrapper">height</span> value </p>
+										<p class="mt-0"> 3. <span class="wrapper">overflow: hidden</span> </p>
+
+									</div>
+								</div>
+
+								<div class="[ accordion-group ] [ px-md my-sm ]">
+									<button class="accordion-btn"> The <b>cssCounter-container</b> Element:  </button>
+									<div class="accordion-content">
+
+										<p> The <span class="wrapper">cssCounter-container</span> is a wrapper for the <span class="wrapper">cssCounter-item</span> Elements. <b>It will receive the actual <span class="wrapper">animation</span>.</b> </p>
+										<p> It must have the default <span class="wrapper">height: auto</span> to expand-to-fit all <span class="wrapper">cssCounter-item</span> Child Elements. </p>
+
+										<p> The effect is created by using <span class="wrapper">transform: translateY()</span> within an <span class="wrapper">animation</span>, applied to the <span class="wrapper">cssCounter-container</span> Element. </p>
+
+									</div>
+								</div>
+
+								<div class="[ accordion-group ] [ px-md my-sm ]">
+									<button class="accordion-btn"> The <b>cssCounter-item</b> Element:  </button>
+									<div class="accordion-content">
+
+										<p> There needs to be a number of <span class="wrapper">cssCounter-item</span> Elements, equal to the number we want to count to (count to 10 => 10 <span class="wrapper">cssCounter-item</span> Elements) </p>
+										<p> The <span class="wrapper">counter-increment: x</span> and the <span class="wrapper">::after</span> <span class="wrapper">content: counter(x)</span>, are used to generate the numbers for each <b>Item</b> </p>
+
+										<hr>
+
+										<p> The <span class="wrapper">outline</span> property is used instead of <span class="wrapper">border</span> to not affect the <span class="wrapper">flex</span> alignment. </p>
+										<p> If one prefferes using the <span class="wrapper">border</span> property, to properly align the numbers, it requires setting a <span class="wrapper">line-height</span> value equal to the <span class="wrapper">height</span> minus the top and bottom <span class="wrapper">border-width</span>. </p>
+
+										<!-- .cssCounter {
+											outline: 2px solid black;
+										}
+										.cssCounter,
+										.cssCounter-item {
+											height: 30px; 
+										}
+										.cssCounter-item {
+											display: flex;
+											justify-content: flex-end;
+											align-items: center;
+										}
+
+										.cssCounter {
+											border: 2px solid black;
+										}
+										.cssCounter,
+										.cssCounter-item {
+											height: 30px; 
+										}
+										.cssCounter-item {
+											line-height: 26px; /* 30-(2+2) */
+										} -->
+
+									</div>
+								</div>
+
+							</div>
+
+						</section>
+
+				</div>
+
+				<!-- Code Tab -->
+				<div class="tabs-content article-mainTabs-codeTab"  data-tabs-id="3">
+
+					<div id="cssCounter-codeGenerator" class="cssCounter-codeGenerator col-12 sm-col-4">
+						<h2 class="mb-0"> Select Options </h2>
+
+						<hr>
+
+						<div class="[ col-12 p-0 ] [ sm-flex sm-flex-cross-center ]">
+							<div class="col-12 sm-col-6 p-0"> <b>Count To :</b> </div>
+							<input id="cssCounter-codeGenerator-counterCountTo__input" class="col-12 sm-col-6 my-xs cssCounter-codeGenerator-counterCountTo__input" type="number" value="10"/>
+						</div>
+
+						<div class="col-12 p-0 flex flex-cross-center">
+							<div class="col-12 sm-col-6 p-0"> <b>Type :</b> </div>
+							<label class="col-6 sm-col-3 p-0 my-xs cssCounter-codeGenerator-counterType__label">
+								<input type="radio" class="cssCounter-codeGenerator-counterType__radio" name="counterType" data-value="steps"/> Steps
+							</label>
+							<label class="col-6 sm-col-3 p-0 my-xs cssCounter-codeGenerator-counterType__label">
+								<input type="radio" class="cssCounter-codeGenerator-counterType__radio" name="counterType" data-value="slide" checked="checked"/> Slide
+							</label>
+						</div>
+
+						<hr>
+
+						<button id="cssCounter-codeGenerator-generateCode__btn" class="col-12 btn btn-rounded cssCounter-codeGenerator-generateCode__btn"> Generate Code </button>
+					</div>
+
+					<div class="col-12 sm-col-8 cssCounter-generatedCode">
+						<pre id="cssCounter-generatedCode-html" class="col-12 p-0 cssCounter-generatedCode-item"> html </pre>
+						<hr> 
+						<pre id="cssCounter-generatedCode-css"  class="col-12 p-0 cssCounter-generatedCode-item"> css </pre>
+					</div>
+
+				</div> 
+
+			</div>
+		</div>
+
+	</article>

@@ -1,0 +1,358 @@
+
+	.input {
+		display: inline-block;
+		float: left;
+		width: 100%;
+
+		padding: .35em .75em;
+
+		background-color: rgba(0,0,0,0);
+		border: 1px solid rgba(3,3,3,.3);
+	}
+
+	.input.border--rounded { border-radius: 6px;  }
+	.input.border--round   { border-radius: 30px; }
+
+	/* input btm */
+	/* -------------------------------------------- */
+	/* styles the input with only the bottom border */
+
+		.input--btm {
+			padding: .35em 0;
+			border: none;
+			border-bottom: 1px solid rgba(3,3,3,.3);
+		}
+
+	/* input with label */
+	/* -------------------------------------------- */
+	/* styles the input with only the bottom border */
+
+		.label {
+			display: inline-block;
+			position: relative;
+			float: left;
+			width: 100%;
+
+			font-size: 1em;
+			cursor: text;
+
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+		}
+
+		/* underline effect */
+			.label--underline::after {
+				content: '';
+				position: absolute;
+				left: 50%; right: 50%; bottom: 0;
+
+				border-bottom: 2px solid #354758;
+				z-index: -1;
+
+				-webkit-transition: right 0.3s ease-out, left 0.3s ease-out;
+					-moz-transition: right 0.3s ease-out, left 0.3s ease-out;
+						-o-transition: right 0.3s ease-out, left 0.3s ease-out;
+								transition: right 0.3s ease-out, left 0.3s ease-out;
+			}
+
+			.label--underline:focus::after ,
+			.label--underline:focus-within::after {
+				right: 0; left: 0;
+			}
+
+	/* input with validation */
+	/* -------------------------------------------- */
+
+			.label__validation {
+				position: absolute;
+				right: 0;
+				background-color: red;
+			}
+
+			.label__validation::before {
+				content: '';
+				font-family: FontAwesome;
+			}
+
+			.input:valid   ~ .label__validation::before { content: '\f00c' }
+			.input:valid   ~ .label__validation::before { content: '\f00c' }
+			.input:invalid ~ .label__validation::before { content: '\f00d' }
+
+	/* input with floating text */
+	/* -------------------------------------------- */
+
+		.label__floatText {
+			position: absolute;
+			top: 0; right: 0; 
+			width: 100%; height: 100%;
+			z-index: 2;
+
+			color: #8e8e8e;
+			padding: .35em 0;
+
+			transform-origin: 0% 50%;
+			transition: transform .3s;
+
+			-webkit-touch-callout: none;
+			  -webkit-user-select: none;
+			     -moz-user-select: none;
+			      -ms-user-select: none;
+			          user-select: none;
+		}
+
+		.label:focus .label__floatText ,
+		.label:focus-within .label__floatText ,
+		input:not(:placeholder-shown) ~ .label__floatText {
+			transform: translateY(-1.2em) scale(.8);
+		}
+
+		.label input:invalid {
+			box-shadow: none;
+		}
+
+		/* input ,
+		.label__floatText {
+			font-size: .85rem;
+		} */
+
+		/*.xxx .label::before {
+			content: attr(data-labelText);
+			position: absolute;
+			top: 0; right: 0;
+			width: 100%; height: 100%;
+			transform-origin: 0% 50%;
+			transition: transform .3s;
+		}*/
+
+
+	/* input with label and icon */
+	/* -------------------------------------------- */
+
+		.inputWithIcon {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+		}
+
+
+		.input-icon {
+			position: relative;
+			float: left;
+
+			height: 100%;
+			margin-right: .25em;
+			font-size: 1.5em;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+		.label-checkbox {
+			display: inline-block;
+			position: relative;
+			float: left;
+
+			cursor: pointer; cursor: hand;
+		}
+
+		.checkbox-iconBox {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			float: left;
+			line-height: 1.5;
+			width: 1.5em; height: 1.5em;
+			margin-right: .5em;
+
+			box-shadow: inset 0 0 0 2px currentColor;
+		}
+
+		.checkbox-iconBox::before {
+			content: '\f00c';
+			font-family: FontAwesome;
+
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%; height: 100%;
+
+			transform: scale(0);
+			transition: transform .3s;
+		}
+
+		.label-checkbox input {
+			position: absolute;
+			width: 0; height: 0;
+			top: 0; left: 0; right: 0; bottom: 0;
+			opacity: 0;
+		}
+
+
+
+
+		.checkbox:checked ~ .checkbox-iconBox {
+			color: #4caf50;
+		} 
+		.checkbox:checked ~ .checkbox-iconBox::before {
+			transform: scale(1);
+		}
+
+		.label-checkbox-circle .checkbox-iconBox::before {
+			content: '\f111';
+			font-size: .9em;
+		}
+
+		.label-checkbox.rounded .checkbox-iconBox {
+			border-radius: 3px;
+		}
+
+		.label-checkbox.round .checkbox-iconBox {
+			border-radius: 50%;
+		}
+
+
+
+
+
+
+
+
+
+		.checkbox-iconBox::after {
+			content: '';
+			position: absolute;
+
+			width: 1.5em; height: 1.5em;
+			border-radius: 50%;
+			background-color: rgba(3,3,3,.3);
+
+			transform: scale(0);
+			opacity: 1;
+			/*transition: transform .5s, opacity .5s;*/
+		}
+
+		.checkbox:checked ~ .checkbox-iconBox::after {
+			/*transform: scale(1);
+			opacity: 0;*/
+			animation: xx .3s;
+		}
+
+
+		@keyframes xx{
+			100% { transform: scale(2.5); opacity: 0; }
+		}
+
+		/* make it so that changing the type will switch all styles involved */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	.label-switch {
+		display: inline-block;
+		position: relative;
+		float: left;
+
+		cursor: pointer; cursor: hand;
+
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+	}
+
+	.checkbox-switch {
+		position: absolute;
+		width: 0; height: 0;
+		top: 0; left: 0; right: 0; bottom: 0;
+		opacity: 0;
+	}
+
+	.checkbox-switch-iconBox {
+		display: inline-block;
+		position: relative;
+		float: left;
+
+		width: 2.4em;
+		height: 1em;
+		border-radius: 30px;
+		background-color: currentColor;
+
+		transition: color .4s;
+		margin-right: .5em;
+	}
+
+	.checkbox-switch-iconBox::before,
+	.checkbox-switch-iconBox::after {
+		content: '';
+		position: absolute;
+		border-radius: 50%;
+		pointer-events: none;
+	}
+
+	.checkbox-switch-iconBox::before {
+		top: 50%; left: 0;
+		width: 1.4em; height: 1.4em;
+
+		background-color: #FFF;
+
+		transform: translate( -.2em, -50%);
+		transition: transform .3s;
+
+		box-shadow: inset 0 0 0 2px currentColor;
+	}
+
+	.checkbox-switch-iconBox::after {
+		top: 50%; left: 0;
+		transform: translate(-.2em, -50%) scale(0);
+		width: 1.4em; height: 1.4em;
+		background-color: rgba(3,3,3,.3);
+		opacity: 1;
+	}
+
+	.checkbox-switch:checked + .checkbox-switch-iconBox {
+		color: #4caf50;
+	}
+
+	.checkbox-switch:checked + .checkbox-switch-iconBox::before {
+		transform: translate(100%, -50%);
+	}
+	.checkbox-switch:checked + .checkbox-switch-iconBox::after {
+		animation: xxx .3s;
+	}
+
+	@keyframes xxx{
+		100% { transform: translate(-.2em, -50%) scale(2.5); opacity: 0; }
+	}
+
+
+
+
+
+
+
+	.border--rounded { border-radius: 6px;  }
+	.border--round   { border-radius: 30px; }

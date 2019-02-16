@@ -11,6 +11,44 @@
 		<!-- ============================================== -->
 
 			<div class="title">
+				<div class="col-10"> Adding <span class="wrapper">lines</span> and <span class="wrapper">line breaks</span> in data-attributes </div> 
+				<button class="col-2 spoiler-btn spoiler-btn-autoText" data-spoiler-id="html-lineAndBreaksInHTMLAttributes"> </button>
+			</div>
+
+			<div class="spoiler" data-spoiler-id="html-lineAndBreaksInHTMLAttributes">
+				<div class="spoiler-content px-md">
+
+					<p> There are a couple of use cases when we use the <span class="wrapper">content</span> attribute of <span class="wrapper">::before</span> and <span class="wrapper">::after</span> pseudo-elements in combination with the <span class="Wrapper">Element</span>'s <span class="wrapper">data-attributes</span>. </p>
+
+					<p> One such case is creating <span class="wrapper">CSS-only Tooltips</span>, where the content can be define on the HTML element itself, without involving Javascript. </p>
+
+					<div class="wrapper">
+						<pre class="pre-removeTabSpaces">
+						    &lt;div class="hasTooltip" data-tooltipText="My Text"> &lt;/div>
+
+						    .hasTooltip::before {
+						        content: attr(data-tooltipText);
+						        <i class="comment">/* the rest of styling and :hover logic */</i>
+						    }
+						</pre>
+					</div>
+
+					<p> As we cannot include HTML Elements within the <span class="wrapper">content</span> attribute, it is impossible to include <span class="wrapper">&lt;br></span> or <span class="wrapper">&lt;hr></span> Elements to define line-breaks or horizontal-lines. </p>
+
+					<p> But we can include: </p>
+					<p> 1. <span class="wrapper">\&#13;&#10;</span> to add a line-break </p>
+					<p> 2. <span class="wrapper">&#13;&#10;───────────&#13;&#10;</span> to add a hrizontal line (add/remove <span class="wrapper">─</span> characters to set the length/size) </p>
+
+					<hr>
+					<button class="col-12 spoiler-btn spoiler-btn-autoText" data-spoiler-id="html-lineAndBreaksInHTMLAttributes"> </button>
+
+				</div>
+			</div>
+
+		<!-- HTMLCollection To Array  -->
+		<!-- ============================================== -->
+
+			<div class="title">
 				<div class="col-10"> Make <span class="wrapper">HTMLCollection</span> accept <span class="wrapper">Array</span> methods | <span class="wrapper">.map()</span> | <span class="wrapper">.filter()</span> | etc </div> 
 				<button class="col-2 spoiler-btn spoiler-btn-autoText" data-spoiler-id="htmlCol2Array"> </button>
 			</div>

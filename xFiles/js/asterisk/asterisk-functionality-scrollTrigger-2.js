@@ -193,33 +193,37 @@
 						var target_inView = scrollTriggerObj.targetElements_inView[0];
 						var target_above  = scrollTriggerObj.targetElements_aboveView[0];
 
-						// if scroll down
 						if (scenario == 'scroll-down') {
 
-							if (target_below && target_below.getBoundingClientRect().top <= scrollTriggerObj.triggerPoint_btm) {
+							if (target_inView && target_inView.getBoundingClientRect().bottom <= scrollTriggerObj.triggerPoint_top) {
+
+								scrollTriggerObj.scrollTrigger_apply(target_inView , 'exitView');
+
+							} else if (target_below && target_below.getBoundingClientRect().top <= scrollTriggerObj.triggerPoint_btm) {
 
 								scrollTriggerObj.scrollTrigger_apply(target_below , 'enterView');
 
-							} else if (target_inView && target_inView.getBoundingClientRect().bottom <= scrollTriggerObj.triggerPoint_top) {
+							} 
 
-								scrollTriggerObj.scrollTrigger_apply(target_inView , 'exitView');
-
-							}
-
-						// if scroll up
 						} else if (scenario == 'scroll-up') {
 
-							if (target_above && target_above.getBoundingClientRect().bottom <= scrollTriggerObj.triggerPoint_top) {
-
-								scrollTriggerObj.scrollTrigger_apply(target_above , 'enterView');
-
-							} else if (target_inView && target_inView.getBoundingClientRect().top <= scrollTriggerObj.triggerPoint_btm) {
+							if (target_inView && target_inView.getBoundingClientRect().top <= scrollTriggerObj.triggerPoint_btm) {
 
 								scrollTriggerObj.scrollTrigger_apply(target_inView , 'exitView');
+
+							} else if (target_above && target_above.getBoundingClientRect().bottom <= scrollTriggerObj.triggerPoint_top) {
+
+								scrollTriggerObj.scrollTrigger_apply(target_above , 'enterView');
 
 							}
 
 						}
+
+					};
+
+					function checkElem(elem) {
+
+
 
 					}
 

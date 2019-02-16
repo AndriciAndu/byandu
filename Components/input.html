@@ -1,0 +1,1796 @@
+ 
+	<!-- ===================== Route ================== -->
+	<script src="../xFiles/js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+	<style>
+
+	/* colors */
+	/* -------------------------------------------- */
+
+		/* icon */
+		/* -------------------------------------------- */
+
+			.field__icon {
+				color: #8e8e8e;
+			}
+			.field__icon.field__icon--bgColor {
+				background-color: #8e8e8e;
+			}
+			.field__icon.field__icon--bgColor i {
+				color: white;
+			}
+
+		/* --focus--glow */
+		/* -------------------------------------------- */
+
+			.field--focus--glow:focus::before ,
+			.field--focus--glow:focus-within::before {
+				border-color: #354758;
+				border-width: 2px;
+			}
+
+		/* --focus--underline */
+		/* -------------------------------------------- */
+
+			.field--focus--underline.field--border--btm::after {
+				border-bottom: 2px solid #354758;
+			}
+
+		/* --focus--iconGlow */
+		/* -------------------------------------------- */
+
+			.field--focus--iconGlow:focus .field__icon ,
+			.field--focus--iconGlow:focus-within .field__icon {
+				color: #354758;
+			}
+			.field--focus--iconGlow:focus .field__icon--bgColor ,
+			.field--focus--iconGlow:focus-within .field__icon--bgColor {
+				background-color: #354758;
+			}
+
+	/* Field (Wrapper) */
+	/* -------------------------------------------- */
+
+		/* General */
+		/* -------------------------------------------- */
+
+			.field {
+				font-size: 14px;
+				position: relative;
+				float: left;
+				width: 100%;
+				height: 2em;
+				line-height: 2em;
+				
+				display: flex;
+				align-items: stretch;
+				/* overflow: hidden; */
+			}
+
+		/* border */
+		/* -------------------------------------------- */
+			.field::before {
+				content: '';
+				position: absolute;
+				top: 0; left: 0;
+				width: 100%; height: 100%;
+
+				border: 1px solid rgba(3,3,3,.3);
+				border-radius: inherit;
+				z-index: -1;
+			}
+			
+			.field--border--rounded { border-radius:  6px; }
+			.field--border--round   { border-radius: 30px; }
+
+	/* input */
+	/* -------------------------------------------- */
+
+		.field input {
+			float: left;
+			min-width: 0;
+			flex: 1 1 auto;
+			
+			padding-left:  .5em;
+			padding-right: .5em;
+
+			background-color: rgba(0,0,0,0);
+			border: none;
+		}
+		
+		/* input width */
+		/* -------------------------------------------- */
+	
+			/* icon: false && validation: false */
+			/* .field input { 
+				max-width: 100%; 
+			} */
+			/* icon: false || validation: false */
+			/* .field:not(.field--validation--hidden) input:required,
+			.field--icon + input:not(:required) { 
+				max-width: calc(100% - 2em); 
+			} */
+			/* icon: true && validation: true */
+			/* .field:not(.field--validation--hidden) .field__icon + input:required {
+				max-width: calc(100% - 4em);
+			} */
+			
+		/* input padding */
+		/* -------------------------------------------- */
+
+			/* without icon */
+			.field input {
+				padding-left: .5em;
+			}
+			/* with icon */
+			.field__icon:not(.field__icon--bgColor) + input {
+				padding-left: 0;
+			}
+			/* border--btm with/without icon */
+			.field--border--btm input {
+				padding-left: 0;
+			}
+			/* border--btm with icon--bgColor */
+			.field--border--btm .field__icon--bgColor + input {
+				padding-left: .5em;
+			}
+			
+			/* with validation */
+			.field:not(.field--validation--hidden) input:required {
+				padding-right: 0;
+			}
+
+		.field input:invalid {
+			box-shadow: none;
+		}
+
+	/* field icon */
+	/* -------------------------------------------- */
+
+		.field__icon {
+			position: relative;
+			/* width: 2em; min-width: 2em; */
+			flex: 0 0 2em;
+			
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+	/* field validation */
+	/* -------------------------------------------- */
+
+		.field__validation {
+			position: relative;
+			/* width: 2em; min-width: 2em; */
+			display: none;
+			flex: 0 0 2em;
+		}
+		.field__validation::before,
+		.field__validation::after {
+			content: '';
+			font-family: FontAwesome;
+
+			position: absolute;
+			top: 0; left: 50%;
+			transform: translate(-50%, 0) scale(1);
+
+			transition: transform .3s cubic-bezier(.75,-0.32,.32,1.5);
+		}
+		.field__validation::before { content: '\f00c'; color: #4caf50; } /* valid */
+		.field__validation::after  { content: '\f06a'; color: #f44336; } /* invalid */
+
+		input:required + .field__validation {
+			display: inline-block;
+		}
+
+		/* show valid */
+		input:required:valid   + .field__validation::before { transform: translate(-50%, 0) scale(1); }
+		input:required:valid   + .field__validation::after  { transform: translate(-50%, 0) scale(0); }
+		/* show invalid */
+		input:required:invalid + .field__validation::before { transform: translate(-50%, 0) scale(0); }
+		input:required:invalid + .field__validation::after  { transform: translate(-50%, 0) scale(1); }
+
+	/* bottom-border only Style */
+	/* -------------------------------------------- */
+
+		.field--border--btm::before {
+			border: none;
+			border-bottom: 1px solid rgba(3,3,3,.3);
+		}
+
+	/* underline effect */
+	/* -------------------------------------------- */
+
+		.field--border--btm.field--focus--underline::after {
+			content: '';
+			position: absolute;
+			left: 50%; bottom: 0;
+			width: 100%;
+			z-index: -1;
+
+			transform: translateX(-50%) scaleX(0);
+
+			-webkit-transition: transform 0.3s ease-out;
+			   -moz-transition: transform 0.3s ease-out;
+				 -o-transition: transform 0.3s ease-out;
+					transition: transform 0.3s ease-out;
+		}
+		.field--border--btm.field--focus--underline:focus::after ,
+		.field--border--btm.field--focus--underline:focus-within::after {
+			transform: translateX(-50%) scaleX(1);
+		}
+
+	/* glow effect */
+	/* -------------------------------------------- */
+
+		.field--focus--glow::before {
+			transition: border-color .3s ease-out;
+		}
+
+	/* icon-glow effect */
+	/* -------------------------------------------- */
+
+		.field--focus--iconGlow .field__icon {
+			transition: color .3s ease-out;
+		}
+
+		.field--focus--iconGlow .field__icon--bgColor {
+			transition: background-color .3s ease-out;
+		}
+
+
+
+
+
+
+	.field__floatText {
+		position: absolute;
+		top: 0; left: 0;
+		
+		transition: transform .2s ease-out;
+		transform-origin: 0% 50%;
+	}
+	
+	.field__icon ~ .field__floatText {
+		left: 2em;
+	}
+	.field__icon--bgColor ~ .field__floatText {
+		left: 2.5em;
+	}
+	
+	.field:focus .field__floatText ,
+	.field:focus-within .field__floatText {
+		transform: translateY(-100%) scale(.8);
+	}
+
+
+	.field--click {
+		display: inline-block;
+		position: relative;
+		float: left;
+	}
+
+	.field--click input[type="checkbox"] {
+		position: absolute;
+		opacity: 0;
+	}
+	
+	.field__checkbox {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		float: left;
+		width: 1.25em; height: 1.25em;
+		margin-right: .5em;
+
+		box-shadow: inset 0 0 0 2px currentColor;
+	}
+	.field__checkbox::before {
+		content: '\f00c';
+		font-family: FontAwesome;
+
+		font-size: .75em;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%; height: 100%;
+
+		transform: scale(0);
+		transition: transform .3s;
+	}
+	.field--click input[type="checkbox"]:checked ~ .field__checkbox {
+		color: #4caf50;
+	} 
+	.field--click input[type="checkbox"]:checked ~ .field__checkbox::before {
+		transform: scale(1);
+	}
+	
+	.field__checkbox::after {
+		content: '';
+		position: absolute;
+
+		width: 1.5em; height: 1.5em;
+		border-radius: 50%;
+		background-color: rgba(3,3,3,.3);
+
+		transform: scale(0);
+		opacity: 1;
+		/*transition: transform .5s, opacity .5s;*/
+	}
+
+	.field--click input[type="checkbox"]:checked ~ .field__checkbox::after {
+		/*transform: scale(1);
+		opacity: 0;*/
+		animation: xx .3s;
+	}
+
+
+	@keyframes xx {
+		100% { transform: scale(2.5); opacity: 0; }
+	}
+	
+	.cb-x::before {
+		content: '';
+		width: calc(90% - 2px); height: calc(90% - 2px);
+		border-radius: inherit;
+		background-color: #4caf50;
+	}
+	
+		</style>
+	<!-- ============================================== -->
+	<article>
+
+		<header class="sr-only"> <h2> </h2> </header>
+
+		<div class="tabs article-mainTabs">
+
+			<div class="article-mainTabs-banner">
+				<div class="article-mainTabs-title"> Component : input </div>
+
+				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
+					<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> Demo  </button>
+					<button class="tabs-btn" 				data-tabs-id="2"> Usage </button>
+					<button class="tabs-btn" 				data-tabs-id="3"> Code  </button>
+				</div>
+			</div>
+
+			<div class="tabs-contentGroup">
+
+				<!-- Demo Tab -->
+				<div class="tabs-content article-mainTabs-demoTab tab-expanded" data-tabs-id="1">
+					<div class="mt-lg"></div>
+
+						<label class="field--click">
+							<input type="checkbox">
+							<div class="field__checkbox"></div>
+							asdf
+						</label>
+						<label class="field--click">
+							<input type="checkbox">
+							<div class="field__checkbox border-rounded"></div>
+							asdf
+						</label>
+						<label class="field--click">
+							<input type="checkbox">
+							<div class="field__checkbox border-round"></div>
+							asdf
+						</label>
+						
+						<label class="field--click">
+							<input type="checkbox">
+							<div class="field__checkbox cb-x"></div>
+							asdf
+						</label>
+						<label class="field--click">
+							<input type="checkbox">
+							<div class="field__checkbox cb-x border-rounded"></div>
+							asdf
+						</label>
+						<label class="field--click">
+							<input type="checkbox">
+							<div class="field__checkbox cb-x border-round"></div>
+							asdf
+						</label>
+
+					<!-- default -->
+						<!-- <div class="col-12 p-0 md-flex md-flex-cross-center">
+							<div class="col-6">
+								<input/>
+							</div>
+							<div class="col-6">
+								<div class="wrapper py-0">
+									<pre class="pre-removeTabSpaces">
+											&lt;input/>
+									</pre>
+								</div>
+							</div>
+						</div>
+
+						<hr> -->
+
+					<!-- basic -->
+						<!-- <div class="col-12 p-0 md-flex md-flex-cross-center">
+							<div class="col-6 p-0">
+								<div class="col-6 mb-xs">
+									<input class="input"/>
+								</div>
+								<div class="col-6 mb-xs">
+									<input class="input" placeholder="Placeholder"/>
+								</div>
+								<div class="col-6 mb-xs">
+									<input class="input field--border--rounded"/>
+								</div>
+								<div class="col-6 mb-xs">
+									<input class="input field--border--rounded" placeholder="Placeholder"/>
+								</div>
+								<div class="col-6 mb-xs">
+									<input class="input field--border--round"/>
+								</div>
+								<div class="col-6 mb-xs">
+									<input class="input field--border--round" placeholder="Placeholder"/>
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="wrapper py-0">
+									<pre class="pre-removeTabSpaces">
+											&lt;input class="input"/>
+									</pre>
+								</div>
+							</div>
+						</div>
+
+						<hr> -->
+
+					<!-- default + icon -->
+						<!-- <div class="col-12 p-0 md-flex md-flex-cross-center">
+							<div class="col-6 p-0">
+								<div class="col-6 mb-xs">
+									<label class="field">
+										<div class="field__icon"><i class="fa fa-user"></i></div>
+										<input/>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field">
+										<div class="field__icon"><i class="fa fa-user"></i></div>
+										<input placeholder="Placeholder"/>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--rounded">
+										<div class="field__icon"><i class="fa fa-user"></i></div>
+										<input/>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--rounded">
+										<div class="field__icon"><i class="fa fa-user"></i></div>
+										<input placeholder="Placeholder"/>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--round">
+										<div class="field__icon"><i class="fa fa-user"></i></div>
+										<input/>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--round">
+										<div class="field__icon"><i class="fa fa-user"></i></div>
+										<input placeholder="Placeholder"/>
+									</label>
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="wrapper py-0">
+									<pre class="pre-removeTabSpaces">
+											&lt;label class="field">
+												&lt;div class="field__icon">&lt;/div>
+												&lt;input/>
+											&lt;/label>
+									</pre>
+								</div>
+							</div>
+						</div>
+
+						<hr> -->
+
+					<!-- default + icon /w bgColor -->
+						<!-- <div class="col-12 p-0 md-flex md-flex-cross-center">
+							<div class="col-6 p-0">
+								<div class="col-6 mb-xs">
+									<label class="field">
+										<div class="field__icon field__icon--bgColor"><i class="fa fa-user"></i></div>
+										<input/>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field">
+										<div class="field__icon field__icon--bgColor"><i class="fa fa-user"></i></div>
+										<input placeholder="Placeholder"/>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--rounded">
+										<div class="field__icon field__icon--bgColor"><i class="fa fa-user"></i></div>
+										<input/>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--rounded">
+										<div class="field__icon field__icon--bgColor"><i class="fa fa-user"></i></div>
+										<input placeholder="Placeholder"/>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--round">
+										<div class="field__icon field__icon--bgColor"><i class="fa fa-user"></i></div>
+										<input/>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--round">
+										<div class="field__icon field__icon--bgColor"><i class="fa fa-user"></i></div>
+										<input placeholder="Placeholder"/>
+									</label>
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="wrapper py-0">
+									<pre class="pre-removeTabSpaces">
+											&lt;label class="field">
+												&lt;div class="field__icon">&lt;/div>
+												&lt;input/>
+											&lt;/label>
+									</pre>
+								</div>
+							</div>
+						</div>
+
+						<hr> -->
+
+					<!-- default + validation -->
+						<!-- <div class="col-12 p-0 md-flex md-flex-cross-center">
+							<div class="col-6 p-0">
+								<div class="col-6 mb-xs">
+									<label class="field">
+										<input required/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field">
+										<input required placeholder="Placeholder"/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--rounded">
+										<input required/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--rounded">
+										<input required placeholder="Placeholder"/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--round">
+										<input required/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--round">
+										<input required placeholder="Placeholder"/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="wrapper py-0">
+									<pre class="pre-removeTabSpaces">
+											&lt;label class="field">
+												&lt;input <b-r>required</b-r>/>
+												&lt;div class="field__validation">&lt;/div>
+											&lt;/label>
+									</pre>
+								</div>
+							</div>
+						</div>
+
+						<hr> -->
+
+					<!-- default + icon + validation -->
+						<div class="col-12 p-0 md-flex md-flex-cross-center">
+							<div class="col-6 p-0">
+								<div class="col-6 mb-xs">
+									<label class="field">
+										<div class="field__icon"><i class="fa fa-user"></i></div>
+										<input required value="float text"/>
+										<div class="field__validation"></div>
+										<div class="field__floatText"> float text </div>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field">
+										<div class="field__icon"><i class="fa fa-user"></i></div>
+										<input required placeholder="Placeholder"/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--rounded">
+										<div class="field__icon"><i class="fa fa-user"></i></div>
+										<input required/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--rounded">
+										<div class="field__icon"><i class="fa fa-user"></i></div>
+										<input required placeholder="Placeholder"/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--round">
+										<div class="field__icon"><i class="fa fa-user"></i></div>
+										<input required/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--round">
+										<div class="field__icon"><i class="fa fa-user"></i></div>
+										<input required placeholder="Placeholder"/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="wrapper py-0">
+									<pre class="pre-removeTabSpaces">
+											&lt;label class="field">
+												&lt;div class="field__icon">&lt;/div>
+												&lt;input <b-r>required</b-r>/>
+												&lt;div class="field__validation">&lt;/div>
+											&lt;/label>
+									</pre>
+								</div>
+							</div>
+						</div>
+						
+						<hr>
+
+					<!-- default + icon /w bgColor + validation -->
+						<div class="col-12 p-0 md-flex md-flex-cross-center">
+							<div class="col-6 p-0">
+								<div class="col-6 mb-xs">
+									<label class="field">
+										<div class="field__icon field__icon--bgColor"><i class="fa fa-user"></i></div>
+										<input required/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field">
+										<div class="field__icon field__icon--bgColor"><i class="fa fa-user"></i></div>
+										<input required placeholder="Placeholder"/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--rounded">
+										<div class="field__icon field__icon--bgColor"><i class="fa fa-user"></i></div>
+										<input required/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--rounded">
+										<div class="field__icon field__icon--bgColor"><i class="fa fa-user"></i></div>
+										<input required placeholder="Placeholder"/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--round">
+										<div class="field__icon field__icon--bgColor"><i class="fa fa-user"></i></div>
+										<input required/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--round">
+										<div class="field__icon field__icon--bgColor"><i class="fa fa-user"></i></div>
+										<input required placeholder="Placeholder"/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="wrapper py-0">
+									<pre class="pre-removeTabSpaces">
+											&lt;label class="field">
+												&lt;div class="field__icon field__icon--bgColor">&lt;/div>
+												&lt;input <b-r>required</b-r>/>
+												&lt;div class="field__validation">&lt;/div>
+											&lt;/label>
+									</pre>
+								</div>
+							</div>
+						</div>
+						
+						<hr>
+
+					<!-- BTM -->
+						<div class="col-12 p-0 md-flex md-flex-cross-center">
+							<div class="col-6 p-0">
+								<div class="col-6 mb-xs">
+									<label class="field field--border--btm">
+										<input/>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--btm">
+										<input placeholder="Placeholder"/>
+									</label>
+								</div>
+								
+								<div class="col-6 mb-xs">
+									<label class="field field--border--btm">
+										<input required/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--btm">
+										<input required placeholder="Placeholder"/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+
+								<div class="col-6 mb-xs">
+									<label class="field field--border--btm">
+										<div class="field__icon"><i class="fa fa-user"></i></div>
+										<input/>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--btm">
+										<div class="field__icon"><i class="fa fa-user"></i></div>
+										<input placeholder="Placeholder"/>
+									</label>
+								</div>
+
+								<div class="col-6 mb-xs">
+									<label class="field field--border--btm">
+										<div class="field__icon"><i class="fa fa-user"></i></div>
+										<input required/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--btm">
+										<div class="field__icon"><i class="fa fa-user"></i></div>
+										<input required placeholder="Placeholder"/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="wrapper py-0">
+									<pre class="pre-removeTabSpaces">
+										&lt;label class="field field--border--btm">
+											&lt;div class="field__icon">&lt;/div>
+											&lt;input/>
+											&lt;div class="field__validation">&lt;/div>
+										&lt;/label>
+									</pre>
+								</div>
+							</div>
+						</div>
+
+						<hr>
+
+					<!-- BTM + icon bgColor -->
+						<div class="col-12 p-0 md-flex md-flex-cross-center">
+							<div class="col-6 p-0">
+								<div class="col-6 mb-xs">
+									<label class="field field--border--btm">
+										<div class="field__icon field__icon--bgColor"><i class="fa fa-user"></i></div>
+										<input/>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--btm">
+										<div class="field__icon field__icon--bgColor"><i class="fa fa-user"></i></div>
+										<input placeholder="Placeholder"/>
+									</label>
+								</div>
+
+								<div class="col-6 mb-xs">
+									<label class="field field--border--btm">
+										<div class="field__icon field__icon--bgColor"><i class="fa fa-user"></i></div>
+										<input required/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--btm">
+										<div class="field__icon field__icon--bgColor"><i class="fa fa-user"></i></div>
+										<input required placeholder="Placeholder"/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="wrapper py-0">
+									<pre class="pre-removeTabSpaces">
+										&lt;label class="field field--border--btm">
+											&lt;div class="field__icon field__icon--bgColor">&lt;/div>
+											&lt;input/>
+											&lt;div class="field__validation">&lt;/div>
+										&lt;/label>
+									</pre>
+								</div>
+							</div>
+						</div>
+
+						<hr>
+
+					<!-- BTM underline -->
+						<div class="col-12 p-0 md-flex md-flex-cross-center">
+							<div class="col-6 p-0">
+								<div class="col-6 mb-xs">
+									<label class="field field--border--btm field--focus--underline">
+										<input/>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--btm field--focus--underline">
+										<input placeholder="Placeholder"/>
+									</label>
+								</div>
+								
+								<div class="col-6 mb-xs">
+									<label class="field field--border--btm field--focus--underline">
+										<input required/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--btm field--focus--underline">
+										<input required placeholder="Placeholder"/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+
+								<div class="col-6 mb-xs">
+									<label class="field field--border--btm field--focus--underline">
+										<div class="field__icon"><i class="fa fa-user"></i></div>
+										<input/>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--btm field--focus--underline">
+										<div class="field__icon"><i class="fa fa-user"></i></div>
+										<input placeholder="Placeholder"/>
+									</label>
+								</div>
+
+								<div class="col-6 mb-xs">
+									<label class="field field--border--btm field--focus--underline">
+										<div class="field__icon"><i class="fa fa-user"></i></div>
+										<input required/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--btm field--focus--underline">
+										<div class="field__icon"><i class="fa fa-user"></i></div>
+										<input required placeholder="Placeholder"/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="wrapper py-0">
+									<pre class="pre-removeTabSpaces">
+										&lt;label class="field field--border--btm field--focus--underline">
+											&lt;div class="field__icon">&lt;/div>
+											&lt;input/>
+											&lt;div class="field__validation">&lt;/div>
+										&lt;/label>
+									</pre>
+								</div>
+							</div>
+						</div>
+
+						<hr>
+
+					<!-- BTM underline + icon bgColor -->
+						<div class="col-12 p-0 md-flex md-flex-cross-center">
+							<div class="col-6 p-0">
+								<div class="col-6 mb-xs">
+									<label class="field field--border--btm  field--focus--underline">
+										<div class="field__icon field__icon--bgColor"><i class="fa fa-user"></i></div>
+										<input/>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--btm  field--focus--underline">
+										<div class="field__icon field__icon--bgColor"><i class="fa fa-user"></i></div>
+										<input placeholder="Placeholder"/>
+									</label>
+								</div>
+
+								<div class="col-6 mb-xs">
+									<label class="field field--border--btm  field--focus--underline">
+										<div class="field__icon field__icon--bgColor"><i class="fa fa-user"></i></div>
+										<input required/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+								<div class="col-6 mb-xs">
+									<label class="field field--border--btm  field--focus--underline">
+										<div class="field__icon field__icon--bgColor"><i class="fa fa-user"></i></div>
+										<input required placeholder="Placeholder"/>
+										<div class="field__validation"></div>
+									</label>
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="wrapper py-0">
+									<pre class="pre-removeTabSpaces">
+										&lt;label class="field field--border--btm  field--focus--underline">
+											&lt;div class="field__icon field__icon--bgColor">&lt;/div>
+											&lt;input/>
+											&lt;div class="field__validation">&lt;/div>
+										&lt;/label>
+									</pre>
+								</div>
+							</div>
+						</div>
+
+						<hr>
+
+						<div class="col-4">
+							<label class="label label-checkbox">
+								<input class="input checkbox" type="checkbox">
+								<div class="checkbox-iconBox"></div>
+								asdf
+							</label>
+						</div>
+
+						<div class="col-4">
+							<label class="label label-checkbox rounded">
+								<input class="input checkbox" type="checkbox">
+								<div class="checkbox-iconBox"></div>
+								asdf
+							</label>
+						</div>
+
+						<div class="col-4">
+							<label class="label label-checkbox round">
+								<input class="checkbox" type="checkbox">
+								<div class="checkbox-iconBox"></div>
+								asdf
+							</label>
+						</div>
+
+						<hr>
+
+						<div class="col-4">
+							<label class="label label-checkbox rounded">
+								<input class="checkbox" type="radio" name="X">
+								<div class="checkbox-iconBox"></div>
+								asdf
+							</label>
+							<label class="label label-checkbox rounded">
+								<input class="checkbox" type="radio" name="X">
+								<div class="checkbox-iconBox"></div>
+								asdf
+							</label>
+							<label class="label label-checkbox rounded">
+								<input class="checkbox" type="radio" name="X">
+								<div class="checkbox-iconBox"></div>
+								asdf
+							</label>
+						</div>
+
+						<div class="col-4">
+							<label class="label label-checkbox">
+								<input class="checkbox" type="radio" name="X">
+								<div class="checkbox-iconBox"></div>
+								asdf
+							</label>
+							<label class="label label-checkbox">
+								<input class="checkbox" type="radio" name="X">
+								<div class="checkbox-iconBox"></div>
+								asdf
+							</label>
+							<label class="label label-checkbox">
+								<input class="checkbox" type="radio" name="X">
+								<div class="checkbox-iconBox"></div>
+								asdf
+							</label>
+						</div>
+
+						<div class="col-4">
+							<label class="label label-checkbox round">
+								<input class="checkbox" type="radio" name="X">
+								<div class="checkbox-iconBox"></div>
+								asdf
+							</label>
+							<label class="label label-checkbox round">
+								<input class="checkbox" type="radio" name="X">
+								<div class="checkbox-iconBox"></div>
+								asdf
+							</label>
+							<label class="label label-checkbox round">
+								<input class="checkbox" type="radio" name="X">
+								<div class="checkbox-iconBox"></div>
+								asdf
+							</label>
+						</div>
+
+						<hr>
+
+						<div class="col-4">
+							<label class="label label-checkbox round label-checkbox-circle">
+								<input class="checkbox" type="radio" name="X">
+								<div class="checkbox-iconBox"></div>
+								asdf
+							</label>
+							<label class="label label-checkbox round label-checkbox-circle">
+								<input class="checkbox" type="radio" name="X">
+								<div class="checkbox-iconBox"></div>
+								asdf
+							</label>
+							<label class="label label-checkbox round label-checkbox-circle">
+								<input class="checkbox" type="radio" name="X">
+								<div class="checkbox-iconBox"></div>
+								asdf
+							</label>
+
+							<label class="label label-checkbox rounded label-checkbox-circle">
+								<input class="checkbox" type="radio" name="X">
+								<div class="checkbox-iconBox"></div>
+								asdf
+							</label>
+							<label class="label label-checkbox rounded label-checkbox-circle">
+								<input class="checkbox" type="radio" name="X">
+								<div class="checkbox-iconBox"></div>
+								asdf
+							</label>
+							<label class="label label-checkbox rounded label-checkbox-circle">
+								<input class="checkbox" type="radio" name="X">
+								<div class="checkbox-iconBox"></div>
+								asdf
+							</label>
+
+							<label class="label label-checkbox label-checkbox-circle">
+								<input class="checkbox" type="radio" name="X">
+								<div class="checkbox-iconBox"></div>
+								asdf
+							</label>
+							<label class="label label-checkbox label-checkbox-circle">
+								<input class="checkbox" type="radio" name="X">
+								<div class="checkbox-iconBox"></div>
+								asdf
+							</label>
+							<label class="label label-checkbox label-checkbox-circle">
+								<input class="checkbox" type="radio" name="X">
+								<div class="checkbox-iconBox"></div>
+								asdf
+							</label>
+						</div>
+						
+						<!-- wont stay elevated after blur -->
+						<!-- <div class="col-4 p-0 inputWithIcon xxx">
+							<label class="label" data-labelText="asdf">
+								<input class="input" required/> 
+							</label>
+						</div> -->
+
+						<label class="label label-switch">
+							<input class="checkbox-switch" type="checkbox">
+							<div class="checkbox-switch-iconBox"></div>
+							asdf
+						</label>
+				</div>
+
+				<!-- Usage Tab -->
+				<div class="tabs-content article-mainTabs-usageTab" data-tabs-id="2">
+
+					<!-- I. Description -->
+						<section class="accordion  p-0        sectionAccordion">
+							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+								<button class="accordion-btn  sectionAccordion-btn"> I. Description </button>
+								<div class="accordion-content sectionAccordion-content">
+
+									<p> 
+										Collection of UI styles and effects for <span class="wrapper">&lt;input></span> Elements. 
+
+										<button class="spoiler-btn spoiler-btn-autoText title-spoilerBtn" data-spoiler-id="description-more"> More | </button>
+									</p>
+
+									<div class="spoiler" data-spoiler-id="description-more">
+										<div class="spoiler-content">
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+					<!-- II. Initialization -->
+						<section class="accordion  p-0        sectionAccordion">
+							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+								<button class="accordion-btn  sectionAccordion-btn"> II. Initialization </button>
+								<div class="accordion-content sectionAccordion-content">
+									
+									<p class="mb-0"> <b>Step 1.</b> Refference the <a href="https://fontawesome.com/" target="_blank"><u><b>FontAwesome</b></u></a> Library. <span class="sub-heading float-right"> * Required for the <span class="wrapper">field__icon</span> and <span class="wrapper">field__validation</span> Elements </span> </p>
+									
+									<div class="wrapper"> <div class="col-12"> &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">  </div> </div>
+
+									<p class="mb-0"> 
+										<b>Step 2.</b> Download and refference the 
+										<a class="downloadLink" href="../../css/asterisk/asterisk-component-input.css" download> asterisk-component-input.css </a> CSS file.
+									</p>
+
+									<div class="wrapper"> <div class="col-12"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-component-input.css</b-p>" type="text/css" rel="stylesheet"> </div> </div>
+								</div>
+							</div>
+						</section>
+
+					<!-- III. Usage -->
+						<section class="accordion  p-0        sectionAccordion">
+							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+								<button class="accordion-btn  sectionAccordion-btn"> III. Usage </button>
+								<div class="accordion-content sectionAccordion-content">
+									
+									<!-- Baseline -->
+										<div class="col-12 p-0 md-flex md-flex-cross-center mb-md">
+											<div class="col-6">
+												<p> Baseline Markup </p>
+												
+												<hr>
+												
+												<div class="col-6">
+													<label class="field">
+												        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+												        <input required/>
+												        <div class="field__validation"></div>
+												    </label>
+												</div>
+												<div class="col-6">
+													<label class="field">
+												        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+												        <input placeholder="Placeholder" required/>
+												        <div class="field__validation"></div>
+												    </label>
+												</div>
+												
+												<hr>
+												
+												<p class="sub-heading"> * With this markup, all styling options and effect are made available.</p> 
+												<p class="sub-heading mt-0"> * The <span class="wrapper">field__icon</span> and <span class="wrapper">field__validation</span> Elements can be hidden (see below).</p> 
+											</div>
+											
+											<div class="col-6">
+												<div class="wrapper py-0">
+													<pre class="pre-removeTabSpaces">
+														
+													    &lt;label class="field">
+													        &lt;div class="field__icon"> &lt;i class="fa fa-user" aria-hidden="true">&lt;/i> &lt;/div>
+													        &lt;input placeholder="Placeholder" required/>
+													        &lt;div class="field__validation">&lt;/div>
+													    &lt;/label>
+														
+													</pre>
+												</div>
+											</div>
+										</div>
+									
+									<!-- Border styles -->
+										<div class="accordion">
+											<div class="accordion-group px-md my-sm">
+												<button class="accordion-btn"> Border Styles </button>
+												<div class="accordion-content">
+													<p> 
+														<button class="spoiler-btn spoiler-btn-autoText" data-spoiler-id="input-borderSection"> More | </button>
+													</p>
+													
+													<div class="spoiler" data-spoiler-id="input-borderSection">
+														<div class="spoiler-content px-md">
+															<p> The <b>Border Styles</b> can be changed by adding any one of the <span class="wrapper">field--border--rounded</span>, <span class="wrapper">field--border--round</span> or <span class="wrapper">field--border--btm</span> Classes on the <span class="wrapper">&lt;label class="field"></span> Element. </p>
+															
+															<hr>
+															
+															<p> The visible border is <u>not</u> applied on the <span class="wrapper">&lt;input></span> Element, but on the <span class="wrapper">.field::before</span> pseudo-element. <b>This allows for :</b> </p>
+															<p class="mt-0"> * Dinamically adapting to the presence/absence of the <span class="wrapper">.field__icon</span> and <span class="wrapper".>field__validation</span> Elements. </p>
+															<p class="mt-0"> * Modifications to the <span class="wrapper">border-size</span> will not offset the position/size of the <span class="wrapper">.field</span>, or of the <span class="wrapper">.field__icon</span> / <span class="wrapper">.field__validation</span> icons. </p>
+														</div>
+													</div>
+													<hr>
+													<div class="col-12 p-0 md-flex md-flex-cross-center">
+														<div class="col-6">
+															<div class="col-6">
+																<label class="field mb-xs">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field mb-xs field--border--rounded">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field mb-xs field--border--round">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field mb-xs field--border--btm">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+															</div>
+															<div class="col-6">
+																<label class="field mb-xs">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="Default"/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field mb-xs field--border--rounded">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="field--border--rounded"/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field mb-xs field--border--round">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="field--border--round"/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field mb-xs field--border--btm">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="field--border--btm"/>
+															        <div class="field__validation"></div>
+															    </label>
+															</div>
+														</div>
+														
+														<div class="col-6">
+															<div class="wrapper py-0">
+																<pre class="pre-removeTabSpaces">
+																	
+																    &lt;label class="<b>field</b>"> ... &lt;/label>
+																    &lt;label class="<b>field</b> <b-p>field--border--rounded</b-p>"> ... &lt;/label>
+																    &lt;label class="<b>field</b> <b-p>field--border--round</b-p>"> ... &lt;/label>
+																    &lt;label class="<b>field</b> <b-p>field--border--btm</b-p>"> ... &lt;/label>
+																	
+																</pre>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									
+									<!-- Field Validation -->
+										<div class="accordion">
+											<div class="accordion-group px-md my-sm">
+												<button class="accordion-btn"> Field Validation </button>
+												<div class="accordion-content">
+													<p> 
+														The <span class="wrapper">.field__validation</span> Element is made visible only when the <span class="wrapper">&lt;input></span> Element has the <span class="wrapper"><b-r>required</b-r></span> attribute.
+
+														<button class="spoiler-btn spoiler-btn-autoText" data-spoiler-id="input-fieldValidationSection"> More | </button>
+													</p>
+													
+													<div class="spoiler" data-spoiler-id="input-fieldValidationSection">
+														<div class="spoiler-content px-md">
+															<p> Subsequently, the <span class="wrapper">.field__validation</span> Element can be hidden by : </p>
+															<p> 1. Removing the <span class="wrapper">&lt;div class="field__validation"></span> from the Markup (not reccomended)</p>
+															<p> 2. Removing the <span class="wrapper"><b-r>required</b-r></span> attribute on the Element. </p>
+															<p> 3. Adding the <span class="wrapper">field--validation--hidden</span> Class on the <span class="wrapper">label></span> Element. </p>
+														</div>
+													</div>
+													
+													<hr>
+													<div class="col-12 p-0 md-flex md-flex-cross-center">
+														<div class="col-6">
+															<div class="col-6">
+																<label class="field mb-xs">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field mb-xs field--border--rounded">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field mb-xs field--border--round">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field mb-xs field--border--btm">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+															</div>
+															<div class="col-6">
+																<label class="field mb-xs">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="Default"/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field mb-xs field--border--rounded">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="field--border--rounded"/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field mb-xs field--border--round">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="field--border--round"/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field mb-xs field--border--btm">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="field--border--btm"/>
+															        <div class="field__validation"></div>
+															    </label>
+															</div>
+														</div>
+														
+														<div class="col-6">
+															<div class="wrapper py-0">
+																<pre class="pre-removeTabSpaces">
+																	
+																    &lt;label class="field">
+																        &lt;div class="field__icon"> &lt;i class="fa fa-user" aria-hidden="true">&lt;/i> &lt;/div>
+																        &lt;input placeholder="Placeholder" <span class="wrapper"><b-r>required</b-r></span>/>
+																        <span class="wrapper">&lt;div class="field__validation">&lt;/div></span>
+																    &lt;/label>
+																	
+																</pre>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									
+									<!-- Field Icon -->
+										<div class="accordion">
+											<div class="accordion-group px-md my-sm">
+												<button class="accordion-btn"> Field Icon </button>
+												<div class="accordion-content">
+													<p> 
+														<button class="spoiler-btn spoiler-btn-autoText" data-spoiler-id="input-fieldIconSection"> More | </button>
+													</p>
+													
+													<div class="spoiler" data-spoiler-id="input-fieldIconSection">
+														<div class="spoiler-content px-md">
+															<p> The <span class="wrapper">.field__icon</span> contains a <span class="wrapper">Font Awesome Icon</span>, which can be changed directly within the Element. </p>
+															
+															<hr>
+															
+															<p> It can be hidden by : </p>
+															<p> 1. Removing the <span class="wrapper"><b-r>required</b-r></span> attribute on the Element. </p>
+															<p> 2. Adding the <span class="wrapper">field--icon--hidden</span> Class on the <span class="wrapper">label></span> Element. </p>
+														</div>
+													</div>
+													
+													<!-- Field Icon /2 bgColor -->
+													<hr>
+													<div class="col-12 p-0 md-flex md-flex-cross-center">
+														<div class="col-6">
+															<div class="col-6">
+																<label class="field mb-xs">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field mb-xs field--border--rounded">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field mb-xs field--border--round">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field mb-xs field--border--btm">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+															</div>
+															<div class="col-6">
+																<label class="field mb-xs">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="Default"/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field mb-xs field--border--rounded">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="field--border--rounded"/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field mb-xs field--border--round">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="field--border--round"/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field mb-xs field--border--btm">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="field--border--btm"/>
+															        <div class="field__validation"></div>
+															    </label>
+															</div>
+														</div>
+														
+														<div class="col-6">
+															<div class="wrapper py-0">
+																<pre class="pre-removeTabSpaces">
+																	
+																    &lt;label class="field">
+																        <span class="wrapper">&lt;div class="field__icon"> <b>&lt;i class="fa fa-user" aria-hidden="true">&lt;/i></b> &lt;/div></span>
+																        &lt;input placeholder="Placeholder" required/>
+																        &lt;div class="field__validation">&lt;/div>
+																    &lt;/label>
+																	
+																</pre>
+															</div>
+														</div>
+													</div>
+													
+													<hr>
+													<div class="col-12 p-0 md-flex md-flex-cross-center">
+														<div class="col-6">
+															<div class="col-6">
+																<label class="field mb-xs">
+															        <div class="field__icon field__icon--bgColor"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field mb-xs field--border--rounded">
+															        <div class="field__icon field__icon--bgColor"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field mb-xs field--border--round">
+															        <div class="field__icon field__icon--bgColor"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field mb-xs field--border--btm">
+															        <div class="field__icon field__icon--bgColor"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+															</div>
+															<div class="col-6">
+																<label class="field mb-xs">
+															        <div class="field__icon field__icon--bgColor"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="Default"/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field mb-xs field--border--rounded">
+															        <div class="field__icon field__icon--bgColor"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="field--border--rounded"/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field mb-xs field--border--round">
+															        <div class="field__icon field__icon--bgColor"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="field--border--round"/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field mb-xs field--border--btm">
+															        <div class="field__icon field__icon--bgColor"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="field--border--btm"/>
+															        <div class="field__validation"></div>
+															    </label>
+															</div>
+														</div>
+														
+														<div class="col-6">
+															<div class="wrapper py-0">
+																<pre class="pre-removeTabSpaces">
+																	
+																    &lt;label class="field">
+																        <span class="wrapper">&lt;div class="field__icon <b-p>field__icon--bgColor</b-p>"> <b>&lt;i class="fa fa-user" aria-hidden="true">&lt;/i></b> &lt;/div></span>
+																        &lt;input placeholder="Placeholder" required/>
+																        &lt;div class="field__validation">&lt;/div>
+																    &lt;/label>
+																	
+																</pre>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									
+									<!-- Border Glow -->
+										<div class="accordion">
+											<div class="accordion-group px-md my-sm">
+												<button class="accordion-btn"> Focus Effect : field--border--glow </button>
+												<div class="accordion-content">
+													<div class="col-12 p-0 md-flex md-flex-cross-center">
+														<div class="col-6">
+															
+															<div class="col-6">
+																<label class="field field--focus--glow mb-xs">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field field--focus--glow mb-xs field--border--rounded">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field field--focus--glow mb-xs field--border--round">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field field--focus--glow mb-xs field--border--btm">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+															</div>
+															<div class="col-6">
+																<label class="field field--focus--glow mb-xs">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="Default"/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field field--focus--glow mb-xs field--border--rounded">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="field--border--rounded"/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field field--focus--glow mb-xs field--border--round">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="field--border--round"/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field field--focus--glow mb-xs field--border--btm">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="field--border--btm"/>
+															        <div class="field__validation"></div>
+															    </label>
+															</div>
+														</div>
+														
+														<div class="col-6">
+															<div class="wrapper py-0">
+																<pre class="pre-removeTabSpaces">
+																	
+																    &lt;label class="<b>field</b> <b-p>field--focus--glow</b-p>"> ... &lt;/label>
+																    &lt;label class="<b>field</b> <b-p>field--focus--glow</b-p> <b>field--border--rounded</b>"> ... &lt;/label>
+																    &lt;label class="<b>field</b> <b-p>field--focus--glow</b-p> <b>field--border--round</b>"> ... &lt;/label>
+																    &lt;label class="<b>field</b> <b-p>field--focus--glow</b-p> <b>field--border--btm</b>"> ... &lt;/label>
+																	
+																</pre>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										
+									<!-- Focus Effect : field--focus--iconGlow -->
+										<div class="accordion">
+											<div class="accordion-group px-md my-sm">
+												<button class="accordion-btn"> Focus Effect : field--focus--iconGlow </button>
+												<div class="accordion-content">
+													<div class="col-12 p-0 md-flex md-flex-cross-center">
+														<div class="col-6">
+															<div class="col-6">
+																<label class="field field--focus--iconGlow mb-xs">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field field--focus--iconGlow mb-xs field--border--rounded">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field field--focus--iconGlow mb-xs field--border--round">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field field--focus--iconGlow mb-xs field--border--btm">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+															</div>
+															<div class="col-6">
+																<label class="field field--focus--iconGlow mb-xs">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="Default"/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field field--focus--iconGlow mb-xs field--border--rounded">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="field--border--rounded"/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field field--focus--iconGlow mb-xs field--border--round">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="field--border--round"/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field field--focus--iconGlow mb-xs field--border--btm">
+															        <div class="field__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="field--border--btm"/>
+															        <div class="field__validation"></div>
+															    </label>
+															</div>
+														</div>
+														
+														<div class="col-6">
+															<div class="wrapper py-0">
+																<pre class="pre-removeTabSpaces">
+																	
+																    &lt;label class="field <b-p>field--focus--iconGlow</b-p>">
+																        &lt;div class="field__icon"> &lt;i class="fa fa-user" aria-hidden="true">&lt;/i> &lt;/div>
+																        &lt;input placeholder="Placeholder" required/>
+																        &lt;div class="field__validation">&lt;/div>
+																    &lt;/label>
+																	
+																</pre>
+															</div>
+														</div>
+													</div>
+													
+													<hr>
+													
+													<div class="col-12 p-0 md-flex md-flex-cross-center">
+														<div class="col-6">
+															<div class="col-6">
+																<label class="field field--focus--iconGlow mb-xs">
+															        <div class="field__icon field__icon--bgColor"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field field--focus--iconGlow mb-xs field--border--rounded">
+															        <div class="field__icon field__icon--bgColor"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field field--focus--iconGlow mb-xs field--border--round">
+															        <div class="field__icon field__icon--bgColor"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field field--focus--iconGlow mb-xs field--border--btm">
+															        <div class="field__icon field__icon--bgColor"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required/>
+															        <div class="field__validation"></div>
+															    </label>
+															</div>
+															<div class="col-6">
+																<label class="field field--focus--iconGlow mb-xs">
+															        <div class="field__icon field__icon--bgColor"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="Default"/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field field--focus--iconGlow mb-xs field--border--rounded">
+															        <div class="field__icon field__icon--bgColor"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="field--border--rounded"/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field field--focus--iconGlow mb-xs field--border--round">
+															        <div class="field__icon field__icon--bgColor"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="field--border--round"/>
+															        <div class="field__validation"></div>
+															    </label>
+																
+																<label class="field field--focus--iconGlow mb-xs field--border--btm">
+															        <div class="field__icon field__icon--bgColor"><i class="fa fa-user" aria-hidden="true"></i></div>
+															        <input required placeholder="field--border--btm"/>
+															        <div class="field__validation"></div>
+															    </label>
+															</div>
+														</div>
+														
+														<div class="col-6">
+															<div class="wrapper py-0">
+																<pre class="pre-removeTabSpaces">
+																	
+																    &lt;label class="field <b-p>field--focus--iconGlow</b-p>">
+																        &lt;div class="field__icon <b>field__icon--bgColor</b>"> &lt;i class="fa fa-user" aria-hidden="true">&lt;/i> &lt;/div>
+																        &lt;input placeholder="Placeholder" required/>
+																        &lt;div class="field__validation">&lt;/div>
+																    &lt;/label>
+																	
+																</pre>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									
+								</div>
+							</div>
+						</section>
+
+					<!-- III. Markup Roles -->
+
+						<section class="p-0" aria-label="markup roles">
+							<heading> <h2 class="section-title"> III. Markup Roles </h2> </heading>
+						</section>
+
+				</div>
+
+				<!-- Code Tab -->
+				<div class="tabs-content article-mainTabs-codeTab"  data-tabs-id="3">
+				</div> 
+
+			</div>
+		</div>
+
+	</article>

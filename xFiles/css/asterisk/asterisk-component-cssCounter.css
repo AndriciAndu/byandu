@@ -1,0 +1,48 @@
+
+	.cssCounter {
+		/* required */
+		display: inline-block;
+		overflow: hidden;
+
+		/* unrelated styling */
+		font-size: 24px;
+		outline: 2px solid black;
+	}
+
+	.cssCounter,
+	.cssCounter-item {
+		height: 30px; 
+	}
+
+	.cssCounter-container {
+		counter-reset: cssCounter;
+	}
+
+	.cssCounter-item {
+		padding: 0 .1em;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+
+		text-align: right;
+	}
+	.cssCounter-item::after {
+		counter-increment: cssCounter;
+		content: counter(cssCounter);
+	}
+
+	/* Slide [EXAMPLE ONLY] - count to 12 */
+	.cssCounter-slide-12 .cssCounter-container {
+		-webkit-animation: cssCounter-slide-12 2s infinite;
+				animation: cssCounter-slide-12 2s infinite;
+	}
+	@-webkit-keyframes cssCounter-slide-12 { 100% { transform: translateY(-91.666%); } }
+			@keyframes cssCounter-slide-12 { 100% { transform: translateY(-91.666%); } }
+
+	/* Steps [EXAMPLE ONLY] - count to 12 */
+	.cssCounter-steps-12 .cssCounter-container {
+		-webkit-animation: cssCounter-steps-12 steps(12) 2s infinite;
+				animation: cssCounter-steps-12 steps(12) 2s infinite;
+	}
+	@-webkit-keyframes cssCounter-steps-12 { 100% { transform: translateY(-100%); } }
+			@keyframes cssCounter-steps-12 { 100% { transform: translateY(-100%); } }

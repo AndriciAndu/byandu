@@ -1,9 +1,9 @@
 
 	:focus {
-		outline: none; 
+		outline: none !important; /*
 		-webkit-box-shadow: none;
 		   -moz-box-shadow: none;
-				box-shadow: none;
+				box-shadow: none;*/
 	}
 
 	.sectionAccordion {
@@ -178,6 +178,11 @@
 		.searchBox-search-clearBtn   { 
 			background-color: #354758; 
 			color: #FFFFFF;
+		}
+
+		.btn-ghost,
+		.btn-outline {
+			color: #354758; 
 		}
 
 		.spoiler-btn.active 	{ 

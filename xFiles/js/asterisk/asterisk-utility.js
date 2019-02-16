@@ -8,6 +8,31 @@
 
 // components and initialization - within componentsObject
 
+	function elem_removeChildren ( elem ) {
+
+		if (elem instanceof HTMLElement) {
+			var trashBin = document.createElement('DIV');
+
+			var children = Array.from(elem.querySelectorAll('*'));
+			children.map(x => trashBin.appendChild(x));
+
+			children.map(function(x) { 
+
+				trashBin.removeChild(x);
+				x.innerHTML = '';
+				x = null;
+
+				for (var key in x) {
+					if (x.hasOwnProperty(key)) {
+						x[key] = undefined
+					}
+				};
+			});
+
+			trashBin.innerHTML = '';
+		}
+	};
+
 
 	function obj_deepClone( myObject ) {
 		return JSON.parse(JSON.stringify(myObject));

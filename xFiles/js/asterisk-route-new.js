@@ -159,6 +159,17 @@
 						}
 					} ,
 
+				// scrollTrigger
+				// --------------------------------------------------
+				
+					{ 
+						filePath_html : '/functionality/scrollTrigger.html' , 
+						filePath_js   : null , 
+						articleParameters : {
+							category : 'functionality'
+						}
+					} ,
+
 			// Effects
 			// --------------------------------------------------
 
@@ -285,6 +296,39 @@
 							category : 'components'
 						}
 					} ,
+
+				// cssCounter
+				// --------------------------------------------------
+				
+					{ 
+						filePath_html : '/components/cssCounter.html' , 
+						filePath_js   : '/xFiles/js/articleScripts/components/cssCounter.js' , 
+						articleParameters : {
+							category : 'components'
+						}
+					} ,
+
+				// checkbox
+				// --------------------------------------------------
+				
+					{ 
+						filePath_html : '/components/checkbox.html' , 
+						filePath_js   : null , 
+						articleParameters : {
+							category : 'components'
+						}
+					} ,
+
+					// input
+					// --------------------------------------------------
+					
+						{ 
+							filePath_html : '/components/input.html' , 
+							filePath_js   : null , 
+							articleParameters : {
+								category : 'components'
+							}
+						} ,
 
 			// Snippets
 			// --------------------------------------------------

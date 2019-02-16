@@ -1,24 +1,141 @@
 
-	 button ,  btn , 
-	.button , .btn {
-		position: relative;
-		padding: 4px 8px;
+	/* Reset Browser Styles */
+	/* -------------------------------------------- */
 
-		display: -webkit-box;  display: -ms-flexbox;
-		display: -webkit-flex; display: flex;
-		align-items: center;   justify-content: center;	/* text center   */
+		button {
+			border: none; 	margin: 0;
+			color: inherit; text-align: left;
+			background-color: transparent;
+			cursor: pointer; cursor: hand;
+
+			-webkit-touch-callout: none;
+			  -webkit-user-select: none;
+			     -moz-user-select: none;
+			      -ms-user-select: none;
+			          user-select: none;
+		}
+
+	/* Default Styles */
+	/* -------------------------------------------- */
+
+		.btn {
+			display: inline-block;
+			position: relative;
+			float: left;
+
+			display: -webkit-box;  display: -ms-flexbox;
+			display: -webkit-flex; display: flex;
+			align-items: center;   justify-content: center;	/* text center   */
+
+			font-size: 1em;
+			padding: .65em .85em;
+			box-shadow: 2px 2px 2px rgba(3,3,3,.3);
+
+			cursor: pointer; cursor: hand;
+		}
+
+	/* Size */
+	/* -------------------------------------------- */
+
+		.btn-sm { font-size: .875em; }
+		.btn-lg { font-size: 1.25em; }
+
+	/* Corners */
+	/* -------------------------------------------- */
+
+		.btn-rounded { border-radius: 6px;  }
+		.btn-round   { border-radius: 30px; }
+
+		.btn-rounded::after, 
+		.btn-round::after {
+			border-radius: inherit;
+		}
+
+	/* Ghost */
+	/* -------------------------------------------- */
+	
+		.btn-ghost {
+			color: #000;
+			background-color: rgba(0,0,0,0) !important;
+		}
+
+		.btn-ghost::after {
+			content: '';
+			position: absolute;
+			top: 0; left: 0; right: 0; bottom: 0;
+			box-shadow: inset 0 0 0 2px currentColor;
+		}
+
+	/* Text */
+	/* -------------------------------------------- */
+
+		.btnText-ellipsis {
+			overflow: hidden; 
+			white-space: nowrap;  
+			text-overflow: ellipsis;
+		}
+
+		/* Button-Text Align */
+		.btnText-left  { justify-content: flex-start; }
+		.btnText-right { justify-content: flex-end;   }
+		.btnText-top   { align-items:     flex-start; }
+		.btnText-btm   { align-items:     flex-end;   }
 		
-		cursor: pointer; cursor: hand;					/* hover cursor  */
-	}
 
-	.btnText-ellipsis {
-		overflow: hidden; 
-		white-space: nowrap;  
-		text-overflow: ellipsis;
-	}
+	/* Social */
+	/* -------------------------------------------- */
 
-	/* Button Text Align */
-	.btnText-left  { justify-content: flex-start; }
-	.btnText-right { justify-content: flex-end;   }
-	.btnText-top   { align-items:     flex-start; }
-	.btnText-btm   { align-items:     flex-end;   }
+		/* General */
+		/* -------------------------------------------- */
+
+			.btn-social::before {
+				content:'';
+				font-family: FontAwesome;
+				color: currentColor;
+			}
+
+		/* Icon */
+		/* -------------------------------------------- */
+
+			.btn-facebook:before	{ content: "\f09a"; }
+			.btn-twitter:before		{ content: "\f099"; }
+			.btn-linkedin:before	{ content: "\f0e1"; }
+			.btn-googleplus:before	{ content: "\f0d5"; }
+			.btn-pinterest:before	{ content: "\f0d2"; }
+			.btn-twitch:before		{ content: "\f1e8"; }
+			.btn-youtube:before 	{ content: "\f16a"; }
+			.btn-whatsapp:before	{ content: "\f232"; }
+			.btn-skype:before		{ content: "\f17e"; }
+			.btn-dribbble:before	{ content: "\f17d"; }
+			.btn-github:before		{ content: "\f09b"; }
+
+		/* Colors - Default */
+		/* -------------------------------------------- */
+
+			.btn-social.btn-facebook 		{ background-color: #3b5998; }
+			.btn-social.btn-twitter 		{ background-color: #00aced; }
+			.btn-social.btn-linkedin 		{ background-color: #0077B5; }
+			.btn-social.btn-googleplus 		{ background-color: #D84B37; }
+			.btn-social.btn-pinterest 		{ background-color: #bd081c; }
+			.btn-social.btn-twitch 			{ background-color: #262626; }
+			.btn-social.btn-youtube 		{ background-color: #cd201f; }
+			.btn-social.btn-whatsapp 		{ background-color: #25d366; }
+			.btn-social.btn-skype 			{ background-color: #00aff0; }
+			.btn-social.btn-dribbble 		{ background-color: #ea4c89; }
+			.btn-social.btn-github	 		{ background-color: #333333; }
+			.btn-social.btn-ghost 			{ background-color: rgba(0,0,0,0)}
+
+		/* Colors - Ghost */
+		/* -------------------------------------------- */
+
+			.btn-ghost.btn-facebook 	{ color: #3b5998; }
+			.btn-ghost.btn-twitter 		{ color: #00aced; }
+			.btn-ghost.btn-linkedin 	{ color: #0077B5; }
+			.btn-ghost.btn-googleplus 	{ color: #D84B37; }
+			.btn-ghost.btn-pinterest 	{ color: #bd081c; }
+			.btn-ghost.btn-twitch 		{ color: #262626; }
+			.btn-ghost.btn-youtube 		{ color: #cd201f; }
+			.btn-ghost.btn-whatsapp 	{ color: #25d366; }
+			.btn-ghost.btn-skype 		{ color: #00aff0; }
+			.btn-ghost.btn-dribbble 	{ color: #ea4c89; }
+			.btn-ghost.btn-github 		{ color: #333; 	  }
