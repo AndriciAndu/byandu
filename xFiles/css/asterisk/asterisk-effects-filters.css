@@ -8,15 +8,15 @@
 
 			[class^="hasFilter-"]::before , [class*=" hasFilter-"]::before {
 				content: '';
-				position: absolute;  z-index: 2;
+				position: absolute; z-index: 2;
 				top: 0; left: 0; right: 0; bottom: 0;
 			}
 
 			[class^="hasFilter-hvr-"] , [class*=" hasFilter-hvr-"] {
-				-webkit-transition: filter  0.4s  ease-out;
-				   -moz-transition: filter  0.4s  ease-out;
-					 -o-transition: filter  0.4s  ease-out;
-						transition: filter  0.4s  ease-out;
+				-webkit-transition: filter 0.4s ease-out;
+				   -moz-transition: filter 0.4s ease-out;
+					 -o-transition: filter 0.4s ease-out;
+						transition: filter 0.4s ease-out;
 			}
 
 			.hasFilter-hvr-remove:hover {

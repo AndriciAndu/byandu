@@ -1,0 +1,14 @@
+
+        /* Filter - dogpatch */
+        /* ------------------------------- */
+
+            .hasFilter-dogpatch            , 
+            .hasFilter-hvr-dogpatch:hover  {
+                -webkit-filter: sepia(.35) saturate(1.1) contrast(1.5);
+                        filter: sepia(.35) saturate(1.1) contrast(1.5);
+
+                -webkit-transition: filter 0.4s ease-out;
+                   -moz-transition: filter 0.4s ease-out;
+                     -o-transition: filter 0.4s ease-out;
+                        transition: filter 0.4s ease-out; 
+            }

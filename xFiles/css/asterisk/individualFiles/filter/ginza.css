@@ -1,0 +1,24 @@
+
+        /* Filter - ginza */
+        /* ------------------------------- */
+
+            .hasFilter-ginza            , 
+            .hasFilter-hvr-ginza:hover  {
+                -webkit-filter: sepia(.25) contrast(1.15) brightness(1.2) saturate(1.35) hue-rotate(-5deg);
+                        filter: sepia(.25) contrast(1.15) brightness(1.2) saturate(1.35) hue-rotate(-5deg);
+
+                -webkit-transition: filter 0.4s ease-out;
+                   -moz-transition: filter 0.4s ease-out;
+                     -o-transition: filter 0.4s ease-out;
+                        transition: filter 0.4s ease-out; 
+            }
+
+            .hasFilter-ginza::before            , 
+            .hasFilter-hvr-ginza:hover::before  {
+                content: '';
+                position: absolute; z-index: 2;
+                top: 0; left: 0; right: 0; bottom: 0;
+                
+                background: rgba(125, 105, 24, .15);
+                mix-blend-mode: darken;
+            }

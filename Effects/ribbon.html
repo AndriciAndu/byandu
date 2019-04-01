@@ -1,0 +1,1579 @@
+
+	<!-- ===================== Route ================== -->
+	<script src="../xFiles/js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+	<style> 
+		.demoItem-ribbon {
+			display: inline-block;
+			position: relative;
+			width: 100%; height: 100px;
+			float: left;
+
+			background-color: rgba(3,3,3,.3);
+			margin-top: 30px;
+		}
+
+		.demoItem-ribbon-corner {
+			display: inline-block;
+			position: relative;
+			width: 100%; height: 200px;
+			float: left;
+
+			background-color: rgba(3,3,3,.3);
+			margin-top: 30px;
+		}
+
+		pre span {
+			vertical-align: top;
+		}
+
+		label:hover {
+			cursor: pointer; cursor: hand;
+		}
+
+		.fontSize-0::before , .fontSize-0::after { font-size: 0px; }
+		.fontSize-1::before , .fontSize-1::after { font-size: 1px; }
+		.fontSize-2::before , .fontSize-2::after { font-size: 2px; }
+		.fontSize-3::before , .fontSize-3::after { font-size: 3px; }
+		.fontSize-4::before , .fontSize-4::after { font-size: 4px; }
+		.fontSize-5::before , .fontSize-5::after { font-size: 5px; }
+		.fontSize-6::before , .fontSize-6::after { font-size: 6px; }
+		.fontSize-7::before , .fontSize-7::after { font-size: 7px; }
+		.fontSize-8::before , .fontSize-8::after { font-size: 8px; }
+		.fontSize-9::before , .fontSize-9::after { font-size: 9px; }
+		.fontSize-10::before , .fontSize-10::after { font-size: 10px; }
+
+		.ribbon-multiCurl-hor--checkbox ,
+		.ribbon-multiCurl-ver--checkbox {
+			margin-right: 10px;
+		}
+
+		.ribbon-multiCurl-hor--checkbox:not(:checked) + .ribbon-multiCurl-hor--checkboxText::before ,
+		.ribbon-multiCurl-ver--checkbox:not(:checked) + .ribbon-multiCurl-ver--checkboxText::before {
+			content: '<!-- ';
+		}
+		.ribbon-multiCurl-hor--checkbox:not(:checked) + .ribbon-multiCurl-hor--checkboxText::after ,
+		.ribbon-multiCurl-ver--checkbox:not(:checked) + .ribbon-multiCurl-ver--checkboxText::after {
+			content: ' -->';
+		}
+		.ribbon-multiCurl-hor--checkbox:not(:checked) + .ribbon-multiCurl-hor--checkboxText ,
+		.ribbon-multiCurl-ver--checkbox:not(:checked) + .ribbon-multiCurl-ver--checkboxText {
+			font-style: italic; 
+			opacity: .8;
+		}
+
+		.ribbon-corner--radio {
+			position: relative;
+			transform: translateX(-25px);
+		}
+
+		.ribbon__text { max-width: none !important; }
+
+		input[type=range] { max-width: 100%; }
+
+		</style>
+	<!-- ============================================== -->
+
+	<!-- https://codepen.io/diegopardo/pen/knwth?editors=1100 -->
+
+	<article>
+
+		<header class="sr-only"> <h2> Ribbon </h2> </header>
+
+		<div class="tabs article-mainTabs">
+
+			<div class="article-mainTabs-banner">
+				<div class="article-mainTabs-title"> Effects : ribbon </div>
+
+				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
+					<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> Demo  </button>
+					<button class="tabs-btn" 				data-tabs-id="2"> Usage </button>
+					<button class="tabs-btn" 				data-tabs-id="3"> Code  </button>
+				</div>
+			</div>
+
+			<div class="tabs-contentGroup">
+
+				<!-- Demo Tab -->
+				<div class="tabs-content article-mainTabs-demoTab tab-expanded" data-tabs-id="1"> 
+					<div id="__route__mainView__generateDemos">
+
+						<!-- Single-Curl Ribbons -->
+							<section class="accordion  p-0        sectionAccordion">
+								<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+									<button class="accordion-btn  sectionAccordion-btn"> Single-Curl Ribbons </button>
+									<div class="accordion-content sectionAccordion-content pb-lg">
+
+										<div class="col-3">
+											<div class="demoItem-ribbon">
+												<div class="ribbon ribbon--left--btm">ribbon--left--btm</div>
+											</div>
+										</div>
+										<div class="col-3">
+											<div class="demoItem-ribbon">
+												<div class="ribbon ribbon--left--top">ribbon--left--top</div>
+											</div>
+										</div>
+										<div class="col-3">
+											<div class="demoItem-ribbon">
+												<div class="ribbon ribbon--right--btm">ribbon--right--btm</div>
+											</div>
+										</div>
+
+										<div class="col-3">
+											<div class="demoItem-ribbon">
+												<div class="ribbon ribbon--right--top">ribbon--right--top</div>
+											</div>
+										</div>
+
+										<div class="col-3">
+											<div class="demoItem-ribbon">
+												<div class="ribbon ribbon--top--right">ribbon--top--right</div>
+											</div>
+										</div>
+										<div class="col-3">
+											<div class="demoItem-ribbon">
+												<div class="ribbon ribbon--top--left">ribbon--top--left</div>
+											</div>
+										</div>
+										<div class="col-3">
+											<div class="demoItem-ribbon">
+												<div class="ribbon ribbon--btm--right">ribbon--btm--right</div>
+											</div>
+										</div>
+										<div class="col-3">
+											<div class="demoItem-ribbon">
+												<div class="ribbon ribbon--btm--left">ribbon--btm--left</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</section>
+
+						<!-- Multi-Curl Ribbons -->
+							<section class="accordion  p-0        sectionAccordion">
+								<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+									<button class="accordion-btn  sectionAccordion-btn"> Multi-Curl Ribbons </button>
+									<div class="accordion-content sectionAccordion-content pb-lg">
+
+										<div class="col-3">
+											<div class="demoItem-ribbon">
+												<div class="ribbon--horizontal">
+													<div class="ribbon__curl ribbon__curl--left--top"></div>
+													<div class="ribbon__curl ribbon__curl--right--top"></div>
+													<div class="ribbon__text"> 2 Curls </div>
+												</div>
+											</div>
+										</div>
+										<div class="col-3">
+											<div class="demoItem-ribbon">
+												<div class="ribbon--horizontal">
+													<div class="ribbon__curl ribbon__curl--left--btm"></div>
+													<div class="ribbon__curl ribbon__curl--right--btm"></div>
+													<div class="ribbon__text"> 2 Curls </div>
+												</div>
+											</div>
+										</div>
+										<div class="col-3">
+											<div class="demoItem-ribbon">
+												<div class="ribbon--horizontal">
+													<div class="ribbon__curl ribbon__curl--left--btm"></div>
+													<div class="ribbon__curl ribbon__curl--right--top"></div>
+													<div class="ribbon__text"> 2 Curls </div>
+												</div>
+											</div>
+										</div>
+										<div class="col-3">
+											<div class="demoItem-ribbon">
+												<div class="ribbon--horizontal">
+													<div class="ribbon__curl ribbon__curl--left--top"></div>
+													<div class="ribbon__curl ribbon__curl--right--btm"></div>
+													<div class="ribbon__text"> 2 Curls </div>
+												</div>
+											</div>
+										</div>
+										<div class="col-3">
+											<div class="demoItem-ribbon">
+												<div class="ribbon--horizontal">
+													<div class="ribbon__curl ribbon__curl--left--btm"></div>
+													<div class="ribbon__curl ribbon__curl--left--top"></div>
+													<div class="ribbon__curl ribbon__curl--right--top"></div>
+													<div class="ribbon__text"> 3 Curls </div>
+												</div>
+											</div>
+										</div>
+										<div class="col-3">
+											<div class="demoItem-ribbon">
+												<div class="ribbon--horizontal">
+													<div class="ribbon__curl ribbon__curl--left--btm"></div>
+													<div class="ribbon__curl ribbon__curl--left--top"></div>
+													<div class="ribbon__curl ribbon__curl--right--btm"></div>
+													<div class="ribbon__text"> 3 Curls </div>
+												</div>
+											</div>
+										</div>
+										<div class="col-3">
+											<div class="demoItem-ribbon">
+												<div class="ribbon--horizontal">
+													<div class="ribbon__curl ribbon__curl--left--top"></div>
+													<div class="ribbon__curl ribbon__curl--right--btm"></div>
+													<div class="ribbon__curl ribbon__curl--right--top"></div>
+													<div class="ribbon__text"> 3 Curls </div>
+												</div>
+											</div>
+										</div>
+										<div class="col-3">
+											<div class="demoItem-ribbon">
+												<div class="ribbon--horizontal">
+													<div class="ribbon__curl ribbon__curl--left--btm"></div>
+													<div class="ribbon__curl ribbon__curl--right--btm"></div>
+													<div class="ribbon__curl ribbon__curl--right--top"></div>
+													<div class="ribbon__text"> 3 Curls </div>
+												</div>
+											</div>
+										</div>
+										<div class="col-3">
+											<div class="demoItem-ribbon">
+												<div class="ribbon--horizontal">
+													<div class="ribbon__curl ribbon__curl--left--btm"></div>
+													<div class="ribbon__curl ribbon__curl--left--top"></div>
+													<div class="ribbon__curl ribbon__curl--right--btm"></div>
+													<div class="ribbon__curl ribbon__curl--right--top"></div>
+													<div class="ribbon__text"> 4 Curls </div>
+												</div>
+											</div>
+										</div>
+
+										<div class="col-12"></div>
+
+										<div class="col-3">
+											<div class="demoItem-ribbon">
+												<div class="ribbon--vertical">
+													<div class="ribbon__curl ribbon__curl--btm--right"></div>
+													<div class="ribbon__curl ribbon__curl--top--right"></div>
+													<div class="ribbon__text"> 2 Curls </div>
+												</div>
+											</div>
+										</div>
+										<div class="col-3">
+											<div class="demoItem-ribbon">
+												<div class="ribbon--vertical">
+													<div class="ribbon__curl ribbon__curl--btm--left"></div>
+													<div class="ribbon__curl ribbon__curl--top--right"></div>
+													<div class="ribbon__text"> 2 Curls </div>
+												</div>
+											</div>
+										</div>
+										<div class="col-3">
+											<div class="demoItem-ribbon">
+												<div class="ribbon--vertical">
+													<div class="ribbon__curl ribbon__curl--top--left"></div>
+													<div class="ribbon__curl ribbon__curl--btm--right"></div>
+													<div class="ribbon__text"> 2 Curls </div>
+												</div>
+											</div>
+										</div>
+										<div class="col-3">
+											<div class="demoItem-ribbon">
+												<div class="ribbon--vertical">
+													<div class="ribbon__curl ribbon__curl--top--left"></div>
+													<div class="ribbon__curl ribbon__curl--btm--left"></div>
+													<div class="ribbon__text"> 2 Curls </div>
+												</div>
+											</div>
+										</div>
+										<div class="col-3">
+											<div class="demoItem-ribbon">
+												<div class="ribbon--vertical">
+													<div class="ribbon__curl ribbon__curl--btm--left"></div>
+													<div class="ribbon__curl ribbon__curl--top--left"></div>
+													<div class="ribbon__curl ribbon__curl--btm--right"></div>
+													<div class="ribbon__text"> 3 Curls </div>
+												</div>
+											</div>
+										</div>
+										<div class="col-3">
+											<div class="demoItem-ribbon">
+												<div class="ribbon--vertical">
+													<div class="ribbon__curl ribbon__curl--btm--left"></div>
+													<div class="ribbon__curl ribbon__curl--btm--right"></div>
+													<div class="ribbon__curl ribbon__curl--top--right"></div>
+													<div class="ribbon__text"> 3 Curls </div>
+												</div>
+											</div>
+										</div>
+										<div class="col-3">
+											<div class="demoItem-ribbon">
+												<div class="ribbon--vertical">
+													<div class="ribbon__curl ribbon__curl--btm--left"></div>
+													<div class="ribbon__curl ribbon__curl--top--left"></div>
+													<div class="ribbon__curl ribbon__curl--top--right"></div>
+													<div class="ribbon__text"> 3 Curls </div>
+												</div>
+											</div>
+										</div>
+										<div class="col-3">
+											<div class="demoItem-ribbon">
+												<div class="ribbon--vertical">
+													<div class="ribbon__curl ribbon__curl--top--left"></div>
+													<div class="ribbon__curl ribbon__curl--btm--right"></div>
+													<div class="ribbon__curl ribbon__curl--top--right"></div>
+													<div class="ribbon__text"> 3 Curls </div>
+												</div>
+											</div>
+										</div>
+										<div class="col-3">
+											<div class="demoItem-ribbon">
+												<div class="ribbon--vertical">
+													<div class="ribbon__curl ribbon__curl--btm--left"></div>
+													<div class="ribbon__curl ribbon__curl--top--left"></div>
+													<div class="ribbon__curl ribbon__curl--btm--right"></div>
+													<div class="ribbon__curl ribbon__curl--top--right"></div>
+													<div class="ribbon__text"> 4 Curls </div>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</section>
+
+						<!-- Multi-Curl Ribbons - Single Side -->
+
+							<section class="accordion  p-0        sectionAccordion">
+								<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+									<button class="accordion-btn  sectionAccordion-btn"> Multi-Curl Ribbons - Single-Side </button>
+									<div class="accordion-content sectionAccordion-content pb-lg">
+
+										<div class="col-12 p-0">
+											<div class="col-2">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--horizontal ribbon--singleSide--left">
+														<div class="ribbon__curl ribbon__curl--left--btm"></div>
+														<div class="ribbon__curl ribbon__curl--left--top"></div>
+														<div class="ribbon__text"> Ribbon Text </div>
+													</div>
+												</div>
+											</div>
+											<div class="col-2">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--horizontal ribbon--singleSide--left">
+														<div class="ribbon__curl ribbon__curl--left--btm"></div>
+														<div class="ribbon__text"> Ribbon Text </div>
+													</div>
+												</div>
+											</div>
+											<div class="col-2">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--horizontal ribbon--singleSide--left">
+														<div class="ribbon__curl ribbon__curl--left--top"></div>
+														<div class="ribbon__text"> Ribbon Text </div>
+													</div>
+												</div>
+											</div>
+											<div class="col-2">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--horizontal  ribbon--singleSide--right">
+														<div class="ribbon__curl ribbon__curl--right--top"></div>
+														<div class="ribbon__curl ribbon__curl--right--btm"></div>
+														<div class="ribbon__text"> Ribbon Text </div>
+													</div>
+												</div>
+											</div>
+											<div class="col-2">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--horizontal  ribbon--singleSide--right">
+														<div class="ribbon__curl ribbon__curl--right--top"></div>
+														<div class="ribbon__text"> Ribbon Text </div>
+													</div>
+												</div>
+											</div>
+											<div class="col-2">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--horizontal  ribbon--singleSide--right">
+														<div class="ribbon__curl ribbon__curl--right--btm"></div>
+														<div class="ribbon__text"> Ribbon Text </div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="col-12 p-0">
+											<div class="col-2">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--vertical  ribbon--singleSide--btm">
+														<div class="ribbon__curl ribbon__curl--btm--left"></div>
+														<div class="ribbon__curl ribbon__curl--btm--right"></div>
+														<div class="ribbon__text"> Ribbon Text </div>
+													</div>
+												</div>
+											</div>
+											<div class="col-2">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--vertical  ribbon--singleSide--btm">
+														<div class="ribbon__curl ribbon__curl--btm--left"></div>
+														<div class="ribbon__text"> Ribbon Text </div>
+													</div>
+												</div>
+											</div>
+											<div class="col-2">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--vertical  ribbon--singleSide--btm">
+														<div class="ribbon__curl ribbon__curl--btm--right"></div>
+														<div class="ribbon__text"> Ribbon Text </div>
+													</div>
+												</div>
+											</div>
+											<div class="col-2">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--vertical  ribbon--singleSide--top">
+														<div class="ribbon__curl ribbon__curl--top--left"></div>
+														<div class="ribbon__curl ribbon__curl--top--right"></div>
+														<div class="ribbon__text"> Ribbon Text </div>
+													</div>
+												</div>
+											</div>
+											<div class="col-2">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--vertical  ribbon--singleSide--top">
+														<div class="ribbon__curl ribbon__curl--top--left"></div>
+														<div class="ribbon__text"> Ribbon Text </div>
+													</div>
+												</div>
+											</div>
+											<div class="col-2">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--vertical  ribbon--singleSide--top">
+														<div class="ribbon__curl ribbon__curl--top--right"></div>
+														<div class="ribbon__text"> Ribbon Text </div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</section>
+
+						<!-- Corner -->
+							<section class="accordion  p-0        sectionAccordion">
+								<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+									<button class="accordion-btn  sectionAccordion-btn"> Corner Ribbons </button>
+									<div class="accordion-content sectionAccordion-content pb-lg">
+
+										<div class="col-3">
+											<div class="demoItem-ribbon-corner">
+												<div class="ribbon ribbon--corner--topLeft">
+													<div class="ribbon__text"> Ribbon Text </div>
+												</div>
+											</div>
+										</div>
+
+										<div class="col-3">
+											<div class="demoItem-ribbon-corner">
+												<div class="ribbon ribbon--corner--topRight">
+													<div class="ribbon__text"> Ribbon Text </div>
+												</div>
+											</div>
+										</div>
+
+										<div class="col-3">
+											<div class="demoItem-ribbon-corner">
+												<div class="ribbon ribbon--corner--btmLeft">
+													<div class="ribbon__text"> Ribbon Text </div>
+												</div>
+											</div>
+										</div>
+
+										<div class="col-3">
+											<div class="demoItem-ribbon-corner">
+												<div class="ribbon ribbon--corner--btmRight">
+													<div class="ribbon__text"> Ribbon Text </div>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</section>
+
+					</div>
+				</div>
+
+				<!-- Usage Tab -->
+				<div class="tabs-content article-mainTabs-usageTab" data-tabs-id="2"> 
+
+					<!-- I. Description -->
+						<section class="accordion  p-0        sectionAccordion">
+							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+								<button class="accordion-btn  sectionAccordion-btn"> I. Description </button>
+								<div class="accordion-content sectionAccordion-content">
+
+									<p> Simple CSS 'Ribbon' Elements. </p>
+
+								</div>
+							</div>
+						</section>
+
+					<!-- II. Initialization -->
+						<section class="accordion  p-0        sectionAccordion">
+							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+								<button class="accordion-btn  sectionAccordion-btn"> II. Initialization </button>
+								<div class="accordion-content sectionAccordion-content">
+
+									<p class="mb-0"> 
+										Download and refference the 
+										<a class="downloadLink" href="../../css/asterisk/asterisk-effects-ribbon.css" download> asterisk-effects-ribbon.css </a> CSS file.
+										<span class="wrapper tooltip-before tooltip-top" data-tooltipText="* This will include all effects."></span>
+
+										<button class="spoiler-btn spoiler-btn-autoText title-spoilerBtn" data-spoiler-id="init-more"> More | </button>
+									</p> 
+
+									<div class="wrapper"> 
+										<div class="col-12"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-effects-ribbon.css</b-p>" type="text/css" rel="stylesheet"> </div>
+									</div>
+
+									<div class="spoiler" data-spoiler-id="init-more">
+										<div class="spoiler-content">
+											<div class="col-12">
+
+												<p class="mt-sm"> 
+													<b>Alternatively</b>, a <span class="wrapper"><b-p>{*}</b-p><b-r>-spec</b-r><b-p>.css</b-p></span> file can be generated within the <b><span class="wrapper">[Code]</span> Tab</b> <span class="wrapper tooltip-before tooltip-right" data-tooltipText="Will include only the selected Styles/Features. &#13;&#10;───────────────────────────&#13;&#10; See button on the top-right of page."></span>
+												</p>
+												<div class="wrapper mt-0"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-effects-ribbon<b-r>-spec</b-r>.css</b-p>" type="text/css" rel="stylesheet"> </div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</section>
+
+					<div class="tabs">
+						<div class="col-12 p-0 flex">
+							<div class="col-3" style="font-size: 18px; font-weight: bold; line-height: 38px; padding-left: 15px;background-color: #613dcc; color: #FFFFFF;"> Ribbon Types : </div>
+							<div class="tabs-btnGroup buttons-fill col-9 p-0">
+								<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> Single-Curl </button>
+								<button class="tabs-btn" 				data-tabs-id="2"> Multi-Curl  </button>
+								<button class="tabs-btn" 				data-tabs-id="3"> Corner      </button>
+							</div>
+						</div>
+
+						<div class="tabs-contentGroup">
+
+							<!-- Single-Curl -->
+							<div class="tabs-content px-0 tab-expanded" data-tabs-id="1">
+
+								<!-- III. Usage -->
+									<section class="accordion  p-0        sectionAccordion">
+										<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+											<button class="accordion-btn  sectionAccordion-btn"> III. Usage </button>
+											<div class="accordion-content sectionAccordion-content">
+
+												<div class="col-6">
+													<div class="wrapper"> 
+														<line> &lt;div class="<b>ribbon</b>--<b-r>{connectingSide}</b-r>--<b-p>{curlPosition}</b-p>"> Ribbon Text &lt;/div> </line>
+														
+														<line> <hr> </line>
+
+														<line>
+															<label>
+																<input type="radio" class="ribbon-singleCurl--radio" name="ribbon-singleCurl--radio" value="ribbon--left--btm" checked> 
+																&lt;div class="<b>ribbon</b>--<b-r>left</b-r>--<b-p>btm</b-p>"> &nbsp; Ribbon Text &lt;/div>
+															</label>
+														</line>
+														<line>
+															<label>
+																<input type="radio" class="ribbon-singleCurl--radio" name="ribbon-singleCurl--radio" value="ribbon--left--top"> 
+																&lt;div class="<b>ribbon</b>--<b-r>left</b-r>--<b-p>top</b-p>"> &nbsp;&nbsp; Ribbon Text &lt;/div>
+															</label>
+														</line>
+														<line>
+															<label>
+																<input type="radio" class="ribbon-singleCurl--radio" name="ribbon-singleCurl--radio" value="ribbon--right--btm">
+																&lt;div class="<b>ribbon</b>--<b-r>right</b-r>--<b-p>btm</b-p>"> Ribbon Text &lt;/div>
+															</label>
+														</line>
+														<line>
+															<label>
+																<input type="radio" class="ribbon-singleCurl--radio" name="ribbon-singleCurl--radio" value="ribbon--right--top">
+																&lt;div class="<b>ribbon</b>--<b-r>right</b-r>--<b-p>top</b-p>"> &nbsp;Ribbon Text &lt;/div>
+															</label>
+														</line>
+														<line>
+															<label>
+																<input type="radio" class="ribbon-singleCurl--radio" name="ribbon-singleCurl--radio" value="ribbon--top--left">
+																&lt;div class="<b>ribbon</b>--<b-r>top</b-r>--<b-p>left</b-p>"> &nbsp;&nbsp; Ribbon Text &lt;/div>
+															</label>
+														</line>
+														<line>
+															<label>
+																<input type="radio" class="ribbon-singleCurl--radio" name="ribbon-singleCurl--radio" value="ribbon--top--right">
+																&lt;div class="<b>ribbon</b>--<b-r>top</b-r>--<b-p>right</b-p>"> &nbsp;Ribbon Text &lt;/div>
+															</label>
+														</line>
+														<line>
+															<label>
+																<input type="radio" class="ribbon-singleCurl--radio" name="ribbon-singleCurl--radio" value="ribbon--btm--left">
+																&lt;div class="<b>ribbon</b>--<b-r>btm</b-r>--<b-p>left</b-p>"> &nbsp;&nbsp;Ribbon Text &lt;/div>
+															</label>
+														</line>
+														<line>
+															<label>
+																<input type="radio" class="ribbon-singleCurl--radio" name="ribbon-singleCurl--radio" value="ribbon--btm--right">
+																&lt;div class="<b>ribbon</b>--<b-r>btm</b-r>--<b-p>right</b-p>"> Ribbon Text &lt;/div>
+															</label>
+														</line>
+													</div>
+												</div>
+												<div class="col-6">
+													<p> 'Single-Curl' Ribbons require a single <span class="wrapper">&lt;div></span> Element, with the appropriate <span class="wrapper"><b>ribbon</b>--<b-r>{connectingSide}</b-r>--<b-p>{curlPosition}</b-p></span> Class. </p>
+													<p> They make use of the Element's <span class="wrapper">::before</span> & <span class="wrapper">::after</span> pseudo-elements. </p>
+													<div class="wrapper" style="height: 150px">
+														<div id="ribbon-singleCurl--target" class="ribbon--left--btm"> Ribbon Text </div>
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</section>
+
+								<!-- IV. Styles -->
+									<section class="accordion  p-0        sectionAccordion">
+										<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+											<button class="accordion-btn  sectionAccordion-btn"> IV. Styles </button>
+											<div class="accordion-content sectionAccordion-content">
+
+												<div class="accordion">
+													<div class="accordion-group px-md my-sm">
+														<button class="accordion-btn"> * Follow the document flow :   </button>
+														<div class="accordion-content">
+
+															<div class="col-12 p-0">
+																<p> The <span class="wrapper">ribbon</span> uses <span class="wrapper">position: absolute</span>, and is positioned in relation to it's nearest non-static-position Parent. </p>
+																<p> It can be set to follow the flow of the document (to be used as a Section Title, for example), by setting <span class="wrapper">position: relative</span>, and then using <span class="wrapper">top</span> / <span class="wrapper">bottom</span> / <span class="wrapper">left</span> / <span class="wrapper">right</span> or <span class="wrapper">transform: translate</span> to reposition. </p>
+																<p> This might require also adjusting the <span class="wrapper">width</span> property, if the Parent Element has paddings. </p>
+
+																<div class="col-4">
+																	<div class="wrapper py-0">
+																		<pre class="pre-removeTabSpaces py-0">
+
+																		    &lt;div style="position: relative">
+																		        &lt;p> Paragraph lorem ipsum &lt;/p>
+																		        &lt;p> Paragraph lorem ipsum &lt;/p>
+																		        &lt;div class="ribbon--left--btm"> Ribbon &lt;/div>
+																		        &lt;p> Paragraph lorem ipsum &lt;/p>
+																		        &lt;p> Paragraph lorem ipsum &lt;/p>
+																		        &lt;p> Paragraph lorem ipsum &lt;/p>
+																		    &lt;/div>
+
+																		</pre>
+																	</div>
+																</div>
+																<div class="col-3">
+																	<div class="wrapper">
+																		<pre class="pre-removeTabSpaces">
+																		    .ribbon--left--btm {
+																		        ...
+																		        position: <span id="byAndu-ribbon-useCase1-position">absolute</span>;
+																		        top: <span id="byAndu-ribbon-useCase1-top">15px</span>
+																		        left: <span id="byAndu-ribbon-useCase1-left">0px</span>
+																		        ...
+																		    }
+																		</pre>
+																	</div>
+																</div>
+
+																<div class="col-2 p-0">
+																	<hr>
+																	<div class="col-12">
+																		<label>
+																			<input id="byAndu-ribbon-useCase1-position--input" type="checkbox"/> 
+																			<b><span class="wrapper">position: relative</span></b>
+																		</label>
+																	</div>
+																	<hr>
+																	<div class="col-12">
+																		<b>Top: <span id="byAndu-ribbon-useCase1-top--input--value"> 15px </span></b>
+																		<input id="byAndu-ribbon-useCase1-top--input" type="range" value="15" min="0" max="100"/>
+																	</div>
+																	<hr>
+																	<div class="col-12">
+																		<b>Left: <span id="byAndu-ribbon-useCase1-left--input--value"> 0px </span></b>
+																		<input id="byAndu-ribbon-useCase1-left--input" type="range" value="0" min="-100" max="100"/>
+																	</div>
+																	<hr>
+																</div>
+
+																<div class="col-3">
+																	<div class="wrapper px-0">
+																		<p> Paragraph lorem ipsum </p>
+																		<p> Paragraph lorem ipsum </p>
+																		<div id="byAndu-ribbon-useCase1--target" class="ribbon--left--btm"> Ribbon </div>
+																		<p> Paragraph lorem ipsum </p>
+																		<p> Paragraph lorem ipsum </p>
+																		<p> Paragraph lorem ipsum </p>
+																	</div>
+																</div>
+															</div>
+
+														</div>
+													</div>
+												</div>
+
+												<div class="accordion">
+													<div class="accordion-group px-md my-sm">
+														<button class="accordion-btn"> * Size :   </button>
+														<div class="accordion-content">
+
+															<div class="col-6 p-0">
+																<p> The default size (on the main-axis) is 90% of the Parent Element's axis-size: </p>
+																<p> * For <span class="wrapper"><b>ribbon--left--{*}</b></span> | <span class="wrapper"><b>ribbon--right--{*}</b></span> : <span class="wrapper">width: 90%</span> and <span class="wrapper">height: auto</span> </p>
+																<p> * For <span class="wrapper"><b>ribbon--top--{*}</b></span> | <span class="wrapper"><b>ribbon--btm--{*}</b></span> : <span class="wrapper">width: auto</span> and <span class="wrapper">height: 90%</span> </p>
+																<hr>
+																<p class="sub-heading"> These, respectively, can be set to any desired value, or can be set to <span class="wrapper">auto</span> and have the Ribbon's size adapt to the content within. </p>
+															</div>
+
+															<div class="col-3">
+																<div class="col-12">
+																	<b>width: <span id="byAndu-ribbon-useCase2-width--input--value"> 90% </span></b>
+																	<input id="byAndu-ribbon-useCase2-width--input" type="range" value="90" min="0" max="100"/>
+																</div>
+																<div class="wrapper">
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																	<div id="byAndu-ribbon-useCase2--target-1" class="ribbon--left--btm"> Ribbon </div>
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																</div>
+															</div>
+
+															<div class="col-3">
+																<div class="col-12">
+																	<b>height: <span id="byAndu-ribbon-useCase2-height--input--value"> 90% </span></b>
+																	<input id="byAndu-ribbon-useCase2-height--input" type="range" value="90" min="0" max="100"/>
+																</div>
+																<div class="wrapper">
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																	<div id="byAndu-ribbon-useCase2--target-2" class="ribbon--top--left"> Ribbon </div>
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																</div>
+															</div>
+
+														</div>
+													</div>
+												</div>
+
+												<div class="accordion">
+													<div class="accordion-group px-md my-sm">
+														<button class="accordion-btn"> * Offset :   </button>
+														<div class="accordion-content">
+
+															<div class="col-6 p-0">
+																<p> The Ribbon has it's 'offset from the cross-axis' set with : </p>
+																<p> <b>ribbon--left--{*}</b> and <b>ribbon--right--{*}</b> - <span class="wrapper">top: 15px</span> </p>
+																<p> <b>ribbon--top--{*}</b> and <b>ribbon--btm--{*}</b> - <span class="wrapper">left: 15px</span> </p>
+															</div>
+
+															<div class="col-3">
+																<div class="col-12">
+																	<b>top: <span id="byAndu-ribbon-useCase3-top--input--value"> 15px </span></b>
+																	<input id="byAndu-ribbon-useCase3-top--input" type="range" value="15" min="0" max="100"/>
+																</div>
+																<div class="wrapper">
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																	<div id="byAndu-ribbon-useCase3--target-1" class="ribbon--left--btm"> Ribbon </div>
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																</div>
+															</div>
+
+															<div class="col-3">
+																<div class="col-12">
+																	<b>left: <span id="byAndu-ribbon-useCase3-left--input--value"> 15px </span></b>
+																	<input id="byAndu-ribbon-useCase3-left--input" type="range" value="15" min="0" max="100"/>
+																</div>
+																<div class="wrapper">
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																	<div id="byAndu-ribbon-useCase3--target-2" class="ribbon--top--left"> Ribbon </div>
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																</div>
+															</div>
+
+														</div>
+													</div>
+												</div>
+
+												<div class="accordion">
+													<div class="accordion-group px-md my-sm">
+														<button class="accordion-btn"> * Curl Size :   </button>
+														<div class="accordion-content">
+
+															<div class="col-5 p-0">
+																<p> The curl's size is determined by the <span class="wrapper">font-size: 3px</span> value, set on the <span class="wrapper">::before</span> & <span class="wrapper">::after</span> pseudo-elements. </p> 
+
+																<p> If changing this, it is required for both <span class="wrapper">::before</span> & <span class="wrapper">::after</span> pseudo-elements <b>to have the same the font-size value</b>, to properly scale and position synchronously.</p>
+															</div>
+
+
+															<div class="col-4">
+																<div class="wrapper">
+																	<pre class="pre-removeTabSpaces">
+																	    .ribbon--{*}--{*}::before ,
+																	    .ribbon--{*}--{*}::after {
+																	        ...
+																	        font-size: <span id="byAndu-ribbon-useCase4-fontSize-code">3px</span>;
+																	        ...
+																	    }
+																	</pre>
+																</div>
+															</div>
+
+															<div class="col-3">
+																<div class="col-12">
+																	<b>font-size: <span id="byAndu-ribbon-useCase4-fontSize--input--value"> 3px </span></b>
+																	<input id="byAndu-ribbon-useCase4-fontSize--input" type="range" value="3" min="0" max="10"/>
+																</div>
+																<div class="wrapper" style="height: 150px">
+																	<div id="byAndu-ribbon-useCase4--target" class="ribbon--left--btm"> Ribbon top left </div>
+																</div>
+															</div>
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</section>
+							</div>
+
+							<!-- Multi-Curl -->
+							<div class="tabs-content px-0" data-tabs-id="2">
+
+								<!-- III. Usage -->
+									<section class="accordion  p-0        sectionAccordion">
+										<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+											<button class="accordion-btn  sectionAccordion-btn"> III. Usage </button>
+											<div class="accordion-content sectionAccordion-content">
+
+												<div class="col-12 p-0">
+													<div class="col-8">
+														<div class="wrapper"> 
+															<line> &lt;div class="<b>ribbon</b>--<b-r>horizontal</b-r>"> </line>
+															<line>
+																<label>
+																	<input type="checkbox" class="ribbon-multiCurl-hor--checkbox" value="ribbon__curl--left--btm" checked/>
+																	<span class="ribbon-multiCurl-hor--checkboxText">
+																		&lt;div class="<b>ribbon__curl</b> &nbsp; &nbsp; <b>ribbon__curl</b>--<b-p>left--btm</b-p>">&lt;/div>
+																	</span>
+																</label>
+															</line>
+															<line>
+																<label>
+																	<input type="checkbox" class="ribbon-multiCurl-hor--checkbox" value="ribbon__curl--left--top" checked/>
+																	<span class="ribbon-multiCurl-hor--checkboxText">
+																		&lt;div class="<b>ribbon__curl</b> &nbsp; &nbsp; <b>ribbon__curl</b>--<b-p>left--top</b-p>">&lt;/div>
+																	</span>
+																</label>
+															</line>
+															<line>
+																<label>
+																	<input type="checkbox" class="ribbon-multiCurl-hor--checkbox" value="ribbon__curl--right--btm" checked/>
+																	<span class="ribbon-multiCurl-hor--checkboxText">
+																		&lt;div class="<b>ribbon__curl</b> &nbsp; &nbsp; <b>ribbon__curl</b>--<b-p>right--btm</b-p>">&lt;/div>
+																	</span>
+																</label>
+															</line>
+															<line>
+																<label>
+																	<input type="checkbox" class="ribbon-multiCurl-hor--checkbox" value="ribbon__curl--right--top" checked/>
+																	<span class="ribbon-multiCurl-hor--checkboxText">
+																		&lt;div class="<b>ribbon__curl</b> &nbsp; &nbsp; <b>ribbon__curl</b>--<b-p>right--top</b-p>">&lt;/div>
+																	</span>
+																</label>
+															</line>
+															<line style="padding-left: 44px"> &lt;div class="<b>ribbon__text</b>"> Ribbon Text &lt;/div> </line>
+															<line> &lt;/div> </line>
+														</div>
+													</div>
+
+													<div class="col-4">
+														<div class="wrapper" style="height: 210px">
+															<div id="ribbon-multiCurl--target-horizontal" class="ribbon--horizontal">
+																<div class="ribbon__curl ribbon__curl--left--btm"></div>
+																<div class="ribbon__curl ribbon__curl--left--top"></div>
+																<div class="ribbon__curl ribbon__curl--right--btm"></div>
+																<div class="ribbon__curl ribbon__curl--right--top"></div>
+																<div class="ribbon__text">Ribbon Text</div>
+															</div>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-12 p-0">
+													<div class="col-8">
+														<div class="wrapper"> 
+															<line> &lt;div class="<b>ribbon</b>--<b-r>vertical</b-r>"> </line>
+															<line>
+																<label>
+																	<input type="checkbox" class="ribbon-multiCurl-ver--checkbox" value="ribbon__curl--top--left" checked/>
+																	<span class="ribbon-multiCurl-ver--checkboxText">
+																		&lt;div class="<b>ribbon__curl</b> &nbsp; &nbsp; <b>ribbon__curl</b>--<b-p>top--left</b-p>">&lt;/div>
+																	</span>
+																</label>
+															</line>
+															<line>
+																<label>
+																	<input type="checkbox" class="ribbon-multiCurl-ver--checkbox" value="ribbon__curl--top--right" checked/>
+																	<span class="ribbon-multiCurl-ver--checkboxText">
+																		&lt;div class="<b>ribbon__curl</b> &nbsp; &nbsp; <b>ribbon__curl</b>--<b-p>top--right</b-p>">&lt;/div>
+																	</span>
+																</label>
+															</line>
+															<line>
+																<label>
+																	<input type="checkbox" class="ribbon-multiCurl-ver--checkbox" value="ribbon__curl--btm--left" checked/>
+																	<span class="ribbon-multiCurl-ver--checkboxText">
+																		&lt;div class="<b>ribbon__curl</b> &nbsp; &nbsp; <b>ribbon__curl</b>--<b-p>btm--left</b-p>">&lt;/div>
+																	</span>
+																</label>
+															</line>
+															<line>
+																<label>
+																	<input type="checkbox" class="ribbon-multiCurl-ver--checkbox" value="ribbon__curl--btm--right" checked/>
+																	<span class="ribbon-multiCurl-ver--checkboxText">
+																		&lt;div class="<b>ribbon__curl</b> &nbsp; &nbsp; <b>ribbon__curl</b>--<b-p>btm--right</b-p>">&lt;/div>
+																	</span>
+																</label>
+															</line>
+															<line style="padding-left: 44px"> &lt;div class="<b>ribbon__text</b>"> Ribbon Text &lt;/div> </line>
+															<line> &lt;/div> </line>
+														</div>
+													</div>
+
+													<div class="col-4">
+														<div class="wrapper" style="height: 210px">
+															<div id="ribbon-multiCurl--target-vertical" class="ribbon--vertical">
+																<div class="ribbon__curl ribbon__curl--btm--left"></div>
+																<div class="ribbon__curl ribbon__curl--top--left"></div>
+																<div class="ribbon__curl ribbon__curl--btm--right"></div>
+																<div class="ribbon__curl ribbon__curl--top--right"></div>
+																<div class="ribbon__text">Ribbon Text</div>
+															</div>
+														</div>
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</section>
+
+								<!-- IV. Styles -->
+									<section class="accordion  p-0        sectionAccordion">
+										<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+											<button class="accordion-btn  sectionAccordion-btn"> IV. Styles </button>
+											<div class="accordion-content sectionAccordion-content">
+
+												<div class="accordion">
+													<div class="accordion-group px-md my-sm">
+														<button class="accordion-btn"> * Single Side :   </button>
+														<div class="accordion-content">
+
+															<p> 'Multi-Curl' Ribbons can be adapted to <b>the style of a 'Single-Curl'</b>, while also allowing for the presence of <b>'double-curls'</b> on the Ribbon's connecting side. </p>
+
+															<p class="sub-heading"> This is unable with 'Single-Curl' Ribbons, because each curl requires the use of two Elements, and in 'Single-Curl' we can only use the two pseudo-elements available - and are able to only create one Curl. </p>
+
+															<p> This requires adding the <span class="wrapper"><b>ribbon</b>--<b-r>singleSide</b-r>--<b-p>{connectingSide}</b-p></span> Class on the Ribbon Element.</p>
+
+															<div class="col-6">
+																<div class="wrapper">
+																	<pre class="pre-removeTabSpaces">
+																	    &lt;div class="ribbon--horizontal <b>ribbon</b>--<b-r>singleSide</b-r>--<b-p>left</b-p>">
+																	        &lt;div class="ribbon__curl ribbon__curl--<b-p>left</b-p>--top">&lt;/div>
+																	        &lt;div class="ribbon__curl ribbon__curl--<b-p>left</b-p>--btm">&lt;/div>
+																	        &lt;div class="ribbon__text"> Ribbon Text &lt;/div>
+																	    &lt;/div>
+																	    &lt;div class="ribbon--vertical <b>ribbon</b>--<b-r>singleSide</b-r>--<b-p>top</b-p>">
+																	        &lt;div class="ribbon__curl ribbon__curl--<b-p>top</b-p>--left">&lt;/div>
+																	        &lt;div class="ribbon__curl ribbon__curl--<b-p>top</b-p>--right">&lt;/div>
+																	        &lt;div class="ribbon__text"> Ribbon Text &lt;/div>
+																	    &lt;/div>
+																	</pre>
+																</div>
+															</div>
+
+															<div class="col-6">
+																<div class="wrapper" style="height: 150px">
+																	<div class="ribbon--horizontal ribbon--singleSide--left">
+																		<div class="ribbon__curl ribbon__curl--left--btm"></div>
+																		<div class="ribbon__curl ribbon__curl--left--top"></div>
+																		<div class="ribbon__text"> Ribbon Text </div>
+																	</div>
+															    </div>
+																<div class="wrapper" style="height: 150px">
+																	<div class="ribbon--vertical ribbon--singleSide--top">
+																			<div class="ribbon__curl ribbon__curl--top--left"></div>
+																			<div class="ribbon__curl ribbon__curl--top--right"></div>
+																			<div class="ribbon__text"> Ribbon Text </div>
+																		</div>
+															    </div>
+															</div>
+
+														</div>
+													</div>
+												</div>
+
+												<div class="accordion">
+													<div class="accordion-group px-md my-sm">
+														<button class="accordion-btn"> * Follow the document flow :   </button>
+														<div class="accordion-content">
+
+															<div class="col-12 p-0">
+
+																<div class="col-7">
+																	<p> The <span class="wrapper">ribbon</span> uses <span class="wrapper">position: absolute</span>, and is positioned in relation to it's nearest non-static-position Parent. </p>
+																	<p> It can be set to follow the flow of the document (to be used as a Section Title, for example), by setting <span class="wrapper">position: relative</span>, and then using <span class="wrapper">top</span> / <span class="wrapper">bottom</span> / <span class="wrapper">left</span> / <span class="wrapper">right</span> or <span class="wrapper">transform: translate</span> to reposition. </p>
+																	<p> This might require also adjusting the <span class="wrapper">width</span> property, if the Parent Element has paddings. </p>
+																</div>
+																<div class="col-5">
+																	<div class="wrapper">
+																		<pre class="pre-removeTabSpaces">
+																		    .ribbon--horizontal {
+																		        ...
+																		        position: <span id="byAndu-ribbon-multiCurl-useCase1-position">absolute</span>;
+																		        top: <span id="byAndu-ribbon-multiCurl-useCase1-top">15px</span>
+																		        left: <span id="byAndu-ribbon-multiCurl-useCase1-left">0</span>
+																		        width: calc(100% + <span id="byAndu-ribbon-multiCurl-useCase1-width">0px</span>)
+																		    }
+																		</pre>
+																	</div>
+																</div>
+
+																<div class="col-7">
+																	<div class="wrapper py-0">
+																		<pre class="pre-removeTabSpaces py-0">
+																		    &lt;div style="position: relative; padding: 0 15px;">
+																		        &lt;p> Paragraph lorem ipsum &lt;/p>
+																		        &lt;div class="ribbon--horizontal">
+																		            &lt;div class="ribbon__curl  ribbon__curl--left--btm">&lt;/div>
+																		            &lt;div class="ribbon__curl  ribbon__curl--right--btm">&lt;/div>
+																		            &lt;div class="ribbon__text"> Ribbon Text &lt;/div>
+																		        &lt;/div> 
+																		        &lt;p> Paragraph lorem ipsum &lt;/p>
+																		    &lt;/div>
+																		</pre>
+																	</div>
+																</div>
+
+																<div class="col-2 p-0">
+																	<hr>
+																	<div class="col-12 p-0 mb-xs">
+																		<label>
+																			<input id="byAndu-ribbon-multiCurl-useCase1-position--input" type="checkbox"/> 
+																			<span class="wrapper"><b>position: relative</b></span>
+																		</label>
+																	</div>
+																	
+																	<div class="col-12 p-0">
+																		<b>Top: <span id="byAndu-ribbon-multiCurl-useCase1-top--input--value"> 15px </span></b>
+																		<br>
+																		<input id="byAndu-ribbon-multiCurl-useCase1-top--input" type="range" value="15" min="0" max="100"/>
+																	</div>
+																	
+																	<div class="col-12 p-0">
+																		<b>Left: <span id="byAndu-ribbon-multiCurl-useCase1-left--input--value"> 0 </span></b>
+																		<br>
+																		<input id="byAndu-ribbon-multiCurl-useCase1-left--input" type="range" value="0" min="-100" max="100"/>
+																	</div>
+																	
+																	<div class="col-12 p-0">
+																		<b>Width: calc(100% + <span id="byAndu-ribbon-multiCurl-useCase1-width--input--value">0px</span>)</b>
+																		<br>
+																		<input id="byAndu-ribbon-multiCurl-useCase1-width--input" type="range" value="0" min="0" max="100"/>
+																	</div>
+																	<hr>
+																</div>
+
+																<div class="col-3">
+																	<div class="wrapper position-relative">
+																        <p> Paragraph lorem ipsum </p>
+																        <div id="byAndu-ribbon-multiCurl-useCase1--target" class="ribbon--horizontal" style="max-width: none">
+																            <div class="ribbon__curl     ribbon__curl--left--btm"></div>
+																            <div class="ribbon__curl     ribbon__curl--right--btm"></div>
+																            <div class="ribbon__text"> Ribbon Text </div>
+																        </div> 
+																        <p> Paragraph lorem ipsum </p>
+																	</div>
+																</div>
+															</div>
+
+														</div>
+													</div>
+												</div>
+
+												<div class="accordion">
+													<div class="accordion-group px-md my-sm">
+														<button class="accordion-btn"> * Offset : </button>
+														<div class="accordion-content">
+
+															<div class="col-6 p-0">
+																<p> The Ribbon has it's 'offset from the cross-axis' set with : </p>
+																<p> <b>ribbon--horizontal</b> - <span class="wrapper">top: 15px</span> </p>
+																<p> <b>ribbon--vertical</b> - <span class="wrapper">left: 15px</span> </p>
+															</div>
+
+															<div class="col-3">
+																<div class="col-12">
+																	<b>Top: <span id="byAndu-ribbon-multiCurl-useCase3-top--input--value"> 15px </span></b>
+																	<input id="byAndu-ribbon-multiCurl-useCase3-top--input" type="range" value="15" min="0" max="100"/>
+																</div>
+																<div class="wrapper">
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																	<div id="byAndu-ribbon-multiCurl-useCase3--target-1" class="ribbon--horizontal">
+															            <div class="ribbon__curl     ribbon__curl--left--btm"></div>
+															            <div class="ribbon__curl     ribbon__curl--right--btm"></div>
+															            <div class="ribbon__text"> Ribbon Text </div>
+															        </div> 
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																</div>
+															</div>
+
+															<div class="col-3">
+																<div class="col-12">
+																	<b>Left: <span id="byAndu-ribbon-multiCurl-useCase3-left--input--value"> 15px </span></b>
+																	<input id="byAndu-ribbon-multiCurl-useCase3-left--input" type="range" value="15" min="0" max="100"/>
+																</div>
+																<div class="wrapper">
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																	<div id="byAndu-ribbon-multiCurl-useCase3--target-2" class="ribbon--vertical">
+															            <div class="ribbon__curl     ribbon__curl--top--left"></div>
+															            <div class="ribbon__curl     ribbon__curl--btm--right"></div>
+															            <div class="ribbon__text"> Ribbon Text </div>
+															        </div>
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																</div>
+															</div>
+
+														</div>
+													</div>
+												</div>
+
+												<div class="accordion">
+													<div class="accordion-group px-md my-sm">
+														<button class="accordion-btn"> * Curl Size :   </button>
+														<div class="accordion-content">
+
+															<div class="col-5 p-0">
+																<p> The curl's size is determined by the <span class="wrapper">font-size: 3px</span> value, set on the <span class="wrapper">.ribbon__curl</span> elements. </p> 
+
+																<p> This sets the size and position of the <span class="wrapper">::before</span> & <span class="wrapper">::after</span> pseudo-elements (which form the Curl) with <span class="Wrapper">em</span> units. </p>
+															</div>
+
+
+															<div class="col-4">
+																<div class="wrapper">
+																	<pre class="pre-removeTabSpaces">
+																	    .ribbon__curl::before ,
+																	    .ribbon__curl::after {
+																	        ...
+																	        font-size: <span id="byAndu-ribbon-multiCurl-useCase4-fontSize-code">3px</span>;
+																	        ...
+																	    }
+																	</pre>
+																</div>
+															</div>
+
+															<div class="col-3">
+																<div class="col-12">
+																	<b>font-size: <span id="byAndu-ribbon-multiCurl-useCase4-fontSize--input--value"> 3px </span></b>
+																	<input id="byAndu-ribbon-multiCurl-useCase4-fontSize--input" type="range" value="3" min="0" max="10"/>
+																</div>
+																<div class="wrapper" style="height: 150px">
+																	<div class="ribbon--vertical">
+															            <div id="byAndu-ribbon-multiCurl-useCase4--target-1" class="ribbon__curl     ribbon__curl--top--left"></div>
+															            <div id="byAndu-ribbon-multiCurl-useCase4--target-2" class="ribbon__curl     ribbon__curl--btm--right"></div>
+															            <div class="ribbon__text"> Ribbon Text </div>
+															        </div>
+																</div>
+															</div>
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</section>
+							</div>
+
+							<!-- Corner -->
+							<div class="tabs-content px-0" data-tabs-id="3">
+
+								<!-- III. Usage -->
+									<section class="accordion  p-0        sectionAccordion">
+										<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+											<button class="accordion-btn  sectionAccordion-btn"> III. Usage </button>
+											<div class="accordion-content sectionAccordion-content">
+
+												<div class="col-6">
+													<div class="wrapper"> 
+														<line> &lt;div class="<b>ribbon</b>--<b-r>corner</b-r>--<b-p>{connectingCorner}</b-p>"> </line>
+														<line class="pl-lg"> &lt;div class="ribbon__text"> Ribbon Text &lt;/div> </line>
+														<line> &lt;/div> </line>
+														
+														<line> <hr> </line>
+
+														<line>
+															<label>
+																<div class="col-12 p-0">
+																	<line> &lt;div class="<b>ribbon</b>--<b-r>corner</b-r>--<b-p>topLeft</b-p>"> </line>
+																	<line> 
+																		<input type="radio" class="ribbon-corner--radio" name="ribbon-corner--radio" value="ribbon--corner--topLeft" checked> 
+																		&lt;div class="ribbon__text"> Ribbon Text &lt;/div> </line>
+																	<line> &lt;/div> </line>
+																</div>
+															</label>
+														</line>
+														
+														<line> <hr> </line>
+
+														<line>
+															<label>
+																<div class="col-12 p-0">
+																	<line> &lt;div class="<b>ribbon</b>--<b-r>corner</b-r>--<b-p>topRight</b-p>"> </line>
+																	<line> 
+																		<input type="radio" class="ribbon-corner--radio" name="ribbon-corner--radio" value="ribbon--corner--topRight"> 
+																		&lt;div class="ribbon__text"> Ribbon Text &lt;/div> </line>
+																	<line> &lt;/div> </line>
+																</div>
+															</label>
+														</line>
+														
+														<line> <hr> </line>
+
+														<line>
+															<label>
+																<div class="col-12 p-0">
+																	<line> &lt;div class="<b>ribbon</b>--<b-r>corner</b-r>--<b-p>btmLeft</b-p>"> </line>
+																	<line> 
+																		<input type="radio" class="ribbon-corner--radio" name="ribbon-corner--radio" value="ribbon--corner--btmLeft"> 
+																		&lt;div class="ribbon__text"> Ribbon Text &lt;/div> </line>
+																	<line> &lt;/div> </line>
+																</div>
+															</label>
+														</line>
+														
+														<line> <hr> </line>
+
+														<line>
+															<label>
+																<div class="col-12 p-0">
+																	<line> &lt;div class="<b>ribbon</b>--<b-r>corner</b-r>--<b-p>btmRight</b-p>"> </line>
+																	<line> 
+																		<input type="radio" class="ribbon-corner--radio" name="ribbon-corner--radio" value="ribbon--corner--btmRight"> 
+																		&lt;div class="ribbon__text"> Ribbon Text &lt;/div> </line>
+																	<line> &lt;/div> </line>
+																</div>
+															</label>
+														</line>
+													</div>
+												</div>
+												<div class="col-6">
+
+													<hr>
+
+													<div class="col-12 flex">
+														<b>Set Width: &nbsp; <span id="byAndu-ribbon-corner-width--input--value"> 50% </span></b> &nbsp;&nbsp;&nbsp;
+														<input id="byAndu-ribbon-corner-width--input" type="range" value="50" min="0" max="100"/>
+													</div>
+
+													<hr>
+
+													<div class="wrapper" style="height: 250px">
+														<div id="ribbon-corner--target" class="ribbon--corner--topLeft"> 
+															<div class="ribbon__text"> Ribbon Text </div>
+														</div>
+													</div>
+
+												</div>
+
+											</div>
+										</div>
+									</section>
+
+								<!-- IV. Styles -->
+									<!-- <section class="accordion  p-0        sectionAccordion">
+										<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+											<button class="accordion-btn  sectionAccordion-btn"> IV. Styles </button>
+											<div class="accordion-content sectionAccordion-content">
+
+												<div class="accordion">
+													<div class="accordion-group px-md my-sm">
+														<button class="accordion-btn"> * Single Side :   </button>
+														<div class="accordion-content">
+
+															<p> 'Multi-Curl' Ribbons can be adapted to <b>the style of a 'Single-Curl'</b>, while also allowing for the presence of <b>'double-curls'</b> on the Ribbon's connecting side. </p>
+
+															<p class="sub-heading"> This is unable with 'Single-Curl' Ribbons, because each curl requires the use of two Elements, and in 'Single-Curl' we can only use the two pseudo-elements available - and are able to only create one Curl. </p>
+
+															<p> This requires adding the <span class="wrapper"><b>ribbon</b>--<b-r>singleSide</b-r>--<b-p>{connectingSide}</b-p></span> Class on the Ribbon Element.</p>
+
+															<div class="col-6">
+																<div class="wrapper">
+																	<pre class="pre-removeTabSpaces">
+																	    &lt;div class="ribbon--horizontal <b>ribbon</b>--<b-r>singleSide</b-r>--<b-p>left</b-p>">
+																	        &lt;div class="ribbon__curl ribbon__curl--<b-p>left</b-p>--top">&lt;/div>
+																	        &lt;div class="ribbon__curl ribbon__curl--<b-p>left</b-p>--btm">&lt;/div>
+																	        &lt;div class="ribbon__text"> Ribbon Text &lt;/div>
+																	    &lt;/div>
+																	    &lt;div class="ribbon--vertical <b>ribbon</b>--<b-r>singleSide</b-r>--<b-p>top</b-p>">
+																	        &lt;div class="ribbon__curl ribbon__curl--<b-p>top</b-p>--left">&lt;/div>
+																	        &lt;div class="ribbon__curl ribbon__curl--<b-p>top</b-p>--right">&lt;/div>
+																	        &lt;div class="ribbon__text"> Ribbon Text &lt;/div>
+																	    &lt;/div>
+																	</pre>
+																</div>
+															</div>
+
+															<div class="col-6">
+																<div class="wrapper" style="height: 150px">
+																	<div class="ribbon--horizontal ribbon--singleSide--left">
+																		<div class="ribbon__curl ribbon__curl--left--btm"></div>
+																		<div class="ribbon__curl ribbon__curl--left--top"></div>
+																		<div class="ribbon__text"> Ribbon Text </div>
+																	</div>
+															    </div>
+																<div class="wrapper" style="height: 150px">
+																	<div class="ribbon--vertical ribbon--singleSide--top">
+																			<div class="ribbon__curl ribbon__curl--top--left"></div>
+																			<div class="ribbon__curl ribbon__curl--top--right"></div>
+																			<div class="ribbon__text"> Ribbon Text </div>
+																		</div>
+															    </div>
+															</div>
+
+														</div>
+													</div>
+												</div>
+
+												<div class="accordion">
+													<div class="accordion-group px-md my-sm">
+														<button class="accordion-btn"> * Follow the document flow :   </button>
+														<div class="accordion-content">
+
+															<div class="col-12 p-0">
+
+																<div class="col-7">
+																	<p> The <span class="wrapper">ribbon</span> uses <span class="wrapper">position: absolute</span>, and is positioned in relation to it's nearest non-static-position Parent. </p>
+																	<p> It can be set to follow the flow of the document (to be used as a Section Title, for example), by setting <span class="wrapper">position: relative</span>, and then using <span class="wrapper">top</span> / <span class="wrapper">bottom</span> / <span class="wrapper">left</span> / <span class="wrapper">right</span> or <span class="wrapper">transform: translate</span> to reposition. </p>
+																	<p> This might require also adjusting the <span class="wrapper">width</span> property, if the Parent Element has paddings. </p>
+																</div>
+																<div class="col-5">
+																	<div class="wrapper">
+																		<pre class="pre-removeTabSpaces">
+																		    .ribbon--horizontal {
+																		        ...
+																		        position: <span id="byAndu-ribbon-multiCurl-useCase1-position">absolute</span>;
+																		        top: <span id="byAndu-ribbon-multiCurl-useCase1-top">15px</span>
+																		        left: <span id="byAndu-ribbon-multiCurl-useCase1-left">0</span>
+																		        width: calc(100% + <span id="byAndu-ribbon-multiCurl-useCase1-width">0px</span>)
+																		    }
+																		</pre>
+																	</div>
+																</div>
+
+																<div class="col-7">
+																	<div class="wrapper py-0">
+																		<pre class="pre-removeTabSpaces py-0">
+																		    &lt;div style="position: relative; padding: 0 15px;">
+																		        &lt;p> Paragraph lorem ipsum &lt;/p>
+																		        &lt;div class="ribbon--horizontal">
+																		            &lt;div class="ribbon__curl  ribbon__curl--left--btm">&lt;/div>
+																		            &lt;div class="ribbon__curl  ribbon__curl--right--btm">&lt;/div>
+																		            &lt;div class="ribbon__text"> Ribbon Text &lt;/div>
+																		        &lt;/div> 
+																		        &lt;p> Paragraph lorem ipsum &lt;/p>
+																		    &lt;/div>
+																		</pre>
+																	</div>
+																</div>
+
+																<div class="col-2 p-0">
+																	<hr>
+																	<div class="col-12 p-0 mb-xs">
+																		<label>
+																			<input id="byAndu-ribbon-multiCurl-useCase1-position--input" type="checkbox"/> 
+																			<span class="wrapper">position: relative</span>
+																		</label>
+																	</div>
+																	
+																	<div class="col-12 p-0">
+																		Top: <span id="byAndu-ribbon-multiCurl-useCase1-top--input--value"> 15px </span>
+																		<br>
+																		<input id="byAndu-ribbon-multiCurl-useCase1-top--input" type="range" value="15" min="0" max="100"/>
+																	</div>
+																	
+																	<div class="col-12 p-0">
+																		Left: <span id="byAndu-ribbon-multiCurl-useCase1-left--input--value"> 0 </span>
+																		<br>
+																		<input id="byAndu-ribbon-multiCurl-useCase1-left--input" type="range" value="0" min="-100" max="100"/>
+																	</div>
+																	
+																	<div class="col-12 p-0">
+																		Width: calc(100% + <span id="byAndu-ribbon-multiCurl-useCase1-width--input--value">0px</span>)
+																		<br>
+																		<input id="byAndu-ribbon-multiCurl-useCase1-width--input" type="range" value="0" min="0" max="100"/>
+																	</div>
+																	<hr>
+																</div>
+
+																<div class="col-3">
+																	<div class="wrapper position-relative">
+																        <p> Paragraph lorem ipsum </p>
+																        <div id="byAndu-ribbon-multiCurl-useCase1--target" class="ribbon--horizontal" style="max-width: none">
+																            <div class="ribbon__curl     ribbon__curl--left--btm"></div>
+																            <div class="ribbon__curl     ribbon__curl--right--btm"></div>
+																            <div class="ribbon__text"> Ribbon Text </div>
+																        </div> 
+																        <p> Paragraph lorem ipsum </p>
+																	</div>
+																</div>
+															</div>
+
+														</div>
+													</div>
+												</div>
+
+												<div class="accordion">
+													<div class="accordion-group px-md my-sm">
+														<button class="accordion-btn"> * Offset : </button>
+														<div class="accordion-content">
+
+															<div class="col-6 p-0">
+																<p> The Ribbon has it's 'offset from the cross-axis' set with : </p>
+																<p> <b>ribbon--horizontal</b> - <span class="wrapper">top: 15px</span> </p>
+																<p> <b>ribbon--vertical</b> - <span class="wrapper">left: 15px</span> </p>
+															</div>
+
+															<div class="col-3">
+																<div class="col-12">
+																	top: <span id="byAndu-ribbon-multiCurl-useCase3-top--input--value"> 15px </span>
+																	<input id="byAndu-ribbon-multiCurl-useCase3-top--input" type="range" value="15" min="0" max="100"/>
+																</div>
+																<div class="wrapper">
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																	<div id="byAndu-ribbon-multiCurl-useCase3--target-1" class="ribbon--horizontal">
+															            <div class="ribbon__curl     ribbon__curl--left--btm"></div>
+															            <div class="ribbon__curl     ribbon__curl--right--btm"></div>
+															            <div class="ribbon__text"> Ribbon Text </div>
+															        </div> 
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																</div>
+															</div>
+
+															<div class="col-3">
+																<div class="col-12">
+																	left: <span id="byAndu-ribbon-multiCurl-useCase3-left--input--value"> 15px </span>
+																	<input id="byAndu-ribbon-multiCurl-useCase3-left--input" type="range" value="15" min="0" max="100"/>
+																</div>
+																<div class="wrapper">
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																	<div id="byAndu-ribbon-multiCurl-useCase3--target-2" class="ribbon--vertical">
+															            <div class="ribbon__curl     ribbon__curl--top--left"></div>
+															            <div class="ribbon__curl     ribbon__curl--btm--right"></div>
+															            <div class="ribbon__text"> Ribbon Text </div>
+															        </div>
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																	<p> Paragraph lorem ipsum </p>
+																</div>
+															</div>
+
+														</div>
+													</div>
+												</div>
+
+												<div class="accordion">
+													<div class="accordion-group px-md my-sm">
+														<button class="accordion-btn"> * Curl Size :   </button>
+														<div class="accordion-content">
+
+															<div class="col-5 p-0">
+																<p> The curl's size is determined by the <span class="wrapper">font-size: 3px</span> value, set on the <span class="wrapper">.ribbon__curl</span> elements. </p> 
+
+																<p> This sets the size and position of the <span class="wrapper">::before</span> & <span class="wrapper">::after</span> pseudo-elements (which form the Curl) with <span class="Wrapper">em</span> units. </p>
+															</div>
+
+
+															<div class="col-4">
+																<div class="wrapper">
+																	<pre class="pre-removeTabSpaces">
+																	    .ribbon__curl::before ,
+																	    .ribbon__curl::after {
+																	        ...
+																	        font-size: <span id="byAndu-ribbon-multiCurl-useCase4-fontSize-code">3px</span>;
+																	        ...
+																	    }
+																	</pre>
+																</div>
+															</div>
+
+															<div class="col-3">
+																<div class="col-12">
+																	font-size: <span id="byAndu-ribbon-multiCurl-useCase4-fontSize--input--value"> 3px </span>
+																	<input id="byAndu-ribbon-multiCurl-useCase4-fontSize--input" type="range" value="3" min="0" max="10"/>
+																</div>
+																<div class="wrapper" style="height: 150px">
+																	<div class="ribbon--vertical">
+															            <div id="byAndu-ribbon-multiCurl-useCase4--target-1" class="ribbon__curl     ribbon__curl--top--left"></div>
+															            <div id="byAndu-ribbon-multiCurl-useCase4--target-2" class="ribbon__curl     ribbon__curl--btm--right"></div>
+															            <div class="ribbon__text"> Ribbon Text </div>
+															        </div>
+																</div>
+															</div>
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</section> -->
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<!-- Code Tab -->
+				<div class="tabs-content article-mainTabs-codeTab"  data-tabs-id="3"
+							data-generateCodeFor="[ 'css' ]" 
+							data-setCopyContextId="ribbon" 
+							data-setFileName="asterisk-effects-ribbon">
+				</div>
+			</div>
+		</div>
+
+	</article>

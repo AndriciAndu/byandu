@@ -159,7 +159,7 @@
 				}
 			};
 
-			byAndu.pageConfigObj_setupObj(obj_deepClone(paramObj)); paramObj = null;
+			byAndu.pageConfigObj_setupObj(obj_deepClone(paramObj)); paramObj = undefined;
 			byAndu.pageConfigObj_runConfig();
 
 	})();

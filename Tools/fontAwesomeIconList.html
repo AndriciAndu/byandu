@@ -32,11 +32,11 @@
 			font-size: 18px;
 		}
 
-		.faSearch-resultsContainer.faSpinner {
+		.faSearch--resultsContainer.faSpinner {
 			position: relative;
 			height: 80vh;
 		}
-		.faSearch-resultsContainer.faSpinner:before {
+		.faSearch--resultsContainer.faSpinner:before {
 			color: black;
 		}
 
@@ -101,11 +101,11 @@
 
 		<row class="faSearch-container"> 
 			<hr class="mt-0 mb-xs">
-			<input class="faSearch col-12" type="text" placeholder="Seach Icons"> 
+			<input id="faSearch--input" class="faSearch col-12" type="text" placeholder="Seach Icons"> 
 			<hr class="mb-0 mt-xs">
 		</row>
 
-		<div class="col-12 p-0 faSearch-resultsContainer">
+		<div id="faSearch--resultsContainer" class="col-12 p-0 faSearch--resultsContainer">
 		</div>
 
 		<p id="loading-bottom" class="faSpinner faSpinner-fast"> &nbsp; </p>

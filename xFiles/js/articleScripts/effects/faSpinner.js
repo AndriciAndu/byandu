@@ -1,7 +1,9 @@
 
 	(function(){
 
-		articleFunctions.generateDemos_container__demoItemBtn__run = function(e) {
+		var currentPage_eventHandlers = asterisk.route.currentPage.eventHandlers;
+
+		currentPage_eventHandlers.byandu_faSpinner__demoContainer_functionality = function(e) {
 
 			var target = e.target;
 
@@ -44,9 +46,13 @@
 			}
 		};
 
-		article_addEvent(document.getElementById('__route__mainView__generateDemos') , 'click' , articleFunctions.generateDemos_container__demoItemBtn__run)
+		asterisk.route.currentPage.addEvent(
+			document.getElementById('__route__mainView__generateDemos') , 
+			'click' , 
+			currentPage_eventHandlers.byandu_faSpinner__demoContainer_functionality
+		);
 
-		console.log(articleFunctions);
+		currentPage_eventHandlers = null;
 
 		//asterisk.components.spoiler.init(document.getElementById('byAndu-main'));
 

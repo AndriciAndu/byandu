@@ -811,7 +811,7 @@
 				}
 			};
 
-			byAndu.pageConfigObj_setupObj(paramObj);
+			byAndu.pageConfigObj_setupObj(obj_deepClone(paramObj)); paramObj = undefined;
 			byAndu.pageConfigObj_runConfig();
 
 	})();

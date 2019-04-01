@@ -1,0 +1,24 @@
+
+        /* Filter - nashville */
+        /* ------------------------------- */
+
+            .hasFilter-nashville            , 
+            .hasFilter-hvr-nashville:hover  {
+                -webkit-filter: sepia(.25) contrast(1.5) brightness(.9) hue-rotate(-15deg);
+                        filter: sepia(.25) contrast(1.5) brightness(.9) hue-rotate(-15deg);
+
+                -webkit-transition: filter 0.4s ease-out;
+                   -moz-transition: filter 0.4s ease-out;
+                     -o-transition: filter 0.4s ease-out;
+                        transition: filter 0.4s ease-out; 
+            }
+
+            .hasFilter-nashville::before            , 
+            .hasFilter-hvr-nashville:hover::before  {
+                content: '';
+                position: absolute; z-index: 2;
+                top: 0; left: 0; right: 0; bottom: 0;
+                
+                background: radial-gradient(circle closest-corner, rgba(128, 78, 15, .5) 0, rgba(128, 78, 15, .65) 100%);
+                mix-blend-mode: screen;
+            }

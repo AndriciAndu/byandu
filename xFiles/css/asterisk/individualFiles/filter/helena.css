@@ -1,0 +1,24 @@
+
+        /* Filter - helena */
+        /* ------------------------------- */
+
+            .hasFilter-helena            , 
+            .hasFilter-hvr-helena:hover  {
+                -webkit-filter: sepia(.5) contrast(1.05) brightness(1.05) saturate(1.35);
+                        filter: sepia(.5) contrast(1.05) brightness(1.05) saturate(1.35);
+
+                -webkit-transition: filter 0.4s ease-out;
+                   -moz-transition: filter 0.4s ease-out;
+                     -o-transition: filter 0.4s ease-out;
+                        transition: filter 0.4s ease-out; 
+            }
+
+            .hasFilter-helena::before            , 
+            .hasFilter-hvr-helena:hover::before  {
+                content: '';
+                position: absolute; z-index: 2;
+                top: 0; left: 0; right: 0; bottom: 0;
+                
+                background: rgba(158, 175, 30, .25);
+                mix-blend-mode: overlay;
+            }

@@ -34,9 +34,9 @@
 									<hr>
 
 									<p> <b><u>Structured on 6 pillars:</u></b> </p>
-									<p class="mt-0"> <span class="wrapper"><b>before-none</b></span> (hide :before pseudo-element) | <span class="wrapper"><b>after-none</b></span> (hide :after pseudo-element) </p>
+									<p class="mt-0"> <span class="wrapper"><b>before-hidden</b></span> (hide :before pseudo-element) | <span class="wrapper"><b>after-hidden</b></span> (hide :after pseudo-element) </p>
 									<p class="mt-0">
-									<span class="wrapper"><b>invisible</b></span> (visibility) | <span class="wrapper"><b>transparent</b></span> (opacity) | <span class="wrapper"><b>unselectable</b></span> (user-select) | <span class="wrapper"><b>unclickable</b></span> (pointer-events)</p>
+									<span class="wrapper"><b>visibility-hidden</b></span> | <span class="wrapper"><b>opacity-0</b></span> | <span class="wrapper"><b>userSelect-none</b></span> | <span class="wrapper"><b>pointerEvents-none</b></span> </p>
 								</div>
 							</div>
 						</section>
@@ -82,10 +82,10 @@
 																
 																<div class="copyContext" data-copyContentId="useCase-1">
 																	<pre class="col-12 p-0 pre-removeTabSpaces">
-																	    .invisible                  { visibility:     hidden !important; } 
-																	    .transparent                { opacity:        0      !important; } 		
-																	    .unselectable               { user-select:    none   !important; } 
-																	    .unclickable, .pointer-none { pointer-events: none   !important; } </pre>
+																	    .visibility-hidden  { visibility:     hidden !important; } 
+																	    .opacity-0          { opacity:        0      !important; } 		
+																	    .userSelect-none    { user-select:    none   !important; } 
+																	    .pointerEvents-none { pointer-events: none   !important; } </pre>
 																</div>
 															</div>
 														</div>
@@ -106,14 +106,14 @@
 																
 																<div class="copyContext" data-copyContentId="useCase-2">
 																	<pre class="col-12 p-0 pre-removeTabSpaces">
-																	    .before-none:before , 
-																	    .after-none:after   { display: none !important; }
+																	    .before-hidden::before , 
+																	    .after-hidden::after   { display: none !important; }
 
-																	    @media (max-width: 575.98px)                            { .xs-before-none:before , .xs-after:after { display: none !important; } }
-																	    @media (min-width: 575.98px) and (max-width: 767.98px)  { .sm-before-none:before , .sm-after:after { display: none !important; } }
-																	    @media (min-width: 767.98px) and (max-width: 991.98px)  { .md-before-none:before , .md-after:after { display: none !important; } }
-																	    @media (min-width: 991.98px) and (max-width: 1199.98px) { .lg-before-none:before , .lg-after:after { display: none !important; } }
-																	    @media (min-width: 1199.98px)                           { .xl-before-none:before , .xl-after:after { display: none !important; } }
+																	    @media (max-width: 575.98px)                            { .xs-before-hidden::before , .xs-after-hidden::after { display: none !important; } }
+																	    @media (min-width: 575.98px) and (max-width: 767.98px)  { .sm-before-hidden::before , .sm-after-hidden::after { display: none !important; } }
+																	    @media (min-width: 767.98px) and (max-width: 991.98px)  { .md-before-hidden::before , .md-after-hidden::after { display: none !important; } }
+																	    @media (min-width: 991.98px) and (max-width: 1199.98px) { .lg-before-hidden::before , .lg-after-hidden::after { display: none !important; } }
+																	    @media (min-width: 1199.98px)                           { .xl-before-hidden::before , .xl-after-hidden::after { display: none !important; } }
 																	</pre>
 																</div>
 															</div>
@@ -141,7 +141,7 @@
 
 										<line> 
 											<div class="col-12 md-col-6 p-0">
-												<b> Example : </b> <br class="xs-visible"> &lt;div class="<b-p>invisible</b-p>"> &lt;/div>
+												<b> Example : </b> <br class="xs-visible"> &lt;div class="<b-p>visibility-hidden</b-p>"> &lt;/div>
 											</div>
 											<div class="col-12 md-col-6 p-0">
 												<i class="comment"> // sets <span class="wrapper">visibility: hidden;</span> </i>
@@ -150,28 +150,10 @@
 
 										<line> 
 											<div class="col-12 md-col-6 p-0">
-												<b> Example : </b> <br class="xs-visible"> &lt;div class="<b-p>transparent</b-p>"> &lt;/div>
+												<b> Example : </b> <br class="xs-visible"> &lt;div class="<b-p>opacity-0</b-p>"> &lt;/div>
 											</div>
 											<div class="col-12 md-col-6 p-0">
 												<i class="comment"> // sets <span class="wrapper">opacity: 0;</span> </i>
-											</div>
-										</line>
-
-										<line> 
-											<div class="col-12 md-col-6 p-0">
-												<b> Example : </b> <br class="xs-visible"> &lt;div class="<b-p>unselectable</b-p>"> &lt;/div>
-											</div>
-											<div class="col-12 md-col-6 p-0">
-												<i class="comment"> // sets <span class="wrapper">user-select: none;</span> </i>
-											</div>
-										</line>
-
-										<line> 
-											<div class="col-12 md-col-6 p-0">
-												<b> Example : </b> <br class="xs-visible"> &lt;div class="<b-p>unclickable</b-p>"> &lt;/div>
-											</div>
-											<div class="col-12 md-col-6 p-0">
-												<i class="comment"> // sets <span class="wrapper">pointer-events: none;</span> </i>
 											</div>
 										</line>
 									</div>
@@ -196,7 +178,7 @@
 
 										<line> 
 											<div class="col-12 md-col-6 p-0">
-												<b> Example : </b> <br class="xs-visible"> &lt;div class="<b-p>transparent</b-p>"> &lt;/div>
+												<b> Example : </b> <br class="xs-visible"> &lt;div class="<b-p>opacity-0</b-p>"> &lt;/div>
 											</div>
 											<div class="col-12 md-col-6 p-0">
 												<i class="comment"> // sets <span class="wrapper">opacity: 0;</span> on <b>all</b> viewports </i>
@@ -207,7 +189,7 @@
 
 										<line> 
 											<div class="col-12 md-col-6 p-0">
-												<b> Example : </b> <br class="xs-visible"> &lt;div class="<b-r>sm-</b-r><b-p>transparent</b-p>"> &lt;/div>
+												<b> Example : </b> <br class="xs-visible"> &lt;div class="<b-r>sm-</b-r><b-p>opacity-0</b-p>"> &lt;/div>
 											</div>
 											<div class="col-12 md-col-6 p-0">
 												<i class="comment"> // sets <span class="wrapper">opacity: 0;</span> on <b>small(sm)</b> viewports <b>only</b> </i>
@@ -218,7 +200,7 @@
 
 										<line> 
 											<div class="col-12 md-col-6 p-0">
-												<b> Example : </b> <br class="xs-visible"> &lt;div class="<b-r>md-</b-r><b-p>transparent</b-p>"> &lt;/div> 
+												<b> Example : </b> <br class="xs-visible"> &lt;div class="<b-r>md-</b-r><b-p>opacity-0</b-p>"> &lt;/div> 
 											</div>
 											<div class="col-12 md-col-6 p-0">
 												<i class="comment"> // sets <span class="wrapper">opacity: 0;</span> on <b>medium(md)</b> viewports <b>only</b> </i>

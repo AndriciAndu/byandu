@@ -1,0 +1,24 @@
+
+        /* Filter - ludwig */
+        /* ------------------------------- */
+
+            .hasFilter-ludwig            , 
+            .hasFilter-hvr-ludwig:hover  {
+                -webkit-filter: sepia(.25) contrast(1.05) brightness(1.05) saturate(2);
+                        filter: sepia(.25) contrast(1.05) brightness(1.05) saturate(2);
+
+                -webkit-transition: filter 0.4s ease-out;
+                   -moz-transition: filter 0.4s ease-out;
+                     -o-transition: filter 0.4s ease-out;
+                        transition: filter 0.4s ease-out; 
+            }
+
+            .hasFilter-ludwig::before            , 
+            .hasFilter-hvr-ludwig:hover::before  {
+                content: '';
+                position: absolute; z-index: 2;
+                top: 0; left: 0; right: 0; bottom: 0;
+                
+                background: rgba(125, 105, 24, .1);
+                mix-blend-mode: overlay;
+            }

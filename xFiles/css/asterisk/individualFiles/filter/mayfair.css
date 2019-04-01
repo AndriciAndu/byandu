@@ -1,0 +1,24 @@
+
+        /* Filter - mayfair */
+        /* ------------------------------- */
+
+            .hasFilter-mayfair            , 
+            .hasFilter-hvr-mayfair:hover  {
+                -webkit-filter: contrast(1.1) brightness(1.15) saturate(1.1);
+                        filter: contrast(1.1) brightness(1.15) saturate(1.1);
+
+                -webkit-transition: filter 0.4s ease-out;
+                   -moz-transition: filter 0.4s ease-out;
+                     -o-transition: filter 0.4s ease-out;
+                        transition: filter 0.4s ease-out; 
+            }
+
+            .hasFilter-mayfair::before            , 
+            .hasFilter-hvr-mayfair:hover::before  {
+                content: '';
+                position: absolute; z-index: 2;
+                top: 0; left: 0; right: 0; bottom: 0;
+                
+                background: radial-gradient(circle closest-corner, transparent 0, rgba(175, 105, 24, .4) 100%);
+                mix-blend-mode: multiply;
+            }

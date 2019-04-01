@@ -65,390 +65,416 @@
 		asterisk.route.intermediary.onInitialLoad();
 
 
+// byAndu 
 // --------------------------------------------------
-	var byAndu = {};
 
-	byAndu.pageConfigObj_resetObj = function() {
+		var byAndu = {};
 
-		byAndu_pageConfigObj = {
+	// pageConfigObj 
+	// --------------------------------------------------
+		// -- used to generate HTML and etc
 
-			html : {
-				generate_tab        : false , // boolean : [true] will generate the [code tab] 
-				generate_checkBoxes : false , // false || [array of strings]
-				generate_codeBlocks : false   // false || [array of objects]
-			} ,
+		var byAndu_pageConfigObj = {};
 
-			css : {
-				generate_tab        : false ,
-				generate_checkBoxes : false ,
-				generate_codeBlocks : false 
-			} ,
+	// byAndu.pageConfigObj_resetObj  
+	// --------------------------------------------------
+		// -- reset the [ byAndu_pageConfigObj ] >> used within [ byAndu.pageConfigObj_setupObj() ]
 
-			css_singular : {
-				generate_tab        : false ,
-				generate_checkBoxes : false ,
-				generate_codeBlocks : false 
-			} ,
+		byAndu.pageConfigObj_resetObj = function() {
 
-			js : {
-				generate_tab        : false ,
-				generate_checkBoxes : false ,
-				generate_codeBlocks : false 
-			} ,
+			byAndu_pageConfigObj = {
 
-			searchBox_removeString : '' , // string
-			demoItems_codeLink : null     // refference to [code block] array
-		}
-	};
+				html : {
+					generate_tab        : false , // boolean : [true] will generate the [code tab] 
+					generate_checkBoxes : false , // false || [array of strings]
+					generate_codeBlocks : false   // false || [array of objects]
+				} ,
 
-	/*
-		paramObj = {
+				css : {
+					generate_tab        : false ,
+					generate_checkBoxes : false ,
+					generate_codeBlocks : false 
+				} ,
 
-			checkBoxes : {
-				[scenario = css] : [refference array] (strings)
-				[scenario = js]  : [refference array] (strings)
-			} ,
+				css_singular : {
+					generate_tab        : false ,
+					generate_checkBoxes : false ,
+					generate_codeBlocks : false 
+				} ,
 
-			codeBlocks : {
-				[scenario = css] : [refference array] (objects)
-				[scenario = js]  : [refference array] (objects)
-			} ,
+				js : {
+					generate_tab        : false ,
+					generate_checkBoxes : false ,
+					generate_codeBlocks : false 
+				} ,
 
-			removeString : 'string' , 
-			demoItems_codeLink : [refference array] (objects)
-		}
-		*/
-
-	// sets up the [byAndu_pageConfigObj] - will be later used to generate HTML and etc
-	byAndu.pageConfigObj_setupObj = function( paramObj ) {
-
-		// console.log( paramObj );
-
-		byAndu.pageConfigObj_resetObj();
-
-		var codeTab = document.getElementsByClassName('article-mainTabs-codeTab')[0];
-		var codeOptions = codeTab.getAttribute('data-generateCodeFor');
-
-		if (codeOptions) {
-
-			codeOptions = JSON.parse(codeOptions.replace(/'/g, '"')); 
-			var pageConfigObj = byAndu_pageConfigObj;
-
-			// sets what items will be generated within [byAndu.codeTab_generateBaselineHTML()]
-			// kept separate from the other [check] - in case the code to be generated has not been added yet (article still in development)
-			codeOptions.map(function(item){
-				switch (item) {
-					case 'html' 		:  pageConfigObj.html         .generate_tab = true ; break;
-					case 'css' 			:  pageConfigObj.css          .generate_tab = true ; break;
-					case 'css-singular' :  pageConfigObj.css_singular .generate_tab = true ; break;
-					case 'js' 			:  pageConfigObj.js           .generate_tab = true ; break;
-					default : console.log('Invalid [data-generateCodeFor] param: ' + item)
-				}
-			});
-
-			if (paramObj) {
-
-				pageConfigObj.html         .generate_checkBoxes = paramObj.checkBoxes.html         || false ;
-				pageConfigObj.css          .generate_checkBoxes = paramObj.checkBoxes.css          || false ;
-				pageConfigObj.css_singular .generate_checkBoxes = paramObj.checkBoxes.css_singular || false ;
-				pageConfigObj.js           .generate_checkBoxes = paramObj.checkBoxes.js           || false ;
-
-				pageConfigObj.html         .generate_codeBlocks = paramObj.codeBlocks.html         || false ;
-				pageConfigObj.css          .generate_codeBlocks = paramObj.codeBlocks.css          || false ;
-				pageConfigObj.css_singular .generate_codeBlocks = paramObj.codeBlocks.css_singular || false ;
-				pageConfigObj.js           .generate_codeBlocks = paramObj.codeBlocks.js           || false ;
-
-				pageConfigObj.removeString       = paramObj.removeString       || ''   ;
-				pageConfigObj.demoItems_codeLink = paramObj.demoItems_codeLink || null ;
+				searchBox_removeString : '' , // string
+				demoItems_codeLink : null     // refference to [code block] array
 			}
 		};
-	};
-
-	byAndu.pageConfigObj_runConfig = function() {
-
-		// generate basline HTML (markup scheleton - tabs)
-		byAndu.codeTab_generateBaselineHTML();
-
-		// if provided with [object] - create checkboxes
-		var pageConfigObj = byAndu_pageConfigObj;
-
-		var removeString = pageConfigObj.removeString || '';
-
-		var cb_html  = pageConfigObj.html         .generate_checkBoxes ; if (cb_html)  { byAndu.codeTab_generateCheckboxes('html'         , cb_html  , removeString) };
-		var cb_css   = pageConfigObj.css          .generate_checkBoxes ; if (cb_css)   { byAndu.codeTab_generateCheckboxes('css'          , cb_css   , removeString) };
-		var cb_css_s = pageConfigObj.css_singular .generate_checkBoxes ; if (cb_css_s) { byAndu.codeTab_generateCheckboxes('css-singular' , cb_css_s , removeString) };
-		var cb_js    = pageConfigObj.js           .generate_checkBoxes ; if (cb_js)    { byAndu.codeTab_generateCheckboxes('js'           , cb_js    , removeString) };
-
-		// initialize checkboxes
-		byAndu.codeTab_initCheckboxes();
-
-		// generate codeBlocks
-		var xcb_html  = pageConfigObj.html         .generate_codeBlocks ; if (xcb_html)  { byAndu_codeBlock_generateInnerHTML(xcb_html  , 'html'        ) };
-		var xcb_css   = pageConfigObj.css          .generate_codeBlocks ; if (xcb_css)   { byAndu_codeBlock_generateInnerHTML(xcb_css   , 'css'         ) };
-		var xcb_css_s = pageConfigObj.css_singular .generate_codeBlocks ; if (xcb_css_s) { byAndu_codeBlock_generateInnerHTML(xcb_css_s , 'css-singular') };
-		var xcb_js    = pageConfigObj.js           .generate_codeBlocks ; if (xcb_js)    { byAndu_codeBlock_generateInnerHTML(xcb_js    , 'js'          ) };
-	};
-
-	byAndu.codeTab_generateBaselineHTML = function() {
 
 		/*
-			.article-mainTabs-codeTab
-				.codeTab-wrapper
-					.codeTab__sideNav
-					.codeTab__main
+			paramObj = {
 
+				checkBoxes : {
+					[scenario = css] : [refference array] (strings)
+					[scenario = js]  : [refference array] (strings)
+				} ,
+
+				codeBlocks : {
+					[scenario = css] : [refference array] (objects)
+					[scenario = js]  : [refference array] (objects)
+				} ,
+
+				removeString : 'string' , 
+				demoItems_codeLink : [refference array] (objects)
+			}
 			*/
 
-		var codeTab = document.getElementsByClassName('article-mainTabs-codeTab')[0];
+	// byAndu.pageConfigObj_setupObj  
+	// --------------------------------------------------
+		// -- sets up the [ byAndu_pageConfigObj ]
 
-		// Parameters check and setup
-		// --------------------------------
+		byAndu.pageConfigObj_setupObj = function( paramObj ) {
 
-			var copyContextId 	= codeTab.getAttribute('data-setCopyContextId');
-			var fileName 		= codeTab.getAttribute('data-setFileName');
+			// console.log( paramObj );
 
-			var includeDepString = '';
-			if (codeTab.getAttribute('data-includeJSDependencies')) { includeDepString = 'data-includeDependencies="true"' };
+			byAndu.pageConfigObj_resetObj();
 
-		// Templates to be used in generating innerHTML
-		// --------------------------------
+			var codeTab = document.getElementsByClassName('article-mainTabs-codeTab')[0];
+			var codeOptions = codeTab.getAttribute('data-generateCodeFor');
 
-			var tabBtn_html 			= '<button class="tabs-btn" data-tabs-id="1"> HTML Template </button>'	;
-			var tabBtn_css  			= '<button class="tabs-btn" data-tabs-id="2"> CSS </button>'			;
-			var tabBtn_css_singular  	= '<button class="tabs-btn" data-tabs-id="3"> CSS - Singular </button>' ;
-			var tabBtn_js   			= '<button class="tabs-btn" data-tabs-id="4"> JS  </button>' 			;
+			if (codeOptions) {
 
-			var tabContent_html = 
-				'<!-- HTML --> '																								+
-					'<div class="tabs-content tab-expanded codeTab" data-tabs-id="1"> '						+
+				codeOptions = JSON.parse(codeOptions.replace(/'/g, '"')); 
+				var pageConfigObj = byAndu_pageConfigObj;
 
-						'<div class="codeTab__sideNav" data-searchBox-codeType="html"></div> '									+
+				// sets what items will be generated within [byAndu.codeTab_generateBaselineHTML()]
+				// kept separate from the other [check] - in case the code to be generated has not been added yet (article still in development)
+				codeOptions.map(function(item){
+					switch (item) {
+						case 'html' 		:  pageConfigObj.html         .generate_tab = true ; break;
+						case 'css' 			:  pageConfigObj.css          .generate_tab = true ; break;
+						case 'css-singular' :  pageConfigObj.css_singular .generate_tab = true ; break;
+						case 'js' 			:  pageConfigObj.js           .generate_tab = true ; break;
+						default : console.log('Invalid [data-generateCodeFor] param: ' + item)
+					}
+				});
 
-						'<div class="codeTab__main"> '																			+
-							'<div class="copyContext-btnContainer" data-copyContextId="'+copyContextId+'-html"> '				+
-								'<button class="copyContext-btn copyContext-btn-copyText"> </button> '							+
-							'</div> '																							+
-							'<div class="copyContext" data-copyContextId="'+copyContextId+'-html"> '							+
-								'<div id="codeSection-html" class="codeTab__main__codeSection" data-code="html"></div> '		+
-							'</div> '																							+
-						'</div> '																								+
-					'</div> '																									;
-			
-			var tabContent_css  = 
-				'<!-- CSS --> '																									+
-					'<div class="tabs-content codeTab" data-tabs-id="2"> '									+
+				if (paramObj) {
 
-						'<div class="codeTab__sideNav" data-searchBox-codeType="css"> </div> '									+
+					pageConfigObj.html         .generate_checkBoxes = paramObj.checkBoxes.html         || false ;
+					pageConfigObj.css          .generate_checkBoxes = paramObj.checkBoxes.css          || false ;
+					pageConfigObj.css_singular .generate_checkBoxes = paramObj.checkBoxes.css_singular || false ;
+					pageConfigObj.js           .generate_checkBoxes = paramObj.checkBoxes.js           || false ;
 
-						'<div class="codeTab__main"> '																			+
-							'<div class="copyContext-btnContainer" data-copyContextId="'+copyContextId+'-css"> '				+
-								'<button class="copyContext-btn copyContext-btn-copyText"> </button> '							+
-								'<button class="copyContext-btn copyContext-btn-saveFile" ' 									+
-										'data-fileName="'+fileName+'-spec" data-fileType=".css"> </button> '					+
-								'<button class="copyContext-btn copyContext-btn-showLightbox"> </button> '						+
-							'</div> '																							+
-							'<div class="copyContext" data-copyContextId="'+copyContextId+'-css"> '								+
-								'<div id="codeSection-css" class="codeTab__main__codeSection" data-code="css"></div> '			+
-							'</div> '																							+
-						'</div> '																								+
-					'</div> '																									;
+					pageConfigObj.html         .generate_codeBlocks = paramObj.codeBlocks.html         || false ;
+					pageConfigObj.css          .generate_codeBlocks = paramObj.codeBlocks.css          || false ;
+					pageConfigObj.css_singular .generate_codeBlocks = paramObj.codeBlocks.css_singular || false ;
+					pageConfigObj.js           .generate_codeBlocks = paramObj.codeBlocks.js           || false ;
 
-			var tabContent_css_singular  = 
-				'<!-- CSS --> '																												+
-					'<div class="tabs-content codeTab" data-tabs-id="3"> '												+
-
-						'<div class="codeTab__sideNav" data-searchBox-codeType="css-singular"> </div> '										+
-
-						'<div class="codeTab__main"> '																						+
-							'<div class="copyContext-btnContainer" data-copyContextId="'+copyContextId+'-css-singular"> '					+
-								'<button class="copyContext-btn copyContext-btn-copyText"> </button> '										+
-								'<button class="copyContext-btn copyContext-btn-saveFile" ' 												+
-										'data-fileName="'+fileName+'-spec" data-fileType=".css"> </button> '								+
-								'<button class="copyContext-btn copyContext-btn-showLightbox"> </button> '									+
-							'</div> '																										+
-							'<div class="copyContext" data-copyContextId="'+copyContextId+'-css-singular"> '								+
-								'<div id="codeSection-css-singular" class="codeTab__main__codeSection" data-code="css-singular"></div> '	+
-							'</div> '																										+
-						'</div> '																											+
-					'</div> '																												;
-
-			var tabContent_js   = 
-				'<!-- JS --> '																									+
-					'<div class="tabs-content codeTab" data-tabs-id="4"> '									+
-
-						'<div class="codeTab__sideNav" data-searchBox-codeType="js" '+includeDepString+'> </div> '				+
-
-						'<div class="codeTab__main"> '																			+
-							'<div class="copyContext-btnContainer" data-copyContextId="'+copyContextId+'-js"> '					+
-								'<button class="copyContext-btn copyContext-btn-copyText"> </button> '							+
-								'<button class="copyContext-btn copyContext-btn-saveFile" '										+
-										'data-fileName="'+fileName+'-spec" data-fileType=".js"> </button> '						+
-								'<button class="copyContext-btn copyContext-btn-showLightbox"> </button> '						+
-							'</div> '																							+
-							'<div class="copyContext" data-copyContextId="'+copyContextId+'-js"> '								+
-								'<div id="codeSection-js" class="codeTab__main__codeSection" data-code="js"></div> '			+
-							'</div> '																							+
-						'</div> '																								+
-					'</div> '																									;
-
-		// Generate innerHTML
-		// --------------------------------
-
-			codeTab.innerHTML = 
-				'<div class="tabs ph-0"> '								+
-					'<div class="tabs-btnGroup buttons-fill"></div> '	+
-					'<div class="tabs-contentGroup"></div> '			+
-				'</div> '												;
-
-
-			var codeTab_tabs_btnGroup 	  = codeTab.getElementsByClassName('tabs-btnGroup')    [0];
-			var codeTab_tabs_contentGroup = codeTab.getElementsByClassName('tabs-contentGroup')[0];
-
-			if (byAndu_pageConfigObj.html.generate_tab) {
-				codeTab_tabs_btnGroup    .insertAdjacentHTML('beforeend', tabBtn_html);
-				codeTab_tabs_contentGroup.insertAdjacentHTML('beforeend', tabContent_html);
+					pageConfigObj.removeString       = paramObj.removeString       || ''   ;
+					pageConfigObj.demoItems_codeLink = paramObj.demoItems_codeLink || null ;
+				}
 			};
+		};
 
-			if (byAndu_pageConfigObj.css.generate_tab) {
-				codeTab_tabs_btnGroup    .insertAdjacentHTML('beforeend', tabBtn_css);
-				codeTab_tabs_contentGroup.insertAdjacentHTML('beforeend', tabContent_css);
-			};
+	// byAndu.pageConfigObj_runConfig -- uses [ byAndu_pageConfigObj ]
+	// --------------------------------------------------
 
-			if (byAndu_pageConfigObj.css_singular.generate_tab) {
-				codeTab_tabs_btnGroup    .insertAdjacentHTML('beforeend', tabBtn_css_singular);
-				codeTab_tabs_contentGroup.insertAdjacentHTML('beforeend', tabContent_css_singular);
-			};
+		byAndu.pageConfigObj_runConfig = function() {
 
-			if (byAndu_pageConfigObj.js.generate_tab) {
-				codeTab_tabs_btnGroup    .insertAdjacentHTML('beforeend', tabBtn_js);
-				codeTab_tabs_contentGroup.insertAdjacentHTML('beforeend', tabContent_js);
-			};
+			// generate basline HTML (markup scheleton - tabs)
+			byAndu.codeTab_generateBaselineHTML();
 
-			var firstTabBtn     = codeTab.getElementsByClassName('tabs-btn')    [0];
-			var firstTabContent = codeTab.getElementsByClassName('tabs-content')[0];
-			if (firstTabBtn)     { firstTabBtn    .classList.add('tabBtn-active') };
-			if (firstTabContent) { firstTabContent.classList.add('tab-expanded')  };
-	};
+			// if provided with [object] - create checkboxes
+			var pageConfigObj = byAndu_pageConfigObj;
+
+			var removeString = pageConfigObj.removeString || '';
+
+			var cb_html  = pageConfigObj.html         .generate_checkBoxes ; if (cb_html)  { byAndu.codeTab_generateCheckboxes('html'         , cb_html  , removeString) };
+			var cb_css   = pageConfigObj.css          .generate_checkBoxes ; if (cb_css)   { byAndu.codeTab_generateCheckboxes('css'          , cb_css   , removeString) };
+			var cb_css_s = pageConfigObj.css_singular .generate_checkBoxes ; if (cb_css_s) { byAndu.codeTab_generateCheckboxes('css-singular' , cb_css_s , removeString) };
+			var cb_js    = pageConfigObj.js           .generate_checkBoxes ; if (cb_js)    { byAndu.codeTab_generateCheckboxes('js'           , cb_js    , removeString) };
+
+			// initialize checkboxes
+			byAndu.codeTab_initCheckboxes();
+
+			// generate codeBlocks
+			var xcb_html  = pageConfigObj.html         .generate_codeBlocks ; if (xcb_html)  { byAndu_codeBlock_generateInnerHTML(xcb_html  , 'html'        ) };
+			var xcb_css   = pageConfigObj.css          .generate_codeBlocks ; if (xcb_css)   { byAndu_codeBlock_generateInnerHTML(xcb_css   , 'css'         ) };
+			var xcb_css_s = pageConfigObj.css_singular .generate_codeBlocks ; if (xcb_css_s) { byAndu_codeBlock_generateInnerHTML(xcb_css_s , 'css-singular') };
+			var xcb_js    = pageConfigObj.js           .generate_codeBlocks ; if (xcb_js)    { byAndu_codeBlock_generateInnerHTML(xcb_js    , 'js'          ) };
+		};
+
+	// byAndu.codeTab_generateBaselineHTML 
+	// --------------------------------------------------
+		// -- generates the baseline HTML Markup for the [Code Tab] >> used within [ byAndu.pageConfigObj_runConfig() ]
+
+		byAndu.codeTab_generateBaselineHTML = function() {
+
+			/*
+				.article-mainTabs-codeTab
+					.codeTab-wrapper
+						.codeTab__sideNav
+						.codeTab__main
+
+				*/
+
+			var codeTab = document.getElementsByClassName('article-mainTabs-codeTab')[0];
+
+			// Parameters check and setup
+			// --------------------------------
+
+				var copyContextId 	= codeTab.getAttribute('data-setCopyContextId');
+				var fileName 		= codeTab.getAttribute('data-setFileName');
+
+				var includeDepString = '';
+				if (codeTab.getAttribute('data-includeJSDependencies')) { includeDepString = 'data-includeDependencies="true"' };
+
+			// Templates to be used in generating innerHTML
+			// --------------------------------
+
+				var tabBtn_html 			= '<button class="tabs-btn" data-tabs-id="1"> HTML Template </button>'	;
+				var tabBtn_css  			= '<button class="tabs-btn" data-tabs-id="2"> CSS </button>'			;
+				var tabBtn_css_singular  	= '<button class="tabs-btn" data-tabs-id="3"> CSS - Singular </button>' ;
+				var tabBtn_js   			= '<button class="tabs-btn" data-tabs-id="4"> JS  </button>' 			;
+
+				var tabContent_html = 
+					'<!-- HTML --> '																								+
+						'<div class="tabs-content tab-expanded codeTab" data-tabs-id="1"> '											+
+
+							'<div class="codeTab__sideNav" data-searchBox-codeType="html"></div> '									+
+
+							'<div class="codeTab__main"> '																			+
+								'<div class="copyContext-btnContainer" data-copyContextId="'+copyContextId+'-html"> '				+
+									'<button class="copyContext-btn copyContext-btn-copyText"> </button> '							+
+								'</div> '																							+
+								'<div class="copyContext" data-copyContextId="'+copyContextId+'-html"> '							+
+									'<div id="codeSection-html" class="codeTab__main__codeSection" data-code="html"></div> '		+
+								'</div> '																							+
+							'</div> '																								+
+						'</div> '																									;
+				
+				var tabContent_css  = 
+					'<!-- CSS --> '																									+
+						'<div class="tabs-content codeTab" data-tabs-id="2"> '														+
+
+							'<div class="codeTab__sideNav" data-searchBox-codeType="css"> </div> '									+
+
+							'<div class="codeTab__main"> '																			+
+								'<div class="copyContext-btnContainer" data-copyContextId="'+copyContextId+'-css"> '				+
+									'<button class="copyContext-btn copyContext-btn-copyText"> </button> '							+
+									'<button class="copyContext-btn copyContext-btn-saveFile" ' 									+
+											'data-fileName="'+fileName+'-spec" data-fileType=".css"> </button> '					+
+									'<button class="copyContext-btn copyContext-btn-showLightbox"> </button> '						+
+								'</div> '																							+
+								'<div class="copyContext" data-copyContextId="'+copyContextId+'-css"> '								+
+									'<div id="codeSection-css" class="codeTab__main__codeSection" data-code="css"></div> '			+
+								'</div> '																							+
+							'</div> '																								+
+						'</div> '																									;
+
+				var tabContent_css_singular  = 
+					'<!-- CSS --> '																												+
+						'<div class="tabs-content codeTab" data-tabs-id="3"> '																	+
+
+							'<div class="codeTab__sideNav" data-searchBox-codeType="css-singular"> </div> '										+
+
+							'<div class="codeTab__main"> '																						+
+								'<div class="copyContext-btnContainer" data-copyContextId="'+copyContextId+'-css-singular"> '					+
+									'<button class="copyContext-btn copyContext-btn-copyText"> </button> '										+
+									'<button class="copyContext-btn copyContext-btn-saveFile" ' 												+
+											'data-fileName="'+fileName+'-spec" data-fileType=".css"> </button> '								+
+									'<button class="copyContext-btn copyContext-btn-showLightbox"> </button> '									+
+								'</div> '																										+
+								'<div class="copyContext" data-copyContextId="'+copyContextId+'-css-singular"> '								+
+									'<div id="codeSection-css-singular" class="codeTab__main__codeSection" data-code="css-singular"></div> '	+
+								'</div> '																										+
+							'</div> '																											+
+						'</div> '																												;
+
+				var tabContent_js   = 
+					'<!-- JS --> '																									+
+						'<div class="tabs-content codeTab" data-tabs-id="4"> '														+
+
+							'<div class="codeTab__sideNav" data-searchBox-codeType="js" '+includeDepString+'> </div> '				+
+
+							'<div class="codeTab__main"> '																			+
+								'<div class="copyContext-btnContainer" data-copyContextId="'+copyContextId+'-js"> '					+
+									'<button class="copyContext-btn copyContext-btn-copyText"> </button> '							+
+									'<button class="copyContext-btn copyContext-btn-saveFile" '										+
+											'data-fileName="'+fileName+'-spec" data-fileType=".js"> </button> '						+
+									'<button class="copyContext-btn copyContext-btn-showLightbox"> </button> '						+
+								'</div> '																							+
+								'<div class="copyContext" data-copyContextId="'+copyContextId+'-js"> '								+
+									'<div id="codeSection-js" class="codeTab__main__codeSection" data-code="js"></div> '			+
+								'</div> '																							+
+							'</div> '																								+
+						'</div> '																									;
+
+			// Generate innerHTML
+			// --------------------------------
+
+				codeTab.innerHTML = 
+					'<div class="tabs ph-0"> '								+
+						'<div class="tabs-btnGroup buttons-fill"></div> '	+
+						'<div class="tabs-contentGroup"></div> '			+
+					'</div> '												;
+
+
+				var codeTab_tabs_btnGroup 	  = codeTab.getElementsByClassName('tabs-btnGroup')    [0];
+				var codeTab_tabs_contentGroup = codeTab.getElementsByClassName('tabs-contentGroup')[0];
+
+				if (byAndu_pageConfigObj.html.generate_tab) {
+					codeTab_tabs_btnGroup    .insertAdjacentHTML('beforeend', tabBtn_html);
+					codeTab_tabs_contentGroup.insertAdjacentHTML('beforeend', tabContent_html);
+				};
+
+				if (byAndu_pageConfigObj.css.generate_tab) {
+					codeTab_tabs_btnGroup    .insertAdjacentHTML('beforeend', tabBtn_css);
+					codeTab_tabs_contentGroup.insertAdjacentHTML('beforeend', tabContent_css);
+				};
+
+				if (byAndu_pageConfigObj.css_singular.generate_tab) {
+					codeTab_tabs_btnGroup    .insertAdjacentHTML('beforeend', tabBtn_css_singular);
+					codeTab_tabs_contentGroup.insertAdjacentHTML('beforeend', tabContent_css_singular);
+				};
+
+				if (byAndu_pageConfigObj.js.generate_tab) {
+					codeTab_tabs_btnGroup    .insertAdjacentHTML('beforeend', tabBtn_js);
+					codeTab_tabs_contentGroup.insertAdjacentHTML('beforeend', tabContent_js);
+				};
+
+				var firstTabBtn     = codeTab.getElementsByClassName('tabs-btn')    [0];
+				var firstTabContent = codeTab.getElementsByClassName('tabs-content')[0];
+				if (firstTabBtn)     { firstTabBtn    .classList.add('tabBtn-active') };
+				if (firstTabContent) { firstTabContent.classList.add('tab-expanded')  };
+		};
 
 	// Checkboxes - Kept separated cause they require the itemsArray as an param
 	// --------------------------------
 
-		// Generate checkboxes + search + checkbox Buttons - goTo | highlight
+		// byAndu.codeTab_generateCheckboxes() 
 		// --------------------------------
+		// -- Generate the HTML Markup for [checkboxes] + [search] + [checkbox Buttons - goTo | highlight]
 
 			byAndu.codeTab_generateCheckboxes = function(areaIdentifier, itemsArray, effectsIdentifier) {
 
 				// console.log({areaIdentifier, itemsArray, effectsIdentifier})
 
 				// get the adequate [code-tab] [searchBox-wrapper]
-				var searchBox_wrappers = Array.from(document.getElementsByClassName('codeTab__sideNav'));
-				var targetArea = searchBox_wrappers.find(item => item.getAttribute('data-searchBox-codeType') == areaIdentifier);
 
-				getParent(targetArea, '.codeTab').classList.add('codeTab-hasSearch');
+					var searchBox_wrappers = Array.from(document.getElementsByClassName('codeTab__sideNav'));
+					var targetArea = searchBox_wrappers.find(item => item.getAttribute('data-searchBox-codeType') == areaIdentifier);
+
+					getParent(targetArea, '.codeTab').classList.add('codeTab-hasSearch');
 
 				// generate baseline html for [searchBox-wrapper]
-				var searchBox_type = null;
-				if 		(areaIdentifier == 'html' || areaIdentifier == 'css-singular') { searchBox_type = 'radio' }
-				else if (areaIdentifier == 'css'  || areaIdentifier == 'js')           { searchBox_type = 'check' };
 
-				if (searchBox_type == 'check') {
-
-					targetArea.innerHTML = 
-						'<div class="searchBox-top-sticky"> '																			+
-							'<div class="col-12 p-0 searchBox-overallSelect-wrapper"> '													+
-								'<div class="searchBox-overallSelect-title"> Include: </div> '											+
-								'<div class="searchBox-overallSelect-btnGroup"> '														+
-									'<button class="searchBox-overallSelect-btn" data-selectItems="all">  All  </button> '				+
-									'<button class="searchBox-overallSelect-btn" data-selectItems="none"> None </button> '				+
-								'</div> '																								+
-							'</div> '																									+
-
-							'<div class="col-12 p-0 searchBox-search-wrapper"> '														+
-								'<input  class="searchBox-search-input" type="text" placeholder="Search" data-category="checkbox"/> '	+
-								'<button class="searchBox-search-clearBtn fa fa-times"> </button> '										+
-							'</div> '																									+
-						'</div> '																										+
-						'<div class="col-12 searchBox-results-wrapper"> </div> '														;
-
-				} else if (searchBox_type == 'radio') {
-
-					targetArea.innerHTML = 
-						'<div class="searchBox-top-sticky"> '																			+
-							'<div class="col-12 p-0 searchBox-search-wrapper"> '														+
-								'<input class ="searchBox-search-input" type="text" placeholder="Search" data-category="radio"/> '		+
-								'<button class="searchBox-search-clearBtn fa fa-times"> </button> '										+
-							'</div> '																									+
-						'</div> '																										+
-						'<div class="col-12 searchBox-results-wrapper"> </div> '														;
-				};
-
-				// generate actual checkboxes within [searchBox-wrapper] > [results-wrapper]
-				targetArea = targetArea.getElementsByClassName('searchBox-results-wrapper')[0];
-
-				// if (targetArea.parentElement.getAttribute('data-includeDependencies')) { generate_innerHTML(targetArea, 'dependencies') };
-
-				if (itemsArray) {
+					var searchBox_type = null;
+					if 		(areaIdentifier == 'html' || areaIdentifier == 'css-singular') { searchBox_type = 'radio' }
+					else if (areaIdentifier == 'css'  || areaIdentifier == 'js')           { searchBox_type = 'check' };
 
 					if (searchBox_type == 'check') {
 
-						itemsArray.map(function(effect) {
+						targetArea.innerHTML = 
+							'<div class="searchBox-top-sticky"> '																			+
+								'<div class="col-12 p-0 searchBox-overallSelect-wrapper"> '													+
+									'<div class="searchBox-overallSelect-title"> Include: </div> '											+
+									'<div class="searchBox-overallSelect-btnGroup"> '														+
+										'<button class="searchBox-overallSelect-btn" data-selectItems="all">  All  </button> '				+
+										'<button class="searchBox-overallSelect-btn" data-selectItems="none"> None </button> '				+
+									'</div> '																								+
+								'</div> '																									+
 
-							if (effect != '~~line-break') {
-
-								// Generate Titles
-								if (effect.indexOf('~~title: ') > -1) {
-
-									var newElem = document.createElement('row');
-									newElem.classList = 'p-0 text-bold mt-sm';
-									newElem.innerHTML = '// '+effect.replace('~~title: ','');
-									targetArea.appendChild(newElem);
-
-								// Generate Checkboxes
-								} else {
-
-									var newElem = document.createElement('div');
-									newElem.classList = 'col-12 finalCode-checkbox-parent';
-									newElem.innerHTML = 
-										'<input class="finalCode-checkbox finalCode-checkbox-'+effect+'" type="checkbox" checked="checked" ' +
-												'data-finalCodeId="'+effect+'"> '+effect.replace(effectsIdentifier, '')+' ' 				 +
-										'<button class="finalCode_checkbox_btn_goto"> </button> ' 											 +
-										'<button class="finalCode_checkbox_btn_highlight"> </button> '										 ;
-									targetArea.appendChild(newElem);
-								}
-							}
-						});
+								'<div class="col-12 p-0 searchBox-search-wrapper"> '														+
+									'<input  class="searchBox-search-input" type="text" placeholder="Search" data-category="checkbox"/> '	+
+									'<button class="searchBox-search-clearBtn fa fa-times"> </button> '										+
+								'</div> '																									+
+							'</div> '																										+
+							'<div class="col-12 searchBox-results-wrapper"> </div> '														;
 
 					} else if (searchBox_type == 'radio') {
 
-						itemsArray.map(function(effect) {
-
-							if (effect != '~~line-break') {
-
-								// Generate Titles
-								if (effect.indexOf('~~title: ') > -1) {
-
-									var newElem = document.createElement('row');
-									newElem.classList = 'p-0 text-bold mt-sm';
-									newElem.innerHTML = '// '+effect.replace('~~title: ','');
-									targetArea.appendChild(newElem);
-
-								// Generate Checkboxes
-								} else {
-
-									var newElem = document.createElement('row');
-									newElem.classList = 'finalCode-radio-parent pl-0';
-									newElem.innerHTML = 
-										'<input class="finalCode-radioSelect finalCode-radioSelect-'+effect+'" '						+
-										'type="radio" name="finalCode-radioSelect-'+areaIdentifier+'" data-finalCodeId="'+effect+'"> '	+
-											effect.replace(effectsIdentifier, '') + ' '													;
-									targetArea.appendChild(newElem);
-								}
-							}
-						});
-
-						targetArea.getElementsByClassName('finalCode-radioSelect')[0].checked = true;
+						targetArea.innerHTML = 
+							'<div class="searchBox-top-sticky"> '																			+
+								'<div class="col-12 p-0 searchBox-search-wrapper"> '														+
+									'<input class ="searchBox-search-input" type="text" placeholder="Search" data-category="radio"/> '		+
+									'<button class="searchBox-search-clearBtn fa fa-times"> </button> '										+
+								'</div> '																									+
+							'</div> '																										+
+							'<div class="col-12 searchBox-results-wrapper"> </div> '														;
 					};
-				};
+
+				// generate actual checkboxes within [searchBox-wrapper] > [results-wrapper]
+
+					targetArea = targetArea.getElementsByClassName('searchBox-results-wrapper')[0];
+
+					// if (targetArea.parentElement.getAttribute('data-includeDependencies')) { generate_innerHTML(targetArea, 'dependencies') };
+
+					if (itemsArray) {
+
+						if (searchBox_type == 'check') {
+
+							itemsArray.map(function(effect) {
+
+								if (effect != '~~line-break') {
+
+									// Generate Titles
+									if (effect.indexOf('~~title: ') > -1) {
+
+										var newElem = document.createElement('row');
+										newElem.classList = 'p-0 text-bold mt-sm';
+										newElem.innerHTML = '// '+effect.replace('~~title: ','');
+										targetArea.appendChild(newElem);
+
+									// Generate Checkboxes
+									} else {
+
+										var newElem = document.createElement('div');
+										newElem.classList = 'col-12 finalCode-checkbox-parent';
+										newElem.innerHTML = 
+											'<input class="finalCode-checkbox finalCode-checkbox-'+effect+'" type="checkbox" checked="checked" ' +
+													'data-finalCodeId="'+effect+'"> '+effect.replace(effectsIdentifier, '')+' ' 				 +
+											'<button class="finalCode_checkbox_btn_goto"> </button> ' 											 +
+											'<button class="finalCode_checkbox_btn_highlight"> </button> '										 ;
+										targetArea.appendChild(newElem);
+									}
+								}
+							});
+
+						} else if (searchBox_type == 'radio') {
+
+							itemsArray.map(function(effect) {
+
+								if (effect != '~~line-break') {
+
+									// Generate Titles
+									if (effect.indexOf('~~title: ') > -1) {
+
+										var newElem = document.createElement('row');
+										newElem.classList = 'p-0 text-bold mt-sm';
+										newElem.innerHTML = '// '+effect.replace('~~title: ','');
+										targetArea.appendChild(newElem);
+
+									// Generate Checkboxes
+									} else {
+
+										var newElem = document.createElement('row');
+										newElem.classList = 'finalCode-radio-parent pl-0';
+										newElem.innerHTML = 
+											'<input class="finalCode-radioSelect finalCode-radioSelect-'+effect+'" '						+
+											'type="radio" name="finalCode-radioSelect-'+areaIdentifier+'" data-finalCodeId="'+effect+'"> '	+
+												effect.replace(effectsIdentifier, '') + ' '													;
+										targetArea.appendChild(newElem);
+									}
+								}
+							});
+
+							targetArea.getElementsByClassName('finalCode-radioSelect')[0].checked = true;
+						};
+					};
 			};
 
 		// select/deselect all - functionality
@@ -516,46 +542,50 @@
 		// checkbox Functionality
 		// --------------------------------
 
+			byAndu.codeTab_checkBoxes_functionality = function(e) {
+
+				var target = e.target;
+
+				if (hasClass(target, 'finalCode-checkbox')) {
+
+					var identifier 	 	= target.getAttribute('data-finalCodeId');
+					var target_class 	= 'finalCode-block-' + identifier;
+
+					var current_codeScope 	= getParent(target, '.codeTab'); 
+					var codeBlocks_target  	= current_codeScope.getElementsByClassName(target_class)[0];
+
+					if (target.checked) { 
+						codeBlocks_target.classList.remove('hidden');
+						target.parentElement.getElementsByClassName('finalCode_checkbox_btn_goto')[0].classList.remove('disabled');
+						target.parentElement.getElementsByClassName('finalCode_checkbox_btn_highlight')[0].classList.remove('disabled');
+					} else { 
+						codeBlocks_target.classList.add('hidden');
+						target.parentElement.getElementsByClassName('finalCode_checkbox_btn_goto')[0].classList.add('disabled');
+						target.parentElement.getElementsByClassName('finalCode_checkbox_btn_highlight')[0].classList.add('disabled');
+					};
+
+					var all_hidden = true;
+					var codeSelects = Array.from(current_codeScope.getElementsByClassName('finalCode-checkbox'));
+					codeSelects = codeSelects.filter(item => !hasClass(item, 'finalCode-checkbox-dependencies'));
+
+					if (codeSelects.length > 0) { codeSelects.map(function(item){ if (item.checked) { all_hidden = false } }) }
+					else { all_hidden = false }; // for the scenario where only the [dependencies] checkbox is present, with no other code show/hide options present
+
+					var codeBlocks_container = current_codeScope.getElementsByClassName('codeTab__main__codeSection')[0];
+
+					if (all_hidden) { codeBlocks_container.classList.add   ('hidden') } 
+					else 			{ codeBlocks_container.classList.remove('hidden') }
+
+				}
+
+			};
+
 			byAndu.codeTab_initCheckboxes = function() {
-
-				document.getElementsByClassName('article-mainTabs-codeTab')[0].addEventListener('change', function(e){
-
-					var target = e.target;
-
-					if (hasClass(target, 'finalCode-checkbox')) {
-
-						var identifier 	 	= target.getAttribute('data-finalCodeId');
-						var target_class 	= 'finalCode-block-' + identifier;
-
-						var current_codeScope 	= getParent(target, '.codeTab'); 
-						var codeBlocks_target  	= current_codeScope.getElementsByClassName(target_class)[0];
-
-						if (target.checked) { 
-							codeBlocks_target.classList.remove('hidden');
-							target.parentElement.getElementsByClassName('finalCode_checkbox_btn_goto')[0].classList.remove('disabled');
-							target.parentElement.getElementsByClassName('finalCode_checkbox_btn_highlight')[0].classList.remove('disabled');
-						} else { 
-							codeBlocks_target.classList.add('hidden');
-							target.parentElement.getElementsByClassName('finalCode_checkbox_btn_goto')[0].classList.add('disabled');
-							target.parentElement.getElementsByClassName('finalCode_checkbox_btn_highlight')[0].classList.add('disabled');
-						};
-
-
-						var all_hidden = true;
-						var codeSelects = Array.from(current_codeScope.getElementsByClassName('finalCode-checkbox'));
-						codeSelects = codeSelects.filter(item => !hasClass(item, 'finalCode-checkbox-dependencies'));
-
-						if (codeSelects.length > 0) { codeSelects.map(function(item){ if (item.checked) { all_hidden = false } }) }
-						else { all_hidden = false }; // for the scenario where only the [dependencies] checkbox is present, with no other code show/hide options present
-
-						var codeBlocks_container = current_codeScope.getElementsByClassName('codeTab__main__codeSection')[0];
-
-						if (all_hidden) { codeBlocks_container.classList.add   ('hidden') } 
-						else 			{ codeBlocks_container.classList.remove('hidden') }
-
-					}
-
-				})
+				asterisk.route.currentPage.addEvent(
+					document.getElementsByClassName('article-mainTabs-codeTab')[0] ,
+					'change' ,
+					byAndu.codeTab_checkBoxes_functionality
+				)
 			};
 
 		// checkbox-Buttons Functionality - goTo | highlight
@@ -743,39 +773,16 @@
 	var articleFunctions = {};
 	var articleEvents = []; // { elem : [HTMLElement] , type : [string] ,  handler : [function] }
 
-	function article_addEvent(elem , type , handler) {
+	function article_addEvent(elem , eventType__string , eventHandlerRefference__function) {
 
-		elem.addEventListener(type , handler);
+		elem.addEventListener(eventType__string , eventHandlerRefference__function);
 
 		var newObj = {};
-		newObj.elem = elem;
-		newObj.type = type;
-		newObj.handler = handler;
+		newObj.eventListener_targetElement = elem;
+		newObj.eventListener_type          = eventType__string;
+		newObj.eventListener_handler       = eventHandlerRefference__function;
 		articleEvents.push(newObj);
 	};
-
-	function article_removeEvents() {
-		articleEvents.map(function(item){
-			item.elem.removeEventListener(item.type , item.handler)
-		})
-	};
-
-	function article_unload() {
-
-		// remove article-specific EventListeners
-		articleEvents.map(function(item){
-			item.elem.removeEventListener(item.type , item.handler)
-		});
-
-		for (var key in articleFunctions) {
-			if (articleFunctions.hasOwnProperty(key)) {
-				articleFunctions[key] = null
-			}
-		};
-		articleFunctions = {};
-		articleEvents = [];
-
-	}
 
 
 // -------------------------------------------------------------------
@@ -918,3 +925,7 @@
 				if (paramObj.searchBox_items) 		{ pageConfigObj.searchBox_items 		= paramObj.searchBox_items 			};
 				if (paramObj.searchBox_removeString){ pageConfigObj.searchBox_removeString 	= paramObj.searchBox_removeString 	};
 				*/ 
+
+	function zxz() {
+		asterisk.route.loadPage('/buildTool.html')
+	};

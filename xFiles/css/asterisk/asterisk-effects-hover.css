@@ -24,78 +24,6 @@
 		/* 2D Transitions */
 		/* ---------------------------- */
 
-			/* push-right */
-			/* ---------------------------- */
-
-				.hvr-push-right {
-					-webkit-transition: transform 0.3s;  
-					   -moz-transition: transform 0.3s;  
-						 -o-transition: transform 0.3s;  
-							transition: transform 0.3s;
-				}
-
-				.hvr-push-right:hover  , 
-				.hvr-push-right:focus  , 
-				.hvr-push-right:active {
-					-webkit-transform: translate3d(8px, 0, 0);
-						-ms-transform: translate3d(8px, 0, 0);
-							transform: translate3d(8px, 0, 0);
-				}
-
-			/* push-left */
-			/* ---------------------------- */
-		
-				.hvr-push-left {
-					-webkit-transition: transform 0.3s;  
-					   -moz-transition: transform 0.3s;  
-						 -o-transition: transform 0.3s;  
-							transition: transform 0.3s;
-				}
-
-				.hvr-push-left:hover  , 
-				.hvr-push-left:focus  , 
-				.hvr-push-left:active {
-					-webkit-transform: translate3d(-8px, 0, 0);
-						-ms-transform: translate3d(-8px, 0, 0);
-							transform: translate3d(-8px, 0, 0);
-				}
-
-			/* push-up */
-			/* ---------------------------- */
-
-				.hvr-push-up {
-					-webkit-transition: transform 0.5s;  
-					   -moz-transition: transform 0.5s;  
-						 -o-transition: transform 0.5s;  
-							transition: transform 0.5s;
-				}
-
-				.hvr-push-up:hover  , 
-				.hvr-push-up:focus  , 
-				.hvr-push-up:active {
-					-webkit-transform: translate3d(0, -8px, 0);
-						-ms-transform: translate3d(0, -8px, 0);
-							transform: translate3d(0, -8px, 0);
-				}
-
-			/* push-down */
-			/* ---------------------------- */
-
-				.hvr-push-down {
-					-webkit-transition: transform 0.5s;  
-					   -moz-transition: transform 0.5s;  
-						 -o-transition: transform 0.5s;  
-							transition: transform 0.5s;
-				}
-
-				.hvr-push-down:hover  , 
-				.hvr-push-down:focus  , 
-				.hvr-push-down:active {
-					-webkit-transform: translate3d(0, 8px, 0);
-						-ms-transform: translate3d(0, 8px, 0);
-							transform: translate3d(0, 8px, 0);
-				}
-
 			/* push-up-alt & push-down-alt */
 			/* ---------------------------- */
 
@@ -190,43 +118,6 @@
 								animation: 	hvr-push-down-alt-step1 .3s  	 0s 	ease-out 			1 		forwards 	normal 		, 
 											hvr-push-down-alt-step2	1.5s 	.3s 	ease-in-out 	infinite	forwards 	alternate 	;
 					}
-
-			/* Grow */
-			/* ---------------------------- */
-
-				.hvr-grow  {
-					-webkit-transition: transform 0.3s;  
-					   -moz-transition: transform 0.3s;  
-						 -o-transition: transform 0.3s;  
-							transition: transform 0.3s;	
-
-					/*-webkit-backface-visibility: hidden;
-					-webkit-transform-style: preserve-3d;*/
-				}
-				.hvr-grow:hover  , 
-				.hvr-grow:focus  , 
-				.hvr-grow:active	{
-					-webkit-transform: scale3d(1.1, 1.1, 1);
-						-ms-transform: scale3d(1.1, 1.1, 1);
-							transform: scale3d(1.1, 1.1, 1);	
-				}
-
-			/* Shrink */
-			/* ---------------------------- */
-
-				.hvr-shrink {
-					-webkit-transition: transform 0.3s;  
-					   -moz-transition: transform 0.3s;  
-						 -o-transition: transform 0.3s;  
-							transition: transform 0.3s;	
-				}
-				.hvr-shrink:hover  , 
-				.hvr-shrink:focus  , 
-				.hvr-shrink:active {
-					-webkit-transform: scale3d(.9, .9, 1);
-						-ms-transform: scale3d(.9, .9, 1);
-							transform: scale3d(.9, .9, 1);		
-				}
 
 			/* Buzz */
 			/* ---------------------------- */
@@ -326,10 +217,10 @@
 					background-color: #2098D1;
 					background-color: var(--hvr-bgColor, #2098D1);
 
-					-webkit-transition: transform  0.3s  ease-out;
-					   -moz-transition: transform  0.3s  ease-out;
-						 -o-transition: transform  0.3s  ease-out;
-							transition: transform  0.3s  ease-out;
+					-webkit-transition: transform 0.3s ease-out;
+					   -moz-transition: transform 0.3s ease-out;
+						 -o-transition: transform 0.3s ease-out;
+							transition: transform 0.3s ease-out;
 				}
 
 				.hvr-bg-sweep-left:before {
@@ -400,10 +291,10 @@
 					background-color: #2098D1;
 					background-color: var(--hvr-bgColor, #2098D1);
 
-					-webkit-transition: transform  0.3s  ease-out;
-					   -moz-transition: transform  0.3s  ease-out;
-						 -o-transition: transform  0.3s  ease-out;
-							transition: transform  0.3s  ease-out;
+					-webkit-transition: transform 0.3s ease-out;
+					   -moz-transition: transform 0.3s ease-out;
+						 -o-transition: transform 0.3s ease-out;
+							transition: transform 0.3s ease-out;
 				}
 
 				.hvr-bg-bounce-left:after 	{
@@ -480,14 +371,15 @@
 				.hvr-bg-radial-in:before  {
 					content: "";
 					position: absolute;	z-index: -1;
-					top: 0;	bottom: 0; left: 0; right: 0;
+					left: 50%; top: 50%;
+					width: 100%; padding-bottom: 100%;
 
 					border-radius: 100%;
 
-					-webkit-transition: transform  0.3s  ease-out;
-					   -moz-transition: transform  0.3s  ease-out;
-						 -o-transition: transform  0.3s  ease-out;
-							transition: transform  0.3s  ease-out;
+					-webkit-transition: transform 0.3s ease-out;
+					   -moz-transition: transform 0.3s ease-out;
+						 -o-transition: transform 0.3s ease-out;
+							transition: transform 0.3s ease-out;
 				}
 
 				.hvr-bg-radial-out:before {
@@ -503,18 +395,18 @@
 				.hvr-bg-radial-in:hover:before  , 
 				.hvr-bg-radial-in:focus:before  , 
 				.hvr-bg-radial-in:active:before {
-					-webkit-transform: scale(0);
-						-ms-transform: scale(0);
-							transform: scale(0);
+					-webkit-transform: translate(-50%, -50%) scale(0);
+						-ms-transform: translate(-50%, -50%) scale(0);
+							transform: translate(-50%, -50%) scale(0);
 				}
 
 				.hvr-bg-radial-in:before         ,
 				.hvr-bg-radial-out:hover:before  , 
 				.hvr-bg-radial-out:focus:before  , 
 				.hvr-bg-radial-out:active:before {
-					-webkit-transform: scale(2);
-						-ms-transform: scale(2);
-							transform: scale(2);
+					-webkit-transform: translate(-50%, -50%) scale(1.2);
+						-ms-transform: translate(-50%, -50%) scale(1.2);
+							transform: translate(-50%, -50%) scale(1.2);
 				}
 
 			/* bg-rectangle */
@@ -526,10 +418,10 @@
 					position: absolute;	z-index: -1;
 					top: 0;	bottom: 0; left: 0; right: 0;
 
-					-webkit-transition: transform  0.3s  ease-out;
-					   -moz-transition: transform  0.3s  ease-out;
-						 -o-transition: transform  0.3s  ease-out;
-							transition: transform  0.3s  ease-out;
+					-webkit-transition: transform 0.3s ease-out;
+					   -moz-transition: transform 0.3s ease-out;
+						 -o-transition: transform 0.3s ease-out;
+							transition: transform 0.3s ease-out;
 				}
 
 				.hvr-bg-rectangle-out:before {
@@ -572,10 +464,10 @@
 						-ms-transform-origin: 50%;
 							transform-origin: 50%;
 
-					-webkit-transition: transform  0.3s  ease-out;
-					   -moz-transition: transform  0.3s  ease-out;
-						 -o-transition: transform  0.3s  ease-out;
-							transition: transform  0.3s  ease-out;
+					-webkit-transition: transform 0.3s ease-out;
+					   -moz-transition: transform 0.3s ease-out;
+						 -o-transition: transform 0.3s ease-out;
+							transition: transform 0.3s ease-out;
 				}
 
 				.hvr-bg-shutter-out-hor:before ,
@@ -772,10 +664,10 @@
 						background-color: #2098D1;
 						background-color: var(--hvr-borderColor, #2098D1);
 
-						-webkit-transition: right 0.3s ease-out, left 0.3s ease-out;
-						   -moz-transition: right 0.3s ease-out, left 0.3s ease-out;
-							 -o-transition: right 0.3s ease-out, left 0.3s ease-out;
-								transition: right 0.3s ease-out, left 0.3s ease-out;
+						-webkit-transition: right0.3sease-out, left0.3sease-out;
+						   -moz-transition: right0.3sease-out, left0.3sease-out;
+							 -o-transition: right0.3sease-out, left0.3sease-out;
+								transition: right0.3sease-out, left0.3sease-out;
 					}
 
 				/* border-Underline & border-Overline - Left */
@@ -823,44 +715,6 @@
 		/* Shadow and Glow Transitions */
 		/* ---------------------------- */
 
-			/* Shadow */
-			/* ---------------------------- */
-
-				.hvr-shadow-left	 ,
-				.hvr-shadow-right , 
-				.hvr-shadow-top   ,
-				.hvr-shadow-btm   {
-					-webkit-transition: box-shadow  0.3s;
-					   -moz-transition: box-shadow  0.3s;
-						 -o-transition: box-shadow  0.3s;
-							transition: box-shadow  0.3s;
-				}
-
-				.hvr-shadow-left:hover   , 
-				.hvr-shadow-left:focus   , 
-				.hvr-shadow-left:active  {
-					box-shadow: -10px  0    10px  -10px  #2098D1; 
-					box-shadow: -10px  0    10px  -10px  var(--hvr-shadowColor, #2098D1); 
-				}
-				.hvr-shadow-right:hover  , 
-				.hvr-shadow-right:focus  , 
-				.hvr-shadow-right:active {
-					box-shadow:  10px  0    10px  -10px  #2098D1; 
-					box-shadow:  10px  0    10px  -10px  var(--hvr-shadowColor, #2098D1); 
-				}
-				.hvr-shadow-top:hover    , 
-				.hvr-shadow-top:focus    , 
-				.hvr-shadow-top:active   {
-					box-shadow:   0  -10px 	10px  -10px  #2098D1; 
-					box-shadow:   0  -10px 	10px  -10px  var(--hvr-shadowColor, #2098D1); 
-				}
-				.hvr-shadow-btm:hover    , 
-				.hvr-shadow-btm:focus    , 
-				.hvr-shadow-btm:active   {
-					box-shadow:   0   10px  10px  -10px  #2098D1; 
-					box-shadow:   0   10px  10px  -10px  var(--hvr-shadowColor, #2098D1); 
-				}
-
 			/* Shadow Push */
 			/* ---------------------------- */
 
@@ -883,9 +737,9 @@
 					content: ''; pointer-events: none;
 					opacity: 0;
 
-					background: -webkit-radial-gradient(center,  ellipse,  #2098D1 								0% , transparent 80%);
+					background: -webkit-radial-gradient(center,  ellipse,  #2098D1 							0% , transparent 80%);
 					background: -webkit-radial-gradient(center,  ellipse,  var(--hvr-shadowColor, #2098D1) 	0% , transparent 80%);
-					background: 		radial-gradient(ellipse at center, #2098D1 								0% , transparent 80%);
+					background: 		radial-gradient(ellipse at center, #2098D1 							0% , transparent 80%);
 					background: 		radial-gradient(ellipse at center, var(--hvr-shadowColor, #2098D1) 	0% , transparent 80%);
 
 					-webkit-transition: transform 0.3s, opacity 0.3s;
@@ -978,83 +832,6 @@
 				.hvr-shadow-glow:active {
 					box-shadow: 0 0 8px #2098D1;
 					box-shadow: 0 0 8px var(--hvr-shadowColor, #2098D1);
-				}
-
-			/* Shadow Corners - Out */
-			/* ---------------------------- */
-
-				.hvr-shadow-out-topLeft  , 
-				.hvr-shadow-out-topRight ,
-				.hvr-shadow-out-btmLeft  , 
-				.hvr-shadow-out-btmRight {
-					-webkit-transition: box-shadow  0.3s;
-					   -moz-transition: box-shadow  0.3s;
-						 -o-transition: box-shadow  0.3s;
-							transition: box-shadow  0.3s;
-				}
-
-				.hvr-shadow-out-topLeft:hover  , 
-				.hvr-shadow-out-topLeft:focus  , 
-				.hvr-shadow-out-topLeft:active {
-					box-shadow: -2px -2px 2px #2098D1; 
-					box-shadow: -2px -2px 2px var(--hvr-shadowColor, #2098D1);
-				}
-				.hvr-shadow-out-topRight:hover  , 
-				.hvr-shadow-out-topRight:focus  , 
-				.hvr-shadow-out-topRight:active {
-					box-shadow:  2px -2px 2px #2098D1; 
-					box-shadow:  2px -2px 2px var(--hvr-shadowColor, #2098D1); 
-				}
-				.hvr-shadow-out-btmLeft:hover   , 
-				.hvr-shadow-out-btmLeft:focus   , 
-				.hvr-shadow-out-btmLeft:active  {
-					box-shadow:  2px  2px 2px #2098D1; 
-					box-shadow:  2px  2px 2px var(--hvr-shadowColor, #2098D1); 
-				}
-				.hvr-shadow-out-btmRight:hover  , 
-				.hvr-shadow-out-btmRight:focus  , 
-				.hvr-shadow-out-btmRight:active {
-					box-shadow: -2px  2px 2px #2098D1; 
-					box-shadow: -2px  2px 2px var(--hvr-shadowColor, #2098D1); 
-				}
-
-			/* Shadow Corners - In */
-			/* ---------------------------- */
-
-				.hvr-shadow-in-topLeft  , 
-				.hvr-shadow-in-topRight ,
-				.hvr-shadow-in-btmLeft  , 
-				.hvr-shadow-in-btmRight {
-					-webkit-transition: box-shadow  0.3s;
-					   -moz-transition: box-shadow  0.3s;
-						 -o-transition: box-shadow  0.3s;
-							transition: box-shadow  0.3s;
-				}
-
-				.hvr-shadow-in-topLeft:hover  , 
-				.hvr-shadow-in-topLeft:focus  , 
-				.hvr-shadow-in-topLeft:active {
-					box-shadow: inset  2px  2px 2px #2098D1								, 0 0 1px transparent; 
-					box-shadow: inset  2px  2px 2px var(--hvr-shadowColor, #2098D1)	, 0 0 1px transparent; 
-
-				}
-				.hvr-shadow-in-topRight:hover  , 
-				.hvr-shadow-in-topRight:focus  , 
-				.hvr-shadow-in-topRight:active {					
-					box-shadow: inset -2px  2px 2px #2098D1								, 0 0 1px transparent; 
-					box-shadow: inset -2px  2px 2px var(--hvr-shadowColor, #2098D1)	, 0 0 1px transparent; 
-				}
-				.hvr-shadow-in-btmLeft:hover  , 
-				.hvr-shadow-in-btmLeft:focus  , 
-				.hvr-shadow-in-btmLeft:active {
-					box-shadow: inset  2px -2px 2px #2098D1								, 0 0 1px transparent; 
-					box-shadow: inset  2px -2px 2px var(--hvr-shadowColor, #2098D1)	, 0 0 1px transparent; 
-				}
-				.hvr-shadow-in-btmRight:hover  , 
-				.hvr-shadow-in-btmRight:focus  , 
-				.hvr-shadow-in-btmRight:active {
-					box-shadow: inset -2px -2px 2px #2098D1								, 0 0 1px transparent; 
-					box-shadow: inset -2px -2px 2px var(--hvr-shadowColor, #2098D1)	, 0 0 1px transparent; 
 				}
 
 		/* Speech bubbles */

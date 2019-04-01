@@ -1,0 +1,14 @@
+
+        /* Filter - willow */
+        /* ------------------------------- */
+
+            .hasFilter-willow            , 
+            .hasFilter-hvr-willow:hover  {
+                -webkit-filter: brightness(1.2) contrast(.85) saturate(.05) sepia(.2);
+                        filter: brightness(1.2) contrast(.85) saturate(.05) sepia(.2);
+
+                -webkit-transition: filter 0.4s ease-out;
+                   -moz-transition: filter 0.4s ease-out;
+                     -o-transition: filter 0.4s ease-out;
+                        transition: filter 0.4s ease-out; 
+            }

@@ -1,0 +1,24 @@
+
+        /* Filter - hefe */
+        /* ------------------------------- */
+
+            .hasFilter-hefe            , 
+            .hasFilter-hvr-hefe:hover  {
+                -webkit-filter: sepia(.4) contrast(1.5) brightness(1.2) saturate(1.4) hue-rotate(-10deg);
+                        filter: sepia(.4) contrast(1.5) brightness(1.2) saturate(1.4) hue-rotate(-10deg);
+
+                -webkit-transition: filter 0.4s ease-out;
+                   -moz-transition: filter 0.4s ease-out;
+                     -o-transition: filter 0.4s ease-out;
+                        transition: filter 0.4s ease-out; 
+            }
+
+            .hasFilter-hefe::before            , 
+            .hasFilter-hvr-hefe:hover::before  {
+                content: '';
+                position: absolute; z-index: 2;
+                top: 0; left: 0; right: 0; bottom: 0;
+                
+                background: radial-gradient(circle closest-corner, transparent 0, rgba(0, 0, 0, .25) 100%);
+                mix-blend-mode: multiply;
+            }

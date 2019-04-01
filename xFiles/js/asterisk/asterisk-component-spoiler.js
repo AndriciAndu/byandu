@@ -149,7 +149,7 @@
 							}
 						});
 
-						// remove Eon-element Parameters from Elements that are no longer in the DOM
+						// remove on-element Parameters from Elements that are no longer in the DOM
 						asterisk.components.spoiler.storedParameters.itemsWithParams = asterisk.components.spoiler.storedParameters.itemsWithParams.filter(function(item){
 
 							if ((item !== document) && (!document.contains(item)) ) {

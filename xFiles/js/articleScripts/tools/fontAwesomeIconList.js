@@ -1,7 +1,7 @@
 
 	(function(){
 
-		var icons = [
+		asterisk.route.currentPage.objects.icons = [
 			{ n : 'fa-500px' , c : '\\f26e' },
 			{ n : 'fa-address-book' , c : '\\f2b9' },
 			{ n : 'fa-address-book-o' , c : '\\f2ba' },
@@ -790,100 +790,154 @@
 			{ n : 'fa-youtube-square' , c : '\\f166' },
 		];
 
-		var resultsContainer = document.getElementsByClassName('faSearch-resultsContainer')[0];
-		var itemsToGenerate = [];
-		var noResultsDiv = document.getElementById('noResults');
+		asterisk.route.currentPage.objects.itemsToGenerate = [];
 
-		function generateItem(item) {
+		// generateItem() 
+		// --------------------------------
+			// -- generate each individual Element's HTML markup
+			// -- used within loadNextItems()
 
-			var newItem = document.createElement('div');
-			newItem.classList = 'fa-itemContainer';
-			newItem.setAttribute('data-itemClass', item.n);
-			newItem.innerHTML = 
-				'<div class="col-2 sm-col-3 py-sm px-0"> '												+
-					'<div class="col-4 xs-hidden 	text-center 			fa '+item.n+'"> </div> '	+
-					'<div class="col-4 xs-hidden 	text-center xfa-text-md fa '+item.n+'"> </div> '	+
-					'<div class="col-4 				text-center xfa-text-lg fa '+item.n+'"> </div> '	+
-				'</div> '																				+
-				'<div class="col-7 sm-col-6"> <div class="fa-itemContainer-classDiv">'+item.n+'</div> </div> '	+
-				'<div class="col-3 sm-col-3"> <div class="fa-itemContainer-valueDiv">'+item.c+'</div> </div> '	;
-			resultsContainer.appendChild(newItem);
-		};
-
-		function loadNextItems() {
-
-			var loadingBottom = document.getElementById('loading-bottom');
-
-			loadingBottom.classList.remove('hidden');
-			var itemsToGenerate_current;
-
-			if (itemsToGenerate.length > 50) {
-				itemsToGenerate_current = itemsToGenerate.slice(0, 49);
-				itemsToGenerate = itemsToGenerate.slice(50);
-			} else {
-				itemsToGenerate_current = itemsToGenerate;
-				itemsToGenerate = [];
-				loadingBottom.classList.add('hidden');
-			};
-				
-			itemsToGenerate_current.map(item => generateItem(item));
-		};
-
-		function checkIconListScroll() {
-
-			if (document.documentElement.scrollTop + document.documentElement.offsetHeight > document.documentElement.scrollHeight - 20) {
-				loadNextItems()
+			asterisk.route.currentPage.functions.generateItem = function(item) {
+				var newItem = document.createElement('div');
+				newItem.classList = 'fa-itemContainer';
+				newItem.setAttribute('data-itemClass', item.n);
+				newItem.innerHTML = 
+					'<div class="col-2 sm-col-3 py-sm px-0"> '												+
+						'<div class="col-4 xs-hidden 	text-center 			fa '+item.n+'"> </div> '	+
+						'<div class="col-4 xs-hidden 	text-center xfa-text-md fa '+item.n+'"> </div> '	+
+						'<div class="col-4 				text-center xfa-text-lg fa '+item.n+'"> </div> '	+
+					'</div> '																				+
+					'<div class="col-7 sm-col-6"> <div class="fa-itemContainer-classDiv">'+item.n+'</div> </div> '	+
+					'<div class="col-3 sm-col-3"> <div class="fa-itemContainer-valueDiv">'+item.c+'</div> </div> '	;
+					
+				return newItem;
 			};
 
-			if ((itemsToGenerate.length > 0) && 
-				(window.location.href.toLowerCase().indexOf('fontAwesomeIconList.html'.toLowerCase()) > -1) ) { 
+		// loadNextItems() 
+		// --------------------------------
+			// -- generate the next series of search results 
+			// -- used within checkIconListScrolls() -- if over 50 remaining, will run when user scrolls to the bottom of page
 
-					setTimeout(checkIconListScroll , 500) 
+			asterisk.route.currentPage.functions.loadNextItems = function() {
 
+				var loadingBottom = document.getElementById('loading-bottom');
+
+				var newDocFragment = document.createDocumentFragment();
+
+				loadingBottom.classList.remove('hidden');
+				var itemsToGenerate = asterisk.route.currentPage.objects.itemsToGenerate;
+				var itemsToGenerate_current;
+
+				if (itemsToGenerate.length > 50) {
+					itemsToGenerate_current = itemsToGenerate.slice(0, 49);
+					itemsToGenerate = itemsToGenerate.slice(50);
+				} else {
+					itemsToGenerate_current = itemsToGenerate;
+					itemsToGenerate = [];
+					loadingBottom.classList.add('hidden');
+				};
+					
+				itemsToGenerate_current.map(function(item) {
+					newDocFragment.appendChild( asterisk.route.currentPage.functions.generateItem(item) )
+				});
+
+				document.getElementById('faSearch--resultsContainer').appendChild(newDocFragment);
 			};
-		};
 
-		function runOnInput(current_input) {
-			resultsContainer.classList.add('faSpinner', 'faSpinner-fast');
-			resultsContainer.innerHTML = ''; 
+		// checkIconListScroll() 
+		// --------------------------------
+			// -- checks if the user has scrolled to the bottom of the page 
+			// -- if (scrolledToBottom && itemsToLoad) >> loadNextItems()
 
-			itemsToGenerate = icons.filter(item => item.n.indexOf(current_input) > -1);
+			asterisk.route.currentPage.functions.checkIconListScroll = function() {
 
-			if (itemsToGenerate.length > 0) { 
-				loadNextItems();
-				checkIconListScroll();
-				noResultsDiv.classList.add('hidden');
-			} else { 
-				noResultsDiv.classList.remove('hidden') 
+				if (document.documentElement.scrollTop + document.documentElement.offsetHeight > document.documentElement.scrollHeight - 20) {
+					asterisk.route.currentPage.functions.loadNextItems()
+				};
+
+				if (
+					(asterisk.route.currentPage.objects.itemsToGenerate.length > 0) && 
+					(window.location.href.toLowerCase().indexOf('fontAwesomeIconList.html'.toLowerCase()) > -1) 
+				) { 
+						setTimeout(function(){
+							var checkIconListScroll = asterisk.route.currentPage.functions.checkIconListScroll;
+							if (checkIconListScroll) { checkIconListScroll() }
+						} , 500) 
+				};
 			};
 
-			window.scrollTo(0,0);
+		// runOnInput() 
+		// --------------------------------
+			// -- used within eventHandlers.byandu_faIconList__onInput()
 
-			setTimeout(function(){ resultsContainer.classList.remove('faSpinner', 'faSpinner-fast') }, 33);
-		}
+			asterisk.route.currentPage.functions.runOnInput = function(current_input) {
 
-		document.getElementsByClassName('faSearch')[0].addEventListener('input', function(){
+				var resultsContainer = document.getElementById('faSearch--resultsContainer');
+				resultsContainer.classList.add('faSpinner', 'faSpinner-fast');
+				resultsContainer.innerHTML = ''; 
 
-			var current_input = this.value.toLowerCase();
-			if (current_input == '') { current_input = 'a' };
+				asterisk.route.currentPage.objects.itemsToGenerate = asterisk.route.currentPage.objects.icons.filter(item => item.n.indexOf(current_input) > -1);
 
-			runOnInput(current_input);
-		});
+				if (asterisk.route.currentPage.objects.itemsToGenerate.length > 0) { 
+					asterisk.route.currentPage.functions.loadNextItems();
+					asterisk.route.currentPage.functions.checkIconListScroll();
+					document.getElementById('noResults').classList.add('hidden');
+				} else { 
+					document.getElementById('noResults').classList.remove('hidden') 
+				};
 
-		document.getElementsByClassName('faSearch-resultsContainer')[0].addEventListener('click', function(e){
+				window.scrollTo(0,0);
 
-			var current_target = e.target;
+				setTimeout(function(){ 
+					document.getElementById('faSearch--resultsContainer').classList.remove('faSpinner', 'faSpinner-fast') 
+				}, 33);
+			};
 
-			if (hasClass(current_target, 'fa-itemContainer-classDiv') 
-			||  hasClass(current_target, 'fa-itemContainer-valueDiv')) {
+		// eventHandlers
+		// --------------------------------
 
-				copyText(current_target);
-				current_target.classList.add('text-copied');
-				setTimeout(function(){ current_target.classList.remove('text-copied')}, 800)
+			// runOnInput() 
+			// --------------------------------
 
-			}
-		});
+				asterisk.route.currentPage.eventHandlers.byandu_faIconList__onInput = function(e) {
+					var current_input = e.target.value.toLowerCase();
+					if (current_input == '') { current_input = 'a' };
 
-		runOnInput('a');
+					asterisk.route.currentPage.functions.runOnInput(current_input);
+				};
+
+				asterisk.route.currentPage.addEvent(
+					document.getElementById('faSearch--input') , 
+					'input' , 
+					asterisk.route.currentPage.eventHandlers.byandu_faIconList__onInput
+				);
+
+			// byandu_faIconList__resultClick() 
+			// --------------------------------
+
+				asterisk.route.currentPage.eventHandlers.byandu_faIconList__resultClick = function(e) {
+
+					var current_target = e.target;
+
+					if (hasClass(current_target, 'fa-itemContainer-classDiv') 
+					||  hasClass(current_target, 'fa-itemContainer-valueDiv')) {
+
+						copyText(current_target);
+						current_target.classList.add('text-copied');
+						setTimeout(function(){ current_target.classList.remove('text-copied')}, 800)
+
+					}
+				};
+
+				asterisk.route.currentPage.addEvent(
+					document.getElementById('faSearch--resultsContainer') , 
+					'click' , 
+					asterisk.route.currentPage.eventHandlers.byandu_faIconList__resultClick
+				);
+
+		// run initial check to populate the list 
+		// --------------------------------
+
+			asterisk.route.currentPage.functions.runOnInput('a');
 
 	})();

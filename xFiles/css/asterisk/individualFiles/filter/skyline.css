@@ -1,0 +1,14 @@
+
+        /* Filter - skyline */
+        /* ------------------------------- */
+
+            .hasFilter-skyline            , 
+            .hasFilter-hvr-skyline:hover  {
+                -webkit-filter: sepia(.15) contrast(1.25) brightness(1.25) saturate(1.2);
+                        filter: sepia(.15) contrast(1.25) brightness(1.25) saturate(1.2);
+
+                -webkit-transition: filter 0.4s ease-out;
+                   -moz-transition: filter 0.4s ease-out;
+                     -o-transition: filter 0.4s ease-out;
+                        transition: filter 0.4s ease-out; 
+            }

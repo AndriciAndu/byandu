@@ -353,15 +353,17 @@
 		};
 		generateItems(colorsMainObj);
 
-		article_addEvent(targetParent , 'click' , colorItem_copyValue);
+		asterisk.route.currentPage.eventHandlers.colorItem_copyValue = function(e) {
 
-		function colorItem_copyValue(e) {
 			var target = e.target;
+			
 			if (hasClass(target, 'colorItem-clickTarget')) {
 				target.classList.add('colorItem-clickTarget-active');
 				copyText(target);
 				setTimeout(function(){target.classList.remove('colorItem-clickTarget-active')}, 1000)
 			}
 		};
+
+		asterisk.route.currentPage.addEvent(targetParent , 'click' , asterisk.route.currentPage.eventHandlers.colorItem_copyValue);
 
 	})();

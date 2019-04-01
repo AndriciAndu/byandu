@@ -1,0 +1,699 @@
+	
+	/* colors */
+	/* -------------------------------------------- */
+
+		/* icon */
+		/* -------------------------------------------- */
+
+			.field__icon ,
+			.field__checkbox {
+				color: #8e8e8e;
+			}
+			.field__icon.field__icon--bgColor {
+				background-color: #8e8e8e;
+			}
+			.field__icon.field__icon--bgColor i {
+				color: white;
+			}
+
+		/* --focus--glow */
+		/* -------------------------------------------- */
+
+			.field--focus--glow:focus::before ,
+			.field--focus--glow:focus-within::before {
+				border-color: #354758;
+				border-width: 2px;
+			}
+
+		/* --focus--underline */
+		/* -------------------------------------------- */
+
+			.field--focus--underline.field--border--btm::after {
+				border-bottom: 2px solid #354758;
+			}
+
+		/* --focus--iconGlow */
+		/* -------------------------------------------- */
+
+			.field--focus--iconGlow:focus .field__icon ,
+			.field--focus--iconGlow:focus-within .field__icon {
+				color: #354758;
+			}
+			.field--focus--iconGlow:focus .field__icon--bgColor ,
+			.field--focus--iconGlow:focus-within .field__icon--bgColor {
+				background-color: #354758;
+			}
+			
+		/* field__validation && field__checkbox (checked) */
+		/* -------------------------------------------- */
+			.field__validation::before ,
+			.field--toggle input:checked ~ .field__checkbox { 
+				color: #4caf50; 
+			}
+			.field__validation::after  { 
+				color: #f44336; 
+			}
+
+		
+			
+			.field--toggle[class^="field__background"]  input:checked ~ .field__text , 
+			.field--toggle[class*=" field__background"] input:checked ~ .field__text ,
+			.field--toggle[class^="field__background"]  input:checked ~ .field__checkbox , 
+			.field--toggle[class*=" field__background"] input:checked ~ .field__checkbox {
+				border-color: white;
+				color: white;
+			}
+			
+			.field__background ,
+			.field__background--radial--in       .field__background::after ,
+			.field__background--shutter--in--hor .field__background::after ,
+			.field__background--shutter--in--ver .field__background::after {
+				background-color: white;
+			}
+			.field__background:after ,
+			.field__background--radial--in       .field__background ,
+			.field__background--shutter--in--hor .field__background ,
+			.field__background--shutter--in--ver .field__background {
+			    background-color: #2098D1;
+			}
+			
+	/* Field (Wrapper) */
+	/* -------------------------------------------- */
+
+		/* General */
+		/* -------------------------------------------- */
+
+			.field--text {
+				position: relative;
+				float: left;
+				
+				width: 100%; height: 2em;
+				line-height: 2em;
+				font-size: 14px;
+				
+				display: flex;
+				align-items: stretch;
+			}
+
+		/* border */
+		/* -------------------------------------------- */
+			.field--text::before {
+				content: '';
+				position: absolute;
+				top: 0; left: 0;
+				width: 100%; height: 100%;
+
+				border: 1px solid rgba(3,3,3,.3);
+				border-radius: inherit;
+				z-index: -1;
+			}
+			
+			.field--border--rounded { border-radius:  6px; }
+			.field--border--round   { border-radius: 30px; }
+			.field--border--none:before    { border: none !important; }
+
+	/* input */
+	/* -------------------------------------------- */
+
+		.field--text input {
+			float: left;
+			min-width: 0;
+			flex: 1 1 auto;
+			
+			padding-left:  .5em;
+			padding-right: .5em;
+
+			background-color: rgba(0,0,0,0);
+			border: none;
+		}
+			
+		/* input padding */
+		/* -------------------------------------------- */
+
+			/* without icon */
+			.field--text input {
+				padding-left: .5em;
+			}
+			/* with icon */
+			.field__icon:not(.field__icon--bgColor) + input {
+				padding-left: 0;
+			}
+			/* border--btm with/without icon */
+			.field--border--btm input {
+				padding-left: 0;
+			}
+			/* border--btm with icon--bgColor */
+			.field--border--btm .field__icon--bgColor + input {
+				padding-left: .5em;
+			}
+			
+			/* with validation */
+			.field--text:not(.field--validation--hidden) input:required {
+				padding-right: 0;
+			}
+
+		.field--text input:invalid {
+			box-shadow: none;
+		}
+
+	/* field icon */
+	/* -------------------------------------------- */
+
+		.field__icon {
+			position: relative;
+			flex: 0 0 2em;
+			
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+	/* field validation */
+	/* -------------------------------------------- */
+
+		.field__validation {
+			position: relative;
+			display: none;
+			flex: 0 0 2em;
+		}
+		.field__validation::before,
+		.field__validation::after {
+			content: '';
+			font-family: FontAwesome;
+
+			position: absolute;
+			top: 0; left: 50%;
+			
+		    -webkit-transform: translate(-50%, 0) scale(1);
+		        -ms-transform: translate(-50%, 0) scale(1);
+		            transform: translate(-50%, 0) scale(1);
+
+		    -webkit-transition: transform .3s cubic-bezier(.75,-0.32,.32,1.5);
+		       -moz-transition: transform .3s cubic-bezier(.75,-0.32,.32,1.5);
+		         -o-transition: transform .3s cubic-bezier(.75,-0.32,.32,1.5);
+		            transition: transform .3s cubic-bezier(.75,-0.32,.32,1.5);
+		}
+		.field__validation::before { content: '\f00c'; } /* valid */
+		.field__validation::after  { content: '\f06a'; } /* invalid */
+
+		input:required + .field__validation {
+			display: inline-block;
+		}
+
+		/* show valid */
+		input:required:valid   + .field__validation::before , 
+		input:required:invalid + .field__validation::after  { 
+		    -webkit-transform: translate(-50%, 0) scale(1);
+		        -ms-transform: translate(-50%, 0) scale(1);
+		            transform: translate(-50%, 0) scale(1);
+		}
+		input:required:valid   + .field__validation::after  ,
+		input:required:invalid + .field__validation::before { 
+		    -webkit-transform: translate(-50%, 0) scale(0);
+		        -ms-transform: translate(-50%, 0) scale(0);
+		            transform: translate(-50%, 0) scale(0);
+		}
+
+	/* float text -- unfinished */
+	/* -------------------------------------------- */
+
+		.field__floatText {
+			position: absolute;
+			top: 0; left: 0;
+			
+		    -webkit-transition: transform .2s ease-out;
+		       -moz-transition: transform .2s ease-out;
+		         -o-transition: transform .2s ease-out;
+		            transition: transform .2s ease-out;
+					
+		    -webkit-transform-origin: 0% 50%;
+		        -ms-transform-origin: 0% 50%;
+		            transform-origin: 0% 50%;
+		}
+		
+		.field__icon ~ .field__floatText {
+			left: 2em;
+		}
+		.field__icon--bgColor ~ .field__floatText {
+			left: 2.5em;
+		}
+		
+		.field--text:focus .field__floatText ,
+		.field--text:focus-within .field__floatText {
+		    -webkit-transform: translateY(-100%) scale(.8);
+		        -ms-transform: translateY(-100%) scale(.8);
+		            transform: translateY(-100%) scale(.8);
+		}
+
+	/* bottom-border only Style */
+	/* -------------------------------------------- */
+
+		.field--border--btm::before {
+			border: none;
+			border-bottom: 1px solid rgba(3,3,3,.3);
+		}
+
+	/* underline effect */
+	/* -------------------------------------------- */
+
+		.field--border--btm.field--focus--underline::after {
+			content: '';
+			position: absolute;
+			left: 50%; bottom: 0;
+			width: 100%;
+			z-index: -1;
+
+		    -webkit-transform: translateX(-50%) scaleX(0);
+		        -ms-transform: translateX(-50%) scaleX(0);
+		            transform: translateX(-50%) scaleX(0);
+
+			-webkit-transition: transform 0.3s ease-out;
+			   -moz-transition: transform 0.3s ease-out;
+				 -o-transition: transform 0.3s ease-out;
+					transition: transform 0.3s ease-out;
+		}
+		.field--border--btm.field--focus--underline:focus::after ,
+		.field--border--btm.field--focus--underline:focus-within::after {
+			transform: translateX(-50%) scaleX(1);
+		}
+
+	/* glow effect */
+	/* -------------------------------------------- */
+
+		.field--focus--glow::before {
+	    -webkit-transition: border-color .3s ease-out;
+	       -moz-transition: border-color .3s ease-out;
+	         -o-transition: border-color .3s ease-out;
+	            transition: border-color .3s ease-out;
+		}
+
+	/* icon-glow effect */
+	/* -------------------------------------------- */
+
+		.field--focus--iconGlow .field__icon {
+	    -webkit-transition: color .3s ease-out;
+	       -moz-transition: color .3s ease-out;
+	         -o-transition: color .3s ease-out;
+	            transition: color .3s ease-out;
+		}
+
+		.field--focus--iconGlow .field__icon--bgColor {
+	    -webkit-transition: background-color .3s ease-out;
+	       -moz-transition: background-color .3s ease-out;
+	         -o-transition: background-color .3s ease-out;
+	            transition: background-color .3s ease-out;
+		}
+
+
+
+
+
+
+
+	/* field--toggle */
+	/* -------------------------------------------- */
+
+		.field--toggle {
+			position: relative;
+			float: left;
+			width: 100%;
+			
+			display: flex;
+			align-items: center;
+			
+			overflow: hidden;
+			
+			padding: .25em .5em;
+			cursor: pointer; cursor: hand;
+		}
+
+		/* border */
+		/* -------------------------------------------- */
+		
+			.field--toggle::before {
+				content: '';
+				position: absolute;
+				top: 0; left: 0;
+				width: 100%; height: 100%;
+
+				border: 1px solid rgba(3,3,3,.3);
+				border-radius: inherit;
+			}
+
+		/* hide actual checkbox/radio */
+		/* -------------------------------------------- */
+		
+			.field--toggle input {
+				position: absolute;
+				opacity: 0;
+			}
+		
+	/* field__checkbox */
+	/* -------------------------------------------- */
+	
+		.field__checkbox {
+			float: left;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			width: 1em; height: 1em;
+			margin-right: .5em;
+			flex: 0 0 1em;
+
+			box-shadow: inset 0 0 0 2px currentColor;
+		}
+		
+		/* [:checked] - style */
+		/* -------------------------------------------- */
+		
+			.field__checkbox::before {
+				content: '';
+				font-family: FontAwesome;
+				width: .75em; height: .75em;
+				font-size: .75em;
+				
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				
+				border-radius: inherit;
+				background-color: currentColor;
+				
+			    -webkit-transform: scale(0);
+			        -ms-transform: scale(0);
+			            transform: scale(0);
+				
+			    -webkit-transition: transform .2s ease-out;
+			       -moz-transition: transform .2s ease-out;
+			         -o-transition: transform .2s ease-out;
+			            transition: transform .2s ease-out;
+			}
+		
+		/* [:checked] with icon - style */
+		/* -------------------------------------------- */
+		
+			.field__checkbox--checkIcon::before {
+				content: '\f00c';
+				width: 100%; height: 100%;
+				background-color: rgba(0,0,0,0);
+			}
+			
+		/* [:checked] - transition */
+		/* -------------------------------------------- */
+		
+			.field--toggle input:checked ~ .field__checkbox::before {
+			    -webkit-transform: scale(1);
+			        -ms-transform: scale(1);
+			            transform: scale(1);
+			}
+			
+		/* ripple effect */
+		/* -------------------------------------------- */
+		
+			.field--ripple .field__checkbox::after {
+				content: '';
+				position: absolute;
+
+				width: 1.5em; height: 1.5em;
+				border-radius: 50%;
+				background-color: rgba(3,3,3,.3);
+
+			    -webkit-transform: scale(0);
+			        -ms-transform: scale(0);
+			            transform: scale(0);
+				opacity: 1;
+			}
+			.field--ripple input:checked ~ .field__checkbox::after {
+				animation: field__checkbox--bgRippleEffect .3s;
+			}
+
+			@keyframes field__checkbox--bgRippleEffect {
+				100% {
+				    -webkit-transform: scale(2.5); opacity: 0;
+				        -ms-transform: scale(2.5); opacity: 0;
+				            transform: scale(2.5); opacity: 0;
+					}
+			}
+			
+			.field__text {
+				-webkit-touch-callout: none;
+				  -webkit-user-select: none;
+				     -moz-user-select: none;
+				      -ms-user-select: none;
+				          user-select: none;
+			}
+			
+		/* background effects */
+		/* -------------------------------------------- */
+			
+			.field--toggle[class^="field__background"]  .field__text ,
+			.field--toggle[class*=" field__background"] .field__text ,
+			.field--toggle[class^="field__background"]  .field__checkbox , 
+			.field--toggle[class*=" field__background"] .field__checkbox {
+				transition: color .5s, border-color .5s;
+			}
+	
+			.field__background {
+				position: absolute;
+				top: 0; left: 0;
+				width: 100%; height: 100%;
+				z-index: -1;
+
+				display: none;
+				
+				overflow: hidden;
+				
+				-webkit-transform: perspective(1px);
+					-ms-transform: perspective(1px);
+						transform: perspective(1px);
+			}
+			
+			.field__background::after {
+			    content: "";
+			    position: absolute; z-index: -1;
+			    top: 50%; left: 50%;
+				width: 101%; height: 101%;
+
+			    -webkit-transition: transform .3s ease-out;
+			       -moz-transition: transform .3s ease-out;
+			         -o-transition: transform .3s ease-out;
+			            transition: transform .3s ease-out;
+			}
+
+			.field--toggle[class^="field__background"]  .field__background ,
+			.field--toggle[class*=" field__background"] .field__background {
+				display: inline-block;
+			}
+			
+			/* Radial */
+			/* -------------------------------------------- */
+			
+				.field__background--radial--out .field__background::after ,
+				.field__background--radial--in  .field__background::after {
+					height: auto;
+				    border-radius: 50%;
+					padding-bottom: 100%;
+				}
+			
+			/* Radial Out  */
+			/* -------------------------------------------- */
+			
+				.field__background--radial--out                 .field__background::after ,
+				.field__background--radial--in  input:checked ~ .field__background::after {
+				    -webkit-transform: translate(-50%, -50%) scale(0);
+				        -ms-transform: translate(-50%, -50%) scale(0);
+				            transform: translate(-50%, -50%) scale(0);
+				}
+				.field__background--radial--in                  .field__background::after ,
+				.field__background--radial--out input:checked ~ .field__background::after {
+				    -webkit-transform: translate(-50%, -50%) scale(1.2);
+				        -ms-transform: translate(-50%, -50%) scale(1.2);
+				            transform: translate(-50%, -50%) scale(1.2);
+				}
+			
+			/* Sweep Left */
+			/* -------------------------------------------- */
+			
+				.field__background--sweep--left                  .field__background::after {
+				    -webkit-transform: translate(-50%, -50%) scaleX(0);
+				        -ms-transform: translate(-50%, -50%) scaleX(0);
+				            transform: translate(-50%, -50%) scaleX(0);
+	                -webkit-transform-origin: 0 50%;
+	                    -ms-transform-origin: 0 50%;
+	                        transform-origin: 0 50%;
+				}
+				.field__background--sweep--left input:checked ~ .field__background::after {
+	                -webkit-transform: translate(-50%, -50%) scaleX(1);
+	                    -ms-transform: translate(-50%, -50%) scaleX(1);
+	                        transform: translate(-50%, -50%) scaleX(1);
+				}
+			
+			/* Sweep Right */
+			/* -------------------------------------------- */
+			
+				.field__background--sweep--right                 .field__background::after {
+				    -webkit-transform: translate(-50%, -50%) scaleX(0);
+				        -ms-transform: translate(-50%, -50%) scaleX(0);
+				            transform: translate(-50%, -50%) scaleX(0);
+	                -webkit-transform-origin: 100% 50%;
+	                    -ms-transform-origin: 100% 50%;
+	                        transform-origin: 100% 50%;
+				}
+				.field__background--sweep--right input:checked ~ .field__background::after {
+	                -webkit-transform: translate(-50%, -50%) scaleX(1);
+	                    -ms-transform: translate(-50%, -50%) scaleX(1);
+	                        transform: translate(-50%, -50%) scaleX(1);
+				}
+			
+			/* Sweep Top */
+			/* -------------------------------------------- */
+			
+				.field__background--sweep--top                 .field__background::after {
+				    -webkit-transform: translate(-50%, -50%) scaleY(0);
+				        -ms-transform: translate(-50%, -50%) scaleY(0);
+				            transform: translate(-50%, -50%) scaleY(0);
+	                -webkit-transform-origin: 50% 0;
+	                    -ms-transform-origin: 50% 0;
+	                        transform-origin: 50% 0;
+				}
+				.field__background--sweep--top input:checked ~ .field__background::after {
+	                -webkit-transform: translate(-50%, -50%) scaleY(1);
+	                    -ms-transform: translate(-50%, -50%) scaleY(1);
+	                        transform: translate(-50%, -50%) scaleY(1);
+				}
+			
+			/* Sweep Btm */
+			/* -------------------------------------------- */
+			
+				.field__background--sweep--btm                  .field__background::after {
+				    -webkit-transform: translate(-50%, -50%) scaleY(0);
+				        -ms-transform: translate(-50%, -50%) scaleY(0);
+				            transform: translate(-50%, -50%) scaleY(0);
+	                -webkit-transform-origin: 50% 100%;
+	                    -ms-transform-origin: 50% 100%;
+	                        transform-origin: 50% 100%;
+				}
+				.field__background--sweep--btm input:checked ~ .field__background::after {
+	                -webkit-transform: translate(-50%, -50%) scaleY(1);
+	                    -ms-transform: translate(-50%, -50%) scaleY(1);
+	                        transform: translate(-50%, -50%) scaleY(1);
+				}
+				
+			/* Bounce */
+			/* -------------------------------------------- */
+			
+				.field__background--bounce--left  input:checked ~ .field__background::after ,
+				.field__background--bounce--right input:checked ~ .field__background::after ,
+				.field__background--bounce--top   input:checked ~ .field__background::after ,
+				.field__background--bounce--btm   input:checked ~ .field__background::after {
+					-webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+                       -moz-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+                         -o-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+                            transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+				}
+				
+			/* Bounce Left */
+			/* -------------------------------------------- */
+			
+				.field__background--bounce--left                  .field__background::after {
+				    -webkit-transform: translate(-50%, -50%) scaleX(0);
+				        -ms-transform: translate(-50%, -50%) scaleX(0);
+				            transform: translate(-50%, -50%) scaleX(0);
+	                -webkit-transform-origin: 0 50%;
+	                    -ms-transform-origin: 0 50%;
+	                        transform-origin: 0 50%;
+				}
+				.field__background--bounce--left input:checked ~ .field__background::after {
+	                -webkit-transform: translate(-50%, -50%) scaleX(1);
+	                    -ms-transform: translate(-50%, -50%) scaleX(1);
+	                        transform: translate(-50%, -50%) scaleX(1);
+				}
+				
+			/* bounce Right */
+			/* -------------------------------------------- */
+			
+				.field__background--bounce--right                 .field__background::after {
+				    -webkit-transform: translate(-50%, -50%) scaleX(0);
+				        -ms-transform: translate(-50%, -50%) scaleX(0);
+				            transform: translate(-50%, -50%) scaleX(0);
+	                -webkit-transform-origin: 100% 50%;
+	                    -ms-transform-origin: 100% 50%;
+	                        transform-origin: 100% 50%;
+				}
+				.field__background--bounce--right input:checked ~ .field__background::after {
+	                -webkit-transform: translate(-50%, -50%) scaleX(1);
+	                    -ms-transform: translate(-50%, -50%) scaleX(1);
+	                        transform: translate(-50%, -50%) scaleX(1);
+				}
+			
+			/* bounce Top */
+			/* -------------------------------------------- */
+			
+				.field__background--bounce--top                 .field__background::after {
+				    -webkit-transform: translate(-50%, -50%) scaleY(0);
+				        -ms-transform: translate(-50%, -50%) scaleY(0);
+				            transform: translate(-50%, -50%) scaleY(0);
+	                -webkit-transform-origin: 50% 0;
+	                    -ms-transform-origin: 50% 0;
+	                        transform-origin: 50% 0;
+				}
+				.field__background--bounce--top input:checked ~ .field__background::after {
+	                -webkit-transform: translate(-50%, -50%) scaleY(1);
+	                    -ms-transform: translate(-50%, -50%) scaleY(1);
+	                        transform: translate(-50%, -50%) scaleY(1);
+				}
+			
+			/* bounce Btm */
+			/* -------------------------------------------- */
+			
+				.field__background--bounce--btm                 .field__background::after {
+				    -webkit-transform: translate(-50%, -50%) scaleY(0);
+				        -ms-transform: translate(-50%, -50%) scaleY(0);
+				            transform: translate(-50%, -50%) scaleY(0);
+	                -webkit-transform-origin: 50% 100%;
+	                    -ms-transform-origin: 50% 100%;
+	                        transform-origin: 50% 100%;
+				}
+				.field__background--bounce--btm input:checked ~ .field__background::after {
+	                -webkit-transform: translate(-50%, -50%) scaleY(1);
+	                    -ms-transform: translate(-50%, -50%) scaleY(1);
+	                        transform: translate(-50%, -50%) scaleY(1);
+				}
+				
+			/* shutter out */
+			/* -------------------------------------------- */
+				
+				.field__background--shutter--out--hor .field__background::after ,
+				.field__background--shutter--in--hor  .field__background::after ,
+				.field__background--shutter--out--ver .field__background::after ,
+				.field__background--shutter--in--ver  .field__background::after {
+				    -webkit-transform-origin: 50%;
+                        -ms-transform-origin: 50%;
+                            transform-origin: 50%;
+				}
+				
+				.field__background--shutter--out--hor                .field__background::after ,
+				.field__background--shutter--in--hor input:checked ~ .field__background::after {
+					-webkit-transform: translate(-50%, -50%) scaleX(0);
+                        -ms-transform: translate(-50%, -50%) scaleX(0);
+                            transform: translate(-50%, -50%) scaleX(0);
+				}
+				.field__background--shutter--in--hor                  .field__background::after ,
+				.field__background--shutter--out--hor input:checked ~ .field__background::after {
+					-webkit-transform: translate(-50%, -50%) scaleX(1);
+                        -ms-transform: translate(-50%, -50%) scaleX(1);
+                            transform: translate(-50%, -50%) scaleX(1);
+				}
+				.field__background--shutter--out--ver                .field__background::after ,
+				.field__background--shutter--in--ver input:checked ~ .field__background::after {
+					-webkit-transform: translate(-50%, -50%) scaleY(0);
+                        -ms-transform: translate(-50%, -50%) scaleY(0);
+                            transform: translate(-50%, -50%) scaleY(0);
+				}
+				.field__background--shutter--in--ver                  .field__background::after ,
+				.field__background--shutter--out--ver input:checked ~ .field__background::after {
+					-webkit-transform: translate(-50%, -50%) scaleY(1);
+                        -ms-transform: translate(-50%, -50%) scaleY(1);
+                            transform: translate(-50%, -50%) scaleY(1);
+				}

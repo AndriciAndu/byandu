@@ -12,7 +12,7 @@
 		var localFile_rootPage = 'index.html';
 		var localFile_rootPath = 'file:///d:/webfiles/testbuild' ;
 
-	// oute.info Object 
+	// route.info Object 
 	// --------------------------------------------------
 
 		asterisk.route.info = {
@@ -31,6 +31,17 @@
 	// --------------------------------------------------
 
 		asterisk.route.paths = [
+
+			// buildTool
+			// --------------------------------------------------
+
+					// { 
+					// 	filePath_html : '/buildTool.html' , 		// html file to be loaded
+					// 	filePath_js   : '/buildTool.js' , 			// js file to execute
+					// 	articleParameters : { 						// items outside the curent article, which need updating
+					// 		category : 'utility'
+					// 	}
+					// } ,
 
 			// Utility
 			// --------------------------------------------------
@@ -137,17 +148,6 @@
 						}
 					} ,
 
-				// extra
-				// --------------------------------------------------
-				
-					{ 
-						filePath_html : '/functionality/extra.html' , 
-						filePath_js   : '/xFiles/js/articleScripts/functionality/extra.js' , 
-						articleParameters : {
-							category : 'functionality'
-						}
-					} ,
-
 				// route
 				// --------------------------------------------------
 				
@@ -234,6 +234,17 @@
 					{ 
 						filePath_html : '/effects/tooltip.html' , 
 						filePath_js   : '/xFiles/js/articleScripts/effects/tooltip.js' , 
+						articleParameters : {
+							category : 'effects'
+						}
+					} ,
+
+				// tooltip
+				// --------------------------------------------------
+				
+					{ 
+						filePath_html : '/effects/ribbon.html' , 
+						filePath_js   : '/xFiles/js/articleScripts/effects/ribbon.js' , 
 						articleParameters : {
 							category : 'effects'
 						}
@@ -466,8 +477,9 @@
 
 			asterisk.route.intermediary = {};
 
-		// separate individual url Parameters
+		// asterisk.route.intermediary.getUrlParameter()
 		// --------------------------------------------------
+		// -- separate individual url Parameters
 
 			asterisk.route.intermediary.getUrlParameter = function(urlParamName__string) {
 				var urlParamName__string = urlParamName__string.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
@@ -476,29 +488,148 @@
 				return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
 			};
 
-		// removeEistingElements
+		// asterisk.route.currentPage
 		// --------------------------------------------------
+			// -- store the [current Page]'s [eventHandlers] and [eventListeners] in order to be able to remove them when a [new Page] is loaded
 
-			asterisk.route.intermediary.removeExistingElements = function(currentView__element) {
+			asterisk.route.currentPage = {
+				eventHandlers  : {} , // store eventHandlers  used in the [current Page]
+				eventListeners : [] , // store eventListeners used in the [current Page]
 
-				var curr_view = currentView__element || document.getElementById('__route__mainView');
-				var trashBin = document.createElement('DIV');
-
-				var elements = Array.from(curr_view.querySelectorAll('*'));
-				elements.map(x => trashBin.appendChild(x));
-				elements.map(function(x) { 
-					trashBin.removeChild(x);
-					x.innerHTML = '';
-					x = null;
-				});
-				trashBin.innerHTML = '';
-
-				for (var key in asterisk.components) {
-					if (asterisk.components.hasOwnProperty(key)) {
-						if (asterisk.components[key].checkDOM) { asterisk.components[key].checkDOM() }
-					}
-				};
+				// optional parameters that can be used as an alternative to storing refferences within Clojures
+				functions      : {} , // store functions      used in the [current Page]
+				objects        : {} , // store objects        used in the [current Page]
 			};
+
+			// asterisk.route.page.addEvent()
+			// --------------------------------------------------
+				// -- saves all eventListeners added to the Elements within the [current Page] 
+				// -- ONLY IF THIS FUNCTION IS USED FOR ADDING SAID EVENT
+
+				asterisk.route.currentPage.addEvent = function( elem , eventType__string , eventHandlerRefference__function ) {
+
+					elem.addEventListener(eventType__string , eventHandlerRefference__function);
+
+					var newObj = {};
+					newObj.eventListener_targetElement = elem;
+					newObj.eventListener_type          = eventType__string;
+					newObj.eventListener_handler       = eventHandlerRefference__function;
+
+					asterisk.route.currentPage.eventListeners.push(newObj);
+				};
+
+			// when unloading a Page (the [current Page]) - before loading a [new Page]
+			// --------------------------------------------------
+
+				// asterisk.route.page.unload()
+				// --------------------------------------------------
+					// -- removes all STORED eventListeners (added with asterisk.route.currentPage.addEvent() ) from their respective Elements
+					// -- removes all Parent/Child refferences and internal text nodes from all Elements
+					// -- removes all STORED functions (added as asterisk.route.currentPage.functions.asdf = function(){} )
+					// -- removes all eventListeners from asterisk components (if any are present)
+
+					asterisk.route.currentPage.unload = function() {
+
+						asterisk.route.currentPage.removeEventListeners();
+						asterisk.route.currentPage.removeEventHandlerFunctions();
+						asterisk.route.currentPage.removeOptionalParameters();
+						asterisk.route.currentPage.removeElements();
+
+						if (asterisk.components) { asterisk.route.currentPage.removeAsteriskComponentsEventListeners() };
+					};
+
+				// asterisk.route.currentPage.removeEventListeners()
+				// --------------------------------------------------
+
+					asterisk.route.currentPage.removeEventListeners = function() {
+
+						asterisk.route.currentPage.eventListeners.map(function(item){
+
+							item.eventListener_targetElement.removeEventListener(item.eventListener_type , item.eventListener_handler);
+
+							item.eventListener_targetElement = undefined;
+							item.eventListener_type          = undefined;
+							item.eventListener_handler       = undefined;
+						});
+
+						asterisk.route.currentPage.eventListeners = [];
+					};
+
+				// asterisk.route.currentPage.removeEventHandlerFunctions()
+				// --------------------------------------------------
+
+					asterisk.route.currentPage.removeEventHandlerFunctions = function() {
+
+						var currentPage_eventHandlers = asterisk.route.currentPage.eventHandlers;
+
+						for (var key in currentPage_eventHandlers) {
+							if (currentPage_eventHandlers.hasOwnProperty(key)) {
+								currentPage_eventHandlers[key] = undefined
+							}
+						};
+
+						asterisk.route.currentPage.eventHandlers = {};
+					};
+
+				// asterisk.route.currentPage.removeOptionalParameters()
+				// --------------------------------------------------
+
+					asterisk.route.currentPage.removeOptionalParameters = function() {
+
+						var currentPage_functions = asterisk.route.currentPage.functions;
+
+						for (var key in currentPage_functions) {
+							if (currentPage_functions.hasOwnProperty(key)) {
+								currentPage_functions[key] = undefined
+							}
+						};
+
+						asterisk.route.currentPage.functions = {};
+
+						////////// For objects/arrays it is required to do a recursion function to remove all keys refferences also - they might be objects also
+						var currentPage_objects = asterisk.route.currentPage.objects;
+
+						for (var key in currentPage_objects) {
+							if (currentPage_objects.hasOwnProperty(key)) {
+								currentPage_objects[key] = undefined
+							}
+						};
+
+						asterisk.route.currentPage.objects = {};
+					};
+
+				// asterisk.route.currentPage.removeElements()
+				// --------------------------------------------------
+					// -- eliminates all Parent/Child refferences from Elements that are no longer in the DOM 
+
+					asterisk.route.currentPage.removeElements = function(currentView__element) {
+
+						var curr_view = currentView__element || document.getElementById('__route__mainView');
+						var elements = Array.from(curr_view.querySelectorAll('*'));
+
+						var trashBin = document.createElement('DIV');
+						elements.map(x => trashBin.appendChild(x));
+						elements.map(function(x) { 
+							trashBin.removeChild(x);
+							x.innerHTML = '';
+							x = undefined;
+						});
+
+						trashBin.innerHTML = '';
+					};
+
+				// asterisk.route.currentPage.removeAsteriskComponentsEventListeners()
+				// --------------------------------------------------
+					// -- asterisk Components have an checkDOM() method attached, which removes the eventListeners on elements that are removed from the DOM
+
+					asterisk.route.currentPage.removeAsteriskComponentsEventListeners = function() {
+						for (var key in asterisk.components) {
+							if (asterisk.components.hasOwnProperty(key)) {
+								var checkDOM = asterisk.components[key].checkDOM;
+								if (checkDOM) { checkDOM() }
+							}
+						}
+					};
 
 		// Loading a new Page
 		// --------------------------------------------------
@@ -513,11 +644,12 @@
 				var loadPage_updateDOM        = asterisk.route.intermediary.loadPage_updateDOM;
 				var loadPage_runDefaultScript = asterisk.route.intermediary.loadPage_runDefaultScript;
 				var loadPage_onEnd            = asterisk.route.intermediary.loadPage_onEnd;
-				var removeExistingElements    = asterisk.route.intermediary.removeExistingElements;
 
 				// add loading spinner
 				loadPage_onBegin();
-				removeExistingElements();
+
+				// unload current Page
+				asterisk.route.currentPage.unload();
 
 				// get template Object
 				var current_routeTemplate = asterisk.route.paths.find(item => item.filePath_html == urlIdentifier__string);
@@ -650,14 +782,14 @@
 
 						} else {
 
-							asterisk.route.loadPage('/utility/gridSystem-12col.html' , 'replace'); // default page if incorrect params
+							asterisk.route.loadPage(asterisk.route.paths[0].filePath_html , 'replace'); // load first page - as default if incorrect params
 
 						};
 					};
 
 				} else {
 
-					asterisk.route.loadPage('/utility/gridSystem-12col.html' , 'replace'); // default page if no params
+					asterisk.route.loadPage(asterisk.route.paths[0].filePath_html , 'replace'); // load first page - as default if no params
 
 				}
 

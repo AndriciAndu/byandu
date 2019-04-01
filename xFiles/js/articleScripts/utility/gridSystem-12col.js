@@ -785,7 +785,7 @@
 				} 
 			};
 
-			byAndu.pageConfigObj_setupObj(JSON.parse(JSON.stringify(paramObj))); 
+			byAndu.pageConfigObj_setupObj(obj_deepClone(paramObj)); paramObj = undefined;
 			byAndu.pageConfigObj_runConfig();
 
 			checkboxes_css = null;

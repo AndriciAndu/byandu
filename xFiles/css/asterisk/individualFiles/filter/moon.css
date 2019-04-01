@@ -1,0 +1,14 @@
+
+        /* Filter - moon */
+        /* ------------------------------- */
+
+            .hasFilter-moon            , 
+            .hasFilter-hvr-moon:hover  {
+                -webkit-filter: brightness(1.4) contrast(.95) saturate(0) sepia(.35);
+                        filter: brightness(1.4) contrast(.95) saturate(0) sepia(.35);
+
+                -webkit-transition: filter 0.4s ease-out;
+                   -moz-transition: filter 0.4s ease-out;
+                     -o-transition: filter 0.4s ease-out;
+                        transition: filter 0.4s ease-out; 
+            }

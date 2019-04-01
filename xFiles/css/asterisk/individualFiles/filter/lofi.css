@@ -1,0 +1,14 @@
+
+        /* Filter - lofi */
+        /* ------------------------------- */
+
+            .hasFilter-lofi            , 
+            .hasFilter-hvr-lofi:hover  {
+                -webkit-filter: saturate(1.1) contrast(1.5);
+                        filter: saturate(1.1) contrast(1.5);
+
+                -webkit-transition: filter 0.4s ease-out;
+                   -moz-transition: filter 0.4s ease-out;
+                     -o-transition: filter 0.4s ease-out;
+                        transition: filter 0.4s ease-out; 
+            }

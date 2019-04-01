@@ -1,0 +1,14 @@
+
+        /* Filter - brannan */
+        /* ------------------------------- */
+
+            .hasFilter-brannan            , 
+            .hasFilter-hvr-brannan:hover  {
+                -webkit-filter: sepia(.4) contrast(1.25) brightness(1.1) saturate(.9) hue-rotate(-2deg);
+                        filter: sepia(.4) contrast(1.25) brightness(1.1) saturate(.9) hue-rotate(-2deg);
+
+                -webkit-transition: filter 0.4s ease-out;
+                   -moz-transition: filter 0.4s ease-out;
+                     -o-transition: filter 0.4s ease-out;
+                        transition: filter 0.4s ease-out; 
+            }

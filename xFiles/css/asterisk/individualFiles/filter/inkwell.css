@@ -1,0 +1,14 @@
+
+        /* Filter - inkwell */
+        /* ------------------------------- */
+
+            .hasFilter-inkwell            , 
+            .hasFilter-hvr-inkwell:hover  {
+                -webkit-filter: brightness(1.25) contrast(.85) grayscale(1);
+                        filter: brightness(1.25) contrast(.85) grayscale(1);
+
+                -webkit-transition: filter 0.4s ease-out;
+                   -moz-transition: filter 0.4s ease-out;
+                     -o-transition: filter 0.4s ease-out;
+                        transition: filter 0.4s ease-out; 
+            }

@@ -1,108 +1,108 @@
 
 	(function(){
 
-		var demoItemsArray = [ 'before-none' , 'after-none' , 'invisible' , 'transparent' , 'unclickable' , 'unselectable' ];
+		var demoItemsArray = [ 'before-hidden' , 'after-hidden' , 'visibility-hidden' , 'opacity-0' , 'pointerEvents-none' , 'userSelect-none' ];
 
 		// Code Blocks
 		// --------------------------------
 
 			var codeBlocks_css = [
 
-				// before-none
+				// before-hidden
 					{
-					name : 'before-none' ,
+					name : 'before-hidden' ,
 					code : 	
-					`    /* elem-before-none */
+					`    /* elem-before-hidden */
 					    /* -------------------------------------------- */
 
-					        .before-none:before { display: none !important; }
+					        .before-hidden::before { display: none !important; }
 
-					        @media (max-width: 575.98px)                            { .xs-before-none:before { display: none !important; } }
-					        @media (min-width: 575.98px) and (max-width: 767.98px)  { .sm-before-none:before { display: none !important; } }
-					        @media (min-width: 767.98px) and (max-width: 991.98px)  { .md-before-none:before { display: none !important; } }
-					        @media (min-width: 991.98px) and (max-width: 1199.98px) { .lg-before-none:before { display: none !important; } }
-					        @media (min-width: 1199.98px)                           { .xl-before-none:before { display: none !important; } }
+					        @media (max-width: 575.98px)                            { .xs-before-hidden::before { display: none !important; } }
+					        @media (min-width: 575.98px) and (max-width: 767.98px)  { .sm-before-hidden::before { display: none !important; } }
+					        @media (min-width: 767.98px) and (max-width: 991.98px)  { .md-before-hidden::before { display: none !important; } }
+					        @media (min-width: 991.98px) and (max-width: 1199.98px) { .lg-before-hidden::before { display: none !important; } }
+					        @media (min-width: 1199.98px)                           { .xl-before-hidden::before { display: none !important; } }
 
 						`
 					},
 
-				// after-none
+				// after-hidden
 						{
-						name : 'after-none' ,
+						name : 'after-hidden' ,
 						code :    
-						`    /* elem-after-none */
+						`    /* elem-after-hidden */
 					    /* -------------------------------------------- */
 
-					        .after-none:after { display: none !important; }
+					        .after-hidden::after { display: none !important; }
 
-					        @media (max-width: 575.98px)                            { .xs-after-none:after { display: none !important; } }
-					        @media (min-width: 575.98px) and (max-width: 767.98px)  { .sm-after-none:after { display: none !important; } }
-					        @media (min-width: 767.98px) and (max-width: 991.98px)  { .md-after-none:after { display: none !important; } }
-					        @media (min-width: 991.98px) and (max-width: 1199.98px) { .lg-after-none:after { display: none !important; } }
-					        @media (min-width: 1199.98px)                           { .xl-after-none:after { display: none !important; } }
+					        @media (max-width: 575.98px)                            { .xs-after-hidden::after { display: none !important; } }
+					        @media (min-width: 575.98px) and (max-width: 767.98px)  { .sm-after-hidden::after { display: none !important; } }
+					        @media (min-width: 767.98px) and (max-width: 991.98px)  { .md-after-hidden::after { display: none !important; } }
+					        @media (min-width: 991.98px) and (max-width: 1199.98px) { .lg-after-hidden::after { display: none !important; } }
+					        @media (min-width: 1199.98px)                           { .xl-after-hidden::after { display: none !important; } }
 
 						`
 						},
 
-				// invisible
+				// visibility-hidden
 					{
-					name : 'invisible' ,
+					name : 'visibility-hidden' ,
 					code : 	
-					`    /* Invisible */
+					`    /* visibility-hidden */
 					    /* -------------------------------------------- */
 
-						        .invisible { visibility: hidden !important; }
+						        .visibility-hidden { visibility: hidden !important; }
 
-						        @media (max-width: 575.98px)                            { .xs-invisible { visibility: hidden !important; } }
-						        @media (min-width: 575.98px) and (max-width: 767.98px)  { .sm-invisible { visibility: hidden !important; } }
-						        @media (min-width: 767.98px) and (max-width: 991.98px)  { .md-invisible { visibility: hidden !important; } }
-						        @media (min-width: 991.98px) and (max-width: 1199.98px) { .lg-invisible { visibility: hidden !important; } }
-						        @media (min-width: 1199.98px)                           { .xl-invisible { visibility: hidden !important; } }
+						        @media (max-width: 575.98px)                            { .xs-visibility-hidden { visibility: hidden !important; } }
+						        @media (min-width: 575.98px) and (max-width: 767.98px)  { .sm-visibility-hidden { visibility: hidden !important; } }
+						        @media (min-width: 767.98px) and (max-width: 991.98px)  { .md-visibility-hidden { visibility: hidden !important; } }
+						        @media (min-width: 991.98px) and (max-width: 1199.98px) { .lg-visibility-hidden { visibility: hidden !important; } }
+						        @media (min-width: 1199.98px)                           { .xl-visibility-hidden { visibility: hidden !important; } }
 						`
 					},
 
-				// transparent
+				// opacity-0
 					{
-					name : 'transparent' ,
+					name : 'opacity-0' ,
 					code : 	
-					`    /* Transparent */
+					`    /* opacity-0 */
 					    /* -------------------------------------------- */
 
-						        .transparent { opacity: 0 !important; pointer-events: none !important; }
+						        .opacity-0 { opacity: 0 !important; pointer-events: none !important; }
 
-						        @media (max-width: 575.98px)                            { .xs-transparent { opacity: 0 !important; pointer-events: none !important; } }
-						        @media (min-width: 575.98px) and (max-width: 767.98px)  { .sm-transparent { opacity: 0 !important; pointer-events: none !important; } }
-						        @media (min-width: 767.98px) and (max-width: 991.98px)  { .md-transparent { opacity: 0 !important; pointer-events: none !important; } }
-						        @media (min-width: 991.98px) and (max-width: 1199.98px) { .lg-transparent { opacity: 0 !important; pointer-events: none !important; } }
-						        @media (min-width: 1199.98px)                           { .xl-transparent { opacity: 0 !important; pointer-events: none !important; } }
+						        @media (max-width: 575.98px)                            { .xs-opacity-0 { opacity: 0 !important; pointer-events: none !important; } }
+						        @media (min-width: 575.98px) and (max-width: 767.98px)  { .sm-opacity-0 { opacity: 0 !important; pointer-events: none !important; } }
+						        @media (min-width: 767.98px) and (max-width: 991.98px)  { .md-opacity-0 { opacity: 0 !important; pointer-events: none !important; } }
+						        @media (min-width: 991.98px) and (max-width: 1199.98px) { .lg-opacity-0 { opacity: 0 !important; pointer-events: none !important; } }
+						        @media (min-width: 1199.98px)                           { .xl-opacity-0 { opacity: 0 !important; pointer-events: none !important; } }
 						`
 					},
 
-				// unclickable
+				// pointerEvents-none
 						{
-						name : 'unclickable' ,
+						name : 'pointerEvents-none' ,
 						code :    
-						`    /* Unclickable */
+						`    /* pointerEvents-none */
 					    /* -------------------------------------------- */
 
-						        .unclickable, .pointer-none { pointer-events: none !important; }
+						        .pointerEvents-none, .pointer-none { pointer-events: none !important; }
 
-						        @media (max-width: 575.98px)                            { .xs-unclickable, .xs-pointer-none { pointer-events: none !important; } }
-						        @media (min-width: 575.98px) and (max-width: 767.98px)  { .sm-unclickable, .sm-pointer-none { pointer-events: none !important; } }
-						        @media (min-width: 767.98px) and (max-width: 991.98px)  { .md-unclickable, .md-pointer-none { pointer-events: none !important; } }
-						        @media (min-width: 991.98px) and (max-width: 1199.98px) { .lg-unclickable, .lg-pointer-none { pointer-events: none !important; } }
-						        @media (min-width: 1199.98px)                           { .xl-unclickable, .xl-pointer-none { pointer-events: none !important; } }
+						        @media (max-width: 575.98px)                            { .xs-pointerEvents-none, .xs-pointer-none { pointer-events: none !important; } }
+						        @media (min-width: 575.98px) and (max-width: 767.98px)  { .sm-pointerEvents-none, .sm-pointer-none { pointer-events: none !important; } }
+						        @media (min-width: 767.98px) and (max-width: 991.98px)  { .md-pointerEvents-none, .md-pointer-none { pointer-events: none !important; } }
+						        @media (min-width: 991.98px) and (max-width: 1199.98px) { .lg-pointerEvents-none, .lg-pointer-none { pointer-events: none !important; } }
+						        @media (min-width: 1199.98px)                           { .xl-pointerEvents-none, .xl-pointer-none { pointer-events: none !important; } }
 						`
 						},
 
-				// unselectable
+				// userSelect-none
 					{
-					name : 'unselectable' ,
+					name : 'userSelect-none' ,
 					code : 	
-					`    /* Unselectable */
+					`    /* userSelect-none */
 					    /* -------------------------------------------- */
 
-					        .unselectable {
+					        .userSelect-none {
 					            -webkit-user-select: none !important;
 					               -moz-user-select: none !important;
 					                -ms-user-select: none !important;
@@ -110,7 +110,7 @@
 					        }
 
 					        @media (max-width: 575.98px) {
-					            .xs-unselectable {
+					            .xs-userSelect-none {
 					                -webkit-user-select: none !important;
 					                   -moz-user-select: none !important;
 					                    -ms-user-select: none !important;
@@ -119,7 +119,7 @@
 					        }
 
 					        @media (min-width: 575.98px) and (max-width: 767.98px) {
-					            .sm-unselectable {
+					            .sm-userSelect-none {
 					                -webkit-user-select: none !important;
 					                   -moz-user-select: none !important;
 					                    -ms-user-select: none !important;
@@ -128,7 +128,7 @@
 					        }
 
 					        @media (min-width: 767.98px) and (max-width: 991.98px) {
-					            .md-unselectable {
+					            .md-userSelect-none {
 					                -webkit-user-select: none !important;
 					                   -moz-user-select: none !important;
 					                    -ms-user-select: none !important;
@@ -137,7 +137,7 @@
 					        }
 
 					        @media (min-width: 991.98px) and (max-width: 1199.98px) {
-					            .lg-unselectable {
+					            .lg-userSelect-none {
 					                -webkit-user-select: none !important;
 					                   -moz-user-select: none !important;
 					                    -ms-user-select: none !important;
@@ -146,7 +146,7 @@
 					        }
 
 					        @media (min-width: 1199.98px) {
-					            .xl-unselectable {
+					            .xl-userSelect-none {
 					                -webkit-user-select: none !important;
 					                   -moz-user-select: none !important;
 					                    -ms-user-select: none !important;
@@ -172,7 +172,7 @@
 				}
 			};
 
-			byAndu.pageConfigObj_setupObj(paramObj);
+			byAndu.pageConfigObj_setupObj(obj_deepClone(paramObj)); paramObj = undefined;
 			byAndu.pageConfigObj_runConfig();
 
 	})();

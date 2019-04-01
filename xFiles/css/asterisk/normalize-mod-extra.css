@@ -1,0 +1,54 @@
+			
+	* , *:before , *:after {
+		-webkit-box-sizing: border-box;
+		   -moz-box-sizing: border-box;
+				box-sizing: border-box;
+	}
+
+	/* Anchor Tags */
+	a, a:hover, a:visited, a:active {
+		color: white;
+		text-decoration: none;
+	}
+
+	a:before, 			a:after,
+	a:hover:before, 	a:hover:after,
+	a:visited:before, 	a:visited:after,
+	a:active:before, 	a:active:after {
+		color: inherit;
+	}
+
+	img {
+		float: left;
+		width: 100%;
+		margin: 0;
+	}
+
+	.container {
+		position: relative;		display: block;
+		height: 100%; 			padding: 15px 15px;
+		margin-right: auto;   	margin-left: auto;	
+	}
+	
+	@media (min-width: 768px)  { container, .container { width: 750px; }}
+	@media (min-width: 992px)  { container, .container { width: 970px; }}
+	@media (min-width: 1200px) { container, .container { width: 1170px;}}
+
+	.container::after 	{
+		content: '';
+		display: table;
+		clear: both;
+	}
+
+	button {
+		border: none; 	margin: 0;
+		color: inherit; text-align: left;
+		background-color: transparent;
+		cursor: pointer; cursor: hand;
+
+		-webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		     -moz-user-select: none;
+		      -ms-user-select: none;
+		          user-select: none;
+	}

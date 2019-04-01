@@ -1,0 +1,24 @@
+
+        /* Filter - crema */
+        /* ------------------------------- */
+
+            .hasFilter-crema            , 
+            .hasFilter-hvr-crema:hover  {
+                -webkit-filter: sepia(.5) contrast(1.25) brightness(1.15) saturate(.9) hue-rotate(-2deg);
+                        filter: sepia(.5) contrast(1.25) brightness(1.15) saturate(.9) hue-rotate(-2deg);
+
+                -webkit-transition: filter 0.4s ease-out;
+                   -moz-transition: filter 0.4s ease-out;
+                     -o-transition: filter 0.4s ease-out;
+                        transition: filter 0.4s ease-out; 
+            }
+
+            .hasFilter-crema::before            , 
+            .hasFilter-hvr-crema:hover::before  {
+                content: '';
+                position: absolute; z-index: 2;
+                top: 0; left: 0; right: 0; bottom: 0;
+                
+                background: rgba(125, 105, 24, .2);
+                mix-blend-mode: multiply;
+            }

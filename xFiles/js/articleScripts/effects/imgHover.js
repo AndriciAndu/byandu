@@ -42,7 +42,7 @@
 					{
 					name : 'imgHvr-flash' ,
 					code : 
-					`        /* Flash */
+					`        /* Image Hover - Flash */
 				        /* --------------------------------------- */
 
 				            .imgHvr-flash {
@@ -64,7 +64,7 @@
 					{
 					name : 'imgHvr-shine' ,
 					code : 	
-					`        /* Shine */
+					`        /* Image Hover - Shine */
 				        /* --------------------------------------- */
 
 				            .imgHvr-shine { 
@@ -99,7 +99,7 @@
 					{
 					name : 'imgHvr-zoomIn' ,
 					code : 	
-					`        /* Zoom-in */
+					`        /* Image Hover - Zoom-in */
 				        /* --------------------------------------- */
 
 				            .imgHvr-zoomIn {
@@ -129,7 +129,7 @@
 					{
 					name : 'imgHvr-zoomOut' ,
 					code : 	
-					`        /* Zoom-out */
+					`        /* Image Hover - Zoom-out */
 				        /* --------------------------------------- */
 
 				            .imgHvr-zoomOut {
@@ -160,7 +160,7 @@
 					{
 					name : 'imgHvr-zoomIn-rotateLeft' ,
 					code : 	
-					`        /* ZoomIn - rotate Left */
+					`        /* Image Hover - ZoomIn - rotate Left */
 				        /* --------------------------------------- */
 
 				            .imgHvr-zoomIn-rotateLeft {
@@ -190,7 +190,7 @@
 					{
 					name : 'imgHvr-zoomIn-rotateRight' ,
 					code : 	
-					`        /* ZoomIn - rotate Right */
+					`        /* Image Hover - ZoomIn - rotate Right */
 				        /* --------------------------------------- */
 
 				            .imgHvr-zoomIn-rotateRight {
@@ -220,7 +220,7 @@
 					{
 					name : 'imgHvr-zoomOut-rotateLeft' ,
 					code : 	
-					`        /* ZoomOut - rotate Left */
+					`        /* Image Hover - ZoomOut - rotate Left */
 				        /* --------------------------------------- */
 
 				            .imgHvr-zoomOut-rotateLeft {
@@ -250,7 +250,7 @@
 					{
 					name : 'imgHvr-zoomOut-rotateRight' ,
 					code : 	
-					`        /* ZoomOut - rotate Right */
+					`        /* Image Hover - ZoomOut - rotate Right */
 				        /* --------------------------------------- */
 
 				            .imgHvr-zoomOut-rotateRight {
@@ -306,6 +306,7 @@
 			];
 
 			codeBlocks_css = byAndu_codeBlock_formatCodeString(codeBlocks_css);
+			codeBlocks_css_singular = byAndu_codeBlock_formatCodeString(codeBlocks_css.slice(1));
 
 		// Param Obj
 		// --------------------------------
@@ -313,11 +314,13 @@
 			var paramObj = {
 				checkBoxes : {
 					html         : demoItemsArray ,
-					css          : demoItemsArray 
+					css          : demoItemsArray ,
+					css_singular : demoItemsArray 
 				} ,
 
 				codeBlocks : {
-					css          : codeBlocks_css 
+					css          : codeBlocks_css ,
+					css_singular : codeBlocks_css_singular
 				} ,
 
 				removeString       : 'hasFilter-' ,

@@ -77,7 +77,7 @@
 					.tooltip-left.tooltip-before::before , 
 					.tooltip-left.tooltip-after::after   {
 						left: -1em; 	top: 50%; 
-						left: var(--asterisk-tooltip-distance);
+						left: var(--asterisk-tooltip-distance, -1em);
 						
 						-webkit-transform: translate3d(0, -50%, 0);
 							-ms-transform: translate3d(0, -50%, 0);
@@ -100,7 +100,7 @@
 					.tooltip-right.tooltip-before::before , 
 					.tooltip-right.tooltip-after::after   {
 						right: -1em;  	top: 50%; 
-						right: var(--asterisk-tooltip-distance);
+						right: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(0, -50%, 0);
 							-ms-transform: translate3d(0, -50%, 0);
@@ -123,7 +123,7 @@
 					.tooltip-top.tooltip-before::before , 
 					.tooltip-top.tooltip-after::after   {
 						left: 50%; 		top: -1em;
-						top: var(--asterisk-tooltip-distance);
+						top: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(-50%, 0, 0);
 							-ms-transform: translate3d(-50%, 0, 0);
@@ -146,7 +146,7 @@
 					.tooltip-btm.tooltip-before::before , 
 					.tooltip-btm.tooltip-after::after   {
 						left: 50%; 		bottom: -1em; 
-						bottom: var(--asterisk-tooltip-distance);
+						bottom: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(-50%, 0, 0);
 							-ms-transform: translate3d(-50%, 0, 0);
@@ -172,7 +172,7 @@
 					.xs-o-tooltip-left.tooltip-before::before , 
 					.xs-o-tooltip-left.tooltip-after::after   {
 						left: -1em; 	top: 50%; 
-						left: var(--asterisk-tooltip-distance);
+						left: var(--asterisk-tooltip-distance, -1em);
 						
 						-webkit-transform: translate3d(0, -50%, 0);
 							-ms-transform: translate3d(0, -50%, 0);
@@ -195,7 +195,7 @@
 					.xs-o-tooltip-right.tooltip-before::before , 
 					.xs-o-tooltip-right.tooltip-after::after   {
 						right: -1em;  	top: 50%; 
-						right: var(--asterisk-tooltip-distance);
+						right: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(0, -50%, 0);
 							-ms-transform: translate3d(0, -50%, 0);
@@ -218,7 +218,7 @@
 					.xs-o-tooltip-top.tooltip-before::before , 
 					.xs-o-tooltip-top.tooltip-after::after   {
 						left: 50%; 		top: -1em;
-						top: var(--asterisk-tooltip-distance);
+						top: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(-50%, 0, 0);
 							-ms-transform: translate3d(-50%, 0, 0);
@@ -241,7 +241,7 @@
 					.xs-o-tooltip-btm.tooltip-before::before , 
 					.xs-o-tooltip-btm.tooltip-after::after   {
 						left: 50%; 		bottom: -1em; 
-						bottom: var(--asterisk-tooltip-distance);
+						bottom: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(-50%, 0, 0);
 							-ms-transform: translate3d(-50%, 0, 0);
@@ -276,7 +276,7 @@
 					.sm-tooltip-left.tooltip-before::before , 
 					.sm-tooltip-left.tooltip-after::after   {
 						left: -1em; 	top: 50%; 
-						left: var(--asterisk-tooltip-distance);
+						left: var(--asterisk-tooltip-distance, -1em);
 						
 						-webkit-transform: translate3d(0, -50%, 0);
 							-ms-transform: translate3d(0, -50%, 0);
@@ -299,7 +299,7 @@
 					.sm-tooltip-right.tooltip-before::before , 
 					.sm-tooltip-right.tooltip-after::after   {
 						right: -1em;  	top: 50%; 
-						right: var(--asterisk-tooltip-distance);
+						right: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(0, -50%, 0);
 							-ms-transform: translate3d(0, -50%, 0);
@@ -322,7 +322,7 @@
 					.sm-tooltip-top.tooltip-before::before , 
 					.sm-tooltip-top.tooltip-after::after   {
 						left: 50%; 		top: -1em;
-						top: var(--asterisk-tooltip-distance);
+						top: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(-50%, 0, 0);
 							-ms-transform: translate3d(-50%, 0, 0);
@@ -345,7 +345,7 @@
 					.sm-tooltip-btm.tooltip-before::before , 
 					.sm-tooltip-btm.tooltip-after::after   {
 						left: 50%; 		bottom: -1em; 
-						bottom: var(--asterisk-tooltip-distance);
+						bottom: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(-50%, 0, 0);
 							-ms-transform: translate3d(-50%, 0, 0);
@@ -380,7 +380,7 @@
 					.sm-o-tooltip-left.tooltip-before::before , 
 					.sm-o-tooltip-left.tooltip-after::after   {
 						left: -1em; 	top: 50%; 
-						left: var(--asterisk-tooltip-distance);
+						left: var(--asterisk-tooltip-distance, -1em);
 						
 						-webkit-transform: translate3d(0, -50%, 0);
 							-ms-transform: translate3d(0, -50%, 0);
@@ -403,7 +403,7 @@
 					.sm-o-tooltip-right.tooltip-before::before , 
 					.sm-o-tooltip-right.tooltip-after::after   {
 						right: -1em;  	top: 50%; 
-						right: var(--asterisk-tooltip-distance);
+						right: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(0, -50%, 0);
 							-ms-transform: translate3d(0, -50%, 0);
@@ -426,7 +426,7 @@
 					.sm-o-tooltip-top.tooltip-before::before , 
 					.sm-o-tooltip-top.tooltip-after::after   {
 						left: 50%; 		top: -1em;
-						top: var(--asterisk-tooltip-distance);
+						top: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(-50%, 0, 0);
 							-ms-transform: translate3d(-50%, 0, 0);
@@ -449,7 +449,7 @@
 					.sm-o-tooltip-btm.tooltip-before::before , 
 					.sm-o-tooltip-btm.tooltip-after::after   {
 						left: 50%; 		bottom: -1em; 
-						bottom: var(--asterisk-tooltip-distance);
+						bottom: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(-50%, 0, 0);
 							-ms-transform: translate3d(-50%, 0, 0);
@@ -484,7 +484,7 @@
 					.md-tooltip-left.tooltip-before::before , 
 					.md-tooltip-left.tooltip-after::after   {
 						left: -1em; 	top: 50%; 
-						left: var(--asterisk-tooltip-distance);
+						left: var(--asterisk-tooltip-distance, -1em);
 						
 						-webkit-transform: translate3d(0, -50%, 0);
 							-ms-transform: translate3d(0, -50%, 0);
@@ -507,7 +507,7 @@
 					.md-tooltip-right.tooltip-before::before , 
 					.md-tooltip-right.tooltip-after::after   {
 						right: -1em;  	top: 50%; 
-						right: var(--asterisk-tooltip-distance);
+						right: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(0, -50%, 0);
 							-ms-transform: translate3d(0, -50%, 0);
@@ -530,7 +530,7 @@
 					.md-tooltip-top.tooltip-before::before , 
 					.md-tooltip-top.tooltip-after::after   {
 						left: 50%; 		top: -1em;
-						top: var(--asterisk-tooltip-distance);
+						top: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(-50%, 0, 0);
 							-ms-transform: translate3d(-50%, 0, 0);
@@ -553,7 +553,7 @@
 					.md-tooltip-btm.tooltip-before::before , 
 					.md-tooltip-btm.tooltip-after::after   {
 						left: 50%; 		bottom: -1em; 
-						bottom: var(--asterisk-tooltip-distance);
+						bottom: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(-50%, 0, 0);
 							-ms-transform: translate3d(-50%, 0, 0);
@@ -588,7 +588,7 @@
 					.md-o-tooltip-left.tooltip-before::before , 
 					.md-o-tooltip-left.tooltip-after::after   {
 						left: -1em; 	top: 50%; 
-						left: var(--asterisk-tooltip-distance);
+						left: var(--asterisk-tooltip-distance, -1em);
 						
 						-webkit-transform: translate3d(0, -50%, 0);
 							-ms-transform: translate3d(0, -50%, 0);
@@ -611,7 +611,7 @@
 					.md-o-tooltip-right.tooltip-before::before , 
 					.md-o-tooltip-right.tooltip-after::after   {
 						right: -1em;  	top: 50%; 
-						right: var(--asterisk-tooltip-distance);
+						right: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(0, -50%, 0);
 							-ms-transform: translate3d(0, -50%, 0);
@@ -634,7 +634,7 @@
 					.md-o-tooltip-top.tooltip-before::before , 
 					.md-o-tooltip-top.tooltip-after::after   {
 						left: 50%; 		top: -1em;
-						top: var(--asterisk-tooltip-distance);
+						top: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(-50%, 0, 0);
 							-ms-transform: translate3d(-50%, 0, 0);
@@ -657,7 +657,7 @@
 					.md-o-tooltip-btm.tooltip-before::before , 
 					.md-o-tooltip-btm.tooltip-after::after   {
 						left: 50%; 		bottom: -1em; 
-						bottom: var(--asterisk-tooltip-distance);
+						bottom: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(-50%, 0, 0);
 							-ms-transform: translate3d(-50%, 0, 0);
@@ -692,7 +692,7 @@
 					.lg-tooltip-left.tooltip-before::before , 
 					.lg-tooltip-left.tooltip-after::after   {
 						left: -1em; 	top: 50%; 
-						left: var(--asterisk-tooltip-distance);
+						left: var(--asterisk-tooltip-distance, -1em);
 						
 						-webkit-transform: translate3d(0, -50%, 0);
 							-ms-transform: translate3d(0, -50%, 0);
@@ -715,7 +715,7 @@
 					.lg-tooltip-right.tooltip-before::before , 
 					.lg-tooltip-right.tooltip-after::after   {
 						right: -1em;  	top: 50%; 
-						right: var(--asterisk-tooltip-distance);
+						right: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(0, -50%, 0);
 							-ms-transform: translate3d(0, -50%, 0);
@@ -738,7 +738,7 @@
 					.lg-tooltip-top.tooltip-before::before , 
 					.lg-tooltip-top.tooltip-after::after   {
 						left: 50%; 		top: -1em;
-						top: var(--asterisk-tooltip-distance);
+						top: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(-50%, 0, 0);
 							-ms-transform: translate3d(-50%, 0, 0);
@@ -761,7 +761,7 @@
 					.lg-tooltip-btm.tooltip-before::before , 
 					.lg-tooltip-btm.tooltip-after::after   {
 						left: 50%; 		bottom: -1em; 
-						bottom: var(--asterisk-tooltip-distance);
+						bottom: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(-50%, 0, 0);
 							-ms-transform: translate3d(-50%, 0, 0);
@@ -796,7 +796,7 @@
 					.lg-o-tooltip-left.tooltip-before::before , 
 					.lg-o-tooltip-left.tooltip-after::after   {
 						left: -1em; 	top: 50%; 
-						left: var(--asterisk-tooltip-distance);
+						left: var(--asterisk-tooltip-distance, -1em);
 						
 						-webkit-transform: translate3d(0, -50%, 0);
 							-ms-transform: translate3d(0, -50%, 0);
@@ -819,7 +819,7 @@
 					.lg-o-tooltip-right.tooltip-before::before , 
 					.lg-o-tooltip-right.tooltip-after::after   {
 						right: -1em;  	top: 50%; 
-						right: var(--asterisk-tooltip-distance);
+						right: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(0, -50%, 0);
 							-ms-transform: translate3d(0, -50%, 0);
@@ -842,7 +842,7 @@
 					.lg-o-tooltip-top.tooltip-before::before , 
 					.lg-o-tooltip-top.tooltip-after::after   {
 						left: 50%; 		top: -1em;
-						top: var(--asterisk-tooltip-distance);
+						top: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(-50%, 0, 0);
 							-ms-transform: translate3d(-50%, 0, 0);
@@ -865,7 +865,7 @@
 					.lg-o-tooltip-btm.tooltip-before::before , 
 					.lg-o-tooltip-btm.tooltip-after::after   {
 						left: 50%; 		bottom: -1em; 
-						bottom: var(--asterisk-tooltip-distance);
+						bottom: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(-50%, 0, 0);
 							-ms-transform: translate3d(-50%, 0, 0);
@@ -900,7 +900,7 @@
 					.xl-tooltip-left.tooltip-before::before , 
 					.xl-tooltip-left.tooltip-after::after   {
 						left: -1em; 	top: 50%; 
-						left: var(--asterisk-tooltip-distance);
+						left: var(--asterisk-tooltip-distance, -1em);
 						
 						-webkit-transform: translate3d(0, -50%, 0);
 							-ms-transform: translate3d(0, -50%, 0);
@@ -923,7 +923,7 @@
 					.xl-tooltip-right.tooltip-before::before , 
 					.xl-tooltip-right.tooltip-after::after   {
 						right: -1em;  	top: 50%; 
-						right: var(--asterisk-tooltip-distance);
+						right: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(0, -50%, 0);
 							-ms-transform: translate3d(0, -50%, 0);
@@ -946,7 +946,7 @@
 					.xl-tooltip-top.tooltip-before::before , 
 					.xl-tooltip-top.tooltip-after::after   {
 						left: 50%; 		top: -1em;
-						top: var(--asterisk-tooltip-distance);
+						top: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(-50%, 0, 0);
 							-ms-transform: translate3d(-50%, 0, 0);
@@ -969,7 +969,7 @@
 					.xl-tooltip-btm.tooltip-before::before , 
 					.xl-tooltip-btm.tooltip-after::after   {
 						left: 50%; 		bottom: -1em; 
-						bottom: var(--asterisk-tooltip-distance);
+						bottom: var(--asterisk-tooltip-distance, -1em);
 
 						-webkit-transform: translate3d(-50%, 0, 0);
 							-ms-transform: translate3d(-50%, 0, 0);

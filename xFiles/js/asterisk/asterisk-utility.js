@@ -748,7 +748,7 @@
 // Extra
 // -----------------------------------------------------
 
-	// copyText()
+	// copyText() // Change name to copyElementInnerText
 	// -----------------------------------------------------
 
 		function copyText( elem ) {
@@ -780,6 +780,41 @@
 			}
 
 		};
+
+		// function selectElementInnerText ( elem ) {
+		// 	if (document.selection) { 
+
+		// 		var range = document.body.createTextRange();
+		// 		range.moveToElementText(elem);
+		// 		range.select().createTextRange();
+
+		// 	} else if (window.getSelection) {
+
+		// 		var range = document.createRange();
+		// 		range.selectNode(elem);
+		// 		window.getSelection().addRange(range);
+	
+		// 	}
+		// };
+
+		// function copyStringToClipboard ( myString ) {
+
+		// 	if (typeof myVar === 'string' || myVar instanceof String) {
+
+		// 		var elem = document.createElement('textarea');
+		// 		elem.value = myString;
+		// 		elem.setAttribute('readonly', '');// Set non-editable to avoid focus and move outside of view
+		// 		elem.style = "{position: 'absolute', left: '-9999px'}";
+		// 		document.body.appendChild(elem);
+		// 		elem.select();
+		// 		document.execCommand('copy');
+		// 		document.body.removeChild(elem);
+
+		// 	} else {
+		// 		console.log( 'Argument provided for [ addStringToClipboard( myString ) ] is not a string : ' , myString)
+		// 	}
+
+		// }
 
 	// Capitalize First Letter of String
 	// -----------------------------------------------------------------
@@ -1099,3 +1134,26 @@
 	// 		console.log(document.body.contains(item))
 	// 	})
 	// };
+
+
+
+	function loadScript ( url__string , callback__function ) {
+		var script = document.createElement("script");
+		script.type = "text/javascript";
+
+		if (script.readyState) { // IE
+			script.onreadystatechange = function(){
+				if (script.readyState == "loaded" || script.readyState == "complete") {
+					script.onreadystatechange = null;
+					callback__function();
+				}
+			}
+		} else { // Others
+			script.onload = function(){
+				callback__function()
+			};
+		}
+
+		script.src = url__string;
+		document.getElementsByTagName("head")[0].appendChild(script);
+	};

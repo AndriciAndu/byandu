@@ -51,15 +51,15 @@
 
 				            [class^="hasFilter-"]::before , [class*=" hasFilter-"]::before {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				            }
 
 				            [class^="hasFilter-hvr-"] , [class*=" hasFilter-hvr-"] {
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out;
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out;
 				            }
 
 				            .hasFilter-hvr-remove:hover {
@@ -889,10 +889,10 @@
 				                -webkit-filter: sepia(.5) hue-rotate(-30deg) saturate(1.4);
 				                        filter: sepia(.5) hue-rotate(-30deg) saturate(1.4);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 					`
 					},
@@ -909,16 +909,16 @@
 				                -webkit-filter: sepia(.2) brightness(1.15) saturate(1.4);
 				                        filter: sepia(.2) brightness(1.15) saturate(1.4);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-aden::before            , 
 				            .hasFilter-hvr-aden:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 
 				                background: rgba(125, 105, 24, .1);
@@ -939,16 +939,16 @@
 				                -webkit-filter: sepia(.35) contrast(1.1) brightness(1.2) saturate(1.3);
 				                        filter: sepia(.35) contrast(1.1) brightness(1.2) saturate(1.3);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-amaro::before            , 
 				            .hasFilter-hvr-amaro:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: rgba(125, 105, 24, .2);
@@ -969,16 +969,16 @@
 				                -webkit-filter: sepia(.5) contrast(1.2) saturate(1.8);
 				                        filter: sepia(.5) contrast(1.2) saturate(1.8);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-ashby::before            , 
 				            .hasFilter-hvr-ashby:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: rgba(125, 105, 24, .35);
@@ -999,10 +999,10 @@
 				                -webkit-filter: sepia(.4) contrast(1.25) brightness(1.1) saturate(.9) hue-rotate(-2deg);
 				                        filter: sepia(.4) contrast(1.25) brightness(1.1) saturate(.9) hue-rotate(-2deg);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 					`
 					},
@@ -1019,16 +1019,16 @@
 				                -webkit-filter: sepia(.25) contrast(1.25) brightness(1.25) hue-rotate(5deg);
 				                        filter: sepia(.25) contrast(1.25) brightness(1.25) hue-rotate(5deg);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-brooklyn::before            , 
 				            .hasFilter-hvr-brooklyn:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: rgba(127, 187, 227, .2);
@@ -1049,16 +1049,16 @@
 				                -webkit-filter: sepia(.25) contrast(1.25) brightness(1.25) saturate(1.35) hue-rotate(-5deg);
 				                        filter: sepia(.25) contrast(1.25) brightness(1.25) saturate(1.35) hue-rotate(-5deg);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-charmes::before            , 
 				            .hasFilter-hvr-charmes:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: rgba(125, 105, 24, .25);
@@ -1079,16 +1079,16 @@
 				                -webkit-filter: sepia(.15) contrast(1.25) brightness(1.25) hue-rotate(5deg);
 				                        filter: sepia(.15) contrast(1.25) brightness(1.25) hue-rotate(5deg);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-clarendon::before            , 
 				            .hasFilter-hvr-clarendon:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: rgba(127, 187, 227, .4);
@@ -1109,16 +1109,16 @@
 				                -webkit-filter: sepia(.5) contrast(1.25) brightness(1.15) saturate(.9) hue-rotate(-2deg);
 				                        filter: sepia(.5) contrast(1.25) brightness(1.15) saturate(.9) hue-rotate(-2deg);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-crema::before            , 
 				            .hasFilter-hvr-crema:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: rgba(125, 105, 24, .2);
@@ -1139,10 +1139,10 @@
 				                -webkit-filter: sepia(.35) saturate(1.1) contrast(1.5);
 				                        filter: sepia(.35) saturate(1.1) contrast(1.5);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 					`
 					},
@@ -1159,16 +1159,16 @@
 				                -webkit-filter: sepia(.25) contrast(1.25) brightness(1.15) saturate(.9) hue-rotate(-5deg);
 				                        filter: sepia(.25) contrast(1.25) brightness(1.15) saturate(.9) hue-rotate(-5deg);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-earlybird::before            , 
 				            .hasFilter-hvr-earlybird:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: radial-gradient(circle closest-corner, transparent 0, rgba(125, 105, 24, .2) 100%);
@@ -1189,16 +1189,16 @@
 				                -webkit-filter: contrast(1.1) brightness(1.1);
 				                        filter: contrast(1.1) brightness(1.1);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-gingham::before            , 
 				            .hasFilter-hvr-gingham:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: #e6e6e6;
@@ -1219,16 +1219,16 @@
 				                -webkit-filter: sepia(.25) contrast(1.15) brightness(1.2) saturate(1.35) hue-rotate(-5deg);
 				                        filter: sepia(.25) contrast(1.15) brightness(1.2) saturate(1.35) hue-rotate(-5deg);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-ginza::before            , 
 				            .hasFilter-hvr-ginza:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: rgba(125, 105, 24, .15);
@@ -1249,16 +1249,16 @@
 				                -webkit-filter: sepia(.4) contrast(1.5) brightness(1.2) saturate(1.4) hue-rotate(-10deg);
 				                        filter: sepia(.4) contrast(1.5) brightness(1.2) saturate(1.4) hue-rotate(-10deg);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-hefe::before            , 
 				            .hasFilter-hvr-hefe:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: radial-gradient(circle closest-corner, transparent 0, rgba(0, 0, 0, .25) 100%);
@@ -1279,16 +1279,16 @@
 				                -webkit-filter: sepia(.5) contrast(1.05) brightness(1.05) saturate(1.35);
 				                        filter: sepia(.5) contrast(1.05) brightness(1.05) saturate(1.35);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-helena::before            , 
 				            .hasFilter-hvr-helena:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: rgba(158, 175, 30, .25);
@@ -1309,16 +1309,16 @@
 				                -webkit-filter: sepia(.25) contrast(1.2) brightness(1.2) saturate(1.05) hue-rotate(-15deg);
 				                        filter: sepia(.25) contrast(1.2) brightness(1.2) saturate(1.05) hue-rotate(-15deg);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-hudson::before            , 
 				            .hasFilter-hvr-hudson:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: radial-gradient(circle closest-corner, transparent 25%, rgba(25, 62, 167, .25) 100%);
@@ -1339,10 +1339,10 @@
 				                -webkit-filter: brightness(1.25) contrast(.85) grayscale(1);
 				                        filter: brightness(1.25) contrast(.85) grayscale(1);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 					`
 					},
@@ -1359,16 +1359,16 @@
 				                -webkit-filter: sepia(.35) contrast(1.15) brightness(1.15) saturate(1.8);
 				                        filter: sepia(.35) contrast(1.15) brightness(1.15) saturate(1.8);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-juno::before            , 
 				            .hasFilter-hvr-juno:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: rgba(127, 187, 227, .2);
@@ -1389,16 +1389,16 @@
 				                -webkit-filter: sepia(.15) contrast(1.5) brightness(1.1) hue-rotate(-10deg);
 				                        filter: sepia(.15) contrast(1.5) brightness(1.1) hue-rotate(-10deg);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-kelvin::before            , 
 				            .hasFilter-hvr-kelvin:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: radial-gradient(circle closest-corner, rgba(128, 78, 15, .25) 0, rgba(128, 78, 15, .5) 100%);
@@ -1419,10 +1419,10 @@
 				                -webkit-filter: sepia(.25) contrast(1.2) brightness(1.3) saturate(1.25);
 				                        filter: sepia(.25) contrast(1.2) brightness(1.3) saturate(1.25);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 					`
 					},
@@ -1439,10 +1439,10 @@
 				                -webkit-filter: saturate(1.1) contrast(1.5);
 				                        filter: saturate(1.1) contrast(1.5);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 					`
 					},
@@ -1459,16 +1459,16 @@
 				                -webkit-filter: sepia(.25) contrast(1.05) brightness(1.05) saturate(2);
 				                        filter: sepia(.25) contrast(1.05) brightness(1.05) saturate(2);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-ludwig::before            , 
 				            .hasFilter-hvr-ludwig:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: rgba(125, 105, 24, .1);
@@ -1489,16 +1489,16 @@
 				                -webkit-filter: sepia(.35) contrast(1.05) brightness(1.05) saturate(1.75);
 				                        filter: sepia(.35) contrast(1.05) brightness(1.05) saturate(1.75);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-maven::before            , 
 				            .hasFilter-hvr-maven:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: rgba(158, 175, 30, .25);
@@ -1519,16 +1519,16 @@
 				                -webkit-filter: contrast(1.1) brightness(1.15) saturate(1.1);
 				                        filter: contrast(1.1) brightness(1.15) saturate(1.1);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-mayfair::before            , 
 				            .hasFilter-hvr-mayfair:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: radial-gradient(circle closest-corner, transparent 0, rgba(175, 105, 24, .4) 100%);
@@ -1549,10 +1549,10 @@
 				                -webkit-filter: brightness(1.4) contrast(.95) saturate(0) sepia(.35);
 				                        filter: brightness(1.4) contrast(.95) saturate(0) sepia(.35);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 					`
 					},
@@ -1569,16 +1569,16 @@
 				                -webkit-filter: sepia(.25) contrast(1.5) brightness(.9) hue-rotate(-15deg);
 				                        filter: sepia(.25) contrast(1.5) brightness(.9) hue-rotate(-15deg);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-nashville::before            , 
 				            .hasFilter-hvr-nashville:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: radial-gradient(circle closest-corner, rgba(128, 78, 15, .5) 0, rgba(128, 78, 15, .65) 100%);
@@ -1599,16 +1599,16 @@
 				                -webkit-filter: contrast(1.1) brightness(1.25) saturate(1.1);
 				                        filter: contrast(1.1) brightness(1.25) saturate(1.1);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-perpetua::before            , 
 				            .hasFilter-hvr-perpetua:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: linear-gradient(to bottom, rgba(0, 91, 154, .25), rgba(230, 193, 61, .25));
@@ -1629,16 +1629,16 @@
 				                -webkit-filter: sepia(.15) brightness(1.2);
 				                        filter: sepia(.15) brightness(1.2);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-poprocket::before            , 
 				            .hasFilter-hvr-poprocket:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: radial-gradient(circle closest-corner, rgba(206, 39, 70, .75) 40%, black 80%);
@@ -1659,10 +1659,10 @@
 				                -webkit-filter: sepia(.75) contrast(.75) brightness(1.25) saturate(1.4);
 				                        filter: sepia(.75) contrast(.75) brightness(1.25) saturate(1.4);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 					`
 					},
@@ -1679,16 +1679,16 @@
 				                -webkit-filter: sepia(.25) contrast(1.25) brightness(1.2) saturate(.9);
 				                        filter: sepia(.25) contrast(1.25) brightness(1.2) saturate(.9);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-rise::before            , 
 				            .hasFilter-hvr-rise:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: radial-gradient(circle closest-corner, transparent 0, rgba(230, 193, 61, .25) 100%);
@@ -1709,16 +1709,16 @@
 				                -webkit-filter: sepia(.25) contrast(1.5) brightness(.9) hue-rotate(-15deg);
 				                        filter: sepia(.25) contrast(1.5) brightness(.9) hue-rotate(-15deg);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-sierra::before            , 
 				            .hasFilter-hvr-sierra:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: radial-gradient(circle closest-corner, rgba(128, 78, 15, .5) 0, rgba(0, 0, 0, .65) 100%);
@@ -1739,10 +1739,10 @@
 				                -webkit-filter: sepia(.15) contrast(1.25) brightness(1.25) saturate(1.2);
 				                        filter: sepia(.15) contrast(1.25) brightness(1.25) saturate(1.2);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 					`
 					},
@@ -1759,16 +1759,16 @@
 				                -webkit-filter: sepia(.35) contrast(1.25) saturate(1.25);
 				                        filter: sepia(.35) contrast(1.25) saturate(1.25);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-slumber::before            , 
 				            .hasFilter-hvr-slumber:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: rgba(125, 105, 24, .2);
@@ -1789,16 +1789,16 @@
 				                -webkit-filter: sepia(.35) contrast(1.25) brightness(1.1) saturate(1.25);
 				                        filter: sepia(.35) contrast(1.25) brightness(1.1) saturate(1.25);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-stinson::before            , 
 				            .hasFilter-hvr-stinson:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: rgba(125, 105, 24, .45);
@@ -1819,16 +1819,16 @@
 				                -webkit-filter: sepia(.4) contrast(1.2) brightness(.9) saturate(1.4) hue-rotate(-10deg);
 				                        filter: sepia(.4) contrast(1.2) brightness(.9) saturate(1.4) hue-rotate(-10deg);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-sutro::before            , 
 				            .hasFilter-hvr-sutro:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: radial-gradient(circle closest-corner, transparent 50%, rgba(0, 0, 0, .5) 90%);
@@ -1849,16 +1849,16 @@
 				                -webkit-filter: sepia(.25) contrast(1.5) brightness(.95) hue-rotate(-15deg);
 				                        filter: sepia(.25) contrast(1.5) brightness(.95) hue-rotate(-15deg);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-toaster::before            , 
 				            .hasFilter-hvr-toaster:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: radial-gradient(circle, #804e0f, rgba(0, 0, 0, .25));
@@ -1879,16 +1879,16 @@
 				                -webkit-filter: sepia(.25) contrast(1.1) brightness(1.1);
 				                        filter: sepia(.25) contrast(1.1) brightness(1.1);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-valencia::before            , 
 				            .hasFilter-hvr-valencia:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: rgba(230, 193, 61, .1);
@@ -1909,16 +1909,16 @@
 				                -webkit-filter: sepia(.35) contrast(1.15) brightness(1.2) saturate(1.3);
 				                        filter: sepia(.35) contrast(1.15) brightness(1.2) saturate(1.3);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-vesper::before            , 
 				            .hasFilter-hvr-vesper:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: rgba(125, 105, 24, .25);
@@ -1939,16 +1939,16 @@
 				                -webkit-filter: sepia(.35) contrast(.8) brightness(1.25) saturate(1.4);
 				                        filter: sepia(.35) contrast(.8) brightness(1.25) saturate(1.4);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-walden::before            , 
 				            .hasFilter-hvr-walden:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: rgba(229, 240, 128, .5);
@@ -1969,10 +1969,10 @@
 				                -webkit-filter: brightness(1.2) contrast(.85) saturate(.05) sepia(.2);
 				                        filter: brightness(1.2) contrast(.85) saturate(.05) sepia(.2);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 					`
 					},
@@ -1989,16 +1989,16 @@
 				                -webkit-filter: sepia(.45) contrast(1.25) brightness(1.75) saturate(1.3) hue-rotate(-5deg);
 				                        filter: sepia(.45) contrast(1.25) brightness(1.75) saturate(1.3) hue-rotate(-5deg);
 
-				                -webkit-transition: filter  0.4s  ease-out;
-				                   -moz-transition: filter  0.4s  ease-out;
-				                     -o-transition: filter  0.4s  ease-out;
-				                        transition: filter  0.4s  ease-out; 
+				                -webkit-transition: filter 0.4s ease-out;
+				                   -moz-transition: filter 0.4s ease-out;
+				                     -o-transition: filter 0.4s ease-out;
+				                        transition: filter 0.4s ease-out; 
 				            }
 
 				            .hasFilter-xpro-ii::before            , 
 				            .hasFilter-hvr-xpro-ii:hover::before  {
 				                content: '';
-				                position: absolute;  z-index: 2;
+				                position: absolute; z-index: 2;
 				                top: 0; left: 0; right: 0; bottom: 0;
 				                
 				                background: radial-gradient(circle closest-corner, rgba(0, 91, 154, .35) 0, rgba(0, 0, 0, .65) 100%);

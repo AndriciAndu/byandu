@@ -1,0 +1,24 @@
+        
+        /* Filter - aden */
+        /* ------------------------------- */
+
+            .hasFilter-aden            , 
+            .hasFilter-hvr-aden:hover  {
+                -webkit-filter: sepia(.2) brightness(1.15) saturate(1.4);
+                        filter: sepia(.2) brightness(1.15) saturate(1.4);
+
+                -webkit-transition: filter 0.4s ease-out;
+                   -moz-transition: filter 0.4s ease-out;
+                     -o-transition: filter 0.4s ease-out;
+                        transition: filter 0.4s ease-out; 
+            }
+
+            .hasFilter-aden::before            , 
+            .hasFilter-hvr-aden:hover::before  {
+                content: '';
+                position: absolute; z-index: 2;
+                top: 0; left: 0; right: 0; bottom: 0;
+
+                background: rgba(125, 105, 24, .1);
+                mix-blend-mode: multiply;
+            }

@@ -1,0 +1,24 @@
+
+        /* Filter - kelvin */
+        /* ------------------------------- */
+
+            .hasFilter-kelvin            , 
+            .hasFilter-hvr-kelvin:hover  {
+                -webkit-filter: sepia(.15) contrast(1.5) brightness(1.1) hue-rotate(-10deg);
+                        filter: sepia(.15) contrast(1.5) brightness(1.1) hue-rotate(-10deg);
+
+                -webkit-transition: filter 0.4s ease-out;
+                   -moz-transition: filter 0.4s ease-out;
+                     -o-transition: filter 0.4s ease-out;
+                        transition: filter 0.4s ease-out; 
+            }
+
+            .hasFilter-kelvin::before            , 
+            .hasFilter-hvr-kelvin:hover::before  {
+                content: '';
+                position: absolute; z-index: 2;
+                top: 0; left: 0; right: 0; bottom: 0;
+                
+                background: radial-gradient(circle closest-corner, rgba(128, 78, 15, .25) 0, rgba(128, 78, 15, .5) 100%);
+                mix-blend-mode: overlay;
+            }

@@ -1,0 +1,14 @@
+
+        /* Filter - 1977 */
+        /* ------------------------------- */
+
+            .hasFilter-1977            , 
+            .hasFilter-hvr-1977:hover  {
+                -webkit-filter: sepia(.5) hue-rotate(-30deg) saturate(1.4);
+                        filter: sepia(.5) hue-rotate(-30deg) saturate(1.4);
+
+                -webkit-transition: filter 0.4s ease-out;
+                   -moz-transition: filter 0.4s ease-out;
+                     -o-transition: filter 0.4s ease-out;
+                        transition: filter 0.4s ease-out;
+            }

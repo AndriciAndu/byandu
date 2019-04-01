@@ -1,48 +1,52 @@
 
-	.cssCounter {
-		/* required */
-		display: inline-block;
-		overflow: hidden;
+	/* Component - CSS Counter */
+	/* ----------------------------------------*/
+	/* General Styles Only - animation requires adding static rules */
 
-		/* unrelated styling */
-		font-size: 24px;
-		outline: 2px solid black;
-	}
+		.cssCounter {
+			/* required */
+			display: inline-block;
+			overflow: hidden;
 
-	.cssCounter,
-	.cssCounter-item {
-		height: 30px; 
-	}
+			/* unrelated styling */
+			font-size: 24px;
+			outline: 2px solid black;
+		}
 
-	.cssCounter-container {
-		counter-reset: cssCounter;
-	}
+		.cssCounter,
+		.cssCounter-item {
+			height: 30px; 
+		}
 
-	.cssCounter-item {
-		padding: 0 .1em;
-		display: flex;
-		justify-content: flex-end;
-		align-items: center;
+		.cssCounter-container {
+			counter-reset: cssCounter;
+		}
 
-		text-align: right;
-	}
-	.cssCounter-item::after {
-		counter-increment: cssCounter;
-		content: counter(cssCounter);
-	}
+		.cssCounter-item {
+			padding: 0 .1em;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
 
-	/* Slide [EXAMPLE ONLY] - count to 12 */
-	.cssCounter-slide-12 .cssCounter-container {
-		-webkit-animation: cssCounter-slide-12 2s infinite;
-				animation: cssCounter-slide-12 2s infinite;
-	}
-	@-webkit-keyframes cssCounter-slide-12 { 100% { transform: translateY(-91.666%); } }
-			@keyframes cssCounter-slide-12 { 100% { transform: translateY(-91.666%); } }
+			text-align: right;
+		}
+		.cssCounter-item::after {
+			counter-increment: cssCounter;
+			content: counter(cssCounter);
+		}
 
-	/* Steps [EXAMPLE ONLY] - count to 12 */
-	.cssCounter-steps-12 .cssCounter-container {
-		-webkit-animation: cssCounter-steps-12 steps(12) 2s infinite;
-				animation: cssCounter-steps-12 steps(12) 2s infinite;
-	}
-	@-webkit-keyframes cssCounter-steps-12 { 100% { transform: translateY(-100%); } }
-			@keyframes cssCounter-steps-12 { 100% { transform: translateY(-100%); } }
+		/* Slide [EXAMPLE ONLY] - count to 12 */
+		/*.cssCounter-slide-12 .cssCounter-container {
+			-webkit-animation: cssCounter-slide-12 2s infinite;
+					animation: cssCounter-slide-12 2s infinite;
+		}
+		@-webkit-keyframes cssCounter-slide-12 { 100% { transform: translateY(-91.666%); } }
+				@keyframes cssCounter-slide-12 { 100% { transform: translateY(-91.666%); } }*/
+
+		/* Steps [EXAMPLE ONLY] - count to 12 */
+		/*.cssCounter-steps-12 .cssCounter-container {
+			-webkit-animation: cssCounter-steps-12 steps(12) 2s infinite;
+					animation: cssCounter-steps-12 steps(12) 2s infinite;
+		}
+		@-webkit-keyframes cssCounter-steps-12 { 100% { transform: translateY(-100%); } }
+				@keyframes cssCounter-steps-12 { 100% { transform: translateY(-100%); } }*/

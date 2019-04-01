@@ -98,7 +98,9 @@
 
 								var target_inView = scrollTriggerObj.targetElements[i];
 
-								if (target_inView && target_inView.elem.getBoundingClientRect().bottom <= trigger_top) { // has exited the view
+								if (target_inView && 
+									!hasClass(target_inView, 'scrollTrigger-static') && 
+									target_inView.elem.getBoundingClientRect().bottom <= trigger_top) { // has exited the view
 									scrollTriggerObj.triggerFunction(target_inView.elem , 'exitView');
 									i++
 								} else {
@@ -133,7 +135,9 @@
 
 								var target_inView = scrollTriggerObj.targetElements[i];
 
-								if (target_inView && target_inView.elem.getBoundingClientRect().top >= trigger_btm) { // has exited the view
+								if (target_inView && 
+									!hasClass(target_inView, 'scrollTrigger-static') && 
+									target_inView.elem.getBoundingClientRect().top >= trigger_btm) { // has exited the view
 									scrollTriggerObj.triggerFunction(target_inView.elem , 'exitView');
 									i--
 								} else {
@@ -157,9 +161,17 @@
 									scrollTriggerObj.firstInView_index = i
 								}
 							};
-
 						};
+					};
 
+					scrollTriggerObj.terminate = function() {
+						scrollTriggerObj.targetElements = [];
+						scrollTriggerObj.aboveView_index = 0;
+						scrollTriggerObj.firstInView_index = 0;
+						scrollTriggerObj.lastInView_index  = 0;
+						scrollTriggerObj.belowView_index = 1;
+
+						scrollTriggerObj.lastScroll = 0;
 					};
 
 				// Check Scroll - checks every xxx miliseconds if update is necesary 
@@ -174,7 +186,7 @@
 
 						scrollTriggerObj.triggerPoints_check();
 
-						if (scrollTriggerObj.furthestScroll < pageYOffset) { scrollTriggerObj.furthestScroll = pageYOffset };
+						// if (scrollTriggerObj.furthestScroll < pageYOffset) { scrollTriggerObj.furthestScroll = pageYOffset };
 						scrollTriggerObj.lastScroll = pageYOffset;
 
 						setTimeout(function() { scrollTriggerObj.checkScroll() }, scrollTriggerObj.debounceInterval);

@@ -1,0 +1,24 @@
+
+        /* Filter - juno */
+        /* ------------------------------- */
+
+            .hasFilter-juno            , 
+            .hasFilter-hvr-juno:hover  {
+                -webkit-filter: sepia(.35) contrast(1.15) brightness(1.15) saturate(1.8);
+                        filter: sepia(.35) contrast(1.15) brightness(1.15) saturate(1.8);
+
+                -webkit-transition: filter 0.4s ease-out;
+                   -moz-transition: filter 0.4s ease-out;
+                     -o-transition: filter 0.4s ease-out;
+                        transition: filter 0.4s ease-out; 
+            }
+
+            .hasFilter-juno::before            , 
+            .hasFilter-hvr-juno:hover::before  {
+                content: '';
+                position: absolute; z-index: 2;
+                top: 0; left: 0; right: 0; bottom: 0;
+                
+                background: rgba(127, 187, 227, .2);
+                mix-blend-mode: overlay;
+            }

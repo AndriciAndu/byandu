@@ -135,6 +135,7 @@
 
 		.downloadLink.downloadLink {
 			display: inline-block;
+			position: relative;
 			padding: 2.5px 10px;
 			margin: 0 5px;
 
@@ -145,12 +146,27 @@
 			font-weight: bold;
 
 			border-radius: 6px;
-			box-shadow: 1px 1px 2px rgba(3,3,3,.7);
+			/*box-shadow: 1px 1px 2px rgba(3,3,3,.7);*/
 
 		    -webkit-transition: color .3s linear;
 		       -moz-transition: color .3s linear;
 		         -o-transition: color .3s linear;
 		            transition: color .3s linear; 
+		}
+		.downloadLink.downloadLink::before {
+			content: '';
+			position: absolute;
+			top: 0; left: 0;
+
+			width: calc(100% + 3px);
+			height: calc(100% + 3px);
+			/*background-color: rgba(0,0,0,.2);*/
+			background-image: url('../../b-shadow-4.png');
+			background-size: 403px 403px;
+			background-position: 100% 100%;
+			z-index: -1;
+
+			border-radius: inherit;
 		}
 
 		.downloadLink.downloadLink::after {
