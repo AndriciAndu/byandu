@@ -62,8 +62,8 @@
 			.ribbon--btm--right::before , .ribbon--btm--right:after  ,
 			.ribbon--btm--left::before  , .ribbon--btm--left:after   {
 				content: '';
-				position: absolute;
 				display: block;
+				position: absolute;
 
 				font-size: 3px;
 			}

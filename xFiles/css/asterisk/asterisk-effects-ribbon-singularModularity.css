@@ -1,8 +1,8 @@
 
-	/* Ribbon -- horizontal */
+	/* Ribbon -- singleCurl */
 	/* -------------------------------------------- */
 
-		/* aligned -- left <> curl -- bottom */
+		/* ribbon--left--btm */
 		/* -------------------------------------------- */
 
 			.ribbon--left--btm {
@@ -23,8 +23,8 @@
 			.ribbon--left--btm::before ,
 			.ribbon--left--btm:after {
 				content: '';
-				position: absolute;
 				display: block;
+				position: absolute;
 
 				font-size: 3px;
 				border-radius: 2em 0 0 2em;
@@ -42,7 +42,7 @@
 				background-color: rgba(0,0,0,.5);
 			}
 
-		/* aligned -- left <> curl -- top */
+		/* ribbon--left--top */
 		/* -------------------------------------------- */
 
 			.ribbon--left--top {
@@ -63,8 +63,9 @@
 			.ribbon--left--top::before ,
 			.ribbon--left--top:after {
 				content: '';
-				position: absolute;
 				display: block;
+				position: absolute;
+
 				font-size: 3px;
 				border-radius: 2em 0 0 2em;
 			}
@@ -79,7 +80,7 @@
 				background-color: rgba(0,0,0,.5);
 			}
 
-		/* aligned -- right <> curl -- btm */
+		/* ribbon--right--btm */
 		/* -------------------------------------------- */
 
 			.ribbon--right--btm {
@@ -100,8 +101,9 @@
 			.ribbon--right--btm::before ,
 			.ribbon--right--btm:after {
 				content: '';
-				position: absolute;
 				display: block;
+				position: absolute;
+				
 				font-size: 3px;
 				border-radius: 0 2em 2em 0;
 			}
@@ -116,7 +118,7 @@
 				background-color: rgba(0,0,0,.5);
 			}
 
-		/* aligned -- right <> curl -- top */
+		/* ribbon--right--top */
 		/* -------------------------------------------- */
 
 			.ribbon--right--top {
@@ -137,8 +139,8 @@
 			.ribbon--right--top::before ,
 			.ribbon--right--top:after {
 				content: '';
-				position: absolute;
 				display: block;
+				position: absolute;
 
 				font-size: 3px;
 				border-radius: 0 2em 2em 0;
@@ -154,10 +156,7 @@
 				background-color: rgba(0,0,0,.5);
 			}
 
-	/* Ribbon -- vertical */
-	/* -------------------------------------------- */
-
-		/* aligned -- top <> curl -- right */
+		/* ribbon--top--right */
 		/* -------------------------------------------- */
 
 			.ribbon--top--right {
@@ -178,8 +177,8 @@
 			.ribbon--top--right::before ,
 			.ribbon--top--right:after {
 				content: '';
-				position: absolute;
 				display: block;
+				position: absolute;
 
 				font-size: 3px;
 				border-radius: 2em 2em 0 0;
@@ -195,7 +194,7 @@
 				background-color: rgba(0,0,0,.5);
 			}
 
-		/* aligned -- top <> curl -- left */
+		/* ribbon--top--left */
 		/* -------------------------------------------- */
 
 			.ribbon--top--left {
@@ -216,8 +215,8 @@
 			.ribbon--top--left::before ,
 			.ribbon--top--left:after {
 				content: '';
-				position: absolute;
 				display: block;
+				position: absolute;
 
 				font-size: 3px;
 				border-radius: 2em 2em 0 0;
@@ -233,7 +232,7 @@
 				background-color: rgba(0,0,0,.5);
 			}
 
-		/* aligned -- btm <> curl -- right */
+		/* ribbon--btm--right */
 		/* -------------------------------------------- */
 
 			.ribbon--btm--right {
@@ -254,8 +253,8 @@
 			.ribbon--btm--right::before ,
 			.ribbon--btm--right:after {
 				content: '';
-				position: absolute;
 				display: block;
+				position: absolute;
 
 				font-size: 3px;
 				border-radius: 0 0 2em 2em;
@@ -271,7 +270,7 @@
 				background-color: rgba(0,0,0,.5);
 			}
 
-		/* aligned -- top <> curl -- left */
+		/* ribbon--btm--left */
 		/* -------------------------------------------- */
 
 			.ribbon--btm--left {
@@ -292,8 +291,8 @@
 			.ribbon--btm--left::before ,
 			.ribbon--btm--left:after {
 				content: '';
-				position: absolute;
 				display: block;
+				position: absolute;
 
 				font-size: 3px;
 				border-radius: 0 0 2em 2em;
@@ -309,10 +308,178 @@
 				background-color: rgba(0,0,0,.5);
 			}
 
-	/* Ribbon -- corner */
+	/* Ribbon -- multiCurl */
 	/* -------------------------------------------- */
 
-		/* Ribbon -- corner -- topLeft */
+		/* ribbon--horizontal */
+		/* -------------------------------------------- */
+
+			.ribbon--horizontal ,
+			.ribbon__curl::before {
+				background-color: #354758; 
+				color: white;
+			}
+
+			.ribbon--horizontal {
+				display: inline-block;
+				position: absolute;
+				padding: 10px 15px;
+
+				box-shadow: -1px 2px 3px rgba(0,0,0,.5);
+			}
+			.ribbon--horizontal { left: 0; top: 15px; width: 100%; }
+
+			.ribbon__curl {
+				position: absolute;
+				display: inline-block;
+				font-size: 3px;
+			}
+			.ribbon__curl--left--btm  ,
+			.ribbon__curl--left--top  ,
+			.ribbon__curl--right--btm ,
+			.ribbon__curl--right--top {
+				width: 3em; height: 100%; top: 0;
+			}
+			.ribbon__curl--left--btm  ,
+			.ribbon__curl--left--top  { right: 100%; }
+			.ribbon__curl--right--btm ,
+			.ribbon__curl--right--top { left:  100%; }
+
+			.ribbon__curl::before  , .ribbon__curl::after {
+				content: '';
+				display: block;
+				position: absolute;
+			}
+			.ribbon__curl--left--btm::before , .ribbon__curl--left--btm::after ,
+			.ribbon__curl--left--top::before , .ribbon__curl--left--top::after {
+				border-radius: 2em 0 0 2em;
+			}
+			.ribbon__curl--right--btm::before , .ribbon__curl--right--btm::after ,
+			.ribbon__curl--right--top::before , .ribbon__curl--right--top::after {
+				border-radius: 0 2em 2em 0;
+			}
+
+			.ribbon__curl--left--btm::before  ,
+			.ribbon__curl--left--top::before  ,
+			.ribbon__curl--right--btm::before ,
+			.ribbon__curl--right--top::before {
+				width: 100%; height: calc(100% + 3em);
+			}
+			.ribbon__curl--left--btm::before  { top:    0; right: 0; }
+			.ribbon__curl--left--top::before  { bottom: 0; right: 0; }
+			.ribbon__curl--right--btm::before { top:    0; left:  0; }
+			.ribbon__curl--right--top::before { bottom: 0; left:  0; }
+
+			.ribbon__curl::after {
+				width: 2em; height: 2em;
+				background-color: rgba(0,0,0,0.35);
+			}
+			.ribbon__curl--left--btm::after  { top:    100%; right: 0; }
+			.ribbon__curl--left--top::after  { bottom: 100%; right: 0; }
+			.ribbon__curl--right--btm::after { top:    100%; left:  0; }
+			.ribbon__curl--right--top::after { bottom: 100%; left:  0; }
+
+			/* singleSide */
+			/* -------------------------------------------- */
+
+				.ribbon--singleSide--left {
+					left: 0;   right: auto;
+					width: 90%;
+					border-radius: 0 3px 3px 0;
+				}
+				.ribbon--singleSide--right {
+					right: 0;  left: auto;
+					width: 90%;
+					border-radius: 3px 0 0 3px;
+				}
+
+		/* ribbon--vertical */
+		/* -------------------------------------------- */
+
+			.ribbon--vertical ,
+			.ribbon__curl::before {
+				background-color: #354758; 
+				color: white;
+			}
+
+			.ribbon--vertical   {
+				display: inline-block;
+				position: absolute;
+				padding: 10px 15px;
+
+				box-shadow: -1px 2px 3px rgba(0,0,0,.5);
+			}
+			.ribbon--vertical   { left: 15px; top: 0; height: 100%; }
+
+			.ribbon__curl {
+				position: absolute;
+				display: inline-block;
+				font-size: 3px;
+			}
+
+			.ribbon__curl--top--left  ,
+			.ribbon__curl--top--right ,
+			.ribbon__curl--btm--left  ,
+			.ribbon__curl--btm--right {
+				height: 3em; width: 100%; left: 0;
+			}
+			.ribbon__curl--top--left  { bottom: 100%; }
+			.ribbon__curl--top--right { bottom: 100%; }
+			.ribbon__curl--btm--left  { top:    100%; }
+			.ribbon__curl--btm--right { top:    100%; }
+
+			.ribbon__curl::before  , .ribbon__curl::after {
+				content: '';
+				display: block;
+				position: absolute;
+			}
+			.ribbon__curl--top--right::before , .ribbon__curl--top--right:after  ,
+			.ribbon__curl--top--left::before  , .ribbon__curl--top--left:after   {
+				border-radius: 2em 2em 0 0;
+			}
+			.ribbon__curl--btm--right::before , .ribbon__curl--btm--right:after  ,
+			.ribbon__curl--btm--left::before  , .ribbon__curl--btm--left:after   {
+				border-radius: 0 0 2em 2em;
+			}
+
+			.ribbon__curl--top--left::before  ,
+			.ribbon__curl--top--right::before ,
+			.ribbon__curl--btm--left::before  ,
+			.ribbon__curl--btm--right::before {
+				width: calc(100% + 3em); height: 3em; 
+			}
+			.ribbon__curl--top--right::before { left:  0; bottom: 0; }
+			.ribbon__curl--top--left::before  { right: 0; bottom: 0; }
+			.ribbon__curl--btm--right::before { left:  0; top:    0; }
+			.ribbon__curl--btm--left::before  { right: 0; top:    0; }
+
+			.ribbon__curl::after {
+				width: 2em; height: 2em;
+				background-color: rgba(0,0,0,0.35);
+			}
+			.ribbon__curl--top--left::after  { bottom: 0; right: 100%; }
+			.ribbon__curl--top--right::after { bottom: 0; left:  100%; }
+			.ribbon__curl--btm--left::after  { top:    0; right: 100%; }
+			.ribbon__curl--btm--right::after { top:    0; left:  100%; }
+
+			/* singleSide */
+			/* -------------------------------------------- */
+
+				.ribbon--singleSide--top  {
+					top: 0;    bottom: auto;
+					height: 90%;
+					border-radius: 0 0 3px 3px;
+				}
+				.ribbon--singleSide--btm  {
+					bottom: 0; top: auto;
+					height: 90%;
+					border-radius: 3px 3px 0 0;
+				}
+
+	/* Ribbon--corner--{*} */
+	/* -------------------------------------------- */
+
+		/* ribbon--corner--topLeft */
 		/* -------------------------------------------- */
 
 			.ribbon--corner--topLeft  {
@@ -384,7 +551,7 @@
 				border-right-color:  rgba(0,0,0,.35);
 			}
 
-		/* Ribbon -- corner -- topRight */
+		/* ribbon--corner--topRight */
 		/* -------------------------------------------- */
 
 			.ribbon--corner--topRight {
@@ -457,384 +624,160 @@
 				border-right-color:  rgba(0,0,0,.35);
 			}
 
-		/* Ribbon -- corner -- btmLeft */
+		/* ribbon--corner--btmLeft */
 		/* -------------------------------------------- */
 
-			
-	.ribbon--horizontal ,
-	.ribbon--vertical ,
-	.ribbon__curl::before {
-		background-color: #354758; 
-		color: white;
-	}
-
-	.ribbon--horizontal ,
-	.ribbon--vertical   {
-		display: inline-block;
-		position: absolute;
-		padding: 10px 15px;
-
-		box-shadow: -1px 2px 3px rgba(0,0,0,.5);
-	}
-	.ribbon--horizontal {
-		left: 0; top: 15px;
-		width: 100%;
-	}
-	.ribbon--vertical {
-		left: 15px; top: 0;
-		height: 100%;
-	}
-/**/
-	.ribbon__curl--left--btm {
-		position: absolute;
-		display: inline-block;
-
-		font-size: 3px;
-
-		width: 3em; height: 100%;
-		right: 100%; top: 0;
-
-	}
-	.ribbon__curl--left--btm::before ,
-	.ribbon__curl--left--btm::after {
-		content: '';
-		display: block;
-		position: absolute;
-		border-radius: 2em 0 0 2em;
-	}
-	.ribbon__curl--left--btm::before {
-		width: 100%; height: calc(100% + 3em);
-		top: 0; left: 0;
-	}
-	.ribbon__curl--left--btm::after {
-		width: 2em; height: 2em;
-		top: 100%; right: 0;
-		background-color: rgba(0,0,0,0.35);
-	}
-
-/**/
-	.ribbon__curl--left--top {
-		position: absolute;
-		display: inline-block;
-
-		font-size: 3px;
-
-		width: 3em; height: 100%;
-		right: 100%; bottom: 0;
-
-	}
-	.ribbon__curl--left--top::before ,
-	.ribbon__curl--left--top::after {
-		content: '';
-		display: block;
-		position: absolute;
-		border-radius: 2em 0 0 2em;
-	}
-	.ribbon__curl--left--top::before {
-		width: 100%; height: calc(100% + 3em);
-		bottom: 0; left: 0;
-	}
-	.ribbon__curl--left--top::after {
-		width: 2em; height: 2em;
-		bottom: 100%; right: 0;
-		background-color: rgba(0,0,0,0.35);
-	}
-
-/**/
-	.ribbon__curl--right--btm {
-		position: absolute;
-		display: inline-block;
-
-		font-size: 3px;
-
-		width: 3em; height: 100%;
-		left: 100%; top: 0;
-
-	}
-	.ribbon__curl--right--btm::before ,
-	.ribbon__curl--right--btm::after {
-		content: '';
-		display: block;
-		position: absolute;
-		border-radius: 0 2em 2em 0;
-	}
-	.ribbon__curl--right--btm::before {
-		width: 100%; height: calc(100% + 3em);
-		top: 0; right: 0;
-	}
-	.ribbon__curl--right--btm::after {
-		width: 2em; height: 2em;
-		top: 100%; left: 0;
-		background-color: rgba(0,0,0,0.35);
-	}
-
-/**/
-	.ribbon__curl--right--top {
-		position: absolute;
-		display: inline-block;
-
-		font-size: 3px;
-
-		width: 3em; height: 100%;
-		left: 100%; bottom: 0;
-
-	}
-	.ribbon__curl--right--top::before ,
-	.ribbon__curl--right--top::after {
-		content: '';
-		display: block;
-		position: absolute;
-		border-radius: 0 2em 2em 0;
-	}
-	.ribbon__curl--right--top::before {
-		width: 100%; height: calc(100% + 3em);
-		bottom: 0; right: 0;
-	}
-	.ribbon__curl--right--top::after {
-		width: 2em; height: 2em;
-		bottom: 100%; left: 0;
-		background-color: rgba(0,0,0,0.35);
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-			/* Ribbon -- multiCurl /*
-		/* -------------------------------------------- */
-
-			.ribbon--horizontal ,
-			.ribbon--vertical ,
-			.ribbon__curl::before {
-				background-color: #354758; 
-				color: white;
-			}
-
-			.ribbon--horizontal ,
-			.ribbon--vertical   {
-				display: inline-block;
+			.ribbon--corner--btmLeft {
 				position: absolute;
-				padding: 10px 15px;
-
-				box-shadow: -1px 2px 3px rgba(0,0,0,.5);
+				bottom: -10px; left: -10px;
+				width: 50%;
+				overflow: hidden;
 			}
-			.ribbon--horizontal { left:    0; top: 15px; width:  100%; }
-			.ribbon--vertical   { left: 15px; top:    0; height: 100%; }
 
-			.ribbon__curl {
-				position: absolute;
-				display: inline-block;
-				font-size: 3px;
-			}
-			.ribbon__curl--left--btm  ,
-			.ribbon__curl--left--top  ,
-			.ribbon__curl--right--btm ,
-			.ribbon__curl--right--top {
-				width: 3em; height: 100%; top: 0;
-			}
-			.ribbon__curl--left--btm  { right: 100%; }
-			.ribbon__curl--left--top  { right: 100%; }
-			.ribbon__curl--right--btm { left:  100%; }
-			.ribbon__curl--right--top { left:  100%; }
-
-			.ribbon__curl--top--left  ,
-			.ribbon__curl--top--right ,
-			.ribbon__curl--btm--left  ,
-			.ribbon__curl--btm--right {
-				height: 3em; width: 100%; left: 0;
-			}
-			.ribbon__curl--top--left  { bottom: 100%; }
-			.ribbon__curl--top--right { bottom: 100%; }
-			.ribbon__curl--btm--left  { top: 100%;    }
-			.ribbon__curl--btm--right { top: 100%;    }
-
-			.ribbon__curl::before  , .ribbon__curl::after {
+			.ribbon--corner--btmLeft::before {
 				content: '';
 				display: block;
+				width: 100%;
+				padding-top: 100%;
+			} 
+
+			.ribbon--corner--btmLeft  .ribbon__text {
 				position: absolute;
+				top: 50%; left: 50%;
+
+				width: 140%; /* the ~diagonal size of a 100% x 100% square triangle - 141.42 causes some corners to not connect */
+				padding: 10px 20%; 
+
+				text-align: center;
+
+				-webkit-transform-origin: 0 0;
+					-ms-transform-origin: 0 0;
+						transform-origin: 0 0;
+				-webkit-transform: rotateZ(45deg)  translate(-50% , 0%);
+					-ms-transform: rotateZ(45deg)  translate(-50% , 0%);
+						transform: rotateZ(45deg)  translate(-50% , 0%);
+
+				background-color: #354758;
+				color: #FFFFFF;
 			}
-			.ribbon__curl--left--btm::before , .ribbon__curl--left--btm::after ,
-			.ribbon__curl--left--top::before , .ribbon__curl--left--top::after {
-				border-radius: 2em 0 0 2em;
-			}
-			.ribbon__curl--right--btm::before , .ribbon__curl--right--btm::after ,
-			.ribbon__curl--right--top::before , .ribbon__curl--right--top::after {
-				border-radius: 0 2em 2em 0;
-			}
-			.ribbon__curl--top--right::before , .ribbon__curl--top--right:after  ,
-			.ribbon__curl--top--left::before  , .ribbon__curl--top--left:after   {
-				border-radius: 2em 2em 0 0;
-			}
-			.ribbon__curl--btm--right::before , .ribbon__curl--btm--right:after  ,
-			.ribbon__curl--btm--left::before  , .ribbon__curl--btm--left:after   {
-				border-radius: 0 0 2em 2em;
+			/*.ribbon--corner--btmLeft .ribbon__text {
+				-webkit-transform: rotateZ(-135deg) translate(-50% , -100%);
+					-ms-transform: rotateZ(-135deg) translate(-50% , -100%);
+						transform: rotateZ(-135deg) translate(-50% , -100%);
+			}*/
+
+			.ribbon--corner--btmLeft  .ribbon__text::before , 
+			.ribbon--corner--btmLeft  .ribbon__text::after {
+				content: '';
+				position: absolute;
+				top: 0;
+				
+				height: 10px;
+				width: 10px;
+				
+				background-color: inherit;
+				border: 5px solid rgba(0,0,0,0);
+
+				-webkit-transform-origin: 0 0;
+					-ms-transform-origin: 0 0;
+						transform-origin: 0 0;
 			}
 
-			.ribbon__curl--left--btm::before  ,
-			.ribbon__curl--left--top::before  ,
-			.ribbon__curl--right--btm::before ,
-			.ribbon__curl--right--top::before {
-				width: 100%; height: calc(100% + 3em);
-			}
-			.ribbon__curl--left--btm::before  { top:    0; right: 0; }
-			.ribbon__curl--left--top::before  { bottom: 0; right: 0; }
-			.ribbon__curl--right--btm::before { top:    0; left:  0; }
-			.ribbon__curl--right--top::before { bottom: 0; left:  0; }
+			.ribbon--corner--btmLeft  .ribbon__text::before {
+				left: 0; 
+				-webkit-transform: rotateZ(-45deg);
+					-ms-transform: rotateZ(-45deg);
+						transform: rotateZ(-45deg);
 
-			.ribbon__curl--top--left::before  ,
-			.ribbon__curl--top--right::before ,
-			.ribbon__curl--btm--left::before  ,
-			.ribbon__curl--btm--right::before {
-				width: calc(100% + 3em); height: 3em; 
+				border-top-color:    rgba(0,0,0,.35);
+				border-right-color:  rgba(0,0,0,.35);
 			}
-			.ribbon__curl--top--right::before { left:  0; bottom: 0; }
-			.ribbon__curl--top--left::before  { right: 0; bottom: 0; }
-			.ribbon__curl--btm--right::before { left:  0; top:    0; }
-			.ribbon__curl--btm--left::before  { right: 0; top:    0; }
+			.ribbon--corner--btmLeft  .ribbon__text::after {
+				left: 100%;
+				-webkit-transform: rotateZ(135deg);
+					-ms-transform: rotateZ(135deg);
+						transform: rotateZ(135deg);
 
-			.ribbon__curl::after {
-				width: 2em; height: 2em;
-				background-color: rgba(0,0,0,0.35);
-			}
-			.ribbon__curl--left--btm::after  { top:    100%; right: 0; }
-			.ribbon__curl--left--top::after  { bottom: 100%; right: 0; }
-			.ribbon__curl--right--btm::after { top:    100%; left:  0; }
-			.ribbon__curl--right--top::after { bottom: 100%; left:  0; }
-
-			.ribbon__curl--top--left::after  { bottom: 0; right: 100%; }
-			.ribbon__curl--top--right::after { bottom: 0; left:  100%; }
-			.ribbon__curl--btm--left::after  { top:    0; right: 100%; }
-			.ribbon__curl--btm--right::after { top:    0; left:  100%; }
-
-			.ribbon--singleSide--left {
-				left: 0;   right: auto;
-				width: 90%;
-				border-radius: 0 3px 3px 0;
-			}
-			.ribbon--singleSide--right {
-				right: 0;  left: auto;
-				width: 90%;
-				border-radius: 3px 0 0 3px;
-			}
-			.ribbon--singleSide--top  {
-				top: 0;    bottom: auto;
-				height: 90%;
-				border-radius: 0 0 3px 3px;
-			}
-			.ribbon--singleSide--btm  {
-				bottom: 0; top: auto;
-				height: 90%;
-				border-radius: 3px 3px 0 0;
+				border-left-color:   rgba(0,0,0,.35);
+				border-bottom-color: rgba(0,0,0,.35);
 			}
 
-
-
-
-
-		/* Ribbon -- multiCurl /*
+		/* ribbon--corner--btmRight */
 		/* -------------------------------------------- */
 
-			.ribbon--horizontal ,
-			.ribbon__curl::before {
-				background-color: #354758; 
-				color: white;
-			}
-
-			.ribbon--horizontal {
-				display: inline-block;
+			.ribbon--corner--btmRight {
 				position: absolute;
-				left: 0; top: 15px; 
-				width:  100%;
-
-				padding: 10px 15px;
-
-				box-shadow: -1px 2px 3px rgba(0,0,0,.5);
+				bottom: -10px; right: -10px;
+				width: 50%;
+				overflow: hidden;
 			}
 
-			.ribbon__curl {
-				position: absolute;
-				display: inline-block;
-				font-size: 3px;
-			}
-
-			.ribbon__curl--left--btm  {
-				width: 3em; height: 100%; 
-				top: 0; right: 100%;
-			}
-
-			.ribbon__curl--left--top  {
-				width: 3em; height: 100%; 
-				top: 0; right: 100%;
-			}
-
-			.ribbon__curl--right--btm {
-				width: 3em; height: 100%; 
-				top: 0; left:  100%;
-			}
-
-			.ribbon__curl--right--top {
-				width: 3em; height: 100%; 
-				top: 0; left:  100%;
-			}
-
-			.ribbon__curl::before  , .ribbon__curl::after {
+			.ribbon--corner--btmRight::before {
 				content: '';
 				display: block;
+				width: 100%;
+				padding-top: 100%;
+			} 
+
+			.ribbon--corner--btmRight .ribbon__text {
 				position: absolute;
+				top: 50%; left: 50%;
+
+				width: 140%; /* the ~diagonal size of a 100% x 100% square triangle - 141.42 causes some corners to not connect */
+				padding: 10px 20%; 
+
+				text-align: center;
+
+				-webkit-transform-origin: 0 0;
+					-ms-transform-origin: 0 0;
+						transform-origin: 0 0;
+
+				background-color: #354758;
+				color: #FFFFFF;
 			}
-			.ribbon__curl--left--btm::before , .ribbon__curl--left--btm::after ,
-			.ribbon__curl--left--top::before , .ribbon__curl--left--top::after {
-				border-radius: 2em 0 0 2em;
+			.ribbon--corner--btmRight .ribbon__text {
+				-webkit-transform: rotateZ(-45deg) translate(-50% , 0%);
+					-ms-transform: rotateZ(-45deg) translate(-50% , 0%);
+						transform: rotateZ(-45deg) translate(-50% , 0%);
 			}
-			.ribbon__curl--right--btm::before , .ribbon__curl--right--btm::after ,
-			.ribbon__curl--right--top::before , .ribbon__curl--right--top::after {
-				border-radius: 0 2em 2em 0;
+			/*.ribbon--corner--btmRight .ribbon__text {
+				-webkit-transform: rotateZ(135deg)  translate(-50% , -100%);
+					-ms-transform: rotateZ(135deg)  translate(-50% , -100%);
+						transform: rotateZ(135deg)  translate(-50% , -100%);
+			}*/
+
+			.ribbon--corner--btmRight .ribbon__text::before , 
+			.ribbon--corner--btmRight .ribbon__text::after  {
+				content: '';
+				position: absolute;
+				top: 0; 
+				
+				height: 10px;
+				width: 10px;
+				
+				background-color: inherit;
+				border: 5px solid rgba(0,0,0,0);
+
+				-webkit-transform-origin: 0 0;
+					-ms-transform-origin: 0 0;
+						transform-origin: 0 0;
 			}
 
-			.ribbon__curl--left--btm::before  ,
-			.ribbon__curl--left--top::before  ,
-			.ribbon__curl--right--btm::before ,
-			.ribbon__curl--right--top::before {
-				width: 100%; height: calc(100% + 3em);
-			}
-			.ribbon__curl--left--btm::before  { top:    0; right: 0; }
-			.ribbon__curl--left--top::before  { bottom: 0; right: 0; }
-			.ribbon__curl--right--btm::before { top:    0; left:  0; }
-			.ribbon__curl--right--top::before { bottom: 0; left:  0; }
+			.ribbon--corner--btmRight .ribbon__text::before {
+				left: 0; 
+				-webkit-transform: rotateZ(-45deg);
+					-ms-transform: rotateZ(-45deg);
+						transform: rotateZ(-45deg);
 
-			.ribbon__curl::after {
-				width: 2em; height: 2em;
-				background-color: rgba(0,0,0,0.35);
+				border-top-color:    rgba(0,0,0,.35);
+				border-right-color:  rgba(0,0,0,.35);
 			}
-			.ribbon__curl--left--btm::after  { top:    100%; right: 0; }
-			.ribbon__curl--left--top::after  { bottom: 100%; right: 0; }
-			.ribbon__curl--right--btm::after { top:    100%; left:  0; }
-			.ribbon__curl--right--top::after { bottom: 100%; left:  0; }
+			.ribbon--corner--btmRight .ribbon__text::after {
+				left: 100%;
+				-webkit-transform: rotateZ(135deg);
+					-ms-transform: rotateZ(135deg);
+						transform: rotateZ(135deg);
 
-			.ribbon--singleSide--left {
-				left: 0;   right: auto;
-				width: 90%;
-				border-radius: 0 3px 3px 0;
-			}
-			.ribbon--singleSide--right {
-				right: 0;  left: auto;
-				width: 90%;
-				border-radius: 3px 0 0 3px;
-			}
-			.ribbon--singleSide--top  {
-				top: 0;    bottom: auto;
-				height: 90%;
-				border-radius: 0 0 3px 3px;
-			}
-			.ribbon--singleSide--btm  {
-				bottom: 0; top: auto;
-				height: 90%;
-				border-radius: 3px 3px 0 0;
+				border-left-color:   rgba(0,0,0,.35);
+				border-bottom-color: rgba(0,0,0,.35);
 			}

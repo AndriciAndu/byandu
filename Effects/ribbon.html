@@ -3,6 +3,17 @@
 	<script src="../xFiles/js/route_intermediary.js"> </script>
 	<!-- ============================================== -->
 	<style> 
+		.demoItem-container {
+			position: relative;
+		}
+		.demoItem-container::after {
+			content: '';
+			position: absolute;
+			top: 0; left: 0;
+			width: 100%; height: 100%;
+			z-index: 2;
+		}
+
 		.demoItem-ribbon {
 			display: inline-block;
 			position: relative;
@@ -105,45 +116,61 @@
 									<div class="accordion-content sectionAccordion-content pb-lg">
 
 										<div class="col-3">
-											<div class="demoItem-ribbon">
-												<div class="ribbon ribbon--left--btm">ribbon--left--btm</div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--left--btm">
+												<div class="demoItem-ribbon">
+													<div class="ribbon ribbon--left--btm">ribbon--left--btm</div>
+												</div>
 											</div>
 										</div>
 										<div class="col-3">
-											<div class="demoItem-ribbon">
-												<div class="ribbon ribbon--left--top">ribbon--left--top</div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--left--top">
+												<div class="demoItem-ribbon">
+													<div class="ribbon ribbon--left--top">ribbon--left--top</div>
+												</div>
 											</div>
 										</div>
 										<div class="col-3">
-											<div class="demoItem-ribbon">
-												<div class="ribbon ribbon--right--btm">ribbon--right--btm</div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--right--btm">
+												<div class="demoItem-ribbon">
+													<div class="ribbon ribbon--right--btm">ribbon--right--btm</div>
+												</div>
 											</div>
 										</div>
 
 										<div class="col-3">
-											<div class="demoItem-ribbon">
-												<div class="ribbon ribbon--right--top">ribbon--right--top</div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--right--top">
+												<div class="demoItem-ribbon">
+													<div class="ribbon ribbon--right--top">ribbon--right--top</div>
+												</div>
 											</div>
 										</div>
 
 										<div class="col-3">
-											<div class="demoItem-ribbon">
-												<div class="ribbon ribbon--top--right">ribbon--top--right</div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--top--right">
+												<div class="demoItem-ribbon">
+													<div class="ribbon ribbon--top--right">ribbon--top--right</div>
+												</div>
 											</div>
 										</div>
 										<div class="col-3">
-											<div class="demoItem-ribbon">
-												<div class="ribbon ribbon--top--left">ribbon--top--left</div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--top--left">
+												<div class="demoItem-ribbon">
+													<div class="ribbon ribbon--top--left">ribbon--top--left</div>
+												</div>
 											</div>
 										</div>
 										<div class="col-3">
-											<div class="demoItem-ribbon">
-												<div class="ribbon ribbon--btm--right">ribbon--btm--right</div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--btm--right">
+												<div class="demoItem-ribbon">
+													<div class="ribbon ribbon--btm--right">ribbon--btm--right</div>
+												</div>
 											</div>
 										</div>
 										<div class="col-3">
-											<div class="demoItem-ribbon">
-												<div class="ribbon ribbon--btm--left">ribbon--btm--left</div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--btm--left">
+												<div class="demoItem-ribbon">
+													<div class="ribbon ribbon--btm--left">ribbon--btm--left</div>
+												</div>
 											</div>
 										</div>
 
@@ -158,89 +185,107 @@
 									<div class="accordion-content sectionAccordion-content pb-lg">
 
 										<div class="col-3">
-											<div class="demoItem-ribbon">
-												<div class="ribbon--horizontal">
-													<div class="ribbon__curl ribbon__curl--left--top"></div>
-													<div class="ribbon__curl ribbon__curl--right--top"></div>
-													<div class="ribbon__text"> 2 Curls </div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--horizontal">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--horizontal">
+														<div class="ribbon__curl ribbon__curl--left--top"></div>
+														<div class="ribbon__curl ribbon__curl--right--top"></div>
+														<div class="ribbon__text"> 2 Curls </div>
+													</div>
 												</div>
 											</div>
 										</div>
 										<div class="col-3">
-											<div class="demoItem-ribbon">
-												<div class="ribbon--horizontal">
-													<div class="ribbon__curl ribbon__curl--left--btm"></div>
-													<div class="ribbon__curl ribbon__curl--right--btm"></div>
-													<div class="ribbon__text"> 2 Curls </div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--horizontal">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--horizontal">
+														<div class="ribbon__curl ribbon__curl--left--btm"></div>
+														<div class="ribbon__curl ribbon__curl--right--btm"></div>
+														<div class="ribbon__text"> 2 Curls </div>
+													</div>
 												</div>
 											</div>
 										</div>
 										<div class="col-3">
-											<div class="demoItem-ribbon">
-												<div class="ribbon--horizontal">
-													<div class="ribbon__curl ribbon__curl--left--btm"></div>
-													<div class="ribbon__curl ribbon__curl--right--top"></div>
-													<div class="ribbon__text"> 2 Curls </div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--horizontal">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--horizontal">
+														<div class="ribbon__curl ribbon__curl--left--btm"></div>
+														<div class="ribbon__curl ribbon__curl--right--top"></div>
+														<div class="ribbon__text"> 2 Curls </div>
+													</div>
 												</div>
 											</div>
 										</div>
 										<div class="col-3">
-											<div class="demoItem-ribbon">
-												<div class="ribbon--horizontal">
-													<div class="ribbon__curl ribbon__curl--left--top"></div>
-													<div class="ribbon__curl ribbon__curl--right--btm"></div>
-													<div class="ribbon__text"> 2 Curls </div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--horizontal">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--horizontal">
+														<div class="ribbon__curl ribbon__curl--left--top"></div>
+														<div class="ribbon__curl ribbon__curl--right--btm"></div>
+														<div class="ribbon__text"> 2 Curls </div>
+													</div>
 												</div>
 											</div>
 										</div>
 										<div class="col-3">
-											<div class="demoItem-ribbon">
-												<div class="ribbon--horizontal">
-													<div class="ribbon__curl ribbon__curl--left--btm"></div>
-													<div class="ribbon__curl ribbon__curl--left--top"></div>
-													<div class="ribbon__curl ribbon__curl--right--top"></div>
-													<div class="ribbon__text"> 3 Curls </div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--horizontal">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--horizontal">
+														<div class="ribbon__curl ribbon__curl--left--btm"></div>
+														<div class="ribbon__curl ribbon__curl--left--top"></div>
+														<div class="ribbon__curl ribbon__curl--right--top"></div>
+														<div class="ribbon__text"> 3 Curls </div>
+													</div>
 												</div>
 											</div>
 										</div>
 										<div class="col-3">
-											<div class="demoItem-ribbon">
-												<div class="ribbon--horizontal">
-													<div class="ribbon__curl ribbon__curl--left--btm"></div>
-													<div class="ribbon__curl ribbon__curl--left--top"></div>
-													<div class="ribbon__curl ribbon__curl--right--btm"></div>
-													<div class="ribbon__text"> 3 Curls </div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--horizontal">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--horizontal">
+														<div class="ribbon__curl ribbon__curl--left--btm"></div>
+														<div class="ribbon__curl ribbon__curl--left--top"></div>
+														<div class="ribbon__curl ribbon__curl--right--btm"></div>
+														<div class="ribbon__text"> 3 Curls </div>
+													</div>
 												</div>
 											</div>
 										</div>
 										<div class="col-3">
-											<div class="demoItem-ribbon">
-												<div class="ribbon--horizontal">
-													<div class="ribbon__curl ribbon__curl--left--top"></div>
-													<div class="ribbon__curl ribbon__curl--right--btm"></div>
-													<div class="ribbon__curl ribbon__curl--right--top"></div>
-													<div class="ribbon__text"> 3 Curls </div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--horizontal">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--horizontal">
+														<div class="ribbon__curl ribbon__curl--left--top"></div>
+														<div class="ribbon__curl ribbon__curl--right--btm"></div>
+														<div class="ribbon__curl ribbon__curl--right--top"></div>
+														<div class="ribbon__text"> 3 Curls </div>
+													</div>
 												</div>
 											</div>
 										</div>
 										<div class="col-3">
-											<div class="demoItem-ribbon">
-												<div class="ribbon--horizontal">
-													<div class="ribbon__curl ribbon__curl--left--btm"></div>
-													<div class="ribbon__curl ribbon__curl--right--btm"></div>
-													<div class="ribbon__curl ribbon__curl--right--top"></div>
-													<div class="ribbon__text"> 3 Curls </div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--horizontal">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--horizontal">
+														<div class="ribbon__curl ribbon__curl--left--btm"></div>
+														<div class="ribbon__curl ribbon__curl--right--btm"></div>
+														<div class="ribbon__curl ribbon__curl--right--top"></div>
+														<div class="ribbon__text"> 3 Curls </div>
+													</div>
 												</div>
 											</div>
 										</div>
 										<div class="col-3">
-											<div class="demoItem-ribbon">
-												<div class="ribbon--horizontal">
-													<div class="ribbon__curl ribbon__curl--left--btm"></div>
-													<div class="ribbon__curl ribbon__curl--left--top"></div>
-													<div class="ribbon__curl ribbon__curl--right--btm"></div>
-													<div class="ribbon__curl ribbon__curl--right--top"></div>
-													<div class="ribbon__text"> 4 Curls </div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--horizontal">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--horizontal">
+														<div class="ribbon__curl ribbon__curl--left--btm"></div>
+														<div class="ribbon__curl ribbon__curl--left--top"></div>
+														<div class="ribbon__curl ribbon__curl--right--btm"></div>
+														<div class="ribbon__curl ribbon__curl--right--top"></div>
+														<div class="ribbon__text"> 4 Curls </div>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -248,89 +293,107 @@
 										<div class="col-12"></div>
 
 										<div class="col-3">
-											<div class="demoItem-ribbon">
-												<div class="ribbon--vertical">
-													<div class="ribbon__curl ribbon__curl--btm--right"></div>
-													<div class="ribbon__curl ribbon__curl--top--right"></div>
-													<div class="ribbon__text"> 2 Curls </div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--vertical">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--vertical">
+														<div class="ribbon__curl ribbon__curl--btm--right"></div>
+														<div class="ribbon__curl ribbon__curl--top--right"></div>
+														<div class="ribbon__text"> 2 Curls </div>
+													</div>
 												</div>
 											</div>
 										</div>
 										<div class="col-3">
-											<div class="demoItem-ribbon">
-												<div class="ribbon--vertical">
-													<div class="ribbon__curl ribbon__curl--btm--left"></div>
-													<div class="ribbon__curl ribbon__curl--top--right"></div>
-													<div class="ribbon__text"> 2 Curls </div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--vertical">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--vertical">
+														<div class="ribbon__curl ribbon__curl--btm--left"></div>
+														<div class="ribbon__curl ribbon__curl--top--right"></div>
+														<div class="ribbon__text"> 2 Curls </div>
+													</div>
 												</div>
 											</div>
 										</div>
 										<div class="col-3">
-											<div class="demoItem-ribbon">
-												<div class="ribbon--vertical">
-													<div class="ribbon__curl ribbon__curl--top--left"></div>
-													<div class="ribbon__curl ribbon__curl--btm--right"></div>
-													<div class="ribbon__text"> 2 Curls </div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--vertical">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--vertical">
+														<div class="ribbon__curl ribbon__curl--top--left"></div>
+														<div class="ribbon__curl ribbon__curl--btm--right"></div>
+														<div class="ribbon__text"> 2 Curls </div>
+													</div>
 												</div>
 											</div>
 										</div>
 										<div class="col-3">
-											<div class="demoItem-ribbon">
-												<div class="ribbon--vertical">
-													<div class="ribbon__curl ribbon__curl--top--left"></div>
-													<div class="ribbon__curl ribbon__curl--btm--left"></div>
-													<div class="ribbon__text"> 2 Curls </div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--vertical">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--vertical">
+														<div class="ribbon__curl ribbon__curl--top--left"></div>
+														<div class="ribbon__curl ribbon__curl--btm--left"></div>
+														<div class="ribbon__text"> 2 Curls </div>
+													</div>
 												</div>
 											</div>
 										</div>
 										<div class="col-3">
-											<div class="demoItem-ribbon">
-												<div class="ribbon--vertical">
-													<div class="ribbon__curl ribbon__curl--btm--left"></div>
-													<div class="ribbon__curl ribbon__curl--top--left"></div>
-													<div class="ribbon__curl ribbon__curl--btm--right"></div>
-													<div class="ribbon__text"> 3 Curls </div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--vertical">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--vertical">
+														<div class="ribbon__curl ribbon__curl--btm--left"></div>
+														<div class="ribbon__curl ribbon__curl--top--left"></div>
+														<div class="ribbon__curl ribbon__curl--btm--right"></div>
+														<div class="ribbon__text"> 3 Curls </div>
+													</div>
 												</div>
 											</div>
 										</div>
 										<div class="col-3">
-											<div class="demoItem-ribbon">
-												<div class="ribbon--vertical">
-													<div class="ribbon__curl ribbon__curl--btm--left"></div>
-													<div class="ribbon__curl ribbon__curl--btm--right"></div>
-													<div class="ribbon__curl ribbon__curl--top--right"></div>
-													<div class="ribbon__text"> 3 Curls </div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--vertical">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--vertical">
+														<div class="ribbon__curl ribbon__curl--btm--left"></div>
+														<div class="ribbon__curl ribbon__curl--btm--right"></div>
+														<div class="ribbon__curl ribbon__curl--top--right"></div>
+														<div class="ribbon__text"> 3 Curls </div>
+													</div>
 												</div>
 											</div>
 										</div>
 										<div class="col-3">
-											<div class="demoItem-ribbon">
-												<div class="ribbon--vertical">
-													<div class="ribbon__curl ribbon__curl--btm--left"></div>
-													<div class="ribbon__curl ribbon__curl--top--left"></div>
-													<div class="ribbon__curl ribbon__curl--top--right"></div>
-													<div class="ribbon__text"> 3 Curls </div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--vertical">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--vertical">
+														<div class="ribbon__curl ribbon__curl--btm--left"></div>
+														<div class="ribbon__curl ribbon__curl--top--left"></div>
+														<div class="ribbon__curl ribbon__curl--top--right"></div>
+														<div class="ribbon__text"> 3 Curls </div>
+													</div>
 												</div>
 											</div>
 										</div>
 										<div class="col-3">
-											<div class="demoItem-ribbon">
-												<div class="ribbon--vertical">
-													<div class="ribbon__curl ribbon__curl--top--left"></div>
-													<div class="ribbon__curl ribbon__curl--btm--right"></div>
-													<div class="ribbon__curl ribbon__curl--top--right"></div>
-													<div class="ribbon__text"> 3 Curls </div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--vertical">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--vertical">
+														<div class="ribbon__curl ribbon__curl--top--left"></div>
+														<div class="ribbon__curl ribbon__curl--btm--right"></div>
+														<div class="ribbon__curl ribbon__curl--top--right"></div>
+														<div class="ribbon__text"> 3 Curls </div>
+													</div>
 												</div>
 											</div>
 										</div>
 										<div class="col-3">
-											<div class="demoItem-ribbon">
-												<div class="ribbon--vertical">
-													<div class="ribbon__curl ribbon__curl--btm--left"></div>
-													<div class="ribbon__curl ribbon__curl--top--left"></div>
-													<div class="ribbon__curl ribbon__curl--btm--right"></div>
-													<div class="ribbon__curl ribbon__curl--top--right"></div>
-													<div class="ribbon__text"> 4 Curls </div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--vertical">
+												<div class="demoItem-ribbon">
+													<div class="ribbon--vertical">
+														<div class="ribbon__curl ribbon__curl--btm--left"></div>
+														<div class="ribbon__curl ribbon__curl--top--left"></div>
+														<div class="ribbon__curl ribbon__curl--btm--right"></div>
+														<div class="ribbon__curl ribbon__curl--top--right"></div>
+														<div class="ribbon__text"> 4 Curls </div>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -348,52 +411,64 @@
 
 										<div class="col-12 p-0">
 											<div class="col-2">
-												<div class="demoItem-ribbon">
-													<div class="ribbon--horizontal ribbon--singleSide--left">
-														<div class="ribbon__curl ribbon__curl--left--btm"></div>
-														<div class="ribbon__curl ribbon__curl--left--top"></div>
-														<div class="ribbon__text"> Ribbon Text </div>
+												<div class="demoItem-container" data-finalCodeId="ribbon--horizontal--singleSide">
+													<div class="demoItem-ribbon">
+														<div class="ribbon--horizontal ribbon--singleSide--left">
+															<div class="ribbon__curl ribbon__curl--left--btm"></div>
+															<div class="ribbon__curl ribbon__curl--left--top"></div>
+															<div class="ribbon__text"> Ribbon Text </div>
+														</div>
 													</div>
 												</div>
 											</div>
 											<div class="col-2">
-												<div class="demoItem-ribbon">
-													<div class="ribbon--horizontal ribbon--singleSide--left">
-														<div class="ribbon__curl ribbon__curl--left--btm"></div>
-														<div class="ribbon__text"> Ribbon Text </div>
+												<div class="demoItem-container" data-finalCodeId="ribbon--horizontal--singleSide">
+													<div class="demoItem-ribbon">
+														<div class="ribbon--horizontal ribbon--singleSide--left">
+															<div class="ribbon__curl ribbon__curl--left--btm"></div>
+															<div class="ribbon__text"> Ribbon Text </div>
+														</div>
 													</div>
 												</div>
 											</div>
 											<div class="col-2">
-												<div class="demoItem-ribbon">
-													<div class="ribbon--horizontal ribbon--singleSide--left">
-														<div class="ribbon__curl ribbon__curl--left--top"></div>
-														<div class="ribbon__text"> Ribbon Text </div>
+												<div class="demoItem-container" data-finalCodeId="ribbon--horizontal--singleSide">
+													<div class="demoItem-ribbon">
+														<div class="ribbon--horizontal ribbon--singleSide--left">
+															<div class="ribbon__curl ribbon__curl--left--top"></div>
+															<div class="ribbon__text"> Ribbon Text </div>
+														</div>
 													</div>
 												</div>
 											</div>
 											<div class="col-2">
-												<div class="demoItem-ribbon">
-													<div class="ribbon--horizontal  ribbon--singleSide--right">
-														<div class="ribbon__curl ribbon__curl--right--top"></div>
-														<div class="ribbon__curl ribbon__curl--right--btm"></div>
-														<div class="ribbon__text"> Ribbon Text </div>
+												<div class="demoItem-container" data-finalCodeId="ribbon--horizontal--singleSide">
+													<div class="demoItem-ribbon">
+														<div class="ribbon--horizontal  ribbon--singleSide--right">
+															<div class="ribbon__curl ribbon__curl--right--top"></div>
+															<div class="ribbon__curl ribbon__curl--right--btm"></div>
+															<div class="ribbon__text"> Ribbon Text </div>
+														</div>
 													</div>
 												</div>
 											</div>
 											<div class="col-2">
-												<div class="demoItem-ribbon">
-													<div class="ribbon--horizontal  ribbon--singleSide--right">
-														<div class="ribbon__curl ribbon__curl--right--top"></div>
-														<div class="ribbon__text"> Ribbon Text </div>
+												<div class="demoItem-container" data-finalCodeId="ribbon--horizontal--singleSide">
+													<div class="demoItem-ribbon">
+														<div class="ribbon--horizontal  ribbon--singleSide--right">
+															<div class="ribbon__curl ribbon__curl--right--top"></div>
+															<div class="ribbon__text"> Ribbon Text </div>
+														</div>
 													</div>
 												</div>
 											</div>
 											<div class="col-2">
-												<div class="demoItem-ribbon">
-													<div class="ribbon--horizontal  ribbon--singleSide--right">
-														<div class="ribbon__curl ribbon__curl--right--btm"></div>
-														<div class="ribbon__text"> Ribbon Text </div>
+												<div class="demoItem-container" data-finalCodeId="ribbon--horizontal--singleSide">
+													<div class="demoItem-ribbon">
+														<div class="ribbon--horizontal  ribbon--singleSide--right">
+															<div class="ribbon__curl ribbon__curl--right--btm"></div>
+															<div class="ribbon__text"> Ribbon Text </div>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -401,52 +476,64 @@
 
 										<div class="col-12 p-0">
 											<div class="col-2">
-												<div class="demoItem-ribbon">
-													<div class="ribbon--vertical  ribbon--singleSide--btm">
-														<div class="ribbon__curl ribbon__curl--btm--left"></div>
-														<div class="ribbon__curl ribbon__curl--btm--right"></div>
-														<div class="ribbon__text"> Ribbon Text </div>
+												<div class="demoItem-container" data-finalCodeId="ribbon--vertical--singleSide">
+													<div class="demoItem-ribbon">
+														<div class="ribbon--vertical  ribbon--singleSide--btm">
+															<div class="ribbon__curl ribbon__curl--btm--left"></div>
+															<div class="ribbon__curl ribbon__curl--btm--right"></div>
+															<div class="ribbon__text"> Ribbon Text </div>
+														</div>
 													</div>
 												</div>
 											</div>
 											<div class="col-2">
-												<div class="demoItem-ribbon">
-													<div class="ribbon--vertical  ribbon--singleSide--btm">
-														<div class="ribbon__curl ribbon__curl--btm--left"></div>
-														<div class="ribbon__text"> Ribbon Text </div>
+												<div class="demoItem-container" data-finalCodeId="ribbon--vertical--singleSide">
+													<div class="demoItem-ribbon">
+														<div class="ribbon--vertical  ribbon--singleSide--btm">
+															<div class="ribbon__curl ribbon__curl--btm--left"></div>
+															<div class="ribbon__text"> Ribbon Text </div>
+														</div>
 													</div>
 												</div>
 											</div>
 											<div class="col-2">
-												<div class="demoItem-ribbon">
-													<div class="ribbon--vertical  ribbon--singleSide--btm">
-														<div class="ribbon__curl ribbon__curl--btm--right"></div>
-														<div class="ribbon__text"> Ribbon Text </div>
+												<div class="demoItem-container" data-finalCodeId="ribbon--vertical--singleSide">
+													<div class="demoItem-ribbon">
+														<div class="ribbon--vertical  ribbon--singleSide--btm">
+															<div class="ribbon__curl ribbon__curl--btm--right"></div>
+															<div class="ribbon__text"> Ribbon Text </div>
+														</div>
 													</div>
 												</div>
 											</div>
 											<div class="col-2">
-												<div class="demoItem-ribbon">
-													<div class="ribbon--vertical  ribbon--singleSide--top">
-														<div class="ribbon__curl ribbon__curl--top--left"></div>
-														<div class="ribbon__curl ribbon__curl--top--right"></div>
-														<div class="ribbon__text"> Ribbon Text </div>
+												<div class="demoItem-container" data-finalCodeId="ribbon--vertical--singleSide">
+													<div class="demoItem-ribbon">
+														<div class="ribbon--vertical  ribbon--singleSide--top">
+															<div class="ribbon__curl ribbon__curl--top--left"></div>
+															<div class="ribbon__curl ribbon__curl--top--right"></div>
+															<div class="ribbon__text"> Ribbon Text </div>
+														</div>
 													</div>
 												</div>
 											</div>
 											<div class="col-2">
-												<div class="demoItem-ribbon">
-													<div class="ribbon--vertical  ribbon--singleSide--top">
-														<div class="ribbon__curl ribbon__curl--top--left"></div>
-														<div class="ribbon__text"> Ribbon Text </div>
+												<div class="demoItem-container" data-finalCodeId="ribbon--vertical--singleSide">
+													<div class="demoItem-ribbon">
+														<div class="ribbon--vertical  ribbon--singleSide--top">
+															<div class="ribbon__curl ribbon__curl--top--left"></div>
+															<div class="ribbon__text"> Ribbon Text </div>
+														</div>
 													</div>
 												</div>
 											</div>
 											<div class="col-2">
-												<div class="demoItem-ribbon">
-													<div class="ribbon--vertical  ribbon--singleSide--top">
-														<div class="ribbon__curl ribbon__curl--top--right"></div>
-														<div class="ribbon__text"> Ribbon Text </div>
+												<div class="demoItem-container" data-finalCodeId="ribbon--vertical--singleSide">
+													<div class="demoItem-ribbon">
+														<div class="ribbon--vertical  ribbon--singleSide--top">
+															<div class="ribbon__curl ribbon__curl--top--right"></div>
+															<div class="ribbon__text"> Ribbon Text </div>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -463,33 +550,41 @@
 									<div class="accordion-content sectionAccordion-content pb-lg">
 
 										<div class="col-3">
-											<div class="demoItem-ribbon-corner">
-												<div class="ribbon ribbon--corner--topLeft">
-													<div class="ribbon__text"> Ribbon Text </div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--corner--topLeft">
+												<div class="demoItem-ribbon-corner">
+													<div class="ribbon--corner--topLeft">
+														<div class="ribbon__text"> Ribbon Text </div>
+													</div>
 												</div>
 											</div>
 										</div>
 
 										<div class="col-3">
-											<div class="demoItem-ribbon-corner">
-												<div class="ribbon ribbon--corner--topRight">
-													<div class="ribbon__text"> Ribbon Text </div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--corner--topRight">
+												<div class="demoItem-ribbon-corner">
+													<div class="ribbon--corner--topRight">
+														<div class="ribbon__text"> Ribbon Text </div>
+													</div>
 												</div>
 											</div>
 										</div>
 
 										<div class="col-3">
-											<div class="demoItem-ribbon-corner">
-												<div class="ribbon ribbon--corner--btmLeft">
-													<div class="ribbon__text"> Ribbon Text </div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--corner--btmLeft">
+												<div class="demoItem-ribbon-corner">
+													<div class="ribbon--corner--btmLeft">
+														<div class="ribbon__text"> Ribbon Text </div>
+													</div>
 												</div>
 											</div>
 										</div>
 
 										<div class="col-3">
-											<div class="demoItem-ribbon-corner">
-												<div class="ribbon ribbon--corner--btmRight">
-													<div class="ribbon__text"> Ribbon Text </div>
+											<div class="demoItem-container" data-finalCodeId="ribbon--corner--btmRight">
+												<div class="demoItem-ribbon-corner">
+													<div class="ribbon--corner--btmRight">
+														<div class="ribbon__text"> Ribbon Text </div>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -1317,250 +1412,6 @@
 											</div>
 										</div>
 									</section>
-
-								<!-- IV. Styles -->
-									<!-- <section class="accordion  p-0        sectionAccordion">
-										<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
-											<button class="accordion-btn  sectionAccordion-btn"> IV. Styles </button>
-											<div class="accordion-content sectionAccordion-content">
-
-												<div class="accordion">
-													<div class="accordion-group px-md my-sm">
-														<button class="accordion-btn"> * Single Side :   </button>
-														<div class="accordion-content">
-
-															<p> 'Multi-Curl' Ribbons can be adapted to <b>the style of a 'Single-Curl'</b>, while also allowing for the presence of <b>'double-curls'</b> on the Ribbon's connecting side. </p>
-
-															<p class="sub-heading"> This is unable with 'Single-Curl' Ribbons, because each curl requires the use of two Elements, and in 'Single-Curl' we can only use the two pseudo-elements available - and are able to only create one Curl. </p>
-
-															<p> This requires adding the <span class="wrapper"><b>ribbon</b>--<b-r>singleSide</b-r>--<b-p>{connectingSide}</b-p></span> Class on the Ribbon Element.</p>
-
-															<div class="col-6">
-																<div class="wrapper">
-																	<pre class="pre-removeTabSpaces">
-																	    &lt;div class="ribbon--horizontal <b>ribbon</b>--<b-r>singleSide</b-r>--<b-p>left</b-p>">
-																	        &lt;div class="ribbon__curl ribbon__curl--<b-p>left</b-p>--top">&lt;/div>
-																	        &lt;div class="ribbon__curl ribbon__curl--<b-p>left</b-p>--btm">&lt;/div>
-																	        &lt;div class="ribbon__text"> Ribbon Text &lt;/div>
-																	    &lt;/div>
-																	    &lt;div class="ribbon--vertical <b>ribbon</b>--<b-r>singleSide</b-r>--<b-p>top</b-p>">
-																	        &lt;div class="ribbon__curl ribbon__curl--<b-p>top</b-p>--left">&lt;/div>
-																	        &lt;div class="ribbon__curl ribbon__curl--<b-p>top</b-p>--right">&lt;/div>
-																	        &lt;div class="ribbon__text"> Ribbon Text &lt;/div>
-																	    &lt;/div>
-																	</pre>
-																</div>
-															</div>
-
-															<div class="col-6">
-																<div class="wrapper" style="height: 150px">
-																	<div class="ribbon--horizontal ribbon--singleSide--left">
-																		<div class="ribbon__curl ribbon__curl--left--btm"></div>
-																		<div class="ribbon__curl ribbon__curl--left--top"></div>
-																		<div class="ribbon__text"> Ribbon Text </div>
-																	</div>
-															    </div>
-																<div class="wrapper" style="height: 150px">
-																	<div class="ribbon--vertical ribbon--singleSide--top">
-																			<div class="ribbon__curl ribbon__curl--top--left"></div>
-																			<div class="ribbon__curl ribbon__curl--top--right"></div>
-																			<div class="ribbon__text"> Ribbon Text </div>
-																		</div>
-															    </div>
-															</div>
-
-														</div>
-													</div>
-												</div>
-
-												<div class="accordion">
-													<div class="accordion-group px-md my-sm">
-														<button class="accordion-btn"> * Follow the document flow :   </button>
-														<div class="accordion-content">
-
-															<div class="col-12 p-0">
-
-																<div class="col-7">
-																	<p> The <span class="wrapper">ribbon</span> uses <span class="wrapper">position: absolute</span>, and is positioned in relation to it's nearest non-static-position Parent. </p>
-																	<p> It can be set to follow the flow of the document (to be used as a Section Title, for example), by setting <span class="wrapper">position: relative</span>, and then using <span class="wrapper">top</span> / <span class="wrapper">bottom</span> / <span class="wrapper">left</span> / <span class="wrapper">right</span> or <span class="wrapper">transform: translate</span> to reposition. </p>
-																	<p> This might require also adjusting the <span class="wrapper">width</span> property, if the Parent Element has paddings. </p>
-																</div>
-																<div class="col-5">
-																	<div class="wrapper">
-																		<pre class="pre-removeTabSpaces">
-																		    .ribbon--horizontal {
-																		        ...
-																		        position: <span id="byAndu-ribbon-multiCurl-useCase1-position">absolute</span>;
-																		        top: <span id="byAndu-ribbon-multiCurl-useCase1-top">15px</span>
-																		        left: <span id="byAndu-ribbon-multiCurl-useCase1-left">0</span>
-																		        width: calc(100% + <span id="byAndu-ribbon-multiCurl-useCase1-width">0px</span>)
-																		    }
-																		</pre>
-																	</div>
-																</div>
-
-																<div class="col-7">
-																	<div class="wrapper py-0">
-																		<pre class="pre-removeTabSpaces py-0">
-																		    &lt;div style="position: relative; padding: 0 15px;">
-																		        &lt;p> Paragraph lorem ipsum &lt;/p>
-																		        &lt;div class="ribbon--horizontal">
-																		            &lt;div class="ribbon__curl  ribbon__curl--left--btm">&lt;/div>
-																		            &lt;div class="ribbon__curl  ribbon__curl--right--btm">&lt;/div>
-																		            &lt;div class="ribbon__text"> Ribbon Text &lt;/div>
-																		        &lt;/div> 
-																		        &lt;p> Paragraph lorem ipsum &lt;/p>
-																		    &lt;/div>
-																		</pre>
-																	</div>
-																</div>
-
-																<div class="col-2 p-0">
-																	<hr>
-																	<div class="col-12 p-0 mb-xs">
-																		<label>
-																			<input id="byAndu-ribbon-multiCurl-useCase1-position--input" type="checkbox"/> 
-																			<span class="wrapper">position: relative</span>
-																		</label>
-																	</div>
-																	
-																	<div class="col-12 p-0">
-																		Top: <span id="byAndu-ribbon-multiCurl-useCase1-top--input--value"> 15px </span>
-																		<br>
-																		<input id="byAndu-ribbon-multiCurl-useCase1-top--input" type="range" value="15" min="0" max="100"/>
-																	</div>
-																	
-																	<div class="col-12 p-0">
-																		Left: <span id="byAndu-ribbon-multiCurl-useCase1-left--input--value"> 0 </span>
-																		<br>
-																		<input id="byAndu-ribbon-multiCurl-useCase1-left--input" type="range" value="0" min="-100" max="100"/>
-																	</div>
-																	
-																	<div class="col-12 p-0">
-																		Width: calc(100% + <span id="byAndu-ribbon-multiCurl-useCase1-width--input--value">0px</span>)
-																		<br>
-																		<input id="byAndu-ribbon-multiCurl-useCase1-width--input" type="range" value="0" min="0" max="100"/>
-																	</div>
-																	<hr>
-																</div>
-
-																<div class="col-3">
-																	<div class="wrapper position-relative">
-																        <p> Paragraph lorem ipsum </p>
-																        <div id="byAndu-ribbon-multiCurl-useCase1--target" class="ribbon--horizontal" style="max-width: none">
-																            <div class="ribbon__curl     ribbon__curl--left--btm"></div>
-																            <div class="ribbon__curl     ribbon__curl--right--btm"></div>
-																            <div class="ribbon__text"> Ribbon Text </div>
-																        </div> 
-																        <p> Paragraph lorem ipsum </p>
-																	</div>
-																</div>
-															</div>
-
-														</div>
-													</div>
-												</div>
-
-												<div class="accordion">
-													<div class="accordion-group px-md my-sm">
-														<button class="accordion-btn"> * Offset : </button>
-														<div class="accordion-content">
-
-															<div class="col-6 p-0">
-																<p> The Ribbon has it's 'offset from the cross-axis' set with : </p>
-																<p> <b>ribbon--horizontal</b> - <span class="wrapper">top: 15px</span> </p>
-																<p> <b>ribbon--vertical</b> - <span class="wrapper">left: 15px</span> </p>
-															</div>
-
-															<div class="col-3">
-																<div class="col-12">
-																	top: <span id="byAndu-ribbon-multiCurl-useCase3-top--input--value"> 15px </span>
-																	<input id="byAndu-ribbon-multiCurl-useCase3-top--input" type="range" value="15" min="0" max="100"/>
-																</div>
-																<div class="wrapper">
-																	<p> Paragraph lorem ipsum </p>
-																	<p> Paragraph lorem ipsum </p>
-																	<p> Paragraph lorem ipsum </p>
-																	<div id="byAndu-ribbon-multiCurl-useCase3--target-1" class="ribbon--horizontal">
-															            <div class="ribbon__curl     ribbon__curl--left--btm"></div>
-															            <div class="ribbon__curl     ribbon__curl--right--btm"></div>
-															            <div class="ribbon__text"> Ribbon Text </div>
-															        </div> 
-																	<p> Paragraph lorem ipsum </p>
-																	<p> Paragraph lorem ipsum </p>
-																	<p> Paragraph lorem ipsum </p>
-																</div>
-															</div>
-
-															<div class="col-3">
-																<div class="col-12">
-																	left: <span id="byAndu-ribbon-multiCurl-useCase3-left--input--value"> 15px </span>
-																	<input id="byAndu-ribbon-multiCurl-useCase3-left--input" type="range" value="15" min="0" max="100"/>
-																</div>
-																<div class="wrapper">
-																	<p> Paragraph lorem ipsum </p>
-																	<p> Paragraph lorem ipsum </p>
-																	<p> Paragraph lorem ipsum </p>
-																	<div id="byAndu-ribbon-multiCurl-useCase3--target-2" class="ribbon--vertical">
-															            <div class="ribbon__curl     ribbon__curl--top--left"></div>
-															            <div class="ribbon__curl     ribbon__curl--btm--right"></div>
-															            <div class="ribbon__text"> Ribbon Text </div>
-															        </div>
-																	<p> Paragraph lorem ipsum </p>
-																	<p> Paragraph lorem ipsum </p>
-																	<p> Paragraph lorem ipsum </p>
-																</div>
-															</div>
-
-														</div>
-													</div>
-												</div>
-
-												<div class="accordion">
-													<div class="accordion-group px-md my-sm">
-														<button class="accordion-btn"> * Curl Size :   </button>
-														<div class="accordion-content">
-
-															<div class="col-5 p-0">
-																<p> The curl's size is determined by the <span class="wrapper">font-size: 3px</span> value, set on the <span class="wrapper">.ribbon__curl</span> elements. </p> 
-
-																<p> This sets the size and position of the <span class="wrapper">::before</span> & <span class="wrapper">::after</span> pseudo-elements (which form the Curl) with <span class="Wrapper">em</span> units. </p>
-															</div>
-
-
-															<div class="col-4">
-																<div class="wrapper">
-																	<pre class="pre-removeTabSpaces">
-																	    .ribbon__curl::before ,
-																	    .ribbon__curl::after {
-																	        ...
-																	        font-size: <span id="byAndu-ribbon-multiCurl-useCase4-fontSize-code">3px</span>;
-																	        ...
-																	    }
-																	</pre>
-																</div>
-															</div>
-
-															<div class="col-3">
-																<div class="col-12">
-																	font-size: <span id="byAndu-ribbon-multiCurl-useCase4-fontSize--input--value"> 3px </span>
-																	<input id="byAndu-ribbon-multiCurl-useCase4-fontSize--input" type="range" value="3" min="0" max="10"/>
-																</div>
-																<div class="wrapper" style="height: 150px">
-																	<div class="ribbon--vertical">
-															            <div id="byAndu-ribbon-multiCurl-useCase4--target-1" class="ribbon__curl     ribbon__curl--top--left"></div>
-															            <div id="byAndu-ribbon-multiCurl-useCase4--target-2" class="ribbon__curl     ribbon__curl--btm--right"></div>
-															            <div class="ribbon__text"> Ribbon Text </div>
-															        </div>
-																</div>
-															</div>
-
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</section> -->
 							</div>
 
 						</div>
@@ -1569,7 +1420,7 @@
 
 				<!-- Code Tab -->
 				<div class="tabs-content article-mainTabs-codeTab"  data-tabs-id="3"
-							data-generateCodeFor="[ 'css' ]" 
+							data-generateCodeFor="[ 'css' , 'css-singular' ]" 
 							data-setCopyContextId="ribbon" 
 							data-setFileName="asterisk-effects-ribbon">
 				</div>
