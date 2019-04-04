@@ -1,0 +1,42 @@
+				
+
+		.skeletonOverlay::before {
+			content: '';
+			display: inline-block;
+			position: absolute;
+			top: 0; left: 0; 
+			width: 100%; height: 100%;
+
+			background: #eeeeee !important;
+		    background-size: 100%;
+		    background-position: 0 0;
+
+		    transition: opacity .3s .2s ease-out;
+		}
+
+		.skeletonOverlay.skeletonOverlay__exitTransition::before,
+		.skeletonOverlay.skeletonOverlay__exitTransition::after {
+			opacity: 0;
+		}
+
+		.skeletonOverlay::after {
+			content: '';
+			display: inline-block;
+			position: absolute;
+			top: 0; left: -50%; 
+			width: 100%; height: 100%;
+
+		    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+		    background-size: 100% 100%;
+		    background-position: 0 0;
+
+		    animation: placeHolderShimmer 1s ease-in-out infinite;
+
+		    transition: opacity .3s .2s ease-out;
+		}
+
+		@keyframes placeHolderShimmer {
+		    100% {
+		        transform: translateX(150%);
+		    }
+		}

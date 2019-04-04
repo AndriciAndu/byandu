@@ -37,20 +37,24 @@
 				
 					scrollTriggerObj.triggerPoints_generateMap = function( targetArea__element ) {
 
-						var targetElements  = []; 
+						// Get all the relevant elements (children) within the [targetArea]
+						// -----------------------------------------------------
 
-						var targetArea = targetArea__element || document;
-						var allTargets = Array.from(targetArea.getElementsByClassName('scrollTrigger-target'));
+							var targetElements = []; 
 
-						targetElements = allTargets.sort(function(a, b) { 
-							return parseFloat(a.getBoundingClientRect().top) - parseFloat(b.getBoundingClientRect().top) 
-						});
+							var targetArea = targetArea__element || document;
+							var allTargets = Array.from(targetArea.getElementsByClassName('scrollTrigger-target'));
 
-						scrollTriggerObj.targetElements = targetElements = targetElements.map(function(x , index) {
-							return { elem : x , index : index }
-						});
+							targetElements = allTargets.sort(function(a, b) { 
+								return parseFloat(a.getBoundingClientRect().top) - parseFloat(b.getBoundingClientRect().top) 
+							});
+
+							scrollTriggerObj.targetElements = targetElements = targetElements.map(function(x , index) {
+								return { elem : x , index : index }
+							});
 
 						// Checks the Targets' Position in comparison to the View
+						// -----------------------------------------------------
 
 							var inView = [];
 							var limit = targetElements.length;

@@ -830,10 +830,10 @@
 
 				if (itemsToGenerate.length > 50) {
 					itemsToGenerate_current = itemsToGenerate.slice(0, 49);
-					itemsToGenerate = itemsToGenerate.slice(50);
+					asterisk.route.currentPage.objects.itemsToGenerate = itemsToGenerate.slice(50);
 				} else {
 					itemsToGenerate_current = itemsToGenerate;
-					itemsToGenerate = [];
+					asterisk.route.currentPage.objects.itemsToGenerate = [];
 					loadingBottom.classList.add('hidden');
 				};
 					

@@ -250,6 +250,17 @@
 						}
 					} ,
 
+				// tooltip
+				// --------------------------------------------------
+				
+					{ 
+						filePath_html : '/effects/skeletonOverlay.html' , 
+						filePath_js   : '/xFiles/js/articleScripts/effects/skeletonOverlay.js' , 
+						articleParameters : {
+							category : 'effects'
+						}
+					} ,
+
 			// Components
 			// --------------------------------------------------
 
