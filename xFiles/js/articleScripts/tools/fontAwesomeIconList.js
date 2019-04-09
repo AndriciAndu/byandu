@@ -851,7 +851,7 @@
 
 			asterisk.route.currentPage.functions.checkIconListScroll = function() {
 
-				if (document.documentElement.scrollTop + document.documentElement.offsetHeight > document.documentElement.scrollHeight - 20) {
+				if (document.documentElement.scrollTop + window.innerHeight > document.documentElement.scrollHeight - 20) {
 					asterisk.route.currentPage.functions.loadNextItems()
 				};
 
@@ -859,10 +859,10 @@
 					(asterisk.route.currentPage.objects.itemsToGenerate.length > 0) && 
 					(window.location.href.toLowerCase().indexOf('fontAwesomeIconList.html'.toLowerCase()) > -1) 
 				) { 
-						setTimeout(function(){
-							var checkIconListScroll = asterisk.route.currentPage.functions.checkIconListScroll;
-							if (checkIconListScroll) { checkIconListScroll() }
-						} , 500) 
+					setTimeout(function(){
+						var checkIconListScroll = asterisk.route.currentPage.functions.checkIconListScroll;
+						if (checkIconListScroll) { checkIconListScroll() }
+					} , 500) 
 				};
 			};
 

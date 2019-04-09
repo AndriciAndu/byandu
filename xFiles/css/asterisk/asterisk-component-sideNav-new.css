@@ -1,55 +1,137 @@
 
+	/*
+		<div id="byAndu-navbarSide" class="body-sideNav">
+
+			<div class="sideNav__group"> 
+
+				<button class="sideNav__group__title">
+					<div class="sideNav__group__title__icon"></div>
+					<div class="sideNav__group__title__text"> Utility </div>
+				</button>
+
+				<div class="sideNav__group__menu">
+					<a class="sideNav__group__menu__item"> </a>
+					<a class="sideNav__group__menu__item"> </a>
+				</div>
+
+			</div>
+
+		</div>
+	*/
+
 	/* body-sideNav */
 	/* -------------------------------------------- */
 
-		/* Colors */
+		/* Commonly chenged properties */
 		/* -------------------------------------------- */
 
-			.body-sideNav {
-				width: 12.5vh;
+			/* Colors */
+			/* -------------------------------------------- */
+
+				.body-sideNav {
+					color: #ebebeb;
+					background-color: #293744;
+				}
+
+				.sideNav__group__menu {
+					background-color: #354758;
+				}
+
+				.sideNav__group__menu__item {
+					color: rgba(235,235,235, .75);
+					background-color: inherit;
+				}
+
+				.sideNav__group__menu__item:hover ,
+				.sideNav__group__menu__item:focus {
+					color: #FFFFFF;
+					background-color: #293744;
+				}
+
+				.sideNav__group__menu__item.active {
+					color: yellow;
+					background-color: #293744;
+				}
+
+				/* mobile - hamburger button */
+				#body-sideNav-toggleDisplay-mobile-label {
+					color: #FFFFFF;
+					background-color: #be0c0c;
+				}
+
+			/* Size */
+			/* -------------------------------------------- */
+
+				@media (max-width: 767.98px) {
+					.body-sideNav { 
+						width: 12.5vh; 
+					}
+					.sideNav__group__menu { 
+						width: calc(100vw - 12.5vh); 
+					}
+				}
+
+				@media (min-width: 767.98px) {
+					.body-sideNav { 
+						flex-basis: 12.5vh; 
+					} 
+					.sideNav__group__menu { 
+						width: 300px; 
+					}
+				}
+
+				.sideNav__group              { height: 12.5vh; } /* keep the same value as [width], to form a square */
+				.sideNav__group__menu__item  { height: 6.25vh; } /* set as 50% of the [sideNav__group] to create two per block aesthetic look */
+
+				.sideNav__group__title__icon { font-size: 3.5vh; }
+				.sideNav__group__title__text { font-size: 1.7vh; }
+				.sideNav__group__menu__item  { font-size: 12px;  }
+
+			/* Z-index map */
+			/* -------------------------------------------- */
+
+				.body-sideNav { z-index: 1000; }
+				.body-main    { z-index: 900;  }
+
+				#body-sideNav-toggleDisplay-mobile ,
+				#body-sideNav-toggleDisplay-mobile-label {
+					z-index: 1001;
+				}
+
+		/* Wrapper - flexContainer */
+		/* -------------------------------------------- */
+
+			.body__flexContainer {
+				position: relative;
+				width: 100vw; 
+				float: left;
+
+				display: flex;
+				flex-direction: row;
 			}
-			.body-main {
-				left: 12.5vh;
-			}
-			.sideNav-btnGroup {
-				height: 12.5vh;
-			}
-			.sideNav-btnGroup-btnContainer {
-				left: 12.5vh;
-				width: calc(33.3333vw - 12.5vh);
-			}
-			@media (max-width: 767.98px) {
-				.sideNav-btnGroup-btnContainer {
-					width: calc(100vw - 12.5vh);
+
+		/* Size & Positioning - main containers */
+		/* -------------------------------------------- */
+
+			.body-sideNav { position: fixed;    height:     100vh; }
+			.body-main    { position: relative; min-height: 100vh; }
+
+			@media (min-width: 767.98px) {
+				.body-sideNav { flex-grow: 0; flex-shrink: 0; /* flex-basis: set on [Commonly chenged properties] - [Size] */ }
+				.body-main    { flex-grow: 1; flex-shrink: 1; flex-basis: 0px; }
+
+				.body-sideNav {
+					position: sticky; top: 0;
 				}
 			}
 
-			.body-sideNav {
-				color: rgb(235,235,235);
-				background-color: #293744;
-			}
-
-			.sideNav-btnGroup-btnContainer {
-				background-color: #354758;
-			}
-
-			#body-sideNav-toggleDisplay-mobile-label {
-				background-color: #be0c0c;
-				color: #FFFFFF;
-			}
-
-		/* General - positioning */
+		/* body-sideNav */
 		/* -------------------------------------------- */
 
-			.body-sideNav {
-				position: fixed;
-				top: 0; left: 0;
-				height: 100vh;
+		/* [Title] Underlay & [Menu] Overlay  */
+		/* -------------------------------------------- */
 
-				z-index: 1000;
-			}
-
-			.body-sideNav:before {
+			.body-sideNav::before {
 				content: '';
 				position: absolute;
 				top: 0; left: 0;
@@ -59,216 +141,144 @@
 				border-right: 1px solid rgba(3,3,3,.3);
 			}
 
-			.body-main {
-				position: absolute;
-				top: 0; 
-
-				width: calc(100vw - 12.5vh);
-				width: calc(100vw - var(--body-sideNav-width , 12.5vh));
-				z-index: 900;
-			}
-
-		/* Title (Category Btn) */
+		/* Title - [sideNav__group__title] */
 		/* -------------------------------------------- */
 
-			.sideNav-btnGroup {
-				position: relative;
-				width: 100%; 
-			}
-
-			.sideNav-btnGroup-title {
+			.sideNav__group__title {
 				position: relative;
 				width: 100%; height: 100%;
 				overflow: hidden;
-				z-index: 2;
 
+				z-index: 2;
 				border-bottom: 1px solid rgba(3,3,3,.1);
 			}
 
-			.sideNav-btnGroup-title::after {
-				content: '';
-				position: absolute;
-				top: 0; left: 0;
-				width: 100%; height: 100%;
-				z-index: 3;
-			}
-
-			.sideNav-btnGroup-title-faIcon ,
-			.sideNav-btnGroup-title-text {
-				position: relative;
-				display: flex !important;
-				align-items: center;
-				justify-content: center;
-
-				width: 100%;
-			}
-
-			.sideNav-btnGroup-title-faIcon {
-				height: 50%;
-				transform: translateY(50%);
-			}
-
-			.sideNav-btnGroup-title-text {
-				height: 50%;
-				font-size: 1.7vh;
-				transform: translateY(100%);
-			}
-
-			/* Category - Icon */
+			/* Title - Icon & Text */
 			/* -------------------------------------------- */
 
-				.sideNav-btnGroup-title-faIcon::before {
-					font-size: 3.5vh;
-				}
+				.sideNav__group__title__icon ,
+				.sideNav__group__title__text {
+					position: relative;
+					width: 100%; height: 50%;
 
-				.sideNav-btnGroup-title-faIcon.fa-puzzle-piece::before {
-				    -webkit-transform: translateX(.4vh);
-				        -ms-transform: translateX(.4vh);
-				            transform: translateX(.4vh);
-				}
+					display: flex !important;
+					justify-content: center;
+					align-items: center;
 
-				.sideNav-btnGroup-title-text   ,
-				.sideNav-btnGroup-title-faIcon {
 					opacity: .1; 
 				    -webkit-transition: opacity .2s , transform .3s;
 				       -moz-transition: opacity .2s , transform .3s;
 				         -o-transition: opacity .2s , transform .3s;
 				            transition: opacity .2s , transform .3s;
 				}
+				.sideNav__group__title__icon {
+					-webkit-transform: translateY(50%);
+						-ms-transform: translateY(50%);
+							transform: translateY(50%);
+				}
+				.sideNav__group__title__text {
+					-webkit-transform: translateY(100%);
+						-ms-transform: translateY(100%);
+							transform: translateY(100%);
+				}
 
 			/* STATE : Hover || Active */
 			/* -------------------------------------------- */
 
-				.sideNav-btnGroup:hover 		.sideNav-btnGroup-title-text   ,
-				.sideNav-btnGroup:hover 		.sideNav-btnGroup-title-faIcon ,
-				.sideNav-btnGroup:focus 		.sideNav-btnGroup-title-text   ,
-				.sideNav-btnGroup:focus 		.sideNav-btnGroup-title-faIcon ,
-				.sideNav-btnGroup:focus-within 	.sideNav-btnGroup-title-text   ,
-				.sideNav-btnGroup:focus-within 	.sideNav-btnGroup-title-faIcon {
+				.sideNav__group:hover 			.sideNav__group__title__text   ,
+				.sideNav__group:focus 			.sideNav__group__title__text   ,
+				.sideNav__group:focus-within 	.sideNav__group__title__text   {
 					opacity: 1;
-					transform: translateY(0);
+					-webkit-transform: translateY(0);
+						-ms-transform: translateY(0);
+							transform: translateY(0);
 				}
 
-				.sideNav-btnGroup:hover 		.sideNav-btnGroup-title-text   ,
-				.sideNav-btnGroup:focus 		.sideNav-btnGroup-title-text   ,
-				.sideNav-btnGroup:focus-within 	.sideNav-btnGroup-title-text   {
-					transform: translateY(0);
+				.sideNav__group:hover 			.sideNav__group__title__icon ,
+				.sideNav__group:focus 			.sideNav__group__title__icon ,
+				.sideNav__group:focus-within 	.sideNav__group__title__icon {
+					opacity: 1;
+					-webkit-transform: translateY(25%);
+						-ms-transform: translateY(25%);
+							transform: translateY(25%);
 				}
 
-				.sideNav-btnGroup:hover 		.sideNav-btnGroup-title-faIcon ,
-				.sideNav-btnGroup:focus 		.sideNav-btnGroup-title-faIcon ,
-				.sideNav-btnGroup:focus-within 	.sideNav-btnGroup-title-faIcon {
-					transform: translateY(25%);
-				}
-
-				.sideNav-btnGroup.active .sideNav-btnGroup-title-text   ,
-				.sideNav-btnGroup.active .sideNav-btnGroup-title-faIcon {
+				.sideNav__group.active .sideNav__group__title__text ,
+				.sideNav__group.active .sideNav__group__title__icon {
 					opacity: 1;
 					color: yellow;
 				}
 
-		/* btnContainer */
+		/* sideNav__group__menu */
 		/* -------------------------------------------- */
 
-			.sideNav-btnGroup-btnContainer {
-				position: fixed;
-				top: 0; 
+			.sideNav__group__menu { /* positioned against the [body-sideNav] itself */
+				position: absolute;
+				top: 0; left: 100%;
 				height: 100vh;
 
-				z-index: -3;
-
-				transform: translateX(-102%);
-				transition: transform .3s;
+				-webkit-transition: transform .3s;
+				   -moz-transition: transform .3s;
+					 -o-transition: transform .3s;
+						transition: transform .3s;
+				-webkit-transform: translateX(-102%);
+					-ms-transform: translateX(-102%);
+						transform: translateX(-102%);
 
 				visibility: hidden;
 			}
 
-			.sideNav-btn ,
-			a.sideNav-btn {
-				display: inline-block;
-				width: 100%;
-				font-family: 'Roboto';
+			.sideNav__group__menu__item {
+				display: flex;
+				align-items: center;
+				justify-content: flex-start;
 
-				font-size: 12px;
 				padding-left: 15px;
-				line-height: calc(6.25vh - 1px);
-
 				cursor: pointer; cursor: hand;
-
-				background-color: inherit;
-				color: rgba(235,235,235, .75) !important;
 				border-bottom: 1px solid rgba(3,3,3,.2);
-
-				text-decoration: none !important;
 			}
 
-			.sideNav-btn.active,
-			.sideNav-btn:hover {
-				color: #FFFFFF !important;
-				background-color: #293744;
+			.sideNav__group:hover 			.sideNav__group__menu ,
+			.sideNav__group:focus-within 	.sideNav__group__menu ,
+			.sideNav__group__title:hover  ~ .sideNav__group__menu ,
+			.sideNav__group__menu:hover {
+				z-index: -1;
+				visibility: visible;
 			}
 
-			.sideNav-btn.active {
-				color: yellow !important;
-			}
-
-		@media (min-width: 767.98px) {
-
-			.body-sideNav:hover        .sideNav-btnGroup-btnContainer ,
-			.body-sideNav:focus-within .sideNav-btnGroup-btnContainer {
-				transform: translateX(0);
-			}
-
-			/* make .active btnGroup visible if hovering sideNav but not a category */
-			.sideNav-btnGroup.active 		.sideNav-btnGroup-btnContainer {
+			.sideNav__group.active  .sideNav__group__menu {
 				z-index: -2;
 				visibility: visible;
 			}
 
-			.sideNav-btnGroup:hover 		.sideNav-btnGroup-btnContainer ,
-			.sideNav-btnGroup:focus-within 	.sideNav-btnGroup-btnContainer ,
-			.sideNav-btnGroup-btnContainer:hover ,
-			.sideNav-btnGroup-btnContainer:focus-within {
-				z-index: -1;
-				visibility: visible;
+		@media (min-width: 767.98px) {
+			.sideNav--hover:hover        .sideNav__group__menu ,
+			.sideNav--hover:focus        .sideNav__group__menu ,
+			.sideNav--hover:focus-within .sideNav__group__menu {
+				-webkit-transform: translateX(0);
+					-ms-transform: translateX(0);
+						transform: translateX(0);
 			}
 		}
 
 		@media (max-width: 767.98px) {
-			
-			.body-main {
-				left: 0;
-				width: 100vw;
-			}
-
-			.sideNav-btnGroup-btnContainer {
-				position: fixed;
-				top: 0; right: 0;
-				z-index: -3;
-			}
-
 			.body-sideNav, 
-			.sideNav-btnGroup-btnContainer {
-				transform: translateX(-125%);
-				transition: transform .3s;
-			}
-
-			.sideNav-btnGroup.active .sideNav-btnGroup-btnContainer {
-				z-index: -2;
-				visibility: visible;
-			}
-
-			.sideNav-btnGroup:focus        .sideNav-btnGroup-btnContainer ,
-			.sideNav-btnGroup:focus-within .sideNav-btnGroup-btnContainer {
-				z-index: -1;
-				visibility: visible;
+			.sideNav__group__menu {
+				-webkit-transition: transform .3s;
+				   -moz-transition: transform .3s;
+					 -o-transition: transform .3s;
+						transition: transform .3s;
+				-webkit-transform: translateX(-125%);
+					-ms-transform: translateX(-125%);
+						transform: translateX(-125%);
 			}
 			
 			#body-sideNav-toggleDisplay-mobile:checked ~ .body-sideNav , 
-			#body-sideNav-toggleDisplay-mobile:checked ~ .body-sideNav .sideNav-btnGroup-btnContainer {
-				transform: translateX(0);
+			#body-sideNav-toggleDisplay-mobile:checked ~ .body-sideNav .sideNav__group__menu {
+				-webkit-transform: translateX(0);
+					-ms-transform: translateX(0);
+						transform: translateX(0);
 			}
-
 		}
 
 		/* menu is closed */
@@ -281,10 +291,13 @@
 				width: 38px; height: 38px;
 				line-height: 38px; text-align: center;
 
-				z-index: 1001;
-
-				transform: translateY(0);
-				transition: transform .3s , top .3s , border-radius .3s;
+				-webkit-transition: transform .3s , top .3s , border-radius .3s;
+				   -moz-transition: transform .3s , top .3s , border-radius .3s;
+					 -o-transition: transform .3s , top .3s , border-radius .3s;
+						transition: transform .3s , top .3s , border-radius .3s;
+				-webkit-transform: translateY(0);
+					-ms-transform: translateY(0);
+						transform: translateY(0);
 			}
 
 			#body-sideNav-toggleDisplay-mobile 		 { opacity: 0; }
@@ -300,10 +313,12 @@
 
 			#body-sideNav-toggleDisplay-mobile:checked ,
 			#body-sideNav-toggleDisplay-mobile:checked ~ #body-sideNav-toggleDisplay-mobile-label {
-				transform: translateY(100vh);
+				-webkit-transform: translateY(100vh);
+					-ms-transform: translateY(100vh);
+						transform: translateY(100vh);
 				top: -38px;
 
-				font-size: 1.1em;
+				font-size: 16px;
 				border-top-left-radius: 3px;
 			}
 			#body-sideNav-toggleDisplay-mobile:checked ~ #body-sideNav-toggleDisplay-mobile-label::after { 

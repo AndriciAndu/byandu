@@ -3,6 +3,10 @@
 	<script src="../xFiles/js/route_intermediary.js"> </script>
 	<!-- ============================================== -->
 	<style> 
+		.demoItem-skl {
+			height: 200px;
+			background-color: red;
+		}
 		</style>
 	<!-- ============================================== -->
 
@@ -31,25 +35,32 @@
 						<style>
 							.x {
 								position: relative;
-								width: 500px;
-								height: 1000px;
 
 								overflow: hidden;
 								background: #eeeeee;
+
+								--x : 90px;
+								padding: calc(var(--x) /6);
 							}
 
-							.x::before {
+							.x::before , 
+							.x::after  {
 								content: '';
 								display: inline-block;
 								position: absolute;
-								top: 0; left: -50%; 
+
 								width: 100%; height: 100%;
+								padding: inherit;
+							}
+
+							.x::before {
+								top: 0; left: -50%; 
 
 							    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
 							    background-size: 100% 100%;
 							    background-position: 0 0;
 
-							    animation: zxc 1s ease-in-out infinite;
+							    /*animation: zxc 1s ease-in-out infinite;*/
 
 							    transition: opacity .3s .2s ease-out;
 							}
@@ -61,13 +72,11 @@
 
 							.x::after {
 								content: '  \f111  \f0c9\f0c9\f0c9\f0c9 \A   \f039\f039\f039\f039\f036 \A   \f068\f068\f068\f068\f068\f068 \A   \f2d1\f2d1\f2d1\f2d1\f2d1 \A   \f0c9\f0c9\f0c9\f0c9\f0c9\f0c9 \A   \f04c \A   \f0c8  \f04d \A   \f00a  \f009  \f00b';
-								position: absolute;
 								font-family: FontAwesome;
 								white-space: pre;
 								top: 0; left: 0;
-								width: 100%; height: 100%;
 
-								font-size: 90px;
+								font-size: var(--x);
 								line-height: 1;
 								letter-spacing: -5px;
 
@@ -76,15 +85,54 @@
 								mix-blend-mode: screen;
 							}
 
-							.x-1::after {
-								content: '  \f111  \f0c9\f0c9\f0c9\f0c9 \A';
+							.x::first-line {
+								letter-spacing: 10px;
+							}
+
+							.x-a::after {
+								content: ' \f111  \f0c9\f0c9\f0c9';
+							}
+
+							.x-a.x-1::after {
+								content: ' \f111  \A  \f0c9';
+							}
+							.x-a.x-2::after {
+								content: ' \f111  \f0c9 \A  \f0c9\f0c9';
+							}
+							.x-a.x-3::after {
+								content: ' \f111  \f0c9 \A  \f0c9\f0c9\f0c9';
+							}
+							.x-a.x-x::after {
+								content: ' \f111  \f0c9\f0c9 \A  \f039\f039\f036';
 							}
 						</style>
 
-						<div class="x"> </div>
-						<div class="x x-1"> </div>
-
-
+						<div class="col-2">
+							<div class="demoItem-container" data-finalCodeId="ribbon--left--btm">
+								<div class="demoItem-skl x x-a x-1"></div>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="demoItem-container" data-finalCodeId="ribbon--left--btm">
+								<div class="demoItem-skl x x-a x-2"></div>
+							</div>
+						</div>
+						<div class="col-4">
+							<div class="demoItem-container" data-finalCodeId="ribbon--left--btm">
+								<div class="demoItem-skl x x-a x-3"></div>
+							</div>
+						</div>
+						<div class="col-4">
+							<div class="demoItem-container" data-finalCodeId="ribbon--left--btm">
+								<div class="demoItem-skl x x-a x-x"></div>
+							</div>
+						</div>
+						<div class="col-12"></div>
+						<div class="col-12">
+							<div class="demoItem-container" data-finalCodeId="ribbon--left--btm" >
+								<div class="demoItem-skl x" style="height: 800px"></div>
+							</div>
+						</div>
 
 					</div>
 				</div>
@@ -98,7 +146,7 @@
 								<button class="accordion-btn  sectionAccordion-btn"> I. Description </button>
 								<div class="accordion-content sectionAccordion-content">
 
-									<p> Conent placeholders -- improve perceiveload time, while the actual content is loading. </p>
+									<p> Content placeholders -- improve perceiveload time, while the actual content is loading. </p>
 									<p> Applies an overlay over the Element, while the image is loading. </p>
 									<p> It is removed once the image has loaded. </p>
 
@@ -774,6 +822,34 @@
 
 						</div>
 					</div>
+
+					<!-- x Limitations -->
+						<section class="accordion  p-0        sectionAccordion">
+							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+								<button class="accordion-btn  sectionAccordion-btn"> x. Limitations </button>
+								<div class="accordion-content sectionAccordion-content">
+
+									<p> <span class="wrapper">mix-blend-mode</span> is inneficient. </p>
+									<p> <span class="wrapper">animations</span> are expensive - even animating 'ideal' properties such as transforms and opacity, still take their toll on the user's resources. </p>
+
+									<p> As is logical - having many keyframes - modifying multiple properties - running multiple animations at once - each of these have their cost. If managed properly, they might be truly unoticeable - but they must be considered and approached adequately. </p>
+
+									<p> The pros : </p>
+									<p> No extra elements required - CSS only solution. </p>
+									<p> No reflows ? - the markup itself is not changed </p>
+
+									<p> The neutral : </p>
+									<p> CSS animations - would have been necessary with any approach </p>
+									<p> </p>
+
+									<p> The cons : </p>
+									<p> Not self-adaptable - as we are using font-icons, we cannot set their dimensions through the width property - we can only use the font-size property - this means: all icons must have the same size - the elements themselves cannot adapt to the size of the container. </p>
+
+									<p> Yet, they don't have to fit perfectly - all major sitew that used skeleton screens, have them as a generic novalty instead of a set dimension. And, as their purpose is to suggest to the user that the content is loading, and they will be shown only briefly, it makes little difference in the long run. </p>
+
+								</div>
+							</div>
+						</section>
 				</div>
 
 				<!-- Code Tab -->

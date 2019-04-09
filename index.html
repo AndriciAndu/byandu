@@ -87,256 +87,263 @@
 
 <body class="faSpinner has-body-sideNav">
 
-	<!-- MOBILE - sideNav collapse/expand button --> 
-	<input type="checkbox" name="body-sideNav-toggleDisplay-mobile" id="body-sideNav-toggleDisplay-mobile">
-	<label for="body-sideNav-toggleDisplay-mobile" id="body-sideNav-toggleDisplay-mobile-label"> </label>
+	<div class="body__flexContainer">
 
-	<!-- About -->
-	<button id="sideNav-byAndu-infoBtn">
-		<div id="sideNav-infoBtn-img-wrapper">
-			<img id="sideNav-infoBtn-img" src="xFiles/images/profile.png"/>
-		</div>
-	</button>
+		<!-- MOBILE - sideNav collapse/expand button --> 
+		<input type="checkbox" name="body-sideNav-toggleDisplay-mobile" id="body-sideNav-toggleDisplay-mobile">
+		<label for="body-sideNav-toggleDisplay-mobile" id="body-sideNav-toggleDisplay-mobile-label"> </label>
 
-	<!-- sideNav -->
-	<div id="byAndu-navbarSide" class="body-sideNav">
+		<!-- sideNav -->
+		<div id="byAndu-navbarSide" class="body-sideNav">
 
-		<!-- Utility -->
-		<div class="sideNav-btnGroup __route__category active" 	data-categoryName="utility"> 
+			<div class="sideNav__group"> 
+				<button id="sideNav-byAndu-infoBtn" class="sideNav__group__title">
+					<div id="sideNav-infoBtn-img-wrapper">
+						<img id="sideNav-infoBtn-img" src="xFiles/images/profile.png"/>
+					</div>
+				</button>
+			</div>
 
-			<button class="sideNav-btnGroup-title">
-				<div class="sideNav-btnGroup-title-faIcon fa fa-sliders"></div>
-				<div class="sideNav-btnGroup-title-text"> Utility </div>
-			</button>
+			<div class="sideNav--hover">
 
-			<div class="sideNav-btnGroup-btnContainer __route__articleGroup" data-categoryName="utility">
+				<!-- Utility -->
+				<div class="sideNav__group __route__category active" 	data-categoryName="utility"> 
 
-				<!--<button class="__route__pageLink" href="Templates/utility/utility-main.html"> 
-					Asterisk - Utility (Main) </button>-->
+					<button class="sideNav__group__title">
+						<div class="sideNav__group__title__icon"> <i class="fa fa-sliders"></i> </div>
+						<div class="sideNav__group__title__text"> Utility </div>
+					</button>
 
-				<a class="sideNav-btn __route__pageLink" role="link" href="/utility/gridSystem-12col.html"> 
-					Grid System - 12 Col </a>
+					<div class="sideNav__group__menu __route__articleGroup" data-categoryName="utility">
 
-				<a class="sideNav-btn __route__pageLink" role="link" href="/utility/flex.html"> 
-					Flex </a>
+						<!--<button class="__route__pageLink" href="Templates/utility/utility-main.html"> 
+							Asterisk - Utility (Main) </button>-->
 
-				<a class="sideNav-btn __route__pageLink" role="link" href="/utility/spacing.html"> 
-					Spacing </a>
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/utility/gridSystem-12col.html"> 
+							Grid System - 12 Col </a>
 
-				<a class="sideNav-btn __route__pageLink" role="link" href="/utility/visibility.html"> 
-					Visibility </a>
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/utility/flex.html"> 
+							Flex </a>
 
-				<a class="sideNav-btn __route__pageLink" role="link" href="/utility/visibility-extra.html"> 
-					Visibility - Extra </a>
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/utility/spacing.html"> 
+							Spacing </a>
 
-				<a class="sideNav-btn __route__pageLink" role="link" href="/utility/typography-textStyle.html"> 
-					Text Style </a>
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/utility/visibility.html"> 
+							Visibility </a>
 
-				<a class="sideNav-btn __route__pageLink" role="link" href="/utility/position.html"> 
-					Position </a>
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/utility/visibility-extra.html"> 
+							Visibility - Extra </a>
 
-				<a class="sideNav-btn __route__pageLink" role="link" href="/utility/float.html"> 
-					Float </a>
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/utility/typography-textStyle.html"> 
+							Text Style </a>
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/utility/position.html"> 
+							Position </a>
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/utility/float.html"> 
+							Float </a>
+					</div>
+				</div>
+
+				<!-- Functionality -->
+				<div class="sideNav__group __route__category" 			data-categoryName="functionality">
+
+					<button class="sideNav__group__title"> 
+						<div class="sideNav__group__title__icon"> <i class="fa fa-gears"></i> </div>
+						<div class="sideNav__group__title__text"> Functionality </div>
+					</button>
+
+					<div class="sideNav__group__menu __route__articleGroup" data-categoryName="functionality">
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/functionality/syntacticSugar.html"> 
+							Syntactic Sugar </a>
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/functionality/route.html"> 
+							Route (Client Side) </a>
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/functionality/scrollTrigger.html"> 
+							Scroll Trigger </a>
+
+						<!-- <a class="sideNav__group__menu__item    __route__pageLink" role="link" href="functionality/lazyLoad.html"> 
+							Lazy Load </a> -->
+					</div>
+				</div>
+
+				<!-- Effects -->
+				<div class="sideNav__group __route__category"			data-categoryName="effects"> 
+
+					<button class="sideNav__group__title">
+						<div class="sideNav__group__title__icon"> <i class="fa fa-magic"></i> </div>
+						<div class="sideNav__group__title__text"> Effects </div>
+					</button>
+
+					<div class="sideNav__group__menu __route__articleGroup" data-categoryName="effects">
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/effects/appear.html"> 
+							Appear Effects </a>
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/effects/imgHover.html"> 
+							Image Hover Effects </a>
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/effects/faSpinner.html"> 
+							faSpinner </a>
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/effects/filters.html"> 
+							Filters </a>
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/effects/hover.html"> 
+							Hover Effects </a>
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/effects/ribbon.html"> 
+							CSS Ribbons </a>
+
+						<!--<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/effects/textClip.html"> 
+							Text Clip Effects </a>-->
+
+						<!--<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/effects/title.html"> 
+							Title </a>-->
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/effects/tooltip.html"> 
+							Tooltip </a>
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/effects/skeletonOverlay.html"> 
+							Skeleton Overlay </a>
+					</div>
+				</div>
+
+				<!-- Components -->
+				<div class="sideNav__group __route__category"			data-categoryName="components"> 
+
+					<button class="sideNav__group__title">
+						<div class="sideNav__group__title__icon"> <i class="fa fa-puzzle-piece"></i> </div>
+						<div class="sideNav__group__title__text"> Components </div>
+					</button>
+
+					<div class="sideNav__group__menu __route__articleGroup" data-categoryName="components">
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/components/loadingSpinner.html"> 
+							Loading Spinner </a>
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/components/canvas.html"> 
+							Canvas </a>
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/components/tabs.html"> 
+							Tabs </a>
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/components/cssTabs.html"> 
+							CSS-Only Tabs </a>
+
+						<!--<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/components/accordion.html"> 
+							Accordion </a>-->
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/components/spoiler.html"> 
+							Spoiler </a>
+
+						<!--<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/components/onboarding.html"> 
+							Onboarding </a>-->
+
+						<!--<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/components/counter.html"> 
+							Counter </a>-->
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/components/checkbox.html"> 
+							Checkbox </a>
+
+						<!--<button class="sideNav__group__menu__item    __route__pageLink" href="/components/fontAwesomeSelector.html"> 
+							FontAwesome Selector </button>-->
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/components/cssCounter.html"> 
+							CSS-Only Counter </a>
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/components/input.html"> 
+							Input </a>
+					</div>
+				</div>
+
+				<!-- Snippets -->
+				<div class="sideNav__group __route__category"			data-categoryName="snippets"> 
+
+					<button class="sideNav__group__title">
+						<div class="sideNav__group__title__icon"> <i class="fa fa-code"></i> </div>
+						<div class="sideNav__group__title__text"> Snippets </div>
+					</button>
+
+					<div class="sideNav__group__menu __route__articleGroup" data-categoryName="snippets">
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/snippets/cssvendorPreffixes.html"> 
+							CSS - Vendor Prefixes </a>
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/snippets/cssResponsiveUtilityBaseline.html"> CSS - Responsive-Utility Baseline </a>
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/snippets/cssSelectors.html"> 
+							CSS - Selectors </a>
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/snippets/cssVariablesFallbacks.html"> CSS Variables - Fallback Syntax </a>
+
+						<!-- <a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/snippets/cssSelector-startOfClassName.html"> 
+							* start-of-className </a> -->
+
+						<!-- <a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/snippets/cssSelector-ifNSiblings.html"> 
+							* if-n-siblings </a> -->
+
+						<!-- <a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/snippets/cssSelector-atLeastNSiblings.html"> 
+							* at-least-n-siblings </a> -->
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/snippets/table-checkersBackground.html"> 
+							Table-Cell - Checkers Background </a>
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/snippets/whenDocReady.html"> 
+							whenDocReady() </a>
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/snippets/usefulHacks.html"> 
+							Usefull 'Hacks' </a>
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/snippets/valueObjects.html"> 
+							Value Objects </a>
+					</div>
+				</div>
+
+				<!-- Tools -->
+				<div class="sideNav__group __route__category"			data-categoryName="tools"> 
+
+					<button class="sideNav__group__title">
+						<div class="sideNav__group__title__icon"> <i class="fa fa-tachometer"></i> </div>
+						<div class="sideNav__group__title__text"> Tools </div>
+					</button>
+
+					<div class="sideNav__group__menu __route__articleGroup" data-categoryName="tools">
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/tools/fontAwesomeIconList.html"> 
+							FontAwesome (4.7.0) Icon List </a>
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/tools/minifier.html"> 
+							CSS - Code Minifier </a>
+
+						<a class="sideNav__group__menu__item    __route__pageLink" role="link" href="/tools/cssColorNames.html"> 
+							CSS - Color Names </a>
+					</div>
+				</div>
+
+				<!-- Articles -->
+				<div class="sideNav__group __route__category"			data-categoryName="articles"> 
+
+					<button class="sideNav__group__title">
+						<div class="sideNav__group__title__icon"> <i class="fa fa-file-code-o"></i> </div>
+						<div class="sideNav__group__title__text"> Articles </div>
+					</button>
+
+					<div class="sideNav__group__menu __route__articleGroup" data-categoryName="articles">
+
+						<span> Coming Soon </span>
+					</div>
+				</div>
 			</div>
 		</div>
 
-		<!-- Functionality -->
-		<div class="sideNav-btnGroup __route__category" 		data-categoryName="functionality">
-
-			<button class="sideNav-btnGroup-title"> 
-				<div class="sideNav-btnGroup-title-faIcon fa fa-gears"></div>
-				<div class="sideNav-btnGroup-title-text"> Functionality </div>
-			</button>
-
-			<div class="sideNav-btnGroup-btnContainer __route__articleGroup" data-categoryName="functionality">
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/functionality/syntacticSugar.html"> 
-					Syntactic Sugar </a>
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/functionality/route.html"> 
-					Route (Client Side) </a>
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/functionality/scrollTrigger.html"> 
-					Scroll Trigger </a>
-
-				<!-- <a class="sideNav-btn __route__pageLink" role="link" href="functionality/lazyLoad.html"> 
-					Lazy Load </a> -->
+		<!-- main content -->
+		<div id="byAndu-main" class="body-main"> 
+			<div class="container py-0 xs-o-px-0 sm-o-px-0"> 
+				<main id="__route__mainView" role="main" tabindex="1"> </main>
 			</div>
-		</div>
-
-		<!-- Effects -->
-		<div class="sideNav-btnGroup __route__category"			data-categoryName="effects"> 
-
-			<button class="sideNav-btnGroup-title">
-				<div class="sideNav-btnGroup-title-faIcon fa fa-magic"></div>
-				<div class="sideNav-btnGroup-title-text"> Effects </div>
-			</button>
-
-			<div class="sideNav-btnGroup-btnContainer __route__articleGroup" data-categoryName="effects">
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/effects/appear.html"> 
-					Appear Effects </a>
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/effects/imgHover.html"> 
-					Image Hover Effects </a>
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/effects/faSpinner.html"> 
-					faSpinner </a>
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/effects/filters.html"> 
-					Filters </a>
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/effects/hover.html"> 
-					Hover Effects </a>
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/effects/ribbon.html"> 
-					CSS Ribbons </a>
-
-				<!--<a class="sideNav-btn __route__pageLink" role="link" href="/effects/textClip.html"> 
-					Text Clip Effects </a>-->
-
-				<!--<a class="sideNav-btn __route__pageLink" role="link" href="/effects/title.html"> 
-					Title </a>-->
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/effects/tooltip.html"> 
-					Tooltip </a>
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/effects/skeletonOverlay.html"> 
-					Skeleton Overlay </a>
-			</div>
-		</div>
-
-		<!-- Components -->
-		<div class="sideNav-btnGroup __route__category"			data-categoryName="components"> 
-
-			<button class="sideNav-btnGroup-title">
-				<div class="sideNav-btnGroup-title-faIcon fa fa-puzzle-piece"></div>
-				<div class="sideNav-btnGroup-title-text"> Components </div>
-			</button>
-
-			<div class="sideNav-btnGroup-btnContainer __route__articleGroup" data-categoryName="components">
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/components/loadingSpinner.html"> 
-					Loading Spinner </a>
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/components/canvas.html"> 
-					Canvas </a>
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/components/tabs.html"> 
-					Tabs </a>
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/components/cssTabs.html"> 
-					CSS-Only Tabs </a>
-
-				<!--<a class="sideNav-btn __route__pageLink" role="link" href="/components/accordion.html"> 
-					Accordion </a>-->
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/components/spoiler.html"> 
-					Spoiler </a>
-
-				<!--<a class="sideNav-btn __route__pageLink" role="link" href="/components/onboarding.html"> 
-					Onboarding </a>-->
-
-				<!--<a class="sideNav-btn __route__pageLink" role="link" href="/components/counter.html"> 
-					Counter </a>-->
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/components/checkbox.html"> 
-					Checkbox </a>
-
-				<!--<button class="sideNav-btn __route__pageLink" href="/components/fontAwesomeSelector.html"> 
-					FontAwesome Selector </button>-->
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/components/cssCounter.html"> 
-					CSS-Only Counter </a>
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/components/input.html"> 
-					Input </a>
-			</div>
-		</div>
-
-		<!-- Snippets -->
-		<div class="sideNav-btnGroup __route__category"			data-categoryName="snippets"> 
-
-			<button class="sideNav-btnGroup-title">
-				<div class="sideNav-btnGroup-title-faIcon fa fa-code"></div>
-				<div class="sideNav-btnGroup-title-text"> Snippets </div>
-			</button>
-
-			<div class="sideNav-btnGroup-btnContainer __route__articleGroup" data-categoryName="snippets">
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/snippets/cssvendorPreffixes.html"> 
-					CSS - Vendor Prefixes </a>
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/snippets/cssResponsiveUtilityBaseline.html"> CSS - Responsive-Utility Baseline </a>
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/snippets/cssSelectors.html"> 
-					CSS - Selectors </a>
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/snippets/cssVariablesFallbacks.html"> CSS Variables - Fallback Syntax </a>
-
-				<!-- <a class="sideNav-btn __route__pageLink" role="link" href="/snippets/cssSelector-startOfClassName.html"> 
-					* start-of-className </a> -->
-
-				<!-- <a class="sideNav-btn __route__pageLink" role="link" href="/snippets/cssSelector-ifNSiblings.html"> 
-					* if-n-siblings </a> -->
-
-				<!-- <a class="sideNav-btn __route__pageLink" role="link" href="/snippets/cssSelector-atLeastNSiblings.html"> 
-					* at-least-n-siblings </a> -->
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/snippets/table-checkersBackground.html"> 
-					Table-Cell - Checkers Background </a>
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/snippets/whenDocReady.html"> 
-					whenDocReady() </a>
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/snippets/usefulHacks.html"> 
-					Usefull 'Hacks' </a>
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/snippets/valueObjects.html"> 
-					Value Objects </a>
-			</div>
-		</div>
-
-		<!-- Tools -->
-		<div class="sideNav-btnGroup __route__category"			data-categoryName="tools"> 
-
-			<button class="sideNav-btnGroup-title">
-				<div class="sideNav-btnGroup-title-faIcon fa fa-tachometer"></div>
-				<div class="sideNav-btnGroup-title-text"> Tools </div>
-			</button>
-
-			<div class="sideNav-btnGroup-btnContainer __route__articleGroup" data-categoryName="tools">
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/tools/fontAwesomeIconList.html"> 
-					FontAwesome (4.7.0) Icon List </a>
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/tools/minifier.html"> 
-					CSS - Code Minifier </a>
-
-				<a class="sideNav-btn __route__pageLink" role="link" href="/tools/cssColorNames.html"> 
-					CSS - Color Names </a>
-			</div>
-		</div>
-
-		<!-- Articles -->
-		<div class="sideNav-btnGroup __route__category"			data-categoryName="articles"> 
-
-			<button class="sideNav-btnGroup-title">
-				<div class="sideNav-btnGroup-title-faIcon fa fa-file-code-o"></div>
-				<div class="sideNav-btnGroup-title-text"> Articles </div>
-			</button>
-
-			<div class="sideNav-btnGroup-btnContainer __route__articleGroup" data-categoryName="articles">
-
-				<span> Coming Soon </span>
-			</div>
-		</div>
-	</div>
-
-	<!-- main content -->
-	<div id="byAndu-main" class="body-main"> 
-		<div class="container py-0 xs-o-px-0 sm-o-px-0"> 
-			<main id="__route__mainView" role="main" tabindex="1"> </main>
 		</div>
 	</div>
 
