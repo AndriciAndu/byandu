@@ -188,7 +188,7 @@
 
 		.btn 					,
 		.spoiler-btn 			,
-		.tabs-btn.tabBtn-active ,
+		.tabs-btn.tabs-btn--active ,
 		.copyContext-btn 		,
 		.searchBox-overallSelect-btn ,
 		.searchBox-search-clearBtn   { 
@@ -201,7 +201,7 @@
 			color: #354758; 
 		}
 
-		.spoiler-btn.active 	{ 
+		.spoiler-btn--active 	{ 
 			background-color: #be0c0c; 
 		}
 		

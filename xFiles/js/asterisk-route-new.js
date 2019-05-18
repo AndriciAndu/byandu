@@ -35,13 +35,13 @@
 			// buildTool
 			// --------------------------------------------------
 
-					// { 
-					// 	filePath_html : '/buildTool.html' , 		// html file to be loaded
-					// 	filePath_js   : '/buildTool.js' , 			// js file to execute
-					// 	articleParameters : { 						// items outside the curent article, which need updating
-					// 		category : 'utility'
-					// 	}
-					// } ,
+					{ 
+						filePath_html : '/buildTool.html' , 		// html file to be loaded
+						filePath_js   : '/buildTool.js' , 			// js file to execute
+						articleParameters : { 						// items outside the curent article, which need updating
+							category : 'utility'
+						}
+					} ,
 
 			// Utility
 			// --------------------------------------------------
@@ -164,7 +164,29 @@
 				
 					{ 
 						filePath_html : '/functionality/scrollTrigger.html' , 
-						filePath_js   : null , 
+						filePath_js   : '/xFiles/js/articleScripts/functionality/scrollTrigger.js' , 
+						articleParameters : {
+							category : 'functionality'
+						}
+					} ,
+
+				// deferDOMLoaded
+				// --------------------------------------------------
+				
+					{ 
+						filePath_html : '/functionality/deferDOMLoaded.html' , 
+						filePath_js   : '/xFiles/js/articleScripts/functionality/deferDOMLoaded.js' , 
+						articleParameters : {
+							category : 'functionality'
+						}
+					} ,
+
+				// testPage
+				// --------------------------------------------------
+				
+					{ 
+						filePath_html : '/functionality/testPage.html' , 
+						filePath_js   : '/xFiles/js/articleScripts/functionality/testPage.js' , 
 						articleParameters : {
 							category : 'functionality'
 						}
@@ -264,17 +286,6 @@
 			// Components
 			// --------------------------------------------------
 
-				// loadingSpinner
-				// --------------------------------------------------
-				
-					{ 
-						filePath_html : '/components/loadingSpinner.html' , 
-						filePath_js   : '/xFiles/js/articleScripts/components/loadingSpinner.js' , 
-						articleParameters : {
-							category : 'components'
-						}
-					} ,
-
 				// canvas
 				// --------------------------------------------------
 				
@@ -303,6 +314,17 @@
 					{ 
 						filePath_html : '/components/cssTabs.html' , 
 						filePath_js   : null , 
+						articleParameters : {
+							category : 'components'
+						}
+					} ,
+
+				// spinner
+				// --------------------------------------------------
+				
+					{ 
+						filePath_html : '/components/spinner.html' , 
+						filePath_js   : '/xFiles/js/articleScripts/components/spinner.js' , 
 						articleParameters : {
 							category : 'components'
 						}

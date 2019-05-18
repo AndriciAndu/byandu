@@ -6,264 +6,122 @@
 		asterisk.components = asterisk.components || {} ;
 
 	// Asterisk Component - [Spoiler]
-	// ------------------------------------------------------------------
+	// -----------------------------------------------------
 
 		(function(){
 
-			// Component.Object Setup 
+			asterisk.components.spoiler = {};
+			asterisk.components.spoiler.activatedItems = [];
+
+			// Event Handlers
 			// -----------------------------------------------------
 
-				asterisk.components.spoiler = {};
-
-			// Wrappers
-			// -----------------------------------------------------
-
-				asterisk.components.spoiler.intermediary     = {}; // holds intermediary [functions/methods]
-				asterisk.components.spoiler.storedParameters = {}; // holds [Elements] which have been altered (with [evtListener] or [on-elem parameters])
-
-			// store all Elements that have been given an EventListener
-			// -----------------------------------------------------
-
-				asterisk.components.spoiler.storedParameters.itemsWithEvents = [];
-
-			// store all [Spoiler-btn] Elements that have been given on-element Parameters
-			// -----------------------------------------------------
-
-				asterisk.components.spoiler.storedParameters.itemsWithParams = [];
-
-			// Dependencies 
-			// -----------------------------------------------------
-
-				// [asterisk.utility] init 
+				// eventHandler_run
 				// -----------------------------------------------------
 
-					asterisk.utility = asterisk.utility || {} ;
+					asterisk.components.spoiler.eventHandler_run = function(e) {
 
-				// hasClass()
-				// -----------------------------------------------------
+						const spoilerParams = e.target.spoilerParams || asterisk.components.spoiler.parameters_set(e.target , true);
+						const targetSpoiler = spoilerParams.targetSpoiler;
+						const targetButtons = spoilerParams.targetButtons;
 
-					asterisk.utility.hasClass = asterisk.utility.hasClass || function ( elem , klass ) {
-						return (" " + elem.className + " " ).indexOf( " " + klass + " " ) > -1
-					};
+						targetSpoiler.style.maxHeight = targetSpoiler.scrollHeight + 'px';
 
-					var hasClass = asterisk.utility.hasClass;
-
-				// getHeight()
-				// -----------------------------------------------------
-
-					asterisk.utility.getHeight = asterisk.utility.getHeight || function ( elem ) {
-						return (elem.offsetHeight +
-						parseInt(getComputedStyle(elem, null).getPropertyValue("margin-top")) +
-						parseInt(getComputedStyle(elem, null).getPropertyValue("margin-bottom")))
-					};
-
-					var getHeight = asterisk.utility.getHeight ;
-
-			// Main Functions
-			// -----------------------------------------------------
-
-				// Activate (adds eventListeners)
-				// -----------------------------------------------------
-
-					asterisk.components.spoiler.activate = function(targetElem, delegateEvent__boolean) {
-
-						var methods = asterisk.components.spoiler.intermediary;
-
-						if (targetElem && (targetElem instanceof HTMLElement)) { 
-
-							if (hasClass(targetElem, 'spoiler-btn')) {
-
-								methods.attachEvt(targetElem)
-
-							} else if (delegateEvent__boolean === true) {
-
-								methods.attachEvt(targetElem , 'delegate')
-
-							} else {
-
-								var spoilerBtns = Array.from(targetElem.getElementsByClassName('spoiler-btn'));	
-								spoilerBtns.map(spoilerBtn => methods.attachEvt(spoilerBtn));
-							}
-
-						} else if (delegateEvent__boolean === true) {
-
-							methods.attachEvt(document , 'delegate')
-
+						if (hasClass(targetSpoiler , 'spoiler--expanded')) { // collapsing animation
+							setTimeout(function(){ targetSpoiler.style.maxHeight = 0 }, 34);
+							targetButtons.map((btn) => btn.classList.remove('spoiler-btn--active'));
 						} else {
+							targetButtons.map((btn) => btn.classList.add('spoiler-btn--active'));
+						};
 
-							var allSpoilerBtns = Array.from(document.getElementsByClassName('spoiler-btn'));
-							allSpoilerBtns.map(spoilerBtn => methods.attachEvt(spoilerBtn));
-
-						}
+						targetSpoiler.classList.toggle('spoiler--expanded');
 					};
 
-				// Terminate (removes eventListeners & on-element Parameters)
+				// parameters_set 
 				// -----------------------------------------------------
 
-					asterisk.components.spoiler.terminate = function(targetElem) {
+					asterisk.components.spoiler.parameters_set = function( spoilerBtn__HTMLElem ) {
 
-						var methods = asterisk.components.spoiler.intermediary;
-						var itemsWithParams = asterisk.components.spoiler.storedParameters.itemsWithParams;
+						const targetId = spoilerBtn__HTMLElem.getAttribute('data-spoiler-id');
 
-						if (targetElem && (targetElem instanceof HTMLElement)) { 
-
-							if (hasClass(targetElem, 'spoiler-btn')) {
-
-								methods.terminateTarget(targetElem)
-
-							} else {
-
-								methods.detachEvt(targetElem);
-								var spoilerBtns = Array.from(targetElem.getElementsByClassName('spoiler-btn'));	
-								spoilerBtns.map(spoilerBtn => methods.terminateTarget(spoilerBtn));
-							}
-
-						} else {
-
-							methods.detachEvt(document);
-							var allSpoilerBtns = Array.from(document.getElementsByClassName('spoiler-btn'));
-							allSpoilerBtns.map(spoilerBtn => methods.terminateTarget(spoilerBtn));
-
-						}
-					};
-
-					asterisk.components.spoiler.intermediary.terminateTarget = function(targetElem) {
-						asterisk.components.spoiler.intermediary.detachEvt(targetElem);
-						asterisk.components.spoiler.intermediary.spoilerBtn_removeParameters(targetElem);
-					};
-
-				// checkDOM
-				// -----------------------------------------------------
-
-					asterisk.components.spoiler.checkDOM = function() { console.log('checking DOM for spoiler');
-
-						// remove EventListeners from Elements that are no longer in the DOM
-						asterisk.components.spoiler.storedParameters.itemsWithEvents = asterisk.components.spoiler.storedParameters.itemsWithEvents.filter(function(item){
-
-							if ((item !== document) && (!document.contains(item)) ) {
-								asterisk.components.spoiler.intermediary.detachEvt(item);
-								console.log('Removed item : ', item)
-								return false
-							} else {
-								return true
-							}
+						const targetSpoiler = Array.from(document.getElementsByClassName('spoiler')).find(function(spoiler) { 
+							return spoiler.getAttribute('data-spoiler-id') === targetId 
+						});
+						const targetButtons = Array.from(document.getElementsByClassName('spoiler-btn')).filter(function(spoilerBtn) { 
+							return spoilerBtn.getAttribute('data-spoiler-id') === targetId 
 						});
 
-						// remove on-element Parameters from Elements that are no longer in the DOM
-						asterisk.components.spoiler.storedParameters.itemsWithParams = asterisk.components.spoiler.storedParameters.itemsWithParams.filter(function(item){
-
-							if ((item !== document) && (!document.contains(item)) ) {
-								item.targetParameters = null;
-								return false
-							} else {
-								return true
-							}
-						});
-					};
-
-			// Intermediary
-			// -----------------------------------------------------
-
-				// Add/Remove | Event Listeners
-				// -----------------------------------------------------
-
-					// attatchEvt
-					// -----------------------------------------------------
-
-						asterisk.components.spoiler.intermediary.attachEvt = function(targetElem , scenario__string) {
-
-							if (scenario__string == 'delegate') {
-								targetElem.addEventListener('click', asterisk.components.spoiler.intermediary.delegateEvt);
-							} else {
-								targetElem.addEventListener('click', asterisk.components.spoiler.intermediary.run);
-							};
-
-							asterisk.components.spoiler.storedParameters.itemsWithEvents.push(targetElem);
-						};
-
-					// Delegate (adds eventListeners)
-					// -----------------------------------------------------
-
-						asterisk.components.spoiler.intermediary.delegateEvt = function(e) {
-							if (hasClass(e.target, 'spoiler-btn')) { asterisk.components.spoiler.intermediary.run(e) }
-						};
-
-					// detachEvt
-					// -----------------------------------------------------
-
-						asterisk.components.spoiler.intermediary.detachEvt = function(targetElem) {
-							targetElem.removeEventListener('click' , asterisk.components.spoiler.intermediary.run);
-							targetElem.removeEventListener('click' , asterisk.components.spoiler.intermediary.delegateEvt);
-
-							asterisk.components.spoiler.storedParameters.itemsWithEvents = asterisk.components.spoiler.storedParameters.itemsWithEvents.filter(x => x != targetElem);
-						};
-
-				// Add/Remove | On-Element Parameters
-				// -----------------------------------------------------
-					
-					// Define Parameters
-					// -----------------------------------------------------
-
-						asterisk.components.spoiler.intermediary.spoilerBtn_defineParameters = function(current_spoilerBtn , willReturnTheObject__boolean) {
-
-							current_spoilerBtn.targetParameters = {};
-
-							var targetId = current_spoilerBtn.getAttribute('data-spoiler-id');
-
-							var spoilers = Array.from(document.getElementsByClassName('spoiler'));
-							current_spoilerBtn.targetParameters.targetSpoiler = spoilers.filter(spoiler => spoiler.getAttribute('data-spoiler-id') === targetId )[0];
-
-							var spoilerButtons = Array.from(document.getElementsByClassName('spoiler-btn'));
-							current_spoilerBtn.targetParameters.targetButtons = spoilerButtons.filter(spoilerBtn => spoilerBtn.getAttribute('data-spoiler-id') === targetId );
-
-							if (!asterisk.components.spoiler.storedParameters.itemsWithParams.includes(current_spoilerBtn)) {
-								 asterisk.components.spoiler.storedParameters.itemsWithParams.push(current_spoilerBtn)
-							};
-
-							// return the newly-created object - for use in asterisk.components.spoiler.intermediary.run()
-							if (willReturnTheObject__boolean === true) { return current_spoilerBtn.targetParameters }
-						};
-
-					// Remove Defined Parameters
-					// -----------------------------------------------------
-
-						asterisk.components.spoiler.intermediary.spoilerBtn_removeParameters = function(current_spoilerBtn) {
-							current_spoilerBtn.targetParameters = null;
-							var itemsWithParams = asterisk.components.spoiler.storedParameters.itemsWithParams;
-							itemsWithParams = itemsWithParams.filter(x => x != targetElem);
-						};
-
-				// Run 
-				// -----------------------------------------------------
-
-					asterisk.components.spoiler.intermediary.run = function(e) {
-
-						var targetParametersObj = e.target.targetParameters || asterisk.components.spoiler.intermediary.spoilerBtn_defineParameters(e.target , true);
-
-						var targetSpoiler = targetParametersObj.targetSpoiler;
-						var targetButtons = targetParametersObj.targetButtons;
+						spoilerBtn__HTMLElem.spoilerParams = { targetSpoiler , targetButtons };
 
 						if (targetSpoiler) {
-
-							var spoiler_content = targetSpoiler.getElementsByClassName('spoiler-content')[0];
-							targetSpoiler.style.maxHeight = getHeight(spoiler_content) + 'px';
-
-							if (hasClass(targetSpoiler , 'spoiler--expanded')) { // collapsing animation
-								setTimeout(function(){ targetSpoiler.style.maxHeight = 0 }, 16);
-								targetButtons.map((btn) => btn.classList.remove('active'));
-							} else {
-								targetButtons.map((btn) => btn.classList.add('active'));
-							};
-								
-							targetSpoiler.classList.toggle('spoiler--expanded');
-
+							return { targetSpoiler , targetButtons }
 						} else {
-
 							console.log(
-								'No [spoiler] element with [data-spoiler-id="'+e.target.getAttribute('data-spoiler-id')+'"] found within document.' + 
-								' Event triggered by [spoiler-btn] : ' , e.target );
-
-						};
+								'No [spoiler] element with [data-spoiler-id="'+targetId+'"] found within document.' + 
+								' Event triggered by [spoiler-btn] : ' , spoilerBtn__HTMLElem );
+						}
 					};
 
-		})();
+			// eventHandler_delegate
+			// -----------------------------------------------------
+
+				asterisk.components.spoiler.eventHandler_delegate = function(e) {
+					if ((" "+e.target.className+" ").indexOf(" spoiler-btn ")>-1) { 
+						asterisk.components.spoiler.eventHandler_run(e) 
+					}
+				};
+
+		// Main Functions
+		// -----------------------------------------------------
+
+			// activate
+			// -----------------------------------------------------
+
+				asterisk.components.spoiler.activate = function( spoilerBtn__HTMLElem ) {
+					spoilerBtn__HTMLElem.addEventListener('click', asterisk.components.spoiler.eventHandler_run);
+					asterisk.components.spoiler.activatedItems.push(spoilerBtn__HTMLElem)
+				};
+
+			// delegate
+			// -----------------------------------------------------
+
+				asterisk.components.spoiler.delegate = function( target__HTMLElem ) {
+					target__HTMLElem.addEventListener('click', asterisk.components.spoiler.eventHandler_delegate);
+					asterisk.components.spoiler.activatedItems.push(target__HTMLElem)
+				};
+
+			// terminate
+			// -----------------------------------------------------
+
+				asterisk.components.spoiler.terminate = function( target__HTMLElem ) {
+
+					const spoilerObj = asterisk.components.spoiler;
+					target__HTMLElem.removeEventListener('click', spoilerObj.eventHandler_run);
+					target__HTMLElem.removeEventListener('click', spoilerObj.eventHandler_delegate);
+					spoilerObj.activatedItems = spoilerObj.activatedItems.filter(item => item !== target__HTMLElem);
+
+					spoilerObj.parameters_remove(target__HTMLElem);
+				};
+
+				// parameters_remove 
+				// -----------------------------------------------------
+
+					asterisk.components.spoiler.parameters_remove = function( target__HTMLElem ) {
+						if ((" "+target__HTMLElem.className+" ").indexOf(" spoiler-btn ")>-1) { 
+							target__HTMLElem.spoilerParams = null
+						} else {
+							Array.from(target__HTMLElem.getElementsByClassName('spoiler-btn')).map(function(item){
+								item.spoilerParams = null
+							});
+						}
+					};
+
+			// checkDOM
+			// -----------------------------------------------------
+
+				asterisk.components.spoiler.checkDOM = function() {
+					const spoilerObj = asterisk.components.spoiler;
+					const targets = spoilerObj.activatedItems.filter(item => (item !== document) && !document.contains(item) );
+					targets.map(item => spoilerObj.terminate(item));
+				};
+	})();

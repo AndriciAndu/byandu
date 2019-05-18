@@ -1,0 +1,268 @@
+
+	<!-- ===================== Route ================== -->
+	<script src="../xFiles/js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+	<style> 
+		.demoItem {
+			background-color: black;
+			padding: 25px 0;
+
+			display: -webkit-box; display: -ms-flexbox;	
+			display: -webkit-flex; display: flex;
+			justify-content: center; align-items: center;
+
+			pointer-events: none;
+		}
+
+		#spinner--usage-htmlMarkup--example {
+			background-color: black;
+			border-radius: 6px;
+			min-height: 130px;
+		}
+
+		@media (min-width: 991.98px) {
+			.spinner--usage-htmlMarkup--example--Container ,
+			.spinner--usage-htmlMarkup--output--Container {
+				height: 100%;
+			}
+		}
+		@media (max-width: 991.98px) {
+			.spinner--usage-htmlMarkup--output--Container {
+				margin-top: 10px;	
+			}
+		}
+
+		</style>
+	<!-- ============================================== -->
+
+	<article>
+
+		<h2 class="sr-only"> The 'Loading Spinner' Component </h2>
+
+		<div class="tabs article-mainTabs">
+
+			<div class="article-mainTabs-banner">
+				<div class="article-mainTabs-title"> Components : Spinner </div>
+
+				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
+					<button class="tabs-btn tabs-btn--active"  data-tabs-id="1"> Demo  </button>
+					<button class="tabs-btn" 				   data-tabs-id="2"> Usage </button>
+					<button class="tabs-btn" 				   data-tabs-id="3"> Code  </button>
+				</div>
+			</div>
+
+			<div class="tabs-contentGroup">
+
+				<!-- Demo Tab -->
+				<div class="tabs-content article-mainTabs-demoTab tabs-content--active" data-tabs-id="1"> 
+					<div id="__route__mainView__generateDemos"> </div>
+				</div>
+
+				<!-- Usage Tab -->
+				<div class="tabs-content article-mainTabs-usageTab" data-tabs-id="2">
+
+					<!-- I. Description -->
+						<section class="accordion  p-0        sectionAccordion">
+							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+								<button class="accordion-btn  sectionAccordion-btn"> I. Description </button>
+								<div class="accordion-content sectionAccordion-content">
+
+									<p> Simple <span class="wrapper">spinner</span> elements. </p>
+								</div>
+							</div>
+						</section>
+
+					<!-- II. Initialization -->
+						<section class="accordion  p-0        sectionAccordion">
+							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+								<button class="accordion-btn  sectionAccordion-btn"> II. Initialization </button>
+								<div class="accordion-content sectionAccordion-content">
+
+									<p> 
+										<b>Step 1.</b> Download and refference the 
+										<a class="downloadLink" href="../../css/asterisk/asterisk-component-loadingSpinner.css" download> asterisk-component-loadingSpinner.css </a> CSS file.
+
+										<button class="spoiler-btn spoiler-btn-autoText title-spoilerBtn" data-spoiler-id="init-more"> More | </button>
+									</p>
+									<div class="wrapper"> <div class="col-12"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-component-loadingSpinner.css</b-p>" type="text/css" rel="stylesheet"> </div> </div>
+
+									<div class="spoiler" data-spoiler-id="init-more">
+										<div class="spoiler-content">
+											<div class="col-12">
+
+												<p class="mt-sm"> 
+													<b>Alternatively</b>, a <span class="wrapper"><b-p>{*}</b-p><b-r>-spec</b-r><b-p>.css</b-p></span> file can be generated within the <b><span class="wrapper">[Code]</span> Tab</b> <span class="wrapper tooltip-before tooltip-right" data-tooltipText="Will include only the selected Effects. &#13;&#10;───────────────────────────&#13;&#10; See button on the top-right of page."></span>
+												</p>
+												<div class="wrapper mt-0"> &lt;link href="<b-r>--myPath--</b-r><b-p>/asterisk-component-loadingSpinner<b-r>-spec</b-r>.css</b-p>" type="text/css" rel="stylesheet"> </div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+					<!-- III. Usage -->
+						<section class="accordion  p-0        sectionAccordion">
+							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+								<button class="accordion-btn  sectionAccordion-btn"> III. Usage </button>
+								<div class="accordion-content sectionAccordion-content">
+
+									<div class="col-12 p-0">
+										<div class="col-12 p-0">
+											<p> <b>Step 1.</b> Add the Component's markup to your HTML. <i class="comment float-right"> * Recommended to be placed right after the &lt;body> tag.</i> </p>
+										</div>
+
+										<div class="col-12 md-flex md-flex-stretch">
+											<div class="col-12 sm-col-4 lg-col-4 p-0" id="spinner--usage-htmlMarkup--radioContainer"></div>
+
+											<div class="col-12 sm-col-8 lg-col-8 p-0">
+												<div class="col-12 lg-col-4 p-0 lg-px-sm flex float-right spinner--usage-htmlMarkup--example--Container">
+													<div class="flex flex-center col-12 p-0 xs-o-mt-sm" id="spinner--usage-htmlMarkup--example"></div>
+												</div>
+
+												<div class="col-12 lg-col-8 p-0 flex flex-cross-stretch spinner--usage-htmlMarkup--output--Container">
+													<div class="wrapper m-0">
+														<pre class="my-0" id="spinner--usage-htmlMarkup--output">
+														</pre>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<hr>
+
+									<p> <b>Step 2.</b> Add a function to remove the <span class="wrapper">spinner</span> (once the Document has loaded). </p>
+
+									<!-- <div class="wrapper"> 
+
+										// This can be changed
+
+										function removeWebsiteSpinner() {
+											document.getElementsByClassName('spinnerContainer')[0].classList.add('spinner--disabled');
+										};
+
+										(function(){
+											if (document.readyState === "interactive" || document.readyState === 'complete') {
+												removeWebsiteSpinner()
+											} else {
+												document.addEventListener('readystatechange', removeWebsiteSpinner, { once : true })
+											}
+										})();
+										<line> document.onreadystatechange = function () { </line>
+											<div class="col-12">
+											<line> if (document.readyState === "interactive" || document.readyState === 'complete') { </line>
+												<line class="pl-lg"> document.body.classList.remove("<b-p>faSpinner</b-p>") </line>
+											<line> } </line>
+											</div>
+										<line> }; </line>
+									</div> -->
+								</div>
+							</div>
+						</section>
+
+					<!-- IV. Markup Roles -->
+						<section class="accordion  p-0        sectionAccordion">
+							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+								<button class="accordion-btn  sectionAccordion-btn"> IV. Markup Roles </button>
+								<div class="accordion-content sectionAccordion-content">
+
+									<div class="accordion">
+
+										<div class="accordion-group px-md my-sm">
+											<button class="accordion-btn"> The <b>spinnerContainer</b> Element </button>
+											<div class="accordion-content">
+												<p> * acts as a Container for the actual <span class="wrapper">spinner</span> </p>
+												<p> * allows for adapting to the size of the Element is is placed within, without modifying the size of the <span class="wrapper">spinner</span> </p>
+												<p> * uses <span class="wrapper">flex properties</span> to centers the <span class="wrapper">spinner</span> (horizontal and vertical) </p>
+											</div>
+										</div>
+
+										<div class="accordion-group px-md my-sm">
+											<button class="accordion-btn"> The <b>spinner</b> Element </button>
+											<div class="accordion-content">
+												<p> * allocates the size of the actual spinner. </p>
+												<p> * holds the <span class="wrapper">color</span> property, which is inherited through <span class="wrapper">currentColor</span>, used to set the required color styling for the <span class="wrapper">spinner</span>
+												<p> * changing it's width/height, will update the size of the actual loader/loader_elements. </p>
+												<p> * changing it's color, will update the scolor of the actual loader/loader_elements. </p>
+											</div>
+										</div>
+
+										<div class="accordion-group px-md my-sm">
+											<button class="accordion-btn"> The <b>loader_element</b> Elements </button>
+											<div class="accordion-content">
+												<p> The <span class="wrapper">loader_element</span> elements are individual parts that make up the actual loader. </p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+					<!-- V. Styling -->
+
+						<section class="accordion  p-0        sectionAccordion">
+							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+								<button class="accordion-btn  sectionAccordion-btn"> V. Styling </button>
+								<div class="accordion-content sectionAccordion-content">
+						
+									<div class="accordion px-md">
+
+										<div class="accordion-group ph-md my-sm">
+											<button class="accordion-btn"> Changing the size </button>
+											<div class="accordion-content">
+												<div class="col-6">
+													<p> All <span class="wrapper">spinner</span> Elements are sized at <span class="wrapper">width: 100px; height: 100px;</span> </p>
+													<p> The <span class="wrapper">::before</span>, <span class="wrapper">::after</span> and/or <span class="wrapper">.spinner__element</span> Elements are dynamically sized, and will adapt to the changes of their <span class="wrapper">spinner</span> Parent Element. </p>
+													
+													<p class="sub-heading"> * The width and height values must be equal, or the Elements will become deformed. </p>
+												</div>
+												<div class="col-4">
+													<span style="vertical-align: top"> Width / Height : </span>
+													<input id="byAndu__spinner__styling__sizeInput" type="range" value="100" min="10" max="200"/>
+													<span style="vertical-align: top"> 100px </span>
+													<div class="wrapper">
+														<line> .spinner { </line>
+														<div class="col-12">
+															<line> width:  100px; </line>
+															<line> height: 100px; </line>
+														</div>
+														<line> } </line>
+													</div>
+												</div>
+												<div class="col-2">
+													<div class="spinner spinner--circular-double"></div>
+												</div>
+											</div>
+										</div>
+
+										<div class="accordion-group ph-md my-sm">
+											<button class="accordion-btn"> The <b>cssTabs-btn</b> & <b>cssTabs-label</b> Elements:  </button>
+											<div class="accordion-content">
+
+											</div>
+										</div>
+
+										<div class="accordion-group ph-md my-sm">
+											<button class="accordion-btn"> ... </button>
+											<div class="accordion-content">
+
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</section>
+				</div>
+
+				<!-- Code Tab -->
+				<div class="tabs-content article-mainTabs-codeTab"  data-tabs-id="3"
+							data-generateCodeFor="['html', 'css', 'css-singular']" 
+							data-setCopyContextId="loadingSpinner" 
+							data-setFileName="asterisk-component-loadingSpinner">
+				</div>
+			</div>
+		</div>
+		
+	</article>

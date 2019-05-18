@@ -1,0 +1,1937 @@
+
+	<style>
+		.buildTool--title {
+			background-color: white;
+			font-size: 16px;
+			font-weight: bold;
+			color:#293744;
+			margin-top: 15px;
+			padding: 5px 15px;
+		}
+	</style>
+
+	<article>
+
+		<!-- Normalize -->
+		<div class="col-12 p-0 mt-md">
+			<div class="col-4">
+				<div class="col-12">
+					<div class="buildTool--generateCheckbox" 
+						data-config="{
+							'checkbox_text' : 'Normalize' ,
+							'checkbox_type' : 'checkbox' ,
+							'checkbox_isChecked' : true ,
+
+							'target_main'  : 'baseline_normalize' ,
+							'target_group' : 'normalize' ,
+
+							'ifChecked'    : { 
+								'willGenerate_static'      : true , 
+								'willGenerate_responsive'  : false ,
+								'target_valuesArrayName'   : null
+							} ,
+							'ifUnchecked'  : { 
+								'willGenerate_static'      : false , 
+								'willGenerate_responsive'  : false ,
+								'target_valuesArrayName'   : null 
+							} 
+						}"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Normalize Extra -->
+		<div class="col-12 p-0 mt-md">
+			<div class="col-4">
+				<div class="col-12 mb-md">
+					<div class="buildTool--generateCheckbox" 
+						data-config="{
+							'checkbox_text' : 'Normalize Extra' ,
+							'checkbox_type' : 'checkbox' ,
+							'checkbox_isChecked' : true ,
+
+							'target_main'  : 'baseline_normalize_extra' ,
+							'target_group' : 'normalize_extra' ,
+
+							'ifChecked'    : { 
+								'willGenerate_static'      : true , 
+								'willGenerate_responsive'  : false ,
+								'target_valuesArrayName'   : null
+							} ,
+							'ifUnchecked'  : { 
+								'willGenerate_static'      : false , 
+								'willGenerate_responsive'  : false ,
+								'target_valuesArrayName'   : null 
+							} 
+						}"></div>
+				</div>
+			</div>
+		</div>
+
+		<section class="accordion  p-0        sectionAccordion">
+			<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+				<button class="accordion-btn  sectionAccordion-btn"> I. Utility </button>
+				<div class="accordion-content sectionAccordion-content px-md">
+
+					<!-- I. Utility | 1. Grid System  -->
+					<section class="accordion  p-0        sectionAccordion">
+						<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+							<button class="accordion-btn  sectionAccordion-btn">  I. Utility | 1. Grid System </button>
+							<div class="accordion-content sectionAccordion-content py-0 px-md">
+
+								<div class="col-12 p-0 mt-md">
+									<div class="col-4">
+										<!-- Col -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : '12 Col - Size' ,
+												'checkbox_type' : 'checkbox' ,
+												'checkbox_isChecked' : true ,
+
+												'target_main'  : 'utility__gridSystem' ,
+												'target_group' : 'col' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : 'values'
+												} ,
+												'ifUnchecked'  : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null 
+												} 
+											}"></div>
+
+										<!-- Offset -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : '12 Col - Offset' ,
+												'checkbox_type' : 'checkbox' ,
+												'checkbox_isChecked' : true ,
+												
+												'target_main'  : 'utility__gridSystem' ,
+												'target_group' : 'offset' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : 'values'
+												} ,
+												'ifUnchecked'  : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- push -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : '12 Col - Push' ,
+												'checkbox_type' : 'checkbox' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__gridSystem' ,
+												'target_group' : 'push' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : 'values'
+												} ,
+												'ifUnchecked'  : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												}  
+											}"></div>
+
+										<!-- pull -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : '12 Col - Pull' ,
+												'checkbox_type' : 'checkbox' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__gridSystem' ,
+												'target_group' : 'pull' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : 'values'
+												} ,
+												'ifUnchecked'  : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</section>
+						
+					<!-- I. Utility | 2. Spacing  -->
+					<section class="accordion  p-0        sectionAccordion">
+						<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+							<button class="accordion-btn  sectionAccordion-btn">  I. Utility | 2. Spacing </button>
+							<div class="accordion-content sectionAccordion-content py-0 px-md">
+
+								<div class="col-4">
+									<div class="col-12 buildTool--title"> Margin </div>
+									<!-- All Offsets (Responsive) -->
+									<div class="buildTool--generateCheckbox" 
+										data-config="{
+											'checkbox_text' : 'All Offsets (Responsive)' ,
+											'checkbox_type' : 'radio' ,
+											'checkbox_isChecked' : true ,
+											
+											'target_main'  : 'utility__spacing' ,
+											'target_group' : 'margin' ,
+
+											'ifChecked'    : { 
+												'willGenerate_static'      : true , 
+												'willGenerate_responsive'  : true ,
+												'target_valuesArrayName'   : 'values_withOffsets' 
+											} 
+										}"></div>
+
+									<!-- All Offsets (Baseline) -->
+									<div class="buildTool--generateCheckbox" 
+										data-config="{
+											'checkbox_text' : 'All Offsets (Baseline)' ,
+											'checkbox_type' : 'radio' ,
+											'checkbox_isChecked' : false ,
+											
+											'target_main'  : 'utility__spacing' ,
+											'target_group' : 'margin' ,
+
+											'ifChecked'    : { 
+												'willGenerate_static'      : true , 
+												'willGenerate_responsive'  : false ,
+												'target_valuesArrayName'   : 'values_withOffsets'
+											} 
+										}"></div>
+
+									<!-- Clears Only (Responsive) -->
+									<div class="buildTool--generateCheckbox" 
+										data-config="{
+											'checkbox_text' : 'Clears Only (Responsive)' ,
+											'checkbox_type' : 'radio' ,
+											'checkbox_isChecked' : false ,
+											
+											'target_main'  : 'utility__spacing' ,
+											'target_group' : 'margin' ,
+
+											'ifChecked'    : { 
+												'willGenerate_static'      : true , 
+												'willGenerate_responsive'  : true ,
+												'target_valuesArrayName'   : 'values_clearsOnly'
+											} 
+										}"></div>
+
+									<!-- Clears Only (Baseline) -->
+									<div class="buildTool--generateCheckbox" 
+										data-config="{
+											'checkbox_text' : 'Clears Only (Baseline)' ,
+											'checkbox_type' : 'radio' ,
+											'checkbox_isChecked' : false ,
+											
+											'target_main'  : 'utility__spacing' ,
+											'target_group' : 'margin' ,
+
+											'ifChecked'    : { 
+												'willGenerate_static'      : true , 
+												'willGenerate_responsive'  : false ,
+												'target_valuesArrayName'   : 'values_clearsOnly'
+											} 
+										}"></div>
+
+									<!-- None -->
+									<div class="buildTool--generateCheckbox" 
+										data-config="{
+											'checkbox_text' : 'None' ,
+											'checkbox_type' : 'radio' ,
+											'checkbox_isChecked' : false ,
+											
+											'target_main'  : 'utility__spacing' ,
+											'target_group' : 'margin' ,
+
+											'ifChecked'    : { 
+												'willGenerate_static'      : false , 
+												'willGenerate_responsive'  : false ,
+												'target_valuesArrayName'   : null
+											} 
+										}"></div>
+								</div>
+
+								<div class="col-4">
+									<div class="col-12 buildTool--title"> Padding </div>
+									<!-- All Offsets (Responsive) -->
+									<div class="buildTool--generateCheckbox" 
+										data-config="{
+											'checkbox_text' : 'All Offsets (Responsive)' ,
+											'checkbox_type' : 'radio' ,
+											'checkbox_isChecked' : true ,
+											
+											'target_main'  : 'utility__spacing' ,
+											'target_group' : 'padding' ,
+
+											'ifChecked'    : { 
+												'willGenerate_static'      : true , 
+												'willGenerate_responsive'  : true ,
+												'target_valuesArrayName'   : 'values_withOffsets' 
+											} 
+										}"></div>
+
+									<!-- All Offsets (Baseline) -->
+									<div class="buildTool--generateCheckbox" 
+										data-config="{
+											'checkbox_text' : 'All Offsets (Baseline)' ,
+											'checkbox_type' : 'radio' ,
+											'checkbox_isChecked' : false ,
+											
+											'target_main'  : 'utility__spacing' ,
+											'target_group' : 'padding' ,
+
+											'ifChecked'    : { 
+												'willGenerate_static'      : true , 
+												'willGenerate_responsive'  : false ,
+												'target_valuesArrayName'   : 'values_withOffsets'
+											} 
+										}"></div>
+
+									<!-- Clears Only (Responsive) -->
+									<div class="buildTool--generateCheckbox" 
+										data-config="{
+											'checkbox_text' : 'Clears Only (Responsive)' ,
+											'checkbox_type' : 'radio' ,
+											'checkbox_isChecked' : false ,
+											
+											'target_main'  : 'utility__spacing' ,
+											'target_group' : 'padding' ,
+
+											'ifChecked'    : { 
+												'willGenerate_static'      : true , 
+												'willGenerate_responsive'  : true ,
+												'target_valuesArrayName'   : 'values_clearsOnly'
+											} 
+										}"></div>
+
+									<!-- Clears Only (Baseline) -->
+									<div class="buildTool--generateCheckbox" 
+										data-config="{
+											'checkbox_text' : 'Clears Only (Baseline)' ,
+											'checkbox_type' : 'radio' ,
+											'checkbox_isChecked' : false ,
+											
+											'target_main'  : 'utility__spacing' ,
+											'target_group' : 'padding' ,
+
+											'ifChecked'    : { 
+												'willGenerate_static'      : true , 
+												'willGenerate_responsive'  : false ,
+												'target_valuesArrayName'   : 'values_clearsOnly'
+											} 
+										}"></div>
+
+									<!-- None -->
+									<div class="buildTool--generateCheckbox" 
+										data-config="{
+											'checkbox_text' : 'None' ,
+											'checkbox_type' : 'radio' ,
+											'checkbox_isChecked' : false ,
+											
+											'target_main'  : 'utility__spacing' ,
+											'target_group' : 'padding' ,
+
+											'ifChecked'    : { 
+												'willGenerate_static'      : false , 
+												'willGenerate_responsive'  : false ,
+												'target_valuesArrayName'   : null
+											} 
+										}"></div>
+								</div>
+
+								<div class="col-4">
+									<div class="col-12 buildTool--title"> Offsets Values </div>
+									<div id="buildTool--spacing--inputGroupsContainer">
+										<div class="buildTool--generateInputGroup--setValues buildTool--inputGroup--setValues" 
+											data-config="{
+												'target_main' : 'utility__spacing' ,
+												'default_name'  : '0' ,
+												'default_value' : '0'
+											}"></div>
+
+										<div class="buildTool--generateInputGroup--setValues buildTool--inputGroup--setValues" 
+											data-config="{
+												'target_main' : 'utility__spacing' ,
+												'default_name'  : 'xs' ,
+												'default_value' : '7.5px'
+											}"></div>
+
+										<div class="buildTool--generateInputGroup--setValues buildTool--inputGroup--setValues" 
+											data-config="{
+												'target_main' : 'utility__spacing' ,
+												'default_name'  : 'sm' ,
+												'default_value' : '10px'
+											}"></div>
+
+										<div class="buildTool--generateInputGroup--setValues buildTool--inputGroup--setValues" 
+											data-config="{
+												'target_main' : 'utility__spacing' ,
+												'default_name'  : 'md' ,
+												'default_value' : '15px'
+											}"></div>
+
+										<div class="buildTool--generateInputGroup--setValues buildTool--inputGroup--setValues" 
+											data-config="{
+												'target_main' : 'utility__spacing' ,
+												'default_name'  : 'lg' ,
+												'default_value' : '30px'
+											}"></div>
+
+										<div class="buildTool--generateInputGroup--setValues buildTool--inputGroup--setValues" 
+											data-config="{
+												'target_main' : 'utility__spacing' ,
+												'default_name'  : 'xl' ,
+												'default_value' : '60px'
+											}"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- I. Utility | 3. Flex  -->
+					<section class="accordion  p-0        sectionAccordion">
+						<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+							<button class="accordion-btn  sectionAccordion-btn">  I. Utility | 3. Flex </button>
+							<div class="accordion-content sectionAccordion-content py-0 px-md">
+
+								<div class="col-12 p-0">
+									<div class="col-4">
+										<div class="col-12 buildTool--title"> .flex </div>
+										<!-- Responsive -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Responsive' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : true ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- Static -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Static' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- None -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'None' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+									</div>
+
+									<div class="col-4">
+										<div class="col-12 buildTool--title"> .flex-{direction} </div>
+										<!-- Responsive -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Responsive' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_direction' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- Static -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Static' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_direction' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- None -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'None' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : true ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_direction' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+									</div>
+
+									<div class="col-4">
+										<div class="col-12 buildTool--title"> .flex-wrap </div>
+										<!-- Responsive -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Responsive' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_wrap' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- Static -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Static' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_wrap' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- None -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'None' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : true ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_wrap' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+									</div>
+								</div>
+
+								<div class="col-12 p-0">
+									<div class="col-4">
+										<div class="col-12 buildTool--title"> .flex-main </div>
+										<!-- Responsive -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Responsive' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_main' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- Static -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Static' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_main' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- None -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'None' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : true ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_main' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+									</div>
+
+									<div class="col-4">
+										<div class="col-12 buildTool--title"> .flex-cross </div>
+										<!-- Responsive -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Responsive' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_cross' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- Static -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Static' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_cross' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- None -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'None' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : true ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_cross' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+									</div>
+
+									<div class="col-4">
+										<div class="col-12 buildTool--title"> .flex-extra </div>
+										<!-- Responsive -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Responsive' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_extra' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- Static -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Static' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_extra' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- None -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'None' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : true ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_extra' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+									</div>
+								</div>
+
+								<div class="col-12 p-0">
+									<div class="col-4">
+										<div class="col-12 buildTool--title"> .flex-equal </div>
+										<!-- Responsive -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Responsive' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_equal' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- Static -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Static' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_equal' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- None -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'None' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : true ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_equal' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+									</div>
+
+									<div class="col-4">
+										<div class="col-12 buildTool--title"> .flex-center </div>
+										<!-- Responsive -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Responsive' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_center' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- Static -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Static' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_center' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- None -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'None' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : true ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_center' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+									</div>
+
+									<div class="col-4">
+										<div class="col-12 buildTool--title"> .flex-stretch-center </div>
+										<!-- Responsive -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Responsive' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_stretch_center' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- Static -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Static' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_stretch_center' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- None -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'None' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : true ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_stretch_center' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+									</div>
+								</div>
+
+								<div class="col-12 p-0">
+									<div class="col-4">
+										<div class="col-12 buildTool--title"> .flex-self </div>
+										<!-- Responsive -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Responsive' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_self' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- Static -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Static' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_self' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- None -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'None' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : true ,
+												
+												'target_main'  : 'utility__flex' ,
+												'target_group' : 'flex_self' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</section>
+
+					<!-- I. Utility | 4+5. Visibility + Visibility Extra -->
+					<section class="accordion  p-0        sectionAccordion">
+						<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+							<button class="accordion-btn  sectionAccordion-btn">  I. Utility | 4+5. Visibility + Visibility Extra </button>
+							<div class="accordion-content sectionAccordion-content py-0 px-md">
+
+								<div class="col-4 mt-md">
+									<div class="buildTool--generateCheckbox" 
+										data-config="{
+											'checkbox_text' : 'Visibility' ,
+											'checkbox_type' : 'checkbox' ,
+											'checkbox_isChecked' : true ,
+
+											'target_main'  : 'utility__visibility' ,
+											'target_group' : 'visibility' ,
+
+											'ifChecked'    : { 
+												'willGenerate_static'      : true , 
+												'willGenerate_responsive'  : false ,
+												'target_valuesArrayName'   : null
+											} ,
+											'ifUnchecked'  : { 
+												'willGenerate_static'      : false , 
+												'willGenerate_responsive'  : false ,
+												'target_valuesArrayName'   : null 
+											} 
+										}"></div>
+								</div>
+
+								<div class="col-12 p-0">
+									<div class="col-4">
+										<div class="col-12 buildTool--title"> .before-hidden </div>
+										<!-- Responsive -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Responsive' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__visibility__extra' ,
+												'target_group' : 'before_hidden' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- Static -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Static' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__visibility__extra' ,
+												'target_group' : 'before_hidden' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- None -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'None' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : true ,
+												
+												'target_main'  : 'utility__visibility__extra' ,
+												'target_group' : 'before_hidden' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+									</div>
+
+									<div class="col-4">
+										<div class="col-12 buildTool--title"> .after-hidden </div>
+										<!-- Responsive -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Responsive' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__visibility__extra' ,
+												'target_group' : 'after_hidden' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- Static -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Static' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__visibility__extra' ,
+												'target_group' : 'after_hidden' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- None -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'None' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : true ,
+												
+												'target_main'  : 'utility__visibility__extra' ,
+												'target_group' : 'after_hidden' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+									</div>
+
+									<div class="col-4">
+										<div class="col-12 buildTool--title"> .visibility-hidden </div>
+										<!-- Responsive -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Responsive' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__visibility__extra' ,
+												'target_group' : 'visibility_hidden' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- Static -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Static' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__visibility__extra' ,
+												'target_group' : 'visibility_hidden' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- None -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'None' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : true ,
+												
+												'target_main'  : 'utility__visibility__extra' ,
+												'target_group' : 'visibility_hidden' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+									</div>
+								</div>
+
+								<div class="col-12 p-0">
+									<div class="col-4">
+										<div class="col-12 buildTool--title"> .opacity-0 </div>
+										<!-- Responsive -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Responsive' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__visibility__extra' ,
+												'target_group' : 'opacity_0' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- Static -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Static' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__visibility__extra' ,
+												'target_group' : 'opacity_0' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- None -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'None' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : true ,
+												
+												'target_main'  : 'utility__visibility__extra' ,
+												'target_group' : 'opacity_0' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+									</div>
+
+									<div class="col-4">
+										<div class="col-12 buildTool--title"> .pointerEvents-none </div>
+										<!-- Responsive -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Responsive' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__visibility__extra' ,
+												'target_group' : 'pointerEvents_none' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- Static -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Static' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__visibility__extra' ,
+												'target_group' : 'pointerEvents_none' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- None -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'None' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : true ,
+												
+												'target_main'  : 'utility__visibility__extra' ,
+												'target_group' : 'pointerEvents_none' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+									</div>
+
+									<div class="col-4">
+										<div class="col-12 buildTool--title"> .userSelect-none </div>
+										<!-- Responsive -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Responsive' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__visibility__extra' ,
+												'target_group' : 'userSelect_none' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- Static -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Static' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__visibility__extra' ,
+												'target_group' : 'userSelect_none' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- None -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'None' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : true ,
+												
+												'target_main'  : 'utility__visibility__extra' ,
+												'target_group' : 'userSelect_none' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</section>
+
+					<!-- I. Utility | 6. Typography -->
+					<section class="accordion  p-0        sectionAccordion">
+						<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+							<button class="accordion-btn  sectionAccordion-btn">  I. Utility | 6. Typography </button>
+							<div class="accordion-content sectionAccordion-content py-0 px-md">
+
+								<div class="col-12 p-0">
+									<div class="col-4">
+										<div class="col-12 buildTool--title"> .text-fontStyle </div>
+										<!-- Responsive -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Responsive' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__typography' ,
+												'target_group' : 'font_style' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- Static -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Static' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__typography' ,
+												'target_group' : 'font_style' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- None -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'None' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : true ,
+												
+												'target_main'  : 'utility__typography' ,
+												'target_group' : 'font_style' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+									</div>
+									<div class="col-4">
+										<div class="col-12 buildTool--title"> .text-fontWeight </div>
+										<!-- Responsive -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Responsive' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__typography' ,
+												'target_group' : 'font_weight' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- Static -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Static' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__typography' ,
+												'target_group' : 'font_weight' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- None -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'None' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : true ,
+												
+												'target_main'  : 'utility__typography' ,
+												'target_group' : 'font_weight' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+									</div>
+									<div class="col-4">
+										<div class="col-12 buildTool--title"> .text-align </div>
+										<!-- Responsive -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Responsive' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__typography' ,
+												'target_group' : 'text_align' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- Static -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Static' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : true ,
+												
+												'target_main'  : 'utility__typography' ,
+												'target_group' : 'text_align' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- None -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'None' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__typography' ,
+												'target_group' : 'text_align' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+									</div>
+								</div>
+								<div class="col-12 p-0">
+									<div class="col-4">
+										<div class="col-12 buildTool--title"> .text-transform </div>
+										<!-- Responsive -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Responsive' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__typography' ,
+												'target_group' : 'text_transform' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- Static -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Static' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__typography' ,
+												'target_group' : 'text_transform' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- None -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'None' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : true ,
+												
+												'target_main'  : 'utility__typography' ,
+												'target_group' : 'text_transform' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+									</div>
+									<div class="col-4">
+										<div class="col-12 buildTool--title"> .text-decoration </div>
+										<!-- Responsive -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Responsive' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__typography' ,
+												'target_group' : 'text_decoration' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- Static -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Static' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__typography' ,
+												'target_group' : 'text_decoration' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- None -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'None' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : true ,
+												
+												'target_main'  : 'utility__typography' ,
+												'target_group' : 'text_decoration' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- I. Utility | 7. Position -->
+					<section class="accordion  p-0        sectionAccordion">
+						<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+							<button class="accordion-btn  sectionAccordion-btn">  I. Utility | 7. Position </button>
+							<div class="accordion-content sectionAccordion-content py-0 px-md">
+
+								<div class="col-4 mt-md">
+										<!-- Position Responsive -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Responsive' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__position' ,
+												'target_group' : 'position' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : 'null' 
+												} 
+											}"></div>
+
+										<!-- Position Static -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Static' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : true ,
+												
+												'target_main'  : 'utility__position' ,
+												'target_group' : 'position' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : 'null' 
+												} 
+											}"></div>
+
+										<!-- None -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'None' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__position' ,
+												'target_group' : 'position' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : 'null' 
+												} 
+											}"></div>
+								</div>
+
+							</div>
+						</div>
+					</section>
+
+					<!-- I. Utility | 8. Float & Clear -->
+					<section class="accordion  p-0        sectionAccordion">
+						<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+							<button class="accordion-btn  sectionAccordion-btn">  I. Utility | 8. Float & Clear </button>
+							<div class="accordion-content sectionAccordion-content py-0 px-md">
+
+								<div class="col-12 p-0">
+									<div class="col-4">
+										<div class="col-12 buildTool--title"> Float </div>
+										<!-- Responsive -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Responsive' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__float' ,
+												'target_group' : 'float' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- Static -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Static' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : true ,
+												
+												'target_main'  : 'utility__float' ,
+												'target_group' : 'float' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- None -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'None' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__float' ,
+												'target_group' : 'float' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+									</div>
+
+									<div class="col-4">
+										<div class="col-12 buildTool--title"> Clear </div>
+										<!-- Responsive -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Responsive' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__float' ,
+												'target_group' : 'clear' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : true ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- Static -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'Static' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : true ,
+												
+												'target_main'  : 'utility__float' ,
+												'target_group' : 'clear' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : true , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+
+										<!-- None -->
+										<div class="buildTool--generateCheckbox" 
+											data-config="{
+												'checkbox_text' : 'None' ,
+												'checkbox_type' : 'radio' ,
+												'checkbox_isChecked' : false ,
+												
+												'target_main'  : 'utility__float' ,
+												'target_group' : 'clear' ,
+
+												'ifChecked'    : { 
+													'willGenerate_static'      : false , 
+													'willGenerate_responsive'  : false ,
+													'target_valuesArrayName'   : null
+												} 
+											}"></div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</section>
+
+				</div>
+			</div>
+		</section>
+
+		<section class="accordion  p-0        sectionAccordion">
+			<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+				<button class="accordion-btn  sectionAccordion-btn"> III. Effects </button>
+				<div class="accordion-content sectionAccordion-content px-md">
+
+					<!-- III. Effects | 2. ImgHover  -->
+					<section class="accordion  p-0        sectionAccordion">
+						<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+							<button class="accordion-btn  sectionAccordion-btn">  III. Effects | 2. ImgHover </button>
+							<div class="accordion-content sectionAccordion-content py-0 px-md">
+
+								<div class="col-12 p-0 mt-md">
+									<div id="generateCheckboxPresets--imgHover" class="col-12 mb-md">
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</section>
+
+					<!-- III. Effects | 3. faSpinner  -->
+					<section class="accordion  p-0        sectionAccordion">
+						<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+							<button class="accordion-btn  sectionAccordion-btn">  III. Effects | 3. faSpinner </button>
+							<div class="accordion-content sectionAccordion-content py-0 px-md">
+
+								<div class="col-12 p-0 mt-md">
+									<div class="col-4">
+										<div class="col-12">
+											<div class="buildTool--generateCheckbox" 
+												data-config="{
+													'checkbox_text' : 'faSpinner' ,
+													'checkbox_type' : 'checkbox' ,
+													'checkbox_isChecked' : true ,
+
+													'target_main'  : 'effects_faSpinner' ,
+													'target_group' : 'faSpinner' ,
+
+													'ifChecked'    : { 
+														'willGenerate_static'      : true , 
+														'willGenerate_responsive'  : false ,
+														'target_valuesArrayName'   : null
+													} ,
+													'ifUnchecked'  : { 
+														'willGenerate_static'      : false , 
+														'willGenerate_responsive'  : false ,
+														'target_valuesArrayName'   : null 
+													} 
+												}"></div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</section>
+
+					<!-- III. Effects | 4. Filters  -->
+					<section class="accordion  p-0        sectionAccordion">
+						<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+							<button class="accordion-btn  sectionAccordion-btn">  III. Effects | 4. Filters </button>
+							<div class="accordion-content sectionAccordion-content py-0 px-md">
+
+								<div class="col-12 p-0 mt-md">
+									<div id="generateCheckboxPresets--filter" class="col-12 mb-md">
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</section>
+
+					<!-- III. Effects | 5. Hover Effects  -->
+					<section class="accordion  p-0        sectionAccordion">
+						<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+							<button class="accordion-btn  sectionAccordion-btn">  III. Effects | 5. Hover Effects </button>
+							<div class="accordion-content sectionAccordion-content py-0 px-md">
+
+								<div class="col-12 p-0 mt-md">
+									<div id="generateCheckboxPresets--hover" class="col-12 mb-md">
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</section>
+
+				</div>
+			</div>
+		</section>
+
+
+
+
+
+	</article>
+
+
+
+	<!-- <div class="col-12 p-0 mt-md">
+		<div class="col-4">
+			<div class="col-12">
+				<div class="buildTool--generateCheckbox" 
+					data-config="{
+						'checkbox_text' : 'Normalize' ,
+						'checkbox_type' : 'checkbox' ,
+						'checkbox_isChecked' : true ,
+
+						'targetFile' : '/xFiles/css/asterisk/normalize-mod.min.css'
+					}"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-12 p-0 mt-md">
+		<div class="col-4">
+			<div class="col-12 mb-md">
+				<div class="buildTool--generateCheckbox" 
+					data-config="{
+						'checkbox_text' : 'Normalize Extra' ,
+						'checkbox_type' : 'checkbox' ,
+						'checkbox_isChecked' : true ,
+
+						'targetFile' : '/xFiles/css/asterisk/normalize-mod-extra.css'
+					}"></div>
+			</div>
+		</div>
+	</div> 
+
+	<div class="col-12 p-0 mt-md">
+		<div class="col-4">
+			<div class="col-12 mb-md">
+				<div class="buildTool--generateCheckbox" 
+					data-config="{
+						'checkbox_text' : 'faSpinner' ,
+						'checkbox_type' : 'checkbox' ,
+						'checkbox_isChecked' : false ,
+
+						'targetFile' : '/xFiles/css/asterisk/asterisk-effects-faSpinner.css'
+					}"></div>
+			</div>
+		</div>
+	</div>-->

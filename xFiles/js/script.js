@@ -242,7 +242,7 @@
 
 				var tabContent_html = 
 					'<!-- HTML --> '																								+
-						'<div class="tabs-content tab-expanded codeTab" data-tabs-id="1"> '											+
+						'<div class="tabs-content codeTab" data-tabs-id="1"> '														+
 
 							'<div class="codeTab__sideNav" data-searchBox-codeType="html"></div> '									+
 
@@ -348,8 +348,8 @@
 
 				var firstTabBtn     = codeTab.getElementsByClassName('tabs-btn')    [0];
 				var firstTabContent = codeTab.getElementsByClassName('tabs-content')[0];
-				if (firstTabBtn)     { firstTabBtn    .classList.add('tabBtn-active') };
-				if (firstTabContent) { firstTabContent.classList.add('tab-expanded')  };
+				if (firstTabBtn)     { firstTabBtn    .classList.add('tabs-btn--active') 		};
+				if (firstTabContent) { firstTabContent.classList.add('tabs-content--active')  	};
 		};
 
 	// Checkboxes - Kept separated cause they require the itemsArray as an param
@@ -575,9 +575,7 @@
 
 					if (all_hidden) { codeBlocks_container.classList.add   ('hidden') } 
 					else 			{ codeBlocks_container.classList.remove('hidden') }
-
 				}
-
 			};
 
 			byAndu.codeTab_initCheckboxes = function() {
@@ -649,11 +647,11 @@
 
 		var targetValue; 
 
-		if (hasClass(elem, 'demoItem-container')) 	{ targetValue = elem.getAttribute('data-finalCodeId') } 
-		else 										{ targetValue = getParent(elem , '.demoItem-container').getAttribute('data-finalCodeId') };
+		if (hasClass(elem, 'demoItem-container')) { targetValue = elem.getAttribute('data-finalCodeId') } 
+		else                                      { targetValue = getParent(elem , '.demoItem-container').getAttribute('data-finalCodeId') };
 
 		var targetObj = byAndu_pageConfigObj.demoItems_codeLink.filter(item => item.name == targetValue)[0];
-
+console.log(byAndu_pageConfigObj)
 		if (targetObj) { 
 			document.getElementById('byAndu-codeSnippetModal-code').innerHTML = targetObj.code;
 			return true
@@ -701,14 +699,15 @@
 // Initialize Components
 // --------------------------------------------------
 
+	asterisk.components.spoiler.delegate(document);
+	asterisk.components.tabs.delegate(document);
+
 	document.body.addEventListener('click', function(e) {
 
 		var componentsObj = asterisk.components;
 		// console.log(e.target);
 
-		if 		(hasClass(e.target, 'tabs-btn')) 						{ componentsObj.tabs.run(e.target) 						}
-		else if (hasClass(e.target, 'spoiler-btn')) 					{ componentsObj.spoiler.intermediary.run(e) 			}
-		else if (hasClass(e.target, 'modal-btn')) 						{ componentsObj.modal.run(e.target) 					}
+		if 		(hasClass(e.target, 'modal-btn')) 						{ componentsObj.modal.run(e.target) 					}
 		else if (hasClass(e.target, 'accordion-btn')) 					{ componentsObj.accordion.run(e.target) 				}
 
 		else if (hasClass(e.target, 'copyContext-btn-copyText')) 		{ componentsObj.copyContext.run_copyText(e.target) 		}

@@ -26,7 +26,7 @@
 			opacity: 0;	pointer-events: none;
 		}
 
-		.cssCounter, 
+		/*.cssCounter, 
 		.cssCounter-2 {
 			display: inline-block;
 			line-height: 30px;
@@ -52,7 +52,7 @@
 		.cssCounter-item::after {
 			counter-increment: cssCounter;
 			content: counter(cssCounter);
-		}
+		}*/
 
 		@keyframes cssCounter { 100% { transform: translateY(-91.666%); } }
 
@@ -68,17 +68,17 @@
 				<div class="article-mainTabs-title"> Functionality : scrollTrigger </div>
 
 				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
-					<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> Usage </button>
-					<button class="tabs-btn" 				data-tabs-id="2"> Code  </button>
+					<button class="tabs-btn tabs-btn--active"  data-tabs-id="1"> Usage </button>
+					<button class="tabs-btn" 				   data-tabs-id="2"> Code  </button>
 				</div>
 			</div>
 
 			<div class="tabs-contentGroup">
 			
 				<!-- Usage Tab -->
-				<div class="tabs-content article-mainTabs-usageTab tab-expanded" data-tabs-id="1">
+				<div class="tabs-content article-mainTabs-usageTab tabs-content--active" data-tabs-id="1">
 
-				<div class="cssCounter">
+				<!-- <div class="cssCounter">
 					<div class="cssCounter-container">
 						<div class="cssCounter-item"></div>
 						<div class="cssCounter-item"></div>
@@ -93,9 +93,72 @@
 						<div class="cssCounter-item"></div>
 						<div class="cssCounter-item"></div>
 					</div>
-				</div>
+				</div> -->
 
 					<!-- I. Description -->
+
+						<p> This is an 'expensive' functionality and should be used sparingly. </p>
+
+						<p> For static pages - set the actual coordinates directly </p>
+						<p> on page resize - recalc </p>
+
+						<p> For Dynamic pages - set the elements in order </p>
+
+						
+
+						<p> The main issue with finding out if an Element is visible or not is quite a big one. </p>
+						<p> We can mainly use: </p>
+						<p> <span class="wrapper">elem.offsetTop</span> - to find out the position of the Element, in relation to it's Parent. </p>
+						<p> <span class="wrapper">elem.getBoundingClientRect()</span> - to find out the position of the Element, in relation to the viewport. </p>
+
+						<p> Both are bad. Using any of them causes a little thing called a page 'reflow' (or 'layout'), every time they are called (even though they are 'read' properties). </p>
+						<p> A 'reflow' causes a full recalculation of the whole styling and layout of the entire document. </p>
+						<p> And this happens for each call. </p>
+
+						<p> Imagine having a gallery of 100 elements to test, and you would have to do 100 recalculations of the entire document each 100ms or so. Yeah, not nice is it? </p>
+
+						<hr>
+
+						<p> A hero on the horizon : intersectionObserver </p>
+						<p> Basically, it's a more efficient method, which would theoretically remove the reflow from the ecuation. </p>
+						<p>  
+
+						<p> Static cases are easy to optimize. Dynamic cases are not. </p>
+						<p> If it would be known that the positions of the <b>target elements</b> would remain the same, the checks could be optimized to run in order, and only check the next/previous items in the queue order. </p>
+
+						<p> the entire document is perfectly represented from the start : </p>
+						<p> - all the elements are present within the page - no elements are added/removed along the way </p>
+						<p> - all the elements keep their initial size/position - no elements are moved / changed along the way </p>
+						<p> >> there are no expandable/collapsible elements - which might offset the position of other elements </p>
+
+						<p> The order/position/size of each target is constant. </p>
+						<p> There are no elements added/removed from the DOM - which would offset the order/position/size of any target. </p>
+						<p> There are no expandable/collapsable elements within the DOM - which would offset the order/position/size of any target. </p>
+
+						<p> Optimization techniques : </p>
+
+						<p> Get the order of the targets - set a queue from the order of the elements - keep track of the index of where to check next - check until false and remember where you left off </p>
+
+						<p> 2 directions : </p>
+						<p> store each trigger's position (create a list of trigger points) - faster parsing with each iteration - requires full recalc if any element is added/removed or any offset occurs (expanded/collapsed menus - changed dimensions/positions/content). </p>
+						<p> store each element - get position on each iteration - requires full recalc only if an element is added/removed 
+
+						<p> Set a trigger point for each target scenario - top or top&btm </p>
+
+						<p> group targets together - set the trigger on full-width sections, with custom functions for each subsequent child target </p>
+
+						<p> limitations : </p>
+						<p> hidden content - tabs for example - should be avoided all together </p>
+						<p> </p>
+
+						<p> Best usage : </p>
+						<p> Place triggers on containers instead of individual targets + specific functions if necessary </p>
+						<p> Use sparingly - not all elements require such a trigger, not all elements must be disabled once off-screen (use only for canvases, demanding animations, etc) </p>
+						<p> Try to use them on pages/scenarios where the layout will remain constant - no expandable menus, no dinamycally added elements between existing elements (bottom-of-page loading is excerpt) </p>
+
+						<p> Lazy load images - static </p>
+						<p> Lazy initialization of canvas / animations / - static </p>
+						<p> </p>
 
 						<section class="p-0" aria-label="general description">
 							<heading> <h2 class="section-title"> I. Description </h2> </heading>

@@ -2,15 +2,53 @@
 	<!-- ===================== Route ================== -->
 	<script src="../xFiles/js/route_intermediary.js"> </script>
 	<!-- ============================================== -->
+	<style>
+
+		.sintacticSugar-groupTitle {
+			font-size: 1.25em;
+			font-weight: bold;
+			line-height: 38px;
+			padding-left: 15px;
+			background-color: #354758;
+			color: #FFFFFF;
+			border-top: 1px solid rgba(3,3,3,.1);
+			border-bottom: 1px solid rgba(3,3,3,.1);
+		}
+		.title-withSpoilerBtn {
+			margin-bottom: 0;
+			margin-top: 15px;
+			position: sticky;
+			top: 63px;
+			background-color: #E5E5E5;
+			z-index: 201;
+		}
+		.spoiler-content { 
+			margin: 0; 
+		}
+		.spoiler-btn {
+			box-shadow: none;
+		}
+		/*.tabs-btnGroup {
+			position: sticky;
+			top: 112px;
+			background-color: #E5E5E5;
+			z-index: 200;
+		}*/
+
+		pre {
+			max-height: calc(80vh - 150px)
+		}
+		</style>
+	<!-- ============================================== -->
 
 	<article>
 
-		<div class="article-title noTextOverlay"> Functionality : Syntactic Sugar </div>
+		<div class="article-title noTextOverlay mb-0"> Functionality : Syntactic Sugar </div>
 
 		<header class="sr-only"> <h2> Intermediary Utility Functions </h2> </header>
 
-		<section class="p-0 m-0">
-			<div class="sticky-title"> Array </div>
+		<section class="px-0 pb-md m-0">
+			<div class="sintacticSugar-groupTitle"> Array </div>
 
 				<!-- Clone -->
 				<!-- ============================================== -->
@@ -66,13 +104,13 @@
 						<div class="spoiler-content px-md">
 							<div class="tabs">
 								<div class="tabs-btnGroup buttons-fill">
-									<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> array_sort() </button>
-									<button class="tabs-btn" 				data-tabs-id="2"> array_sort_objects() </button>
-									<button class="tabs-btn" 				data-tabs-id="3"> array_sort_numbers() </button>
+									<button class="tabs-btn tabs-btn--active"  data-tabs-id="1"> array_sort() </button>
+									<button class="tabs-btn" 				   data-tabs-id="2"> array_sort_objects() </button>
+									<button class="tabs-btn" 				   data-tabs-id="3"> array_sort_numbers() </button>
 								</div>
 
 								<div class="tabs-contentGroup">
-									<div class="tabs-content tab-expanded" data-tabs-id="1"> 
+									<div class="tabs-content tabs-content--active" data-tabs-id="1"> 
 										<div class="wrapper">
 											<div class="copyContext-btnContainer" data-copyContextId="array_sort()">
 												<button class="copyContext-btn copyContext-btn-copyText"> </button>
@@ -197,13 +235,13 @@
 						<div class="spoiler-content px-md">
 							<div class="tabs">
 								<div class="tabs-btnGroup buttons-fill">
-									<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> array_cloneAndSort() </button>
-									<button class="tabs-btn" 				data-tabs-id="2"> array_cloneAndSort_objects() </button>
-									<button class="tabs-btn" 				data-tabs-id="3"> array_cloneAndSort_numbers() </button>
+									<button class="tabs-btn tabs-btn--active"  data-tabs-id="1"> array_cloneAndSort() </button>
+									<button class="tabs-btn" 				   data-tabs-id="2"> array_cloneAndSort_objects() </button>
+									<button class="tabs-btn" 				   data-tabs-id="3"> array_cloneAndSort_numbers() </button>
 								</div>
 
 								<div class="tabs-contentGroup">
-									<div class="tabs-content tab-expanded" data-tabs-id="1"> 
+									<div class="tabs-content tabs-content--active" data-tabs-id="1"> 
 										<div class="wrapper">
 											<div class="copyContext-btnContainer" data-copyContextId="array_cloneAndSort()">
 												<button class="copyContext-btn copyContext-btn-copyText"> </button>
@@ -447,82 +485,364 @@
 					</div>
 		</section>
 
-		<section class="p-0 m-0">
-			<div class="sticky-title"> Returns | get* </div>
+		<section class="px-0 pb-md m-0">
+			<div class="sintacticSugar-groupTitle"> Returns | get* </div>
 
-			<!-- getParent() -->
+			<!-- getParents() -->
 			<!-- ============================================== -->
 
 				<div class="title-withSpoilerBtn">
-					<div class="col-12 sm-col-5"> <b-r>getParent()</b-r></div>
-					<div class="col-12 sm-col-5"> Return Parent </div> 
-					<button class="col-12 sm-col-2 xs-o-my-sm spoiler-btn spoiler-btn-autoText" data-spoiler-id="getParent()"> </button>
+					<div class="col-12 sm-col-5"> <b-r>getParents()</b-r></div>
+					<div class="col-12 sm-col-5"> Return All Parents </div> 
+					<button class="col-12 sm-col-2 xs-o-my-sm spoiler-btn spoiler-btn-autoText" data-spoiler-id="getParents()"> </button>
 				</div>
 
-				<div class="spoiler" data-spoiler-id="getParent()">
+				<div class="spoiler" data-spoiler-id="getParents()">
+					<div class="spoiler-content px-md">
+						<div class="tabs">
+							<div class="tabs-btnGroup buttons-fill">
+								<button class="tabs-btn tabs-btn--active"  data-tabs-id="1"> Development - Baseline </button>
+								<button class="tabs-btn" 				   data-tabs-id="2"> Development - Logs </button>
+								<button class="tabs-btn" 				   data-tabs-id="3"> Production - Minified </button>
+							</div>
+
+							<div class="tabs-contentGroup">
+								<div class="tabs-content tabs-content--active" data-tabs-id="1"> 
+									<div class="wrapper">
+										<div class="copyContext-btnContainer" data-copyContextId="getParents-1">
+											<button class="copyContext-btn copyContext-btn-copyText"> </button>
+											<button class="copyContext-btn copyContext-btn-showLightbox"> </button>
+										</div>
+
+										<div class="copyContext" data-copyContextId="getParents-1">
+											<pre class="pre-removeTabSpaces">
+											    function <b-p>getParents</b-p> ( <b>target__HTMLElem</b> ) {
+
+											        let elemParent = <b>target__HTMLElem</b>.parentElement;
+											        let parents = [];
+
+											        while (elemParent) {
+											            parents.push(elemParent);
+											            elemParent = elemParent.parentElement;
+											        };
+
+											        <b-r>return</b-r> parents
+											    }; </pre>
+										</div>
+									</div>
+
+									<div class="wrapper">
+										<p class="title"> // Argument Types : </p>
+										<p class="mb-0"> <span class="wrapper">[ target__HTMLElem ]</span> - must be <span class="wrapper">HTMLElement</span> </p>
+
+										<p class="title"> // Will return : </p>
+										<p class="mb-0"> <span class="wrapper"> Array </span> - contains all Parent HTMLElements up until and including the <span class="wrapper">&lt;html></span> </p>
+
+										<p class="title"> // Usage Example : </p>
+										<p> <span class="wrapper"> var allParents =  <b-p>getParents</b-p><b>(myHTMLElement)</b>; </span> </p>
+									</div>
+								</div>
+
+								<div class="tabs-content" data-tabs-id="2"> 
+									<div class="wrapper">
+										<div class="copyContext-btnContainer" data-copyContextId="getParents-2">
+											<button class="copyContext-btn copyContext-btn-copyText"> </button>
+											<button class="copyContext-btn copyContext-btn-showLightbox"> </button>
+										</div>
+
+										<div class="copyContext" data-copyContextId="getParents-2">
+											<pre class="pre-removeTabSpaces">
+											    function getParents ( target__HTMLElem ) {
+
+											        let elemParent = target__HTMLElem.parentElement;
+											        let parents = [];
+
+											        if (elemParent) {
+
+											            while (elemParent) {
+											                parents.push(elemParent);
+											                elemParent = elemParent.parentElement;
+											            };
+
+											        } else { 
+
+											            console.log('No Parent Element was found for : ', target__HTMLElem);
+											            console.trace();
+
+											        };
+
+											        return parents
+											    }; </pre>
+										</div>
+									</div>
+
+									<div class="wrapper">
+										<p class="title"> // Argument Types : </p>
+										<p class="mb-0"> <span class="wrapper">[ target__HTMLElem ]</span> - must be <span class="wrapper">HTMLElement</span> </p>
+
+										<p class="title"> // Will return : </p>
+										<p class="mb-0"> <span class="wrapper"> Array </span> - contains all Parent HTMLElements up until and including the <span class="wrapper">&lt;html></span> </p>
+
+										<p class="title"> // Usage Example : </p>
+										<p> <span class="wrapper"> var allParents =  <b-p>getParents</b-p><b>(myHTMLElement)</b>; </span> </p>
+									</div>
+								</div>
+
+								<div class="tabs-content" data-tabs-id="3"> 
+									<div class="wrapper">
+										<div class="copyContext-btnContainer" data-copyContextId="getParents-3">
+											<button class="copyContext-btn copyContext-btn-copyText"> </button>
+											<button class="copyContext-btn copyContext-btn-showLightbox"> </button>
+										</div>
+
+										<div class="copyContext" data-copyContextId="getParents-3">
+											<pre class="pre-removeTabSpaces">
+											    function getParents(x){let y=x.parentElement,z=[];while(y){z.push(y);y=y.parentElement};return z}; </pre>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<hr class="mt-0">
+						<button class="col-12 spoiler-btn spoiler-btn-autoText" data-spoiler-id="getParents()"> </button>
+					</div>
+				</div>
+
+			<!-- getParentsByClassName() -->
+			<!-- ============================================== -->
+
+				<div class="title-withSpoilerBtn">
+					<div class="col-12 sm-col-5"> <b-r>getParentsByClassName()</b-r></div>
+					<div class="col-12 sm-col-5"> Return Parent </div> 
+					<button class="col-12 sm-col-2 xs-o-my-sm spoiler-btn spoiler-btn-autoText" data-spoiler-id="getParentsByClassName()"> </button>
+				</div>
+
+				<div class="spoiler" data-spoiler-id="getParentsByClassName()">
 					<div class="spoiler-content px-md">
 						<div class="wrapper">
-							<div class="copyContext-btnContainer" data-copyContextId="getParent-1">
+							<div class="copyContext-btnContainer" data-copyContextId="getParentsByClassName-1">
 								<button class="copyContext-btn copyContext-btn-copyText"> </button>
 								<button class="copyContext-btn copyContext-btn-showLightbox"> </button>
 							</div>
 
-							<div class="copyContext" data-copyContextId="getParent-1">
+							<div class="copyContext" data-copyContextId="getParentsByClassName-1">
 								<pre class="pre-removeTabSpaces">
-								    function <b-p>getParent</b-p> ( elem , identifier ) {
+								    function getParentsByClassName( target__HTMLElem , klass ) {
 
-								        elemParent = elem.parentElement;
+								        elemParent = target__HTMLElem.parentElement;
 
 								        if (elemParent) {
 
-								            var firstChar = identifier.charAt(0);
-
-								            if   (verify()) { <b-r>return</b-r> elemParent                        } 
-								            else            { <b-r>return</b-r> getParent(elemParent, identifier) }
-
-								        } else { <b-r>return</b-r> null };
-								        <hr style="border-top: 1px dashed rgba(3,3,3,.3); width: 86%; margin-left: 7%;"> 
-
-
-								        <i style="color: rgba(3,3,3,.5)">// Check if elemParent has the required identifier</i>
-								        function <b-p>verify</b-p>() {
-
-								            <i style="color: rgba(3,3,3,.5)">// remove first char - for class/id cases</i>
-								            var identif_substr = identifier.substring(1); 
-
-								            <i style="color: rgba(3,3,3,.5)">// search for class</i>
-								            if (firstChar === '.') { 
-
-								                <b-r>return</b-r> ( " " + elemParent.className + " " ).indexOf( " " + identif_substr + " " ) > -1 
-
-								            <i style="color: rgba(3,3,3,.5)">// search for id</i>
-								            } else if (firstChar === '#') { 
-
-								                <b-r>return</b-r> (elemParent.id == identif_substr) 
-
-								            <i style="color: rgba(3,3,3,.5)">// search for tag</i>
-								            } else { 
-
-								                <b-r>return</b-r> (elemParent.tagName == identifier.toUpperCase()) 
-
+								            if ((" "+elemParent.className+" ").indexOf(" "+klass+" ") > -1) {
+								                return elemParent
+								            } else {
+								                return asterisk.utility.getParentsByClassName(elemParent, klass)
 								            }
-								        }
+
+								        } else { 
+
+								            console.log('No Parent Element with the class of ['+klass+'] was found for : ', target__HTMLElem);
+								            console.trace();
+								            return null 
+
+								        };
 								    }; </pre>
 							</div>
 						</div>
 
 						<div class="wrapper">
 							<p class="title"> // Argument Types : </p>
-							<p class="mb-0"> <span class="wrapper">[ elem ]</span> - must be <span class="wrapper">HTMLElement</span> </p>
-							<p class="mb-0"> <span class="wrapper">[ identifier ]</span> - must be <span class="wrapper">String</span> </p>
-							<p> <span class="wrapper">[ identifier ]</span> - must follow the format : <span class="wrapper">'.myClass'</span> (dot prefix) | <span class="wrapper">'#myId'</span> (hastag prefix) | <span class="wrapper">'myTagName'</span> (no prefix) </p>
+							<p class="mb-0"> <span class="wrapper">[ target__HTMLElem ]</span> - must be <span class="wrapper">HTMLElement</span> </p>
+							<p class="mb-0"> <span class="wrapper">[ klass ]</span> - must be <span class="wrapper">String</span> </p>
 
 							<p class="title"> // Will return : </p>
 							<p class="mb-0"> <span class="wrapper"> HTMLElement </span> - the first parent which matches the query </p>
 							<p> <span class="wrapper"> null </span> - if no parent matches the query </p>
 
 							<p class="title"> // Usage Example : </p>
-							<p> <span class="wrapper"> var targetParent =  <b-p>getParent</b-p><b>(myHTMLElement, '.myClass')</b>; </span> </p>
+							<p> <span class="wrapper"> var targetParent =  <b-p>getParentsByClassName</b-p><b>(myHTMLElement, 'myClass')</b>; </span> </p>
+						</div>
+
+						<hr>
+						<button class="col-12 spoiler-btn spoiler-btn-autoText" data-spoiler-id="getParentsByClassName()"> </button>
+					</div>
+				</div>
+
+			<!-- getParentByTagName() -->
+			<!-- ============================================== -->
+
+				<div class="title-withSpoilerBtn">
+					<div class="col-12 sm-col-5"> <b-r>getParentByTagName()</b-r></div>
+					<div class="col-12 sm-col-5"> Return Parent </div> 
+					<button class="col-12 sm-col-2 xs-o-my-sm spoiler-btn spoiler-btn-autoText" data-spoiler-id="getParentByClassName()"> </button>
+				</div>
+
+				<div class="spoiler" data-spoiler-id="getParentByTagName()">
+					<div class="spoiler-content px-md">
+						<div class="wrapper">
+							<div class="copyContext-btnContainer" data-copyContextId="getParentByTagName-1">
+								<button class="copyContext-btn copyContext-btn-copyText"> </button>
+								<button class="copyContext-btn copyContext-btn-showLightbox"> </button>
+							</div>
+
+							<div class="copyContext" data-copyContextId="getParentByTagName-1">
+								<pre class="pre-removeTabSpaces">
+								    function getParentByTagName( target__HTMLElem , tagName__string ) {
+
+								        elemParent = target__HTMLElem.parentElement;
+
+								        if (elemParent) {
+
+								            if (elemParent.tagName === tagName__string.toUpperCase()) {
+								                return elemParent
+								            } else {
+								                return asterisk.utility.getParentByTagName(elemParent, tagName__string)
+								            }
+
+								        } else {
+
+								            console.log('No Parent Element with the tagNAme of ['+tagName__string+'] was found for : ', target__HTMLElem);
+								            console.trace();
+								            return null 
+											
+								        };
+								    }; </pre>
+							</div>
+						</div>
+
+						<div class="wrapper">
+							<p class="title"> // Argument Types : </p>
+							<p class="mb-0"> <span class="wrapper">[ target__HTMLElem ]</span> - must be <span class="wrapper">HTMLElement</span> </p>
+							<p class="mb-0"> <span class="wrapper">[ klass ]</span> - must be <span class="wrapper">String</span> </p>
+
+							<p class="title"> // Will return : </p>
+							<p class="mb-0"> <span class="wrapper"> HTMLElement </span> - the first parent which matches the query </p>
+							<p> <span class="wrapper"> null </span> - if no parent matches the query </p>
+
+							<p class="title"> // Usage Example : </p>
+							<p> <span class="wrapper"> var targetParent =  <b-p>getParentByClassName</b-p><b>(myHTMLElement, 'myClass')</b>; </span> </p>
+						</div>
+
+						<hr>
+						<button class="col-12 spoiler-btn spoiler-btn-autoText" data-spoiler-id="getParent()"> </button>
+					</div>
+				</div>
+
+
+			<!-- getParentByClassName() -->
+			<!-- ============================================== -->
+
+				<div class="title-withSpoilerBtn">
+					<div class="col-12 sm-col-5"> <b-r>getParentByClassName()</b-r></div>
+					<div class="col-12 sm-col-5"> Return Parent </div> 
+					<button class="col-12 sm-col-2 xs-o-my-sm spoiler-btn spoiler-btn-autoText" data-spoiler-id="getParentByClassName()"> </button>
+				</div>
+
+				<div class="spoiler" data-spoiler-id="getParentByClassName()">
+					<div class="spoiler-content px-md">
+						<div class="wrapper">
+							<div class="copyContext-btnContainer" data-copyContextId="getParentByClassName-1">
+								<button class="copyContext-btn copyContext-btn-copyText"> </button>
+								<button class="copyContext-btn copyContext-btn-showLightbox"> </button>
+							</div>
+
+							<div class="copyContext" data-copyContextId="getParentByClassName-1">
+								<pre class="pre-removeTabSpaces">
+								    function getParentByClassName( target__HTMLElem , klass ) {
+
+								        elemParent = target__HTMLElem.parentElement;
+
+								        if (elemParent) {
+
+								            if ((" "+elemParent.className+" ").indexOf(" "+klass+" ") > -1) {
+								                return elemParent
+								            } else {
+								                return asterisk.utility.getParentByClassName(elemParent, klass)
+								            }
+
+								        } else { 
+
+								            console.log('No Parent Element with the class of ['+klass+'] was found for : ', target__HTMLElem);
+								            console.trace();
+								            return null 
+
+								        };
+								    }; </pre>
+							</div>
+						</div>
+
+						<div class="wrapper">
+							<p class="title"> // Argument Types : </p>
+							<p class="mb-0"> <span class="wrapper">[ target__HTMLElem ]</span> - must be <span class="wrapper">HTMLElement</span> </p>
+							<p class="mb-0"> <span class="wrapper">[ klass ]</span> - must be <span class="wrapper">String</span> </p>
+
+							<p class="title"> // Will return : </p>
+							<p class="mb-0"> <span class="wrapper"> HTMLElement </span> - the first parent which matches the query </p>
+							<p> <span class="wrapper"> null </span> - if no parent matches the query </p>
+
+							<p class="title"> // Usage Example : </p>
+							<p> <span class="wrapper"> var targetParent =  <b-p>getParentByClassName</b-p><b>(myHTMLElement, 'myClass')</b>; </span> </p>
+						</div>
+
+						<hr>
+						<button class="col-12 spoiler-btn spoiler-btn-autoText" data-spoiler-id="getParent()"> </button>
+					</div>
+				</div>
+
+			<!-- getParentByTagName() -->
+			<!-- ============================================== -->
+
+				<div class="title-withSpoilerBtn">
+					<div class="col-12 sm-col-5"> <b-r>getParentByTagName()</b-r></div>
+					<div class="col-12 sm-col-5"> Return Parent </div> 
+					<button class="col-12 sm-col-2 xs-o-my-sm spoiler-btn spoiler-btn-autoText" data-spoiler-id="getParentByClassName()"> </button>
+				</div>
+
+				<div class="spoiler" data-spoiler-id="getParentByTagName()">
+					<div class="spoiler-content px-md">
+						<div class="wrapper">
+							<div class="copyContext-btnContainer" data-copyContextId="getParentByTagName-1">
+								<button class="copyContext-btn copyContext-btn-copyText"> </button>
+								<button class="copyContext-btn copyContext-btn-showLightbox"> </button>
+							</div>
+
+							<div class="copyContext" data-copyContextId="getParentByTagName-1">
+								<pre class="pre-removeTabSpaces">
+								    function getParentByTagName( target__HTMLElem , tagName__string ) {
+
+								        elemParent = target__HTMLElem.parentElement;
+
+								        if (elemParent) {
+
+								            if (elemParent.tagName === tagName__string.toUpperCase()) {
+								                return elemParent
+								            } else {
+								                return asterisk.utility.getParentByTagName(elemParent, tagName__string)
+								            }
+
+								        } else {
+
+								            console.log('No Parent Element with the tagNAme of ['+tagName__string+'] was found for : ', target__HTMLElem);
+								            console.trace();
+								            return null 
+											
+								        };
+								    }; </pre>
+							</div>
+						</div>
+
+						<div class="wrapper">
+							<p class="title"> // Argument Types : </p>
+							<p class="mb-0"> <span class="wrapper">[ target__HTMLElem ]</span> - must be <span class="wrapper">HTMLElement</span> </p>
+							<p class="mb-0"> <span class="wrapper">[ klass ]</span> - must be <span class="wrapper">String</span> </p>
+
+							<p class="title"> // Will return : </p>
+							<p class="mb-0"> <span class="wrapper"> HTMLElement </span> - the first parent which matches the query </p>
+							<p> <span class="wrapper"> null </span> - if no parent matches the query </p>
+
+							<p class="title"> // Usage Example : </p>
+							<p> <span class="wrapper"> var targetParent =  <b-p>getParentByClassName</b-p><b>(myHTMLElement, 'myClass')</b>; </span> </p>
 						</div>
 
 						<hr>
@@ -688,8 +1008,8 @@
 				</div>
 		</section>	
 
-		<section class="p-0 m-0">
-			<div class="sticky-title"> Checks | has* | is* </div>
+		<section class="px-0 pb-md m-0">
+			<div class="sintacticSugar-groupTitle"> Checks | has* | is* </div>
 
 			<!-- Class check || hasClass() -->
 			<!-- ============================================== -->

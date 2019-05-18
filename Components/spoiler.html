@@ -20,6 +20,46 @@
 			0% , 100% 	{ border-color: #be0c0c; }
 			50% 		{ border-color: orange; }
 		}
+
+		.byAndu-feature-list {
+			display: inline-block;
+			width: 100%;
+			float: left;
+			padding: 0;
+			margin: 0;
+
+			border: 1px solid rgba(3,3,3,.3);
+			border-bottom: none;
+		}
+
+		.byAndu-feature-list__title ,
+		.byAndu-feature-list__item {
+			border-bottom: 1px solid rgba(3,3,3,.3);
+			padding: .5em 15px;
+		}
+
+		.byAndu-feature-list__title {
+			font-weight: bold;
+			background-color: rgba(3,3,3,.1);
+		}
+		.byAndu-feature-list__item {
+			list-style-type: none;
+			display: block;
+			width: 100%;
+			background-color: rgba(255,0,0,.1);
+		}
+		.byAndu-feature-list__item::before {
+			content: '\f00d';
+			font-family: FontAwesome;
+			padding: 0 .5em;
+		}
+		.byAndu-feature-list__item--active {
+			background-color: rgba(0,255,0,.1);
+		}
+		.byAndu-feature-list__item--active::before {
+			content: '\f00c';
+			font-family: FontAwesome;
+		}
 		</style>
 	<!-- ============================================== -->
 
@@ -33,16 +73,16 @@
 				<div class="article-mainTabs-title"> Components : Spoiler </div>
 
 				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
-					<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> Demo  </button>
-					<button class="tabs-btn" 				data-tabs-id="2"> Usage </button>
-					<button class="tabs-btn" 				data-tabs-id="3"> Code  </button>
+					<button class="tabs-btn tabs-btn--active"	data-tabs-id="1"> Demo  </button>
+					<button class="tabs-btn" 					data-tabs-id="2"> Usage </button>
+					<button class="tabs-btn" 					data-tabs-id="3"> Code  </button>
 				</div>
 			</div>
 
 			<div class="tabs-contentGroup">
 
 				<!-- Demo Tab -->
-				<div class="tabs-content article-mainTabs-demoTab tab-expanded" data-tabs-id="1"> 
+				<div class="tabs-content article-mainTabs-demoTab tabs-content--active" data-tabs-id="1"> 
 
 					<button class="col-6 col-offset-3 spoiler-btn spoiler-btn-autoText" data-spoiler-id="spoilerDemo-1" style="margin-top: 50px"> Well, hello there.. </button>
 
@@ -104,63 +144,175 @@
 									<p> 
 										<b>Step 2.</b> Download and refference the <a class="downloadLink" href="../../js/asterisk/asterisk-component-spoiler.js" download> asterisk-component-spoiler.js </a> JS file. 
 									</p>
-									<div class="wrapper"> <div class="col-12"> &lt;script src="<b-r>--myPath--</b-r><b-p>/asterisk-component-spoiler.js</b-p>" type="text/javascript">&lt;/script> </div> </div>
+									<div class="wrapper md-flex md-flex-cross-center md-flex-main-between"> 
+										<span class="pl-md"> &lt;script src="<b-r>--myPath--</b-r><b-p>/asterisk-component-spoiler.js</b-p>" type="text/javascript">&lt;/script> </span>
+										<button class="col-12 md-col-2 mt-sm md-mt-0 spoiler-btn float-right spoiler-btn-autoText" data-spoiler-id="spoiler-js-variants"> Variants | </button>
+									</div>
 
-									<p> <b>Step 3.</b> Make the next function call : </p>
+									<div class="spoiler" data-spoiler-id="spoiler-js-variants">
+										<div class="spoiler-content px-md">
+											<p> There are also 3 simpler/baselined variants of the <span class="wrapper">spoiler.js</span> File, which follow a stand-alone syntax, instead of the <span class="wrapper">asterisk</span> Object-nesting model : </p>
+											<p><span class="wrapper"><b-p>asterisk.components.spoiler</b-p><b>.x()</b></span> becomes <span class="wrapper"><b-p>component__spoiler</b-p><b>.x()</b></span> </p>
+
+											<hr>
+
+											<div class="tabs">
+												<div class="tabs-btnGroup buttons-fill">
+													<button class="tabs-btn tabs-content--active"	data-tabs-id="1"> spoiler-SPA </button>
+													<button class="tabs-btn" 						data-tabs-id="2"> spoiler-MPA </button>
+													<button class="tabs-btn" 						data-tabs-id="3"> spoiler-MPA-baseline  </button>
+												</div>
+
+												<div class="tabs-contentGroup">
+
+													<div class="tabs-content tabs-content--active" data-tabs-id="1">
+														<p> For Single-Page Applications - full functionality, with the stand-alone syntax. </p>
+
+														<ul class="byAndu-feature-list">
+															<li class="byAndu-feature-list__title"> Main Functions : </li>
+															<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+																component__spoiler.activate()
+															</li>
+															<li class="byAndu-feature-list__item byAndu-feature-list__item--active">
+																component__spoiler.delegate()
+															</li>
+															<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+																component__spoiler.terminate()
+															</li>
+
+															<li class="byAndu-feature-list__title"> Event Handlers : </li>
+															<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+																component__spoiler.eventHandler_run()
+															</li>
+															<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+																component__spoiler.eventHandler_delegate()
+															</li>
+
+															<li class="byAndu-feature-list__title"> Intermediary Functions : </li>
+															<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+																component__spoiler.parameters_set()
+															</li>
+															<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+																component__spoiler.parameters_remove()
+															</li>
+															<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+																component__spoiler.checkDOM()
+															</li>
+														</ul>
+													</div>
+
+													<div class="tabs-content" data-tabs-id="2">
+														<p> For 'traditional' Multi-Page Applications.</p>
+														<p class="m-0"> * Does not include the logic required for SPA Memory Management : <span class="wrapper">{*}.activatedItems</span> and <span class="wrapper">{*}.checkDOM()</span> </p>
+
+														<ul class="byAndu-feature-list">
+															<li class="byAndu-feature-list__title"> Main Functions : </li>
+															<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+																component__spoiler.activate()
+															</li>
+															<li class="byAndu-feature-list__item byAndu-feature-list__item--active">
+																component__spoiler.delegate()
+															</li>
+															<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+																component__spoiler.terminate()
+															</li>
+
+															<li class="byAndu-feature-list__title"> Event Handlers : </li>
+															<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+																component__spoiler.eventHandler_run()
+															</li>
+															<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+																component__spoiler.eventHandler_delegate()
+															</li>
+
+															<li class="byAndu-feature-list__title"> Intermediary Functions : </li>
+															<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+																component__spoiler.parameters_set()
+															</li>
+															<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+																component__spoiler.parameters_remove()
+															</li>
+															<li class="byAndu-feature-list__item"> 
+																component__spoiler.checkDOM()
+															</li>
+														</ul>
+													</div>
+
+													<div class="tabs-content" data-tabs-id="3"> 
+														<p> For 'traditional' Multi-Page Applications.</p>
+														<p class="m-0"> * Does not use the <span class="wrapper">{*}.parameters_set()</span> to add the on-element <span class="wrapper">spoilerParams</span> Property. </p>
+														<p class="mt-0"> * Does not include the logic required for SPA Memory Management : <span class="wrapper">{*}.activatedItems</span> and <span class="wrapper">{*}.checkDOM()</span> </p>
+
+														<ul class="byAndu-feature-list">
+															<li class="byAndu-feature-list__title"> Main Functions : </li>
+															<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+																component__spoiler.activate()
+															</li>
+															<li class="byAndu-feature-list__item byAndu-feature-list__item--active">
+																component__spoiler.delegate()
+															</li>
+															<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+																component__spoiler.terminate()
+															</li>
+
+															<li class="byAndu-feature-list__title"> Event Handlers : </li>
+															<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+																component__spoiler.eventHandler_run()
+															</li>
+															<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+																component__spoiler.eventHandler_delegate()
+															</li>
+
+															<li class="byAndu-feature-list__title"> Intermediary Functions : </li>
+															<li class="byAndu-feature-list__item"> 
+																component__spoiler.parameters_set()
+															</li>
+															<li class="byAndu-feature-list__item"> 
+																component__spoiler.parameters_remove()
+															</li>
+															<li class="byAndu-feature-list__item"> 
+																component__spoiler.checkDOM()
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+
+											<hr>
+
+											<button class="col-12 spoiler-btn spoiler-btn-autoText" data-spoiler-id="spoiler-js-variants"> Variants | </button>
+
+										</div>
+									</div>
+
+									<p> <b>Step 3.</b> <span class="wrapper">Activate</span> or <span class="wrapper">Delegate</span> the Components' functionality: </p>
 
 									<div class="wrapper"> 
 										<div class="md-flex md-flex-cross-center"> 
-											<div class="col-12 md-col-10"> asterisk.components.spoiler<b>.initialize()</b> </div>
-											<button class="col-12 md-col-2 mt-sm md-mt-0 spoiler-btn spoiler-btn-autoText" data-spoiler-id="spoiler-init"> </button>
+											<div class="col-12 md-col-10"> asterisk.components.spoiler<b-p>.activate(</b-p> <b>spoilerBtn__HTMLElem</b> <b-p>)</b-p> </div>
+											<button class="col-12 md-col-2 mt-sm md-mt-0 spoiler-btn spoiler-btn-autoText" data-spoiler-id="spoiler-activate"> </button>
 										</div>
 
-										<div class="spoiler" data-spoiler-id="spoiler-init">
+										<div class="spoiler" data-spoiler-id="spoiler-activate">
 											<div class="spoiler-content px-md">
-												<p class="mt-xs"> <span class="wrapper">Function's Format</span> : asterisk.components.spoiler<b>.initialize(</b> <span class="wrapper">targetElem</span> , <span class="wrapper">delegateEvent__boolean</span> <b>)</b> </p>
-
-												<p> <span class="wrapper">Function's Arguments</span> (both arguments are optional) : </p>
-												<p class="mt-0"> 1. <span class="wrapper">targetElem</span> : a <span class="wrapper">HTML Element</span> refference </p>
-												<p class="mt-0"> 2. <span class="wrapper">delegateEvent__boolean</span> : the <span class="wrapper"><b-p>true</b-p></span> <span class="wrapper">boolean</span> value </p>
-
-												<p> Depending on the arguments provided, different EventListeners will be added within the application : </p>
-
-												<hr>
-
-												<p class="my-xs"> Case: <b-r>asterisk.components.spoiler.init()</b-r> | <span class="wrapper">no arguments</span> </p>
-												<p class="my-xs"> All <span class="wrapper">spoiler-btn</span> Elements within the <span class="wrapper">document</span> will be initialized, by adding an EventListener on each individual Element which is present within the Document, at the time of the function call. </p>
-												<p class="mt-0 sub-heading"> * an <span class="wrapper">eventListener</span> will be added to each <span class="wrapper">spoiler-btn</span> Element, which is present in the DOM </p>
-												<p class="mt-0 sub-heading"> * this will not affect <span class="wrapper">spoiler-btn</span> Elements which are added afterwards </p>
-
-												<hr>
-
-												<p class="my-xs"> Case: <b-r>asterisk.components.spoiler.init(<span class="wrapper"><b-p>true</b-p></span>)</b-r> | <span class="wrapper">delegateEvent__boolean</span> is <span class="wrapper">true</span> </p>
-												<p class="my-xs"> All <span class="wrapper">spoiler-btn</span> Elements within the <span class="wrapper">document</span> will be initialized, by adding an EventListener on the <span class="wrapper">document</span> which delegates the functionality for all <span class="Wrapper">spoiler-btn</span> Elements within it. </p>
-												<p class="mt-0 sub-heading"> * an <span class="wrapper">eventListener</span> will be added to the <span class="wrapper">document.body</span>, which will delegate the functionality for <span class="wrapper">spoiler-btn</span> Element </p>
-												<p class="mt-0 sub-heading"> * this will affect even <span class="wrapper">spoiler-btn</span> Elements which are added afterwards (as the event is delegated) </p>
-
-												<hr>
-
-												<p class="my-xs"> Case: <b-r>asterisk.components.spoiler.init(</b-r> <span class="wrapper"><b-p>spoiler-btn Element</b-p></span> <b-r>)</b-r> </p>
-												<p class="my-xs"> Only the provided <span class="wrapper">spoiler-btn</span> element will be initialized. </p>
-												<p class="mt-0 sub-heading"> * an <span class="wrapper">eventListener</span> will be added to the provided <span class="wrapper">spoiler-btn Element</span> </p>
-												<p class="mt-0 sub-heading"> * used for dinamically-added content </p>
-
-												<hr>
-
-												<p class="my-xs"> Case: <b-r>asterisk.components.spoiler.init(</b-r> <span class="wrapper"><b-p><u>NON</u>-spoiler-btn Element</b-p></span> <b-r>)</b-r> </p>
-												<p class="my-xs"> All <span class="wrapper">spoiler-btn</span> Elements within the provided <span class="wrapper"><b-p><u>NON</u>-spoiler-btn Element</b-p></span> will be initialized. </p>
-												<p class="mt-0 sub-heading"> * an <span class="wrapper">eventListener</span> will be added to each <span class="wrapper">spoiler-btn Element</span> </p>
-												<p class="mt-0 sub-heading"> * used to initialize <span class="wrapper">spoiler-btn</span> elements within a portion of the website </p>
-
-												<hr>
-
-												<p class="my-xs"> Case: <b-r>asterisk.components.spoiler.init(</b-r> <span class="wrapper"><b-p><u>NON</u>-spoiler-btn Element</b-p></span> , <span class="wrapper"><b-p>true</b-p></span> <b-r>)</b-r> </p>
-												<p class="my-xs"> The <span class="wrapper">spoiler-btn functionality </span> will be delegated to the <span class="wrapper"><b-p><u>NON</u>-spoiler-btn Element</b-p></span> provided, enabling any <span class="wrapper">spoiler-btn</span> children to function through <b>Event Delegation</b>. </p>
-												<p class="mt-0 sub-heading"> * the <span class="wrapper">eventListener</span> will be added to the <span class="wrapper"><b-p><u>NON</u>-spoiler-btn Element</b-p></span> </p>
-												<p class="mt-0 sub-heading"> * can be used on the <span class="wrapper">document.body</span> to enable any and all <span class="wrapper">spoiler-btn</span> Elements </p>
+												<p> A <span class="wrapper">click</span> <span class="wrapper">eventListener</span> will be added directly to the <b>spoilerBtn__HTMLElem</b> Element </p>
 											</div>
 										</div>
 									</div>
+
+									<div class="wrapper"> 
+										<div class="md-flex md-flex-cross-center"> 
+											<div class="col-12 md-col-10"> asterisk.components.spoiler<b-p>.delegate(</b-p> <b>target__HTMLElem</b> <b-p>)</b-p> </div>
+											<button class="col-12 md-col-2 mt-sm md-mt-0 spoiler-btn spoiler-btn-autoText" data-spoiler-id="spoiler-delegate"> </button>
+										</div>
+
+										<div class="spoiler" data-spoiler-id="spoiler-delegate">
+											<div class="spoiler-content px-md">
+												<p> A <span class="wrapper">click</span> <span class="wrapper">eventListener</span> will be added directly to the <b>target__HTMLElem</b> Element, delegating the functionality to all <span class="wrapper">.spiler-btn</span> child Elements </p>
+											</div>
+										</div>
+									</div>
+
 								</div>
 							</div>
 						</section>
@@ -177,9 +329,9 @@
 
 											<p class="sub-heading mt-0"> * <span class="wrapper"><b>spoiler</b></span> elements and <span class="wrapper"><b>spoiler-btn</b></span> elements can be placed anywhere within the document, regardless of each other's position. </p>
 
-											<p> <b>Step 2.</b> Set a unique <span class="wrapper"><b-p>data-spoiler-id</b-p></span> value (for each <span class="wrapper">spoiler</span>&<span class="wrapper">spoiler-btn</span>). </p>
+											<p> <b>Step 2.</b> Set a unique <span class="wrapper"><b-p>data-spoiler-id</b-p></span> value. </p>
 
-											<p class="sub-heading mt-0"> * <span class="wrapper"><b>spoiler</b></span> elements and <span class="wrapper"><b>spoiler-btn</b></span> elements are synchronised with each other by having the same <span class="wrapper"><b-p>data-spoiler-id</b-p></span> value. This must be unique within the Document, for each <span class="wrapper">spoiler</span>&<span class="wrapper">spoiler-btn</span> group.</p>
+											<p class="sub-heading mt-0"> * <span class="wrapper"><b>spoiler</b></span> and <span class="wrapper"><b>spoiler-btn</b></span> elements are synchronised with each other by having the same <span class="wrapper"><b-p>data-spoiler-id</b-p></span> value.</p>
 										</div>
 
 										<div class="col-12 md-col-6 p-0">
@@ -189,6 +341,7 @@
 
 												    &lt;div class="<b>spoiler</b>" <b-p>data-spoiler-id</b-p>="mySpoilerId-1">
 												        &lt;div class="<b>spoiler-content</b>">
+												            <i class="comment"> &lt;!-- content goes here --> </i>
 												        &lt;/div>
 												    &lt;/div>
 												</pre>
@@ -199,10 +352,129 @@
 							</div>
 						</section>
 
-					<!-- IV. Component States -->
+					<!-- IV. Styles -->
 						<section class="accordion  p-0        sectionAccordion">
 							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
-								<button class="accordion-btn  sectionAccordion-btn"> IV. Component States </button>
+								<button class="accordion-btn  sectionAccordion-btn"> IV. Style Classes </button>
+								<div class="accordion-content sectionAccordion-content">
+
+									<div class="accordion">
+										<div class="accordion-group px-md my-sm">
+											<button class="accordion-btn"> spoiler-btn-autoText  </button>
+											<div class="accordion-content">
+
+												<p>
+													<span class="wrapper">spoiler-btn</span> elements can be given the <span class="wrapper">spoiler-btn-autoText</span> <span class="wrapper">class</span> which adds an <b>'Expand'</b> / <b>'Collapse'</b> string, after the innerText provided. 
+												</p>
+
+												<div class="wrapper">
+													<line> 
+														&lt;button class="spoiler-btn" data-spoiler-id=""> <b-p>My Text</b-p> &lt;/button> 
+														<div class="col-12 mt-sm md-mt-0 md-col-4 md-float-right"> <button class="col-12 spoiler-btn" data-spoiler-id="asdf-1"> My Text </button> </div>
+													</line>
+													<hr>
+													<line> 
+														&lt;button class="spoiler-btn <b-r>spoiler-btn-autoText</b-r>" data-spoiler-id=""> &lt;/button> 
+														<div class="col-12 mt-sm md-mt-0 md-col-4 md-float-right"> <button class="col-12 spoiler-btn spoiler-btn-autoText" data-spoiler-id="asdf-2"> </button> </div>
+													</line>
+													<hr>
+													<line> 
+														&lt;button class="spoiler-btn <b-r>spoiler-btn-autoText</b-r>" data-spoiler-id=""> <b-p>My Text</b-p> &lt;/button> 
+														<div class="col-12 mt-sm md-mt-0 md-col-4 md-float-right"> <button class="col-12 spoiler-btn spoiler-btn-autoText" data-spoiler-id="asdf-3"> My Text </button> </div>
+													</line>
+
+													<!--  just to not throw error -->
+													<div class="spoiler hidden" data-spoiler-id="asdf-1"><div class="spoiler-content"></div></div>
+													<div class="spoiler hidden" data-spoiler-id="asdf-2"><div class="spoiler-content"></div></div>
+													<div class="spoiler hidden" data-spoiler-id="asdf-3"><div class="spoiler-content"></div></div>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+					<!-- V. HTML - Markup Roles -->
+						<section class="accordion  p-0        sectionAccordion">
+							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+								<button class="accordion-btn  sectionAccordion-btn"> V. HTML - Markup Roles </button>
+								<div class="accordion-content sectionAccordion-content">
+
+									<div class="accordion">
+
+										<div class="accordion-group px-md my-sm">
+											<button class="accordion-btn"> The <b>spoiler</b> Element:  </button>
+											<div class="accordion-content">
+
+												<div class="col-12 p-0 md-flex md-flex-cross-center">
+													<div class="col-12 md-col-8 p-0">
+														<p> * Acts as a <span class="wrapper"><b>wrapper</b></span> for the <span class="wrapper"><b>spoiler-content</b></span> Element, in order to prevent the <span class="wrapper"><b>spoiler-content</b></span> Element's box-model styles from offsetting the <span class="wrapper"><b>collapsed</b></span> state (paddings / borders). </p>
+														<p> * The <span class="wrapper"><b>expanded</b></span>/<span class="wrapper"><b>collapsed</b></span> state <span class="wrapper">max-height</span> value change will be applied to it. </p>
+														<p> * <b>Must <u>not</u> have paddings / borders</b>. </p>
+													</div>
+													<div class="col-12 md-col-4 p-0">
+														<div class="col-12 markupRoles-example-pasive mb-xs" style="height: 50px"> </div>
+														<div class="col-12 markupRoles-example-active" style="padding: 15px">
+															<div class="col-12 markupRoles-example-pasive" style="height: 100px"></div>
+														</div>
+													</div>
+												</div>
+
+											</div>
+										</div>
+
+										<div class="accordion-group px-md my-sm">
+											<button class="accordion-btn"> The <b>spoiler-content</b> Element:  </button>
+											<div class="accordion-content">
+
+												<div class="col-12 p-0 md-flex md-flex-cross-center">
+													<div class="col-12 md-col-8 p-0">
+														<p> * Holds all of the <span class="wrapper"><b>spoiler</b></span>'s content. </p>
+														<p class="mb-0"> * <b>It <u>can</u> have margins / paddings / borders</b>, without affecting the <span class="wrapper"><b>collapsed</b></span> state. </p>
+													</div>
+													<div class="col-12 md-col-4 p-0">
+														<div class="col-12 markupRoles-example-pasive mb-xs" style="height: 50px"> </div>
+														<div class="col-12 markupRoles-example-pasive" style="padding: 15px">
+															<div class="col-12 markupRoles-example-active" style="height: 100px"></div>
+														</div>
+													</div>
+												</div>
+
+											</div>
+										</div>
+
+										<div class="accordion-group px-md my-sm">
+											<button class="accordion-btn"> The <b>spoiler-btn</b> Element:  </button>
+											<div class="accordion-content">
+
+												<div class="col-12 p-0 md-flex md-flex-cross-center">
+													<div class="col-12 md-col-8 p-0">
+
+														<p> * can be placed anywhere within the document, while still targetting the adequate <span class="wrapper"><b>spoiler</b></span>. </p>
+														<p> * multiple <span class="wrapper"><b>spoiler-btn</b></span> Elements can point to the same <span class="wrapper"><b>spoiler</b></span> Element, by having the same <span class="wrapper">data-spoiler-id</span> value. </p>
+														<p> * Multiple <span class="wrapper"><b>spoiler-btn</b></span> Elements that are pointing to the same <span class="wrapper"><b>spoiler</b></span> Element, have their <span class="wrapper">state</span> synchronised. </p>
+													</div>
+													<div class="col-12 md-col-4 p-0">
+														<div class="col-12 markupRoles-example-active mb-xs" style="height: 50px"> </div>
+														<div class="col-12 markupRoles-example-pasive" style="padding: 15px">
+															<div class="col-12 markupRoles-example-pasive" style="height: 100px"></div>
+														</div>
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+					<!-- VI. CSS - Component States -->
+						<section class="accordion  p-0        sectionAccordion">
+							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+								<button class="accordion-btn  sectionAccordion-btn"> VI. CSS - Component States </button>
 								<div class="accordion-content sectionAccordion-content">
 
 									<div class="col-12 p-0 md-flex md-flex-cross-center">
@@ -212,7 +484,6 @@
 											<div class="col-12"> <hr> </div>
 
 											<p class="mb-0"> The <span class="wrapper"><b>State</b></span> is changed when the user clicks a <span class="wrapper"><b>spoiler-btn</b></span> element. </p>
-											<p class="sub-heading mt-0"> * clicking a <span class="wrapper"><b>spoiler-btn</b></span> triggers the <span class="wrapper"><b-r>asterisk</b-r><b-p>.components</b-p><b>.spoiler</b>.run()</span> function, with the <span class="wrapper"><b>spoiler-btn</b></span> as the argument parameter. </p>
 
 											<p> Each <span class="wrapper"><b>State</b></span> is primarily reflected by the presence/absence of a specific <span class="wrapper"><b-r>class</b-r></span> on the <span class="wrapper"><b>spoiler</b></span> and <span class="wrapper"><b>spoiler-btn</b></span> Elements. </p>
 										</div>
@@ -229,8 +500,8 @@
 											<div class="wrapper py-0">
 												<pre class="pre-removeTabSpaces">
 												    <i class="comment"><b>// Expanded</b> </i>
-												    &lt;div class="<b>spoiler-btn</b> <b-r>active</b-r>"> My Button &lt;/div>
-												    &lt;div class="<b>spoiler</b> <b-r>spoiler-expanded</b-r>"> ... &lt;/div>
+												    &lt;div class="<b>spoiler-btn</b> <b-r>spoiler-btn--active</b-r>"> My Button &lt;/div>
+												    &lt;div class="<b>spoiler</b> <b-r>spoiler--expanded</b-r>"> ... &lt;/div>
 												</pre>
 											</div>
 										</div>
@@ -240,10 +511,10 @@
 
 									<div class="col-12 p-0 md-flex md-flex-cross-center">
 										<div class="col-12 md-col-6 p-0">
-											<p> In each of the 3 <span class="wrapper"><b>States</b></span>, the <span class="wrapper">Spoiler</span> Element's <span class="wrapper">max-height</span>, <span class="wrapper">visibility</span> and <span class="wrapper">overflow</span> properties are changed to different values. </p>
+											<p> Switching between <span class="wrapper"><b>States</b></span>, the <span class="wrapper">Spoiler</span> Element's <span class="wrapper">max-height</span>, <span class="wrapper">visibility</span> and <span class="wrapper">overflow</span> properties are changed to different values. </p>
 										</div>
 
-										<div class="col-12 md-col-6 p-0">
+										<div class="col-12 md-col-6">
 											<table class="col-12">
 												<tbody>
 													<tr>
@@ -329,7 +600,7 @@
 														<div class="pseudo-table-row">
 															<div class="col-2 pseudo-table-col"> <b>in-transition</b> </div>
 															<div class="col-2 pseudo-table-col"> hidden </div>
-															<div class="col-8 pseudo-table-col"> content will become hidden and should not be focusable </div>
+															<div class="col-8 pseudo-table-col"> --- </div>
 														</div>
 														<div class="pseudo-table-row">
 															<div class="col-2 pseudo-table-col"> <b>expanded</b> </div>
@@ -359,7 +630,7 @@
 														<div class="pseudo-table-row">
 															<div class="col-2 pseudo-table-col"> <b>collapsed</b> </div>
 															<div class="col-2 pseudo-table-col"> hidden </div>
-															<div class="col-8 pseudo-table-col"> allow full collapse </div>
+															<div class="col-8 pseudo-table-col"> allows full collapse </div>
 														</div>
 														<div class="pseudo-table-row">
 															<div class="col-2 pseudo-table-col"> <b>in-transition</b> </div>
@@ -369,7 +640,7 @@
 														<div class="pseudo-table-row">
 															<div class="col-2 pseudo-table-col"> <b>expanded</b> </div>
 															<div class="col-2 pseudo-table-col"> visible </div>
-															<div class="col-8 pseudo-table-col"> allow the display of elements which might overflow the container (modals / tooltips) </div>
+															<div class="col-8 pseudo-table-col"> allows the display of elements which might overflow the container (modals / tooltips) </div>
 														</div>
 													</tbody>
 												</div>
@@ -381,137 +652,10 @@
 							</div>
 						</section>
 
-					<!-- V. Markup Roles -->
+					<!-- VII. Javascript - Main Functions -->
 						<section class="accordion  p-0        sectionAccordion">
 							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
-								<button class="accordion-btn  sectionAccordion-btn"> V. Markup Roles </button>
-								<div class="accordion-content sectionAccordion-content">
-
-									<div class="accordion">
-
-										<div class="accordion-group px-md my-sm">
-											<button class="accordion-btn"> The <b>spoiler</b> Element:  </button>
-											<div class="accordion-content">
-
-												<div class="col-12 p-0 md-flex md-flex-cross-center">
-													<div class="col-12 md-col-8 p-0">
-														<p> * Acts as a <span class="wrapper"><b>wrapper</b></span> for the <span class="wrapper"><b>spoiler-content</b></span> Element, in order to prevent the <span class="wrapper"><b>spoiler-content</b></span> Element's box-model styles from offsetting the <span class="wrapper"><b>collapsed</b></span> state (margins / paddings / borders). </p>
-														<p> * The <span class="wrapper"><b>expanded</b></span>/<span class="wrapper"><b>collapsed</b></span> state <span class="wrapper">max-height</span> value change will be applied to it. </p>
-														<p> * <b>Must <u>not</u> have margins / paddings / borders</b>. </p>
-													</div>
-													<div class="col-12 md-col-4 p-0">
-														<div class="col-12 markupRoles-example-pasive mb-xs" style="height: 50px"> </div>
-														<div class="col-12 markupRoles-example-active" style="padding: 15px">
-															<div class="col-12 markupRoles-example-pasive" style="height: 100px"></div>
-														</div>
-													</div>
-												</div>
-
-											</div>
-										</div>
-
-										<div class="accordion-group px-md my-sm">
-											<button class="accordion-btn"> The <b>spoiler-content</b> Element:  </button>
-											<div class="accordion-content">
-
-												<div class="col-12 p-0 md-flex md-flex-cross-center">
-													<div class="col-12 md-col-8 p-0">
-														<p> * Holds all of the <span class="wrapper"><b>spoiler</b></span>'s content. </p>
-														<p> * It allows to precisely calculate the <span class="wrapper">max-height</span> value needed to be applied. </p>
-														<p class="mb-0"> * <b>It <u>can</u> have margins / paddings / borders</b>, without affecting the <span class="wrapper"><b>collapsed</b></span> state. </p>
-														<p class="sub-heading mt-0"> (as the max-height value is applied to the <span class="wrapper">spoiler</span> wrapper Element) </p>
-													</div>
-													<div class="col-12 md-col-4 p-0">
-														<div class="col-12 markupRoles-example-pasive mb-xs" style="height: 50px"> </div>
-														<div class="col-12 markupRoles-example-pasive" style="padding: 15px">
-															<div class="col-12 markupRoles-example-active" style="height: 100px"></div>
-														</div>
-													</div>
-												</div>
-
-											</div>
-										</div>
-
-										<div class="accordion-group px-md my-sm">
-											<button class="accordion-btn"> The <b>spoiler-btn</b> Element:  </button>
-											<div class="accordion-content">
-
-												<div class="col-12 p-0 md-flex md-flex-cross-center">
-													<div class="col-12 md-col-8 p-0">
-
-														<p> <b>Has two 'states' :</b> </p>
-														<p class="m-0"> (1) <span class="wrapper">active</span> - the <span class="wrapper">active</span> class is on the Element - reflects that the <span class="wrapper">spoiler</span> element is <span class="wrapper">expanded</span>. </p>
-														<p class="m-0"> (2) <span class="wrapper">inactive</span> - the <span class="wrapper">active</span> class is <u>not</u> on the Element - reflects that the <span class="wrapper">spoiler</span> element is <span class="wrapper">collapsed</span>. </p>
-
-														<hr>
-
-														<p> * can be placed <u>anywhere</u> within the document, while still targetting the adequate <span class="wrapper"><b>spoiler</b></span>, when triggered. </p>
-														<p> * multiple <span class="wrapper"><b>spoiler-btn</b></span> Elements can point to the same <span class="wrapper"><b>spoiler</b></span> Element, by having the same <span class="wrapper">data-spoiler-id</span> value. </p>
-														<p> * If multiple <span class="wrapper"><b>spoiler-btn</b></span> Elements are pointing to the same <span class="wrapper"><b>spoiler</b></span> Element, have their <span class="wrapper">'active' state</span> / <span class="wrapper">class-change</span> synchronised <span class="wrapper"><b>spoiler-btn</b></span>. </p>
-													</div>
-													<div class="col-12 md-col-4 p-0">
-														<div class="col-12 markupRoles-example-active mb-xs" style="height: 50px"> </div>
-														<div class="col-12 markupRoles-example-pasive" style="padding: 15px">
-															<div class="col-12 markupRoles-example-pasive" style="height: 100px"></div>
-														</div>
-													</div>
-												</div>
-
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</section>
-
-					<!-- VI. Styles -->
-						<section class="accordion  p-0        sectionAccordion">
-							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
-								<button class="accordion-btn  sectionAccordion-btn"> VI. Style Classes </button>
-								<div class="accordion-content sectionAccordion-content">
-
-									<div class="accordion">
-										<div class="accordion-group px-md my-sm">
-											<button class="accordion-btn"> spoiler-btn-autoText  </button>
-											<div class="accordion-content">
-
-												<p>
-													<span class="wrapper">spoiler-btn</span> elements can be given the <span class="wrapper">spoiler-btn-autoText</span> <span class="wrapper">class</span> which adds an <b>'Expand'</b> / <b>'Collapse'</b> string, after the innerText provided. 
-												</p>
-
-												<div class="wrapper">
-													<line> 
-														&lt;button class="spoiler-btn" data-spoiler-id=""> <b-p>My Text</b-p> &lt;/button> 
-														<div class="col-12 mt-sm md-mt-0 md-col-4 md-float-right"> <button class="col-12 spoiler-btn" data-spoiler-id="asdf-1"> My Text </button> </div>
-													</line>
-													<hr>
-													<line> 
-														&lt;button class="spoiler-btn <b-r>spoiler-btn-autoText</b-r>" data-spoiler-id=""> &lt;/button> 
-														<div class="col-12 mt-sm md-mt-0 md-col-4 md-float-right"> <button class="col-12 spoiler-btn spoiler-btn-autoText" data-spoiler-id="asdf-2"> </button> </div>
-													</line>
-													<hr>
-													<line> 
-														&lt;button class="spoiler-btn <b-r>spoiler-btn-autoText</b-r>" data-spoiler-id=""> <b-p>My Text</b-p> &lt;/button> 
-														<div class="col-12 mt-sm md-mt-0 md-col-4 md-float-right"> <button class="col-12 spoiler-btn spoiler-btn-autoText" data-spoiler-id="asdf-3"> My Text </button> </div>
-													</line>
-
-													<!--  just to not throw error -->
-													<div class="spoiler hidden" data-spoiler-id="asdf-1"><div class="spoiler-content"></div></div>
-													<div class="spoiler hidden" data-spoiler-id="asdf-2"><div class="spoiler-content"></div></div>
-													<div class="spoiler hidden" data-spoiler-id="asdf-3"><div class="spoiler-content"></div></div>
-												</div>
-
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</section>
-
-					<!-- VII. The Javascript -->
-						<section class="accordion  p-0        sectionAccordion">
-							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
-								<button class="accordion-btn  sectionAccordion-btn"> VII. The Javascript </button>
+								<button class="accordion-btn  sectionAccordion-btn"> VII. Javascript - Main Functions </button>
 								<div class="accordion-content sectionAccordion-content">
 
 									<div class="col-12 p-0 md-flex md-flex-cross-center">
@@ -528,78 +672,268 @@
 												<pre class="pre-removeTabSpaces">
 												    <b-r>asterisk</b-r> = {
 												        <b-p>components</b-p> : { 
-												            <b>spoiler</b> : {  <i class="comment"> // This is the <span class="wrapper">spoiler</span> object </i>
-												                run()   <i class="comment"> // Example of a <span class="wrapper">spoiler</span> Function</i>
+												            <b>spoiler</b> : {  <i class="comment">     // This is the <span class="wrapper">spoiler</span> object </i>
+												                activate()   <i class="comment"> // Example of a <span class="wrapper">spoiler</span> Function</i>
 												            }
 												        } 
 												    };
 
-												    <b-r>asterisk</b-r><b-p>.components</b-p><b>.spoiler</b>.run()
+												    <b-r>asterisk</b-r><b-p>.components</b-p><b>.spoiler</b>.activate()
 												</pre>
 											</div>
 										</div>
 									</div>
 
 									<hr>
-
-									<p> <b>It has 3 types of functions :</b> </p>
-
 									<div class="accordion p-0 my-sm">
+
 										<div class="accordion-group my-sm px-md">
-											<button class="accordion-btn"> 'Direct' Functions </button>
+
+											<button class="accordion-btn"> 
+												<span class="col-6">{*}.activatedItems = [ ]</span> 
+											</button>
+
 											<div class="accordion-content">
+												<p class="mb-0"> The <span class="wrapper">{*}.activatedItems</span> Array is used for storing the Elements which have a <span class="wrapper">spoiler</span>-related <span class="wrapper">eventListener</span> attached to them. </p>
+												<p class="sub-heading mt-0"> * It is updated automatically when an Element is initialized/terminated through the <span class="wrapper">{*}.activate()</span>, <span class="wrapper">{*}.delegate()</span> or <span class="wrapper">{*}.terminate()</span> methods. </p>
 
-												<p> <b>Functions which directly manipulate the Component - the ones a developer would actually use.</b> </p>
-												<p class="sub-heading mt-0"> Here, {*} reffers to the <span class="wrapper"><b-r>asterisk</b-r><b-p>.components</b-p><b>.spoiler</b></span> Object </p>
+												<p class="mb-0"> Its' primary role is to be used within <span class="wrapper">{*}.checkDOM()</span>, which de-refferences <u>Elements that have been removed from the DOM</u>. </p>
+												<p class="sub-heading mt-0"> * <span class="wrapper">{*}.checkDOM()</span> is called automatically within <span class="wrapper">asterisk.route.js</span>'s <span class="wrapper">{*}.loadPage()</span> method, creating a certain degree of <b>automatic Memory Management</b>. </p>
+											</div>
+										</div>
 
-												<div class="col-12"> <hr> </div>
+										<div class="accordion-group my-sm px-md">
 
-												<p> <span class="wrapper">{*}<b>.initialize()</b></span> - applies the functionality to a specific Component </p>
-												<p> <span class="wrapper">{*}<b>.terminate()</b></span>  - removes the functionality from a specific Component </p>
-												<p> <span class="wrapper">{*}<b>.checkDOM()</b></span> - checks the DOM, and removes the functionality from a Components which are no longer in the DOM </p>
+											<button class="accordion-btn"> 
+												<span class="col-5">{*}.activate()</span> 
+												<span class="col-7 xs-hidden">| Attach eventListener to [.spoiler-btn] </span>
+											</button>
+
+											<div class="accordion-content">
+												<div class="wrapper">
+													<pre class="pre-removeTabSpaces">
+													    asterisk.components.spoiler<b-p>.activate</b-p> = function( <b>spoilerBtn__HTMLElem</b> ) {
+													        <b>spoilerBtn__HTMLElem</b>.addEventListener('click', asterisk.components.spoiler.eventHandler_run);
+													        asterisk.components.spoiler.activatedItems.push(<b>spoilerBtn__HTMLElem</b>)
+													    };
+													</pre>
+												</div>
+
+												<p> * Attaches a <span class="wrapper">click</span> <span class="wrapper">eventListener</span> to the <span class="wrapper"><b>spoilerBtn__HTMLElem</b></span>, with the <span class="wrapper"> {*}.eventHandler_run()</span> eventHandler. </p>
+												<p> * Adds the <span class="wrapper"><b>target__HTMLElem</b></span> to the <span class="wrapper">{*}.activatedItems</span> Array. </p>
+											</div>
+										</div>
+
+										<div class="accordion-group my-sm px-md">
+
+											<button class="accordion-btn"> 
+												<span class="col-5">{*}.delegate()</span> 
+												<span class="col-7 xs-hidden">| Delegate eventListener to non-[.spoiler-btn] Element</span>
+											</button>
+
+											<div class="accordion-content">
+												<div class="wrapper">
+													<pre class="pre-removeTabSpaces">
+													    asterisk.components.spoiler.<b-p>delegate</b-p> = function( <b>target__HTMLElem</b> ) {
+													        <b>target__HTMLElem</b>.addEventListener('click', asterisk.components.spoiler.eventHandler_delegate);
+													        asterisk.components.spoiler.activatedItems.push(<b>target__HTMLElem</b>)
+													    };
+													</pre>
+												</div>
+
+												<p class="mb-0"> * Attaches a <span class="wrapper">click</span> <span class="wrapper">eventListener</span> to the <span class="wrapper"><b>target__HTMLElem</b></span>, with the <span class="wrapper"> {*}.eventHandler_delegate()</span> eventHandler. </p>
+												<p class="sub-heading mt-0"> -- This allows for all descendant <span class="wrapper">.spoiler-btn</span> Elements to function, through <b>Event Delegation</b>.
+												<p> * Adds the <span class="wrapper"><b>target__HTMLElem</b></span> to the <span class="wrapper">{*}.activatedItems</span> Array. </p>
+											</div>
+										</div>
+
+										<div class="accordion-group my-sm px-md">
+
+											<button class="accordion-btn"> 
+												<span class="col-5">{*}.terminate()</span> 
+												<span class="col-7 xs-hidden">| Remove [spoiler]-related eventListeners / refferences</span> 
+											</button>
+											
+											<div class="accordion-content">
+												<div class="wrapper">
+													<pre class="pre-removeTabSpaces">
+													    asterisk.components.spoiler.<b-p>terminate</b-p> = function( <b>target__HTMLElem</b> ) {
+
+													        const spoilerObj = asterisk.components.spoiler;
+													        <b>target__HTMLElem</b>.removeEventListener('click', spoilerObj.eventHandler_run);
+													        <b>target__HTMLElem</b>.removeEventListener('click', spoilerObj.eventHandler_delegate);
+													        spoilerObj.activatedItems = spoilerObj.activatedItems.filter(item => item !== <b>target__HTMLElem</b>);
+
+													        spoilerObj.parameters_remove(<b>target__HTMLElem</b>);
+													    };
+													</pre>
+												</div>
+
+												<p> * Removes the <span class="wrapper">click</span> <span class="wrapper">eventListener</span> (if attached with the <span class="wrapper">{*}.activate()</span> or <span class="wrapper">{*}.delegate()</span> methods), from the <span class="wrapper"><b>target__HTMLElem</b></span></p>
+												<p> * Removes the <span class="wrapper"><b>target__HTMLElem</b></span> from the <span class="wrapper">{*}.activatedItems</span> Array. </p>
+												<p> * Removes the on-Element <span class="wrapper">.spoilerParams</span> Property from the <span class="wrapper"><b>target__HTMLElem</b></span>. </p>
+											</div>
+										</div>
+
+										<div class="accordion-group my-sm px-md">
+
+											<button class="accordion-btn"> 
+												<span class="col-5">{*}.eventHandler_run()</span> 
+												<span class="col-7 xs-hidden">| Event Handler for {*}.activate()<span> 
+											</button>
+
+											<div class="accordion-content">
+												<div class="wrapper">
+													<pre class="pre-removeTabSpaces">
+													    asterisk.components.spoiler.<b-p>eventHandler_run</b-p> = function(e) {
+
+													        const spoilerParams = e.target.spoilerParams || asterisk.components.spoiler.parameters_set(e.target , true);
+													        const targetSpoiler = spoilerParams.targetSpoiler;
+													        const targetButtons = spoilerParams.targetButtons;
+
+													        targetSpoiler.style.maxHeight = targetSpoiler.scrollHeight + 'px';
+
+													        if (hasClass(targetSpoiler , 'spoiler--expanded')) { // collapsing animation
+													            setTimeout(function(){ targetSpoiler.style.maxHeight = 0 }, 34);
+													            targetButtons.map((btn) => btn.classList.remove('spoiler-btn--active'));
+													        } else {
+													            targetButtons.map((btn) => btn.classList.add('spoiler-btn--active'));
+													        };
+
+													        targetSpoiler.classList.toggle('spoiler--expanded');
+													    };
+													</pre>
+												</div>
+
+												<p class="mb-0"> * <span class="wrapper">Event Handler</span> - This is the actual functionality of collapsing/expanding the <span class="wrapper">.spoiler</span>.</p>
+												<p class="sub-heading m-0"> It is attached to the provided <b>Element</b>, when calling the <span class="wrapper">{*}.activate(<b>Element</b>)</span>.</p>
+												<p class="sub-heading mt-0"> Its' existential purpose is that of a wrapper function, to allow the removal of the eventListener later on, through <span class="wrapper">{*}.terminate()</span>. </p>
+												<p> * Gets the <span class="wrapper">spoilerParams</span> - or sets them up through <span class="wrapper">{*}.parameters_set()</span> </p>
+												<p> * Updates the state of the synchronised <span class="wrapper">.spoiler-btn</span>  and <span class="wrapper">.spoiler</span> Elements.</p>
+											</div>
+										</div>
+
+										<div class="accordion-group my-sm px-md">
+
+											<button class="accordion-btn"> 
+												<span class="col-5">{*}.eventHandler_delegate()</span> 
+												<span class="col-7 xs-hidden">| Event Handler for {*}.delegate()</span>
+											</button>
+
+											<div class="accordion-content">
+												<div class="wrapper">
+													<pre class="pre-removeTabSpaces">
+													    asterisk.components.spoiler.<b-p>eventHandler_delegate</b-p> = function(e) {
+													        if ((" "+e.target.className+" ").indexOf(" spoiler-btn ")>-1) { 
+													            asterisk.components.spoiler.eventHandler_run(e) 
+													        }
+													    };
+													</pre>
+												</div>
+												<p class="mb-0"> * <span class="wrapper">Event Handler</span> used for delegating the functionality of the <span class="wrapper">spoiler</span> Component, to Elements that are not <span class="wrapper">.spoiler-btn</span> elements. </p>
+												<p class="sub-heading m-0"> It is attached to the provided <b>Element</b>, when calling the <span class="wrapper">{*}.delegate(<b>Element</b>)</span>.</p>
+												<p class="sub-heading mt-0"> Its' existential purpose is that of a wrapper function, to allow the removal of the eventListener later on, through <span class="wrapper">{*}.terminate()</span>. </p>
 
 											</div>
 										</div>
 
 										<div class="accordion-group my-sm px-md">
-											<button class="accordion-btn"> 'Intermediary' Functions </button>
+
+											<button class="accordion-btn"> 
+												<span class="col-5">{*}.parameters_set()</span> 
+												<span class="col-7 xs-hidden">| Intermediary Function for {*}.eventHandler_run()</span>
+											</button>
+
 											<div class="accordion-content">
+												<div class="wrapper">
+													<pre class="pre-removeTabSpaces">
+													    asterisk.components.spoiler.<b-p>parameters_set</b-p> = function( <b>spoilerBtn__HTMLElem</b> ) {
 
-												<p> <b>Functions which abstract parts of the Direct Functions - they are not used directly by the developer, to manippulate the component.</b> </p>
-												<p class="sub-heading mt-0"> Here, {*} reffers to the <span class="wrapper"><b-r>asterisk</b-r><b-p>.components</b-p><b>.spoiler</b>.intermediary</span> Object </p>
+													        const targetId = <b>spoilerBtn__HTMLElem</b>.getAttribute('data-spoiler-id');
 
-												<div class="col-12"> <hr> </div>
+													        const targetSpoiler = Array.from(document.getElementsByClassName('spoiler')).find(function(spoiler) { 
+													            return spoiler.getAttribute('data-spoiler-id') === targetId 
+													        });
+													        const targetButtons = Array.from(document.getElementsByClassName('spoiler-btn')).filter(function(spoilerBtn) { 
+													            return spoilerBtn.getAttribute('data-spoiler-id') === targetId 
+													        });
 
-												<p> <span class="wrapper">{*}<b>.attachEvt()</b></span> - attaches an EventListener on the target, which works for the Element itself (attached on <span class="wrapper">spoiler-btn</span>) </p>
-												<p> <span class="wrapper">{*}<b>.delegateEvt()</b></span>  - attaches an EventListener on the target, which works for the Element's children (attached on <b>any Element</b>) </p>
-												<p> <span class="wrapper">{*}<b>.detachEvt()</b></span> - removes any EventListener on the target, which was added with <span class="wrapper">{*}<b>.attachEvt()</b></span> or <span class="wrapper">{*}<b>.delegate()</b></span> </p>
+													        <b>spoilerBtn__HTMLElem</b>.spoilerParams = { targetSpoiler , targetButtons };
 
-												<div class="col-12"> <hr> </div>
+													        if (targetSpoiler) {
+													            return { targetSpoiler , targetButtons }
+													        } else {
+													            console.log(
+													                'No [spoiler] element with [data-spoiler-id="'+targetId+'"] found within document.' + 
+													                ' Event triggered by [spoiler-btn] : ' , <b>spoilerBtn__HTMLElem</b> );
+													        }
+													    };
+													</pre>
+												</div>
+												<p> * Defines the targets involved in the execution of the <span class="wrapper">spoiler</span> Component's collapse/expand state change. </p>
+												<p class="mb-0"> * Sets them as an on-element Property, on the <span class="wrapper">.spoiler-btn</span> Element, provided as the <span class="wrapper"><b>spoilerBtn__HTMLElem</b></span> argument. </p>
+												<p class="sub-heading mt-0"> This allows for a faster execution of the function, as it removes the requirement to traverse the DOM and find the adequate targets on each itteration. </p>
+												<p> * It is used within <span class="wrapper">{*}.eventHandler_run()</span>, and it is automatically called when it fires for the first time. </p>
 
-												<p> <span class="wrapper">{*}<b>.spoilerBtn_defineParameters()</b></span> - defines which HTML Elements will be affected when the <span class="wrapper">spoiler-btn</span> is clicked, as a property on the target. </p>
-												<p> <span class="wrapper">{*}<b>.spoilerBtn_removeParameters()</b></span> - removes the properties defined through <span class="wrapper">{*}<b>.spoilerBtn_defineParameters()</b></span> </p>
+												<hr>
 
-												<div class="col-12"> <hr> </div>
+												<p class="mb-0"> This can also be done manually, from the start, to ensure a quicker first-time execution of the <span class="wrapper">spoiler</span> Elements. </p>
+												<div class="wrapper"> <div class="col-12"> <b>Example:</b> Array.from(document.getElementsByClassName('spoiler-btn')).map(x => component__spoiler.parameters_set(x)) </div></div>
+											</div>
+										</div>
 
-												<p> <span class="wrapper">{*}<b>.run()</b></span> - runs the actual functionality of the <span class="wrapper">spoiler</span> Component </p>
+										<div class="accordion-group my-sm px-md">
+
+											<button class="accordion-btn"> 
+												<span class="col-5">{*}.parameters_remove()</span> 
+												<span class="col-7 xs-hidden">| Intermediary Function for {*}.terminate() </span>
+											</button>
+
+											<div class="accordion-content">
+												<div class="wrapper">
+													<pre class="pre-removeTabSpaces">
+													    asterisk.components.spoiler.<b-p>parameters_remove</b-p> = function( <b>target__HTMLElem</b> ) {
+													        if ((" "+<b>target__HTMLElem</b>.className+" ").indexOf(" spoiler-btn ")>-1) { 
+													            <b>target__HTMLElem</b>.spoilerParams = null
+													        } else {
+													            Array.from(<b>target__HTMLElem</b>.getElementsByClassName('spoiler-btn')).map(function(item){
+													                item.spoilerParams = null
+													            });
+													        }
+													    };
+													</pre>
+												</div>
+												<p> * Removes the on-element <span class="wrapper">spoilerParams</span> Property from the Element provided as the <span class="wrapper"><b>target__HTMLElem</b></span> argument, or from it's <span class="wrapper">.spoiler-btn</span> descendants. </p>
+												<p> It is used within <span class="wrapper">{*}.terminate()</span> </p>
 
 											</div>
 										</div>
 
 										<div class="accordion-group my-sm px-md">
-											<button class="accordion-btn"> 'Utility' functions </button>
+
+											<button class="accordion-btn"> 
+												<span class="col-5">{*}.checkDOM()</span> 
+												<span class="col-7 xs-hidden">| SPA Memory Management utility function</span> 
+											</button>
+
 											<div class="accordion-content">
-
-												<p> <b>Functions which are used within the other functions, for specific purposes.</b> </p>
-												<p class="sub-heading mt-0"> Here, {*} reffers to the <span class="wrapper"><b-r>asterisk</b-r><b-p>.utility</b-p></span> Object </p>
-
-												<div class="col-12"> <hr> </div>
-
-												<p> <span class="wrapper">{*}<b>.hasClass()</b></span> - checks if an HTML Element has a specific <b>Class</b> </p>
-												<p> <span class="wrapper">{*}<b>.getHeight()</b></span> - gets the <b>height</b> of an HTML Element (offsetHeight + top/bottom margins) </p>
+												<div class="wrapper">
+													<pre class="pre-removeTabSpaces">
+													    asterisk.components.spoiler.<b-p>checkDOM</b-p> = function() {
+													        const spoilerObj = asterisk.components.spoiler;
+													        const targets = spoilerObj.activatedItems.filter(item => (item !== document) && !document.contains(item) );
+													        targets.map(item => spoilerObj.terminate(item));
+													    };
+													</pre>
+												</div>
+												<p> * Checks the items within the <span class="wrapper">{*}.activatedItems</span> Array. </p>
+												<p> * If any item is no longer in the DOM, remove the <span class="wrapper">eventListeners</span> and <span class="wrapper">spoilerParams</span> property, through <span class="wrapper">{*}.terminate()</span>. </p>
+												<p class="sub-heading m-0"> This de-refferences the Element, making it elligible for Garbage Collection. </p>
+												<p class="sub-heading mt-0"> * <span class="wrapper">{*}.checkDOM()</span> is called automatically within <span class="wrapper">asterisk.route.js</span>'s <span class="wrapper">{*}.loadPage()</span> method, creating a certain degree of <b>automatic Memory Management</b>. </p>
 
 											</div>
 										</div>
+
 									</div>
 								</div>
 							</div>
@@ -611,15 +945,15 @@
 					<div class="finalCode-container">
 						<div class="tabs">
 							<div class="tabs-btnGroup buttons-fill">
-								<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> HTML Markup </button>
-								<button class="tabs-btn" 				data-tabs-id="2"> CSS         </button>
-								<button class="tabs-btn" 				data-tabs-id="3"> JS          </button>
+								<button class="tabs-btn tabs-btn--active"	data-tabs-id="1"> HTML Markup </button>
+								<button class="tabs-btn" 					data-tabs-id="2"> CSS         </button>
+								<button class="tabs-btn" 					data-tabs-id="3"> JS          </button>
 							</div>
 
 							<div class="tabs-contentGroup">
 
 								<!-- HTML -->
-									<div class="tabs-content tab-expanded px-0" data-tabs-id="1"> 
+									<div class="tabs-content tabs-content--active px-0" data-tabs-id="1"> 
 
 										<div class="copyContext-btnContainer" data-copyContextId="spoiler-html">
 											<button class="copyContext-btn copyContext-btn-copyText"> </button>

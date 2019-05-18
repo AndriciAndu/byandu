@@ -63,21 +63,12 @@
 			/* -------------------------------------------- */
 
 				@media (max-width: 767.98px) {
-					.body-sideNav { 
-						width: 12.5vh; 
-					}
-					.sideNav__group__menu { 
-						width: calc(100vw - 12.5vh); 
-					}
+					.body-sideNav         { width: 12.5vh; }
+					.sideNav__group__menu { width: calc(100vw - 12.5vh); }
 				}
-
 				@media (min-width: 767.98px) {
-					.body-sideNav { 
-						flex-basis: 12.5vh; 
-					} 
-					.sideNav__group__menu { 
-						width: 300px; 
-					}
+					.body-sideNav         { flex-basis: 12.5vh; } 
+					.sideNav__group__menu { width: 300px; }
 				}
 
 				.sideNav__group              { height: 12.5vh; } /* keep the same value as [width], to form a square */

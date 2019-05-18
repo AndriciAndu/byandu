@@ -8,6 +8,8 @@
 
 // components and initialization - within componentsObject
 
+
+
 	function elem_removeChildren ( elem ) {
 
 		if (elem instanceof HTMLElement) {
@@ -43,13 +45,13 @@
 	};
 
 // Checks || has* is*
-// -----------------------------------------------------
+// ----------------------------
 
 	// has*
-	// -----------------------------------------------------
+	// ----------------------------
 
 		// hasClass()
-		// -----------------------------------------------------
+		// ----------------------------
 
 			function hasClass ( elem , klass ) {
 				return (" " + elem.className + " " ).indexOf( " " + klass + " " ) > -1
@@ -69,6 +71,8 @@
 			// 			'line'        : 'color: rgba(3,3,3,.2);'
 			// 		};
 
+			// 		console.log('%c─────────────────────' , consoleStyles['line']);
+
 			// 		console.groupCollapsed( '%cError : hasClass( elem , klass ) | Wrong argument [type]' , consoleStyles['error-title'] );
 
 			// 			console.group('1. %cError Details' , consoleStyles['log-title']);
@@ -86,11 +90,11 @@
 
 			// 		console.groupEnd();
 
-			// 		try {
-			// 		  throw new TypeError('Whoops!');
-			// 		} catch (e) {
-			// 		  console.log(e.name + ': ' + e.message);
-			// 		}
+			// 		// try {
+			// 		//   throw new TypeError('Whoops!');
+			// 		// } catch (e) {
+			// 		//   console.log(e.name + ': ' + e.message);
+			// 		// }
 
 			// 	} else if ( !(typeof klass === 'string' || klass instanceof String) ) {
 
@@ -102,6 +106,8 @@
 			// 			'wrap-span'   : 'color: #613dcc; background: rgba(3,3,3,.1); padding: 0 5px; border-radius: 3px; font-weight: bold' ,
 			// 			'line'        : 'color: rgba(3,3,3,.2);'
 			// 		};
+
+			// 		console.log('%c─────────────────────' , consoleStyles['line']);
 
 			// 		console.groupCollapsed( '%cError : hasClass( elem , klass ) | Wrong argument [type]' , consoleStyles['error-title'] );
 
@@ -120,11 +126,11 @@
 
 			// 		console.groupEnd();
 
-			// 		try {
-			// 		  throw new TypeError('Whoops!');
-			// 		} catch (e) {
-			// 		  console.log(e.name + ': ' + e.message);
-			// 		}
+			// 		// try {
+			// 		//   throw new TypeError('Whoops!');
+			// 		// } catch (e) {
+			// 		//   console.log(e.name + ': ' + e.message);
+			// 		// }
 
 			// 	} else {
 
@@ -134,19 +140,19 @@
 
 			// };
 
-			//hasClass ( 'asdf' , 'klass' );
-			//hasClass ( document.body , 24 );
+			// hasClass ( 'asdf' , 'klass' );
+			// hasClass ( document.body , 24 );
 			
 
 		// hasTag()
-		// -----------------------------------------------------
+		// ----------------------------
 
 			function hasTag ( elem , tagName ) {
 				return ( elem.tagName == tagName.toUpperCase() )
 			};
 
 		// hasAnyClass()
-		// -----------------------------------------------------
+		// ----------------------------
 
 			function hasAnyClass ( elem, ...classes ) {
 
@@ -184,7 +190,7 @@
 					*/
  
 		// hasAnyTag()
-		// -----------------------------------------------------
+		// ----------------------------
 
 			function hasAnyTag( elem, ...tagNames ) {
 
@@ -198,16 +204,16 @@
 			};
 
 	// is*
-	// -----------------------------------------------------
+	// ----------------------------
 
 		// isElement()
-		// -----------------------------------------------------
+		// ----------------------------
 			function isElement(target) {
 				return target instanceof HTMLElement
 			};
 
 		// isHTMLCollection()
-		// -----------------------------------------------------
+		// ----------------------------
 
 			function isHTMLCollection(target) {
 				return target instanceof HTMLCollection
@@ -218,14 +224,14 @@
 			};
 
 		// isString()
-		// -----------------------------------------------------
+		// ----------------------------
 
 			function isString(current_input) {
 				return (typeof current_input === 'string' || current_input instanceof String)
 			};
 			
 		// isJSON()
-		// -----------------------------------------------------
+		// ----------------------------
 
 			function isJSON(data__string) {
 
@@ -251,73 +257,1430 @@
 
 
 // Returns || get* fetch*
-// -----------------------------------------------------
+// ----------------------------
 
-	// getParent()
-	// -----------------------------------------------------
+	var asdasd = document.createElement('div');
+	asdasd.classList = "myClass asdfmnuih";
 
-		function getParent( elem, identifier ) {
+	// getParents()
+	// ----------------------------
 
-			elemParent = elem.parentElement;
+		// Baseline
+		// ----------------------------
 
-			if (elemParent) {
+			function getParents ( target__HTMLElem ) {
 
-				var firstChar = identifier.charAt(0);
+				let elemParent = target__HTMLElem.parentElement;
+				let parents = [];
 
-				if 	(verify()) 	{ return elemParent	} 
-				else 			{ return getParent(elemParent, identifier) }
+				while (elemParent) {
+					parents.push(elemParent);
+					elemParent = elemParent.parentElement;
+				};
+					
+				return parents
+			};
 
-			} else { return null };
+		// Log
+		// ----------------------------
 
-			// Check if elemParent has the required identifier
-			function verify() {
+			function getParents ( target__HTMLElem ) {
 
-				var identif_substr = identifier.substring(1); // remove first char - for class/id cases
+				// Create log objects -- used when logging warnings/errors
+				// ----------------------------
 
-				// search for class
-				if (firstChar === '.') { 
+					function createLogArguments( obj ) {
 
-					return ( " " + elemParent.className + " " ).indexOf( " " + identif_substr + " " ) > -1 
+						let logArguments = [];
 
-				// search for id
-				} else if (firstChar === '#') { 
+						Object.keys(obj).map(function(key){
+							let argumentName = key;
+							let providedArgument = obj[key];
+							let currentType = typeof providedArgument;
+							let requiredType, isValid;
 
-					return (elemParent.id 	 == identif_substr) 
+							if (argumentName.indexOf('__HTMLElem')>-1) { 
+								requiredType = 'HTMLElement (object)';
+								isValid = providedArgument instanceof HTMLElement;
+							} else if (argumentName.indexOf('__string')>-1) { 
+								requiredType = 'string';
+								isValid = typeof providedArgument === 'string';
+							};
 
-				// search for tag
-				} else { 
+							logArguments.push({
+								argumentName     ,
+								isValid          ,
+								providedArgument ,
+								currentType      ,
+								requiredType
+							})
+						});
 
-					return (elemParent.tagName == identifier.toUpperCase()) 
+						return logArguments
+					};
+
+					let logArguments = createLogArguments( { target__HTMLElem } );
+					let allParametersAreValid = (logArguments.find(x => !x.isValid) === undefined);
+
+				// Styles for the console.log()
+				// ----------------------------
+
+					let logStyles = {
+						'error'     : 'color: crimson;'   ,
+						'warning'   : 'color: orangered;' ,
+						'function'  : 'color: teal;'      ,
+						'argument'  : 'color: navy;'  
+					};
+
+				// Normal function run
+				// ----------------------------
+
+				if ( allParametersAreValid ) {
+
+					let elemParent = target__HTMLElem.parentElement;
+					let parents = [];
+
+					if (elemParent) {
+
+						while (elemParent) {
+							parents.push(elemParent);
+							elemParent = elemParent.parentElement;
+						};
+
+					// log [Warning] -- if no items match the query
+					// ----------------------------
+
+					} else { 
+						console.groupCollapsed(
+							'%c!! Warning %c| getParents(%ctarget__HTMLElem%c) | ', 
+							logStyles['warning'] , logStyles['function'], logStyles['argument'], logStyles['function'], 
+							'No Parent Element was found.');
+
+							console.table(logArguments);
+							console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+							console.log('─────────────────────');
+						console.groupEnd();
+					};
+
+					return parents
+
+				// log [Error (Silent)] -- if any parameter is Invalid 
+				// ----------------------------
+
+				} else {
+
+					console.groupCollapsed(
+						'%c!! Error (Silent) %c| getParents(%ctarget__HTMLElem%c) | ', 
+						logStyles['error'] , logStyles['function'], logStyles['argument'], logStyles['function'],  
+						'Invalid function arguments :');
+
+						console.table(logArguments);
+						console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+						console.log('─────────────────────');
+					console.groupEnd();
+
+					return []
 
 				}
-			}
-		};  
+			};
 
-	// getChildren()
-	// -----------------------------------------------------
+			// getParents(asdasd);
+			// getParents();
+			// getParents(12);
 
-		function getChildren(targetElement, identifier) {
+		// Min
+		// ----------------------------
 
-			var children = Array.from(targetElement.children);
+			// function getParents(a){let y=a.parentElement,z=[];while(y){z.push(y);y=y.parentElement};return z};
 
-			if (identifier) {
+	// getParentsByClassName()
+	// ----------------------------
 
-				var firstChar = identifier.charAt(0);
-				var identif_substr = identifier.substring(1); // remove first char - for class
+		// Baseline
+		// ----------------------------
 
-				if 	(firstChar === '.') { children = children.filter(child => hasClass(child, identif_substr)) } 
-				else 					{ children = children.filter(child => child.tagName == identifier.toUpperCase()) }
+			function getParentsByClassName ( target__HTMLElem , class__string ) {
+
+				let elemParent = target__HTMLElem.parentElement;
+				let parentsWithClass = [];
+
+				while (elemParent) {
+					if ((" "+elemParent.className+" ").indexOf(" "+class__string+" ") > -1) { 
+						parentsWithClass.push(elemParent) 
+					};
+					elemParent = elemParent.parentElement;
+				};
+					
+				return parentsWithClass
+			};
+
+		// Log
+		// ----------------------------
+
+			function getParentsByClassName ( target__HTMLElem , class__string ) {
+
+				// Create log objects -- used when logging warnings/errors
+				// ----------------------------
+
+					function createLogArguments( obj ) {
+
+						let logArguments = [];
+
+						Object.keys(obj).map(function(key){
+							let argumentName = key;
+							let providedArgument = obj[key];
+							let currentType = typeof providedArgument;
+							let requiredType, isValid;
+
+							if (argumentName.indexOf('__HTMLElem')>-1) { 
+								requiredType = 'HTMLElement (object)';
+								isValid = providedArgument instanceof HTMLElement;
+							} else if (argumentName.indexOf('__string')>-1) { 
+								requiredType = 'string';
+								isValid = typeof providedArgument === 'string';
+							};
+
+							logArguments.push({
+								argumentName     ,
+								isValid          ,
+								providedArgument ,
+								currentType      ,
+								requiredType
+							})
+						});
+
+						return logArguments
+					};
+
+					let logArguments = createLogArguments( { target__HTMLElem , class__string } );
+					let allParametersAreValid = (logArguments.find(x => !x.isValid) === undefined);
+
+				// Styles for the console.log()
+				// ----------------------------
+
+					let logStyles = {
+						'error'     : 'color: crimson;'   ,
+						'warning'   : 'color: orangered;' ,
+						'function'  : 'color: teal;'      ,
+						'argument'  : 'color: navy;'  
+					};
+
+				// Normal function run
+				// ----------------------------
+
+					if ( allParametersAreValid ) {
+
+						let elemParent = target__HTMLElem.parentElement;
+						let parentsWithClass = [];
+
+						while (elemParent) {
+							if ((" "+elemParent.className+" ").indexOf(" "+class__string+" ") > -1) { 
+								parentsWithClass.push(elemParent) 
+							};
+							elemParent = elemParent.parentElement;
+						};
+
+						// log [Warning] -- if no items match the query
+						// ----------------------------
+
+						if (parentsWithClass.length === 0) {
+							console.groupCollapsed(
+								'%c!! Warning %c| getParentsByClassName(%ctarget__HTMLElem , class__string%c) | ', 
+								logStyles['warning'] , logStyles['function'], logStyles['argument'], logStyles['function'], 
+								'No Parent Element with the class of "'+class__string+'" was found, for ', target__HTMLElem);
+
+								console.table(logArguments);
+								console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+								console.log('─────────────────────');
+							console.groupEnd();
+						};
+							
+						return parentsWithClass
+
+				// log [Error (Silent)] -- if any parameter is Invalid 
+				// ----------------------------
+
+					} else {
+
+						console.groupCollapsed(
+							'%c!! Error (Silent) %c| getParentsByClassName(%ctarget__HTMLElem, class__string%c) | ', 
+							logStyles['error'] , logStyles['function'], logStyles['argument'], logStyles['function'],  
+							'Invalid function arguments :');
+
+							console.table(logArguments);
+							console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+							console.log('─────────────────────');
+						console.groupEnd();
+
+						return []
+
+					}
+			};
+
+			// getParentsByClassName(asdasd, 'asd');
+			// getParentsByClassName('asd');
+			// getParentsByClassName(asdasd);
+			// getParentsByClassName(24, 'asd');
+			// getParentsByClassName(asdasd, 24);
+
+		// Min
+		// ----------------------------
+
+			// function getParentsByClassName(a,b){let y=a.parentElement,z=[];while(y){if((" "+y.className+" ").indexOf(" "+b+" ")>-1){z.push(y)};y=y.parentElement};return z};
+
+	// getFirstParentByClassName()
+	// ----------------------------
+
+		// Baseline
+		// ----------------------------
+
+			function getFirstParentByClassName ( target__HTMLElem , class__string ) {
+
+				let elemParent = target__HTMLElem.parentElement;
+				let parentFound = false;
+
+				while (elemParent && !parentFound) {
+					if ((" "+elemParent.className+" ").indexOf(" "+class__string+" ") > -1) { 
+						parentFound = true;
+					} else {
+						elemParent = elemParent.parentElement;
+					}
+				};
+					
+				return elemParent
+			};
+
+		// Log
+		// ----------------------------
+
+			function getFirstParentByClassName ( target__HTMLElem , class__string ) {
+
+				// Create log objects -- used when logging warnings/errors
+				// ----------------------------
+
+					function createLogArguments( obj ) {
+
+						let logArguments = [];
+
+						Object.keys(obj).map(function(key){
+							let argumentName = key;
+							let providedArgument = obj[key];
+							let currentType = typeof providedArgument;
+							let requiredType, isValid;
+
+							if (argumentName.indexOf('__HTMLElem')>-1) { 
+								requiredType = 'HTMLElement (object)';
+								isValid = providedArgument instanceof HTMLElement;
+							} else if (argumentName.indexOf('__string')>-1) { 
+								requiredType = 'string';
+								isValid = typeof providedArgument === 'string';
+							};
+
+							logArguments.push({
+								argumentName     ,
+								isValid          ,
+								providedArgument ,
+								currentType      ,
+								requiredType
+							})
+						});
+
+						return logArguments
+					};
+
+					let logArguments = createLogArguments( { target__HTMLElem , class__string } );
+					let allParametersAreValid = (logArguments.find(x => !x.isValid) === undefined);
+
+				// Styles for the console.log()
+				// ----------------------------
+
+					let logStyles = {
+						'error'     : 'color: crimson;'   ,
+						'warning'   : 'color: orangered;' ,
+						'function'  : 'color: teal;'      ,
+						'argument'  : 'color: navy;'  
+					};
+
+				// Normal function run
+				// ----------------------------
+
+					if ( allParametersAreValid ) {
+
+						let elemParent = target__HTMLElem.parentElement;
+						let parentFound = false;
+
+						while (elemParent && !parentFound) {
+							if ((" "+elemParent.className+" ").indexOf(" "+class__string+" ") > -1) { 
+								parentFound = true;
+							} else {
+								elemParent = elemParent.parentElement;
+							}
+						};
+
+						// log [Warning] -- if no items match the query
+						// ----------------------------
+
+						if (elemParent === null) {
+							console.groupCollapsed(
+								'%c!! Warning %c| getFirstParentByClassName(%ctarget__HTMLElem , class__string%c) | ', 
+								logStyles['warning'] , logStyles['function'], logStyles['argument'], logStyles['function'], 
+								'No Parent Element with the class of "'+class__string+'" was found, for ', target__HTMLElem);
+
+								console.table(logArguments);
+								console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+								console.log('─────────────────────');
+							console.groupEnd();
+						}
+
+						return elemParent
+
+				// log [Error (Silent)] -- if any parameter is Invalid 
+				// ----------------------------
+
+					} else {
+
+						console.groupCollapsed(
+							'%c!! Error (Silent) %c| getFirstParentByClassName(%ctarget__HTMLElem, class__string%c) | ', 
+							logStyles['error'] , logStyles['function'], logStyles['argument'], logStyles['function'],  
+							'Invalid function arguments :');
+
+							console.table(logArguments);
+							console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+							console.log('─────────────────────');
+						console.groupEnd();
+
+						return null
+
+					}
+			};
+
+			// getFirstParentByClassName(asdasd, 'asd');
+			// getFirstParentByClassName('asd');
+			// getFirstParentByClassName(asdasd);
+			// getFirstParentByClassName(24, 'asd');
+			// getFirstParentByClassName(asdasd, 24);
+
+		// Min
+		// ----------------------------
+
+			// function getFirstParentByClassName(a,b){let y=a.parentElement,z=false;while(y&&!z){(" "+y.className+" ").indexOf(" "+b+" ")>-1?z=!z:y=y.parentElement};return y};
+
+	// getParentsByTagName()
+	// ----------------------------
+
+		// Baseline
+		// ----------------------------
+
+			function getParentsByTagName ( target__HTMLElem , tagName__string ) {
+
+				let tagName = tagName__string.toUpperCase();
+				let elemParent = target__HTMLElem.parentElement;
+				let parentsWithTag = [];
+
+				while (elemParent) {
+					if (elemParent.tagName === tagName) { 
+						parentsWithTag.push(elemParent) 
+					};
+					elemParent = elemParent.parentElement;
+				};
+
+				return parentsWithTag
+			};
+
+		// Log
+		// ----------------------------
+
+			function getParentsByTagName ( target__HTMLElem , tagName__string ) {
+
+				// Create log objects -- used when logging warnings/errors
+				// ----------------------------
+
+					function createLogArguments( obj ) {
+
+						let logArguments = [];
+
+						Object.keys(obj).map(function(key){
+							let argumentName = key;
+							let providedArgument = obj[key];
+							let currentType = typeof providedArgument;
+							let requiredType, isValid;
+
+							if (argumentName.indexOf('__HTMLElem')>-1) { 
+								requiredType = 'HTMLElement (object)';
+								isValid = providedArgument instanceof HTMLElement;
+							} else if (argumentName.indexOf('__string')>-1) { 
+								requiredType = 'string';
+								isValid = typeof providedArgument === 'string';
+							};
+
+							logArguments.push({
+								argumentName     ,
+								isValid          ,
+								providedArgument ,
+								currentType      ,
+								requiredType
+							})
+						});
+
+						return logArguments
+					};
+
+					let logArguments = createLogArguments( { target__HTMLElem , tagName__string } );
+					let allParametersAreValid = (logArguments.find(x => !x.isValid) === undefined);
+
+				// Styles for the console.log()
+				// ----------------------------
+
+					let logStyles = {
+						'error'     : 'color: crimson;'   ,
+						'warning'   : 'color: orangered;' ,
+						'function'  : 'color: teal;'      ,
+						'argument'  : 'color: navy;'  
+					};
+
+				// Normal function run
+				// ----------------------------
+
+					if ( allParametersAreValid ) {
+
+						let tagName = tagName__string.toUpperCase();
+						let elemParent = target__HTMLElem.parentElement;
+						let parentsWithTag = [];
+
+						while (elemParent) {
+							if (elemParent.tagName === tagName) { 
+								parentsWithTag.push(elemParent) 
+							};
+							elemParent = elemParent.parentElement;
+						};
+
+						// log [Warning] -- if no items match the query
+						// ----------------------------
+
+						if (parentsWithTag.length === 0) {
+							console.groupCollapsed(
+								'%c!! Warning %c| getParentsByTagName(%ctarget__HTMLElem , tagName__string%c) | ', 
+								logStyles['warning'] , logStyles['function'], logStyles['argument'], logStyles['function'], 
+								'No Parent Element with the tagName of "'+tagName+'" was found, for ', target__HTMLElem);
+
+								console.table(logArguments);
+								console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+								console.log('─────────────────────');
+							console.groupEnd();
+						};
+
+						return parentsWithTag
+
+				// log [Error (Silent)] -- if any parameter is Invalid 
+				// ----------------------------
+
+					} else {
+
+						console.groupCollapsed(
+							'%c!! Error (Silent) %c| getParentsByTagName(%ctarget__HTMLElem, tagName__string%c) | ', 
+							logStyles['error'] , logStyles['function'], logStyles['argument'], logStyles['function'],  
+							'Invalid function arguments :');
+
+							console.table(logArguments);
+							console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+							console.log('─────────────────────');
+						console.groupEnd();
+
+						return []
+
+					}
+			};
+
+			// getParentsByTagName(asdasd, 'asd');
+			// getParentsByTagName('asd');
+			// getParentsByTagName(asdasd);
+			// getParentsByTagName(24, 'asd');
+			// getParentsByTagName(asdasd, 24);
+
+		// Min
+		// ----------------------------
+
+			// function getParentsByTagName(a,b){let x=b.toUpperCase(),y=a.parentElement,z=[];while(y){y.tagName===x&&z.push(y);y=y.parentElement};return z};
+	
+	// getFirstParentByTagName()
+	// ----------------------------
+
+		// Baseline
+		// ----------------------------
+
+			function getFirstParentByTagName ( target__HTMLElem , tagName__string ) {
+
+				let tagName = tagName__string.toUpperCase();
+				let elemParent = target__HTMLElem.parentElement;
+				let parentFound = false;
+
+				while (elemParent && !parentFound) {
+					if (elemParent.tagName === tagName) { 
+						parentFound = true;
+					} else {
+						elemParent = elemParent.parentElement;
+					}
+				};
+					
+				return elemParent
+			};
+
+		// Log
+		// ----------------------------
+
+			function getFirstParentByTagName ( target__HTMLElem , tagName__string ) {
+
+				// Create log objects -- used when logging warnings/errors
+				// ----------------------------
+
+					function createLogArguments( obj ) {
+
+						let logArguments = [];
+
+						Object.keys(obj).map(function(key){
+							let argumentName = key;
+							let providedArgument = obj[key];
+							let currentType = typeof providedArgument;
+							let requiredType, isValid;
+
+							if (argumentName.indexOf('__HTMLElem')>-1) { 
+								requiredType = 'HTMLElement (object)';
+								isValid = providedArgument instanceof HTMLElement;
+							} else if (argumentName.indexOf('__string')>-1) { 
+								requiredType = 'string';
+								isValid = typeof providedArgument === 'string';
+							};
+
+							logArguments.push({
+								argumentName     ,
+								isValid          ,
+								providedArgument ,
+								currentType      ,
+								requiredType
+							})
+						});
+
+						return logArguments
+					};
+
+					let logArguments = createLogArguments( { target__HTMLElem , tagName__string } );
+					let allParametersAreValid = (logArguments.find(x => !x.isValid) === undefined);
+
+				// Styles for the console.log()
+				// ----------------------------
+
+					let logStyles = {
+						'error'     : 'color: crimson;'   ,
+						'warning'   : 'color: orangered;' ,
+						'function'  : 'color: teal;'      ,
+						'argument'  : 'color: navy;'  
+					};
+
+				// Normal function run
+				// ----------------------------
+
+					if ( allParametersAreValid ) {
+
+						let tagName = tagName__string.toUpperCase();
+						let elemParent = target__HTMLElem.parentElement;
+						let parentFound = false;
+
+						while (elemParent && !parentFound) {
+							if (elemParent.tagName === tagName) { 
+								parentFound = true;
+							} else {
+								elemParent = elemParent.parentElement;
+							}
+						};
+
+						// log [Warning] -- if no items match the query
+						// ----------------------------
+
+						if (elemParent === null) {
+							console.groupCollapsed(
+								'%c!! Warning %c| getFirstParentByTagName(%ctarget__HTMLElem , tagName__string%c) | ', 
+								logStyles['warning'] , logStyles['function'], logStyles['argument'], logStyles['function'], 
+								'No Parent Element with the tagName of "'+tagName+'" was found, for ', target__HTMLElem);
+
+								console.table(logArguments);
+								console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+								console.log('─────────────────────');
+							console.groupEnd();
+						};
+							
+						return elemParent
+
+				// log [Error (Silent)] -- if any parameter is Invalid 
+				// ----------------------------
+
+					} else {
+
+						console.groupCollapsed(
+							'%c!! Error (Silent) %c| getFirstParentByTagName(%ctarget__HTMLElem, tagName__string%c) | ', 
+							logStyles['error'] , logStyles['function'], logStyles['argument'], logStyles['function'],  
+							'Invalid function arguments :');
+
+							console.table(logArguments);
+							console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+							console.log('─────────────────────');
+						console.groupEnd();
+
+						return null
+
+					}
+			};
+
+			// getFirstParentByTagName(asdasd, 'asd');
+			// getFirstParentByTagName('asd');
+			// getFirstParentByTagName(asdasd);
+			// getFirstParentByTagName(24, 'asd');
+			// getFirstParentByTagName(asdasd, 24);
+
+		// Min
+		// ----------------------------
+
+			// function getFirstParentByTagName(a,b){let x=b.toUpperCase(),y=a.parentElement,z=false;while(y&&!z){y.tagName===x?z=!z:y=y.parentElement};return y}
+
+
+	// getSiblings()
+	// ----------------------------
+
+		// Baseline
+		// ----------------------------
+
+			function getSiblings ( target__HTMLElem ) {
+
+				let parent   = target__HTMLElem.parentElement;
+				let sibling  = parent ? parent.firstElementChild : null;
+				let siblings = [];
+
+				while (sibling) {
+					if (sibling !== target__HTMLElem) {
+						siblings.push(sibling);
+					}
+					sibling = sibling.nextElementSibling
+				};
+
+				return siblings;
+			};
+
+		// Log
+		// ----------------------------
+
+			function getSiblings ( target__HTMLElem ) {
+
+				// Create log objects -- used when logging warnings/errors
+				// ----------------------------
+
+					function createLogArguments( obj ) {
+
+						let logArguments = [];
+
+						Object.keys(obj).map(function(key){
+							let argumentName = key;
+							let providedArgument = obj[key];
+							let currentType = typeof providedArgument;
+							let requiredType, isValid;
+
+							if (argumentName.indexOf('__HTMLElem')>-1) { 
+								requiredType = 'HTMLElement (object)';
+								isValid = providedArgument instanceof HTMLElement;
+							} else if (argumentName.indexOf('__string')>-1) { 
+								requiredType = 'string';
+								isValid = typeof providedArgument === 'string';
+							};
+
+							logArguments.push({
+								argumentName     ,
+								isValid          ,
+								providedArgument ,
+								currentType      ,
+								requiredType
+							})
+						});
+
+						return logArguments
+					};
+
+					let logArguments = createLogArguments( { target__HTMLElem } );
+					let allParametersAreValid = (logArguments.find(x => !x.isValid) === undefined);
+
+				// Styles for the console.log()
+				// ----------------------------
+
+					let logStyles = {
+						'error'     : 'color: crimson;'   ,
+						'warning'   : 'color: orangered;' ,
+						'function'  : 'color: teal;'      ,
+						'argument'  : 'color: navy;'  
+					};
+
+				// Normal function run
+				// ----------------------------
+
+				if ( allParametersAreValid ) {
+
+					let parent   = target__HTMLElem.parentElement;
+					let sibling  = parent ? parent.firstElementChild : null;
+					let siblings = [];
+
+					while (sibling) {
+						if (sibling !== target__HTMLElem) {
+							siblings.push(sibling);
+						}
+						sibling = sibling.nextElementSibling
+					};
+
+					// log [Warning] -- if the element has no Parent
+					// ----------------------------
+
+					if (!parent) {
+
+						console.groupCollapsed(
+							'%c!! Warning %c| getSiblings(%ctarget__HTMLElem%c) | ', 
+							logStyles['warning'] , logStyles['function'], logStyles['argument'], logStyles['function'], 
+							'No Parent Element was found.');
+
+							console.table(logArguments);
+							console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+							console.log('─────────────────────');
+						console.groupEnd();
+
+					// log [Warning] -- if no items match the query
+					// ----------------------------
+
+					} else if (siblings.length === 0) {
+
+						console.groupCollapsed(
+							'%c!! Warning %c| getSiblings(%ctarget__HTMLElem%c) | ', 
+							logStyles['warning'] , logStyles['function'], logStyles['argument'], logStyles['function'], 
+							'No Sibling Element was found.');
+
+							console.table(logArguments);
+							console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+							console.log('─────────────────────');
+						console.groupEnd();
+						
+					};
+
+					return siblings
+
+				// log [Error (Silent)] -- if any parameter is Invalid 
+				// ----------------------------
+
+				} else {
+
+					console.groupCollapsed(
+						'%c!! Error (Silent) %c| getSiblings(%ctarget__HTMLElem%c) | ', 
+						logStyles['error'] , logStyles['function'], logStyles['argument'], logStyles['function'],  
+						'Invalid function arguments :');
+
+						console.table(logArguments);
+						console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+						console.log('─────────────────────');
+					console.groupEnd();
+
+					return []
+
+				}
+			};
+
+			// getSiblings(asdasd);
+			// getSiblings();
+			// getSiblings(12);
+
+		// Min
+		// ----------------------------
+
+			// function getSiblings(a){let x=a.parentElement,y=x?x.firstElementChild:null,z=[];while(y){y!==a&&z.push(y);y=y.nextElementSibling};return z};
+
+	// getSiblingsByClassName()
+	// ----------------------------
+
+		// Baseline
+		// ----------------------------
+
+			function getSiblingsByClassName ( target__HTMLElem , class__string ) {
+
+				let parent  = target__HTMLElem.parentElement;
+				let sibling = parent ? parent.firstElementChild : null;
+				let siblingsWithClass = [];
+
+				while (sibling) {
+					if (sibling !== target__HTMLElem && (" "+sibling.className+" ").indexOf(" "+class__string+" ") > -1) {
+						siblingsWithClass.push(sibling);
+					}
+					sibling = sibling.nextElementSibling
+				};
+
+				return siblingsWithClass
+			};
+
+		// Log
+		// ----------------------------
+
+			function getSiblingsByClassName ( target__HTMLElem , class__string ) {
+
+				// Create log objects -- used when logging warnings/errors
+				// ----------------------------
+
+					function createLogArguments( obj ) {
+
+						let logArguments = [];
+
+						Object.keys(obj).map(function(key){
+							let argumentName = key;
+							let providedArgument = obj[key];
+							let currentType = typeof providedArgument;
+							let requiredType, isValid;
+
+							if (argumentName.indexOf('__HTMLElem')>-1) { 
+								requiredType = 'HTMLElement (object)';
+								isValid = providedArgument instanceof HTMLElement;
+							} else if (argumentName.indexOf('__string')>-1) { 
+								requiredType = 'string';
+								isValid = typeof providedArgument === 'string';
+							};
+
+							logArguments.push({
+								argumentName     ,
+								isValid          ,
+								providedArgument ,
+								currentType      ,
+								requiredType
+							})
+						});
+
+						return logArguments
+					};
+
+					let logArguments = createLogArguments( { target__HTMLElem , class__string } );
+					let allParametersAreValid = (logArguments.find(x => !x.isValid) === undefined);
+
+				// Styles for the console.log()
+				// ----------------------------
+
+					let logStyles = {
+						'error'     : 'color: crimson;'   ,
+						'warning'   : 'color: orangered;' ,
+						'function'  : 'color: teal;'      ,
+						'argument'  : 'color: navy;'  
+					};
+
+				// Normal function run
+				// ----------------------------
+
+				if ( allParametersAreValid ) {
+
+					let parent  = target__HTMLElem.parentElement;
+					let sibling = parent ? parent.firstElementChild : null;
+					let siblingsWithClass = [];
+
+					while (sibling) {
+						if (sibling !== target__HTMLElem && (" "+sibling.className+" ").indexOf(" "+class__string+" ") > -1) {
+							siblingsWithClass.push(sibling);
+						}
+						sibling = sibling.nextElementSibling
+					};
+
+					// log [Warning] -- if the element has no Parent
+					// ----------------------------
+
+					if (!parent) {
+
+						console.groupCollapsed(
+							'%c!! Warning %c| getSiblingsByClassName(%ctarget__HTMLElem, class__string%c) | ', 
+							logStyles['warning'] , logStyles['function'], logStyles['argument'], logStyles['function'], 
+							'No Parent Element was found.');
+
+							console.table(logArguments);
+							console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+							console.log('─────────────────────');
+						console.groupEnd();
+
+					// log [Warning] -- if no items match the query
+					// ----------------------------
+
+					} else if (siblings.length === 0) {
+
+						console.groupCollapsed(
+							'%c!! Warning %c| getSiblingsByClassName(%ctarget__HTMLElem, class__string%c) | ', 
+							logStyles['warning'] , logStyles['function'], logStyles['argument'], logStyles['function'], 
+							'No Sibling Element with the class of "'+class__string+'" was found.');
+
+							console.table(logArguments);
+							console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+							console.log('─────────────────────');
+						console.groupEnd();
+						
+					};
+
+					return siblingsWithClass
+
+				// log [Error (Silent)] -- if any parameter is Invalid 
+				// ----------------------------
+
+				} else {
+
+					console.groupCollapsed(
+						'%c!! Error (Silent) %c| getSiblingsByClassName(%ctarget__HTMLElem, class__string%c) | ', 
+						logStyles['error'] , logStyles['function'], logStyles['argument'], logStyles['function'],  
+						'Invalid function arguments :');
+
+						console.table(logArguments);
+						console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+						console.log('─────────────────────');
+					console.groupEnd();
+
+					return []
+
+				}
+			};
+
+			// getSiblingsByClassName(asdasd, 'asd');
+			// getSiblingsByClassName('asd');
+			// getSiblingsByClassName(asdasd);
+			// getSiblingsByClassName(24, 'asd');
+			// getSiblingsByClassName(asdasd, 24);
+
+		// Min
+		// ----------------------------
+
+			// function getSiblingsByClassName(a,b){let y=a.parentElement.firstElementChild,z=[];while(y){(y!==a&&(" "+y.className+" ").indexOf(" "+b+" ")>-1)&&z.push(y);y=y.nextElementSibling};return z};
+
+	// getSiblingsByTagName()
+	// ----------------------------
+
+		// Baseline
+		// ----------------------------
+
+			function getSiblingsByTagName ( target__HTMLElem , tagName__string ) {
+
+				let tagName = tagName__string.toUpperCase();
+				let parent  = target__HTMLElem.parentElement;
+				let sibling = parent ? parent.firstElementChild : null;
+				let siblingsWithTag = [];
+
+				while (sibling) {
+					if (sibling !== target__HTMLElem && sibling.tagName === tagName) {
+						siblingsWithTag.push(sibling);
+					}
+					sibling = sibling.nextElementSibling
+				};
+
+				return siblingsWithTag
+			};
+
+		// Log
+		// ----------------------------
+
+			function getSiblingsByTagName ( target__HTMLElem , tagName__string ) {
+
+				// Create log objects -- used when logging warnings/errors
+				// ----------------------------
+
+					function createLogArguments( obj ) {
+
+						let logArguments = [];
+
+						Object.keys(obj).map(function(key){
+							let argumentName = key;
+							let providedArgument = obj[key];
+							let currentType = typeof providedArgument;
+							let requiredType, isValid;
+
+							if (argumentName.indexOf('__HTMLElem')>-1) { 
+								requiredType = 'HTMLElement (object)';
+								isValid = providedArgument instanceof HTMLElement;
+							} else if (argumentName.indexOf('__string')>-1) { 
+								requiredType = 'string';
+								isValid = typeof providedArgument === 'string';
+							};
+
+							logArguments.push({
+								argumentName     ,
+								isValid          ,
+								providedArgument ,
+								currentType      ,
+								requiredType
+							})
+						});
+
+						return logArguments
+					};
+
+					let logArguments = createLogArguments( { target__HTMLElem , tagName__string } );
+					let allParametersAreValid = (logArguments.find(x => !x.isValid) === undefined);
+
+				// Styles for the console.log()
+				// ----------------------------
+
+					let logStyles = {
+						'error'     : 'color: crimson;'   ,
+						'warning'   : 'color: orangered;' ,
+						'function'  : 'color: teal;'      ,
+						'argument'  : 'color: navy;'  
+					};
+
+				// Normal function run
+				// ----------------------------
+
+					if ( allParametersAreValid ) {
+
+						let tagName = tagName__string.toUpperCase();
+						let parent  = target__HTMLElem.parentElement;
+						let sibling = parent ? parent.firstElementChild : null;
+						let siblingsWithTag = [];
+
+						while (sibling) {
+							if (sibling !== target__HTMLElem && sibling.tagName === tagName) {
+								siblingsWithTag.push(sibling);
+							}
+							sibling = sibling.nextElementSibling
+						};
+
+						// log [Warning] -- if the element has no Parent
+						// ----------------------------
+
+						if (!parent) {
+
+							console.groupCollapsed(
+								'%c!! Warning %c| getSiblingsByTagName(%ctarget__HTMLElem, tagName__string%c) | ', 
+								logStyles['warning'] , logStyles['function'], logStyles['argument'], logStyles['function'], 
+								'No Parent Element was found.');
+
+								console.table(logArguments);
+								console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+								console.log('─────────────────────');
+							console.groupEnd();
+
+						// log [Warning] -- if no items match the query
+						// ----------------------------
+
+						} else if (siblingsWithTag.length === 0) {
+							console.groupCollapsed(
+								'%c!! Warning %c| getSiblingsByTagName(%ctarget__HTMLElem , tagName__string%c) | ', 
+								logStyles['warning'] , logStyles['function'], logStyles['argument'], logStyles['function'], 
+								'No Sibling Element with the tagName of "'+tagName+'" was found, for ', target__HTMLElem);
+
+								console.table(logArguments);
+								console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+								console.log('─────────────────────');
+							console.groupEnd();
+						};
+
+						return siblingsWithTag
+
+				// log [Error (Silent)] -- if any parameter is Invalid 
+				// ----------------------------
+
+					} else {
+
+						console.groupCollapsed(
+							'%c!! Error (Silent) %c| getSiblingsByTagName(%ctarget__HTMLElem, tagName__string%c) | ', 
+							logStyles['error'] , logStyles['function'], logStyles['argument'], logStyles['function'],  
+							'Invalid function arguments :');
+
+							console.table(logArguments);
+							console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+							console.log('─────────────────────');
+						console.groupEnd();
+
+						return []
+
+					}
+			};
+
+			// getSiblingsByTagName(asdasd, 'asd');
+			// getSiblingsByTagName('asd');
+			// getSiblingsByTagName(asdasd);
+			// getSiblingsByTagName(24, 'asd');
+			// getSiblingsByTagName(asdasd, 24);
+
+		// Min
+		// ----------------------------
+
+			// function getSiblingsByTagName(a,b){let x=b.toUpperCase(),y=a.parentElement.firstElementChild,z=[];while(y){(y!==a&&y.tagName===x)&&z.push(y);y=y.nextElementSibling};return z};
+
+
+	// getChildrenByClassName()
+	// ----------------------------
+
+		// Baseline
+		// ----------------------------
+
+			function getChildrenByClassName ( target__HTMLElem , class__string ) {
+
+				let child = target__HTMLElem.firstElementChild;
+				let childrenWithClass = [];
+
+				while (child) {
+					if ((" "+child.className+" ").indexOf(" "+class__string+" ") > -1) {
+						childrenWithClass.push(child)
+					};
+					child = child.nextElementSibling
+				};
+
+				return childrenWithClass
 
 			};
 
-			if (children.length < 1) { children = null };
+		// Log
+		// ----------------------------
 
-			return children
+			function getChildrenByClassName ( target__HTMLElem , class__string ) {
 
-		};
+				// Create log objects -- used when logging warnings/errors
+				// ----------------------------
+
+					function createLogArguments( obj ) {
+
+						let logArguments = [];
+
+						Object.keys(obj).map(function(key){
+							let argumentName = key;
+							let providedArgument = obj[key];
+							let currentType = typeof providedArgument;
+							let requiredType, isValid;
+
+							if (argumentName.indexOf('__HTMLElem')>-1) { 
+								requiredType = 'HTMLElement (object)';
+								isValid = providedArgument instanceof HTMLElement;
+							} else if (argumentName.indexOf('__string')>-1) { 
+								requiredType = 'string';
+								isValid = typeof providedArgument === 'string';
+							};
+
+							logArguments.push({
+								argumentName     ,
+								isValid          ,
+								providedArgument ,
+								currentType      ,
+								requiredType
+							})
+						});
+
+						return logArguments
+					};
+
+					let logArguments = createLogArguments( { target__HTMLElem , class__string } );
+					let allParametersAreValid = (logArguments.find(x => !x.isValid) === undefined);
+
+				// Styles for the console.log()
+				// ----------------------------
+
+					let logStyles = {
+						'error'     : 'color: crimson;'   ,
+						'warning'   : 'color: orangered;' ,
+						'function'  : 'color: teal;'      ,
+						'argument'  : 'color: navy;'  
+					};
+
+				// Normal function run
+				// ----------------------------
+
+					if ( allParametersAreValid ) {
+
+						let child = target__HTMLElem.firstElementChild;
+						let childrenWithClass = [];
+
+						while (child) {
+							if ((" "+child.className+" ").indexOf(" "+class__string+" ") > -1) {
+								childrenWithClass.push(child)
+							};
+							child = child.nextElementSibling
+						};
+
+						// log [Warning] -- if no items match the query
+						// ----------------------------
+
+						if (childrenWithClass.length === 0) {
+							console.groupCollapsed(
+								'%c!! Warning %c| getChildrenByClassName(%ctarget__HTMLElem , class__string%c) | ', 
+								logStyles['warning'] , logStyles['function'], logStyles['argument'], logStyles['function'], 
+								'No Child Element with the class of "'+class__string+'" was found, for ', target__HTMLElem);
+
+								console.table(logArguments);
+								console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+								console.log('─────────────────────');
+							console.groupEnd();
+						};
+
+						return childrenWithClass
+
+				// log [Error (Silent)] -- if any parameter is Invalid 
+				// ----------------------------
+
+					} else {
+
+						console.groupCollapsed(
+							'%c!! Error (Silent) %c| getChildrenByClassName(%ctarget__HTMLElem, class__string%c) | ', 
+							logStyles['error'] , logStyles['function'], logStyles['argument'], logStyles['function'],  
+							'Invalid function arguments :');
+
+							console.table(logArguments);
+							console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+							console.log('─────────────────────');
+						console.groupEnd();
+
+						return []
+
+					}
+			};
+
+			// getChildrenByClassName(asdasd, 'asd');
+			// getChildrenByClassName('asd');
+			// getChildrenByClassName(asdasd);
+			// getChildrenByClassName(24, 'asd');
+			// getChildrenByClassName(asdasd, 24);
+
+		// Min
+		// ----------------------------
+
+			// function getChildrenByClassName(a,b){let y=a.firstElementChild,z=[];while(y){(" "+y.className+" ").indexOf(" "+b+" ")>-1&&z.push(y);y=y.nextElementSibling};return z};
+
+	// getChildrenByTagName()
+	// ----------------------------
+
+		// Baseline
+		// ----------------------------
+
+			function getChildrenByTagName ( target__HTMLElem , tagName__string ) {
+
+				let tagName = tagName__string.toUpperCase();
+				let child   = target__HTMLElem.firstElementChild;
+				let childrenWithTag = [];
+
+				while (child) {
+					if (child.tagName === tagName) {
+						childrenWithTag.push(child)
+					};
+					child = child.nextElementSibling
+				};
+
+				return childrenWithTag
+
+			};
+
+		// Log
+		// ----------------------------
+
+			function getChildrenByTagName ( target__HTMLElem , tagName__string ) {
+
+				// Create log objects -- used when logging warnings/errors
+				// ----------------------------
+
+					function createLogArguments( obj ) {
+
+						let logArguments = [];
+
+						Object.keys(obj).map(function(key){
+							let argumentName = key;
+							let providedArgument = obj[key];
+							let currentType = typeof providedArgument;
+							let requiredType, isValid;
+
+							if (argumentName.indexOf('__HTMLElem')>-1) { 
+								requiredType = 'HTMLElement (object)';
+								isValid = providedArgument instanceof HTMLElement;
+							} else if (argumentName.indexOf('__string')>-1) { 
+								requiredType = 'string';
+								isValid = typeof providedArgument === 'string';
+							};
+
+							logArguments.push({
+								argumentName     ,
+								isValid          ,
+								providedArgument ,
+								currentType      ,
+								requiredType
+							})
+						});
+
+						return logArguments
+					};
+
+					let logArguments = createLogArguments( { target__HTMLElem , tagName__string } );
+					let allParametersAreValid = (logArguments.find(x => !x.isValid) === undefined);
+
+				// Styles for the console.log()
+				// ----------------------------
+
+					let logStyles = {
+						'error'     : 'color: crimson;'   ,
+						'warning'   : 'color: orangered;' ,
+						'function'  : 'color: teal;'      ,
+						'argument'  : 'color: navy;'  
+					};
+
+				// Normal function run
+				// ----------------------------
+
+					if ( allParametersAreValid ) {
+
+						let tagName = tagName__string.toUpperCase();
+						let child   = target__HTMLElem.firstElementChild;
+						let childrenWithTag = [];
+
+						while (child) {
+							if (child.tagName === tagName) {
+								childrenWithTag.push(child)
+							};
+							child = child.nextElementSibling
+						};
+
+						// log [Warning] -- if no items match the query
+						// ----------------------------
+
+						if (childrenWithTag.length === 0) {
+							console.groupCollapsed(
+								'%c!! Warning %c| getChildrenByTagName(%ctarget__HTMLElem , tagName__string%c) | ', 
+								logStyles['warning'] , logStyles['function'], logStyles['argument'], logStyles['function'], 
+								'No Child Element with the tagName of "'+tagName+'" was found, for ', target__HTMLElem);
+
+								console.table(logArguments);
+								console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+								console.log('─────────────────────');
+							console.groupEnd();
+						};
+
+						return childrenWithTag
+
+				// log [Error (Silent)] -- if any parameter is Invalid 
+				// ----------------------------
+
+					} else {
+
+						console.groupCollapsed(
+							'%c!! Error (Silent) %c| getChildrenByTagName(%ctarget__HTMLElem, tagName__string%c) | ', 
+							logStyles['error'] , logStyles['function'], logStyles['argument'], logStyles['function'],  
+							'Invalid function arguments :');
+
+							console.table(logArguments);
+							console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+							console.log('─────────────────────');
+						console.groupEnd();
+
+						return []
+
+					}
+			};
+
+			// getChildrenByTagName(asdasd, 'asd');
+			// getChildrenByTagName('asd');
+			// getChildrenByTagName(asdasd);
+			// getChildrenByTagName(24, 'asd');
+			// getChildrenByTagName(asdasd, 24);
+
+		// Min
+		// ----------------------------
+
+			// function getChildrenByTagName(a,b){let x=b.toUpperCase(),y=a.firstElementChild,z=[];while(y){y.tagName===x&&z.push(y);y=y.nextElementSibling};return z};
+
+
 
 	// getOwnedClasses()
-	// -----------------------------------------------------
+	// ----------------------------
 
 		function getOwnedClasses( elem , ...classes ) {
 
@@ -332,7 +1695,7 @@
 		};
 
 	// getFirstClass()
-	// -----------------------------------------------------
+	// ----------------------------
 
 		function getFirstClass( elem, ...classes ) {
 
@@ -347,7 +1710,7 @@
 		};
 
 	// fetchHTML() - from HTML File (fetch HTTP Request)
-	// -----------------------------------------------------
+	// ----------------------------
 
 		 function fetchHTML(urlString) { 
 			fetch(urlString)
@@ -357,7 +1720,7 @@
 		// myElem.innerHTML = getHTML(linkToHTMLFile);
 
 	// getObjectLength()
-	// -----------------------------------------------------
+	// ----------------------------
 
 		function getObjectLength(obj) {
 			var size = 0, key;
@@ -366,7 +1729,7 @@
 		};
 
 	// getFocusableChildren()
-	// -----------------------------------------------------
+	// ----------------------------
 
 		function getFocusableChildren(elem) {
 
@@ -384,7 +1747,7 @@
 		};
 
 	// getFocusableChildren()
-	// -----------------------------------------------------
+	// ----------------------------
 	
 		function getHeight(elem) {
 			return (elem.offsetHeight +
@@ -393,10 +1756,10 @@
 		};
 
 // Remove || remove*
-// -----------------------------------------------------
+// ----------------------------
 
 	// removeClasses()
-	// -----------------------------------------------------
+	// ----------------------------
 
 		function removeClasses( elem, ...classes ) {
 
@@ -411,10 +1774,10 @@
 
 
 // Array
-// -----------------------------------------------------
+// ----------------------------
 
 	// Clone Array
-	// -----------------------------------------------------
+	// ----------------------------
 
 		function array_clone( myArray ) {
 
@@ -508,10 +1871,10 @@
 
 
 	// Sort Array 
-	// -----------------------------------------------------
+	// ----------------------------
 		
 		// 'in-place' sorting - just by calling the function, the initial array is modified
-		// -----------------------------------------------------
+		// ----------------------------
 
 			// array of objects
 			function array_sort_objects ( current_array , targetProperty ) {
@@ -539,7 +1902,7 @@
 			};
 
 		// new Array sorting - returns cloned, sorted array
-		// -----------------------------------------------------
+		// ----------------------------
 
 			// array of objects
 			function array_cloneAndSort_objects ( current_array , targetProperty ) {	
@@ -588,12 +1951,12 @@
 
 
 	// Shuffle Array
-	// -----------------------------------------------------
+	// ----------------------------
 		// https://github.com/Daplie/knuth-shuffle
 		// https://stackoverflow.com/a/12646864
 
 		// 'in-place' shuffle - just by calling the function, the initial array is modified
-		// -----------------------------------------------------
+		// ----------------------------
 
 			function array_shuffle ( myArray ) {
 
@@ -640,7 +2003,7 @@
 			//array_shuffle(document.body)
 
 		// new Array shuffle - returns cloned, shuffled array
-		// -----------------------------------------------------
+		// ----------------------------
 
 			function array_cloneAndShuffle ( myArray ) {
 
@@ -691,7 +2054,7 @@
 
 
 	// Array from
-	// -----------------------------------------------------
+	// ----------------------------
 
 		function array_from(current_input) {
 
@@ -730,7 +2093,7 @@
 
 
 	// Create Parent for Element (wrapper)
-	// -----------------------------------------------------
+	// ----------------------------
 		// unpure function - creates the element, and also returns the result to be used further on
 		// use case: var new_parent = element_createParent(myTarget);
 
@@ -746,10 +2109,10 @@
 		};
 
 // Extra
-// -----------------------------------------------------
+// ----------------------------
 
 	// copyText() // Change name to copyElementInnerText
-	// -----------------------------------------------------
+	// ----------------------------
 
 		function copyText( elem ) {
 
@@ -817,21 +2180,21 @@
 		// }
 
 	// Capitalize First Letter of String
-	// -----------------------------------------------------------------
+	// ----------------------------------------
 
 		function capitalizeFirstLetter(string) { return string.charAt(0).toUpperCase() + string.slice(1) };
 
 // Need Further Dev
-// -----------------------------------------------------
+// ----------------------------
 
 	// ScrollToTop() 						>> not actual scrolling, atm
-	// ------------------------------------------------------------------
+	// -----------------------------------------
 		function scrollToTop() {
 			window.scrollTo(0, 0);
 		};
 
 	// .myScroll()
-	// ------------------------------------------------------------------
+	// -----------------------------------------
 
 		function myScroll(elem_toBeScrolled, elem_toScrollTo, offsetValue) {
 
@@ -947,7 +2310,7 @@
 
 
 	// .scrollIntoView()
-	// ------------------------------------------------------------------
+	// -----------------------------------------
 
 		function scrollIntoView(currentTarget, offsetValue) { 
 
@@ -985,7 +2348,7 @@
 		};
 
 	// scrollElementTo	
-	// ------------------------------------------------------------------
+	// -----------------------------------------
 
 		function scrollElementTo(elementToBeScrolled, currentTarget, offsetValue) { 
 
@@ -1025,16 +2388,16 @@
 		};
 
 	// Insert Element in DOM
-	// -----------------------------------------------------------------
+	// ----------------------------------------
 		function  insertAfter(newNode, referenceNode) 	{ referenceNode.parentNode.insertBefore(newNode, referenceNode)};
 		function insertBefore(newNode, referenceNode) 	{ referenceNode.parentNode.insertBefore(newNode, referenceNode.nextElementSibling)};
 
 
 // Need remaster
-// -----------------------------------------------------
+// ----------------------------
 
 	// .rgb2hex()  											>> Take RGB value >>> return Hex value
-	// -----------------------------------------------------
+	// ----------------------------
 
 		function rgb2hex(currentValue) {
 
@@ -1074,7 +2437,7 @@
 		};
 
 	// Hex to RGB
-	// -----------------------------------------------------------------
+	// ----------------------------------------
 
 		function hex2rgb(hex, alpha) {
 		    var r = parseInt(hex.slice(1, 3), 16),
@@ -1157,3 +2520,5 @@
 		script.src = url__string;
 		document.getElementsByTagName("head")[0].appendChild(script);
 	};
+
+

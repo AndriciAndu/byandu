@@ -15,7 +15,7 @@
 				background-color: #613dcc;
 			}
 
-			.spoiler-btn.active {
+			.spoiler-btn--active {
 				color: #FFFFFF; 
 				background-color: #c00c0c; 
 			}
@@ -48,7 +48,7 @@
 			/* ----------------------------------------*/
 
 				.spoiler-btn.spoiler-btn-autoText:after 		{ content: 'Expand'; 	}
-				.spoiler-btn.spoiler-btn-autoText.active:after	{ content: 'Collapse'; 	}
+				.spoiler-btn--active.spoiler-btn-autoText:after	{ content: 'Collapse'; 	}
 
 			/* overlay */
 			/* ----------------------------------------*/
@@ -67,10 +67,9 @@
 				width: 100%;
 
 				padding: 0 !important;
-				margin:  0 !important;
 				border:  0 !important;
 
-				max-height: 0; 
+				max-height: 0;
 				overflow: hidden;
 
 				-webkit-transition: max-height .3s ease-in-out;

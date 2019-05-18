@@ -1,6 +1,14 @@
 
 	(function(){
 
+		// var target = document.getElementsByClassName('cssCounter-container')[0];
+
+		// var innerHTMLToApply = '';
+		// for (var i=0; i<1000; i++) {
+		// 	innerHTMLToApply += '<div class="cssCounter-item"></div>'
+		// };
+		// target.innerHTML = innerHTMLToApply;
+
 		/*document.getElementById('asdf').triggerFunction = function() {
 			console.log(this);
 		};*/

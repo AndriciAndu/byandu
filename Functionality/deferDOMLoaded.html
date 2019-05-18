@@ -1,0 +1,234 @@
+
+	<!-- ===================== Route ================== -->
+	<script src="../xFiles/js/route_intermediary.js"> </script>
+	<!-- ============================================== -->
+	<style> 
+		</style>
+	<!-- ============================================== -->
+
+	<article>
+
+		<header class="sr-only"> <h2> DeferDOMLoaded </h2> </header>
+
+		<div class="tabs article-mainTabs">
+
+			<div class="article-mainTabs-banner">
+				<div class="article-mainTabs-title"> Functionality : DeferDOMLoaded </div>
+
+				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
+					<button class="tabs-btn tabs-btn--active"  data-tabs-id="1"> Demo  </button>
+					<button class="tabs-btn" 				   data-tabs-id="2"> Usage </button>
+					<button class="tabs-btn" 				   data-tabs-id="3"> Code  </button>
+				</div>
+			</div>
+
+			<div class="tabs-contentGroup">
+
+				<!-- Demo Tab -->
+				<div class="tabs-content article-mainTabs-demoTab tabs-content--active" data-tabs-id="1"> 
+					<div id="__route__mainView__generateDemos"></div>
+				</div>
+
+				<!-- Usage Tab -->
+				<div class="tabs-content article-mainTabs-usageTab" data-tabs-id="2"> 
+
+					<!-- I. Description -->
+						<section class="accordion  p-0        sectionAccordion">
+							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+								<button class="accordion-btn  sectionAccordion-btn"> I. Description </button>
+								<div class="accordion-content sectionAccordion-content">
+
+									<p> Functionality which allows to detect when both <span class="wrapper">(1) the DOM</span> and <span class="wrapper">(2) certain images</span> have loaded. </p>
+									<p> Useful for revealing the Fold (removing websites' spinners) without non-loaded content (in this case, images). </p> 
+
+								</div>
+							</div>
+						</section>
+
+					<!-- II. Initialization -->
+						<section class="accordion  p-0        sectionAccordion">
+							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+								<button class="accordion-btn  sectionAccordion-btn"> II. Initialization </button>
+								<div class="accordion-content sectionAccordion-content">
+
+									<p class="mb-0"> 
+										Download and refference the 
+										<a class="downloadLink" href="../../css/asterisk/asterisk-functionality-deferDOMLoaded.js" download> asterisk-functionality-deferDOMLoaded.js </a> JS file.
+									</p> 
+
+									<div class="wrapper"> 
+										<div class="col-12"> &lt;script src="<b-r>--myPath--</b-r><b-p>/asterisk-functionality-deferDOMLoaded.js</b-p>" type="text/javascript">&lt;/script> </div>
+									</div>
+
+								</div>
+							</div>
+						</section>
+
+					<!-- III. Usage -->
+						<section class="accordion  p-0        sectionAccordion">
+							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+								<button class="accordion-btn  sectionAccordion-btn"> III. Usage </button>
+								<div class="accordion-content sectionAccordion-content">
+
+									<p class="mb-0"> <b>Step 1.</b> Add the <span class="wrapper"><b-p>deferDOMLoaded--target</b-p></span> Class to the targeted <span class="wrapper">&lt;img></span> Elements.</p>
+									<p class="sub-heading mt-0"> * This should be used mostly for the Images 'above the fold', as the whole point is to avoid image FOIC (flash of unstyled content) while managing the user's perceived load time. </p>
+
+									<div class="wrapper"> 
+										<div class="col-12"> &lt;img class="<b-p>deferDOMLoaded--target</b-p>"/> </div>
+									</div>
+
+									<p class="mb-0"> <b>Step 2.</b> Define the <span class="wrapper"><b>deferDOMLoaded</b><b-p>.whenLoaded</b-p></span> Function: </p> 
+
+									<div class="wrapper"> 
+										<pre class="pre-removeTabSpaces">
+										    <b>deferDOMLoaded</b><b-p>.whenLoaded</b-p> = function() {
+										        <i class="comment">// what will happen when the DOM and the images are loaded</i>
+										        <i class="comment">// example: code to remove the website's spinner, and show the actual content</i>
+										    };
+										</pre>
+									</div>
+
+									<p class="mb-0"> <b>Step 3.</b> Call the <span class="wrapper"><b>deferDOMLoaded</b><b-p>.init</b-p></span> Function: </p> 
+
+									<div class="wrapper"> 
+										<div class="col-12"> <b>deferDOMLoaded</b><b-p>.init()</b-p> </div>
+									</div>
+
+								</div>
+							</div>
+						</section>
+
+				</div>
+
+				<!-- Code Tab -->
+				<div class="tabs-content article-mainTabs-codeTab"  data-tabs-id="3">
+
+					<div class="tabs">
+						<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
+							<button class="tabs-btn tabs-btn--active"  data-tabs-id="1"> JS  </button>
+						</div>
+
+						<div class="tabs-contentGroup">
+
+							<div class="tabs-content codeTab codeTab__main tabs-content--active" data-tabs-id="1"> 
+								<!-- JS -->	
+								<div class="copyContext-btnContainer" data-copyContextId="deferDOMLoaded-js">
+									<button class="copyContext-btn copyContext-btn-copyText"></button>
+									<button class="copyContext-btn copyContext-btn-saveFile" 
+											data-fileName="asterisk-functionality-deferDOMLoaded-spec" data-fileType=".js"></button>
+									<button class="copyContext-btn copyContext-btn-showLightbox"></button>
+								</div>
+								<div class="copyContext" data-copyContextId="deferDOMLoaded-js">
+									<div id="codeSection-js" class="codeTab__main__codeSection">
+										<pre class="pre-removeTabSpaces">
+										    // Object setup
+										    // --------------------------------------------------
+
+										        var deferDOMLoaded = {
+										            count_target  : 0;
+										            count_current : 0;
+										        };
+
+										    // Intermediary
+										    // --------------------------------------------------
+
+										        deferDOMLoaded.checkCount = function() {
+										            return deferDOMLoaded.count_current == deferDOMLoaded.count_target
+										        };
+
+										        deferDOMLoaded.onLoad = function() {
+										            deferDOMLoaded.whenLoaded();
+										            document.removeEventListener('readystatechange', deferDOMLoaded.onLoad);
+										        };
+
+										    // Image eventHandlers and eventListeners
+										    // --------------------------------------------------
+
+										        deferDOMLoaded.img_addEventListeners = function( img__elem ) {
+										            img__elem.addEventListener('load'  , deferDOMLoaded.img_onload );
+										            img__elem.addEventListener('error' , deferDOMLoaded.img_onerror);
+										        };
+
+										        deferDOMLoaded.img_removeEventListeners = function( img__elem ) {
+										            img__elem.removeEventListener('load'  , deferDOMLoaded.img_onload );
+										            img__elem.removeEventListener('error' , deferDOMLoaded.img_onerror);
+										        };
+
+										        deferDOMLoaded.img_onload = function(e) {
+										            deferDOMLoaded.count_current++;
+										            if (deferDOMLoaded.checkCount()) { deferDOMLoaded.onLoad() };
+										            deferDOMLoaded.img_removeEventListeners(e.target);
+										        };
+
+										        deferDOMLoaded.img_onerror = function(e) {
+										            deferDOMLoaded.count_current++;
+										            if (deferDOMLoaded.checkCount()) { deferDOMLoaded.onLoad() };
+										            deferDOMLoaded.img_removeEventListeners(e.target);
+										        };
+
+										    // Init
+										    // --------------------------------------------------
+
+										        deferDOMLoaded.init = function() {
+
+										            var targetImages = Array.from(document.getElementsByClassName('deferDOMLoaded--target'));
+										            var nrOfTargets = targetImages.length;
+										            var state = document.readyState;
+
+										            if (nrOfTargets > 0) {
+
+										                deferDOMLoaded.count_target = nrOfTargets;
+
+										                targetImages.map(function(img) { 
+										                    if (!img.complete) { 
+										                        deferDOMLoaded.img_addEventListeners(img) 
+										                    } else if (typeof img.naturalWidth != "undefined" && img.naturalWidth == 0) {
+										                        deferDOMLoaded.count_current++ // onerror
+										                    } else {
+										                        deferDOMLoaded.count_current++ // onload
+										                    }
+										                });
+
+										                if ( deferDOMLoaded.checkCount() ) {
+
+										                    if (state == 'interactive' || state == 'complete') {
+										                        deferDOMLoaded.onLoad()
+										                    } else {
+										                        document.addEventListener('readystatechange', deferDOMLoaded.onLoad)
+										                    }
+
+										                }
+
+										            } else {
+
+										                if (state == 'interactive' || state == 'complete') {
+										                    deferDOMLoaded.onLoad()
+										                } else {
+										                    document.addEventListener('readystatechange', deferDOMLoaded.onLoad)
+										                }
+
+										            }
+										            
+										        };
+
+										    // When loaded
+										    // --------------------------------------------------
+
+										        deferDOMLoaded.whenLoaded = function() {
+
+										            console.log('Document ready and images loaded');
+
+										        };
+										</pre>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</article>

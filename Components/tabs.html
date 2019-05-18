@@ -54,6 +54,46 @@
 		.bg-hvr:hover .bg-hvr-3 { background-color: purple; transition-delay: .1s; }*/
 
 
+
+		.byAndu-feature-list {
+			display: inline-block;
+			width: 100%;
+			float: left;
+			padding: 0;
+			margin: 0;
+
+			border: 1px solid rgba(3,3,3,.3);
+			border-bottom: none;
+		}
+
+		.byAndu-feature-list__title ,
+		.byAndu-feature-list__item {
+			border-bottom: 1px solid rgba(3,3,3,.3);
+			padding: .5em 15px;
+		}
+
+		.byAndu-feature-list__title {
+			font-weight: bold;
+			background-color: rgba(3,3,3,.1);
+		}
+		.byAndu-feature-list__item {
+			list-style-type: none;
+			display: block;
+			width: 100%;
+			background-color: rgba(255,0,0,.1);
+		}
+		.byAndu-feature-list__item::before {
+			content: '\f00d';
+			font-family: FontAwesome;
+			padding: 0 .5em;
+		}
+		.byAndu-feature-list__item--active {
+			background-color: rgba(0,255,0,.1);
+		}
+		.byAndu-feature-list__item--active::before {
+			content: '\f00c';
+			font-family: FontAwesome;
+		}
 		</style>
 	<!-- ============================================== -->
 
@@ -67,27 +107,27 @@
 				<div class="article-mainTabs-title"> Components : Tabs </div>
 
 				<div class="tabs-btnGroup article-mainTabs-btnGroup buttons-fill">
-					<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> Demo  </button>
-					<button class="tabs-btn" 				data-tabs-id="2"> Usage </button>
-					<button class="tabs-btn" 				data-tabs-id="3"> Code  </button>
+					<button class="tabs-btn tabs-btn--active"  data-tabs-id="1"> Demo  </button>
+					<button class="tabs-btn" 				   data-tabs-id="2"> Usage </button>
+					<button class="tabs-btn" 				   data-tabs-id="3"> Code  </button>
 				</div>
 			</div>
 
 			<div class="tabs-contentGroup">
 
 				<!-- Demo Tab -->
-				<div class="tabs-content article-mainTabs-demoTab tab-expanded" data-tabs-id="1"> 
+				<div class="tabs-content article-mainTabs-demoTab tabs-content--active" data-tabs-id="1"> 
 
 					<div class="col-12 md-col-6 p-0">
 						<div class="tabs testTabs1" style="border: 1px solid black">
 							<div class="tabs-btnGroup testTabs1-btnGroup">
-								<button class="tabs-btn tabBtn-active" data-tabs-id="1"> Btn 1 </button>
+								<button class="tabs-btn tabs-btn--active" data-tabs-id="1"> Btn 1 </button>
 								<button class="tabs-btn" data-tabs-id="2"> Btn 2 </button>
 								<button class="tabs-btn" data-tabs-id="3"> Btn 3 </button>
 							</div>
 
 							<div class="tabs-contentGroup">
-								<div class="tabs-content tab-expanded" data-tabs-id="1"> Content 1 </div>
+								<div class="tabs-content tabs-content--active" data-tabs-id="1"> Content 1 </div>
 								<div class="tabs-content" data-tabs-id="2"> Content 2 </div>
 								<div class="tabs-content" data-tabs-id="3"> Content 3 </div>
 							</div>
@@ -195,47 +235,176 @@
 							<p> 
 								<b>Step 2.</b> Download and refference the <a class="downloadLink" href="../../js/asterisk/asterisk-component-tabs.js" download> asterisk-component-tabs.js </a> JS file. 
 							</p>
-							<div class="wrapper"> <div class="col-12"> &lt;script src="<b-r>--myPath--</b-r><b-p>/asterisk-component-tabs.js</b-p>" type="text/javascript">&lt;/script> </div> </div>
 
-							<p> <b>Step 3.</b> Make the next function call : </p>
+							<div class="wrapper md-flex md-flex-cross-center md-flex-main-between"> 
+								<span class="pl-md"> &lt;script src="<b-r>--myPath--</b-r><b-p>/asterisk-component-tabs.js</b-p>" type="text/javascript">&lt;/script> </span>
+								<button class="col-12 md-col-2 mt-sm md-mt-0 spoiler-btn float-right spoiler-btn-autoText" data-spoiler-id="tabs-js-variants"> Variants | </button>
+							</div>
+
+							<div class="spoiler" data-spoiler-id="tabs-js-variants">
+								<div class="spoiler-content px-md">
+									<p> There are also 3 simpler/baselined variants of the <span class="wrapper">tabs.js</span> File, which follow a stand-alone syntax, instead of the <span class="wrapper">asterisk</span> Object-nesting model : </p>
+									<p><span class="wrapper"><b-p>asterisk.components.tabs</b-p><b>.x()</b></span> becomes <span class="wrapper"><b-p>component__tabs</b-p><b>.x()</b></span> </p>
+
+									<hr>
+
+									<div class="tabs">
+										<div class="tabs-btnGroup buttons-fill">
+											<button class="tabs-btn tabs-btn--active"  data-tabs-id="1"> tabs-SPA </button>
+											<button class="tabs-btn" 				data-tabs-id="2"> tabs-MPA </button>
+											<button class="tabs-btn" 				data-tabs-id="3"> tabs-MPA-baseline  </button>
+										</div>
+
+										<div class="tabs-contentGroup">
+
+											<div class="tabs-content tabs-content--active" data-tabs-id="1">
+												<p> For Single-Page Applications - full functionality, with the stand-alone syntax. </p>
+
+												<ul class="byAndu-feature-list">
+													<li class="byAndu-feature-list__title"> Main Functions : </li>
+													<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+														component__tabs.activate()
+													</li>
+													<li class="byAndu-feature-list__item byAndu-feature-list__item--active">
+														component__tabs.delegate()
+													</li>
+													<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+														component__tabs.terminate()
+													</li>
+
+													<li class="byAndu-feature-list__title"> Event Handlers : </li>
+													<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+														component__tabs.eventHandler_run()
+													</li>
+													<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+														component__tabs.eventHandler_delegate()
+													</li>
+
+													<li class="byAndu-feature-list__title"> Intermediary Functions : </li>
+													<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+														component__tabs.parameters_set()
+													</li>
+													<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+														component__tabs.parameters_remove()
+													</li>
+													<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+														component__tabs.checkDOM()
+													</li>
+												</ul>
+											</div>
+
+											<div class="tabs-content" data-tabs-id="2">
+												<p> For 'traditional' Multi-Page Applications.</p>
+												<p class="m-0"> * Does not include the logic required for SPA Memory Management : <span class="wrapper">{*}.activatedItems</span> and <span class="wrapper">{*}.checkDOM()</span> </p>
+
+												<ul class="byAndu-feature-list">
+													<li class="byAndu-feature-list__title"> Main Functions : </li>
+													<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+														component__tabs.activate()
+													</li>
+													<li class="byAndu-feature-list__item byAndu-feature-list__item--active">
+														component__tabs.delegate()
+													</li>
+													<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+														component__tabs.terminate()
+													</li>
+
+													<li class="byAndu-feature-list__title"> Event Handlers : </li>
+													<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+														component__tabs.eventHandler_run()
+													</li>
+													<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+														component__tabs.eventHandler_delegate()
+													</li>
+
+													<li class="byAndu-feature-list__title"> Intermediary Functions : </li>
+													<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+														component__tabs.parameters_set()
+													</li>
+													<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+														component__tabs.parameters_remove()
+													</li>
+													<li class="byAndu-feature-list__item"> 
+														component__tabs.checkDOM()
+													</li>
+												</ul>
+											</div>
+
+											<div class="tabs-content" data-tabs-id="3"> 
+												<p> For 'traditional' Multi-Page Applications.</p>
+												<p class="m-0"> * Does not use the <span class="wrapper">{*}.parameters_set()</span> to add the on-element <span class="wrapper">spoilerParams</span> Property. </p>
+												<p class="mt-0"> * Does not include the logic required for SPA Memory Management : <span class="wrapper">{*}.activatedItems</span> and <span class="wrapper">{*}.checkDOM()</span> </p>
+
+												<ul class="byAndu-feature-list">
+													<li class="byAndu-feature-list__title"> Main Functions : </li>
+													<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+														component__tabs.activate()
+													</li>
+													<li class="byAndu-feature-list__item byAndu-feature-list__item--active">
+														component__tabs.delegate()
+													</li>
+													<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+														component__tabs.terminate()
+													</li>
+
+													<li class="byAndu-feature-list__title"> Event Handlers : </li>
+													<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+														component__tabs.eventHandler_run()
+													</li>
+													<li class="byAndu-feature-list__item byAndu-feature-list__item--active"> 
+														component__tabs.eventHandler_delegate()
+													</li>
+
+													<li class="byAndu-feature-list__title"> Intermediary Functions : </li>
+													<li class="byAndu-feature-list__item"> 
+														component__tabs.parameters_set()
+													</li>
+													<li class="byAndu-feature-list__item"> 
+														component__tabs.parameters_remove()
+													</li>
+													<li class="byAndu-feature-list__item"> 
+														component__tabs.checkDOM()
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+
+									<hr>
+
+									<button class="col-12 spoiler-btn spoiler-btn-autoText" data-spoiler-id="tabs-js-variants"> Variants | </button>
+
+								</div>
+							</div>
+
+							<p> <b>Step 3.</b> <span class="wrapper">Activate</span> or <span class="wrapper">Delegate</span> the Components' functionality: </p>
 
 							<div class="wrapper"> 
 								<div class="md-flex md-flex-cross-center"> 
-									<div class="col-12 md-col-10"> asterisk.components.tabs.init() </div>
-
-									<button class="col-12 md-col-2 mt-sm md-mt-0 spoiler-btn spoiler-btn-autoText" data-spoiler-id="spoiler-init"> </button>
+									<div class="col-12 md-col-10"> asterisk.components.tabs<b-p>.activate(</b-p> <b>tabs__HTMLElem</b> <b-p>)</b-p> </div>
+									<button class="col-12 md-col-2 mt-sm md-mt-0 spoiler-btn spoiler-btn-autoText" data-spoiler-id="spoiler-activate"> </button>
 								</div>
 
-								<div class="spoiler" data-spoiler-id="spoiler-init">
-									<div class="spoiler-content">
-										<p class="my-xs"> asterisk.components.tabs.init(targetElem, delegateEventListener) </p>
+								<div class="spoiler" data-spoiler-id="spoiler-activate">
+									<div class="spoiler-content px-md">
+										<p> A <span class="wrapper">click</span> <span class="wrapper">eventListener</span> will be added to the first <span class="wrapper">.tabs-btnContainer</span> descendant of the <b>tabs__HTMLElem</b>. </p>
+										<p> This delegates the functionality to the <span class="wrapper">.tabs-btn</span> Elements within said <span class="wrapper">.tabs-btnContainer</span>. </p>
+										<p class="sub-heading"> This will allow for only the <span class="wrapper">tabs</span> provided as an argument, to function.</p>
+									</div>
+								</div>
+							</div>
 
-										<hr>
+							<div class="wrapper"> 
+								<div class="md-flex md-flex-cross-center"> 
+									<div class="col-12 md-col-10"> asterisk.components.spoiler<b-p>.delegate(</b-p> <b>target__HTMLElem</b> <b-p>)</b-p> </div>
+									<button class="col-12 md-col-2 mt-sm md-mt-0 spoiler-btn spoiler-btn-autoText" data-spoiler-id="spoiler-delegate"> </button>
+								</div>
 
-										<p class="my-xs"> Case: <b-r>asterisk.components.tabs.init()</b-r> </p>
-										<p class="my-xs"> All <span class="wrapper">tabs</span> Elements within the <span class="wrapper">document</span> will be initialized. </p>
-										<p class="mt-0 sub-heading"> * an <span class="wrapper">eventListener</span> will be added to each <span class="wrapper">tabs-btnContainer Element</span> </p>
-
-										<hr>
-
-										<p class="my-xs"> Case: <b-r>asterisk.components.tabs.init(</b-r> <span class="wrapper"><b-p>tabs Element</b-p></span> <b-r>)</b-r> </p>
-										<p class="my-xs"> Only the provided <span class="wrapper">tabs</span> element will be initialized. </p>
-										<p class="mt-0 sub-heading"> * an <span class="wrapper">eventListener</span> will be added to the provided component's <span class="wrapper">tabs-btnGroup Element</span> </p>
-										<p class="mt-0 sub-heading"> * used for dinamically-added content </p>
-
-										<hr>
-
-										<p class="my-xs"> Case: <b-r>asterisk.components.tabs.init(</b-r> <span class="wrapper"><b-p><u>NON</u>-tabs Element</b-p></span> <b-r>)</b-r> </p>
-										<p class="my-xs"> All <span class="wrapper">tabs</span> Elements within the provided <span class="wrapper"><b-p><u>NON</u>-tabs Element</b-p></span> will be initialized. </p>
-										<p class="mt-0 sub-heading"> * an <span class="wrapper">eventListener</span> will be added to each <span class="wrapper">tabs-btnGroup Element</span> </p>
-										<p class="mt-0 sub-heading"> * used to initialize <span class="wrapper">tabs</span> elements within a portion of the website </p>
-
-										<hr>
-
-										<p class="my-xs"> Case: <b-r>asterisk.components.tabs.init(</b-r> <span class="wrapper"><b-p><u>NON</u>-tabs Element</b-p></span> , <span class="wrapper"><b-p>true</b-p></span> <b-r>)</b-r> </p>
-										<p class="my-xs"> The <span class="wrapper">tabs-btn functionality </span> will be delegated to the <span class="wrapper"><b-p><u>NON</u>-tabs Element</b-p></span> provided, enabling any <span class="wrapper">tabs-btn</span> children to function through <b>Event Delegation</b>. </p>
-										<p class="mt-0 sub-heading"> * the <span class="wrapper">eventListener</span> will be added to the <span class="wrapper"><b-p><u>NON</u>-tabs Element</b-p></span> </p>
-										<p class="mt-0 sub-heading"> * can be used on the <span class="wrapper">document.body</span> to enable any and all <span class="wrapper">tabs-btn</span> Elements </p>
+								<div class="spoiler" data-spoiler-id="spoiler-delegate">
+									<div class="spoiler-content px-md">
+										<p> A <span class="wrapper">click</span> <span class="wrapper">eventListener</span> will be added directly to the <b>target__HTMLElem</b> Element</p>
+										<p> This delegates the functionality to all <span class="wrapper">.tabs-btn</span> descendant Elements </p>
+										<p class="sub-heading"> This will allow for all <span class="wrapper">tabs</span>, which are descendants of the <b>target__HTMLElem</b>, to function.</p>
 									</div>
 								</div>
 							</div>
@@ -259,22 +428,24 @@
 								</div>
 
 								<div class="col-12 md-col-7 p-0">
-									<div class="wrapper">
+									<div class="wrapper py-0">
 										<pre class="pre-removeTabSpaces">
+
 										    &lt;div class="<b>tabs</b>">
 										        &lt;div class="<b>tabs-btnGroup</b>">
-										            &lt;button class="<b>tabs-btn</b> tabBtn-active" <b-p>data-tabs-id</b-p>="<b-r>1</b-r>"> Button 1 <i class="fontFix-closeDiv"></i>button>
-										            &lt;button class="<b>tabs-btn</b>"               <b-p>data-tabs-id</b-p>="<b-r>2</b-r>"> Button 2 <i class="fontFix-closeDiv"></i>button>
-										            &lt;button class="<b>tabs-btn</b>"               <b-p>data-tabs-id</b-p>="<b-r>3</b-r>"> Button 3 <i class="fontFix-closeDiv"></i>button>
-										        <i class="fontFix-closeDiv"></i>div>
+										            &lt;button class="<b>tabs-btn</b> tabs-btn--active"      <b-p>data-tabs-id</b-p>="<b-r>1</b-r>"> Button 1 &lt;/button>
+										            &lt;button class="<b>tabs-btn</b>"                       <b-p>data-tabs-id</b-p>="<b-r>2</b-r>"> Button 2 &lt;/button>
+										            &lt;button class="<b>tabs-btn</b>"                       <b-p>data-tabs-id</b-p>="<b-r>3</b-r>"> Button 3 &lt;/button>
+										        &lt;/div>
 
 										        &lt;div class="<b>tabs-contentGroup</b>">
-										            &lt;div class="<b>tabs-content</b> tab-expanded" <b-p>data-tabs-id</b-p>="<b-r>1</b-r>"> Content 1 <i class="fontFix-closeDiv"></i>div>
-										            &lt;div class="<b>tabs-content</b>"              <b-p>data-tabs-id</b-p>="<b-r>2</b-r>"> Content 2 <i class="fontFix-closeDiv"></i>div>
-										            &lt;div class="<b>tabs-content</b>"              <b-p>data-tabs-id</b-p>="<b-r>3</b-r>"> Content 3 <i class="fontFix-closeDiv"></i>div>
-										        <i class="fontFix-closeDiv"></i>div>
-										    <i class="fontFix-closeDiv"></i>div>
-									    </pre>
+										            &lt;div class="<b>tabs-content</b> tabs-content--active" <b-p>data-tabs-id</b-p>="<b-r>1</b-r>"> Content 1 &lt;/div>
+										            &lt;div class="<b>tabs-content</b>"                      <b-p>data-tabs-id</b-p>="<b-r>2</b-r>"> Content 2 &lt;/div>
+										            &lt;div class="<b>tabs-content</b>"                      <b-p>data-tabs-id</b-p>="<b-r>3</b-r>"> Content 3 &lt;/div>
+										        &lt;/div>
+										    &lt;/div>
+
+										</pre>
 									</div>
 								</div>
 							</div>
@@ -294,23 +465,25 @@
 											</div>
 
 											<div class="col-12 md-col-7 p-0">
-												<div class="wrapper">
+												<div class="wrapper py-0">
 													<pre class="pre-removeTabSpaces">
+
 													    &lt;div class="<b>tabs</b>">
 													        &lt;div class="<b>tabs-btnGroup</b>">
-													            &lt;button class="<b>tabs-btn</b> tabBtn-active" <b-p>data-tabs-id</b-p>="<b-r>1</b-r>"> Button 1 &lt;/button>
-													            &lt;button class="<b>tabs-btn</b>"               <b-p>data-tabs-id</b-p>="<b-r>2</b-r>"> Button 2 &lt;/button>
-													            &lt;button class="<b>tabs-btn</b>"               <b-p>data-tabs-id</b-p>="<b-r>3</b-r>"> Button 3 &lt;/button>
-													            <span class="wrapper" style="margin-left: calc(-.4em); max-width: none;">&lt;button class="<b>tabs-btn</b>"               <b-p>data-tabs-id</b-p>="<b-r>n</b-r>"> Button n &lt;/button></span>
+													            &lt;button class="<b>tabs-btn</b> tabs-btn--active"      <b-p>data-tabs-id</b-p>="<b-r>1</b-r>"> Button 1 &lt;/button>
+													            &lt;button class="<b>tabs-btn</b>"                       <b-p>data-tabs-id</b-p>="<b-r>2</b-r>"> Button 2 &lt;/button>
+													            &lt;button class="<b>tabs-btn</b>"                       <b-p>data-tabs-id</b-p>="<b-r>3</b-r>"> Button 3 &lt;/button>
+													            <span class="wrapper" style="margin-left: calc(-.4em); max-width: none;">&lt;button class="<b>tabs-btn</b>"                       <b-p>data-tabs-id</b-p>="<b-r>n</b-r>"> Button n &lt;/button></span>
 													        &lt;/div>
 
 													        &lt;div class="<b>tabs-contentGroup</b>">
-													            &lt;div class="<b>tabs-content</b> tab-expanded" <b-p>data-tabs-id</b-p>="<b-r>1</b-r>"> Content 1 &lt;/div>
-													            &lt;div class="<b>tabs-content</b>"              <b-p>data-tabs-id</b-p>="<b-r>2</b-r>"> Content 2 &lt;/div>
-													            &lt;div class="<b>tabs-content</b>"              <b-p>data-tabs-id</b-p>="<b-r>3</b-r>"> Content 3 &lt;/div>
-													            <span class="wrapper" style="margin-left: calc(-.4em); max-width: none;">&lt;div class="<b>tabs-content</b>"              <b-p>data-tabs-id</b-p>="<b-r>n</b-r>"> Content n &lt;/div></span>
+													            &lt;div class="<b>tabs-content</b> tabs-content--active" <b-p>data-tabs-id</b-p>="<b-r>1</b-r>"> Content 1 &lt;/div>
+													            &lt;div class="<b>tabs-content</b>"                      <b-p>data-tabs-id</b-p>="<b-r>2</b-r>"> Content 2 &lt;/div>
+													            &lt;div class="<b>tabs-content</b>"                      <b-p>data-tabs-id</b-p>="<b-r>3</b-r>"> Content 3 &lt;/div>
+													            <span class="wrapper" style="margin-left: calc(-.4em); max-width: none;">&lt;div class="<b>tabs-content</b>"                      <b-p>data-tabs-id</b-p>="<b-r>n</b-r>"> Content n &lt;/div></span>
 													        &lt;/div>
 													    &lt;/div>
+
 													</pre>
 												</div>
 											</div>
@@ -336,58 +509,22 @@
 
 										<p> <b>Sets the placement of the <span class="wrapper">tabs-btnGroup</span> and <span class="wrapper">tabs-contentGroup</span> Elements, within the <span class="wrapper">tabs</span> Container.</b> </p>
 
-										<hr class="my-0">
+										<hr>
 
-										<p> <b>* The classes</b> are placed on the <span class="wrapper">tabs</span> Element. </p>
-										<p class="mt-0"> <b>* The properties</b> are changed for the <span class="wrapper">tabs</span> Element itself. </p>
-										<p class="mt-0"> <b>* The style change</b> will always take effect for the <span class="wrapper">tabs-btnGroup</span> and <span class="wrapper">tabs-contentGroup</span> Elements. </p>
-
-										<table class="col-12">
-											<thead>
-												<tr>
-													<td> <b>Class</b>  		</td>
-													<td> <b>Effect</b> 		</td>
-													<td> <b>Applied On</b> 	</td>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td> default </td>
-													<td> flex-direction: column </td>
-													<td> tabs </td>
-												</tr>
-												<tr>
-													<td> <span class="wrapper">tabs-vertical</span> </td>
-													<td> flex-direction: row </td>
-													<td> tabs </td>
-												</tr>
-												<tr>
-													<td> <span class="wrapper">tabs-reverse</span> </td>
-													<td> flex-direction: column-reverse </td>
-													<td> tabs </td>
-												</tr>
-												<tr>
-													<td> <span class="wrapper">tabs-vertical</span> + <span class="wrapper">tabs-reverse</span> </td>
-													<td> flex-direction: row-reverse </td>
-													<td> tabs </td>
-												</tr>
-											</tbody>
-										</table>
-
-										<div class="col-12 md-col-6 md-pl-0">
+										<div class="col-12 sm-col-6 md-pl-0">
 											<div class="wrapper">
 												<div class="col-12 mb-sm"> <div class="wrapper"> &lt;div class="tabs"> ... &lt;/div> </div> </div>
 
 												<div class="col-12"> 
 													<div class="tabs" style="border: 1px solid black">
 														<div class="tabs-btnGroup">
-															<button class="tabs-btn tabBtn-active" data-tabs-id="1"> Btn 1 </button>
+															<button class="tabs-btn tabs-btn--active" data-tabs-id="1"> Btn 1 </button>
 															<button class="tabs-btn" data-tabs-id="2"> Btn 2 </button>
 															<button class="tabs-btn" data-tabs-id="3"> Btn 3 </button>
 														</div>
 
 														<div class="tabs-contentGroup">
-															<div class="tabs-content tab-expanded" data-tabs-id="1"> Content 1 </div>
+															<div class="tabs-content tabs-content--active" data-tabs-id="1"> Content 1 </div>
 															<div class="tabs-content" data-tabs-id="2"> Content 2 </div>
 															<div class="tabs-content" data-tabs-id="3"> Content 3 </div>
 														</div>
@@ -403,13 +540,13 @@
 												<div class="col-12"> 
 													<div class="tabs tabs-reverse" style="border: 1px solid black">
 														<div class="tabs-btnGroup">
-															<button class="tabs-btn tabBtn-active" data-tabs-id="1"> Btn 1 </button>
+															<button class="tabs-btn tabs-btn--active" data-tabs-id="1"> Btn 1 </button>
 															<button class="tabs-btn" data-tabs-id="2"> Btn 2 </button>
 															<button class="tabs-btn" data-tabs-id="3"> Btn 3 </button>
 														</div>
 
 														<div class="tabs-contentGroup">
-															<div class="tabs-content tab-expanded" data-tabs-id="1"> Content 1 </div>
+															<div class="tabs-content tabs-content--active" data-tabs-id="1"> Content 1 </div>
 															<div class="tabs-content" data-tabs-id="2"> Content 2 </div>
 															<div class="tabs-content" data-tabs-id="3"> Content 3 </div>
 														</div>
@@ -425,13 +562,13 @@
 												<div class="col-12"> 
 													<div class="tabs tabs-vertical" style="border: 1px solid black">
 														<div class="tabs-btnGroup">
-															<button class="tabs-btn tabBtn-active" data-tabs-id="1"> Btn 1 </button>
+															<button class="tabs-btn tabs-btn--active" data-tabs-id="1"> Btn 1 </button>
 															<button class="tabs-btn" data-tabs-id="2"> Btn 2 </button>
 															<button class="tabs-btn" data-tabs-id="3"> Btn 3 </button>
 														</div>
 
 														<div class="tabs-contentGroup">
-															<div class="tabs-content tab-expanded" data-tabs-id="1"> Content 1 </div>
+															<div class="tabs-content tabs-content--active" data-tabs-id="1"> Content 1 </div>
 															<div class="tabs-content" data-tabs-id="2"> Content 2 </div>
 															<div class="tabs-content" data-tabs-id="3"> Content 3 </div>
 														</div>
@@ -447,13 +584,13 @@
 												<div class="col-12"> 
 													<div class="tabs tabs-vertical tabs-reverse" style="border: 1px solid black">
 														<div class="tabs-btnGroup">
-															<button class="tabs-btn tabBtn-active" data-tabs-id="1"> Btn 1 </button>
+															<button class="tabs-btn tabs-btn--active" data-tabs-id="1"> Btn 1 </button>
 															<button class="tabs-btn" data-tabs-id="2"> Btn 2 </button>
 															<button class="tabs-btn" data-tabs-id="3"> Btn 3 </button>
 														</div>
 
 														<div class="tabs-contentGroup">
-															<div class="tabs-content tab-expanded" data-tabs-id="1"> Content 1 </div>
+															<div class="tabs-content tabs-content--active" data-tabs-id="1"> Content 1 </div>
 															<div class="tabs-content" data-tabs-id="2"> Content 2 </div>
 															<div class="tabs-content" data-tabs-id="3"> Content 3 </div>
 														</div>
@@ -472,43 +609,7 @@
 
 										<p> <b>Sets the placement of the <span class="wrapper">tabs-btn</span> Elements within the <span class="wrapper">tabs-btnGroup</span> Container.</b> </p>
 
-										<hr class="my-0">
-
-										<p> <b>* The classes</b> are placed on the <span class="wrapper">tabs-btnGroup</span> Element. </p>
-										<p class="mt-0"> <b>* The properties</b> can be changed for either the <span class="wrapper">tabs-btnGroup</span> Element, or it's children <span class="wrapper">tabs-btn</span> Elements. </p>
-										<p class="mt-0"> <b>* The style change</b> will always take effect for the <span class="wrapper">tabs-btn</span> Elements. </p>
-									
-										<table class="col-12">
-											<thead>
-												<tr>
-													<td> <b>Class</b>  		</td>
-													<td> <b>Effect</b> 		</td>
-													<td> <b>Applied On</b> 	</td>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td> <span class="wrapper">buttons-start</span> / default </td>
-													<td> justify-content: flex-start </td>
-													<td> tabs-btnGroup </td>
-												</tr>
-												<tr>
-													<td> <span class="wrapper">buttons-center</span> </td>
-													<td> justify-content: center </td>
-													<td> tabs-btnGroup </td>
-												</tr>
-												<tr>
-													<td> <span class="wrapper">buttons-end</span> </td>
-													<td> justify-content: flex-end </td>
-													<td> tabs-btnGroup </td>
-												</tr>
-												<tr>
-													<td> <span class="wrapper">buttons-fill</span> </td>
-													<td> flex: 1 </td>
-													<td> tabs-btn </td>
-												</tr>
-											</tbody>
-										</table>
+										<hr>
 
 										<div class="col-12 md-col-6 md-pl-0">
 											<div class="wrapper">
@@ -517,13 +618,13 @@
 												<div class="col-12"> 
 													<div class="tabs" style="border: 1px solid black">
 														<div class="tabs-btnGroup">
-															<button class="tabs-btn tabBtn-active" data-tabs-id="1"> Btn 1 </button>
+															<button class="tabs-btn tabs-btn--active" data-tabs-id="1"> Btn 1 </button>
 															<button class="tabs-btn" data-tabs-id="2"> Btn 2 </button>
 															<button class="tabs-btn" data-tabs-id="3"> Btn 3 </button>
 														</div>
 
 														<div class="tabs-contentGroup">
-															<div class="tabs-content tab-expanded" data-tabs-id="1"> Content 1 </div>
+															<div class="tabs-content tabs-content--active" data-tabs-id="1"> Content 1 </div>
 															<div class="tabs-content" data-tabs-id="2"> Content 2 </div>
 															<div class="tabs-content" data-tabs-id="3"> Content 3 </div>
 														</div>
@@ -539,13 +640,13 @@
 												<div class="col-12"> 
 													<div class="tabs" style="border: 1px solid black">
 														<div class="tabs-btnGroup buttons-center">
-															<button class="tabs-btn tabBtn-active" data-tabs-id="1"> Btn 1 </button>
+															<button class="tabs-btn tabs-btn--active" data-tabs-id="1"> Btn 1 </button>
 															<button class="tabs-btn" data-tabs-id="2"> Btn 2 </button>
 															<button class="tabs-btn" data-tabs-id="3"> Btn 3 </button>
 														</div>
 
 														<div class="tabs-contentGroup">
-															<div class="tabs-content tab-expanded" data-tabs-id="1"> Content 1 </div>
+															<div class="tabs-content tabs-content--active" data-tabs-id="1"> Content 1 </div>
 															<div class="tabs-content" data-tabs-id="2"> Content 2 </div>
 															<div class="tabs-content" data-tabs-id="3"> Content 3 </div>
 														</div>
@@ -561,13 +662,13 @@
 												<div class="col-12"> 
 													<div class="tabs" style="border: 1px solid black">
 														<div class="tabs-btnGroup buttons-end">
-															<button class="tabs-btn tabBtn-active" data-tabs-id="1"> Btn 1 </button>
+															<button class="tabs-btn tabs-btn--active" data-tabs-id="1"> Btn 1 </button>
 															<button class="tabs-btn" data-tabs-id="2"> Btn 2 </button>
 															<button class="tabs-btn" data-tabs-id="3"> Btn 3 </button>
 														</div>
 
 														<div class="tabs-contentGroup">
-															<div class="tabs-content tab-expanded" data-tabs-id="1"> Content 1 </div>
+															<div class="tabs-content tabs-content--active" data-tabs-id="1"> Content 1 </div>
 															<div class="tabs-content" data-tabs-id="2"> Content 2 </div>
 															<div class="tabs-content" data-tabs-id="3"> Content 3 </div>
 														</div>
@@ -583,13 +684,13 @@
 												<div class="col-12"> 
 													<div class="tabs" style="border: 1px solid black">
 														<div class="tabs-btnGroup buttons-fill">
-															<button class="tabs-btn tabBtn-active" data-tabs-id="1"> Btn 1 </button>
+															<button class="tabs-btn tabs-btn--active" data-tabs-id="1"> Btn 1 </button>
 															<button class="tabs-btn" data-tabs-id="2"> Btn 2 </button>
 															<button class="tabs-btn" data-tabs-id="3"> Btn 3 </button>
 														</div>
 
 														<div class="tabs-contentGroup">
-															<div class="tabs-content tab-expanded" data-tabs-id="1"> Content 1 </div>
+															<div class="tabs-content tabs-content--active" data-tabs-id="1"> Content 1 </div>
 															<div class="tabs-content" data-tabs-id="2"> Content 2 </div>
 															<div class="tabs-content" data-tabs-id="3"> Content 3 </div>
 														</div>
@@ -610,53 +711,7 @@
 										<p class="sub-heading"> * These styles will take effect only if the <span class="wrapper">tabs-btn</span> Elements have extra space - their <span class="wrapper">width</span>/<span class="wrapper">height</span> is larger than their content (text). </p>
 										<p class="sub-heading mt-0"> * This happens when using the <span class="wrapper">buttons-fill</span> class, or when giving each <span class="wrapper">tabs-btn</span> a specific size value. </p>
 
-										<hr class="my-0">
-
-										<p> <b>* The classes</b> are placed on the <span class="wrapper">tabs-btnGroup</span> Element. </p>
-										<p class="mt-0"> <b>* The properties</b> are changed for the <span class="wrapper">tabs-btn</span> Elements. </p>
-										<p class="mt-0"> <b>* The style change</b> will always take effect for the <span class="wrapper">tabs-btn</span> Elements' <span class="wrapper">text</span>. </p>
-									
-										<table class="col-12">
-											<thead>
-												<tr>
-													<td> <b>Class</b>  		</td>
-													<td> <b>Effect</b> 		</td>
-													<td> <b>Applied On</b> 	</td>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td> <span class="wrapper">btnText-x-center</span> / default </td>
-													<td> justify-content: center; </td>
-													<td> tabs-btn </td>
-												</tr>
-												<tr>
-													<td> <span class="wrapper">btnText-left</span> </td>
-													<td> justify-content: flex-start; </td>
-													<td> tabs-btn </td>
-												</tr>
-												<tr>
-													<td> <span class="wrapper">btnText-right</span> </td>
-													<td> justify-content: flex-end; </td>
-													<td> tabs-btn </td>
-												</tr>
-												<tr>
-													<td> <span class="wrapper">btnText-y-center</span> / default </td>
-													<td> align-items: center; </td>
-													<td> tabs-btn </td>
-												</tr>
-												<tr>
-													<td> <span class="wrapper">btnText-top</span> </td>
-													<td> align-items: flex-start; </td>
-													<td> tabs-btn </td>
-												</tr>
-												<tr>
-													<td> <span class="wrapper">btnText-btm</span> </td>
-													<td> align-items: flex-end; </td>
-													<td> tabs-btn </td>
-												</tr>
-											</tbody>
-										</table>
+										<hr>
 
 										<div class="col-12 md-col-6 md-pl-0">
 											<div class="wrapper">
@@ -665,13 +720,13 @@
 												<div class="col-12"> 
 													<div class="tabs" style="border: 1px solid black">
 														<div class="tabs-btnGroup buttons-fill btnText-left">
-															<button class="tabs-btn tabBtn-active" data-tabs-id="1"> Btn 1 </button>
+															<button class="tabs-btn tabs-btn--active" data-tabs-id="1"> Btn 1 </button>
 															<button class="tabs-btn" data-tabs-id="2"> Btn 2 </button>
 															<button class="tabs-btn" data-tabs-id="3"> Btn 3 </button>
 														</div>
 
 														<div class="tabs-contentGroup">
-															<div class="tabs-content tab-expanded" data-tabs-id="1"> Content 1 </div>
+															<div class="tabs-content tabs-content--active" data-tabs-id="1"> Content 1 </div>
 															<div class="tabs-content" data-tabs-id="2"> Content 2 </div>
 															<div class="tabs-content" data-tabs-id="3"> Content 3 </div>
 														</div>
@@ -687,13 +742,13 @@
 												<div class="col-12"> 
 													<div class="tabs" style="border: 1px solid black">
 														<div class="tabs-btnGroup buttons-fill btnText-right">
-															<button class="tabs-btn tabBtn-active" data-tabs-id="1"> Btn 1 </button>
+															<button class="tabs-btn tabs-btn--active" data-tabs-id="1"> Btn 1 </button>
 															<button class="tabs-btn" data-tabs-id="2"> Btn 2 </button>
 															<button class="tabs-btn" data-tabs-id="3"> Btn 3 </button>
 														</div>
 
 														<div class="tabs-contentGroup">
-															<div class="tabs-content tab-expanded" data-tabs-id="1"> Content 1 </div>
+															<div class="tabs-content tabs-content--active" data-tabs-id="1"> Content 1 </div>
 															<div class="tabs-content" data-tabs-id="2"> Content 2 </div>
 															<div class="tabs-content" data-tabs-id="3"> Content 3 </div>
 														</div>
@@ -709,13 +764,13 @@
 												<div class="col-12"> 
 													<div class="tabs tabs-vertical" style="border: 1px solid black; height: 200px">
 														<div class="tabs-btnGroup buttons-fill btnText-top">
-															<button class="tabs-btn tabBtn-active" data-tabs-id="1"> Btn 1 </button>
+															<button class="tabs-btn tabs-btn--active" data-tabs-id="1"> Btn 1 </button>
 															<button class="tabs-btn" data-tabs-id="2"> Btn 2 </button>
 															<button class="tabs-btn" data-tabs-id="3"> Btn 3 </button>
 														</div>
 
 														<div class="tabs-contentGroup">
-															<div class="tabs-content tab-expanded" data-tabs-id="1"> Content 1 </div>
+															<div class="tabs-content tabs-content--active" data-tabs-id="1"> Content 1 </div>
 															<div class="tabs-content" data-tabs-id="2"> Content 2 </div>
 															<div class="tabs-content" data-tabs-id="3"> Content 3 </div>
 														</div>
@@ -731,13 +786,13 @@
 												<div class="col-12"> 
 													<div class="tabs tabs-vertical" style="border: 1px solid black; height: 200px">
 														<div class="tabs-btnGroup buttons-fill btnText-btm">
-															<button class="tabs-btn tabBtn-active" data-tabs-id="1"> Btn 1 </button>
+															<button class="tabs-btn tabs-btn--active" data-tabs-id="1"> Btn 1 </button>
 															<button class="tabs-btn" data-tabs-id="2"> Btn 2 </button>
 															<button class="tabs-btn" data-tabs-id="3"> Btn 3 </button>
 														</div>
 
 														<div class="tabs-contentGroup">
-															<div class="tabs-content tab-expanded" data-tabs-id="1"> Content 1 </div>
+															<div class="tabs-content tabs-content--active" data-tabs-id="1"> Content 1 </div>
 															<div class="tabs-content" data-tabs-id="2"> Content 2 </div>
 															<div class="tabs-content" data-tabs-id="3"> Content 3 </div>
 														</div>
@@ -752,6 +807,294 @@
 							</div>
 
 						</section>
+				
+					<!-- VII. Javascript - Main Functions -->
+						<section class="accordion  p-0        sectionAccordion">
+							<div class="accordion-group       sectionAccordion-group  accordion-group--expanded">
+								<button class="accordion-btn  sectionAccordion-btn"> VII. Javascript - Main Functions </button>
+								<div class="accordion-content sectionAccordion-content">
+
+									<div class="col-12 p-0 md-flex md-flex-cross-center">
+										<div class="col-12 md-col-6 p-0">
+
+											<p> The <span class="wrapper">tabs</span> Component follows the same <button class="modal-btn" data-modal-id="asterisk">Encapsulation Pattern</button> as all components within the <span class="wrapper">asterisk</span> library. </p>
+											<p> All the Functions are stored within the <span class="wrapper"><b-r>asterisk</b-r><b-p>.components</b-p><b>.tabs</b></span> Object. </p>
+											<p> All can be accessed globally, through <span class="wrapper"><b-r>asterisk</b-r><b-p>.components</b-p><b>.tabs</b>.{function}()</span>. </p>
+											
+										</div>
+
+										<div class="col-12 md-col-6">
+											<div class="wrapper py-0">
+												<pre class="pre-removeTabSpaces">
+												    <b-r>asterisk</b-r> = {
+												        <b-p>components</b-p> : { 
+												            <b>tabs</b> : {  <i class="comment">     // This is the <span class="wrapper">tabs</span> object </i>
+												                activate()   <i class="comment"> // Example of a <span class="wrapper">tabs</span> Function</i>
+												            }
+												        } 
+												    };
+
+												    <b-r>asterisk</b-r><b-p>.components</b-p><b>.tabs</b>.activate()
+												</pre>
+											</div>
+										</div>
+									</div>
+
+									<hr>
+									<div class="accordion p-0 my-sm">
+
+										<div class="accordion-group my-sm px-md">
+
+											<button class="accordion-btn"> 
+												<span class="col-6">{*}.activatedItems = [ ]</span> 
+											</button>
+
+											<div class="accordion-content">
+												<p class="mb-0"> The <span class="wrapper">{*}.activatedItems</span> Array is used for storing the Elements which have a <span class="wrapper">tabs</span>-related <span class="wrapper">eventListener</span> attached to them. </p>
+												<p class="sub-heading mt-0"> * It is updated automatically when an Element is initialized/terminated through the <span class="wrapper">{*}.activate()</span>, <span class="wrapper">{*}.delegate()</span> or <span class="wrapper">{*}.terminate()</span> methods. </p>
+
+												<p class="mb-0"> Its' primary role is to be used within <span class="wrapper">{*}.checkDOM()</span>, which de-refferences <u>Elements that have been removed from the DOM</u>. </p>
+												<p class="sub-heading mt-0"> * <span class="wrapper">{*}.checkDOM()</span> is called automatically within <span class="wrapper">asterisk.route.js</span>'s <span class="wrapper">{*}.loadPage()</span> method, creating a certain degree of <b>automatic Memory Management</b>. </p>
+											</div>
+										</div>
+
+										<div class="accordion-group my-sm px-md">
+
+											<button class="accordion-btn"> 
+												<span class="col-5">{*}.activate()</span> 
+												<span class="col-7 xs-hidden">| Attach eventListener to first [.tabs-btnGroup] descendant </span>
+											</button>
+
+											<div class="accordion-content">
+												<div class="wrapper">
+													<pre class="pre-removeTabSpaces">
+													    asterisk.components.tabs.<b-p>activate</b-p> = function( <b>tabs__HTMLElem</b> ) {
+													        const target_tabsBtnGroup = <b>tabs__HTMLElem</b>.getElementsByClassName('tabs-btnGroup')[0];
+													        target_tabsBtnGroup.addEventListener('click', asterisk.components.tabs.eventHandler_delegate);
+													        asterisk.components.tabs.activatedItems.push(target_tabsBtnGroup);
+														};
+													</pre>
+												</div>
+
+												<p> * Attaches a <span class="wrapper">click</span> <span class="wrapper">eventListener</span> to the first <span class="wrapper">.tabs-btnGroup</span> descendant of the <span class="wrapper"><b>tabs__HTMLElem</b></span>, with the <span class="wrapper"> {*}.eventHandler_delegate()</span> eventHandler. </p>
+												<p class="sub-heading m-0"> The eventListener is <u>not</u> attached to each individual <span class="wrapper">.tabs-btn</span> Element, as it would be an waste of memory, regarding both the eventListener itself, and the on-element <span class="wrapper">tabsParams</span>. </p>
+												<p class="sub-heading mt-0"> The eventListener is <u>not</u> attached to the <span class="wrapper">.tabs</span> Element, as it would trigger multiple times for <b>nested tabs</b>. </p>
+												<p> * Adds the <span class="wrapper">.tabs-btnGroup</span> descendant to the <span class="wrapper">{*}.activatedItems</span> Array. </p>
+											</div>
+										</div>
+
+										<div class="accordion-group my-sm px-md">
+
+											<button class="accordion-btn"> 
+												<span class="col-5">{*}.delegate()</span> 
+												<span class="col-7 xs-hidden">| Delegate eventListener to the Element</span>
+											</button>
+
+											<div class="accordion-content">
+												<div class="wrapper">
+													<pre class="pre-removeTabSpaces">
+													    asterisk.components.tabs.<b-p>delegate</b-p> = function( <b>target__HTMLElem</b> ) {
+													        <b>target__HTMLElem</b>.addEventListener('click', asterisk.components.tabs.eventHandler_delegate);
+													        asterisk.components.tabs.activatedItems.push(<b>target__HTMLElem</b>)
+													    };
+													</pre>
+												</div>
+
+												<p class="mb-0"> * Attaches a <span class="wrapper">click</span> <span class="wrapper">eventListener</span> to the <span class="wrapper"><b>target__HTMLElem</b></span>, with the <span class="wrapper"> {*}.eventHandler_delegate()</span> eventHandler. </p>
+												<p class="sub-heading mt-0"> -- This allows for all descendant <span class="wrapper">.tabs-btn</span> Elements to function, through <b>Event Delegation</b>.
+												<p> * Adds the <span class="wrapper"><b>target__HTMLElem</b></span> to the <span class="wrapper">{*}.activatedItems</span> Array. </p>
+											</div>
+										</div>
+
+										<div class="accordion-group my-sm px-md">
+
+											<button class="accordion-btn"> 
+												<span class="col-5">{*}.terminate()</span> 
+												<span class="col-7 xs-hidden">| Remove [tabs]-related eventListeners / refferences</span> 
+											</button>
+											
+											<div class="accordion-content">
+												<div class="wrapper">
+													<pre class="pre-removeTabSpaces">
+													    asterisk.components.tabs.<b-p>terminate</b-p> = function( <b>target__HTMLElem</b> ) {
+
+													        const tabsObj = asterisk.components.tabs;
+													        <b>target__HTMLElem</b>.removeEventListener('click', tabsObj.eventHandler_run);
+													        <b>target__HTMLElem</b>.removeEventListener('click', tabsObj.eventHandler_delegate);
+													        tabsObj.activatedItems = tabsObj.activatedItems.filter(item => item !== <b>target__HTMLElem</b>);
+
+													        tabsObj.parameters_remove(<b>target__HTMLElem</b>);
+													    };
+													</pre>
+												</div>
+
+												<p> * Removes the <span class="wrapper">click</span> <span class="wrapper">eventListener</span> (if attached with the <span class="wrapper">{*}.activate()</span> or <span class="wrapper">{*}.delegate()</span> methods), from the <span class="wrapper"><b>target__HTMLElem</b></span></p>
+												<p> * Removes the <span class="wrapper"><b>target__HTMLElem</b></span> from the <span class="wrapper">{*}.activatedItems</span> Array. </p>
+												<p> * Removes the on-Element <span class="wrapper">.spoilerParams</span> Property from the <span class="wrapper"><b>target__HTMLElem</b></span>. </p>
+											</div>
+										</div>
+
+										<div class="accordion-group my-sm px-md">
+
+											<button class="accordion-btn"> 
+												<span class="col-5">{*}.eventHandler_run()</span> 
+												<span class="col-7 xs-hidden">| Event Handler for for [.tabs-btn] Elements <span> 
+											</button>
+
+											<div class="accordion-content">
+												<div class="wrapper">
+													<pre class="pre-removeTabSpaces">
+													    asterisk.components.tabs.<b-p>eventHandler_run</b-p> = function(e) {
+
+													        const target = e.target;
+
+													        const targetTabsBtnGroup = asterisk.utility.getParentByClassName(target, 'tabs-btnGroup');
+													        const targetParams = targetTabsBtnGroup.tabsParams || asterisk.components.tabs.parameters_set(target)
+
+													        <i class="comment">// update [.tabs-btn] Elements</i>
+													        targetParams.target_buttons.map(btn => btn.classList.remove('tabs-btn--active'));
+													        target.classList.add('tabs-btn--active');
+
+													        <i class="comment">// update [.tabs-content] Elements</i>
+													        const currentIndex = target.getAttribute('data-tabs-id');
+													        targetParams.target_contentItems.map(function(item) {
+													            if (item.getAttribute('data-tabs-id') == currentIndex) { 
+													                item.classList.add   ('tabs-content--active') 
+													            } else { 
+													                item.classList.remove('tabs-content--active')
+													            }
+													        })
+
+													    };
+													</pre>
+												</div>
+
+												<p class="mb-0"> * <span class="wrapper">Event Handler</span> - This is the actual functionality of showing/hiding the <span class="wrapper">.tabs-content</span>.</p>
+												<p class="sub-heading m-0"> It is <u>never atually attached</u> to any <b>Element</b>, when calling the <span class="wrapper">{*}.activate(<b>Element</b> / <span class="wrapper">{*}.delegate(<b>Element</b>)</span>, but called from within <span class="wrapper">{*}.eventHandler_delegate</span>.</p>
+												<p class="sub-heading mt-0"> Its' kept this way to follow the same arhitecture as all other asterisk components. </p>
+												<p> * Gets the <span class="wrapper">tabsParams</span> - or sets them up through <span class="wrapper">{*}.parameters_set()</span> </p>
+												<p> * Updates the state of the synchronised <span class="wrapper">.tabs-btn</span> and <span class="wrapper">.tabs-content</span> Elements.</p>
+											</div>
+										</div>
+
+										<div class="accordion-group my-sm px-md">
+
+											<button class="accordion-btn"> 
+												<span class="col-5">{*}.eventHandler_delegate()</span> 
+												<span class="col-7 xs-hidden">| Event Handler for {*}.activate() and {*}.delegate()</span>
+											</button>
+
+											<div class="accordion-content">
+												<div class="wrapper">
+													<pre class="pre-removeTabSpaces">
+													    asterisk.components.tabs.<b-p>eventHandler_delegate</b-p> = function(e) {
+													        if ((" "+e.target.className+" ").indexOf(" tabs-btn ")>-1) { 
+													            asterisk.components.tabs.eventHandler_run(e) 
+													        }
+													    };
+													</pre>
+												</div>
+												<p class="mb-0"> * <span class="wrapper">Event Handler</span> used for delegating the functionality of the <span class="wrapper">tabs</span> Component. </p>
+												<p class="sub-heading m-0"> It is attached to the first <span class="wrapper">.tabs-BtnGroup</span> descendant of the provided <b>tabs-Element</b>, when calling the <span class="wrapper">{*}.delegate(<b>tabs-Element</b>)</span>.</p>
+												<p class="sub-heading m-0"> It is attached to the provided <b>non-Tabs-Element</b>, when calling the <span class="wrapper">{*}.delegate(<b>non-Tabs-Element</b>)</span>.</p>
+												<p class="sub-heading mt-0"> Its' existential purpose is that of a wrapper function, to allow the removal of the eventListener later on, through <span class="wrapper">{*}.terminate()</span>. </p>
+
+											</div>
+										</div>
+
+										<div class="accordion-group my-sm px-md">
+
+											<button class="accordion-btn"> 
+												<span class="col-5">{*}.parameters_set()</span> 
+												<span class="col-7 xs-hidden">| Intermediary Function for {*}.eventHandler_run()</span>
+											</button>
+
+											<div class="accordion-content">
+												<div class="wrapper">
+													<pre class="pre-removeTabSpaces">
+													    asterisk.components.tabs.<b-p>parameters_set</b-p> = function( <b>tabsBtnGroup__HTMLElem</b> ) {
+
+													        const target_contentGroup = asterisk.utility.getParentByClassName(tabsBtnGroup__HTMLElem, 'tabs').getElementsByClassName('tabs-contentGroup')[0];
+													        const target_contentItems = Array.from(target_contentGroup.getElementsByClassName('tabs-content')).filter(function(item){
+													            return item.parentElement === target_contentGroup
+													        });
+
+													        const target_buttons = Array.from(tabsBtnGroup__HTMLElem.getElementsByClassName('tabs-btn'));
+
+													        tabsBtnGroup__HTMLElem.tabsParams = { target_contentItems , target_buttons };
+
+													        return { target_contentItems , target_buttons }
+													    };
+													</pre>
+												</div>
+												<p> * Defines the targets involved in the execution of the <span class="wrapper">tabs</span> Component's show/hide state change. </p>
+												<p class="mb-0"> * Sets them as an on-element Property, on the <span class="wrapper">.tabs-btnGroup</span> Element, provided as the <span class="wrapper"><b>tabsBtnGroup__HTMLElem</b></span> argument. </p>
+												<p class="sub-heading mt-0"> This allows for a faster execution of the function, as it removes the requirement to traverse the DOM and find the adequate targets on each itteration. </p>
+												<p> * It is used within <span class="wrapper">{*}.eventHandler_run()</span>, and it is automatically called when it fires for the first time. </p>
+
+												<hr>
+
+												<p class="mb-0"> This can also be done manually, from the start, to ensure a quicker first-time execution of the <span class="wrapper">tabs</span> Elements. </p>
+												<div class="wrapper"> <div class="col-12"> <b>Example:</b> Array.from(document.getElementsByClassName('tabs-btnGroup')).map(x => component__tabs.parameters_set(x)) </div></div>
+											</div>
+										</div>
+
+										<div class="accordion-group my-sm px-md">
+
+											<button class="accordion-btn"> 
+												<span class="col-5">{*}.parameters_remove()</span> 
+												<span class="col-7 xs-hidden">| Intermediary Function for {*}.terminate() </span>
+											</button>
+
+											<div class="accordion-content">
+												<div class="wrapper">
+													<pre class="pre-removeTabSpaces">
+													    asterisk.components.tabs.<b-p>parameters_remove</b-p> = function( <b>target__HTMLElem</b> ) {
+													        if ((" "+<b>target__HTMLElem</b>.className+" ").indexOf(" tabs-btnGroup ")>-1) { 
+													            <b>target__HTMLElem</b>.tabsParams = null
+													        } else {
+													            Array.from(<b>target__HTMLElem</b>.getElementsByClassName('tabs-btnGroup')).map(function(item){
+													                item.tabsParams = null
+													            });
+													        }
+													    };
+													</pre>
+												</div>
+												<p> * Removes the on-element <span class="wrapper">spoilerParams</span> Property from the Element provided as the <span class="wrapper"><b>target__HTMLElem</b></span> argument, or from it's <span class="wrapper">.spoiler-btn</span> descendants. </p>
+												<p> It is used within <span class="wrapper">{*}.terminate()</span> </p>
+
+											</div>
+										</div>
+
+										<div class="accordion-group my-sm px-md">
+
+											<button class="accordion-btn"> 
+												<span class="col-5">{*}.checkDOM()</span> 
+												<span class="col-7 xs-hidden">| SPA Memory Management utility function</span> 
+											</button>
+
+											<div class="accordion-content">
+												<div class="wrapper">
+													<pre class="pre-removeTabSpaces">
+													    asterisk.components.spoiler.<b-p>checkDOM</b-p> = function() {
+													        const spoilerObj = asterisk.components.spoiler;
+													        const targets = spoilerObj.activatedItems.filter(item => (item !== document) && !document.contains(item) );
+													        targets.map(item => spoilerObj.terminate(item));
+													    };
+													</pre>
+												</div>
+												<p> * Checks the items within the <span class="wrapper">{*}.activatedItems</span> Array. </p>
+												<p> * If any item is no longer in the DOM, remove the <span class="wrapper">eventListeners</span> and <span class="wrapper">spoilerParams</span> property, through <span class="wrapper">{*}.terminate()</span>. </p>
+												<p class="sub-heading m-0"> This de-refferences the Element, making it elligible for Garbage Collection. </p>
+												<p class="sub-heading mt-0"> * <span class="wrapper">{*}.checkDOM()</span> is called automatically within <span class="wrapper">asterisk.route.js</span>'s <span class="wrapper">{*}.loadPage()</span> method, creating a certain degree of <b>automatic Memory Management</b>. </p>
+
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</section>
 				</div>
 
 				<!-- Code Tab -->
@@ -759,13 +1102,13 @@
 					<div class="finalCode-container">
 						<div class="tabs">
 							<div class="tabs-btnGroup buttons-fill">
-								<button class="tabs-btn tabBtn-active"  data-tabs-id="1"> HTML Markup </button>
+								<button class="tabs-btn tabs-btn--active"  data-tabs-id="1"> HTML Markup </button>
 								<button class="tabs-btn" 				data-tabs-id="2"> CSS         </button>
 								<button class="tabs-btn" 				data-tabs-id="3"> JS          </button>
 							</div>
 
 							<div class="tabs-contentGroup">
-								<div class="tabs-content tab-expanded codeTab" data-tabs-id="1"> 
+								<div class="tabs-content tabs-content--active codeTab" data-tabs-id="1"> 
 
 									<div class="copyContext-btnContainer" data-copyContextId="tabs-html">
 										<button class="copyContext-btn copyContext-btn-copyText"> </button>
@@ -778,15 +1121,15 @@
 												<pre class="pre-removeTabSpaces">
 												    &lt;div class="tabs">
 												        &lt;div class="tabs-btnGroup">
-												            &lt;button class="tabs-btn tabBtn-active" data-tabs-id="1"> Button 1 &lt;/button>
-												            &lt;button class="tabs-btn"               data-tabs-id="2"> Button 2 &lt;/button>
-												            &lt;button class="tabs-btn"               data-tabs-id="3"> Button 3 &lt;/button>
+												            &lt;button class="tabs-btn tabs-btn--active"      data-tabs-id="1"> Button 1 &lt;/button>
+												            &lt;button class="tabs-btn"                       data-tabs-id="2"> Button 2 &lt;/button>
+												            &lt;button class="tabs-btn"                       data-tabs-id="3"> Button 3 &lt;/button>
 												        &lt;/div>
 
 												        &lt;div class="tabs-contentGroup">
-												            &lt;div class="tabs-content tab-expanded" data-tabs-id="1"> Content 1&lt;/div>
-												            &lt;div class="tabs-content"              data-tabs-id="2"> Content 2 &lt;/div>
-												            &lt;div class="tabs-content"              data-tabs-id="3"> Content 3 &lt;/div>
+												            &lt;div class="tabs-content tabs-content--active" data-tabs-id="1"> Content 1&lt;/div>
+												            &lt;div class="tabs-content"                      data-tabs-id="2"> Content 2 &lt;/div>
+												            &lt;div class="tabs-content"                      data-tabs-id="3"> Content 3 &lt;/div>
 												        &lt;/div>
 												    &lt;/div> 
 												</pre>
@@ -819,7 +1162,7 @@
 												                border: 1px solid rgba(3,3,3,.1);
 												            }
 												            
-												            .tabs-btn.tabBtn-active { 
+												            .tabs-btn.tabs-btn--active { 
 												                background-color: #613dcc;
 												                color: #FFFFFF;
 												            }
@@ -889,7 +1232,7 @@
 												                border: 1px solid rgba(3,3,3,.1);
 												            }
 
-												            .tabs-content:not(.tab-expanded) { 
+												            .tabs-content:not(.tabs-content--active) { 
 												                width:   0 !important;  height:  0 !important;
 												                padding: 0 !important;  margin:  0 !important;
 												                overflow:   hidden !important;
@@ -1039,8 +1382,8 @@
 
 												                    // update 'active' status on Btn
 												                    var tabButtons = Array.from(current_tabBtn.parentElement.getElementsByClassName('tabs-btn'));
-												                    tabButtons.map(btn => btn.classList.remove('tabBtn-active'));
-												                    current_tabBtn.classList.add('tabBtn-active');
+												                    tabButtons.map(btn => btn.classList.remove('tabs-btn--active'));
+												                    current_tabBtn.classList.add('tabs-btn--active');
 
 												                    // update 'expanded' status on content
 												                    var currentIndex = current_tabBtn.getAttribute('data-tabs-id');
@@ -1049,8 +1392,8 @@
 												                    var contentItems = Array.from(targetParent.getElementsByClassName('tabs-content'));
 												                    contentItems = contentItems.filter(item => getParent(item, '.tabs') === targetParent);
 												                    contentItems.map(function(item) { 
-												                        if (item.getAttribute('data-tabs-id') == currentIndex) { item.classList.add   ('tab-expanded') }
-												                        else                                                    { item.classList.remove('tab-expanded') }
+												                        if (item.getAttribute('data-tabs-id') == currentIndex) { item.classList.add   ('tabs-content--active') }
+												                        else                                                    { item.classList.remove('tabs-content--active') }
 												                    })
 
 												                };
