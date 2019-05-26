@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="shortcut icon" href="" type="image/x-icon">
+	<link rel="icon"          href="" type="image/x-icon">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title> Martialis </title>
+
+		<!-- Custom CSS -->
+		<link href="asterisk-build-min.css"		type="text/css" rel="stylesheet">
+		<link href="stylesheet.css"				type="text/css" rel="stylesheet">
+
+		<!-- Custom Font - Roboto || Font Awesome -->
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+		<!-- ================================  to be removed on deployment [Start]	-->
+		<link href="xFiles/css/asterisk/normalize.min.css" 							type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-effects-faSpinner.css" 			type="text/css" rel="stylesheet">
+		
+		<link href="xFiles/css/asterisk/asterisk-component-btn.css" 				type="text/css" rel="stylesheet">
+
+		<link href="xFiles/css/asterisk/asterisk-component-tabs.css" 				type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-component-cssTabs.css" 			type="text/css" rel="stylesheet">
+
+		<link href="xFiles/css/asterisk/asterisk-component-accordion.css" 			type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-component-checkbox.css" 			type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-component-copyContext.css" 		type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-component-counter.css" 			type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-component-input.css" 				type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-component-loadingSpinner.css" 		type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-component-modal.css" 				type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-component-onboarding.css" 			type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-component-spoiler.css" 			type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-component-videoContainer.css" 		type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-component-wrapper.css" 			type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-component-sideNav-new.css" 			type="text/css" rel="stylesheet">
+		
+		<link href="xFiles/css/asterisk/asterisk-utility-gridSystem-12col.css" 		type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-utility-gridSystem-row.css" 		type="text/css" rel="stylesheet">
+		<!--<link href="xFiles/css/asterisk/asterisk-utility-gridSystem-5col.css" 	type="text/css" rel="stylesheet">-->
+		<link href="xFiles/css/asterisk/asterisk-utility-spacing.css" 				type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-utility-spacing-row.css" 			type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-utility-flex.css" 					type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-utility-visibility.css" 			type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-utility-visibility-extra.css" 		type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-utility-typography-textStyle.css" 	type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-utility-position.css" 				type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-utility-float.css" 				type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-utility-extra.css" 				type="text/css" rel="stylesheet">
+		
+		<link href="xFiles/css/asterisk/asterisk-effects-imgHover.css" 				type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-effects-filters.css" 				type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-effects-hover.css" 				type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-effects-appear.css" 				type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-effects-textClip.css" 				type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-effects-textShadow.css" 			type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-effects-title.css" 				type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/asterisk-effects-tooltip.css" 				type="text/css" rel="stylesheet">
+
+		<link href="xFiles/css/asterisk/asterisk-utility.css" 						type="text/css" rel="stylesheet">
+		<link href="xFiles/css/asterisk/testUI.css" 								type="text/css" rel="stylesheet">
+		<!-- ================================  to be removed on deployment [End]	-->
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+	<style>
+
+	.color--soft  { color: #cfcbca; }
+	.color--gray  { color: #aba194; }
+	.color--dark  { color: #4f5151; }
+	.color--red   { color: #be0c0c; }
+	.color--white { color: #FFFFFF; }
+	  
+	.bgColor--soft  { background-color: #cfcbca; }
+	.bgColor--gray  { background-color: #aba194; }
+	.bgColor--dark  { background-color: #4f5151; }
+	.bgColor--red   { background-color: #be0c0c; }
+	.bgColor--white { background-color: #FFFFFF; }
+
+		.sideNav {
+			height: 100vh;
+		}
+
+		.main {
+			height: 100vh;
+			color: #333;
+			background-color: #E5E5E5;
+		}
+
+		.sideNav__logoContainer {
+			position: absolute;
+			top: 10%; left: 10%;
+			max-width: 40%; max-height: 40vh;
+			opacity: .5;
+		}
+
+		.sideNav__menu {
+			text-align: right;
+			padding-top: 15vh;
+		}
+
+		.sideNav__menu__title {
+			font-size: 36px;
+			padding-bottom: .2em;
+			margin-bottom:  .8em;
+		}
+		.sideNav__menu__title::after {
+			content: '';
+			position: absolute;
+			top: 100%; right: 15px;
+			width: 25%;
+			border-bottom: 1px solid #aba194;
+		}
+
+		.sideNav__menu__item {
+			line-height: 1.7;
+			transition: padding-right .5s ease-in-out;
+		}
+		.sideNav__menu__item:hover {
+			padding-right: 20px;
+			border-right: 2px solid currentColor;
+		}
+
+		.section {
+			margin: 60px 0;
+		}
+
+		.section__title {
+			font-size: 36px;
+			margin-bottom: 1em;
+		}
+		.section__title::after {
+			content: '';
+			position: absolute;
+			top: calc(100% + .25em); left: 15px;
+			width: 5em;
+			border-bottom: 1px solid #aba194;
+		}
+	</style>
+  </head>
+
+<body>
+
+	<div class="col-3 sideNav bgColor--red color--white">
+	<div class="sideNav__logoContainer"><img class="sideNav__logo" src="aikido.svg"/></div>
+		<div class="col-12 sideNav__menu">
+			<div class="col-12 sideNav__menu__title">Aikido</div>
+			<div class="col-12 sideNav__menu__item"> Lorem Ipsum </div>
+			<div class="col-12 sideNav__menu__item"> Lorem Ipsum </div>
+			<div class="col-12 sideNav__menu__item"> Lorem Ipsum </div>
+			<div class="col-12 sideNav__menu__item"> Lorem Ipsum </div>
+			<div class="col-12 sideNav__menu__item"> Lorem Ipsum </div>
+		</div>
+	</div>
+	<div class="col-9 main bgColor--soft">
+		
+		<div class="section">
+			<div class="col-12 section__title"> Lorem Ipsum </div>
+			asdafsa fddsa fdas fdsaf sad fs adfsa
+		</div>
+
+		<div class="section">
+			<div class="col-12 section__title"> Lorem Ipsum </div>
+			asdafsa fddsa fdas fdsaf sad fs adfsa
+		</div>
+
+		<div class="section">
+			<div class="col-12 section__title"> Lorem Ipsum </div>
+			asdafsa fddsa fdas fdsaf sad fs adfsa
+		</div>
+		
+		<!-- <div class="col-12 bgColor--soft" style="height: 50px"></div>
+		<div class="col-12 bgColor--gray" style="height: 50px"></div>
+		<div class="col-12 bgColor--dark" style="height: 50px"></div>
+		<div class="col-12 bgColor--red" style="height: 50px"></div>
+		<div class="col-12 color--soft" style="height: 50px">Lorem</div>
+		<div class="col-12 color--gray" style="height: 50px">Lorem</div>
+		<div class="col-12 color--dark" style="height: 50px">Lorem</div>
+		<div class="col-12 color--red" style="height: 50px">Lorem</div> -->
+	</div>
+
+	<!-- =================== SCRIPTS =================== -->
+		<script type="text/javascript" src="asterisk-build-min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+</body>

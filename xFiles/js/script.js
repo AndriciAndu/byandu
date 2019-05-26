@@ -368,7 +368,7 @@
 					var searchBox_wrappers = Array.from(document.getElementsByClassName('codeTab__sideNav'));
 					var targetArea = searchBox_wrappers.find(item => item.getAttribute('data-searchBox-codeType') == areaIdentifier);
 
-					getParent(targetArea, '.codeTab').classList.add('codeTab-hasSearch');
+					getFirstParentByClassName(targetArea, 'codeTab').classList.add('codeTab-hasSearch');
 
 				// generate baseline html for [searchBox-wrapper]
 
@@ -482,7 +482,7 @@
 
 			byAndu.codeTab_checkbox_globalUpdate = function(currentBtn) {
 
-				var current_codeScope = getParent(currentBtn, '.codeTab'); 
+				var current_codeScope = getFirstParentByClassName(currentBtn, 'codeTab'); 
 				var checkboxes = Array.from(current_codeScope.getElementsByClassName('finalCode-checkbox'));
 				var codeBlocks = Array.from(current_codeScope.getElementsByClassName('finalCode-block'));
 
@@ -509,7 +509,7 @@
 
 				var current_value 	= targetInput.value.toLowerCase();
 				var identifier 		= targetInput.getAttribute('data-category');
-				var container 		= getParent(targetInput, '.codeTab__sideNav');
+				var container 		= getFirstParentByClassName(targetInput, 'codeTab__sideNav');
 
 				targetArea = container.getElementsByClassName('searchBox-results-wrapper')[0];
 				targetArea.classList.add('faSpinner', 'faSpinner-fast');
@@ -533,7 +533,7 @@
 				targetInput.value = '';
 
 				var identifier 		= targetInput.getAttribute('data-category');
-				var container 		= getParent(targetInput, '.codeTab__sideNav');
+				var container 		= getFirstParentByClassName(targetInput, 'codeTab__sideNav');
 				var targets 		= Array.from(container.getElementsByClassName('finalCode-'+identifier+'-parent'));
 
 				targets.map(item => item.classList.remove('hidden'));
@@ -551,7 +551,7 @@
 					var identifier 	 	= target.getAttribute('data-finalCodeId');
 					var target_class 	= 'finalCode-block-' + identifier;
 
-					var current_codeScope 	= getParent(target, '.codeTab'); 
+					var current_codeScope 	= getFirstParentByClassName(target, 'codeTab'); 
 					var codeBlocks_target  	= current_codeScope.getElementsByClassName(target_class)[0];
 
 					if (target.checked) { 
@@ -596,11 +596,11 @@
 					var identifier 	 	= targetBtn.parentElement.getElementsByClassName('finalCode-checkbox')[0].getAttribute('data-finalCodeId');
 					var target_class 	= 'finalCode-block-' + identifier;
 
-					var current_codeScope 	= getParent(targetBtn, '.codeTab'); 
+					var current_codeScope 	= getFirstParentByClassName(targetBtn, 'codeTab'); 
 					var codeBlocks_targeted = Array.from(current_codeScope.getElementsByClassName(target_class));
 
 					codeBlocks_targeted.map(function(item){
-						scrollElementTo(getParent(item, '.codeTab__main'), item, 0)
+						scrollElementTo(getFirstParentByClassName(item, 'codeTab__main'), item, 0)
 					})
 				} 
 			};
@@ -612,7 +612,7 @@
 					var identifier 	 	= targetBtn.parentElement.getElementsByClassName('finalCode-checkbox')[0].getAttribute('data-finalCodeId');
 					var target_class 	= 'finalCode-block-' + identifier;
 
-					var current_codeScope 	= getParent(targetBtn, '.codeTab'); 
+					var current_codeScope 	= getFirstParentByClassName(targetBtn, 'codeTab'); 
 					var codeBlocks_all 		= Array.from(current_codeScope.getElementsByClassName('finalCode-block'));
 					var codeBlocks_targeted = Array.from(current_codeScope.getElementsByClassName(target_class));
 
@@ -636,7 +636,7 @@
 				current_radio.click();
 
 				var identifier = current_radio.getAttribute('data-finalCodeId');
-				var current_codeScope 	= getParent(target, '.codeTab'); 
+				var current_codeScope 	= getFirstParentByClassName(target, 'codeTab'); 
 				var codeBlocks_all 		= Array.from(current_codeScope.getElementsByClassName('finalCode-block'));
 
 				codeBlocks_all.map(item => item.classList.add('hidden'));
@@ -648,10 +648,10 @@
 		var targetValue; 
 
 		if (hasClass(elem, 'demoItem-container')) { targetValue = elem.getAttribute('data-finalCodeId') } 
-		else                                      { targetValue = getParent(elem , '.demoItem-container').getAttribute('data-finalCodeId') };
+		else                                      { targetValue = getFirstParentByClassName(elem , 'demoItem-container').getAttribute('data-finalCodeId') };
 
 		var targetObj = byAndu_pageConfigObj.demoItems_codeLink.filter(item => item.name == targetValue)[0];
-console.log(byAndu_pageConfigObj)
+		//console.log(byAndu_pageConfigObj)
 		if (targetObj) { 
 			document.getElementById('byAndu-codeSnippetModal-code').innerHTML = targetObj.code;
 			return true
@@ -701,6 +701,7 @@ console.log(byAndu_pageConfigObj)
 
 	asterisk.components.spoiler.delegate(document);
 	asterisk.components.tabs.delegate(document);
+	asterisk.components.accordion.delegate(document);
 
 	document.body.addEventListener('click', function(e) {
 
@@ -708,7 +709,6 @@ console.log(byAndu_pageConfigObj)
 		// console.log(e.target);
 
 		if 		(hasClass(e.target, 'modal-btn')) 						{ componentsObj.modal.run(e.target) 					}
-		else if (hasClass(e.target, 'accordion-btn')) 					{ componentsObj.accordion.run(e.target) 				}
 
 		else if (hasClass(e.target, 'copyContext-btn-copyText')) 		{ componentsObj.copyContext.run_copyText(e.target) 		}
 		else if (hasClass(e.target, 'copyContext-btn-saveFile')) 		{ componentsObj.copyContext.run_saveFile(e.target) 		}

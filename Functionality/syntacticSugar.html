@@ -4,6 +4,11 @@
 	<!-- ============================================== -->
 	<style>
 
+		.rotate90deg {
+			position: relative;
+			transform: rotate(90deg);
+		}
+
 		.sintacticSugar-groupTitle {
 			font-size: 1.25em;
 			font-weight: bold;
@@ -22,22 +27,59 @@
 			background-color: #E5E5E5;
 			z-index: 201;
 		}
+		.title-withSpoilerBtn .fa {
+			width: 30px;
+			text-align: center;
+		}
+
+		.copyContext-btnContainer.copyContext-btnContainer--syntacticSugar {
+			right: 50px;
+		}
+		@media (max-width: 767.98px) {
+			.title-withSpoilerBtn {
+				top: 38px;
+			}
+			.copyContext-btnContainer.copyContext-btnContainer--syntacticSugar {
+				top: 15px; right: 35px;
+			}
+		}
 		.spoiler-content { 
 			margin: 0; 
 		}
 		.spoiler-btn {
 			box-shadow: none;
 		}
-		/*.tabs-btnGroup {
+		/*.spoiler .tabs-btnGroup {
 			position: sticky;
-			top: 112px;
+			top: -112px;
 			background-color: #E5E5E5;
 			z-index: 200;
+		}
+		.spoiler--expanded .tabs-btnGroup {
+			animation: stickyHotFix 0s forwards;
+		}
+		@keyframes stickyHotFix {
+			100% { top: 112px; }
 		}*/
 
-		pre {
+		.wrapper pre {
 			max-height: calc(80vh - 150px)
 		}
+
+
+		.tooltip-before {
+			cursor: help;
+		}
+
+		.tooltip-before::after {
+			content: "\f05a";
+			font-family: FontAwesome;
+			padding-left: 5px;
+		}
+
+		/*.wrapper.tooltip-before::before {
+			z-index: 2002;
+		}*/
 		</style>
 	<!-- ============================================== -->
 
@@ -46,6 +88,8 @@
 		<div class="article-title noTextOverlay mb-0"> Functionality : Syntactic Sugar </div>
 
 		<header class="sr-only"> <h2> Intermediary Utility Functions </h2> </header>
+
+		<section class="px-0 pb-md m-0" id="qwe"></section>
 
 		<section class="px-0 pb-md m-0">
 			<div class="sintacticSugar-groupTitle"> Array </div>
