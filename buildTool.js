@@ -1,168 +1,263 @@
 
-	(function() {
+	(function(){
 
-		var items = [
-			'imgHvr-flash' ,
-			'imgHvr-shine' ,
-			'imgHvr-zoomIn' ,
-			'imgHvr-zoomOut' ,
-			'imgHvr-zoomIn-rotateLeft' ,
-			'imgHvr-zoomIn-rotateRight' ,
-			'imgHvr-zoomOut-rotateLeft' ,
-			'imgHvr-zoomOut-rotateRight'
+		let items = [
+			'Preset' ,
+			{
+				name : 'Normalize' 
+			} ,
+			{
+				name : 'Normalize Extra'
+			} ,
+			'Utility' ,
+			{
+				name : 'Grid System' ,
+				groups : [ 
+					{ name : 'Col-Size'   , options : [ 'responsive' , 'baseline' ] } ,
+					{ name : 'Col-Offset' , options : [ 'responsive' , 'baseline' ] } ,
+					{ name : 'Col-Push'   , options : [ 'responsive' , 'baseline' ] } ,
+					{ name : 'Col-Pull'   , options : [ 'responsive' , 'baseline' ] }
+				]
+			} ,
+			{
+				name : 'Spacing',
+				options : [ 'responsive' , 'baseline' , 'none' ]
+			} ,
+			{
+				name : 'Float',
+				options : [ 'responsive' , 'baseline' , 'none' ]
+			}
 		];
 
-		var innerHTML_stringToApply = '';
+		let htmlString = '';
+
 		items.map(function(item){
-			var htmlString =
-				`<div class="buildTool--generateCheckbox col-4 mb-xs" 
-					data-config="{
-						'checkbox_text' : '`+item+`' ,
-						'checkbox_type' : 'checkbox' ,
-						'checkbox_isChecked' : false ,
+			if (typeof item === 'object') {
 
-						'target_main'  : 'effects__imgHover' ,
-						'target_group' : '`+item.replace('imgHvr-', '').replace(/-/g, '_')+`' ,
+				htmlString +=
+				`<div class="buildTool-formRow">
+					<div class="buildTool-formRow__left">
+						<input class="buildTool-formRow-checkbox" type="checkbox" checked>
+						<div class="buildTool-formRow__left__title"> ${item.name} </div>
+					</div>
+					<div class="buildTool-formRow__right"> 
+						<button class="spoiler-btn"><i class="fa fa-info-circle"></i></button> 
+					</div>
+				</div>`;
 
-						'ifChecked'    : { 
-							'willGenerate_static'      : true , 
-							'willGenerate_responsive'  : false ,
-							'target_valuesArrayName'   : null
-						} ,
-						'ifUnchecked'  : { 
-							'willGenerate_static'      : false , 
-							'willGenerate_responsive'  : false ,
-							'target_valuesArrayName'   : null 
-						} 
-					}"></div> `;
+				if (item.groups) {
 
-			// remove line-breask | tab-spaces | make multiple spaces to single space
-			htmlString = htmlString.replace(/\n/g, '').replace(/\t/g, '').replace(/ +/g, ' ');
+					htmlString += '<div class="buildTool-formRow-subset"> ';
 
-			innerHTML_stringToApply += htmlString;
+					item.groups.map(function(group){
+
+						let optionsBtnGroup = '';
+
+						if (group.options) {
+							let optionsBtnString = '';
+							group.options.map(function(option){
+								optionsBtnString += `<button> ${option} </button> `
+							});
+							optionsBtnGroup = `<div class="x-btnGroup"> ${optionsBtnString} </div>`;
+						};
+
+						htmlString +=
+						`<div class="buildTool-formRow">
+							<div class="buildTool-formRow__left">
+								<input class="buildTool-formRow-checkbox" type="checkbox" checked>
+								<div class="buildTool-formRow__left__title"> ${group.name} </div>
+								${optionsBtnGroup}
+							</div>
+							<div class="buildTool-formRow__right"> 
+								<button class="spoiler-btn"><i class="fa fa-info-circle"></i></button> 
+							</div>
+						</div>`;
+					});
+
+					htmlString += '</div> ';
+				}
+
+			} else {
+				htmlString += `<hr> ${item} <hr>`
+			}
+			
 		});
 
-		document.getElementById('generateCheckboxPresets--imgHover').innerHTML = innerHTML_stringToApply;
+		document.getElementById('qweqweqewwq').innerHTML = htmlString;
+
+		Array.from(document.getElementsByClassName('buildTool-formRow-checkbox')).map(function(selectBox){
+			selectBox.addEventListener('change', function(e){
+				let target = e.target;
+				let parent = getFirstParentByClassName(e.target, 'buildTool-formRow');
+				target.checked 
+					? parent.classList.remove('buildTool-formRow--exclude')
+					: parent.classList.add   ('buildTool-formRow--exclude')
+			})
+		})
+
+		// items.map(function(item){
+		// 	if (typeof item === 'object') {
+
+		// 		let optionsString;
+		// 		item.options.map(function(option){
+		// 			optionsString += `<option value="${option}"> ${option} </option> `
+		// 		});
+
+		// 		htmlString +=
+		// 		`<div class="buildTool-formRow">
+		// 			<div class="buildTool-formRow__left">
+		// 				<div class="buildTool-formRow__left__title"> ${item.name} </div>
+		// 				<select class="buildTool-formRow__left__select" data-targetMain="x" data-targetGroup="y">
+		// 					${optionsString}
+		// 				</select>
+		// 			</div>
+		// 			<div class="buildTool-formRow__right"> 
+		// 				<button class="spoiler-btn"><i class="fa fa-info-circle"></i></button> 
+		// 			</div>
+		// 		</div>`
+		// 	} else {
+		// 		htmlString += `<hr> ${item} <hr>`
+		// 	}
+			
+		// });
+
+		// Array.from(document.getElementsByClassName('buildTool-formRow__left__select')).map(function(selectBox){
+		// 	selectBox.addEventListener('change', function(e){
+		// 		let target = e.target;
+		// 		let parent = getFirstParentByClassName(e.target, 'buildTool-formRow');
+		// 		target.value === 'none' 
+		// 			? parent.classList.add   ('buildTool-formRow--exclude')
+		// 			: parent.classList.remove('buildTool-formRow--exclude')
+		// 	})
+		// })
+
 	})();
 
-	(function() {
+	// generate Checkbox Presets
+	// ----------------------------
 
-		var items = [
-			'hasFilter-1977' ,
-			'hasFilter-aden' ,
-			'hasFilter-amaro' ,
-			'hasFilter-ashby' ,
-			'hasFilter-brannan' ,
-			'hasFilter-brooklyn' ,
-			'hasFilter-charmes' ,
-			'hasFilter-clarendon' ,
-			'hasFilter-crema' ,
-			'hasFilter-dogpatch' ,
-			'hasFilter-earlybird' ,
-			'hasFilter-gingham' ,
-			'hasFilter-ginza' ,
-			'hasFilter-hefe' ,
-			'hasFilter-helena' ,
-			'hasFilter-hudson' ,
-			'hasFilter-inkwell' ,
-			'hasFilter-juno' ,
-			'hasFilter-kelvin' ,
-			'hasFilter-lark' ,
-			'hasFilter-lofi' ,
-			'hasFilter-ludwig' ,
-			'hasFilter-maven' ,
-			'hasFilter-mayfair' ,
-			'hasFilter-moon' ,
-			'hasFilter-nashville' ,
-			'hasFilter-perpetua' ,
-			'hasFilter-poprocket' ,
-			'hasFilter-reyes' ,
-			'hasFilter-rise' ,
-			'hasFilter-sierra' ,
-			'hasFilter-skyline' ,
-			'hasFilter-slumber' ,
-			'hasFilter-stinson' ,
-			'hasFilter-sutro' ,
-			'hasFilter-toaster' ,
-			'hasFilter-valencia' ,
-			'hasFilter-vesper' ,
-			'hasFilter-walden' ,
-			'hasFilter-willow' ,
-			'hasFilter-xpro-ii'
-		];
+		// imgHover
+		// ----------------------------
 
-		var innerHTML_stringToApply = '';
-		items.map(function(item){
-			var htmlString =
+			buildTool__generateCheckbox__preset(
+				[
+					'imgHvr-flash' ,
+					'imgHvr-shine' ,
+					'imgHvr-zoomIn' ,
+					'imgHvr-zoomOut' ,
+					'imgHvr-zoomIn-rotateLeft' ,
+					'imgHvr-zoomIn-rotateRight' ,
+					'imgHvr-zoomOut-rotateLeft' ,
+					'imgHvr-zoomOut-rotateRight'
+				] ,
+
+				'effects__imgHover' , 
+
+				'generateCheckboxPresets--imgHover'
+			);
+
+		// filter
+		// ----------------------------
+
+			buildTool__generateCheckbox__preset(
+				[
+					'hasFilter-1977' ,
+					'hasFilter-aden' ,
+					'hasFilter-amaro' ,
+					'hasFilter-ashby' ,
+					'hasFilter-brannan' ,
+					'hasFilter-brooklyn' ,
+					'hasFilter-charmes' ,
+					'hasFilter-clarendon' ,
+					'hasFilter-crema' ,
+					'hasFilter-dogpatch' ,
+					'hasFilter-earlybird' ,
+					'hasFilter-gingham' ,
+					'hasFilter-ginza' ,
+					'hasFilter-hefe' ,
+					'hasFilter-helena' ,
+					'hasFilter-hudson' ,
+					'hasFilter-inkwell' ,
+					'hasFilter-juno' ,
+					'hasFilter-kelvin' ,
+					'hasFilter-lark' ,
+					'hasFilter-lofi' ,
+					'hasFilter-ludwig' ,
+					'hasFilter-maven' ,
+					'hasFilter-mayfair' ,
+					'hasFilter-moon' ,
+					'hasFilter-nashville' ,
+					'hasFilter-perpetua' ,
+					'hasFilter-poprocket' ,
+					'hasFilter-reyes' ,
+					'hasFilter-rise' ,
+					'hasFilter-sierra' ,
+					'hasFilter-skyline' ,
+					'hasFilter-slumber' ,
+					'hasFilter-stinson' ,
+					'hasFilter-sutro' ,
+					'hasFilter-toaster' ,
+					'hasFilter-valencia' ,
+					'hasFilter-vesper' ,
+					'hasFilter-walden' ,
+					'hasFilter-willow' ,
+					'hasFilter-xpro-ii'
+				] ,
+
+				'effects__filter' , 
+
+				'generateCheckboxPresets--filter'
+			);
+
+		// hover
+		// ----------------------------
+
+			buildTool__generateCheckbox__preset(
+				[
+					'push-up-alt' ,
+					'push-down-alt' ,
+					'buzz' ,
+					'buzz-out' ,
+					'bg-sweep' ,
+					'bg-bounce' ,
+					'bg-radial' ,
+					'bg-rectangle' ,
+					'bg-shutter' ,
+					'border-fade' ,
+					'border-reveal' ,
+					'border-outline' ,
+					'border-underline-overline' ,
+					'shadow-glow' ,
+					'shadow-push' ,
+					'bubble-left' ,
+					'bubble-right' ,
+					'bubble-top' ,
+					'bubble-btm' ,
+					'bubble-push-left' ,
+					'bubble-push-right' ,
+					'bubble-push-top' ,
+					'bubble-push-btm' 
+				] ,
+
+				'effects__hover' , 
+
+				'generateCheckboxPresets--hover'
+			);
+
+	function buildTool__generateCheckbox__preset( items__array , target_main__string , targetHTMLElemID__string ) {
+
+		let innerHTML_stringToApply = '';
+
+		items__array.map(function(item){
+			innerHTML_stringToApply +=
 				`<div class="buildTool--generateCheckbox col-4 mb-xs" 
 					data-config="{
-						'checkbox_text' : '`+item+`' ,
-						'checkbox_type' : 'checkbox' ,
-						'checkbox_isChecked' : false ,
-
-						'target_main'  : 'effects__filter' ,
-						'target_group' : '`+item.replace(/-/g, '_')+`' ,
-
-						'ifChecked'    : { 
-							'willGenerate_static'      : true , 
-							'willGenerate_responsive'  : false ,
-							'target_valuesArrayName'   : null
-						} ,
-						'ifUnchecked'  : { 
-							'willGenerate_static'      : false , 
-							'willGenerate_responsive'  : false ,
-							'target_valuesArrayName'   : null 
-						} 
-					}"></div> `;
-
-			// remove line-breask | tab-spaces | make multiple spaces to single space
-			htmlString = htmlString.replace(/\n/g, '').replace(/\t/g, '').replace(/ +/g, ' ');
-
-			innerHTML_stringToApply += htmlString;
-		});
-
-		document.getElementById('generateCheckboxPresets--filter').innerHTML = innerHTML_stringToApply;
-	})();
-
-	(function() {
-
-		var items = [
-			'push-up-alt' ,
-			'push-down-alt' ,
-			'buzz' ,
-			'buzz-out' ,
-			'bg-sweep' ,
-			'bg-bounce' ,
-			'bg-radial' ,
-			'bg-rectangle' ,
-			'bg-shutter' ,
-			'border-fade' ,
-			'border-reveal' ,
-			'border-outline' ,
-			'border-underline-overline' ,
-			'shadow-glow' ,
-			'shadow-push' ,
-			'bubble-left' ,
-			'bubble-right' ,
-			'bubble-top' ,
-			'bubble-btm' ,
-			'bubble-push-left' ,
-			'bubble-push-right' ,
-			'bubble-push-top' ,
-			'bubble-push-btm' 
-		];
-
-		var innerHTML_stringToApply = '';
-		items.map(function(item){
-			var htmlString =
-				`<div class="buildTool--generateCheckbox col-4 mb-xs" 
-					data-config="{
-						'checkbox_text' : '`+item+`' ,
+						'checkbox_text' : '${item}' ,
 						'checkbox_type' : 'checkbox' ,
 						'checkbox_isChecked' : false ,
 
 						'target_main'  : 'effects__hover' ,
-						'target_group' : '`+item.replace(/-/g, '_')+`' ,
+						'target_group' : '${item.replace(/-/g, '_')}' ,
 
 						'ifChecked'    : { 
 							'willGenerate_static'      : true , 
@@ -174,129 +269,113 @@
 							'willGenerate_responsive'  : false ,
 							'target_valuesArrayName'   : null 
 						} 
-					}"></div> `;
-
-			// remove line-breask | tab-spaces | make multiple spaces to single space
-			htmlString = htmlString.replace(/\n/g, '').replace(/\t/g, '').replace(/ +/g, ' ');
-
-			innerHTML_stringToApply += htmlString;
+					}"></div> `
 		});
 
-		document.getElementById('generateCheckboxPresets--hover').innerHTML = innerHTML_stringToApply;
-	})();
+		document.getElementById(targetHTMLElemID__string).innerHTML = buildTool__removeStringSpaces(innerHTML_stringToApply);
+	};
+
+	function buildTool__removeStringSpaces(data__string) { return data__string.replace(/\n/g, '').replace(/\t/g, '').replace(/ +/g, ' ') };
+
+
+
 
 	function buildTool_generateCheckboxes( targetCheckbox__elem ) {
 
 		var configObj = JSON.parse(targetCheckbox__elem.getAttribute('data-config').replace(/'/g, '"'));
 
-		// if the checkbox/radio is checked or not
-		var stringToSet__isChecked  = (configObj.checkbox_isChecked ? 'checked ' : '');
-
-		var stringToSet__extraClassNames = '';
-		var stringToSet__targetFile = '';
-
 		if (configObj.targetFile) {
-
-			stringToSet__extraClassNames = 'buildTool--checkbox--generateDirectlyFromFile';
-			stringToSet__targetFile = 'data-targetFile="'+configObj.targetFile+'" ';
 
 			// apply the HTML
 			targetCheckbox__elem.innerHTML =
-				'<label class="field--toggle field__background--radial--out"> ' 			+
+				`<label class="field--toggle field__background--radial--out">
+					<input  
+						class="buildTool--checkbox  buildTool--checkbox--generateDirectlyFromFile" 
+						type="${configObj.checkbox_type}" 
+						data-targetFile="${configObj.targetFile}" 
+						${configObj.checkbox_isChecked ? 'checked ' : ''} 
+					/>
 
-					'<input class="buildTool--checkbox '+stringToSet__extraClassNames+'" '	+
-						'type="'+configObj.checkbox_type+'" '+
-						stringToSet__isChecked +
-						stringToSet__targetFile + ' /> '+
-
-					'<div class="field__checkbox"></div>'									+
-					'<div class="field__text">'+configObj.checkbox_text+'</div>'			+
-					'<div class="field__background"></div>'									+
-				'</label>'																	;
+					<div class="field__checkbox"></div>
+					<div class="field__text">${configObj.checkbox_text}</div>
+					<div class="field__background"></div>
+				</label>`;
 
 		} else {
 
 			// if radio - generate a 'name' attribute, to link them
-			var stringToSet__radioName = '';
-			if (configObj.checkbox_type === 'radio') { 
-				stringToSet__radioName = 'name="'+configObj.target_main+'--'+configObj.target_group+'" ' 
-			};
-
-			var stringToSet__data_main = (configObj.target_main
-				? 'data-main="'+configObj.target_main+'" '
+			let stringToSet__radioName = (configObj.checkbox_type === 'radio'
+				? `name="${configObj.target_main}--${configObj.target_group}" ` 
 				: '');
 
-			var stringToSet__data_group = (configObj.target_group
-				? 'data-group="'+configObj.target_group+'" '
-				: '');
+			let stringToSet__data_main  = (configObj.target_main  ? ` data-main="${configObj.target_main}" `   : '');
+			let stringToSet__data_group = (configObj.target_group ? ` data-group="${configObj.target_group}" ` : '');
 
 			// generate [ ifChecked ] / [ ifUncheched ] JSONs
-			var stringToSet__data_ifChecked = (configObj.ifChecked
-				? 'data-ifChecked="'   + JSON.stringify(configObj.ifChecked)  .replace(/"/g, "'") + '" '
+			let stringToSet__data_ifChecked = (configObj.ifChecked
+				? ` data-ifChecked="${JSON.stringify(configObj.ifChecked).replace(/"/g, "'")}" `
 				: '');
-
-			var stringToSet__data_ifUnchecked = (configObj.ifUnchecked 
-				? 'data-ifUnchecked="' + JSON.stringify(configObj.ifUnchecked).replace(/"/g, "'") + '" ' 
+			let stringToSet__data_ifUnchecked = (configObj.ifUnchecked 
+				? ` data-ifUnchecked="${JSON.stringify(configObj.ifUnchecked).replace(/"/g, "'")}" ` 
 				: '');
 
 			// apply the HTML
 			targetCheckbox__elem.innerHTML =
-				'<label class="field--toggle field__background--radial--out"> ' 			+
+				`<label class="field--toggle field__background--radial--out">
 
-					'<input class="buildTool--checkbox" type="'+configObj.checkbox_type+'" '+
-						stringToSet__radioName +
-						stringToSet__isChecked +
-						stringToSet__data_main + 
-						stringToSet__data_group +
-						stringToSet__data_ifChecked + 
-						stringToSet__data_ifUnchecked + ' /> '+
+					<input class="buildTool--checkbox" type="${configObj.checkbox_type}" 
+						${stringToSet__radioName}
+						${stringToSet__data_main}
+						${stringToSet__data_group}
+						${stringToSet__data_ifChecked}
+						${stringToSet__data_ifUnchecked}
+						${configObj.checkbox_isChecked ? 'checked ' : ''}
+					/>
 
-					'<div class="field__checkbox"></div>'									+
-					'<div class="field__text">'+configObj.checkbox_text+'</div>'			+
-					'<div class="field__background"></div>'									+
-				'</label>'																	;
+					<div class="field__checkbox"></div>
+					<div class="field__text">${configObj.checkbox_text}</div>
+					<div class="field__background"></div>
+				</label>`;
 		};
-
-		
 
 		// cleanup
 		targetCheckbox__elem.removeAttribute('data-config');
 		configObj = null;
 	};
 
-	Array.from(document.getElementsByClassName('buildTool--generateCheckbox')).map(x => buildTool_generateCheckboxes(x));
-
 	function buildTool_generateInputGroups( targetInputGroup__elem ) {
 
 		var configObj = JSON.parse(targetInputGroup__elem.getAttribute('data-config').replace(/'/g, '"'));
 
 		targetInputGroup__elem.innerHTML =
-			'<div class="col-11 p-0"> ' +
+			`<div class="col-11 p-0">
+				<div class="col-6 p-0">
+					<label class="field--text">
+						<input class="buildTool--valueInput--name" type="text" placeholder="Name"
+							value="${configObj.default_name}" required/>
+						<div class="field__validation"></div>
+					</label>
+				</div>
 
-				'<div class="col-6 p-0"> ' +
-					'<label class="field--text"> ' +
-						'<input class="buildTool--valueInput--name" type="text" placeholder="Name" ' +
-							'value="'+configObj.default_name+'" required/> ' +
-						'<div class="field__validation"></div> ' +
-					'</label> ' +
-				'</div> ' +
+				<div class="col-6 p-0">
+					<label class="field--text">
+						<input class="buildTool--valueInput--value" type="text" placeholder="Value"
+							value="${configObj.default_value}" required/>
+						<div class="field__validation"></div>
+					</label>
+				</div>
+			</div>
 
-				'<div class="col-6 p-0"> ' +
-					'<label class="field--text"> ' +
-						'<input class="buildTool--valueInput--value" type="text" placeholder="Value" ' + 
-							'value="'+configObj.default_value+'" required/> ' +
-						'<div class="field__validation"></div> ' +
-					'</label> ' +
-				'</div> ' +
-			'</div> ' +
-
-			'<button class="col-1 p-0 buildTool--valueInput--removeItemBtn"> X </button> ' ;
+			<button class="col-1 p-0 buildTool--valueInput--removeItemBtn"> X </button> ` ;
 
 		targetInputGroup__elem.setAttribute('data-target', configObj.target_main);
+
+		// cleanup
 		targetInputGroup__elem.removeAttribute('data-config');
 		configObj = null;
 	};
 
+	Array.from(document.getElementsByClassName('buildTool--generateCheckbox')).map(x => buildTool_generateCheckboxes(x));
 	Array.from(document.getElementsByClassName('buildTool--generateInputGroup--setValues')).map(x => buildTool_generateInputGroups(x));
 
 	var viewportPrefixes = [ 

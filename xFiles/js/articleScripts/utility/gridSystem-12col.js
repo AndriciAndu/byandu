@@ -4,7 +4,7 @@
 		// Checkboxes
 		// --------------------------------
 
-			var checkboxes_css = [ 'col-size' , 'col-pull' , 'col-push' , 'col-offset' ];
+			var demoItemsArray = [ 'col-size' , 'col-pull' , 'col-push' , 'col-offset' ];
 
 		// Code Blocks
 		// --------------------------------
@@ -777,7 +777,7 @@
 
 			var paramObj = {
 				checkBoxes : {
-					css : checkboxes_css
+					css : demoItemsArray
 				} ,
 
 				codeBlocks : {
@@ -788,9 +788,9 @@
 			byAndu.pageConfigObj_setupObj(obj_deepClone(paramObj)); paramObj = undefined;
 			byAndu.pageConfigObj_runConfig();
 
-			checkboxes_css = null;
-			codeBlocks_css = null;
-			paramObj = null;
+			// demoItemsArray = null;
+			// codeBlocks_css = null;
+			// paramObj = null;
 
 	})();
 

@@ -1056,6 +1056,126 @@
 
 			let iconExtraStyleClass = codeBlockObject.icons_extraStyleClass || '';
 
+			let asteriskUtilityDebugger__HTMLString = 
+				`<div class="accordion">
+					<div class="accordion-group">
+						<button class="accordion-btn"> Dependency : [asterisk utility debugger] object </button>
+						<div class="accordion-content">
+
+							<p> All <span class="wrapper"><i class="fa fa-code"></i> &nbsp; Logs</span> Utility Functions share a common dependency. This must be present <b-r>before</b-r> any <span class="wrapper"><i class="fa fa-code"></i> &nbsp; Logs</span> Utility Function is called. </p>
+							<p> This is automatically included within the buildGenerator. </p>
+
+							<div class="wrapper py-0">
+								<div class="copyContext-btnContainer copyContext-btnContainer--syntacticSugar" data-copyContextId="${codeBlockObject.name}-logDependency">
+									<button class="copyContext-btn copyContext-btn-copyText"> </button>
+									<button class="copyContext-btn copyContext-btn-showLightbox"> </button>
+								</div>
+
+								<div class="copyContext" data-copyContextId="${codeBlockObject.name}-logDependency"> 
+									<pre class="pre-removeTabSpaces">
+									    <i class="comment">// Utility debugger</i>
+									    <i class="comment">// ----------------------------</i>
+
+										        let <b>asteriskUtilityDebugger</b> = {};
+
+										        <i class="comment">// Check validity of arguments</i>
+										        <i class="comment">// ----------------------------</i>
+
+										            <b>asteriskUtilityDebugger</b>.<b-p>areArgumentsTypesValid__returnBoolean</b-p> = function( arguments__obj ) {
+										                return Object.keys(arguments__obj).find(function(key) {
+										                    let arg = arguments__obj[key];
+										                    if      ( (key.indexOf('__HTMLElem') > -1) && !(arg instanceof HTMLElement) ) { return true }
+										                    else if ( (key.indexOf('__string')   > -1) && !(typeof arg === 'string')    ) { return true }
+										                }) === undefined;
+										            };
+
+										        <i class="comment">// Create log objects -- used when logging warnings/errors</i>
+										        <i class="comment">// ----------------------------</i>
+
+										            <b>asteriskUtilityDebugger</b>.<b-p>createLogArguments</b-p> = function( arguments__obj ) {
+
+										                let logArguments = [];
+
+										                Object.keys(arguments__obj).map(function(key){
+										                    let argumentName = key;
+										                    let providedArgument = arguments__obj[key];
+										                    let currentType = typeof providedArgument;
+										                    let requiredType, isValid;
+
+										                    if (argumentName.indexOf('__HTMLElem')>-1) { 
+										                        requiredType = 'HTMLElement (object)';
+										                        isValid = providedArgument instanceof HTMLElement;
+										                    } else if (argumentName.indexOf('__string')>-1) { 
+										                        requiredType = 'string';
+										                        isValid = typeof providedArgument === 'string';
+										                    };
+
+										                    logArguments.push({
+										                        argumentName     ,
+										                        isValid          ,
+										                        providedArgument ,
+										                        currentType      ,
+										                        requiredType
+										                    })
+										                });
+
+										                return logArguments
+										            };
+
+										        <i class="comment">// Warning/Error </i>
+										        <i class="comment">// ----------------------------</i>
+
+										            <b>asteriskUtilityDebugger</b>.<b-p>createLog</b-p> = function( scenario__string , arguments__obj , logMessages__array ) {
+
+										                let logArguments = <b>asteriskUtilityDebugger</b>.createLogArguments(arguments__obj);
+										                let argumentsString = Object.keys(arguments__obj).join(' , ');
+										                let callerFunctionName = arguments.callee.caller.name;
+
+										                <i class="comment">// Styles for the console.log()</i>
+										                <i class="comment">// ----------------------------</i>
+
+										                    let logStyles = {
+										                        'error'     : 'color: crimson;'   ,
+										                        'warning'   : 'color: orangered;' ,
+										                        'function'  : 'color: teal;'      ,
+										                        'argument'  : 'color: navy;'      ,
+										                        'wrap'      : 'font-weight: bold; background-color: rgba(3,3,3,.1);' ,
+										                        'reset'     : '' 
+										                    };
+
+										                switch (scenario__string) {
+
+										                    case 'warning' :
+										                        console.groupCollapsed(
+										                            \`%c&#92;u2691 Warning %c| &#36;{callerFunctionName}(%c &#36;{argumentsString} %c) | \`, 
+										                            logStyles['warning'] , logStyles['function'], logStyles['argument'], logStyles['function'],  
+										                            ...logMessages__array);
+										                            console.table(logArguments);
+										                            console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+										                            console.log('─────────────────────');
+										                        console.groupEnd();
+										                        break;
+
+										                    case 'typeError' :
+										                        console.groupCollapsed(
+										                            \`%c&#92;u274C Error Report %c| &#36;{callerFunctionName}(%c &#36;{argumentsString} %c) | \`, 
+										                            logStyles['error'] , logStyles['function'], logStyles['argument'], logStyles['function'],  
+										                            'Invalid function arguments :');
+										                            console.table(logArguments);
+										                            console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+										                            console.log('─────────────────────');
+										                        console.groupEnd();
+
+										                        throw new TypeError(\`&#36;{callerFunctionName}( &#36;{argumentsString} ) | Invalid function arguments. Check [Error Report] above.\`);
+										                }
+										            };
+									</pre> 
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>`;
+
 			let HTMLcodeString = 
 				`<div class="title-withSpoilerBtn">
 					<div class="col-12 sm-col-5"> 
@@ -1101,6 +1221,9 @@
 									</div>
 								</div>
 								<div class="tabs-content"						 data-tabs-id="3">
+
+									${asteriskUtilityDebugger__HTMLString}
+
 									<div class="wrapper py-0"> 
 										<div class="copyContext-btnContainer copyContext-btnContainer--syntacticSugar" data-copyContextId="${codeBlockObject.name}-3">
 											<button class="copyContext-btn copyContext-btn-copyText"> </button>

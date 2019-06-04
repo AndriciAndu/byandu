@@ -1,166 +1,131 @@
 
-						//let allParametersAreValid = (logArguments.find(x => !x.isValid) === undefined);
-
 // https://pawelgrzybek.com/page-scroll-in-vanilla-javascript/
- 
-
 // CREATE VERSION WITH ENCAPSULATION // asterisk.hasClass() etc
 // OR NOT - clean utility named functions should not interfere
-
 // components and initialization - within componentsObject
 
-// https://davidwalsh.name/javascript-arguments
-function getArgs(func) {
-  // First match everything inside the function argument parens.
-  var args = func.toString().match(/function\s.*?\(([^)]*)\)/)[1];
- 
-  // Split the arguments string into an array comma delimited.
-  return args.split(',').map(function(arg) {
-    // Ensure no inline comments are parsed and trim the whitespace.
-    return arg.replace(/\/\*.*\*\//, '').trim();
-  }).filter(function(arg) {
-    // Ensure no undefined values are added.
-    return arg;
-  });
-}
+var asdasd = document.createElement('div');
+asdasd.classList = "myClass asdfmxnuih a b c d";
 
+// Utility debugger
+// ----------------------------
 
+	let asteriskUtilityDebugger = {};
 
-	function elem_removeChildren ( elem ) {
-
-		if (elem instanceof HTMLElement) {
-			var trashBin = document.createElement('DIV');
-
-			var children = Array.from(elem.querySelectorAll('*'));
-			children.map(x => trashBin.appendChild(x));
-
-			children.map(function(x) { 
-
-				trashBin.removeChild(x);
-				x.innerHTML = '';
-				x = null;
-
-				for (var key in x) {
-					if (x.hasOwnProperty(key)) {
-						x[key] = undefined
-					}
-				};
-			});
-
-			trashBin.innerHTML = '';
-		}
-	};
-
-
-	function obj_deepClone( myObject ) {
-		return JSON.parse(JSON.stringify(myObject));
-	};
-
-	function isObject ( item ) {
-		return (typeof item === "object" && !Array.isArray(item) && item !== null);
-	};
-
-
-
-	var asdasd = document.createElement('div');
-	asdasd.classList = "myClass asdfmnuih";
-
-	// Utility debugger
+	// Check validity of arguments
 	// ----------------------------
 
-		let asteriskUtilityDebugger = {};
+		asteriskUtilityDebugger.areArgumentsTypesValid__returnBoolean = function( arguments__obj ) {
 
-		// Check validity of arguments
-		// ----------------------------
+			return Object.keys(arguments__obj).find(function(key) {
 
-			asteriskUtilityDebugger.areArgumentsTypesValid__returnBoolean = function( arguments__obj ) {
-				return Object.keys(arguments__obj).find(function(key) {
-					let arg = arguments__obj[key];
-					if      ( (key.indexOf('__HTMLElem') > -1) && !(arg instanceof HTMLElement) ) { return true }
-					else if ( (key.indexOf('__string')   > -1) && !(typeof arg === 'string')    ) { return true }
-				}) === undefined;
-			};
+				let arg = arguments__obj[key];
 
-		// Warning
-		// ----------------------------
+				if      ( (key.indexOf('__HTMLElem') > -1) && !(arg instanceof HTMLElement) ) { return true }
+				else if ( (key.indexOf('__string')   > -1) && !(typeof arg === 'string')    ) { return true }
+				else if ( (key.indexOf('__array')    > -1) && !(Array.isArray(arg))         ) { return true }
 
-			asteriskUtilityDebugger.createLog = function( scenario__string , arguments__obj , logMessages__array ) {
+			}) === undefined
+		};
 
-				let logArguments = asteriskUtilityDebugger.createLogArguments(arguments__obj);
-				let argumentsString = Object.keys(arguments__obj).join(' , ');
-				let callerFunctionName = arguments.callee.caller.name;
+	// Create log objects -- used when logging warnings/errors
+	// ----------------------------
 
-				// Styles for the console.log()
-				// ----------------------------
+		asteriskUtilityDebugger.createLogArguments = function( arguments__obj ) {
 
-					let logStyles = {
-						'error'     : 'color: crimson;'   ,
-						'warning'   : 'color: orangered;' ,
-						'function'  : 'color: teal;'      ,
-						'argument'  : 'color: navy;'      ,
-						'wrap'      : 'font-weight: bold; background-color: rgba(3,3,3,.1);' ,
-						'reset'     : '' 
-					};
+			let logArguments = [];
 
-				switch (scenario__string) {
+			Object.keys(arguments__obj).map(function(key){
+				let argumentName = key;
+				let providedArgument = arguments__obj[key];
+				let currentType = typeof providedArgument;
+				let requiredType, isValid;
 
-					case 'warning' :
-						console.groupCollapsed(
-							`%c\u2691 Warning %c| ${callerFunctionName}(%c ${argumentsString} %c) | `, 
-							logStyles['warning'] , logStyles['function'], logStyles['argument'], logStyles['function'],  
-							...logMessages__array);
-							console.table(logArguments);
-							console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
-							console.log('─────────────────────');
-						console.groupEnd();
-						break;
+				if (argumentName.indexOf('__HTMLElem')>-1) { 
+					requiredType = 'HTMLElement (object)';
+					isValid = providedArgument instanceof HTMLElement;
+				} else if (argumentName.indexOf('__string')>-1) { 
+					requiredType = 'string';
+					isValid = typeof providedArgument === 'string';
+				} else if (argumentName.indexOf('__array')>-1) { 
+					requiredType = 'array';
+					isValid = Array.isArray(providedArgument);
+				};
 
-					case 'typeError' :
-						console.groupCollapsed(
-							`%c\u274C Error Report %c| ${callerFunctionName}(%c ${argumentsString} %c) | `, 
-							logStyles['error'] , logStyles['function'], logStyles['argument'], logStyles['function'],  
-							'Invalid function arguments :');
-							console.table(logArguments);
-							console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
-							console.log('─────────────────────');
-						console.groupEnd();
+				logArguments.push({
+					argumentName     ,
+					isValid          ,
+					providedArgument ,
+					currentType      ,
+					requiredType
+				})
+			});
 
-						throw new TypeError(`${callerFunctionName}( ${argumentsString} ) | Invalid function arguments. Check [Error Report] above.`);
-				}
-			};
+			return logArguments
+		};
 
-		// Create log objects -- used when logging warnings/errors
-		// ----------------------------
+	// Warning / Error
+	// ----------------------------
 
-			asteriskUtilityDebugger.createLogArguments = function( arguments__obj ) {
+		asteriskUtilityDebugger.createLog = function( scenario__string , arguments__obj , logMessages__array ) {
 
-				let logArguments = [];
+			let logArguments = asteriskUtilityDebugger.createLogArguments(arguments__obj);
+			let argumentsString = Object.keys(arguments__obj).join(' , ');
+			let callerFunctionName = arguments.callee.caller.name;
 
-				Object.keys(arguments__obj).map(function(key){
-					let argumentName = key;
-					let providedArgument = arguments__obj[key];
-					let currentType = typeof providedArgument;
-					let requiredType, isValid;
+			// Styles for the console.log()
+			// ----------------------------
 
-					if (argumentName.indexOf('__HTMLElem')>-1) { 
-						requiredType = 'HTMLElement (object)';
-						isValid = providedArgument instanceof HTMLElement;
-					} else if (argumentName.indexOf('__string')>-1) { 
-						requiredType = 'string';
-						isValid = typeof providedArgument === 'string';
-					};
+				let logStyles = {
+					'error'     : 'color: crimson;'   ,
+					'warning'   : 'color: orangered;' ,
+					'function'  : 'color: teal;'      ,
+					'argument'  : 'color: navy;'      ,
+					'wrap'      : 'font-weight: bold; background-color: rgba(3,3,3,.1);' ,
+					'reset'     : '' 
+				};
 
-					logArguments.push({
-						argumentName     ,
-						isValid          ,
-						providedArgument ,
-						currentType      ,
-						requiredType
-					})
-				});
+			switch (scenario__string) {
 
-				return logArguments
-			};
+				case 'warning' :
+					console.groupCollapsed(
+						`%c\u2691 Warning %c| ${callerFunctionName}(%c ${argumentsString} %c) | `, 
+						logStyles['warning'] , logStyles['function'], logStyles['argument'], logStyles['function'],  
+						...logMessages__array);
+						console.table(logArguments);
+						console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+						console.log('─────────────────────');
+					console.groupEnd();
+					break;
+
+				// case 'typeError--secondary' :
+				// 	console.groupCollapsed(
+				// 		`%c\u274C Error Report %c| ${callerFunctionName}(%c ${argumentsString} %c) | `, 
+				// 		logStyles['error'] , logStyles['function'], logStyles['argument'], logStyles['function'],  
+				// 		'Invalid [Array item] within given function arguments :');
+				// 		console.table(logArguments);
+				// 		console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+				// 		console.log('─────────────────────');
+				// 	console.groupEnd();
+
+				// 	throw new TypeError(`${callerFunctionName}( ${argumentsString} ) | Invalid function arguments. Check [Error Report] above.`);
+				// 	break;
+
+				case 'typeError' :
+					console.groupCollapsed(
+						`%c\u274C Error Report %c| ${callerFunctionName}(%c ${argumentsString} %c) | `, 
+						logStyles['error'] , logStyles['function'], logStyles['argument'], logStyles['function'],  
+						'Invalid function arguments :');
+						console.table(logArguments);
+						console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
+						console.log('─────────────────────');
+					console.groupEnd();
+
+					throw new TypeError(`${callerFunctionName}( ${argumentsString} ) | Invalid function arguments. Check [Error Report] above.`);
+					break;
+			}
+		};
+
 
 // Checks || has* is*
 // ----------------------------
@@ -192,9 +157,12 @@ function getArgs(func) {
 					};
 				};
 
-				// hasClass(asdasd);
-				// hasClass('asd');
-				//hasClass(asdasd, 12);
+				// Test cases
+				// ----------------------------
+
+					// hasClass(asdasd);
+					// hasClass('asd');
+					// hasClass(asdasd, 12);
 
 			// Min
 			// ----------------------------
@@ -207,126 +175,30 @@ function getArgs(func) {
 			// Baseline
 			// ----------------------------
 
-				function hasAnyClass ( target__HTMLElem , classes__Array ) {
-					return classes__Array.find(klass => (" " + target__HTMLElem.className + " " ).indexOf( " " + klass + " " ) > -1) !== undefined
+				function hasAnyClass ( target__HTMLElem , classes__array ) {
+					return classes__array.find(klass => (" " + target__HTMLElem.className + " " ).indexOf( " " + klass + " " ) > -1) !== undefined
 				};
 
 			// Log
 			// ----------------------------
 
-				function hasAnyClass ( target__HTMLElem , classes__Array ) {
+				function hasAnyClass ( target__HTMLElem , classes__array ) {
 
-					// Create log objects -- used when logging warnings/errors
-					// ----------------------------
+					let args = { target__HTMLElem , classes__array };
 
-						function createLogArguments( obj ) {
-
-							let logArguments = [];
-
-							Object.keys(obj).map(function(key){
-								let argumentName = key;
-								let providedArgument = obj[key];
-								let currentType = typeof providedArgument;
-								let requiredType, isValid;
-
-								if (argumentName.indexOf('__HTMLElem')>-1) { 
-									requiredType = 'HTMLElement (object)';
-									isValid = providedArgument instanceof HTMLElement;
-								} else if (argumentName.indexOf('__Array')>-1) { 
-									requiredType = 'array';
-									isValid = providedArgument instanceof Array;
-								};
-
-								logArguments.push({
-									argumentName     ,
-									isValid          ,
-									providedArgument ,
-									currentType      ,
-									requiredType
-								})
-							});
-
-							return logArguments
-						};
-
-						let logArguments = createLogArguments( { target__HTMLElem , classes__Array } );
-						let allParametersAreValid = (logArguments.find(x => !x.isValid) === undefined);
-
-					// Styles for the console.log()
-					// ----------------------------
-
-						let logStyles = {
-							'error'     : 'color: crimson;'   ,
-							'warning'   : 'color: orangered;' ,
-							'function'  : 'color: teal;'      ,
-							'argument'  : 'color: navy;'  
-						};
-
-					// Normal function run
-					// ----------------------------
-
-					if ( allParametersAreValid ) {
-
-						let invalidTypesFound = false;
-
-						let wasAnyClassFound__Boolean = classes__Array.find( function(klass) {
-							if (typeof klass !== 'string') {
-								invalidTypesFound = true;
-								return false
-							} else {
-								return (" " + target__HTMLElem.className + " " ).indexOf( " " + klass + " " ) > -1 
-							}
-						}) !== undefined;
-
-						if (invalidTypesFound) {
-
-							let warning_logArguments = [];
-
-							classes__Array.map(function(x){
-								let obj = {
-									name    : x ,
-									isValid : (typeof x === 'string') ,
-									type    : (typeof x) ,
-									requiredType : 'string'
-								};
-								warning_logArguments.push(obj)
-							});
-
-							console.groupCollapsed(
-								'%c\u2691 Warning %c| hasAnyClass(%ctarget__HTMLElem , classes__Array%c) | ', 
-								logStyles['warning'] , logStyles['function'], logStyles['argument'], logStyles['function'], 
-								'Invalid arguments were found within : ', classes__Array);
-
-								console.table(warning_logArguments);
-								console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
-								console.log('─────────────────────');
-							console.groupEnd();
-						};
-
-						return wasAnyClassFound__Boolean
-
-					// log [Error (Silent)] -- if any parameter is Invalid 
-					// ----------------------------
-
+					if (asteriskUtilityDebugger.areArgumentsTypesValid__returnBoolean(args)) {
+						return classes__array.find(klass => (" " + target__HTMLElem.className + " " ).indexOf( " " + klass + " " ) > -1) !== undefined 
 					} else {
-
-						console.groupCollapsed(
-							'%c\u274C Error (Silent) %c| hasAnyClass(%ctarget__HTMLElem, classes__Array %c) | ', 
-							logStyles['error'] , logStyles['function'], logStyles['argument'], logStyles['function'],  
-							'Invalid function arguments :');
-							console.table(logArguments);
-							console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
-							console.log('─────────────────────');
-						console.groupEnd();
-
-						return false
-
+						asteriskUtilityDebugger.createLog('typeError' , args)
 					}
 				};
 
-				// hasAnyClass(asdasd , ['asd', 24]);
-				// hasAnyClass('asd');
-				// hasAnyClass(asdasd, 12);
+				// Test cases
+				// ----------------------------
+
+					// hasAnyClass(asdasd , ['asd', 24]);
+					// hasAnyClass('asd');
+					// hasAnyClass(asdasd, 12);
 
 			// Min
 			// ----------------------------
@@ -340,7 +212,7 @@ function getArgs(func) {
 			// ----------------------------
 
 				function hasTag ( target__HTMLElem , tagName__string ) {
-					return target__HTMLElem.tagName == tagName__string.toUpperCase()
+					return target__HTMLElem.tagName === tagName__string.toUpperCase()
 				};
 
 			// Log
@@ -348,157 +220,107 @@ function getArgs(func) {
 
 				function hasTag ( target__HTMLElem , tagName__string ) {
 
-					// Create log objects -- used when logging warnings/errors
-					// ----------------------------
+					let args = { target__HTMLElem , tagName__string };
 
-						function createLogArguments( obj ) {
-
-							let logArguments = [];
-
-							Object.keys(obj).map(function(key){
-								let argumentName = key;
-								let providedArgument = obj[key];
-								let currentType = typeof providedArgument;
-								let requiredType, isValid;
-
-								if (argumentName.indexOf('__HTMLElem')>-1) { 
-									requiredType = 'HTMLElement (object)';
-									isValid = providedArgument instanceof HTMLElement;
-								} else if (argumentName.indexOf('__string')>-1) { 
-									requiredType = 'string';
-									isValid = typeof providedArgument === 'string';
-								};
-
-								logArguments.push({
-									argumentName     ,
-									isValid          ,
-									providedArgument ,
-									currentType      ,
-									requiredType
-								})
-							});
-
-							return logArguments
-						};
-
-						let logArguments = createLogArguments( { target__HTMLElem , tagName__string } );
-						let allParametersAreValid = (logArguments.find(x => !x.isValid) === undefined);
-
-					// Styles for the console.log()
-					// ----------------------------
-
-						let logStyles = {
-							'error'     : 'color: crimson;'   ,
-							'warning'   : 'color: orangered;' ,
-							'function'  : 'color: teal;'      ,
-							'argument'  : 'color: navy;'  
-						};
-
-					// Normal function run
-					// ----------------------------
-
-					if ( allParametersAreValid ) {
-
-						return target__HTMLElem.tagName == tagName__string.toUpperCase()
-
-					// log [Error (Silent)] -- if any parameter is Invalid 
-					// ----------------------------
-
+					if (asteriskUtilityDebugger.areArgumentsTypesValid__returnBoolean(args)) {
+						return target__HTMLElem.tagName === tagName__string.toUpperCase()
 					} else {
-
-						console.groupCollapsed(
-							'%c\u274C Error (Silent) %c| hasTag(%ctarget__HTMLElem, tagName__string %c) | ', 
-							logStyles['error'] , logStyles['function'], logStyles['argument'], logStyles['function'],  
-							'Invalid function arguments :');
-							console.table(logArguments);
-							console.groupCollapsed('Show Trace'); console.trace(); console.groupEnd();
-							console.log('─────────────────────');
-						console.groupEnd();
-
-						return []
-
+						asteriskUtilityDebugger.createLog('typeError' , args)
 					}
 				};
 
-				// hasTag(asdasd);
-				// hasTag('asd');
-				// hasTag(asdasd, 12);
+				// Test cases
+				// ----------------------------
+
+					// hasTag(asdasd);
+					// hasTag('asd');
+					// hasTag(asdasd, 12);
 
 			// Min
 			// ----------------------------
 
 				// function hasTag(a,b){return a.tagName==b.toUpperCase()};
 
-
-
-		
- 
 		// hasAnyTag()
 		// ----------------------------
 
-			function hasAnyTag( elem, ...tagNames ) {
+			// Baseline
+			// ----------------------------
 
-				// to accept both scenarios: array of tagName-strings || multiple individual tagName-strings
-				if (Array.isArray(tagNames[0])) { tagNames = tagNames[0] };
+				function hasAnyTag( target__HTMLElem , tagNames__array ) {
+					return tagNames__array.find(tagName => target__HTMLElem.tagName === tagName.toUpperCase()) !== undefined 
+				};
 
-				var result = tagNames.find( current_tag => elem.tagName.toUpperCase() == current_tag );
+			// Log
+			// ----------------------------
 
-				return result !== undefined
+				function hasAnyTag( target__HTMLElem , tagNames__array ) {
 
-			};
+					let args = { target__HTMLElem , tagNames__array };
 
-	// is*
+					if (asteriskUtilityDebugger.areArgumentsTypesValid__returnBoolean(args)) {
+						return tagNames__array.find(tagName => target__HTMLElem.tagName === tagName.toUpperCase()) !== undefined 
+					} else {
+						asteriskUtilityDebugger.createLog('typeError' , args)
+					}
+				};
+
+				// Test cases
+				// ----------------------------
+
+					// hasAnyTag(asdasd , ['asd', 24]);
+					// hasAnyTag('asd');
+					// hasAnyTag(asdasd, 12);
+
+			// Min
+			// ----------------------------
+
+				// function hasAnyTag(a,b){return b.find(c=>a.tagName===c.toUpperCase())!==undefined}
+
+	// is* [Value Type]
 	// ----------------------------
 
 		// isElement()
 		// ----------------------------
-			function isElement(target) {
-				return target instanceof HTMLElement
+
+			function isElement(a) {
+				return a instanceof HTMLElement
 			};
 
 		// isHTMLCollection()
 		// ----------------------------
 
-			function isHTMLCollection(target) {
-				return target instanceof HTMLCollection
+			function isHTMLCollection(a) {
+				return a instanceof HTMLCollection
 			};
 
-			function isHTMLCollectionOrArray(targetVariable) { 
-				return targetVariable instanceof HTMLCollection || targetVariable.constructor === Array
+		// isArray()
+		// ----------------------------
+
+			function isArray(a) {
+				return Array.isArray(a)
 			};
 
 		// isString()
 		// ----------------------------
 
-			function isString(current_input) {
-				return (typeof current_input === 'string' || current_input instanceof String)
+			function isString(a) {
+				return typeof a === 'string'
 			};
 			
 		// isJSON()
 		// ----------------------------
 
-			function isJSON(data__string) {
-
-				if (typeof data__string === 'string' || data__string instanceof String) {
-
-					try 		{ JSON.parse(data__string)  } 
-					catch (e) 	{ return false 				};
-
-					return true
-					
-				} else {
-
-					console.log('Invalid input for', isJSON, ' : The argument [data__string] must be a [String]');
-					console.log('Provided [data__string] value is : ', data__string)
-					console.trace();
-					console.log('----------------------');
-
-					return false
-
-				}
-
+			function isJSON(a) {
+				try { JSON.parse(a) } catch(e) { return false } return true
 			};
+			
+		// isObject()
+		// ----------------------------
 
+			function isObject(a) {
+				return (typeof a === "object" && !Array.isArray(a) && a !== null)
+			};
 
 // Returns || get* fetch*
 // ----------------------------
@@ -946,7 +768,6 @@ function getArgs(func) {
 
 				// function getFirstParentByTagName(a,b){let x=b.toUpperCase(),y=a.parentElement,z=false;while(y&&!z){y.tagName===x?z=!z:y=y.parentElement};return y}
 
-
 	// Siblings
 	// ----------------------------
 
@@ -1231,7 +1052,6 @@ function getArgs(func) {
 
 				// function getSiblingsByTagName(a,b){let x=b.toUpperCase(),y=a.parentElement.firstElementChild,z=[];while(y){(y!==a&&y.tagName===x)&&z.push(y);y=y.nextElementSibling};return z};
 
-
 	// Children
 	// ----------------------------
 
@@ -1418,36 +1238,6 @@ function getArgs(func) {
 				// function getChildrenByTagName(a,b){let x=b.toUpperCase(),y=a.firstElementChild,z=[];while(y){y.tagName===x&&z.push(y);y=y.nextElementSibling};return z};
 
 
-	// getOwnedClasses()
-	// ----------------------------
-
-		function getOwnedClasses( elem , ...classes ) {
-
-			// to accept both scenarios: array-of-classes || multiple class strings
-			if (Array.isArray(classes[0])) { classes = classes[0] };
-
-			var resultsArray = classes.filter( klass => (" " + elem.className + " " ).indexOf( " " + klass + " " ) > -1 );
-
-			if (resultsArray.length > 0) 	{ return resultsArray 	}
-			else 							{ return null  			}
-
-		};
-
-	// getFirstClass()
-	// ----------------------------
-
-		function getFirstClass( elem, ...classes ) {
-
-			// to accept both scenarios: array-of-classes || multiple class strings
-			if (Array.isArray(classes[0])) { classes = classes[0] };
-
-			var result = classes.find( klass => (" " + elem.className + " " ).indexOf( " " + klass + " " ) > -1 );
-
-			if (result != undefined) 	{ return result }
-			else 						{ return false 	}
-
-		};
-
 	// fetchHTML() - from HTML File (fetch HTTP Request)
 	// ----------------------------
 
@@ -1458,49 +1248,274 @@ function getArgs(func) {
 
 		// myElem.innerHTML = getHTML(linkToHTMLFile);
 
-	// getObjectLength()
-	// ----------------------------
-
-		function getObjectLength(obj) {
-			var size = 0, key;
-			for (key in obj) { if (obj.hasOwnProperty(key)) { size++ } }
-			return size;
-		};
-
-	// getFocusableChildren()
-	// ----------------------------
-
-		function getFocusableChildren(elem) {
-
-			var initial_activeElem = document.activeElement;
-
-			var children_all = Array.from(elem.getElementsByTagName("*"));
-			var children_focusable = children_all.filter(function(child){
-				child.focus();
-				return document.activeElement === child
-			});
-
-			initial_activeElem.focus();
-
-			return children_focusable
-		};
-
-// Remove || remove*
+// [Type]
 // ----------------------------
 
-	// removeClasses()
+	// [Object]
 	// ----------------------------
 
-		function removeClasses( elem, ...classes ) {
+		// obj_getLength()
+		// ----------------------------
 
-			// to accept both scenarios: array-of-classes || multiple class strings
-			if (Array.isArray(classes[0])) { classes = classes[0] };
+			function obj_getLength(obj) {
+				return Object.keys(obj).length
+			};
 
-			elem.classList.remove(...classes);
+		// obj_deepClone()
+		// ----------------------------
 
+			function obj_deepClone(obj) {
+				return JSON.parse(JSON.stringify(obj));
+			};
+
+	// [String]
+	// ----------------------------
+
+		// string_capitalizeFirstLetter
+		// ----------------------------------------
+
+			function string_capitalizeFirstLetter ( input__string ) { 
+				return input__string.charAt(0).toUpperCase() + input__string.slice(1) 
+			};
+
+		// string_removeTabSpaces
+		// ----------------------------------------
+
+			function string_removeTabSpaces ( input__string ) {
+				return input__string.replace(/\t/g, '')
+			};
+
+	// [Function]
+	// ----------------------------
+
+		// function__getArgumentNames()
+		// ----------------------------
+		// https://davidwalsh.name/javascript-arguments
+
+			function getArgs(target__function) {
+				let args = target__function.toString().match(/function\s.*?\(([^)]*)\)/)[1];
+				return args.split(',')
+					.map   (function(arg) { return arg.replace(/\/\*.*\*\//, '').trim() })
+					.filter(function(arg) { return arg })
+			};
+
+// [HTML Element]
+// ----------------------------
+
+	// removeChildren()
+	// ----------------------------
+
+		// Baseline
+		// ----------------------------
+
+			function removeChildren ( target__HTMLElem ) {
+
+				let trashBin = document.createElement('DIV');
+
+				let allElements = Array.from(target__HTMLElem.querySelectorAll('*'));
+				allElements.map(x => trashBin.appendChild(x));
+
+				allElements.map(function(x) { 
+					trashBin.removeChild(x);
+					x.innerHTML = '';
+					Object.keys(x).map(key => x[key] = undefined);
+					x = null;
+				});
+
+				trashBin.innerHTML = '';
+				trashBin = undefined;
+			};
+
+		// Log
+		// ----------------------------
+
+			function removeChildren ( target__HTMLElem ) {
+
+				let args = { target__HTMLElem };
+
+				if (asteriskUtilityDebugger.areArgumentsTypesValid__returnBoolean(args)) {
+
+					let trashBin = document.createElement('DIV');
+
+					let allElements = Array.from(target__HTMLElem.querySelectorAll('*'));
+					allElements.map(x => trashBin.appendChild(x));
+
+					allElements.map(function(x) { 
+						trashBin.removeChild(x);
+						x.innerHTML = '';
+						Object.keys(x).map(key => x[key] = undefined);
+						x = null;
+					});
+
+					trashBin.innerHTML = '';
+					trashBin = undefined;
+
+				} else {
+					asteriskUtilityDebugger.createLog('typeError' , args)
+				}
+			};
+
+		// Min
+		// ----------------------------
+
+			// function removeChildren(a){let u=undefined,x=document.createElement('DIV'),y=Array.from(a.querySelectorAll('*'));y.map(q=>x.appendChild(q));y.map(function(q){x.removeChild(q);q.innerHTML='';Object.keys(q).map(k=>q[k]=u);q=u});x.innerHTML='';x=u};
+
+	// getFocusableElements()
+	// ----------------------------
+
+		// Baseline
+		// ----------------------------
+
+			function getFocusableElements ( target__HTMLElem ) {
+
+				let initial_activeElem = document.activeElement;
+
+				let elements_all = Array.from(target__HTMLElem.getElementsByTagName("*"));
+				let elements_focusable = elements_all.filter(function(child){
+					child.focus();
+					return document.activeElement === child
+				});
+
+				initial_activeElem && initial_activeElem.focus();
+
+				return elements_focusable
+			};
+
+		// Log
+		// ----------------------------
+
+			function getFocusableElements ( target__HTMLElem ) {
+
+				let args = { target__HTMLElem };
+
+				if (asteriskUtilityDebugger.areArgumentsTypesValid__returnBoolean(args)) {
+
+					let initial_activeElem = document.activeElement;
+					let elements_all = Array.from(target__HTMLElem.getElementsByTagName("*"));
+
+					if (elements_all.length !== 0) {
+
+						let elements_focusable = elements_all.filter(function(child){
+							child.focus();
+							return document.activeElement === child
+						});
+
+						initial_activeElem && initial_activeElem.focus();
+
+						if (elements_focusable.length === 0) {
+							asteriskUtilityDebugger.createLog('warning' , args , [target__HTMLElem , ' has no [fosusable] descendant HTMLElements.'])
+						};
+
+						return elements_focusable
+
+					} else {
+						asteriskUtilityDebugger.createLog('warning' , args , [target__HTMLElem , ' has no descendant HTMLElements.'])
+					}
+
+				} else {
+					asteriskUtilityDebugger.createLog('typeError' , args)
+				}
+			};
+
+		// Min
+		// ----------------------------
+
+			// function getFocusableElements(a){let x=document.activeElement,y=Array.from(a.getElementsByTagName("*")),z=y.filter(function(q){q.focus();return document.activeElement===q});x&&x.focus();return z};
+
+	// isFocusableElement()
+	// ----------------------------
+
+		// Baseline
+		// ----------------------------
+
+			function isFocusableElement ( target__HTMLElem ) {
+
+				let initial_activeElem = document.activeElement;
+				target__HTMLElem.focus();
+				let isFocusable = document.activeElement === target__HTMLElem;
+
+				initial_activeElem && initial_activeElem.focus();
+
+				return isFocusable
+			};
+
+		// Log
+		// ----------------------------
+
+			function isFocusableElement ( target__HTMLElem ) {
+
+				let args = { target__HTMLElem };
+
+				if (asteriskUtilityDebugger.areArgumentsTypesValid__returnBoolean(args)) {
+
+					let initial_activeElem = document.activeElement;
+					target__HTMLElem.focus();
+					let isFocusable = document.activeElement === target__HTMLElem;
+
+					initial_activeElem && initial_activeElem.focus();
+
+					return isFocusable
+
+				} else {
+					asteriskUtilityDebugger.createLog('typeError' , args)
+				};
+			};
+
+		// Min
+		// ----------------------------
+
+			// function isFocusableElement(a){let x=document.activeElement,y;a.focus();y=document.activeElement===a;x&&x.focus();return y};
+
+	// isInDOM()
+	// ----------------------------
+
+		// Baseline
+		// ----------------------------
+
+			function isInDOM ( target__HTMLElem ) {
+				return document.contains(target__HTMLElem)
+			};
+
+		// Log
+		// ----------------------------
+
+			function isInDOM ( target__HTMLElem ) {
+
+				let args = { target__HTMLElem };
+
+				if (asteriskUtilityDebugger.areArgumentsTypesValid__returnBoolean(args)) {
+					return document.contains(target__HTMLElem)
+				} else {
+					asteriskUtilityDebugger.createLog('typeError' , args)
+				};
+			};
+
+		// Min
+		// ----------------------------
+
+			function isInDOM(a){return document.contains(a)};
+
+	// Create Parent for Element (wrapper)
+	// ----------------------------
+		// unpure function - creates the element, and also returns the result to be used further on
+		// use case: var new_parent = element_createParent(myTarget);
+
+		function element_createParent  ( target__HTMLElem , tagNameForNewParent__string ) {
+
+			var current_parent = targetElement.parentElement;
+			var parentToBe = document.createElement(tagNameForNewParent__string);
+
+			current_parent.replaceChild(parentToBe, targetElement);		// set the parentToBe as child (instead of the targetElement)
+			parentToBe.appendChild(targetElement);						// set element as child of parentToBe
+
+			return parentToBe
 		};
 
-		// Just syntactic-sugar : can be substituted with element.classList.remove(...array) or element.classList.remove('arg', 'arg', 'arg')
+	// Insert Element in DOM
+	// ----------------------------------------
+		// function  insertAfter(newNode, referenceNode) 	{ referenceNode.parentNode.insertBefore(newNode, referenceNode)};
+		// function insertBefore(newNode, referenceNode) 	{ referenceNode.parentNode.insertBefore(newNode, referenceNode.nextElementSibling)};
+
 
 
 // Array
@@ -1697,60 +1712,7 @@ function getArgs(func) {
 			//array_cloneAndShuffle(document.body)
 
 
-	// Array from
-	// ----------------------------
 
-		function array_from(current_input) {
-
-			var newArray;
-
-			if (isHTMLCollection(current_input)) { 
-				
-				newArray = Array.from(current_input)
-				// old version: // [].slice.call(current_input)
-
-			} else if (isJSON(current_input.replace(/'/g, '"'))) { 			// case "['a', 'b']"
-				
-				newArray = JSON.parse(current_input.replace(/'/g, '"')) 
-
-			} else if (isString(current_input)) { 
-				
-				current_input = current_input	.replace('['    , ''  )		// case "[a, b]"				- remove the brackets
-												.replace(']'    , ''  )		// ---
-												.replace(/  +/g , ' ' )		// case "a  b   c d      e"		- remove multiple spaces
-												.replace(/ ,/g  , ',' )		// case "a, b , c,d, e"			- remove spaces near comas
-												.replace(/, /g  , ',' )		// ---
-												.replace(/ , /g , ',' ); 	// ---
-
-				// case "a b c d e"	(separated by space, not by comas)
-				// check only if no comas are available (to not affect if multiple items in same string split "mathew, edward jones, michael scott, john, meh" )
-				if (current_input.indexOf(',') == -1) { 
-					current_input = current_input.replace(/ /g  , ',' ) 
-				};	
-
-				newArray = current_input.split(',')
-
-			};
-
-			return newArray
-		};
-
-
-	// Create Parent for Element (wrapper)
-	// ----------------------------
-		// unpure function - creates the element, and also returns the result to be used further on
-		// use case: var new_parent = element_createParent(myTarget);
-
-		function element_createParent(targetElement) {
-
-			var current_parent = targetElement.parentElement;
-			var parentToBe = document.createElement('div');
-
-			current_parent.replaceChild(parentToBe, targetElement);		// set the parentToBe as child (instead of the targetElement)
-			parentToBe.appendChild(targetElement);						// set element as child of parentToBe
-
-			return parentToBe
-		};
 
 // Extra
 // ----------------------------
@@ -1823,10 +1785,6 @@ function getArgs(func) {
 
 		// }
 
-	// Capitalize First Letter of String
-	// ----------------------------------------
-
-		function capitalizeFirstLetter(string) { return string.charAt(0).toUpperCase() + string.slice(1) };
 
 // Need Further Dev
 // ----------------------------
@@ -1951,8 +1909,6 @@ function getArgs(func) {
 
 		}
 
-
-
 	// .scrollIntoView()
 	// -----------------------------------------
 
@@ -2031,12 +1987,6 @@ function getArgs(func) {
 			scrollFTW(initial_distance, step, finalPosition);
 		};
 
-	// Insert Element in DOM
-	// ----------------------------------------
-		function  insertAfter(newNode, referenceNode) 	{ referenceNode.parentNode.insertBefore(newNode, referenceNode)};
-		function insertBefore(newNode, referenceNode) 	{ referenceNode.parentNode.insertBefore(newNode, referenceNode.nextElementSibling)};
-
-
 // Need remaster
 // ----------------------------
 
@@ -2105,44 +2055,6 @@ function getArgs(func) {
 	newElem.classList = '1 2 3 4 5';
 	console.log(hasAnyClass(newElem, 'asdf',  '14'))
 */
-
-
-/* */
-
-	function string_remove_tabSpaces(myString) {
-		return myString.replace(/\t/g, '')
-	};
-
-/* */
-	
-	function isInDOM( elem ) {
-		return document.contains(elem)
-	}
-
-	// var test121212 = function() {
-	// 	var newElem = document.createElement('div');
-	// 	newElem.id = "test123";
-	// 	console.log(document.contains(newElem));
-	// 	console.log(newElem.getBoundingClientRect());
-	// 	document.body.appendChild(newElem);
-	// 	console.log(document.contains(newElem));
-	// 	console.log(newElem.getBoundingClientRect());
-	// 	newElem.parentElement.removeChild(newElem);
-	// 	console.log(document.contains(newElem));
-	// 	console.log(newElem.getBoundingClientRect());
-	// 	console.log(newElem)
-	// }; test121212();
-
-	// function run123(klass) {
-	// 	var items = Array.from(document.getElementsByClassName(klass));
-
-	// 	items.map(function(item){
-	// 		console.log(item);
-	// 		console.log(document.body.contains(item))
-	// 	})
-	// };
-
-
 
 	function loadScript ( url__string , callback__function ) {
 		var script = document.createElement("script");

@@ -8,9 +8,124 @@
 			margin-top: 15px;
 			padding: 5px 15px;
 		}
+
+		/*.buildTool-formRow                  { background: #51616F; color: white; }
+		.buildTool-formRow:nth-of-type(odd) { background: #354758; }*/
+
+		.buildTool-formRow        { background: #354758; color: white; }
+		.buildTool-formRow-subset .buildTool-formRow { background: #51616F; }
+		.buildTool-formRow--exclude { background: #C5CACF !important; }
+
+		.buildTool-formRow {
+			padding: 5px 15px;
+			display: flex;
+			align-items: stretch;
+			justify-content: space-between;
+		}
+
+		.buildTool-formRow__left  { flex: 1 1 0; }
+		.buildTool-formRow__right { flex: 0 0 50px; }
+
+		.buildTool-formRow__left,
+		.buildTool-formRow__right {
+			display: flex;
+			align-items: center;
+		}
+
+		.buildTool-formRow__right {
+			justify-content: flex-end;
+		}
+
+		.buildTool-formRow__left__title  { flex: 2 1 0; } 
+		.buildTool-formRow__left__select { flex: 1 2 0; }
+
+		.buildTool-formRow .spoiler-btn {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 24px; height: 24px;
+			padding: 0;
+		}
+
+		.buildTool-formRow__left__title {
+			font-size: 16px;
+		}
+
+		.buildTool-formRow__left__select {
+			padding: 5px 7.5px;
+		}
+
+		.buildTool-formRow--exclude {
+			font-size: 12px;
+		}
+
+		
+
+		.buildTool-formRow--exclude .buildTool-formRow__left__title {
+			font-size: 14px;
+		}
+
+		.buildTool-formRow--exclude ,
+		.buildTool-formRow--exclude .buildTool-formRow__left__select {
+			color: rgba(3,3,3,.4);
+		}
+		.buildTool-formRow--exclude .spoiler-btn {
+			background-color: rgba(3,3,3,.5);
+		}
+
+		.buildTool-formRow__left__select option:not(.select-title) {
+			color: black !important;
+		}
+
+
+
+		.buildTool-formRow-checkbox {
+			margin-right: 15px;
+		}
+
+		.buildTool-formRow-subset {
+			padding-left: 15px;
+			font-size: 16px;
+		}
+
+		.buildTool-formRow--exclude + .buildTool-formRow-subset .buildTool-formRow {
+			font-size: 12px; background: #C5CACF !important;
+		}
 	</style>
 
 	<article>
+
+	<!--
+		Grid System
+
+		following the ever-so-popular Bootstrap model, these allow for layout to be reasoned about and managed simpler and more clearly.
+		The offer more readability and are easier to contextualize, when viewed in relation to those present on neighbouring elements.
+
+		Spacing
+
+		spacing is the bread and butter for any layout design, and consistency is the key to success.
+		Following a minimalistic naming convention, it allows to make the most use of the negative-space
+		in combination with the grid system, the duo make the perfect solution for most of your layout need.
+	-->
+
+		<div id="qweqweqewwq"></div>
+
+		<!-- <div class="buildTool-formRow">
+			<div class="buildTool-formRow__left">
+				<div class="buildTool-formRow__left__title"> Grid System </div>
+				<select class="buildTool-formRow__left__select" data-targetMain="x" data-targetGroup="y">
+					<option selected disabled> Choose </option>
+					<option value="reponsive"> responsive </option>
+					<option value="baseline"> baseline </option>
+					<option value="none"> none </option>
+				</select>
+			</div>
+			<div class="buildTool-formRow__right"> 
+				<button class="spoiler-btn"><i class="fa fa-info-circle"></i></button> 
+			</div>
+		</div> -->
+
+		<hr>
 
 		<!-- Normalize -->
 		<div class="col-12 p-0 mt-md">

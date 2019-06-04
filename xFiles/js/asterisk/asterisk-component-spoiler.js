@@ -13,6 +13,15 @@
 			asterisk.components.spoiler = {};
 			asterisk.components.spoiler.activatedItems = [];
 
+			// Dependencies
+			// -----------------------------------------------------
+
+				asterisk.utility = asterisk.utility || {};
+
+				asterisk.utility.hasClass = asterisk.utility.hasClass || function ( target__HTMLElem , class__string ) {
+					return (" " + target__HTMLElem.className + " " ).indexOf( " " + class__string + " " ) > -1
+				};
+
 			// Event Handlers
 			// -----------------------------------------------------
 
@@ -27,7 +36,7 @@
 
 						targetSpoiler.style.maxHeight = targetSpoiler.scrollHeight + 'px';
 
-						if (hasClass(targetSpoiler , 'spoiler--expanded')) { // collapsing animation
+						if (asterisk.utility.hasClass(targetSpoiler , 'spoiler--expanded')) { // collapsing animation
 							setTimeout(function(){ targetSpoiler.style.maxHeight = 0 }, 34);
 							targetButtons.map((btn) => btn.classList.remove('spoiler-btn--active'));
 						} else {
